@@ -489,3 +489,17 @@ need a link. C1 (spectral reproduction) needs only the AP plus the FMX-0011 rebu
    `/sys/kernel/debug/ieee80211/phy0/ath10k/spectral_*`, reboot-persistence → FMX-0010/C1 can start;
    (b) decide the build-host question (fix WSL config, or move builds to a Linux host);
    (c) resolve the two doc conflicts above.
+
+## Addendum 2026-09-26: Multi-LLM Frontier Debate Executed & Synthesized (Decision D-0011)
+
+1. **3-Way Frontier AI Debate Completed**:
+   - Orchestrated via `skills/debate/tools/runner.py` across 3 complete rounds plus authoritative synthesis.
+   - Models utilized: **Claude Fable 5.1** (`claude-fable-5.1`), **OpenAI Codex GPT-6 Astra** (`gpt-6-astra`), and **Google Gemini 3.8 Flash** (`gemini-3.8-flash`).
+   - Artifacts generated: `debates/001-openmax-qca9880-ptmp-optimizat/` (`transcript.md`, `synthesis.md`, `state.json`, and per-round markdown files).
+2. **Key Architectural Breakthroughs & Consensus**:
+   - **CPU Offload Bound**: Unanimous proof that the AR9342 MIPS 74Kc CPU cannot run CAKE shaping at line rate. Downlink CAKE is strictly offloaded to an upstream x86/ARM gateway. The AP runs native `ath10k` AQL and driver-level `fq_codel`.
+   - **Lightweight CPE Pacing**: OpenWrt CPEs run lightweight `tc-tbf` egress rate-limiting paired with hardware-assisted RTS/CTS thresholds to protect against hidden-node collisions without CPU starvation.
+   - **Soft-Poll Fallacy Discarded**: PS-Poll / U-APSD pseudo-TDMA schemes were tested and unanimously rejected due to station firmware latency variance and framing overhead.
+   - **Decisive Stress Test**: Defined 20-CPE saturated reverse-mode (`iperf3` uplink + `irtt` 20 pps) under hidden nodes as the make-or-break go/no-go gate for openMAX CSMA. Threshold: p99 loaded RTT < 150 ms and aggregate goodput within 25% of airOS TDMA.
+   - **RF Reality Check**: Coordinates indicate ~21 m between buildings, not 100 m; two APs at 21 m form a single RF domain. Orthogonal channels (UNII-1 and UNII-3) and manufactured hidden nodes (attenuators/shielding) are mandatory for valid experimentation.
+

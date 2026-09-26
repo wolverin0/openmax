@@ -8,6 +8,22 @@ Current verdict: CUSTOM FIRMWARE project on OpenWrt 24.10.4/ath79, now running o
 LAP-120; install = dd-unlock (D-0007/8); Stage 3 = autonomous research loop with firmware work
 deferred until a measured ceiling (D-0009). Status: CURRENT (2026-09-20).
 
+## D-0011 — 2026-09-26 — Multi-LLM Debate Consensus: Split-Plane Shaping Architecture, CPU Boundary, and Uplink Go/No-Go Gate
+
+**Decision.** Formally adopt the unanimous consensus from the 3-way frontier AI architecture debate (Claude Fable 5.1, OpenAI Codex GPT-6 Astra, Google Gemini 3.8 Flash; transcript: `debates/001-openmax-qca9880-ptmp-optimizat/`):
+1. **Split-Plane Shaping Architecture (CPU Boundary Enforcement)**: The AR9342 MIPS 74Kc (533–600 MHz) cannot sustain line-rate CAKE shaping or research telemetry without CPU starvation and ksoftirqd livelock. Downlink CAKE must be offloaded to an external x86/ARM gateway router upstream of the AP. The AP runs native `ath10k` AQL with driver-level `fq_codel`.
+2. **CPE Uplink Protection**: CPEs must NOT run heavy CAKE. OpenWrt CPEs run lightweight token-bucket filters (`tc-tbf`) on egress to bound local queue build-up before RF entry, combined with aggressive hardware-assisted RTS/CTS thresholds (scaled down for >5 active stations) to mitigate hidden-node collisions.
+3. **Firmware Authority & Host Rate Clamping**: QCA9880 firmware retains exclusive microcode control over per-frame rate stepping and A-MPDU packing. Host mac80211 control is strictly macroscopic: setting per-station MCS rate ceilings, AQL airtime deficits, and queue weights.
+4. **Discarded Non-Goals**:
+   - **Soft-Poll / U-APSD Pseudo-TDMA**: Discarded unanimously; station power-save triggers introduce latency jitter and framing overhead without granting contention-free uplink TXOPs.
+   - **On-box MIPS CAKE**: Discarded due to hardware limits.
+   - **Premature Custom TDMA Firmware**: Discarded until empirical CSMA failure gates are proven.
+5. **Decisive Go/No-Go Gate**: 20-CPE saturated reverse-mode (`iperf3` uplink + `irtt` 20 pps) under manufactured hidden-node geometry. OpenWrt must achieve p99 loaded RTT < 150 ms and aggregate goodput within 25% of stock airOS TDMA to validate open CSMA viability.
+
+Reference: `debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md`.
+
+---
+
 ## D-0010 — 2026-09-26 — Multi-node testbed RF environment: cabled matrix + distributed layout, no warehouse
 
 **Decision.** Do NOT lease a warehouse for the 2 AP + 20 CPE laboratory. Multi-station PtMP testing on 802.11ac hardware in an enclosed metal space introduces severe multipath reflections (delay spread), alters Fraunhofer antenna formation ($R < 2D^2/\lambda$), and saturates receiver LNAs (> -20 dBm). We adopt a **hybrid cabled RF attenuation matrix + multi-room building layout**:
