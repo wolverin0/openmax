@@ -1,4 +1,4 @@
-# Community Call for Collaboration: The FuturaMAX Open Knowledge Hub
+# Community Call for Collaboration: The openMAX Open Knowledge Hub
 
 > **"We are doing this without knowing a single thing of kernel programming beyond being an everyday WISP provider with real towers and roofs—teaming up with autonomous AI agents to research, verify, and test every physical limit of this hardware in the open."**
 
@@ -10,7 +10,7 @@ Millions of **Ubiquiti airMAX AC** radios (LiteBeam 5AC Gen2, LiteAP GPS, NanoSt
 
 However, manufacturer R&D on this 802.11ac hardware family has essentially ended. Vendors have moved their engineering attention to proprietary 60 GHz (Wave) and custom-silicon LTU platforms. As a result, the firmware running on millions of deployed outdoor radios is frozen on 2016–2018 kernel architectures—suffering from 30-retry frame storms during fades, bufferbloat exceeding 2,000 ms, and lack of modern airtime-fair queueing.
 
-**FuturaMAX is an open-source, community-driven research initiative to change that.**
+**openMAX is an open-source, community-driven research initiative to change that.**
 
 We are combining:
 1. **Real-World WISP Infrastructure**: Active towers, commercial rooftops, 24V PoE switches, and real outdoor RF links.

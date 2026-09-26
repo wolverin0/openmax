@@ -1,4 +1,4 @@
-# FuturaMAX: Squeezing the Physical Limit from airMAX AC Hardware
+# openMAX: Squeezing the Physical Limit from airMAX AC Hardware
 
 > **An open research knowledge hub and autonomous experimental testbed driven by a real-world WISP and AI agents to extract maximum real-world PtMP capacity, latency stability, and spectral efficiency from ubiquitously deployed Ubiquiti airMAX AC hardware.**
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 1. The Manifesto: Why FuturaMAX Exists
+## 1. The Manifesto: Why openMAX Exists
 
 ### The Reality of Modern Fixed Wireless
 Millions of **Ubiquiti airMAX AC** radios—LiteAP GPS, LiteBeam 5AC Gen2, NanoStation 5AC, and Loco 5AC—are deployed on rooftops, towers, and customer premises worldwide. They represent billions of dollars in sunk capital and provide lifeline broadband to rural, suburban, and developing communities.
@@ -61,7 +61,7 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 * **UNKNOWN**: Unmeasured or untested on target hardware.
 * **REFUTED**: Disproven by experimental measurement or source code analysis.
 
-> **We do not sell snake oil, and we do not add percentages from unrelated papers together.** The goal is not to prove FuturaMAX beats airMAX; the goal is to discover the physical truth.
+> **We do not sell snake oil, and we do not add percentages from unrelated papers together.** The goal is not to prove openMAX beats airMAX; the goal is to discover the physical truth.
 
 ---
 
@@ -146,7 +146,7 @@ We are opening this repository to the global networking, WISP, and academic comm
 
 ## 8. Safety & Regulatory Boundaries
 
-FuturaMAX operates under strict, uncompromised safety rules:
+openMAX operates under strict, uncompromised safety rules:
 * **Regulatory Compliance**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, or disable DFS radar detection.
 * **Protected Flash Partitions**: We **NEVER** write or corrupt bootloaders (`mtd0`), bootloader environments (`mtd1`), calibration/ART tables (`mtd5`), or factory MAC storage.
 * **Production Protection**: All experiments are conducted strictly on isolated lab and testbed hardware. No production subscriber traffic is ever touched.

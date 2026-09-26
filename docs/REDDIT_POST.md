@@ -37,8 +37,8 @@ I'm not doing this in a metal warehouse (metal walls act like an echo chamber wi
 - **Unattended Recovery:** I automated PoE injectors with relays to trigger U-Boot `urescue` TFTP recovery remotely so we never have to climb a ladder to press a reset button if an image bricks.
 
 ### Why I'm Posting
-We opened up the entire project as a public research hub:
-https://github.com/wolverin0/futuramax
+We are calling this research project **openMAX**, and we opened up the entire project as a public research hub:
+https://github.com/wolverin0/openmax
 
 There is zero monetization here, no crypto, no paid courses. Just an open repository of hardware notes, driver findings, recovery runbooks, and experiment plans.
 
@@ -53,13 +53,13 @@ Check out the repo, tear apart our docs, and let me know what you think.
 ## Option 2: Tailored for r/openwrt or r/networking
 
 **Suggested Title:**  
-*Extracting maximum PtMP performance from QCA9880 (Ubiquiti airMAX AC) under OpenWrt — architecture findings and call for peer review*
+*openMAX: Extracting maximum PtMP performance from QCA9880 (airMAX AC) under OpenWrt — architecture findings and call for peer review*
 
 **Post Body:**
 
 Hi all,
 
-I run a fixed wireless ISP and have a huge fleet of legacy Ubiquiti airMAX AC radios (QCA9880 / AR9342 MIPS 74Kc platform). As vendor support has slowed down to favor newer proprietary silicon, we’re investigating how far this ubiquitous hardware can be pushed using OpenWrt 24.10, modern queue management, and the `ath10k-ct` driver.
+I run a fixed wireless ISP and have a huge fleet of legacy Ubiquiti airMAX AC radios (QCA9880 / AR9342 MIPS 74Kc platform). As vendor support has slowed down to favor newer proprietary silicon, we’re investigating how far this ubiquitous hardware can be pushed using OpenWrt 24.10, modern queue management, and the `ath10k-ct` driver under an open project we're calling **openMAX**.
 
 We’ve spent the past few weeks analyzing kernel source trees (`mac80211`, `ath10k`, Candela Technologies forks), firmware binaries, and academic literature (Hassani & Leith on CoTSQ, Gringoli on paced aggregation, Høiland-Jørgensen on Airtime Fairness).
 
@@ -79,7 +79,7 @@ A few notable findings we’d appreciate feedback or sanity-checks on:
    Running standard `kmod-ath10k-ct` on 64MB/128MB RAM devices frequently triggers OOM panics under heavy multi-client saturation. The `kmod-ath10k-ct-smallbuffers` variant is necessary to stabilize the ring memory footprint.
 
 We’ve documented all of this in detail along with our physical testbed layout (2 APs + 20 CPEs across a 21m building canyon, plus bench SMA attenuators) and automated TFTP `urescue` recovery scripts:
-https://github.com/wolverin0/futuramax
+https://github.com/wolverin0/openmax
 
 We'd love input from anyone with deep ath10k, mac80211, or fixed wireless experience:
 - Has anyone successfully updated `ratemask-CT` dynamically per-peer at runtime without re-associating?
