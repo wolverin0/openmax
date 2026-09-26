@@ -1,0 +1,187 @@
+
+
+Atheros QCA988x
+
+Atheros QCA988x
+
+Table of Contents
+
+Overview
+
+Building the AP135 Image with LSDK
+
+Qualcom Atheros QCA988x family of chips support 
+IEEE 802.11ac
+.
+
+Overview
+
+现在有如下的支持：
+
+ath10k
+
+ath10k is the mac80211 wireless driver for Qualcom Atheros QCA988x
+family of chips. Linux 3.11 released, the first kernel release with
+ath10k
+
+LSDK
+Qualcom Atheros 自己提供的SDK。
+
+QSDK
+
+The QCA Software Development Kit (QSDK) project allows users to
+build an OpenWrt based platform containing additional enhancements
+for Qualcomm Atheros chipsets that have not yet made it into the
+public OpenWrt repository.
+
+Building the AP135 Image with LSDK
+
+如下面链接失败，这里有mirrored source：
+
+https://www.codeaurora.org/mirrored_source/external/wfr/
+
+As a prerequisite to building and using AP135 images, extract these
+tar balls into a directory for the build to take place:
+
+tar xvfz LSDK-10.1.354.tgz
+
+Contains the basic Open Source Linux support required for the basic
+and extended builds; includes cross compilers, boot loaders, file
+system images, Ethernet driver, and script files
+
+tar xvfz LSDK-PATCH-10.1.354.tgz
+
+Contains the Qualcomm Atheros patches for linux-2.6.31, U-Boot, and
+LSDK。
+
+Download linux-2.6.31 open source and place in ~/10.1/patches:
+
+http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.31.tar.bz2
+
+Download the LZMA patch and place in ~/10.1/patches:
+
+http://projects.qi-hardware.com/index.php/p/openwrt-xburst/source/file/715bc925855760ced69162f6242fc0704b42e939/target/linux/generic/patches-2.6.32/008-jffs2_make_lzma_available.patch
+
+Download the IMQ patch and place in ~/10.1/patches:
+
+https://raw.githubusercontent.com/imq/linuximq/master/kernel/v2.6/linux-2.6.31.6-imq.diff
+
+Download the squashfs patches listed below and place in
+~/10.1/patches: 
+
+https://dev.openwrt.org/export/20552/trunk/target/linux/generic-2.6/patches-2.6.33/001-squashfs_move_zlib_decomp.patch
+
+https://dev.openwrt.org/export/26908/trunk/target/linux/generic/patches-2.6.30/002-squashfs_factor_out_remaining_zlib.patch
+
+https://dev.openwrt.org/export/18267/trunk/target/linux/generic-2.6/patches-2.6.30/003-squashfs_add_decompressor_framework.patch
+
+https://dev.openwrt.org/export/27179/trunk/target/linux/generic/patches-2.6.32/004-squashfs_add_decompressor_lzma_lzo.patch
+
+https://dev.openwrt.org/export/19905/trunk/target/linux/generic-2.6/patches-2.6.33/005-squashfs_extra_parameter.patch
+
+https://dev.openwrt.org/export/19905/trunk/target/linux/generic-2.6/patches-2.6.33/006-squashfs_add_lzma.patch
+
+https://dev.openwrt.org/export/20140/trunk/target/linux/generic-2.6/patches-2.6.34/007-squashfs_make_lzma_available.patch
+
+Download u-boot-1.1.4 open source and place in ~/10.1/patches:
+
+ftp://ftp.denx.de/pub/u-boot/OLD/u-boot-2006-04-06-1725.tar.bz2
+
+Download lzma Decompression patch for u-boot and place in
+~/10.1/patches:
+
+https://dev.openwrt.org/export/11248/trunk/target/linux/avr32/image/u-boot/patches/001-add_lzma_decompression_support.patch
+
+Download the lib
+bootstrap
+ code and place in ~/10.1/patches:
+
+https://github.com/Arx-Alliance/Arx-Kamikaze/archive/5d8753b8e92c16d570386e0b29536534134fdf88.zip
+
+https://github.com/Arx-Alliance/Arx-Kamikaze/archive/5d8753b8e92c16d570386e0b29536534134fdf88.zip
+
+https://www.codeaurora.org/mirrored_source/external/wfr/5d8753b8e92c16d570386e0b29536534134fdf88.zip
+
+Download these LSDK-build open source tar balls and place in ~/10.1/patches:
+
+http://buildroot.uclibc.org/downloads/buildroot-2009.08.tar.bz2
+
+http://www.busybox.net/downloads/busybox-1.01.tar.bz2
+
+http://www.busybox.net/downloads/busybox-1.15.0.tar.bz2
+
+http://www.netfilter.org/projects/iptables/files/iptables-1.4.5.tar.bz2
+
+http://sourceforge.net/projects/sevenzip/files/LZMA%20SDK/4.57/lzma457.tar.bz2
+
+http://perso.orange.fr/sebastien.godard/sysstat-6.0.1.tar.bz2
+
+http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz
+
+http://sourceforge.net/projects/genext2fs/files/genext2fs/1.4.1/genext2fs-1.4.1.tar.gz
+
+ftp://ftp.infradead.org/pub/mtd-utils/mtd-utils-1.0.1.tar.gz
+
+Download the busy box brctl command patch and place in ~/10.1/patches:
+
+http://gpl.back2roots.org/source/puma5/netgear/CG3200-1TDNDS_GPL/ap/apps/busybox-1.01/bb-brctl.patch
+
+https://www.codeaurora.org/mirrored_source/external/wfr/bb-brctl.patch
+
+Install additional packages, they are required for Atheros
+reference design:
+
+sudo apt-get install libacl1-dev                        
+#
+yum install libacl-devel
+
+sudo apt-get install zlib1g-dev                                 
+#
+yum install zlib-devel
+
+sudo apt-get install build-essential                    
+#
+yum groupinstall 'Development Tools' 'Development Libraries'
+
+sudo apt-get install bison
+sudo apt-get install flex
+sudo apt-get install gettext
+sudo apt-get install tcl                                                
+# 
+yum install tcl
+
+sudo apt-get install sharutils
+sudo apt-get install libncurses-dev                             
+# 
+yum install ncurses-devel
+
+sudo apt-get install exuberant-ctags                    
+# 
+yum install ctags
+
+Run patch.pl in ~/10.1/patches.
+
+Extract the remaining tar balls included in the package in the same manner as previous releases:
+
+tar xzvf LSDK-WLAN-10.1.354.tgz
+
+tar xzvf LSDK-SPECTRAL-10.1.354.tgz
+
+Acceptable permissions values may need to be set using the
+command: 
+chmod -R 755 <ROOT_BUILD_DIRECTORY>
+
+Build the targets: 
+cd build make BOARD_TYPE=ap135 11AC_OFFLOAD=1
+
+Author: Shi Shougang
+
+Created: 2016-05-26 Thu 22:14
+
+Emacs
+ 24.3.1 (
+Org
+ mode 8.2.10)
+
+Validate
+

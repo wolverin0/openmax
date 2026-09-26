@@ -1,0 +1,548 @@
+# FuturaMAX read-only inventory
+# label: rocket-prism-2ac
+# collected_at: 2026-08-08T19:00:57+00:00
+# method: SSH (paramiko), read-only commands only
+# sanitised: station/device MACs truncated to OUI, private IPs redacted
+
+ssh_banner: SSH-2.0-dropbear
+
+===== airos_version =====
+XC.v8.7.22
+XC.qca955x.v8.7.22.48486.260227.1957
+
+===== board_info =====
+board.sysid=0xe7e9
+board.cpurevision=0x00001130
+board.arch=1
+board.fcc_id=SWX-RP5ACG2
+board.anatel_id=02137-18-08356
+board.cmiit_id=2017AJ5308
+board.name=Rocket Prism 5AC
+board.shortname=R5C
+board.model=RP-5AC-Gen2
+board.timestamp=1630706708
+board.bom=13-00545-15
+board.netmodes=3
+board.hwaddr=245A4CXXXXXX
+board.device_id=8f2b21a2ddfd6f25fb76912d9f12673d
+board.reboot=50
+board.upgrade=150
+board.phycount=1
+board.phy.1.maxmtu=2024
+board.fcc_unii_activated=1
+board.fcc_unii_switchable=0
+board.required_fw_version=524800
+radio.1.name=
+radio.1.shortname=
+radio.1.bus=pci
+radio.1.devdomain=5000
+radio.1.ccode=840
+radio.1.ccode_fixed=0
+radio.1.ccode_locked=0
+radio.1.subsystemid=0xe7e9
+radio.1.subvendorid=0x0777
+radio.1.txpower.max=28
+radio.1.txpower.min=-4
+radio.1.txpower.offset=5
+radio.1.ieee_modes=21
+radio.1.powerBackoff=6
+radio.1.antennas=17
+radio.1.def_antenna=15
+radio.1.antenna.1.id=1
+radio.1.antenna.1.name=AMO-5G10
+radio.1.antenna.1.gain=10
+radio.1.antenna.1.builtin=0
+radio.1.antenna.1.band=0
+radio.1.antenna.1.chains=2
+radio.1.antenna.1.chain.1.id=0
+radio.1.antenna.1.chain.1.name=Vertical
+radio.1.antenna.1.chain.2.id=1
+radio.1.antenna.1.chain.2.name=Horizontal
+radio.1.antenna.2.id=2
+radio.1.antenna.2.name=AMO-5G13
+radio.1.antenna.2.gain=13
+radio.1.antenna.2.builtin=0
+radio.1.antenna.2.band=0
+radio.1.antenna.2.chains=2
+radio.1.antenna.2.chain.1.id=0
+radio.1.antenna.2.chain.1.name=Vertical
+radio.1.antenna.2.chain.2.id=1
+radio.1.antenna.2.chain.2.name=Horizontal
+radio.1.antenna.3.id=3
+radio.1.antenna.3.name=AM-5G16-120
+radio.1.antenna.3.gain=16
+radio.1.antenna.3.builtin=0
+radio.1.antenna.3.band=0
+radio.1.antenna.3.chains=2
+radio.1.antenna.3.chain.1.id=0
+radio.1.antenna.3.chain.1.name=Vertical
+radio.1.antenna.3.chain.2.id=1
+radio.1.antenna.3.chain.2.name=Horizontal
+radio.1.antenna.4.id=4
+radio.1.antenna.4.name=AM-5G17-90
+radio.1.antenna.4.gain=17
+radio.1.antenna.4.builtin=0
+radio.1.antenna.4.band=0
+radio.1.antenna.4.chains=2
+radio.1.antenna.4.chain.1.id=0
+radio.1.antenna.4.chain.1.name=Vertical
+radio.1.antenna.4.chain.2.id=1
+radio.1.antenna.4.chain.2.name=Horizontal
+radio.1.antenna.5.id=5
+radio.1.antenna.5.name=AM-M-V5G-Ti
+radio.1.antenna.5.gain=17
+radio.1.antenna.5.builtin=0
+radio.1.antenna.5.band=0
+radio.1.antenna.5.chains=2
+radio.1.antenna.5.chain.1.id=0
+radio.1.antenna.5.chain.1.name=Vertical
+radio.1.antenna.5.chain.2.id=1
+radio.1.antenna.5.chain.2.name=Horizontal
+radio.1.antenna.6.id=6
+radio.1.antenna.6.name=AM-5G19-120
+radio.1.antenna.6.gain=19
+radio.1.antenna.6.builtin=0
+radio.1.antenna.6.band=0
+radio.1.antenna.6.chains=2
+radio.1.antenna.6.chain.1.id=0
+radio.1.antenna.6.chain.1.name=Vertical
+radio.1.antenna.6.chain.2.id=1
+radio.1.antenna.6.chain.2.name=Horizontal
+radio.1.antenna.7.id=7
+radio.1.antenna.7.name=AM-5G20-90
+radio.1.antenna.7.gain=20
+radio.1.antenna.7.builtin=0
+radio.1.antenna.7.band=0
+radio.1.antenna.7.chains=2
+radio.1.antenna.7.chain.1.id=0
+radio.1.antenna.7.chain.1.name=Vertical
+radio.1.antenna.7.chain.2.id=1
+radio.1.antenna.7.chain.2.name=Horizontal
+radio.1.antenna.8.id=8
+radio.1.antenna.8.name=AM-V5G-Ti
+radio.1.antenna.8.gain=21
+radio.1.antenna.8.builtin=0
+radio.1.antenna.8.band=0
+radio.1.antenna.8.chains=2
+radio.1.antenna.8.chain.1.id=0
+radio.1.antenna.8.chain.1.name=Vertical
+radio.1.antenna.8.chain.2.id=1
+radio.1.antenna.8.chain.2.name=Horizontal
+radio.1.antenna.9.id=9
+radio.1.antenna.9.name=AM-5AC21-60
+radio.1.antenna.9.gain=21
+radio.1.antenna.9.builtin=0
+radio.1.antenna.9.band=0
+radio.1.antenna.9.chains=2
+radio.1.antenna.9.chain.1.id=0
+radio.1.antenna.9.chain.1.name=Vertical
+radio.1.antenna.9.chain.2.id=1
+radio.1.antenna.9.chain.2.name=Horizontal
+radio.1.antenna.10.id=10
+radio.1.antenna.10.name=AM-5AC22-45
+radio.1.antenna.10.gain=22
+radio.1.antenna.10.builtin=0
+radio.1.antenna.10.band=0
+radio.1.antenna.10.chains=2
+radio.1.antenna.10.chain.1.id=0
+radio.1.antenna.10.chain.1.name=Vertical
+radio.1.antenna.10.chain.2.id=1
+radio.1.antenna.10.chain.2.name=Horizontal
+radio.1.antenna.11.id=11
+radio.1.antenna.11.name=AP-5AC-90-HD
+radio.1.antenna.11.gain=22
+radio.1.antenna.11.builtin=0
+radio.1.antenna.11.band=0
+radio.1.antenna.11.chains=2
+radio.1.antenna.11.chain.1.id=0
+radio.1.antenna.11.chain.1.name=Vertical
+radio.1.antenna.11.chain.2.id=1
+radio.1.antenna.11.chain.2.name=Horizontal
+radio.1.antenna.12.id=12
+radio.1.antenna.12.name=RD-5G-30
+radio.1.antenna.12.gain=30
+radio.1.antenna.12.builtin=0
+radio.1.antenna.12.band=0
+radio.1.antenna.12.chains=2
+radio.1.antenna.12.chain.1.id=0
+radio.1.antenna.12.chain.1.name=Vertical
+radio.1.antenna.12.chain.2.id=1
+radio.1.antenna.12.chain.2.name=Horizontal
+radio.1.antenna.13.id=13
+radio.1.antenna.13.name=RD-5G30-LW
+radio.1.antenna.13.gain=30
+radio.1.antenna.13.builtin=0
+radio.1.antenna.13.band=0
+radio.1.antenna.13.chains=2
+radio.1.antenna.13.chain.1.id=0
+radio.1.antenna.13.chain.1.name=Vertical
+radio.1.antenna.13.chain.2.id=1
+radio.1.antenna.13.chain.2.name=Horizontal
+radio.1.antenna.14.id=14
+radio.1.antenna.14.name=RD-5G31-AC
+radio.1.antenna.14.gain=31
+radio.1.antenna.14.builtin=0
+radio.1.antenna.14.band=0
+radio.1.antenna.14.chains=2
+radio.1.antenna.14.chain.1.id=0
+radio.1.antenna.14.chain.1.name=Vertical
+radio.1.antenna.14.chain.2.id=1
+radio.1.antenna.14.chain.2.name=Horizontal
+radio.1.antenna.15.id=15
+radio.1.antenna.15.name=RD-5G-34
+radio.1.antenna.15.gain=34
+radio.1.antenna.15.builtin=0
+radio.1.antenna.15.band=0
+radio.1.antenna.15.chains=2
+radio.1.antenna.15.chain.1.id=0
+radio.1.antenna.15.chain.1.name=Vertical
+radio.1.antenna.15.chain.2.id=1
+radio.1.antenna.15.chain.2.name=Horizontal
+radio.1.antenna.16.id=16
+radio.1.antenna.16.name=UISP-HORN
+radio.1.antenna.16.gain=19
+radio.1.antenna.16.builtin=0
+radio.1.antenna.16.band=0
+radio.1.antenna.16.chains=2
+radio.1.antenna.16.chain.1.id=0
+radio.1.antenna.16.chain.1.name=Vertical
+radio.1.antenna.16.chain.2.id=1
+radio.1.antenna.16.chain.2.name=Horizontal
+radio.1.antenna.17.id=17
+radio.1.antenna.17.name=UISP-DISH
+radio.1.antenna.17.gain=30
+radio.1.antenna.17.builtin=0
+radio.1.antenna.17.band=0
+radio.1.antenna.17.chains=2
+radio.1.antenna.17.chain.1.id=0
+radio.1.antenna.17.chain.1.name=Vertical
+radio.1.antenna.17.chain.2.id=1
+radio.1.antenna.17.chain.2.name=Horizontal
+radio.1.caps=4242538516
+radio.1.caps2=0
+radio.1.eirp.limit=1
+radio.1.regdomain_flags=fcc_new_grant,ts=0x61329c14,prism
+radio.1.chains=2
+radio.1.ieee_mode_a=1
+radio.1.ptp_only=1
+radio.1.ptp_sta=1
+radio.1.ptmp_only=1
+radio.1.ptmp_sta=1
+radio.1.distance_limit=0
+radio.1.chanbw=10,20,30,40,50,60,80
+radio.2.name=
+radio.2.shortname=
+radio.2.bus=ahb
+radio.2.devdomain=5000
+radio.2.ccode=840
+radio.2.ccode_fixed=0
+radio.2.ccode_locked=0
+radio.2.subsystemid=0xe7e9
+radio.2.subvendorid=0x0777
+radio.2.txpower.max=19
+radio.2.txpower.min=0
+radio.2.txpower.offset=0
+radio.2.ieee_modes=10
+radio.2.powerBackoff=6
+radio.2.antennas=0
+radio.2.def_antenna=0
+radio.2.caps=12
+radio.2.caps2=0
+radio.2.eirp.limit=0
+radio.2.regdomain_flags=ts=0x61329c14
+radio.2.chains=1
+radio.2.ieee_mode_bg=1
+radio.2.web_exclude=1
+radio.2.distance_limit=0
+radio.2.chanbw=5,10,20,40,80
+feature.rssi.leds=4
+feature.g2=1
+feature.g3=0
+feature.gps=1
+feature.gps.leds=1
+feature.ext_reset=1
+feature.poe_passthrough=0
+
+===== board_inc =====
+<?
+$board_id="0xe7e9";
+$cpu_revision="0x00001130";
+$board_name="Rocket Prism 5AC Gen2";
+$board_raw_name="Rocket Prism 5AC";
+$board_shortname="R5C";
+$board_model="RP-5AC-Gen2";
+$board_timestamp="1630706708";
+$board_bom="13-00545-15";
+$board_hwaddr="245A4CXXXXXX";
+$board_netmodes=3;
+$board_required_fw_version=524800;
+$reboot_time=50;
+$upgrade_time=150;
+$radio_count=2;
+$radio1_name="";
+$radio1_shortname="";
+$radio1_bus="pci";
+$radio1_devdomain=5000;
+$radio1_ccode=840;
+$radio1_ccode_fixed=0;
+$radio1_ccode_locked=0;
+$radio1_subsystemid="0xe7e9";
+$radio1_subvendorid="0x0777";
+$radio1_txpower_max=28;
+$radio1_txpower_min=-4;
+$radio1_txpower_offset=5;
+$radio1_low_txpower_atten=0;
+$radio1_low_txpower_limit=-4;
+$radio1_ieee_modes=21;
+$radio1_ieee_mode="auto";
+$radio1_ant_count=17;
+$radio1_def_antenna=0;
+$radio1_ant_id[0]=1;
+$radio1_ant_name[0]=dict_translate("AMO-5G10");
+$radio1_ant_gain[0]=10;
+$radio1_ant_builtin[0]=0;
+$radio1_ant_band[0]=0
+$radio1_ant_chains[0]=2;
+$radio1_ant0_chain_id[0]=0;
+$radio1_ant0_chain_name[0]=dict_translate("Vertical");
+$radio1_ant0_chain_id[1]=1;
+$radio1_ant0_chain_name[1]=dict_translate("Horizontal");
+$radio1_ant_id[1]=2;
+$radio1_ant_name[1]=dict_translate("AMO-5G13");
+$radio1_ant_gain[1]=13;
+$radio1_ant_builtin[1]=0;
+$radio1_ant_band[1]=0
+$radio1_ant_id[2]=3;
+$radio1_ant_name[2]=dict_translate("AM-5G16-120");
+$radio1_ant_gain[2]=16;
+$radio1_ant_builtin[2]=0;
+$radio1_ant_band[2]=0
+$radio1_ant_id[3]=4;
+$radio1_ant_name[3]=dict_translate("AM-5G17-90");
+$radio1_ant_gain[3]=17;
+$radio1_ant_builtin[3]=0;
+$radio1_ant_band[3]=0
+$radio1_ant_id[4]=5;
+$radio1_ant_name[4]=dict_translate("AM-M-V5G-Ti");
+$radio1_ant_gain[4]=17;
+$radio1_ant_builtin[4]=0;
+$radio1_ant_band[4]=0
+$radio1_ant_id[5]=6;
+$radio1_ant_name[5]=dict_translate("AM-5G19-120");
+$radio1_ant_gain[5]=19;
+$radio1_ant_builtin[5]=0;
+$radio1_ant_band[5]=0
+$radio1_ant_id[6]=7;
+$radio1_ant_name[6]=dict_translate("AM-5G20-90");
+$radio1_ant_gain[6]=20;
+$radio1_ant_builtin[6]=0;
+$radio1_ant_band[6]=0
+$radio1_ant_id[7]=8;
+$radio1_ant_name[7]=dict_translate("AM-V5G-Ti");
+$radio1_ant_gain[7]=21;
+$radio1_ant_builtin[7]=0;
+$radio1_ant_band[7]=0
+$radio1_ant_id[8]=9;
+$radio1_ant_name[8]=dict_translate("AM-5AC21-60");
+
+===== board_dmesg =====
+[    1.806000] ubnthal: module license 'Proprietary' taints kernel.
+[    1.865000] ubnthal: initialised, board found, sysid = 0xe7e9, name = Rocket Prism 5AC
+
+===== radio_identity =====
+[    9.507000] Ubiquiti U-AME chipset detected
+[    9.722000] ol_ath_attach() TARGET TYPE: 7 Vers 0x4100016c
+[   17.451000] Ubiquiti U-AME chipset detected
+[   17.566000] ol_ath_attach() TARGET TYPE: 7 Vers 0x4100016c
+
+===== radio_firmware =====
+[    9.723000] ol_transfer_bin_file 338: Download Flash data len 2116
+[    9.737000] ol_transfer_bin_file 259: Download Firmware data len 215064. Mode: PTP
+[   10.640000] ol_ath_attach() WMI attached. wmi_handle 87a80000 
+[   10.648000] wmi_service_ready_event_rx:  WMI UNIFIED SERVICE READY event 
+[   10.657000] FIRMWARE:P 34 V 1 T 110
+[   10.657000] wmi_ready_event_rx:  WMI UNIFIED READY event 
+[   10.657000] ol_ath_connect_htc() WMI is ready
+[   10.657000] target uses HTT version 2.1; host uses 2.1
+[   17.567000] ol_transfer_bin_file 338: Download Flash data len 2116
+[   17.582000] ol_transfer_bin_file 259: Download Firmware data len 251680. Mode: PTMP
+[   18.663000] ol_ath_attach() WMI attached. wmi_handle 87a80000 
+[   18.674000] wmi_service_ready_event_rx:  WMI UNIFIED SERVICE READY event 
+[   18.683000] FIRMWARE:P 62 V 1 T 194
+[   18.683000] wmi_ready_event_rx:  WMI UNIFIED READY event 
+[   18.683000] ol_ath_connect_htc() WMI is ready
+[   18.683000] target uses HTT version 2.1; host uses 2.1
+
+===== driver_stack =====
+[    7.080000] ath_hal: 0.9.17.1 (AR9380, REGOPS_FUNC, 11D)
+[    7.187000] ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+[    7.454000] ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+[    9.506000] ath_pci: 10.1.467 (Atheros/multi-bss)
+
+===== airmax_module =====
+[   11.464000] ubnt_poll_host: Hooks registered
+[   11.464000] ubnt_poll_host: Allocated chardev region for major 190
+[   19.129000] ubnt_poll_host: Hooks registered
+[   19.129000] ubnt_poll_host: Allocated chardev region for major 190
+[   19.150000] ubnt_poll_host wifi0: Char device created succesfully err 0
+[   19.150000] ubnt_poll_host: Polling enabled for radio wifi0
+[   19.150000] ubnt_poll_host: noack_mode set to 0 for radio wifi0
+[   19.150000] ubnt_poll_host: DAPROT set to 0 for radio wifi0
+[   19.150000] ubnt-poll-host: [wifi0] Station priority configured to 2 (no-auto=0)
+[   19.151000] ubnt_poll_host: Fixed frame mode enabled for radio wifi0
+[   19.380000] ubnt_poll_host: Initialized in PTMP AP mode for device wifi0
+[   19.380000] ubnt_poll_host TARGET LOG:
+[   19.583000] ubnt_poll_host: ATPC disabled (0/0/0/28) for radio wifi0
+[  124.607000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  124.607000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  125.239000] ubnt_poll_host: STA 60:22:32:XX:XX:XX added to deferred list
+[  125.241000] ubnt_poll_host: STA 60:22:32:XX:XX:XX added to deferred list
+[  125.294000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+[  125.296000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+[  127.642000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  127.642000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  127.912000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+[  127.912000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+[  127.967000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  127.968000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  129.322000] ubnt_poll_host: STA 60:22:32:XX:XX:XX added to deferred list
+[  129.322000] ubnt_poll_host: STA 60:22:32:XX:XX:XX added to deferred list
+[  130.762000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  130.763000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  130.852000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  130.852000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  131.752000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  131.753000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  151.432000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[  151.433000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[91404.635000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[91404.635000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[174462.806000] ubnt_poll_host: STA 24:5A:4C:XX:XX:XX added to deferred list
+[176606.444000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+[176606.445000] ubnt_poll_host: STA 70:A7:41:XX:XX:XX added to deferred list
+
+===== lsmod =====
+Module                  Size  Used by    Tainted: P  
+ipt_NETMAP               688  0 
+ipt_REDIRECT             704  0 
+ipt_MASQUERADE          1056  0 
+iptable_nat             2888  0 
+nf_nat                 11390  4 ipt_NETMAP,ipt_REDIRECT,ipt_MASQUERADE,iptable_nat
+xt_conntrack            1872  0 
+xt_NOTRACK               544  0 
+iptable_raw              688  0 
+xt_state                 816  0 
+nf_conntrack_ipv4       7458  3 iptable_nat,nf_nat
+nf_defrag_ipv4           710  1 nf_conntrack_ipv4
+ebt_redirect             880  0 
+ebt_mark                 704  0 
+nf_conntrack           44996  7 ipt_MASQUERADE,iptable_nat,nf_nat,xt_conntrack,xt_NOTRACK,xt_state,nf_conntrack_ipv4
+ebt_vlan                1552  0 
+ebt_stp                 1840  0 
+ebt_pkttype              544  0 
+xt_time                 1696  0 
+ebt_mark_m               624  0 
+ipt_REJECT              1808  0 
+ebt_limit               1200  0 
+ebt_among               2144  0 
+xt_TCPMSS               2640  0 
+ebt_802_3                704  0 
+ipt_LOG                 4336  0 
+xt_comment               496  0 
+ebtable_nat              880  0 
+xt_multiport            1856  0 
+ebtable_filter           896  0 
+xt_mac                   608  0 
+ebtable_broute           720  1 
+xt_limit                1408  0 
+ebtables               15173  3 ebtable_nat,ebtable_filter,ebtable_broute
+iptable_mangle          1040  0 
+ebt_ip6                 1376  0 
+iptable_filter           784  0 
+ip_tables               8885  4 iptable_nat,iptable_raw,iptable_mangle,iptable_filter
+ebt_snat                 864  0 
+ebt_dnat                 800  0
+
+===== cpu =====
+system type		: QCA955x
+processor		: 0
+cpu model		: MIPS 74Kc V5.0
+BogoMIPS		: 359.42
+wait instruction	: yes
+microsecond timers	: yes
+tlb_entries		: 32
+extra interrupt vector	: yes
+hardware watchpoint	: yes, count: 4, address/irw mask: [0x0000, 0x0ef8, 0x0b78, 0x0bf0]
+ASEs implemented	: mips16 dsp
+
+===== clocks_mem =====
+[    0.000000] cpu apb ddr apb ath_sys_frequency: cpu 720 ddr 600 ahb 200
+[    0.000000] CPU revision is: 00019750 (MIPS 74Kc)
+[    0.000000] Determined physical RAM map:
+MemTotal:         126932 kB
+
+===== flash_map =====
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "u-boot"
+mtd1: 00010000 00010000 "u-boot-env"
+mtd2: 00100000 00010000 "kernel"
+mtd3: 00e60000 00010000 "rootfs"
+mtd4: 00040000 00010000 "cfg"
+mtd5: 00010000 00010000 "EEPROM"
+
+===== gps =====
+feature.gps=1
+feature.gps.leds=1
+
+===== spectral =====
+[    7.212000] ath_spectral: Version 2.0.0
+[    7.212000] SPECTRAL module built on Feb 27 2026 20:01:19
+[   10.683000] ol_if_spectral_setup
+[   10.684000] SPECTRAL : get_capability not registered
+[   10.684000] HAL_CAP_PHYDIAG : Capable
+[   10.684000] SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 234)
+[   10.684000] SPECTRAL : get_capability not registered
+[   10.684000] HAL_CAP_RADAR   : Capable
+[   10.684000] SPECTRAL : Need to fix the capablity check for SPECTRAL
+[   10.684000]  (spectral_attach : 239)
+[   10.684000] SPECTRAL : get_capability not registered
+[   10.684000] HAL_CAP_SPECTRAL_SCAN : Capable
+[   10.684000] SPECTRAL : get_tsf64 not registered
+[   10.684000] spectral_init_netlink 54 NULL SKB
+[   10.986000] SPECTRAL : get_capability not registered
+[   10.986000] HAL_CAP_PHYDIAG : Capable
+[   10.986000] SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 234)
+[   10.986000] SPECTRAL : get_capability not registered
+[   10.986000] HAL_CAP_RADAR   : Capable
+[   10.986000] SPECTRAL : Need to fix the capablity check for SPECTRAL
+[   10.986000]  (spectral_attach : 239)
+[   10.986000] SPECTRAL : get_capability not registered
+[   10.986000] HAL_CAP_SPECTRAL_SCAN : Capable
+[   10.986000] SPECTRAL : get_tsf64 not registered
+[   10.986000] spectral_init_netlink 54 NULL SKB
+
+===== wireless_mode =====
+ath0      IEEE 802.11ac  ESSID:"FT-ED-2"  
+          Mode:Master  Frequency:5.56 GHz  Access Point: 24:5A:4C:XX:XX:XX   
+          Bit Rate:173.3 Mb/s   Tx-Power=28 dBm   
+          RTS thr:off   Fragment thr:off
+          Center1-Freq: 5.56 GHz
+          Encryption key:AE13-9EB0-CBF3-EB5F-C0EA-E2CE-0C02-EB32 [2]   Security mode:open
+          Power Management:off
+          Link Quality=34/94  Signal level=-62 dBm  Noise level=-80 dBm
+          Rx invalid nwid:730291  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+airview1  IEEE 802.11na  ESSID:"spectral"  
+          Mode:Monitor  Frequency:4.92 GHz  Access Point: Not-Associated   
+          Bit Rate:130 Mb/s   Tx-Power=3 dBm   
+          RTS thr:off   Fragment thr:off
+          Center1-Freq: 4.92 GHz
+          Encryption key:off
+          Power Management:off
+          Link Quality=0/94  Signal level=-96 dBm  Noise level=-106 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+===== pci =====
+0000	077711ac	4b	        10000004	               0	               0	               0	               0	               0	        10200000	          200000	               0	               0	               0	               0	               0	           10000	ath_pci

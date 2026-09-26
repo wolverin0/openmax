@@ -1,0 +1,353 @@
+# FuturaMAX read-only inventory
+# label: liteap-ac
+# collected_at: 2026-08-08T19:00:42+00:00
+# method: SSH (paramiko), read-only commands only
+# sanitised: station/device MACs truncated to OUI, private IPs redacted
+
+ssh_banner: SSH-2.0-dropbear
+
+===== airos_version =====
+WA.v8.7.22
+WA.ar934x.v8.7.22.48486.260227.1959
+
+===== board_info =====
+board.sysid=0xe8e5
+board.cpurevision=0x00001123
+board.arch=0
+board.fcc_id=SWX-LBE5AC120-U
+board.anatel_id=-
+board.cmiit_id=2020AJ12780
+board.name=LiteAP AC
+board.shortname=L5C
+board.model=LAP-120
+board.timestamp=1633413668
+board.bom=13-00402-12
+board.netmodes=3
+board.hwaddr=784558XXXXXX
+board.device_id=30dda45a1a41990e04adb453d593d868
+board.reboot=40
+board.upgrade=150
+board.phycount=1
+board.phy.1.maxmtu=2024
+board.fcc_unii_activated=1
+board.fcc_unii_switchable=0
+board.required_fw_version=525571
+radio.1.name=
+radio.1.shortname=
+radio.1.bus=pci
+radio.1.devdomain=5000
+radio.1.ccode=840
+radio.1.ccode_fixed=0
+radio.1.ccode_locked=0
+radio.1.subsystemid=0xe8e5
+radio.1.subvendorid=0x0777
+radio.1.txpower.max=24
+radio.1.txpower.min=-4
+radio.1.txpower.offset=1
+radio.1.ieee_modes=21
+radio.1.powerBackoff=5
+radio.1.antennas=1
+radio.1.def_antenna=1
+radio.1.antenna.1.id=1
+radio.1.antenna.1.name=16
+radio.1.antenna.1.gain=16
+radio.1.antenna.1.builtin=1
+radio.1.caps=2900361236
+radio.1.caps2=0
+radio.1.eirp.limit=1
+radio.1.regdomain_flags=fcc_new_grant,ts=0x615bea24
+radio.1.chains=2
+radio.1.ieee_mode_a=1
+radio.1.ptp_only=1
+radio.1.ptp_sta=1
+radio.1.ptmp_only=1
+radio.1.ptmp_sta=1
+radio.1.distance_limit=0
+radio.1.chanbw=10,20,30,40,50,60,80
+radio.2.name=
+radio.2.shortname=
+radio.2.bus=ahb
+radio.2.devdomain=5000
+radio.2.ccode=840
+radio.2.ccode_fixed=0
+radio.2.ccode_locked=0
+radio.2.subsystemid=0xe8e5
+radio.2.subvendorid=0x0777
+radio.2.txpower.max=19
+radio.2.txpower.min=0
+radio.2.txpower.offset=0
+radio.2.ieee_modes=5
+radio.2.powerBackoff=5
+radio.2.antennas=0
+radio.2.def_antenna=0
+radio.2.caps=20
+radio.2.caps2=0
+radio.2.eirp.limit=0
+radio.2.regdomain_flags=ts=0x615bea24
+radio.2.chains=2
+radio.2.ieee_mode_a=1
+radio.2.web_exclude=1
+radio.2.distance_limit=0
+radio.2.chanbw=5,10,20,40,80
+feature.rssi.leds=0
+feature.g2=0
+feature.g3=0
+feature.ext_reset=0
+feature.poe_passthrough=0
+
+===== board_inc =====
+<?
+$board_id="0xe8e5";
+$cpu_revision="0x00001123";
+$board_name="LiteAP AC";
+$board_raw_name="LiteAP AC";
+$board_shortname="L5C";
+$board_model="LAP-120";
+$board_timestamp="1633413668";
+$board_bom="13-00402-12";
+$board_hwaddr="784558XXXXXX";
+$board_netmodes=3;
+$board_required_fw_version=525571;
+$reboot_time=40;
+$upgrade_time=150;
+$radio_count=2;
+$radio1_name="";
+$radio1_shortname="";
+$radio1_bus="pci";
+$radio1_devdomain=5000;
+$radio1_ccode=840;
+$radio1_ccode_fixed=0;
+$radio1_ccode_locked=0;
+$radio1_subsystemid="0xe8e5";
+$radio1_subvendorid="0x0777";
+$radio1_txpower_max=24;
+$radio1_txpower_min=-4;
+$radio1_txpower_offset=1;
+$radio1_low_txpower_atten=0;
+$radio1_low_txpower_limit=-4;
+$radio1_ieee_modes=21;
+$radio1_ieee_mode="auto";
+$radio1_ant_count=1;
+$radio1_def_antenna=1;
+$radio1_ant_id[0]=1;
+$radio1_ant_name[0]=dict_translate("16");
+$radio1_ant_gain[0]=16;
+$radio1_ant_builtin[0]=1;
+$radio1_caps=2900361236;
+$radio1_eirp_limit=1;
+$radio1_distance_limit=0;
+$radio1_regdomain_flags="fcc_new_grant,ts=0x615bea24";
+$radio1_chains=2;
+$radio1_ieee_mode_a=1;
+$radio1_low_txpower_mode=0;
+$radio1_legacy=0;
+$radio1_chanbw="10,20,30,40,50,60,80";
+$radio1_ext_channel=1;
+$radio1_ptp_only=1;
+$radio1_ptp_sta=1;
+$radio1_ptmp_only=1;
+$radio1_ptmp_sta=1;
+$radio2_name="";
+$radio2_shortname="";
+$radio2_bus="ahb";
+$radio2_devdomain=5000;
+$radio2_ccode=840;
+$radio2_ccode_fixed=0;
+$radio2_ccode_locked=0;
+$radio2_subsystemid="0xe8e5";
+$radio2_subvendorid="0x0777";
+$radio2_txpower_max=19;
+$radio2_txpower_min=0;
+$radio2_txpower_offset=0;
+$radio2_low_txpower_atten=0;
+$radio2_low_txpower_limit=0;
+$radio2_ieee_modes=5;
+$radio2_ieee_mode="11naht";
+$radio2_ant_count=0;
+$radio2_def_antenna=0;
+$radio2_caps=20;
+$radio2_eirp_limit=0;
+$radio2_distance_limit=0;
+$radio2_regdomain_flags="ts=0x615bea24";
+$radio2_chains=2;
+$radio2_ieee_mode_a=1;
+$radio2_low_txpower_mode=0;
+$radio2_legacy=0;
+$radio2_chanbw="5,10,20,40,80";
+$radio2_ext_channel=1;
+$radio_outdoor=1;
+
+===== board_dmesg =====
+[    2.090000] ubnthal: module license 'Proprietary' taints kernel.
+[    2.143000] ubnthal: initialised, board found, sysid = 0xe8e5, name = LiteAP AC
+
+===== radio_identity =====
+[    0.027000] PCIe WLAN H/W found [tries: 1]
+[   12.301000] Ubiquiti U-AME chipset detected
+[   13.119000] ol_ath_attach() TARGET TYPE: 7 Vers 0x4100016c
+[   21.579000] Ubiquiti U-AME chipset detected
+[   21.700000] ol_ath_attach() TARGET TYPE: 7 Vers 0x4100016c
+
+===== radio_firmware =====
+[   13.120000] ol_transfer_bin_file 338: Download Flash data len 2116
+[   13.133000] ol_transfer_bin_file 259: Download Firmware data len 214300. Mode: PTP
+[   14.039000] ol_ath_attach() WMI attached. wmi_handle 83290000 
+[   14.048000] wmi_service_ready_event_rx:  WMI UNIFIED SERVICE READY event 
+[   14.056000] FIRMWARE:P 34 V 1 T 110
+[   14.057000] wmi_ready_event_rx:  WMI UNIFIED READY event 
+[   14.057000] ol_ath_connect_htc() WMI is ready
+[   14.057000] target uses HTT version 2.1; host uses 2.1
+[   21.701000] ol_transfer_bin_file 338: Download Flash data len 2116
+[   21.715000] ol_transfer_bin_file 259: Download Firmware data len 250900. Mode: PTMP
+[   22.792000] ol_ath_attach() WMI attached. wmi_handle 83290000 
+[   22.805000] wmi_service_ready_event_rx:  WMI UNIFIED SERVICE READY event 
+[   22.815000] FIRMWARE:P 87 V 1 T 269
+[   22.816000] wmi_ready_event_rx:  WMI UNIFIED READY event 
+[   22.816000] ol_ath_connect_htc() WMI is ready
+[   22.816000] target uses HTT version 2.1; host uses 2.1
+
+===== driver_stack =====
+[    9.172000] ath_hal: 0.9.17.1 (AR9380, REGOPS_FUNC, 11D)
+[    9.320000] ath_rate_atheros: Copyright (c) 2001-2005 Atheros Communications, Inc, All Rights Reserved
+[    9.667000] ath_dev: Copyright (c) 2001-2007 Atheros Communications, Inc, All Rights Reserved
+[   12.301000] ath_pci: 10.1.467 (Atheros/multi-bss)
+
+===== airmax_module =====
+[   15.112000] ubnt_poll_host: Hooks registered
+[   15.112000] ubnt_poll_host: Allocated chardev region for major 190
+[   23.890000] ubnt_poll_host: Hooks registered
+[   23.890000] ubnt_poll_host: Allocated chardev region for major 190
+[   23.919000] ubnt_poll_host wifi0: Char device created succesfully err 0
+[   23.919000] ubnt_poll_host: Polling enabled for radio wifi0
+[   23.919000] ubnt_poll_host: noack_mode set to 0 for radio wifi0
+[   23.919000] ubnt_poll_host: DAPROT set to 0 for radio wifi0
+[   23.919000] ubnt-poll-host: [wifi0] Station priority configured to 2 (no-auto=0)
+[   23.920000] ubnt_poll_host: Fixed frame mode disabled for radio wifi0
+[   24.208000] ubnt_poll_host: Initialized in PTMP AP mode for device wifi0
+[   24.208000] ubnt_poll_host TARGET LOG:
+[   24.442000] ubnt_poll_host: ATPC enabled (36/0/0/24) for radio wifi0
+
+===== lsmod =====
+Module                  Size  Used by    Tainted: P  
+ebt_redirect             880  0 
+ebt_mark                 704  0 
+ebt_vlan                1552  0 
+ebt_stp                 1840  0 
+ebt_pkttype              544  0 
+ebt_mark_m               624  0 
+ebt_limit               1200  0 
+ebt_among               2144  0 
+ebt_802_3                704  0 
+ebtable_nat              880  0 
+ebtable_filter           896  0 
+ebtable_broute           720  1 
+ebtables               15173  3 ebtable_nat,ebtable_filter,ebtable_broute
+ebt_ip6                 1376  0 
+ebt_snat                 864  0 
+ebt_dnat                 800  0 
+ebt_arpreply            1040  0 
+ebt_ip                  1248  0 
+ebt_arp                 1552  0 
+ubnt_poll_host        153289  2 
+ath_dfs              1191405  1 
+act_ipt                 2400  0 
+sch_red                 3472  0 
+em_meta                 4608  0 
+sch_teql                3696  0 
+em_nbyte                 688  0 
+cls_basic               3392  0 
+sch_gred                6288  0 
+em_cmp                   720  0 
+em_text                 1280  0 
+sch_dsmark              3584  0 
+act_mirred              2176  0 
+em_u32                   544  0 
+cls_tcindex             4160  0 
+cls_flow                5840  0 
+cls_route               5072  0 
+cls_fw                  3264  0 
+sch_hfsc               14160  0 
+rssi_leds               2064  0
+
+===== cpu =====
+system type		: Atheros AR934x
+processor		: 0
+cpu model		: MIPS 74Kc V4.12
+BogoMIPS		: 266.24
+wait instruction	: yes
+microsecond timers	: yes
+tlb_entries		: 32
+extra interrupt vector	: yes
+hardware watchpoint	: yes, count: 4, address/irw mask: [0x0000, 0x0008, 0x0000, 0x0000]
+ASEs implemented	: mips16 dsp
+
+===== clocks_mem =====
+[    0.000000] CPU revision is: 0001974c (MIPS 74Kc)
+[    0.000000] ath_sys_frequency: cpu srif ddr srif cpu 535 ddr 400 ahb 200
+[    0.000000] Determined physical RAM map:
+MemTotal:          61960 kB
+
+===== flash_map =====
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "u-boot"
+mtd1: 00010000 00010000 "u-boot-env"
+mtd2: 00100000 00010000 "kernel"
+mtd3: 00e60000 00010000 "rootfs"
+mtd4: 00040000 00010000 "cfg"
+mtd5: 00010000 00010000 "EEPROM"
+
+===== gps =====
+(empty)
+
+===== spectral =====
+[    9.354000] ath_spectral: Version 2.0.0
+[    9.354000] SPECTRAL module built on Feb 27 2026 20:04:03
+[   14.092000] ol_if_spectral_setup
+[   14.092000] SPECTRAL : get_capability not registered
+[   14.092000] HAL_CAP_PHYDIAG : Capable
+[   14.092000] SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 234)
+[   14.092000] SPECTRAL : get_capability not registered
+[   14.092000] HAL_CAP_RADAR   : Capable
+[   14.092000] SPECTRAL : Need to fix the capablity check for SPECTRAL
+[   14.092000]  (spectral_attach : 239)
+[   14.092000] SPECTRAL : get_capability not registered
+[   14.092000] HAL_CAP_SPECTRAL_SCAN : Capable
+[   14.092000] SPECTRAL : get_tsf64 not registered
+[   14.092000] spectral_init_netlink 54 NULL SKB
+[   14.495000] SPECTRAL : get_capability not registered
+[   14.495000] HAL_CAP_PHYDIAG : Capable
+[   14.495000] SPECTRAL : Need to fix the capablity check for RADAR (spectral_attach : 234)
+[   14.495000] SPECTRAL : get_capability not registered
+[   14.495000] HAL_CAP_RADAR   : Capable
+[   14.495000] SPECTRAL : Need to fix the capablity check for SPECTRAL
+[   14.495000]  (spectral_attach : 239)
+[   14.495000] SPECTRAL : get_capability not registered
+[   14.495000] HAL_CAP_SPECTRAL_SCAN : Capable
+[   14.495000] SPECTRAL : get_tsf64 not registered
+[   14.495000] spectral_init_netlink 54 NULL SKB
+
+===== wireless_mode =====
+ath0      IEEE 802.11ac  ESSID:"FT-Guarida3"  
+          Mode:Master  Frequency:5.755 GHz  Access Point: 78:45:58:XX:XX:XX   
+          Bit Rate:173.3 Mb/s   Tx-Power=24 dBm   
+          RTS thr:off   Fragment thr:off
+          Center1-Freq: 5.755 GHz
+          Encryption key:FE5A-BEED-3AAE-41FB-2850-63CD-4918-2D21 [2]   Security mode:open
+          Power Management:off
+          Link Quality=38/94  Signal level=-58 dBm  Noise level=-92 dBm
+          Rx invalid nwid:5337  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+airview1  IEEE 802.11na  ESSID:"spectral"  
+          Mode:Monitor  Frequency:4.92 GHz  Access Point: Not-Associated   
+          Bit Rate:130 Mb/s   Tx-Power=13 dBm   
+          RTS thr:off   Fragment thr:off
+          Center1-Freq: 4.92 GHz
+          Encryption key:off
+          Power Management:off
+          Link Quality=0/94  Signal level=-96 dBm  Noise level=-106 dBm
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+===== pci =====
+0000	077711ac	40	        10000004	               0	               0	               0	               0	               0	        10200000	          200000	               0	               0	               0	               0	               0	           10000	ath_pci

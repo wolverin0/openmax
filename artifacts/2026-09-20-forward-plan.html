@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FuturaMAX — Forward Plan (2026-09-20)</title>
+<style>
+  :root { --bg:#0f1115; --panel:#161a22; --ink:#e6e8ee; --muted:#9aa3b2; --line:#2a3140;
+          --ok:#3fb950; --warn:#d29922; --bad:#f85149; --acc:#58a6ff; --me:#bc8cff; --you:#f0883e; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif }
+  main { max-width:1080px; margin:0 auto; padding:32px 24px 80px }
+  h1 { font-size:26px; margin:0 0 4px } h2 { font-size:19px; margin:36px 0 10px; border-bottom:1px solid var(--line); padding-bottom:6px }
+  h3 { font-size:15px; margin:18px 0 6px; color:var(--acc) }
+  .sub { color:var(--muted); margin-bottom:24px }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px }
+  .card h3 { margin-top:0 }
+  table { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px }
+  th,td { text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--line) }
+  th { color:var(--muted); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em }
+  .wrap { overflow-x:auto }
+  code,pre { font:13px/1.45 ui-monospace,Consolas,Menlo,monospace }
+  code { background:#0b0d12; padding:1px 5px; border-radius:4px; border:1px solid var(--line) }
+  pre { background:#0b0d12; border:1px solid var(--line); border-radius:8px; padding:12px 14px; overflow-x:auto; margin:8px 0 }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; font-size:12px; font-weight:600; border:1px solid }
+  .ok { color:var(--ok); border-color:var(--ok) } .warn { color:var(--warn); border-color:var(--warn) }
+  .bad { color:var(--bad); border-color:var(--bad) } .acc { color:var(--acc); border-color:var(--acc) }
+  .me { color:var(--me); border-color:var(--me) } .you { color:var(--you); border-color:var(--you) }
+  .callout { border-left:4px solid var(--acc); background:var(--panel); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0 }
+  .callout.warn { border-color:var(--warn) } .callout.bad { border-color:var(--bad) } .callout.ok { border-color:var(--ok) }
+  ol.steps { padding-left:22px } ol.steps li { margin:6px 0 }
+  .small { font-size:13px; color:var(--muted) }
+</style>
+</head>
+<body>
+<main>
+  <h1>FuturaMAX — Forward Plan</h1>
+  <div class="sub">2026-09-20 · after research waves 2/2b · owner tags: <span class="pill you">YOU</span> physical/decision · <span class="pill me">ME</span> software/analysis</div>
+
+  <h2>0 · Straight answers first</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Is the LiteAP's firmware outdated now?</h3>
+      <p><strong>No.</strong> OpenWrt 24.10.4 is still the right base. What the research changed is that its <em>image</em> is missing one build option — spectral scan — and that is a rebuild, not a platform change.</p>
+      <p>Verified today: the 24.10 tree pins CT firmware <code>…community-22.bin.lede.022</code>, i.e. the <strong>same FW022</strong> already on the unit. So the rebuild changes exactly one variable.</p>
+      <p>25.12 exists, but the research found <strong>no measured performance reason</strong> to move (UNKNOWN). Stay on 24.10.4; treat 25.12 as a later categorical experiment arm.</p>
+    </div>
+    <div class="card">
+      <h3>What actually changed in the plan</h3>
+      <ul>
+        <li>Spectral (FMX-0010) went from "blocked on hardware" to "blocked on a build" — <span class="pill ok">solvable this week</span></li>
+        <li>Rate control target moved from <code>set_rates</code>/<code>set_rate_override</code> to <code>ratemask-CT</code> (the other two are wrong/Wave-2)</li>
+        <li>Stage 3 is now an <strong>autonomous research loop</strong> (D-0009), not hand tuning</li>
+        <li>There are now published QCA9880 spectral datasets to validate our FFT output against</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>The thing you may have overlooked</h3>
+      <p>You plugged a <strong>LiteBeam AC Gen2</strong> into the bench last week. That is a WA board with an official OpenWrt profile (<code>ubnt_litebeam-ac-gen2</code>) — <strong>it is the second radio</strong> the whole project has been blocked on. Everything from campaign C2 onward needs it.</p>
+    </div>
+  </div>
+
+  <h2>1 · Decisions I need from you before anything runs</h2>
+  <div class="wrap"><table>
+    <tr><th>#</th><th>Decision</th><th>My recommendation</th><th>Why it matters</th></tr>
+    <tr><td>D1</td><td>Is the LiteBeam AC Gen2 the permanent second radio, and can it have its <em>own</em> PoE injector?</td><td>Yes / yes</td><td>Both radios must be powered simultaneously for every link experiment. Last week's swap took the LiteAP offline.</td></tr>
+    <tr><td>D2</td><td>Stay on OpenWrt 24.10.4 or jump to 25.12?</td><td><strong>Stay on 24.10.4</strong></td><td>Same FW022, one variable changes (spectral). 25.12 has no measured upside yet; add it later as an experiment arm.</td></tr>
+    <tr><td>D3</td><td>Build on this PC's WSL Ubuntu?</td><td>Yes</td><td>8 CPUs / 7 GB RAM / 862 GB free, toolchain present. ~1–3 h for the first build, minutes after. Needs the PC left on.</td></tr>
+    <tr><td>D4</td><td>Bench RF: over-the-air in the room now, or buy SMA pigtails + attenuators for a cabled rig?</td><td>OTA now; cabled before campaign C2</td><td>OTA is fine for install checks and first baselines. Reproducible A/B/A/B science needs a controlled path (the ORCA/GSoC method). Small purchase.</td></tr>
+  </table></div>
+
+  <h2>2 · Where things stand right now</h2>
+  <div class="wrap"><table>
+    <tr><th>Item</th><th>State</th><th>Note</th></tr>
+    <tr><td>LiteAP LAP-120 (lab AP)</td><td><span class="pill warn">OpenWrt 24.10.4, UNPLUGGED</span></td><td>Went dark when the injector moved to the PrismStation. Nothing wrong with it.</td></tr>
+    <tr><td>LiteBeam AC Gen2 (second radio)</td><td><span class="pill warn">airOS, location/IP unknown</span></td><td>Never appeared on the bench segment. Probably took a DHCP lease on the site router like the PrismStation did.</td></tr>
+    <tr><td>Recovery path</td><td><span class="pill ok">PROVEN</span></td><td>urescue + stock airOS, demonstrated on a dead unit. urescue <strong>refuses</strong> OpenWrt images — recovery is always via airOS.</td></tr>
+    <tr><td>Build system</td><td><span class="pill bad">NONE YET</span></td><td>AGENTS.md P0 item. FMX-0011 delivers it.</td></tr>
+    <tr><td>Stock airOS images on disk</td><td><span class="pill ok">WA.v8.5.12 hashed</span></td><td>LiteBeam's own version is unknown — needed for its dd-unlock (same-version rule).</td></tr>
+  </table></div>
+
+  <h2>3 · Phase A — Get the bench physically ready <span class="pill you">YOU</span></h2>
+  <ol class="steps">
+    <li><strong>Power the LiteAP back up</strong> on its own injector. It should return on <code>192.168.1.1</code> within ~60 s. Tell me and I'll confirm and re-run the health check.</li>
+    <li><strong>Find the LiteBeam AC Gen2.</strong> Easiest: hold RESET 10–15 s <em>while it is running</em> → factory reset → it comes up at <code>192.168.1.20</code> with <code>ubnt/ubnt</code>. (Or read its lease off the router.) Then I'll pull its airOS version and flash map read-only.</li>
+    <li><strong>Two injectors, both radios powered, both on the bench segment</strong> at the same time. Check the injector labels match each radio's rating.</li>
+    <li>Optional but recommended before Phase E: SMA pigtails + 30–60 dB of step attenuators for a cabled AP↔CPE path.</li>
+  </ol>
+  <div class="callout warn"><strong>Do not press RESET at power-on</strong> unless we mean urescue. Held at power-on = recovery mode; held while running = factory reset. Different things.</div>
+
+  <h2>4 · Phase B — FMX-0011: reproducible build with spectral <span class="pill me">ME</span></h2>
+  <p>Why a full buildroot and not the ImageBuilder: spectral does <code>select KERNEL_RELAY</code>, and <code>CONFIG_RELAY</code> is off in the stock 24.10 kernel. That is a <em>kernel</em> change; ImageBuilder only assembles prebuilt packages.</p>
+  <pre>git clone -b v24.10.4 --depth 1 https://git.openwrt.org/openwrt/openwrt.git futuramax-openwrt
+cd futuramax-openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+
+cat &gt; .config &lt;&lt;'EOF'
+CONFIG_TARGET_ath79=y
+CONFIG_TARGET_ath79_generic=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_lap-120=y
+CONFIG_TARGET_DEVICE_ath79_generic_DEVICE_ubnt_litebeam-ac-gen2=y
+CONFIG_PACKAGE_MAC80211_DEBUGFS=y
+CONFIG_PACKAGE_ATH_DEBUG=y        # required by ATH_SPECTRAL
+CONFIG_PACKAGE_ATH_SPECTRAL=y     # -> ATH10K_SPECTRAL + KERNEL_RELAY
+EOF
+make defconfig
+./scripts/diffconfig.sh &gt; futuramax.diffconfig      # this file IS the reproducible build
+make download -j8 && make -j6 2&gt;&amp;1 | tee build.log</pre>
+  <p><strong>Exit checks before any flash:</strong></p>
+  <ul>
+    <li>Build log shows <code>CONFIG_ATH10K_SPECTRAL=y</code> for ath10k-ct and <code>CONFIG_RELAY=y</code> in the kernel config</li>
+    <li>Extract <code>kmod-ath10k-ct</code> from the output and <code>strings ath10k_core.ko | grep spectral_scan</code> — the symbols must be there</li>
+    <li>Record: git tag, <code>futuramax.diffconfig</code>, sha256 of both sysupgrade images, kernel version, CT firmware file name (must still be <code>…lede.022</code>) → <code>firmware/build/MANIFEST.md</code></li>
+  </ul>
+  <div class="callout ok">Side effect: this <em>is</em> the AGENTS.md §11 P0 "reproducible build system". Commit the diffconfig and the manifest and it is done.</div>
+
+  <h2>5 · Phase C — Flash both radios <span class="pill you">YOU</span> + <span class="pill me">ME</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>LiteAP — routine sysupgrade</h3>
+      <pre>scp openwrt-…-ubnt_lap-120-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/
+ssh root@192.168.1.1 sysupgrade -v /tmp/openwrt-…-sysupgrade.bin</pre>
+      <p>~2 minutes. Keeps config. Then verify:</p>
+      <pre>ls /sys/kernel/debug/ieee80211/phy0/ath10k/ | grep spectral
+# expect: spectral_bins  spectral_count  spectral_scan0  spectral_scan_ctl</pre>
+      <p>Then one reboot to confirm the config persists.</p>
+    </div>
+    <div class="card">
+      <h3>LiteBeam AC Gen2 — first install (dd-unlock)</h3>
+      <p>Same WA board, same flash layout, same runbook as the LAP-120: <code>safety/recovery/FMX-0002_recovery_runbook.md</code> + <code>install_openwrt_ddunlock.py</code> (I'll parameterise it for the LiteBeam image and its airOS version).</p>
+      <p>Needs: its <strong>stock airOS image at the exact version it runs</strong> (for the unlock step), fetched and hashed first.</p>
+      <p>Then it's on OpenWrt with spectral too, and the bench has two instrumented radios.</p>
+    </div>
+  </div>
+  <div class="callout bad"><strong>The one real risk, said once.</strong> urescue refuses OpenWrt images. A bad sysupgrade means: urescue → stock airOS → redo dd-unlock. Recoverable, but a wasted hour. Mitigation is already in Phase B's exit checks: verify the image before trusting it, change only the spectral options.</div>
+
+  <h2>6 · Phase D — First real data, AP only <span class="pill me">ME</span></h2>
+  <h3>D1 · Campaign C1: spectral reproduction (FMX-0010)</h3>
+  <pre>cd /sys/kernel/debug/ieee80211/phy0/ath10k
+echo background &gt; spectral_scan_ctl; echo trigger &gt; spectral_scan_ctl
+sleep 60                      # or drive traffic / a scan
+echo disable &gt; spectral_scan_ctl
+cat spectral_scan0 &gt; /tmp/fft-$(date +%s).bin</pre>
+  <p>Parse the ath10k FFT format, plot per-bin distributions, and <strong>compare against the published QCA9880 datasets</strong> (WiFiSpectralJam, ComMag 2024). Question answered: <em>does our Wave-1 output look like theirs, and is it ML-usable?</em> Output: first FuturaMAX spectral corpus + a sanity verdict. No second radio needed.</p>
+  <h3>D2 · The cheapest decisive experiment in the project</h3>
+  <p>From <code>QCA988X_CONTROL_BOUNDARY.md</code> §2d: enable peer stats and confirm <code>last_tx_bitrate</code> is non-zero per station. If it is, mac80211 airtime fairness is real on this hardware. If stations sit at the 6 Mb/s fallback, every airtime-fairness gain in the literature is unavailable here and we pace from the qdisc instead. Needs one associated station → first thing after Phase C.</p>
+
+  <h2>7 · Phase E — Link baselines <span class="pill me">ME</span> (needs both radios)</h2>
+  <div class="wrap"><table>
+    <tr><th>Step</th><th>What</th><th>Why</th></tr>
+    <tr><td>E1</td><td>Bring up AP↔STA on the bench (OTA at low power first; cabled once D4 hardware arrives). Both ends OpenWrt.</td><td>Both ends instrumented = telemetry from both sides, which most published work could not do.</td></tr>
+    <tr><td>E2</td><td><strong>FMX-0007</strong> baseline: iperf3 + flent (RRUL), p50/p95/p99, goodput, retries, MCS distribution. Repeat ≥5×.</td><td>This is BASELINE-A. The autoresearch loop cannot exist without it.</td></tr>
+    <tr><td>E3</td><td><strong>FMX-0008</strong>: AQL / airtime fairness on vs off, A/B/A/B.</td><td>The single biggest lever the project identified. First number that means anything.</td></tr>
+    <tr><td>E4</td><td>Campaigns C2–C4 (aggregation sweep, aggregation-aware pacing, rate-envelope via <code>ratemask-CT</code>).</td><td>Each provides what the next needs. Order is in <code>EXPERIMENTS.md</code>.</td></tr>
+  </table></div>
+
+  <h2>8 · Phase F — The autoresearch bench (D-0009) <span class="pill me">ME</span></h2>
+  <p>Built <em>after</em> E2 exists, because the evaluator must be validated against a real baseline before any agent is allowed to score against it.</p>
+  <ol class="steps">
+    <li><code>bench/</code> (immutable): <code>topology.yaml</code>, traffic scripts, telemetry collector (peer_stats, fw_stats, pktlog, spectral), evaluator (lexicographic: p99 → p95 → fairness → goodput/MHz → retry airtime → aggregate), safety (validity gates + rollback via the proven recovery).</li>
+    <li>A/B/A/B runner writing <code>runs/&lt;id&gt;/</code> and <code>results.tsv</code>, with the full RF/driver/env fingerprint per run.</li>
+    <li><code>policy/</code> gen-1 knobs only (pacing/FQ, <code>htt_max_amsdu_ampdu</code>, AQL point, spectral-driven channel policy, later <code>ratemask-CT</code>).</li>
+    <li>Only then: let an agent propose changes. Never <code>set_rate_override</code> as per-CPE control; never per-peer TX power or arbitrary retries in gen 1.</li>
+  </ol>
+
+  <h2>9 · What this plan rests on</h2>
+  <div class="grid">
+    <div class="card"><h3>Verified today</h3><ul>
+      <li>24.10 tree ships CT FW022 (<code>ath10k-ct-firmware/Makefile</code>)</li>
+      <li>Spectral wiring + <code>KERNEL_RELAY</code> requirement (<code>ath.mk</code>, <code>ath10k-ct/Makefile</code>, generic <code>config-6.6</code>)</li>
+      <li>WSL host capacity and toolchain</li>
+      <li>All 11 literature sources, in-browser</li></ul></div>
+    <div class="card"><h3>Still assumed — will check before acting</h3><ul>
+      <li>The LiteBeam's airOS version (decides which stock image the unlock needs)</li>
+      <li>That the WiFiSpectralJam release includes a usable parser (else I write one against the kernel-documented FFT format)</li>
+      <li>7 GB WSL RAM is enough for <code>-j6</code>; will drop to <code>-j4</code> if it swaps</li></ul></div>
+  </div>
+  <p class="small">Numbers from other silicon (PNOFA +17/13 %, WiFi-CUTS +15 %, IteRate +21 %) are hypotheses for us, never expectations — AGENTS.md §13. The ~30 % / 5–10× envelope is recorded as an INFERRED target in <code>EXPERIMENTS.md</code>.</p>
+</main>
+</body>
+</html>

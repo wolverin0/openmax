@@ -1,0 +1,127 @@
+===== FUTURAMAX PRE-FLASH PROBE 2026-08-08T23-43-42Z host=192.168.1.20 =====
+
+--- airos_version ---
+WA.v8.5.12
+WA.ar934x.v8.5.12.40181.190213.1104
+
+--- board_identity ---
+
+
+--- flash_map ---
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "u-boot"
+mtd1: 00010000 00010000 "u-boot-env"
+mtd2: 00100000 00010000 "kernel"
+mtd3: 00e60000 00010000 "rootfs"
+mtd4: 00040000 00010000 "cfg"
+mtd5: 00010000 00010000 "EEPROM"
+
+--- kernel_cmdline ---
+console=ttyS0,115200 rootfstype=squashfs init=/init mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),1024k(kernel),14720k(rootfs),256k(cfg),64k(EEPROM) mem=64M panic=3 quiet
+
+--- assoc_stations ---
+0
+ath0      IEEE 802.11ac  ESSID:"ubnt"  
+          Mode:Master  Frequency:5.165 GHz  Access Point: 18:E8:29:74:55:A2   
+          Bit Rate:400 Mb/s   Tx-Power=-4 dBm   
+          RTS thr:off   Fragment thr:off
+          Center1-Freq: 5.175 GHz
+
+--- ubntbox_fingerprint ---
+-rwxr-xr-x    1 ubnt     admin          740 Feb 13 09:08 /bin/fwupdate
+lrwxrwxrwx    1 ubnt     admin            7 Feb 13 09:09 /bin/fwupdate.real -> ubntbox
+-rwxr-xr-x    1 ubnt     admin       833540 Feb 13 09:08 /bin/ubntbox
+-rwxr-xr-x    1 ubnt     admin          740 Feb 13 09:08 /sbin/fwupdate
+lrwxrwxrwx    1 ubnt     admin            7 Feb 13 09:09 /sbin/fwupdate.real -> ubntbox
+7c3a71db68e89d9bec716138c90871e6  /bin/ubntbox
+
+--- recovery_binaries ---
+/usr/bin/tftp
+
+--- bootloader_hints ---
+[    0.000000] flash_size passed from bootloader = 16
+[    0.000000] Kernel command line: console=ttyS0,115200 rootfstype=squashfs init=/init mtdparts=ath-nor0:256k(u-boot),64k(u-boot-env),1024k(kernel),14720k(rootfs),256k(cfg),64k(EEPROM) mem=64M panic=3 quiet 
+[    0.076000] 0x000000000000-0x000000040000 : "u-boot"
+[    0.077000] 0x000000040000-0x000000050000 : "u-boot-env"
+board.sysid=0xe8e5
+board.cpurevision=0x00001122
+board.arch=0
+board.fcc_id=SWX-LBE5AC120-U
+board.name=LiteAP AC
+board.shortname=L5C
+board.model=LAP-120
+board.timestamp=1551192368
+board.bom=13-00402-06
+board.netmodes=3
+board.hwaddr=18E8297455A2
+board.reboot=40
+board.upgrade=150
+board.phycount=1
+board.phy.1.maxmtu=2024
+board.fcc_unii_activated=1
+board.fcc_unii_switchable=0
+board.required_fw_version=524800
+radio.1.name=
+radio.1.shortname=
+radio.1.bus=pci
+radio.1.devdomain=5000
+radio.1.ccode=840
+radio.1.ccode_fixed=0
+radio.1.ccode_locked=0
+radio.1.subsystemid=0xe8e5
+radio.1.subvendorid=0x0777
+radio.1.txpower.max=24
+radio.1.txpower.min=-4
+radio.1.txpower.offset=1
+radio.1.ieee_modes=21
+radio.1.powerBackoff=5
+radio.1.antennas=1
+radio.1.def_antenna=1
+radio.1.antenna.1.id=1
+radio.1.antenna.1.name=16
+radio.1.antenna.1.gain=16
+radio.1.antenna.1.builtin=1
+radio.1.caps=2900361236
+radio.1.caps2=0
+
+--- mtd_ro_status ---
+0xc00
+crw-r--r--    1 ubnt     admin      90,   0 Jan  1  1970 /dev/mtd0
+crw-r--r--    1 ubnt     admin      90,   2 Jan  1  1970 /dev/mtd1
+crw-r--r--    1 ubnt     admin      90,   4 Jan  1  1970 /dev/mtd2
+crw-r--r--    1 ubnt     admin      90,   6 Jan  1  1970 /dev/mtd3
+crw-r--r--    1 ubnt     admin      90,   8 Jan  1  1970 /dev/mtd4
+crw-r--r--    1 ubnt     admin      90,  10 Jan  1  1970 /dev/mtd5
+crw-r--r--    1 ubnt     admin      90,  12 Jan  1  1970 /dev/mtd6
+crw-r--r--    1 ubnt     admin      90,  14 Jan  1  1970 /dev/mtd7
+brw-r--r--    1 ubnt     admin      31,   0 Jan  1  1970 /dev/mtdblock0
+brw-r--r--    1 ubnt     admin      31,   1 Jan  1  1970 /dev/mtdblock1
+brw-r--r--    1 ubnt     admin      31,   2 Jan  1  1970 /dev/mtdblock2
+brw-r--r--    1 ubnt     admin      31,   3 Jan  1  1970 /dev/mtdblock3
+brw-r--r--    1 ubnt     admin      31,   4 Jan  1  1970 /dev/mtdblock4
+brw-r--r--    1 ubnt     admin      31,   5 Jan  1  1970 /dev/mtdblock5
+brw-r--r--    1 ubnt     admin      31,   6 Jan  1  1970 /dev/mtdblock6
+brw-r--r--    1 ubnt     admin      31,   7 Jan  1  1970 /dev/mtdblock7
+
+--- free_tmp ---
+Filesystem                Size      Used Available Use% Mounted on
+tmpfs                    17.0M    408.0K     16.6M   2% /var
+             total         used         free       shared      buffers
+Mem:         61952        34720        27232            0         1532
+-/+ buffers:              33188        28764
+Swap:            0            0            0
+
+--- safety_gate ---
+associated stations: 0 (OK, lab unit)
+
+--- pulled /dev/mtd0 ---
+bytes: 262144
+sha256: 3f2082a130b761c39f648fe2f181b4c2ac523ef723ee22b601e35fd462ec1191
+saved: lab-lap120-mtd0-u-boot-2026-08-08T23-43-42Z.bin
+
+--- pulled /bin/ubntbox ---
+bytes: 833540
+sha256: 6ea397e520f4eb21e5d1b747b123c234158b8fd184afc99c17a00b5ec4894ec2
+saved: lab-lap120-bin-ubntbox-2026-08-08T23-43-42Z.bin
+
+===== END =====
