@@ -72,6 +72,7 @@ To explore our technical findings, architectural decisions, and experiment logs,
 | Document | Purpose |
 |:---|:---|
 | **[docs/DOCS-MAP.md](docs/DOCS-MAP.md)** | **Master Reading Map**: Status and classification of all project files. |
+| **[debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md](debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md)** | **Multi-LLM Debate Synthesis**: 3-way frontier AI consensus (Fable 5.1, GPT-6 Astra, Gemini 3.8 Flash) on CPU boundaries, shaping, and uplink gates. |
 | **[docs/COMMUNITY_CALL_FOR_COLLABORATION.md](docs/COMMUNITY_CALL_FOR_COLLABORATION.md)** | **Community Manifesto**: How WISPs, kernel devs, and researchers can collaborate with our AI loop. |
 | **[knowledge/ATH10K_CT_FIRMWARE_DEEP_DIVE.md](knowledge/ATH10K_CT_FIRMWARE_DEEP_DIVE.md)** | **ath10k-ct Firmware Internals**: 30 vs 4 retries, HTT credit rings, bufferbloat, peer stats, and the 6 Mbps airtime cliff. |
 | **[knowledge/PACED_AGGREGATION_AND_COTSQ.md](knowledge/PACED_AGGREGATION_AND_COTSQ.md)** | **Paced Aggregation & CoTSQ**: Mathematical model of A-MPDUs; why TSQ=1ms starves throughput and CoTSQ=6ms restores 10× goodput. |
@@ -79,8 +80,8 @@ To explore our technical findings, architectural decisions, and experiment logs,
 | **[knowledge/AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md](knowledge/AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md)** | **Autoresearch Engine Architecture**: Karpathy-style closed-loop AI optimization, multi-objective reward function $J(\theta)$, and A/B/A/B gate. |
 | **[knowledge/SPECTRAL_AND_CSI_ANALYSIS.md](knowledge/SPECTRAL_AND_CSI_ANALYSIS.md)** | **Spectral & CSI Analysis**: Baseband FFT scanning via RelayFS vs structural absence of CSI on QCA988x. |
 | **[docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)** | **Living State Log**: Chronological development log (read latest addendum first). |
-| **[docs/DECISIONS.md](docs/DECISIONS.md)** | **Architectural Decision Records**: D-0001 through D-0010 (D-0009 autoresearch, D-0010 testbed). |
-| **[docs/EXPERIMENTS.md](docs/EXPERIMENTS.md)** | **Experiment Register**: FMX-0001 through FMX-0011 and Stage-3 Campaigns C1–C8. |
+| **[docs/DECISIONS.md](docs/DECISIONS.md)** | **Architectural Decision Records**: D-0001 through D-0011 (D-0009 autoresearch, D-0010 testbed, D-0011 multi-LLM consensus). |
+| **[docs/EXPERIMENTS.md](docs/EXPERIMENTS.md)** | **Experiment Register**: FMX-0001 through FMX-0012 and Stage-3 Campaigns C1–C8. |
 | **[docs/TESTBED_ENVIRONMENT_GUIDE.md](docs/TESTBED_ENVIRONMENT_GUIDE.md)** | **2 AP + 20 CPE Testbed Guide**: RF attenuation, Fraunhofer distance, unattended recovery. |
 | **[knowledge/REAL_HARDWARE_LITERATURE.md](knowledge/REAL_HARDWARE_LITERATURE.md)** | **Literature Catalogue**: Verified analysis of IteRate, WiFiSpectralJam, PNOFA, and Quick & Plenty. |
 | **[docs/QCA988X_CONTROL_BOUNDARY.md](docs/QCA988X_CONTROL_BOUNDARY.md)** | **Hardware Control Boundary**: What the host can and cannot control under ath10k-CT. |
@@ -95,6 +96,7 @@ To explore our technical findings, architectural decisions, and experiment logs,
 2. **Bootloader Recovery is Proven**: U-Boot 1.1.4-s1100 enforces RSA signatures over TFTP `urescue`, refusing unsigned images, but reliably restoring stock airOS signed binaries without serial or case opening.
 3. **The Radio Firmware Architecture**: airMAX AC loads three distinct proprietary radio firmware binaries (`_ptp_bin`, `_ptmp_ap_bin`, `_ptmp_sta_bin`) directly into the radio's Xtensa processor. airMAX polling runs partly on the radio core.
 4. **The Host Control Surface**: Unicast rate selection is firmware-offloaded on QCA988x (`HAS_RATE_CONTROL`). However, outer-loop control over **A-MPDU bounds (`htt_max_amsdu_ampdu`)**, **rate masks (`ratemask-CT`)**, **AQL queue limits**, and **spectral FFT capture** is completely viable from the host.
+5. **Split-Plane Shaping Architecture & CPU Boundary (Decision D-0011)**: A 3-way frontier AI debate across Claude (Fable 5.1), OpenAI Codex (GPT-6 Astra), and Google Gemini (Gemini 3.8 Flash) established that the AR9342 MIPS 74Kc CPU cannot run line-rate CAKE without kernel softirq starvation (`ksoftirqd`). Downlink CAKE is strictly offloaded to an upstream x86/ARM gateway, the AP runs native `ath10k` AQL + `fq_codel`, and OpenWrt CPEs run lightweight `tc-tbf` egress pacing + hardware RTS/CTS to protect the uplink against hidden-node collisions. Soft-polling (PS-Poll/U-APSD) was rejected, and a decisive 20-CPE saturated uplink go/no-go gate was codified.
 
 ### What the Autonomous Loop Targets (Inferred Gains)
 

@@ -37,13 +37,22 @@ They total ~355k characters and six of them answer the same eleven questions.
 | File | Class | Notes |
 |---|---|---|
 | `DOCS-MAP.md` | CURRENT | This file. |
-| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0010 incl. retractions (D-0003, D-0007, D-0008, D-0010 testbed). |
+| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0011 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate). |
 | `CURRENT_STATE.md` | CURRENT | Chronological log; last addendum is the truth, older verdicts may be retracted. |
-| `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0011 status, install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
+| `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0012 status (incl. FMX-0012 multi-LLM debate), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
 | `QCA988X_CONTROL_BOUNDARY.md` | **CURRENT** | Source-verified host control surface on QCA988x under ath10k-CT; §4 = spectral/set_rates/set_rate_override/ratemask-CT truths. |
 | `HARDWARE_MATRIX.md` | **CURRENT** | Grade A, all six models read live 2026-08-08 (LAP-GPS `0xe7fd`, LAP-120 `0xe8e5`, Prism `0xe7e9`). |
 | `TESTBED_ENVIRONMENT_GUIDE.md` | **CURRENT** | 2 AP + 20 CPE physical testbed specs, RF attenuation calculations, Fraunhofer distance, unattended urescue recovery. |
 | `COMMUNITY_CALL_FOR_COLLABORATION.md` | **CURRENT** | Community manifesto, call for WISP/kernel hacker participation, methodology disclosure. |
+
+### `debates/` — Multi-LLM Cross-Model Architecture Reviews
+
+| File | Class | Notes |
+|---|---|---|
+| `debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md` | **CURRENT** | Authoritative consensus synthesis (Claude Fable 5.1, OpenAI Codex GPT-6 Astra, Google Gemini 3.8 Flash): MIPS 74Kc CPU limits, external gateway CAKE offload, CPE TBF, and uplink go/no-go gate. |
+| `debates/001-openmax-qca9880-ptmp-optimizat/transcript.md` | CURRENT | Full verbatim 3-round cross-examination transcript across all 3 models. |
+| `debates/viewer.html` | CURRENT | Interactive multi-round debate viewer UI. |
+
 
 ### `knowledge/` — verified evidence, source-backed
 
