@@ -6,7 +6,7 @@ AGENTS.md constitution, decisions, experiments, control boundary, real-hardware 
 recovery runbook, research prompt, evidence pipeline.
 Read when: you are starting work on FuturaMAX. Read this, then AGENTS.md, then DECISIONS.md.
 Current verdict: OpenWrt 24.10.4 runs on the lab LAP-120 with proven recovery; Stage 3 is an
-autonomous research loop (D-0009); custom-MAC go/no-go is UNKNOWN by design (NO-GO retracted, D-0003). Status: CURRENT (2026-09-20).
+autonomous research loop (D-0009); custom-MAC go/no-go is UNKNOWN by design (NO-GO retracted, D-0003). Status: CURRENT (2026-09-26).
 
 ## Read in this order
 
@@ -109,6 +109,8 @@ Not yet produced: `normalized/claims.jsonl`, `measurements.jsonl`, `candidates.j
 | `safety/recovery/install_openwrt_ddunlock.py` | CURRENT | Scripted dd-unlock: interrupt at the ROOTFS write, stage the image as a file, verify the whole image across the mtd2/mtd3 boundary before reboot. |
 | `inventory/board_probe/preflash_probe.py` | CURRENT | Read-only pre-flash evidence collector with an enforced write-primitive guard and a 0-stations abort. |
 | `firmware/openwrt/`, `firmware/WA.v8.5.12*.bin` | CURRENT | SHA-256-verified OpenWrt 24.10.4 images and the stock airOS rollback image. |
+| `firmware/openwrt/futuramax-r28959-spectral/` | **CURRENT (2026-09-26, PROVISIONAL)** | FMX-0011 output: spectral-enabled 24.10.4 (r28959) images for LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC + sha256sums, manifest, dot.config, build log. Not yet flashed. |
+| `tools/openwrt-build/` | **CURRENT** | Reproducible build system: `MANIFEST.md` (what/how/hashes/caveats), seed config + diffconfig, `run-attached.sh`/`build.sh` (WSL runner with gcc-12 shim and retry), `exit-checks.sh`, `copy-artifacts.sh`, `diag-hang.sh`. |
 | `research/raw/chatgpt/2026-09-20/` | CURRENT | Research waves 2 and 2b, verbatim, hashed, registered in the manifest with verification records. |
 
 ### `tools/research/`

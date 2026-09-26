@@ -5,8 +5,8 @@ install/recovery record, and the Stage-3 autonomous-research campaign plan C1–
 Keywords: FMX-0001..0011, campaigns C1-C8, autoresearch, spectral rebuild, sysupgrade reflash,
 ratemask-CT, urescue, dd-unlock, success thresholds, INFERRED targets, LAP-120.
 Read when: choosing what to run next, or before touching hardware. Current verdict: FMX-0001/0002
-DONE, OpenWrt 24.10.4 running on the lab unit; next is FMX-0011 (spectral rebuild + routine
-sysupgrade) then campaign C1; C2 onward need the second radio. Status: CURRENT (2026-09-20).
+DONE, OpenWrt 24.10.4 running on the lab unit; FMX-0011 built 2026-09-26 (spectral image, NOT yet flashed); next is the routine
+sysupgrade reflash, then campaign C1; C2 onward need the second radio. Status: CURRENT (2026-09-26).
 
 ## Status
 
@@ -22,8 +22,8 @@ sysupgrade) then campaign C1; C2 onward need the second radio. Status: CURRENT (
 | FMX-0007 | OpenWrt single-CPE baseline | **UNBLOCKED** (OpenWrt is on the lab unit) — still needs a second radio for a link |
 | FMX-0008 | OpenWrt AQL/TXQ on vs off | **UNBLOCKED** — the single biggest lever in the project; needs a second radio for load |
 | FMX-0009 | QCA988x fixed-rate/rate-mask authority | **UNBLOCKED, and re-scoped 2026-09-20.** Target `ratemask-CT`, NOT `set_rates` (bcast/mcast only) and NOT `set_rate_override` (Wave-2 only). See `QCA988X_CONTROL_BOUNDARY.md` §4b–4d. |
-| FMX-0010 | QCA988x FFT capture + classifier validation | **BLOCKED ON A BUILD, not on hardware.** Spectral is absent because our image lacks `CONFIG_PACKAGE_ATH_SPECTRAL`, not because QCA988x can't do FFT (§4a). Needs FMX-0011. |
-| FMX-0011 | Reproducible OpenWrt build with spectral enabled | **NEW, next action.** Build 24.10.4/ath79-generic with `PACKAGE_ATH_DEBUG` + `PACKAGE_ATH_SPECTRAL`; delivers AGENTS.md §11 P0 "reproducible build system" as a side effect. **Requires a reflash — see below.** Unblocks FMX-0010. |
+| FMX-0010 | QCA988x FFT capture + classifier validation | **UNBLOCKED 2026-09-26** — the spectral-enabled image exists (FMX-0011). Waits on the LiteAP being powered on and reflashed via routine `sysupgrade`. |
+| FMX-0011 | Reproducible OpenWrt build with spectral enabled | **BUILT 2026-09-26, exit checks PASS, NOT YET FLASHED.** v24.10.4 tag (r28959, same revision as stock), Linux 6.6.110, ath10k-ct 2024.07.30 smallbuffers with `CONFIG_ATH10K_SPECTRAL=y` (symbols `ath10k_spectral_process_fft` + imported `relay_open` verified with readelf), kernel `CONFIG_RELAY=y`, CT firmware FW022 unchanged. Four profiles: LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC. Artifacts: `firmware/openwrt/futuramax-r28959-spectral/`; build system: `tools/openwrt-build/` (see its MANIFEST.md). **Caveat:** built on a WSL host that produced random compiler crashes (see MANIFEST) — image is PROVISIONAL until rebuilt on a healthy host or validated on the device. Reflash is routine `sysupgrade` (below). |
 
 ## FMX-0011 needs a reflash — but the EASY kind. Settled from source 2026-09-20.
 

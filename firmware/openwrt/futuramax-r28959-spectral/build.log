@@ -1,0 +1,99 @@
+ATTACHED-RUNNER pid=482466 2026-09-26T19:17:31+00:00
+START 2026-09-26T19:17:31+00:00 commit=78b23a2 tag=v24.10.4 hostcc=/home/ggorbalan/futuramax/hostcc-shim/gcc jobs=6
+ make[2] -C package/utils/ucode download
+ make[1] target/download
+ make[2] -C target/linux download
+DOWNLOAD_EXIT=0 2026-09-26T19:17:42+00:00
+MAKE_ATTEMPT=1 2026-09-26T19:17:42+00:00
+make[2]: Entering directory '/home/ggorbalan/futuramax/openwrt-24.10.4/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/ggorbalan/futuramax/openwrt-24.10.4/scripts/config'
+ make[1] world
+ make[2] package/cleanup
+ make[2] target/compile
+ make[3] -C target/linux compile
+ make[2] buildinfo
+ make[2] package/compile
+ make[3] -C package/libs/toolchain compile
+ make[3] -C package/system/fwtool host-compile
+ make[3] -C package/kernel/gpio-button-hotplug compile
+ make[3] -C package/libs/libjson-c host-compile
+ make[3] -C package/libs/ncurses host-compile
+ make[3] diffconfig buildversion feedsversion
+ make[3] -C package/system/usign host-compile
+ make[3] -C package/libs/libubox host-compile
+ make[3] -C package/libs/libnl-tiny compile
+ make[3] -C package/libs/libjson-c compile
+ make[3] -C package/utils/lua compile
+ make[3] -C package/libs/libmd compile
+ make[3] -C package/firmware/linux-firmware compile
+ make[3] -C package/libs/zlib compile
+ make[3] -C package/system/fwtool compile
+ make[3] -C package/system/ucert host-compile
+ make[3] -C package/libs/libsepol compile
+ make[3] -C package/libs/musl-fts compile
+ make[3] -C package/system/openwrt-keyring compile
+ make[3] -C package/libs/openssl compile
+ make[3] -C package/firmware/wireless-regdb compile
+ make[3] -C package/libs/mbedtls compile
+ make[3] -C package/network/utils/iw compile
+ make[3] -C package/libs/jansson compile
+ make[3] -C package/libs/libmnl compile
+ make[3] -C package/libs/libpcap compile
+ make[3] -C package/network/services/dropbear compile
+ make[3] -C package/network/utils/linux-atm compile
+ make[3] -C package/network/utils/resolveip compile
+ make[3] -C package/network/utils/ethtool compile
+ make[3] -C package/system/ca-certificates compile
+ make[3] -C package/system/opkg host-compile
+ make[3] -C package/libs/libubox compile
+ make[3] -C package/libs/ncurses compile
+ make[3] -C package/libs/pcre2 compile
+ make[3] -C feeds/packages/net/iperf3 compile
+ make[4] scripts/config/conf
+ make[3] -C package/libs/libnftnl compile
+ make[3] -C package/libs/ustream-ssl compile
+ make[3] -C package/network/ipv6/odhcp6c compile
+ make[3] -C package/network/utils/tcpdump compile
+ make[3] -C package/system/mtd compile
+ make[3] -C package/system/urngd compile
+ make[3] -C package/system/ubus compile
+ make[3] -C package/system/uci compile
+ make[3] -C package/kernel/linux compile
+ make[3] -C package/utils/util-linux compile
+ make[3] -C package/utils/jsonfilter compile
+ make[3] -C package/libs/libselinux compile
+ make[3] -C package/system/usign compile
+ make[3] -C package/firmware/ath10k-ct-firmware compile
+ make[3] -C package/network/utils/iwinfo compile
+ make[3] -C package/network/config/swconfig compile
+ make[3] -C package/network/services/dnsmasq compile
+ make[3] -C package/network/services/odhcpd compile
+ make[3] -C package/network/utils/rssileds compile
+ make[3] -C package/utils/ucode compile
+ make[3] -C package/utils/busybox compile
+ make[3] -C package/libs/udebug compile
+ make[3] -C package/libs/uclient compile
+ make[3] -C package/system/ubox compile
+ make[3] -C package/network/services/hostapd compile
+ make[3] -C package/network/config/netifd compile
+ make[3] -C package/system/opkg compile
+ make[3] -C package/network/config/wifi-scripts compile
+ make[3] -C package/system/urandom-seed compile
+ make[3] -C package/system/fstools compile
+ make[3] -C package/network/services/ppp compile
+ make[3] -C package/network/utils/nftables compile
+ make[3] -C package/kernel/mac80211 compile
+ make[3] -C package/network/config/firewall4 compile
+ make[3] -C package/system/procd compile
+ make[3] -C package/boot/uboot-envtools compile
+ make[3] -C package/kernel/ath10k-ct compile
+ make[3] -C package/base-files compile
+ make[2] package/install
+ make[2] target/install
+ make[3] -C target/linux install
+ make[2] package/index
+ make[2] json_overview_image_info
+ make[2] checksum
+BUILD_EXIT=0 attempts=1 2026-09-26T19:18:51+00:00
+ATTACHED-RUNNER done rc=0 2026-09-26T19:18:51+00:00

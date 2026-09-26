@@ -6,7 +6,7 @@ Keywords: OpenWrt 24.10.4 on LAP-120, FMX-0002 done, spectral rebuild FMX-0011, 
 IteRate, WiFiSpectralJam, D-0009 autoresearch, second radio, urescue.
 Read when: resuming FuturaMAX work or handing it to another pane. Current verdict: **OpenWrt runs
 on the lab unit; Stage 3 is defined as an autonomous research loop (D-0009); next actions are the
-spectral rebuild (FMX-0011) and campaign C1; the second radio is the binding constraint.** Status: CURRENT, 2026-09-20.
+spectral rebuild (FMX-0011) and campaign C1; the second radio is the binding constraint.** Status: CURRENT, 2026-09-26 (FMX-0011 image built, not flashed; see last addendum).
 
 ## Pipeline position
 
@@ -459,3 +459,33 @@ need a link. C1 (spectral reproduction) needs only the AP plus the FMX-0011 rebu
      - `knowledge/SPECTRAL_AND_CSI_ANALYSIS.md`
    - Synchronized `docs/DOCS-MAP.md` and `README.md`.
 
+
+## Addendum 2026-09-26 (Claude pane): FMX-0011 built, exit checks PASS, image not yet flashed
+
+1. **FMX-0011 delivered as an artifact, not yet on the radio.** OpenWrt `v24.10.4` (r28959, same
+   revision as the stock image on the LiteAP) rebuilt in WSL with `PACKAGE_ATH_DEBUG`,
+   `PACKAGE_ATH_SPECTRAL` (→ kernel `CONFIG_RELAY=y`), `MAC80211_DEBUGFS`, `ATH_DFS`, plus bench
+   tools (iperf3, tcpdump-mini, iw-full, ethtool). Four profiles in one multi-profile build:
+   `ubnt_lap-120`, `ubnt_litebeam-ac-gen2`, `ubnt_nanostation-ac`, `ubnt_nanostation-ac-loco`.
+   Exit checks (`tools/openwrt-build/exit-checks.sh`) all PASS: `ath10k_core.ko` defines
+   `ath10k_spectral_process_fft` and imports `relay_open`; CT firmware stays FW022; Linux 6.6.110.
+   Artifacts + sha256sums + dot.config + build log: `firmware/openwrt/futuramax-r28959-spectral/`.
+2. **Build host caveat (D-0011 candidate).** This PC's WSL (2.7.14, kernel 6.18.33.2,
+   `autoMemoryReclaim=gradual`) produced one kernel mmap deadlock and three unrelated, non-reproducible
+   compiler crashes during the build. The final image came from a clean single pass, but treat it as
+   **PROVISIONAL**: validate on the lab LiteAP (boot, radio up, `spectral_scan_ctl` present) or rebuild
+   on a healthy Linux host before it becomes the research baseline. Details in `tools/openwrt-build/MANIFEST.md`.
+3. **Two conflicts found in the 2026-09-26 Antigravity-pane docs, not yet resolved (operator call):**
+   - `docs/TESTBED_ENVIRONMENT_GUIDE.md` §6.2 Option C and D-0010 item 3 prescribe
+     `fw_setenv bootcmd "urescue"`, i.e. a write to mtd1 (u-boot-env). **AGENTS.md §4 forbids this**;
+     README §8 written the same day forbids it too. The compliant unattended path is the PoE-injector
+     remote-reset relay (§6.1).
+   - The testbed names **LAP-GPS** as both APs. **OpenWrt 24.10.4 has no LAP-GPS profile** (only
+     `ubnt_lap-120`, `ubnt_rocket-5ac-lite`, `ubnt_bullet-ac` among airMAX AC APs). Either the APs are
+     LAP-120s or a LAP-GPS port (DTS + GPS UART) is a new task. Also README §6 (rooftop Tier 2) and
+     the guide (multi-room Tier 2) disagree.
+4. **Next actions:** (a) operator powers the LiteAP (192.168.1.1) → flash
+   `openwrt-ath79-generic-ubnt_lap-120-squashfs-sysupgrade.bin` via `sysupgrade`, verify
+   `/sys/kernel/debug/ieee80211/phy0/ath10k/spectral_*`, reboot-persistence → FMX-0010/C1 can start;
+   (b) decide the build-host question (fix WSL config, or move builds to a Linux host);
+   (c) resolve the two doc conflicts above.

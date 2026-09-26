@@ -140,8 +140,8 @@ When Ubiquiti hardware resets to factory defaults or enters recovery mode, it de
 ```
 Switch Port Mapping:
 Port 1: Linux Test Server (Trunk: VLAN 10, 20)
-Port 2: AP 1 (LAP-GPS)      -> Untagged VLAN 10 (IP: 192.168.10.11)
-Port 3: AP 2 (LAP-GPS)      -> Untagged VLAN 10 (IP: 192.168.10.12)
+Port 2: AP 1 (LAP-120 / LAP-GPS) -> Untagged VLAN 10 (IP: 192.168.10.11) [LAP-120 for OpenWrt; LAP-GPS for stock airOS]
+Port 3: AP 2 (LAP-120 / LAP-GPS) -> Untagged VLAN 10 (IP: 192.168.10.12)
 Ports 4–23: CPE 1 .. 20     -> Isolated Private VLANs / Port Isolation
 ```
 
@@ -213,14 +213,9 @@ To achieve 100% unattended remote recovery:
      ```
 2. **Option B: Managed Switch Native Remote Reset**:
    * Netonix WispSwitches provide an integrated "Ubiquiti Remote Reset" software button that modulates the port DC line directly from the switch firmware.
-3. **Option C: Software-Initiated Recovery (When Linux/SSH is Reachable)**:
-   * If the radio is operational and needs to be returned to stock or recovery mode:
-     ```sh
-     fw_setenv bootcmd "urescue"
-     sync
-     reboot
-     ```
-   * On reboot, U-Boot reads `bootcmd=urescue` from `mtd1` (`u-boot-env`) and enters TFTP recovery mode immediately without touching any hardware button.
+3. **Option C: Software-Initiated Recovery via U-Boot Env (PROHIBITED by AGENTS.md §4)**:
+   * > [!WARNING]
+     > While `fw_setenv bootcmd "urescue"` can theoretically force U-Boot into TFTP server mode from userspace, **AGENTS.md §4 strictly protects `mtd1` (`u-boot-env`) from modifications**. Writing to bootloader environment partitions risks permanent flash corruption during power dips. **Option A (the hardware PoE-injector remote-reset relay) is the sole approved and constitutional unattended recovery mechanism.**
 
 ---
 
