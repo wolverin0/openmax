@@ -38,7 +38,7 @@ I'm not doing this in a metal warehouse (metal walls act like an echo chamber wi
 
 ### Why I'm Posting
 We opened up the entire project as a public research hub:
-[Insert GitHub link here]
+https://github.com/wolverin0/futuramax
 
 There is zero monetization here, no crypto, no paid courses. Just an open repository of hardware notes, driver findings, recovery runbooks, and experiment plans.
 
@@ -79,7 +79,7 @@ A few notable findings we’d appreciate feedback or sanity-checks on:
    Running standard `kmod-ath10k-ct` on 64MB/128MB RAM devices frequently triggers OOM panics under heavy multi-client saturation. The `kmod-ath10k-ct-smallbuffers` variant is necessary to stabilize the ring memory footprint.
 
 We’ve documented all of this in detail along with our physical testbed layout (2 APs + 20 CPEs across a 21m building canyon, plus bench SMA attenuators) and automated TFTP `urescue` recovery scripts:
-[Insert GitHub link here]
+https://github.com/wolverin0/futuramax
 
 We'd love input from anyone with deep ath10k, mac80211, or fixed wireless experience:
 - Has anyone successfully updated `ratemask-CT` dynamically per-peer at runtime without re-associating?
