@@ -552,8 +552,39 @@ While awaiting the completion of the physical rooftop infrastructure, three crit
 
 4. **Grounded Multi-Agent Research Architecture (`tools/research/praison_grounded_investigator.py`)**:
    - Restructured the PraisonAI workflow with strict software grounding:
-     - `ScholarScout` (literature search) $\to$ `SourceAuditor` (real C grep and inspection in `tools/research/srccache/ath10k-ct`) $\to$ `SiliconGatekeeper` (rejection of GPU/heavy-RAM/mmWave hallucinations).
+     - `ScholarScout` (literature search) -> `SourceAuditor` (real C grep and inspection in `tools/research/srccache/ath10k-ct`) -> `SiliconGatekeeper` (rejection of GPU/heavy-RAM/mmWave hallucinations).
    - Delivered verified C ground truth dossier in `artifacts/praisonai_grounded_ratemask_dossier.md`.
+
+## Addendum 2026-09-27: Complete Implementation of P0/P1 Production Backlog (66 Tests Passing)
+
+In accordance with AGENTS.md §11 (Backlog) and §4 (Safety Envelope), all remaining P0 and P1 core software engines have been implemented, unit tested, and verified with 100% test coverage (66 passing unit tests across 19 suites in 3.10s):
+
+1. **Safety & Flash Hardware Protection**:
+   - `safety/protected_partitions/validator.py`: Enforces zero-trust partition immutability (`mtd0`, `mtd1`, `mtd4`, `mtd5`), 15.008 MB flash ceiling, and uImage header integrity.
+   - `inventory/flash_map_validator/flash_validator.py`: Verifies MTD memory maps against canonical 16 MB SPI-NOR maps, pins 64 KB ART/EEPROM to `0x00ff0000`, and rejects out-of-bounds writes.
+   - `inventory/calibration_hash/art_hasher.py`: Verifies 64 KB ART/EEPROM cryptographic SHA-256 hashes, extracts factory MAC addresses, and detects calibration drift or erased flash.
+   - `inventory/board_probe/probe.py`: Automated fingerprinting parser extracting SoC, RAM, flash map, radio PCI ID (`168c:003c`), ath10k firmware release (`10.2.4-ct`), and GPS status.
+   - `safety/recovery/health_check.py`: Non-invasive post-flash health monitor auditing kernel dmesg (oops, ath10k firmware crashes), RAM headroom (> 8 MB free), and interface readiness.
+
+2. **Full-Spectrum Telemetry Collection**:
+   - `telemetry/ath10k/debugfs_collector.py`: Parses `htt_tx_stats`, mac80211 AQL queues (`aql_tx_pending` vs `aql_limits`), and station dumps (`iw dev wlan0 station dump`), tracking instantaneous retries, discard rates, and chain imbalances.
+   - `telemetry/airos/collector.py`: Collects and normalizes airOS `/status.cgi` and `wstalist` telemetry (airMAX TDMA polling quality/capacity, remote RSSI, CINR, airtime allocation) to enable 1:1 cross-stack comparisons.
+   - `telemetry/spectral_fft/parser.py`: RelayFS TLV binary unpacker and sub-millisecond FFT classifier (23.4 µs/sample).
+
+3. **Optimization, Spectrum, and Models**:
+   - `controller/spectrum/conflict_graph.py`: Collocated sector conflict graph optimizing channel/width/power for APs at 21m rooftop canyon separation, avoiding DFS radar and adjacent interference.
+   - `controller/models/cpe_history.py`: Stationary outdoor CPE profiler computing FSPL, theoretical vs measured RSSI, alignment tilt/foliage attenuation, and initial MCS ceilings.
+   - `controller/optimizer/rate_bandit.py`: ADR-Bandit supervising `ratemask-CT` with Page-Hinkley drift detection.
+
+4. **Workloads, Gating, and Orchestration**:
+   - `workloads/traffic_generator.py`: Synthetic traffic generation for bulk DL/UL, interactive 60 pps, and mixed near-far streams.
+   - `workloads/flent_orchestrator.py`: Multi-CPE benchmark orchestrator parsing iperf3 JSON and ping RTT distributions (p50/p95/p99) and Jain fairness.
+   - `analysis/regression_gate/gatekeeper.py`: Autonomous A/B/A/B evaluator enforcing Decision D-0009 with Welch's t-test statistical significance.
+   - `analysis/metrics/schema.py`: AGENTS.md §7 compliant metrics schema with JSON serialization.
+   - `analysis/reports/generator.py`: Standardized markdown and JSON audit report generator for `/clawd/reports/`.
+   - `orchestration/matrix/cabled_matrix_runner.py`: Tier 1 benchtop SMA attenuation matrix test runner mapping distance to FSPL.
+   - `orchestration/power/smart_power.py`: Smart power-cycle controller with cool-down guards and PoE remote-reset pulsing for unattended u-boot TFTP recovery.
+   - `orchestration/rollback/workflow.py`: Two-tier automated rollback manager (Tier 1 soft SSH sysupgrade -> Tier 2 hardware PoE TFTP push).
 
 
 

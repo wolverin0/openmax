@@ -37,7 +37,7 @@ They total ~355k characters and six of them answer the same eleven questions.
 | File | Class | Notes |
 |---|---|---|
 | `DOCS-MAP.md` | CURRENT | This file. |
-| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0012 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate), D-0012 (CoTSQ 6ms, target SRAM rate-cache lock, Bianchi PtMP hidden-node proof). |
+| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0013 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate), D-0012 (CoTSQ 6ms, target SRAM rate-cache lock, Bianchi PtMP hidden-node proof), D-0013 (Complete P0/P1 production engines). |
 | `CURRENT_STATE.md` | CURRENT | Chronological log; last addendum is the truth, older verdicts may be retracted. |
 | `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0016 status (incl. FMX-0012 multi-LLM debate, FMX-0013..0016 analytical queue recipes), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
 | `QCA988X_CONTROL_BOUNDARY.md` | **CURRENT** | Source-verified host control surface on QCA988x under ath10k-CT; §4 = spectral/set_rates/set_rate_override/ratemask-CT truths. |
