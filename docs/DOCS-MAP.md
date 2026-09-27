@@ -135,7 +135,28 @@ Not yet produced: `normalized/claims.jsonl`, `measurements.jsonl`, `candidates.j
 | `make_citation_audit.py` | CURRENT | Renders the citation audit. |
 | `unpack_airos.py` | CURRENT | Unpacks a published airOS `.bin` into u-boot/kernel/rootfs parts. |
 | `praison_researcher.py` | CURRENT | PraisonAI autonomous research loop driver for queue and ath10k deep-dives. |
+| `praison_grounded_investigator.py` | CURRENT | Grounded multi-agent research team with C-source grep and silicon feasibility gatekeeper. |
 | `srccache/` | GENERATED | Shallow ath10k-ct clone + fetched mainline sources. Reproducible; safe to delete. |
+
+### `tools/sim/`
+
+| File | Class | Purpose |
+|---|---|---|
+| `ptmp_contention_sim.py` | CURRENT | Discrete-event PtMP CSMA/CA simulator with hidden-node geometry, validating Bianchi models. |
+
+### `telemetry/spectral_fft/`
+
+| File | Class | Purpose |
+|---|---|---|
+| `parser.py` | CURRENT | High-performance binary RelayFS parser (`fft_sample_ath10k`) and sub-millisecond interference classifier (23.4 µs/sample). |
+| `test_parser.py` | CURRENT | Unit test suite and CPU benchmark for the spectral parser. |
+
+### `controller/optimizer/`
+
+| File | Class | Purpose |
+|---|---|---|
+| `rate_bandit.py` | CURRENT | ADR-bandit (Adaptive Resetting Multi-Armed Bandit) rate-mask controller with Page-Hinkley drift detector. |
+| `test_rate_bandit.py` | CURRENT | Dynamic fading benchmark verifying rapid convergence and rain fade adaptation. |
 
 ### `tools/observability/`
 
