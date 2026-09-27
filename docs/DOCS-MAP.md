@@ -37,9 +37,9 @@ They total ~355k characters and six of them answer the same eleven questions.
 | File | Class | Notes |
 |---|---|---|
 | `DOCS-MAP.md` | CURRENT | This file. |
-| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0011 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate). |
+| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0012 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate), D-0012 (CoTSQ 6ms, target SRAM rate-cache lock, Bianchi PtMP hidden-node proof). |
 | `CURRENT_STATE.md` | CURRENT | Chronological log; last addendum is the truth, older verdicts may be retracted. |
-| `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0012 status (incl. FMX-0012 multi-LLM debate), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
+| `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0016 status (incl. FMX-0012 multi-LLM debate, FMX-0013..0016 analytical queue recipes), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
 | `QCA988X_CONTROL_BOUNDARY.md` | **CURRENT** | Source-verified host control surface on QCA988x under ath10k-CT; §4 = spectral/set_rates/set_rate_override/ratemask-CT truths. |
 | `HARDWARE_MATRIX.md` | **CURRENT** | Grade A, all six models read live 2026-08-08 (LAP-GPS `0xe7fd`, LAP-120 `0xe8e5`, Prism `0xe7e9`). |
 | `TESTBED_ENVIRONMENT_GUIDE.md` | **CURRENT** | 2 AP + 20 CPE physical testbed specs, RF attenuation calculations, Fraunhofer distance, unattended urescue recovery. |
@@ -58,6 +58,8 @@ They total ~355k characters and six of them answer the same eleven questions.
 
 | File | Class | Notes |
 |---|---|---|
+| `ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md` | **CURRENT** | Canonical mathematical models ($\mathcal{H}_1 \dots \mathcal{H}_5$): CoTSQ 6ms A-MPDU efficiency $\eta(K)$, Bianchi Markov PtMP hidden-node collision derivations, and exact `ath10k-ct`/`mac80211` source hooks (`htt_max_amsdu_ampdu`, `num_rate_ctrl_objs_ct=24`, `num_msdu_desc_ct`). |
+| `PRAISONAI_AQL_RESEARCH_REPORT.md` | **CURRENT** | Autonomous research report on AQL, CoTSQ, ath10k-ct internals, and PtMP queue optimization from PraisonAI multi-agent run. |
 | `REAL_HARDWARE_LITERATURE.md` | **CURRENT** | Verified, tiered catalogue: IteRate, WiFiSpectralJam, ComMag 2024, ORCA, WiFi-CUTS, PNOFA, Quick & Plenty, Ending the Anomaly, hMAC, SmartLA, SRT-WiFi. Says what transfers (technique) vs what does not (numbers). |
 | `ATH10K_CT_FIRMWARE_DEEP_DIVE.md` | **CURRENT** | Deep dive into QCA9880 / ath10k-ct internals: 30 vs 4 retries, HTT credit rings, bufferbloat, peer stats, and last_tx_bitrate airtime cliff. |
 | `PACED_AGGREGATION_AND_COTSQ.md` | **CURRENT** | Mathematical and empirical analysis of A-MPDU aggregation in paced 802.11ac: why TSQ=1ms starves throughput and CoTSQ=6ms restores 10x goodput. |
@@ -132,7 +134,15 @@ Not yet produced: `normalized/claims.jsonl`, `measurements.jsonl`, `candidates.j
 | `check_links.py` | CURRENT | R3 reachability probe. Resumable; `--refresh` to redo. |
 | `make_citation_audit.py` | CURRENT | Renders the citation audit. |
 | `unpack_airos.py` | CURRENT | Unpacks a published airOS `.bin` into u-boot/kernel/rootfs parts. |
+| `praison_researcher.py` | CURRENT | PraisonAI autonomous research loop driver for queue and ath10k deep-dives. |
 | `srccache/` | GENERATED | Shallow ath10k-ct clone + fetched mainline sources. Reproducible; safe to delete. |
+
+### `tools/observability/`
+
+| File | Class | Purpose |
+|---|---|---|
+| `dashboard.py` | CURRENT | Real-time CLI/Markdown observability dashboard for multi-agent telemetry and experiment tracking. |
+| `ledger.py` | CURRENT | SQLite ledger abstraction (`telemetry.db`) recording experiment metrics, queue states, and hypotheses. |
 
 ### `tools/inventory/`
 

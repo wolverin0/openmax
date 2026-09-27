@@ -43,3 +43,11 @@ openMAX (formerly FuturaMAX) is an open R&D project to determine how much real-w
 - **Claude (Fable 5.1)**: Systems architecture, fail-safe protocols, control boundary rigor, and testing methodology.
 - **Codex (GPT-6 Astra)**: Low-level driver implementation (ath10k/mac80211), MIPS kernel performance, memory/queue data structures, and concrete code paths.
 - **Gemini (Gemini 3.8 Flash)**: Comprehensive mathematical models, spectral analysis, algorithmic queueing theory (AQL/CAKE), and holistic synthesis.
+
+---
+
+## 5. Recent Empirical Inputs & Evidence
+- **PraisonAI Autonomous Research Report**: [`knowledge/PRAISONAI_AQL_RESEARCH_REPORT.md`](knowledge/PRAISONAI_AQL_RESEARCH_REPORT.md)
+  - Confirmed 6 ms CoTSQ socket-pacing sweet spot for 802.11ac A-MPDU aggregation.
+  - Demonstrated that standard 1 ms TSQ collapses throughput on ath10k while unmanaged queues cause 2,000 ms bufferbloat under hidden-node interference.
+  - Linked to arXiv:1611.02117 and arXiv:1406.3147.

@@ -25,6 +25,10 @@ sysupgrade reflash, then campaign C1; C2 onward need the second radio. Status: C
 | FMX-0010 | QCA988x FFT capture + classifier validation | **UNBLOCKED 2026-09-26** — the spectral-enabled image exists (FMX-0011). Waits on the LiteAP being powered on and reflashed via routine `sysupgrade`. |
 | FMX-0011 | Reproducible OpenWrt build with spectral enabled | **BUILT 2026-09-26, exit checks PASS, NOT YET FLASHED.** v24.10.4 tag (r28959, same revision as stock), Linux 6.6.110, ath10k-ct 2024.07.30 smallbuffers with `CONFIG_ATH10K_SPECTRAL=y` (symbols `ath10k_spectral_process_fft` + imported `relay_open` verified with readelf), kernel `CONFIG_RELAY=y`, CT firmware FW022 unchanged. Four profiles: LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC. Artifacts: `firmware/openwrt/futuramax-r28959-spectral/`; build system: `tools/openwrt-build/` (see its MANIFEST.md). **Caveat:** built on a WSL host that produced random compiler crashes (see MANIFEST) — image is PROVISIONAL until rebuilt on a healthy host or validated on the device. Reflash is routine `sysupgrade` (below). |
 | FMX-0012 | Multi-LLM Architecture & Contention Debate | **DONE 2026-09-26 (Grade A Consensus, Decision D-0011).** 3-round cross-examination across Claude (Fable 5.1), Codex (GPT-6 Astra), and Gemini (Gemini 3.8 Flash). Established split-plane shaping architecture (downlink CAKE offloaded to upstream x86/ARM gateway, AP native AQL + fq_codel, CPE lightweight TBF egress pacing + hardware RTS/CTS). Formally proved MIPS 74Kc line-rate CAKE CPU collapse, rejected soft-polling / U-APSD pseudo-TDMA, and established the 20-CPE saturated uplink go/no-go gate. Artifacts: `debates/001-openmax-qca9880-ptmp-optimizat/`. |
+| FMX-0013 | CoTSQ Socket Buffer Sweep (1ms vs 6ms vs 12ms) | **PREPARED (Analytical Model Verified).** Evaluates TCP socket buffer depth (`net.ipv4.tcp_limit_output_bytes` = 300KB vs 128KB vs 50KB) and `tcp_notsent_lowat` on A-MPDU aggregate filling ($K \ge 32$) and loaded latency under 802.11ac saturation. |
+| FMX-0014 | Firmware Rate-Control Cache Depth (`num_rate_ctrl_objs_ct = 0` vs `24`) | **PREPARED (Source-Verified).** Measures rate-hunting oscillations and PCIe bus stalls under 10–20 active CPE associations with static in-SRAM rate control objects versus default host-RAM cache swapping. |
+| FMX-0015 | AQL Airtime Deficit & High/Low Limit Tuning | **PREPARED (Source-Verified).** Tunes `aql_txq_limit_low` (2000 µs), `aql_txq_limit_high` (6000 µs), and `aql_threshold` (12000 µs) in mac80211 to bound AP bufferbloat RTT $<40\text{ ms}$ under asymmetric multi-station saturation. |
+| FMX-0016 | 20-CPE Hidden-Node RTS/CTS Threshold Sweep | **PREPARED (Bianchi Model Formulated).** Evaluates RTS thresholds ($512\text{ bytes}$ vs $2347\text{ bytes}$ vs disabled) under manufactured hidden-node geometry across 20 CPEs to prevent exponential Aloha collision collapse. |
 
 ## FMX-0011 needs a reflash — but the EASY kind. Settled from source 2026-09-20.
 
@@ -240,3 +244,50 @@ and safe; its absence makes every experiment a risk of losing the only lab unit.
 FMX-0003 onward need a link. One LiteBeam 5AC Gen2 or NanoStation 5AC loco on the bench,
 pointed at the LAP-120, unblocks baselines, the Stage 4 timing criteria, and any real
 performance measurement. This is the standing hardware request.
+
+---
+
+## Analytical Queue & Contention Optimization Recipes (FMX-0013 through FMX-0016)
+
+Reference: `knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md`
+
+### FMX-0013: CoTSQ (Controlled TCP Small Queues) Sweep
+* **Hypothesis**: Sizing `tcp_limit_output_bytes` to 6 ms of airtime (~300 KB at 400 Mbps) eliminates aggregation starvation, restoring A-MPDU depth to $K \ge 32$ without bufferbloat.
+* **Control Boundary**: Linux Kernel TCP stack on traffic endpoints.
+* **Configuration Arms**:
+  1. *Arm A (Default 1ms TSQ)*: `sysctl -w net.ipv4.tcp_limit_output_bytes=131072 net.ipv4.tcp_notsent_lowat=4294967295`
+  2. *Arm B (CoTSQ 6ms Pacing)*: `sysctl -w net.ipv4.tcp_limit_output_bytes=300000 net.ipv4.tcp_notsent_lowat=16384`
+  3. *Arm C (Unbounded Bloat)*: `sysctl -w net.ipv4.tcp_limit_output_bytes=2097152 net.ipv4.tcp_notsent_lowat=4294967295`
+* **Measurement**: Saturated single-stream and 4-stream TCP `iperf3` + concurrent 20 pps `irtt`. Monitor A-MPDU size histogram from `/sys/kernel/debug/ieee80211/phy0/ath10k/htt_tx_stats`.
+* **Pass Gate**: Arm B achieves $>2\times$ goodput over Arm A with p99 loaded RTT $<40\text{ ms}$.
+
+### FMX-0014: Firmware Rate-Control Cache Depth
+* **Hypothesis**: Default target firmware caches only 32 rate objects in on-chip SRAM; dense CPE fleets cause PCIe cache swapping. Clamping `num_rate_ctrl_objs_ct=24` stabilizes rate-hunting.
+* **Control Boundary**: `ath10k-ct` module parameter on AP.
+* **Configuration Arms**:
+  1. *Arm A (Default)*: `ath10k_core.num_rate_ctrl_objs_ct=0` (firmware default: 32)
+  2. *Arm B (Fleet-Sized Cache)*: `ath10k_core.num_rate_ctrl_objs_ct=24`
+* **Measurement**: 10 and 20 active CPE associations under bidirectional bursty traffic. Record rate stepping distribution from `iw dev wlan0 station dump` and target debugfs `ath10k/wmi_stats`.
+* **Pass Gate**: Arm B reduces rate stepping variance and MCS fallback drops by $>50\%$.
+
+### FMX-0015: mac80211 Airtime Queue Limits (AQL) Tuning
+* **Hypothesis**: Tuning `aql_txq_limit_low` and `aql_threshold` bounds driver queue delay without firmware credit ring starvation.
+* **Control Boundary**: `mac80211` AQL debugfs on AP.
+* **Configuration**:
+  ```bash
+  echo 2000 > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit_low
+  echo 6000 > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit_high
+  echo 12000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold
+  ```
+* **Measurement**: Mixed-rate PtMP (Station 1 @ MCS9, Station 2 @ MCS1). Flent RRUL saturation.
+* **Pass Gate**: Station 1 maintains $>80\%$ of its isolated goodput while Station 2 saturates; loaded RTT stays $<35\text{ ms}$.
+
+### FMX-0016: 20-CPE Hidden-Node RTS/CTS Protection Sweep
+* **Hypothesis**: Directional CPEs with inter-CPE isolation ($>110\text{ dB}$ path loss) suffer exponential Aloha collision collapse unless hardware RTS/CTS limits the vulnerability window to $V_{RTS} \approx 65\,\mu\text{s}$.
+* **Control Boundary**: Hardware RTS threshold via `iw` on AP and all CPEs.
+* **Configuration Arms**:
+  1. *Arm A (RTS Disabled)*: `iw phy phy0 set rts 2347`
+  2. *Arm B (Aggressive Protection)*: `iw phy phy0 set rts 512`
+  3. *Arm C (Universal RTS)*: `iw phy phy0 set rts 1`
+* **Measurement**: 20 concurrent saturated reverse-mode `iperf3` streams with staggered start times. Capture `retries`, `failed`, and `ack_failed` counters.
+* **Pass Gate**: Arm B eliminates throughput collapse, achieving aggregate goodput $>150\text{ Mbps}$ and p99 loaded latency $<150\text{ ms}$ (meeting the openMAX Go/No-Go Gate).

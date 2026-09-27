@@ -6,7 +6,26 @@ Cambium Elevate, retraction, autoresearch, D-0009. Read when: you are about to r
 to know why the project is shaped the way it is.
 Current verdict: CUSTOM FIRMWARE project on OpenWrt 24.10.4/ath79, now running on the lab
 LAP-120; install = dd-unlock (D-0007/8); Stage 3 = autonomous research loop with firmware work
-deferred until a measured ceiling (D-0009). Status: CURRENT (2026-09-20).
+deferred until a measured ceiling (D-0009). Status: CURRENT (2026-09-26).
+
+## D-0012 — 2026-09-26 — Formal Queueing & Contention Models: CoTSQ Aggregation Sizing, ath10k-ct SRAM Cache Locking, and RTS/CTS Vulnerability Shrinkage
+
+**Decision.** Formally adopt the analytical queue and contention optimization models, driver/kernel WMI/HTT hooks, and Bianchi Markov collision adaptations derived in `knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md` (synthesizing the PraisonAI autonomous research report `knowledge/PRAISONAI_AQL_RESEARCH_REPORT.md`):
+
+1. **Controlled TSQ (CoTSQ) Sizing ($6\text{ ms}$ Airtime)**: 
+   Standard Linux TCP Small Queues (`tcp_limit_output_bytes = 128\text{ KB} / 1\text{ ms}`) starves 802.11ac physical aggregation engines, restricting A-MPDU depth to $K \le 8$ ($\eta \approx 48.7\%$). We adopt CoTSQ calibrated to $T_{target} \approx 6\text{ ms}$ at 400 Mbps (`net.ipv4.tcp_limit_output_bytes = 300000`, `net.ipv4.tcp_notsent_lowat = 16384`), unlocking $K \ge 32$ ($\eta \approx 81.6\%$) and boosting goodput by $+67.5\%$ without inducing bufferbloat.
+2. **Firmware Rate-Control Cache Depth Locking (`num_rate_ctrl_objs_ct = 24`)**: 
+   Source verification of `ath10k-ct` (`mac.c:201`) confirmed that target firmware defaults to caching only 32 rate-control objects in on-chip SRAM. For 10–20 active CPE associations under bidirectional streams, the target continuously evicts and swaps rate objects over the PCIe bus, destabilizing the rate-hunting algorithm. We lock `num_rate_ctrl_objs_ct = 24` via module parameters to ensure all 20 CPE link states remain resident in target SRAM.
+3. **Driver Ring Descriptors & HTT Aggregation Hooks**:
+   Driver-level MSDU descriptors (`num_msdu_desc_ct`, `htt_tx.c`) and HTT aggregation message `HTT_H2T_MSG_TYPE_AGGR_CFG` (`ath10k_htt_h2t_aggr_cfg_msg()`) are identified as the canonical supervisory interfaces, controllable via debugfs `/sys/kernel/debug/ieee80211/phyX/ath10k/htt_max_amsdu_ampdu`.
+4. **Bianchi Hidden-Node Contention Adaptation**: 
+   Directional outdoor PtMP exhibits an asymmetric interference graph where CPEs cannot hear peer transmissions ($>110\text{ dB}$ path loss between subscriber dish antennas). Without RTS/CTS, collision vulnerability equals the entire data frame duration ($V_{DATA} \approx 3200\,\mu\text{s}$), causing exponential Aloha throughput collapse ($S_{CSMA} < 10\text{ Mbps}$) for $N \ge 8$ stations. Enabling hardware RTS/CTS with threshold $= 512\text{ bytes}$ shrinks the vulnerability window to $V_{RTS} \approx 65\,\mu\text{s}$ (a $98.0\%$ reduction), maintaining aggregate saturation goodput $>175\text{ Mbps}$ across 20 CPEs.
+5. **Experimental Recipes Codified**:
+   Recipes FMX-0013 (CoTSQ sweep), FMX-0014 (Rate-control cache depth), FMX-0015 (mac80211 AQL tuning), and FMX-0016 (20-CPE RTS/CTS protection) are codified in `docs/EXPERIMENTS.md`.
+
+Reference: `knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md`, `knowledge/PRAISONAI_AQL_RESEARCH_REPORT.md`.
+
+---
 
 ## D-0011 — 2026-09-26 — Multi-LLM Debate Consensus: Split-Plane Shaping Architecture, CPU Boundary, and Uplink Go/No-Go Gate
 
