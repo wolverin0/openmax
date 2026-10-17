@@ -1,8 +1,20 @@
 <!-- doc-head: FuturaMAX architectural decisions and evidence boundaries -->
+2026-10-17: KEEP multi-station `AIRTIME_FAIRNESS` (`airtime_flags=3`), bounded PtMP aggregation (`2x32` / `1x16` + `AQL 1500/3000`), `WMM AC_VO DiffServ Deficit Bypass` (`ip dscp set ef` in `fmx_fastpath`), and multi-station Uplink `RTS/CTS 256B` threshold when stations are obstructed/attenuated.
 October16: requested200M/300s observation hits actual CPE OOM and wpa_supplicant death; recovered association, trialFAIL, broadgoal PAUSED.
 2026-10-15: scope technique verdicts to actual claims; preserve synthetic/physical and static/runtime boundaries.
 E2 stays NOT_ACCEPTED; retain AP OOM, original load recipe and operator gates.
 <!-- /doc-head -->
+
+## October 17 — Stage 7 Multi-Station PtMP Architectural Decisions (`KEEP`)
+
+Based on physical 3-station heterogeneous PtMP measurements ([`artifacts/stage7_ptmp/stage7_ptmp_3station_results.json`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/artifacts/stage7_ptmp/stage7_ptmp_3station_results.json)):
+
+1. **`KEEP` — `mac80211` Airtime Fairness (`airtime_flags = 3`) + Tightened `AQL` (`1500/3000 µs`) + Bounded PtMP Aggregation (`1x16` or `2x32`)**:
+   - Prevents low-MCS / wall-attenuated `802.11n HT40` stations (`MikroTik SXT Lite5`, `Ubiquiti LiteBeam M5`) from inflating sector-wide latency (`4.06x` lower loaded latency and `10x` fewer TCP retransmissions on `NanoStation 5AC Loco`, `3.95x` lower median latency on `LiteBeam M5`).
+2. **`KEEP` — `WMM AC_VO DiffServ Deficit Bypass` in `fmx_fastpath` (`ip dscp set ef` for interactive/control flows)**:
+   - Exploits `mac80211`'s independent per-AC Deficit tracking (`Deficit: VO = +256 µs` vs `Deficit: BE = -67,099 µs`) so interactive packets destined for a rate-limited/wall-obstructed station bypass its own `AC_BE` deficit penalty box (`21.0x` median RTT reduction on `SXT Lite5`, `8.0x` on `LiteBeam M5`, `3.84x` p95 reduction on `Loco 5AC`).
+3. **`KEEP` (Conditional on Multi-Station / Hidden-Node Contention) — Station-Side `RTS/CTS = 256B`**:
+   - While `RTS/CTS` is unnecessary (`-3.4%` overhead) on a single-CPE line-of-sight link, on a multi-station sector with obstructed/attenuated clients (`N >= 2` active uplink transmitters with >8 dB SNR asymmetry or wall/foliage obstruction), enabling `rts 256` yielded **`+18.5%` higher aggregate sector Uplink goodput (`150.40 -> 178.17 Mbps`)** and **`3.07x` higher weak-station Uplink throughput (`1.97 -> 6.03 Mbps`)**.
 
 ## October16 current ? requested 200 Mbps observation stopped on actual CPE OOM
 

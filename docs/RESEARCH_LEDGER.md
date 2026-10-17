@@ -1,10 +1,26 @@
 <!-- doc-head: Offline literature synthesis and corrected empirical control-boundary evidence -->
+2026-10-17: Stage 7 3-station heterogeneous PtMP experiments (`LAP-120` AP + `Loco 5AC` VHT80 + `MikroTik SXT Lite5` ath9k HT40 + `Ubiquiti LiteBeam M5` airOS 6.1.4 HT40) confirm `mac80211` per-AC Deficit tracking (`Deficit: BE = -67,099 us` vs `Deficit: VO = +256 us`), `WMM AC_VO DiffServ Deficit Bypass` (`21.0x` weak-station loaded RTT reduction `143.0 -> 6.80 ms`), and 3-station simultaneous UL `RTS/CTS 256B` gain (`+18.5%` total sector UL goodput `150.40 -> 178.17 Mbps`, `3.07x` weak-station UL recovery).
 October16: requested200M/300s observation hits actual CPE OOM and wpa_supplicant death; recovered association, trialFAIL, broadgoal PAUSED.
 Device measurements remain in CURRENT_STATE and BENCH_PLAN; static results are not RF acceptance.
 2026-10-15: all requested local corpus ingested; primary literature crossed against RE1 and bench provenance.
 2026-10-15: Gateway identity/SSH verified; E2 traffic topology and treatment gates remain separate.
 October12 PASS claims below are superseded by the scoped audit; E2 remains NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## October 17 — Stage 7 Multi-Station PtMP Empirical Findings (`FMX-0004` / `FMX-0005` / `FMX-0008` 3-Station Extension)
+
+CONFIRMED physical findings on the 3-station heterogeneous PtMP cell ([`artifacts/stage7_ptmp/stage7_ptmp_3station_results.json`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/artifacts/stage7_ptmp/stage7_ptmp_3station_results.json)):
+
+1. **`mac80211` `AIRTIME_FAIRNESS` (`airtime_flags = 3`) vs `AQL` Pre-TX Rate Estimation on `QCA988x` (`ath10k-ct`) [CONFIRMED — `mac80211` + `ath10k-ct`]**:
+   - On `LAP-120` (`QCA988x`), `AQL` (`Q depth`) tracks pre-TX estimated airtime across all 3 stations (`VHT80` `ath10k-ct`, `HT40` `ath9k`, and `HT40` `airOS 6.1.4`), while `mac80211` `AIRTIME_FAIRNESS` (`Deficit`) tracks post-TX completed airtime (`tx_duration`) reported by QCA988x firmware.
+   - When a wall-obstructed station (`MikroTik SXT Lite5` at `-65 dBm`) experiences rate fallback and hardware retries during a bulk TCP burst (`AC_BE`), completed `tx_duration` exceeds the pre-TX `AQL` estimate, driving `Deficit: BE` down to **`-67,099 µs` (`-67.1 ms`)**.
+   - Enabling `AIRTIME_FAIRNESS` (`airtime_flags = 3`) + bounded aggregation (`1x16`, `AQL 1500/3000`) pauses only the offending station's `BE` TXQ, protecting the rest of the sector: at `3 dBm` AP TX power, `loco5ac` loaded RTT dropped by **4.06x** (`p50: 51.35 -> 12.65 ms`, `p95: 88.45 -> 28.65 ms`, TCP retransmits cut **10x** from `158 -> 16`) and `lbm5` loaded RTT dropped by **3.95x** (`p50: 56.25 -> 14.23 ms`, Trial 1 `p95: 577.0 -> 24.0 ms`).
+2. **`WMM AC_VO DiffServ Deficit Bypass` for Obstructed/Edge Stations [CONFIRMED — `Linux nftables` + `mac80211` per-AC DRR]**:
+   - Because `mac80211` tracks `Deficit` independently per WMM access category (`VO`, `VI`, `BE`, `BK`) per station, a station whose `BE` queue is paused at `Deficit: BE = -67,099 µs` still has **`Deficit: VO = +256 µs` and `Q depth: VO = 0 µs`**.
+   - Marking interactive/control packets (`ICMP`, `DNS`, `NTP`, `SIP/VoIP`) with `ip dscp set ef` in `fmx_fastpath fwd_fast` routes them into the station's `AC_VO` TXQ, bypassing its own negative `BE` deficit penalty box and cutting `sxt`'s loaded median RTT at `3 dBm` from **`143.0 ms -> 6.80 ms` (`21.0x` reduction**, Trial 1 `p95: 763.0 -> 17.0 ms` = **`44.9x` reduction**), `lbm5`'s loaded median RTT from **`36.15 ms -> 4.53 ms` (`8.0x` reduction)**, and `loco5ac`'s p95 RTT from **`31.30 ms -> 8.15 ms` (`3.84x` reduction)**.
+3. **3-Station Simultaneous Uplink Contention & `RTS/CTS 256B` Protection [CONFIRMED — `802.11 MAC` / `ath10k` / `ath9k` / `airOS ath_hal`]**:
+   - Whereas single-station same-room `RTS/CTS` incurred a `-3.4%` overhead penalty in Stage 3, under 3-station simultaneous Uplink contention (`loco5ac` in room + `sxt` and `lbm5` behind a wall/door), asymmetric carrier sense caused `sxt` to collapse to **`1.97 Mbps`** (`1.18 / 2.75 Mbps`) with `RTS/CTS = OFF` (total sector UL = **`150.40 Mbps`**).
+   - Enabling `RTS/CTS = 256B` on the stations (`iw phy phy0 set rts 256` / `iwconfig ath0 rts 256`) caused the `LAP-120` AP to broadcast `CTS` frames heard across the entire sector, raising total sector Uplink goodput by **`+18.5%` (`150.40 -> 178.17 Mbps`, peaking at `182.82 Mbps`)**, recovering `sxt` by **`3.07x` (`1.97 -> 6.03 Mbps`)**, raising `lbm5` by **`+17.0%` (`29.23 -> 34.21 Mbps`)**, and restoring `loco5ac` to **`100%` of its standalone UL throughput (`137.94 Mbps`)**.
 
 ## October16 current ? requested 200 Mbps observation stopped on actual CPE OOM
 
