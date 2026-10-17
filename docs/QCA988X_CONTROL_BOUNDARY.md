@@ -1,6 +1,7 @@
 # QCA988x control boundary — what the host can actually do
 
 <!-- doc-head: Current physical peer visibility and preserved control limits -->
+2026-10-17 (Stages 7-8): CONFIRMED on live 3-station bench (`LAP-120` QCA9882 AP): (1) `htt_max_amsdu_ampdu` (`1x8`, `1x16`, `2x32`, `3x64`), `aql_txq_limit`, `airtime_flags=3`, and per-station `airtime_weight` are honoured in real time by `mac80211`/`ath10k-ct`; (2) writing to `stations/<mac>/airtime` resets kernel airtime/deficit counters; (3) `spectral_scan0` emits Type-3 TLV FFT frames (`618.7 KB / 6,653 frames`), but `iw dev phy0-ap0 scan ... ap-force` on an AP vdev leaves `10.1-ct-8x-__fW-022` firmware in a persistent `102.4 ms` beacon-aligned scan sawtooth until module reload/reboot.
 October10 exact-peer bytes/rates and station TX-duration counters are now visible.
 Firmware RX-duration is inconsistent across snapshots; calibrated airtime remains UNKNOWN.
 Older firmware/source and October5 observations remain scoped historical evidence.

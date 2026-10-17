@@ -1,9 +1,24 @@
 <!-- doc-head: FuturaMAX architectural decisions and evidence boundaries -->
-2026-10-17: KEEP multi-station `AIRTIME_FAIRNESS` (`airtime_flags=3`), bounded PtMP aggregation (`2x32` / `1x16` + `AQL 1500/3000`), `WMM AC_VO DiffServ Deficit Bypass` (`ip dscp set ef` in `fmx_fastpath`), and multi-station Uplink `RTS/CTS 256B` threshold when stations are obstructed/attenuated.
+2026-10-17 (Stage 8): KEEP zero-fork pure-debugfs `controller/fmx_adaptive_controller.sh` (`SINGLE_STA_TURBO` <-> `MULTI_STA_ADAPTIVE`), KEEP `VHT40` (40 MHz) recommendation for mixed `802.11ac + 802.11n` downlink-heavy WISP sectors (`+13.1%` DL goodput, `2.26x` spectral efficiency, `21.2x` fewer TCP retransmits), REJECT `iw dev phy0-ap0 scan ... ap-force` on active production APs (`102.4 ms` firmware scan sawtooth), and KEEP the full Stage 8 bidirectional cross-layer stack (`+49.4%` sector DL, `39.1x` weak-station RTT reduction).
+2026-10-17 (Stage 7): KEEP multi-station `AIRTIME_FAIRNESS` (`airtime_flags=3`), bounded PtMP aggregation (`2x32` / `1x16` + `AQL 1500/3000`), `WMM AC_VO DiffServ Deficit Bypass` (`ip dscp set ef` in `fmx_fastpath`), and multi-station Uplink `RTS/CTS 256B` threshold when stations are obstructed/attenuated.
 October16: requested200M/300s observation hits actual CPE OOM and wpa_supplicant death; recovered association, trialFAIL, broadgoal PAUSED.
 2026-10-15: scope technique verdicts to actual claims; preserve synthetic/physical and static/runtime boundaries.
 E2 stays NOT_ACCEPTED; retain AP OOM, original load recipe and operator gates.
 <!-- /doc-head -->
+
+## October 17 — Stage 8 Closed-Loop Controller, Channel-Width & Sector Stack Decisions (`KEEP` / `REJECT`)
+
+Based on physical Stage 8 measurements ([`artifacts/stage8_ptmp/stage8_adaptive_and_sector_results.json`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/artifacts/stage8_ptmp/stage8_adaptive_and_sector_results.json), [`docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md)):
+
+1. **`KEEP` — Zero-Fork Pure-Debugfs Closed-Loop Adaptive Sector Controller ([`controller/fmx_adaptive_controller.sh`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/controller/fmx_adaptive_controller.sh))**:
+   - Eliminates the static trade-off between single-station peak burst (`109.35–118.67 Mbps` in `SINGLE_STA_TURBO` with `Agg 3x64, AQL 3000/6000`) and multi-station fairness/latency protection (`90.12 Mbps` total with `5.33–7.27 ms` median RTT across all 3 stations in `MULTI_STA_ADAPTIVE` with `Agg 1x16, AQL 1500/3000`, proportional ATF weights `768:256:128`).
+   - Must read `/sys/kernel/debug/ieee80211/phy0/netdev:phy0-ap0/stations/<mac>/airtime` via POSIX shell built-ins (`read`) rather than forking `iw station dump` + `awk` every second on 533 MHz MIPS APs.
+2. **`KEEP` — `VHT40` (40 MHz) Channel Width for Mixed `802.11ac + 802.11n` Downlink-Heavy WISP Sectors**:
+   - On sectors serving a mix of `802.11ac` and legacy `802.11n HT40` (`airOS M5` / `MikroTik ath9k`) CPEs, `VHT40` delivers **`+13.1%` higher simultaneous Downlink goodput (`105.18` vs `92.98 Mbps`)**, **`+56.7%` higher `LiteBeam M5` Downlink speed (`40.06` vs `25.57 Mbps`)**, **`21.2x` fewer TCP retransmissions**, **`3.1x` lower loaded RTT (`8.3–9.4 ms` vs `26.2–27.9 ms`)**, and **`2.26x` higher spectral efficiency (`2.630` vs `1.162 bit/s/Hz`)** while freeing 40 MHz of spectrum for adjacent sectors. Retain `VHT80` only when `802.11ac` Uplink peak (`155.70` vs `118.09 Mbps`) or single-CPE `802.11ac` peak (`223 Mbps`) is the primary requirement.
+3. **`REJECT` — Active Off-Channel `iw dev phy0-ap0 scan ... ap-force` on Live `ath10k-ct` PtMP APs**:
+   - Off-channel `ap-force` scanning on an active `ath10k-ct` (`10.1-ct-8x-__fW-022`) AP vdev traps the QCA988x PCIe target firmware in a `102.4 ms` beacon-aligned scan loop that survives `wifi reload` and requires `rmmod ath10k_pci` or AP reboot. Trigger `spectral_scan_ctl` passively on the operating channel without `ap-force` scan, or run off-channel spectral sweeps from an OpenWrt CPE (`Loco 5AC`).
+4. **`KEEP` — Full Stage 8 Cross-Layer Sector Stack for Bidirectional Peak-Hour Load**:
+   - Combining `fmx_adaptive_controller.sh` + `ATF` + `AQL 1000/2000` + `WMM AC_VO DiffServ Bypass` + Station `RTS/CTS = 256B` + Gateway `CAKE diffserv4 nat ack-filter` increases sector Downlink goodput by **`+49.4%` (`30.26 -> 45.22 Mbps`)**, increases total bidirectional capacity by **`+13.7%` (`134.58 -> 153.01 Mbps`)**, and cuts weak-station (`MikroTik SXT`) loaded median RTT by **`39.1x` (`251.25 -> 6.43 ms`)**.
 
 ## October 17 — Stage 7 Multi-Station PtMP Architectural Decisions (`KEEP`)
 
