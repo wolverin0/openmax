@@ -1,3 +1,9 @@
+<!-- doc-head: Documentation authority and approved firmware-first pilot -->
+AGENTS.md governs boundaries; BENCH_PLAN's authoritative active course governs execution.
+Read CURRENT_STATE's top checkpoint first; older ACTIVE/addenda are historical.
+Oct10 native MCP/RE1.6 host and four-blob evidence; latest CURRENT_STATE governs; E2 stays parked.
+<!-- /doc-head -->
+
 # FuturaMAX documentation map
 
 Summary: entry point for any agent joining FuturaMAX — classifies every document (CURRENT /
@@ -15,7 +21,9 @@ autonomous research loop (D-0009); custom-MAC go/no-go is UNKNOWN by design (NO-
    A previous session lost the project's goal by skipping this; do not.
 3. `docs/DECISIONS.md` — D-0001…D-0009, newest first. Retractions are listed by name so a wrong
    conclusion cannot be re-cited from a confident-sounding older file.
-4. `docs/CURRENT_STATE.md` — chronological; **read the last addendum first.**
+4. `docs/CURRENT_STATE.md` — **read the top current checkpoint first.**
+   Then `docs/BENCH_PLAN.md`'s authoritative active course, mapped to
+   `artifacts/2026-09-20-forward-plan.html`; older ACTIVE entries are history.
 5. `docs/EXPERIMENTS.md` — FMX register, the resolved install/recovery record, campaign plan C1–C8.
 6. `docs/QCA988X_CONTROL_BOUNDARY.md` — what the host can actually control on QCA988x (source-verified; §4 is the CT debugfs truth table).
 7. `knowledge/REAL_HARDWARE_LITERATURE.md` — every paper we lean on, tiered, with what transfers.
@@ -38,7 +46,8 @@ They total ~355k characters and six of them answer the same eleven questions.
 |---|---|---|
 | `DOCS-MAP.md` | CURRENT | This file. |
 | `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0013 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate), D-0012 (CoTSQ 6ms, target SRAM rate-cache lock, Bianchi PtMP hidden-node proof), D-0013 (Complete P0/P1 production engines). |
-| `CURRENT_STATE.md` | CURRENT | Chronological log; last addendum is the truth, older verdicts may be retracted. |
+| `CURRENT_STATE.md` | CURRENT | Top current checkpoint governs; older verdicts may be retracted. |
+| `BENCH_PLAN.md` | CURRENT | One authoritative active course; original D1/E2/E3 outcomes, explicit parked support work. |
 | `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0016 status (incl. FMX-0012 multi-LLM debate, FMX-0013..0016 analytical queue recipes), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
 | `QCA988X_CONTROL_BOUNDARY.md` | **CURRENT** | Source-verified host control surface on QCA988x under ath10k-CT; §4 = spectral/set_rates/set_rate_override/ratemask-CT truths. |
 | `HARDWARE_MATRIX.md` | **CURRENT** | Grade A, all six models read live 2026-08-08 (LAP-GPS `0xe7fd`, LAP-120 `0xe8e5`, Prism `0xe7e9`). |
@@ -113,7 +122,7 @@ Not yet produced: `normalized/claims.jsonl`, `measurements.jsonl`, `candidates.j
 
 | Path | Class | Notes |
 |---|---|---|
-| `AGENTS.md` | **CURRENT — constitution** | Byte-identical to `FUTURAMAX_PROJECT_GUIDE.md`. Read in full before anything else. |
+| `AGENTS.md` | **CURRENT — constitution** | Authoritative including sections12.1-12.3; do not assume the companion project guide is synchronized. |
 | `prompt.md` | CURRENT | Standing deep-research prompt with guardrails; the BASELINE and "already in hand" list must be refreshed per wave. |
 | `safety/recovery/FMX-0002_recovery_runbook.md` | **CURRENT (rev 2)** | Install + recovery on the LAP-120. Route A (dd-unlock) is the install; Route C (urescue install) is REFUTED; urescue is recovery-only and refuses OpenWrt images. |
 | `safety/recovery/urescue_push.py` | CURRENT | TFTP push to a unit in urescue. Probe with a READ request only; a write-request probe consumes the single session. |

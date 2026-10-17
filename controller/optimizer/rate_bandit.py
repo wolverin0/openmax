@@ -11,7 +11,9 @@ Architecture:
 
 import math
 import random
-from typing import List, Dict, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple, Union
+
+from controller.airmax_wire import build_poll_subtype_1e_rate_override
 
 
 class PageHinkleyDriftDetector:
@@ -74,6 +76,24 @@ class RateMaskArm:
         self.pulls = 0
         self.total_reward = 0.0
         self.mean_reward = 0.0
+
+    def to_rate_override_frame(
+        self,
+        bw: Union[int, str] = 20,
+        nss: int = 1,
+        secondary_mcs: Optional[int] = None,
+        swap_endian: bool = False,
+        node_id: int = 0,
+    ) -> bytes:
+        """Convert this arm's rate ceiling into a 16-byte airMAX Subtype 0x1E wire frame."""
+        return build_poll_subtype_1e_rate_override(
+            mcs=self.max_mcs,
+            bw=bw,
+            nss=nss,
+            secondary_mcs=secondary_mcs,
+            swap_endian=swap_endian,
+            node_id=node_id,
+        )
 
 
 class ADRBanditRateController:
@@ -154,4 +174,49 @@ class ADRBanditRateController:
                     "mean_reward": round(a.mean_reward, 2)
                 } for a in self.arms
             ]
+        }
+
+    def get_rate_override_frame(
+        self,
+        bw: Union[int, str] = 20,
+        nss: int = 1,
+        secondary_mcs: Optional[int] = None,
+        swap_endian: bool = False,
+        node_id: int = 0,
+    ) -> bytes:
+        """Generate a 16-byte Subtype 0x1E rate override frame for the currently active arm."""
+        return self.arms[self.last_arm_idx].to_rate_override_frame(
+            bw=bw,
+            nss=nss,
+            secondary_mcs=secondary_mcs,
+            swap_endian=swap_endian,
+            node_id=node_id,
+        )
+
+    def recommend_rate(
+        self,
+        bw: Union[int, str] = 20,
+        nss: int = 1,
+        secondary_mcs: Optional[int] = None,
+        swap_endian: bool = False,
+        node_id: int = 0,
+    ) -> Dict[str, Any]:
+        """Generate structured rate recommendation with the binary wire override frame."""
+        arm = self.arms[self.last_arm_idx]
+        frame = arm.to_rate_override_frame(
+            bw=bw,
+            nss=nss,
+            secondary_mcs=secondary_mcs,
+            swap_endian=swap_endian,
+            node_id=node_id,
+        )
+        return {
+            "cpe_id": self.cpe_id,
+            "arm_name": arm.name,
+            "max_mcs": arm.max_mcs,
+            "mask_hex": arm.mask_hex,
+            "bw": bw,
+            "nss": nss,
+            "rate_override_frame": frame,
+            "rate_override_hex": frame.hex(),
         }

@@ -1,5 +1,31 @@
 # QCA988x control boundary — what the host can actually do
 
+<!-- doc-head: Current physical peer visibility and preserved control limits -->
+October10 exact-peer bytes/rates and station TX-duration counters are now visible.
+Firmware RX-duration is inconsistent across snapshots; calibrated airtime remains UNKNOWN.
+Older firmware/source and October5 observations remain scoped historical evidence.
+<!-- /doc-head -->
+
+## Current physical evidence - D2 refresh October10
+
+Exact LAP-120/Nano kernel6.6.110/CT022 module/config fingerprints recorded.
+Two bounded reciprocal20-ping treatments delivered20/20 each; AP station
+TX-duration increased12250/30296us and Nano12035/35658us. Firmware peer
+TX/RX rates were populated. This supersedes a universal current reading of
+October5's zero-field observation below, not that historical measurement.
+Firmware peer RX-duration was772/86320 in one snapshot, then0 before/after
+the reciprocal traffic. Its unit/reset/report semantics are UNKNOWN; do not
+subtract arbitrary snapshots as calibrated airtime. Station TX-duration may
+be a host estimate; internal last_tx_bitrate/source provenance and monitor
+comparison remain missing. KEEP observed field visibility, not actual-airtime,
+fairness, AQL or throughput improvement. No RF/queue/rate/firmware mutation.
+Independent source/evidence review PASS_WITH_LIMITS, raw hashes freshly
+checked. Module hashes differ between AP and Nano; host RX-duration is0 in
+all snapshots. Negotiated AP TX width/rate changed in one pair; configured
+power/width is inherited, not a new D2 measurement. Extra CPE RX traffic has
+no proven source. These observations are not calibrated-airtime acceptance.
+Evidence: research/raw/d2-peer-visibility-20261010.json in the owned night worktree.
+
 Summary: source-verified answers to what the host can actually control on QCA988x under
 ath10k-CT — rate control, airtime fairness, A-MPDU aggregation, spectral, and the CT debugfs knobs.
 Keywords: ath10k-ct, HAS_RATE_CONTROL, airtime estimation, htt_max_amsdu_ampdu, spectral,
@@ -266,6 +292,9 @@ per-peer scheduler interface. Whether a mask can be updated per-station, live, a
 now an experiment, not an assumption.
 
 ### 4e. Unexplained, about our specific unit
+
+**4e — MEASURED 2026-10-05 on the live FuturaMAX link (LAP-120 AP, CT FW022, ath10k-ct 2024.07.30):** peer stats are NOT populated (Peer RSSI 0, RX duration 0, TX rate 0/6000) and mac80211 station airtime is 0 us RX / 0 us TX. The airtime-fairness scheduler therefore has no input on this stack until airtime reporting is enabled (open: CT feature flag / `enable_extd_tx_stats` / htt-mgt variant). Evidence: `research/raw/bench/2026-10-05/ct-debugfs-220848.txt`.
+
 
 Our firmware `10.1-ct-8x-__fW-022` does **not** advertise peer-fixed-rate, although CT release
 notes say the feature was enabled. Cause UNKNOWN. Worth resolving before designing around it.

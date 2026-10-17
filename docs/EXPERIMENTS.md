@@ -1,12 +1,20 @@
+<!-- doc-head: Experiment register with seed evidence and current acceptance limits -->
+2026-10-07: FMX-0007 has seed measurements but no accepted baseline; FMX-0008 remains inconclusive.
+Both AC radios were available for the archived runs; a missing second radio is not the current blocker.
+Loaded RF failed at zero commanded power; do not repeat unchanged or advance Phase 3.
+Older recovery/build entries are historical; CURRENT_STATE and BENCH_PLAN control current authority.
+<!-- /doc-head -->
+
 # FuturaMAX experiment register
 
 Summary: the FMX experiment register (AGENTS.md §10) with status, the resolved LAP-120
 install/recovery record, and the Stage-3 autonomous-research campaign plan C1–C8 (D-0009).
 Keywords: FMX-0001..0011, campaigns C1-C8, autoresearch, spectral rebuild, sysupgrade reflash,
 ratemask-CT, urescue, dd-unlock, success thresholds, INFERRED targets, LAP-120.
-Read when: choosing what to run next, or before touching hardware. Current verdict: FMX-0001/0002
-DONE, OpenWrt 24.10.4 running on the lab unit; FMX-0011 built 2026-09-26 (spectral image, NOT yet flashed); next is the routine
-sysupgrade reflash, then campaign C1; C2 onward need the second radio. Status: CURRENT (2026-09-26).
+Read when: choosing what to run next. FMX-0007/0008 seed acquisition is recorded below;
+neither an accepted baseline nor an AQL benefit has been established. Historical
+installation/build rows are not permission to flash. Read the latest CURRENT_STATE
+and BENCH_PLAN checkpoint before any operation; the night candidate remains unflashed.
 
 ## Status
 
@@ -19,18 +27,62 @@ sysupgrade reflash, then campaign C1; C2 onward need the second radio. Status: C
 | FMX-0004 | Stock airMAX 8-CPE mixed-MCS baseline | blocked: needs CPE fleet |
 | FMX-0005 | Stock airMAX hidden-node baseline | blocked: needs CPE fleet |
 | FMX-0006 | airOS + external CAKE/FQ-CoDel/pacing | runnable at POP without radio changes — parallel track |
-| FMX-0007 | OpenWrt single-CPE baseline | **UNBLOCKED** (OpenWrt is on the lab unit) — still needs a second radio for a link |
-| FMX-0008 | OpenWrt AQL/TXQ on vs off | **UNBLOCKED** — the single biggest lever in the project; needs a second radio for load |
+| FMX-0007 | OpenWrt single-CPE baseline | **SEED / NOT_ACCEPTED.** Two-radio measurements archived 2026-10-05. Latest external-endpoint attempt was REJECTED_BASELINE: 1/30 cells observed, 0 valid, loaded RF FAIL. See evidence section below. |
+| FMX-0008 | OpenWrt AQL/TXQ on vs off | **INCONCLUSIVE — SEED ONLY.** Five archived AQL states ABABA, sparse RTT samples and 3/5 missing throughput values; no accepted causal gain or confidence interval. Qualified repeated comparison remains pending. |
 | FMX-0009 | QCA988x fixed-rate/rate-mask authority | **UNBLOCKED, and re-scoped 2026-09-20.** Target `ratemask-CT`, NOT `set_rates` (bcast/mcast only) and NOT `set_rate_override` (Wave-2 only). See `QCA988X_CONTROL_BOUNDARY.md` §4b–4d. |
-| FMX-0010 | QCA988x FFT capture + classifier validation | **UNBLOCKED 2026-09-26** — the spectral-enabled image exists (FMX-0011). Waits on the LiteAP being powered on and reflashed via routine `sysupgrade`. |
-| FMX-0011 | Reproducible OpenWrt build with spectral enabled | **BUILT 2026-09-26, exit checks PASS, NOT YET FLASHED.** v24.10.4 tag (r28959, same revision as stock), Linux 6.6.110, ath10k-ct 2024.07.30 smallbuffers with `CONFIG_ATH10K_SPECTRAL=y` (symbols `ath10k_spectral_process_fft` + imported `relay_open` verified with readelf), kernel `CONFIG_RELAY=y`, CT firmware FW022 unchanged. Four profiles: LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC. Artifacts: `firmware/openwrt/futuramax-r28959-spectral/`; build system: `tools/openwrt-build/` (see its MANIFEST.md). **Caveat:** built on a WSL host that produced random compiler crashes (see MANIFEST) — image is PROVISIONAL until rebuilt on a healthy host or validated on the device. Reflash is routine `sysupgrade` (below). |
+| FMX-0010 | QCA988x FFT capture + classifier validation | **STARTED 2026-10-05** — first real capture from the LAP-120 archived (see FMX-0011 row). Next: parser + sample-rate/channel sweep + comparison with the QCA9880 datasets (campaign C1). |
+| FMX-0011 | Reproducible OpenWrt build with spectral enabled | **BUILT 2026-09-26; FLASHED + VALIDATED ON THE LAP-120 2026-10-05** (routine `sysupgrade`, config kept, `spectral_scan_ctl`/`spectral_scan0`/`spectral_bins`/`spectral_count` present, FW022 unchanged). First capture: 357 FFT samples / 33,201 B in `background`+`trigger`+`iw scan` mode → `research/raw/hardware/spectral/`. `manual` mode with `spectral_count=8` returned 0 bytes on FW022 (FINDING, needs explanation). Gotcha: the relay file returns EOF when empty — read `spectral_scan0` AFTER the scan, not with a pre-started reader. v24.10.4 tag (r28959, same revision as stock), Linux 6.6.110, ath10k-ct 2024.07.30 smallbuffers with `CONFIG_ATH10K_SPECTRAL=y` (symbols `ath10k_spectral_process_fft` + imported `relay_open` verified with readelf), kernel `CONFIG_RELAY=y`, CT firmware FW022 unchanged. Four profiles: LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC. Artifacts: `firmware/openwrt/futuramax-r28959-spectral/`; build system: `tools/openwrt-build/` (see its MANIFEST.md). **Caveat:** built on a WSL host that produced random compiler crashes (see MANIFEST) — image is PROVISIONAL until rebuilt on a healthy host or validated on the device. Reflash is routine `sysupgrade` (below). |
 | FMX-0012 | Multi-LLM Architecture & Contention Debate | **DONE 2026-09-26 (Grade A Consensus, Decision D-0011).** 3-round cross-examination across Claude (Fable 5.1), Codex (GPT-6 Astra), and Gemini (Gemini 3.8 Flash). Established split-plane shaping architecture (downlink CAKE offloaded to upstream x86/ARM gateway, AP native AQL + fq_codel, CPE lightweight TBF egress pacing + hardware RTS/CTS). Formally proved MIPS 74Kc line-rate CAKE CPU collapse, rejected soft-polling / U-APSD pseudo-TDMA, and established the 20-CPE saturated uplink go/no-go gate. Artifacts: `debates/001-openmax-qca9880-ptmp-optimizat/`. |
 | FMX-0013 | CoTSQ Socket Buffer Sweep (1ms vs 6ms vs 12ms) | **PREPARED (Analytical Model Verified).** Evaluates TCP socket buffer depth (`net.ipv4.tcp_limit_output_bytes` = 300KB vs 128KB vs 50KB) and `tcp_notsent_lowat` on A-MPDU aggregate filling ($K \ge 32$) and loaded latency under 802.11ac saturation. |
 | FMX-0014 | Firmware Rate-Control Cache Depth (`num_rate_ctrl_objs_ct = 0` vs `24`) | **PREPARED (Source-Verified).** Measures rate-hunting oscillations and PCIe bus stalls under 10–20 active CPE associations with static in-SRAM rate control objects versus default host-RAM cache swapping. |
 | FMX-0015 | AQL Airtime Deficit & High/Low Limit Tuning | **PREPARED (Source-Verified).** Tunes `aql_txq_limit_low` (2000 µs), `aql_txq_limit_high` (6000 µs), and `aql_threshold` (12000 µs) in mac80211 to bound AP bufferbloat RTT $<40\text{ ms}$ under asymmetric multi-station saturation. |
 | FMX-0016 | 20-CPE Hidden-Node RTS/CTS Threshold Sweep | **PREPARED (Bianchi Model Formulated).** Evaluates RTS thresholds ($512\text{ bytes}$ vs $2347\text{ bytes}$ vs disabled) under manufactured hidden-node geometry across 20 CPEs to prevent exponential Aloha collision collapse. |
 
-## FMX-0011 needs a reflash — but the EASY kind. Settled from source 2026-09-20.
+## FMX-0007 / FMX-0008 archived evidence checkpoint — 2026-10-07
+
+This closes BENCH_PLAN item1.7 (record results), not physical acceptance. Source
+archives are in the main FuturaMAX checkout, not generated by the night worktree:
+
+- research/raw/bench/2026-10-05/bench.jsonl, SHA256
+  36ae341b47b1eafc6335359cff718f32a54d0c24b5e1f0818fbf47bca6e9e669.
+- research/raw/bench/2026-10-06/endpoint-8f65a1bc4749487b920634ee53956b26/events.jsonl,
+  SHA256ff00efb744558b43520e19f8e9b43feb87d47f6557e0477a02e49fb9b0e269b8.
+
+CONFIRMED from the first archive:23 TCP matrix rows,7 with mbit=null. The16
+reported non-null throughput values span30.8–140.9Mbps across different widths,
+directions and stream counts; this is not one treatment's distribution. Example:
+VHT80/down/1stream recorded140.9Mbps at22:00:06 and62.4Mbps at22:09:35. Timestamps
+are stored without a timezone; no UTC conversion is inferred. Missing results
+stay missing. The archive does not contain an accepted RF-normalized baseline.
+
+FMX-0008 hypothesis: AQL may reduce loaded latency. The five aql-ab records at
+22:06:50–22:07:59 are A(on)/B(off)/A/B/A, four downlink streams,10 RTT samples
+per state. Reported on p95 values:38.652,38.704,42.178ms; off:50.584,63.148ms.
+The off-state maximum3825.267ms is retained. Three of five mbit fields are null;
+these sparse reported quantiles cannot establish p99, confidence intervals or
+causal performance improvement. Decision INCONCLUSIVE; no recommendation to
+disable/enable a live policy follows from this comparison.
+
+Contemporaneous CURRENT_STATE 2026-10-05 21:55/22:15 documents LAP-120 plus
+NanoStation loco5AC, OpenWrt24.10.4/ath10k-ct2024.07.30/FW022, short unattenuated
+bench and on-radio traffic generators. This is recorded setup context, not a
+fresh device identity/build-hash attestation. Matrix rows report11dBm software
+power and strong RSSI; actual EIRP was not independently measured. CPU limitation
+is an inference/confounder, not proof of RF capacity or one exclusive bottleneck.
+
+Latest FMX-0007 attempt: the endpoint archive freshly evaluates to
+REJECTED_BASELINE, accepted_baseline=false, RF FAIL, matrix INCOMPLETE(1/30,0valid),
+restoration PASS. Its one invalid UDP-up cell reports receiver73.530778Mbps.
+CURRENT_STATE records0dBm command/readback during that run and loaded Nano RSSI
+-53dBm versus required<=-55dBm. Do not substitute restored11dBm for treatment
+power, reuse this rejected cell as a baseline, or rerun unchanged conditions.
+
+Remaining prerequisites: RF-qualified loaded runs, external endpoints with
+measured headroom, exact per-run configuration/firmware provenance, required
+blocked repetitions and explicit evaluator/safety contract. Phase3 stays gated.
+No new radio operation, flash, confidence interval or performance claim here.
+
+## FMX-0011 historical reflash analysis — settled from source 2026-09-20
 
 **Why a module swap is not enough.** `PACKAGE_ATH_SPECTRAL` does `select KERNEL_RELAY`
 (`ath.mk:114`), and `openwrt-24.10/target/linux/generic/config-6.6:4999` reads
