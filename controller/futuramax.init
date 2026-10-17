@@ -1,0 +1,76 @@
+#!/bin/sh /etc/rc.common
+# OpenMAX / FuturaMAX Production OpenWrt procd Service (/etc/init.d/futuramax)
+# Applies the verified Stage 1-9 VM, fastpath, AQL, ATF, WMM AC_VO DiffServ bypass,
+# and starts the zero-fork closed-loop adaptive sector controller + rollback watchdog.
+
+START=99
+STOP=10
+USE_PROCD=1
+
+IFACE="phy0-ap0"
+PHY="phy0"
+DEBUGFS="/sys/kernel/debug/ieee80211/${PHY}"
+
+apply_base_tuning() {
+    # 1. Stage 1: 64MB RAM VM Watermark Fix (+14 MB MemAvailable, 0 OOMs)
+    sysctl -w vm.min_free_kbytes=2048 >/dev/null 2>&1
+    sysctl -w vm.watermark_boost_factor=0 >/dev/null 2>&1
+    sysctl -w net.ipv4.ip_forward=1 >/dev/null 2>&1
+    sysctl -w net.ipv4.tcp_limit_output_bytes=131072 >/dev/null 2>&1
+
+    # 2. Stage 4/7: mac80211 Airtime Fairness + AQL + Bounded Initial Aggregation
+    if [ -d "${DEBUGFS}" ]; then
+        echo 3 > "${DEBUGFS}/airtime_flags" 2>/dev/null
+        for ac in 0 1 2 3; do
+            echo "${ac} 1500 3000" > "${DEBUGFS}/aql_txq_limit" 2>/dev/null
+        done
+        echo 6000 > "${DEBUGFS}/aql_threshold" 2>/dev/null
+        echo "2 32" > "${DEBUGFS}/ath10k/htt_max_amsdu_ampdu" 2>/dev/null
+    fi
+
+    # 3. Stage 2/7.4: Stateless nftables Fastpath + WMM AC_VO DiffServ Deficit Bypass
+    nft add table inet fmx_fastpath 2>/dev/null || true
+    nft flush table inet fmx_fastpath 2>/dev/null || true
+    nft 'add chain inet fmx_fastpath raw_pre { type filter hook prerouting priority -300; policy accept; }' 2>/dev/null
+    nft 'add rule inet fmx_fastpath raw_pre ip saddr 192.168.1.0/24 ip daddr 192.168.1.0/24 notrack' 2>/dev/null
+    nft 'add rule inet fmx_fastpath raw_pre ip saddr 10.99.0.0/24 ip daddr 10.99.0.0/24 notrack' 2>/dev/null
+    nft 'add rule inet fmx_fastpath raw_pre ip saddr 192.168.1.0/24 ip daddr 10.99.0.0/24 notrack' 2>/dev/null
+    nft 'add rule inet fmx_fastpath raw_pre ip saddr 10.99.0.0/24 ip daddr 192.168.1.0/24 notrack' 2>/dev/null
+    nft 'add chain inet fmx_fastpath in_fast { type filter hook input priority -150; policy accept; }' 2>/dev/null
+    nft 'add rule inet fmx_fastpath in_fast accept' 2>/dev/null
+    nft 'add chain inet fmx_fastpath fwd_fast { type filter hook forward priority -150; policy accept; }' 2>/dev/null
+    nft 'add rule inet fmx_fastpath fwd_fast ip protocol icmp ip dscp set ef counter accept' 2>/dev/null
+    nft 'add rule inet fmx_fastpath fwd_fast udp dport { 53, 123, 5060 } ip dscp set ef accept' 2>/dev/null
+    nft 'add rule inet fmx_fastpath fwd_fast accept' 2>/dev/null
+}
+
+start_service() {
+    apply_base_tuning
+
+    procd_open_instance "fmx_controller"
+    procd_set_param command /usr/sbin/fmx_adaptive_controller.sh "${IFACE}"
+    procd_set_param respawn 3600 5 5
+    procd_set_param stdout 0
+    procd_set_param stderr 1
+    procd_close_instance
+
+    if [ -x /usr/sbin/fmx_watchdog.sh ]; then
+        procd_open_instance "fmx_watchdog"
+        procd_set_param command /usr/sbin/fmx_watchdog.sh "${IFACE}"
+        procd_set_param respawn 3600 10 5
+        procd_close_instance
+    fi
+}
+
+stop_service() {
+    # Safe rollback to conservative defaults while preserving VM OOM protection
+    iw dev "${IFACE}" set bitrates 2>/dev/null || true
+    if [ -d "${DEBUGFS}" ]; then
+        echo 3 > "${DEBUGFS}/airtime_flags" 2>/dev/null
+        for ac in 0 1 2 3; do
+            echo "${ac} 2000 4000" > "${DEBUGFS}/aql_txq_limit" 2>/dev/null
+        done
+        echo 8000 > "${DEBUGFS}/aql_threshold" 2>/dev/null
+        echo "3 64" > "${DEBUGFS}/ath10k/htt_max_amsdu_ampdu" 2>/dev/null
+    fi
+}

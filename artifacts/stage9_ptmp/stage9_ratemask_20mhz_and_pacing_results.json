@@ -1,0 +1,1197 @@
+{
+  "timestamp": "2026-10-17T20:25:17.366572+00:00",
+  "stage9a_ratemask_authority_and_bounding": {
+    "fixed_rate_authority_mcs3": {
+      "command": "iw dev phy0-ap0 set bitrates legacy-5 6 12 24 ht-mcs-5 3 11 vht-mcs-5 1:3 2:3",
+      "observed_tx_bitrates": {
+        "loco5ac": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+        "sxt": "162.0 MBit/s MCS 12 40MHz",
+        "lbm5": "108.0 MBit/s MCS 5 40MHz"
+      },
+      "trial": {
+        "active_stations": [
+          "loco5ac",
+          "sxt",
+          "lbm5"
+        ],
+        "direction": "down",
+        "secs": 6,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "sxt": 8.34,
+          "loco5ac": 84.05,
+          "lbm5": 13.79
+        },
+        "tcp_retransmits": {
+          "sxt": 196,
+          "loco5ac": 189,
+          "lbm5": 31
+        },
+        "total_goodput_mbps": 106.18,
+        "jain_fairness": 0.5131,
+        "loaded_rtt": {
+          "loco5ac": {
+            "n": 24,
+            "p50_ms": 22.3,
+            "p95_ms": 31.2,
+            "p99_ms": 34.4,
+            "mean_ms": 18.77
+          },
+          "lbm5": {
+            "n": 24,
+            "p50_ms": 20.65,
+            "p95_ms": 29.7,
+            "p99_ms": 34.0,
+            "mean_ms": 18.34
+          },
+          "sxt": {
+            "n": 12,
+            "p50_ms": 16.1,
+            "p95_ms": 127.0,
+            "p99_ms": 331.0,
+            "mean_ms": 52.64
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 2380,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 96632438,
+            "signal_dbm": -53,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+            "rx_bitrate": "526.6 MBit/s VHT-MCS 6 80MHz VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 78.8
+          },
+          "sxt": {
+            "tx_retries_delta": 82,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 9994539,
+            "signal_dbm": -62,
+            "signal_avg_dbm": -62,
+            "tx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+            "rx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+            "airtime_weight": 256,
+            "airtime_share_pct": 8.1
+          },
+          "lbm5": {
+            "tx_retries_delta": 120,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 16052135,
+            "signal_dbm": -55,
+            "signal_avg_dbm": -56,
+            "tx_bitrate": "108.0 MBit/s MCS 5 40MHz",
+            "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 13.1
+          }
+        }
+      }
+    },
+    "envelope_comparison_11dbm": {
+      "Unbounded_Default_MCS_0_to_9": [
+        {
+          "active_stations": [
+            "loco5ac",
+            "sxt",
+            "lbm5"
+          ],
+          "direction": "down",
+          "secs": 8,
+          "udp_mbps": null,
+          "goodput_mbps": {
+            "loco5ac": 73.53,
+            "lbm5": 12.44,
+            "sxt": 9.3
+          },
+          "tcp_retransmits": {
+            "loco5ac": 133,
+            "lbm5": 16,
+            "sxt": 36
+          },
+          "total_goodput_mbps": 95.27,
+          "jain_fairness": 0.5357,
+          "loaded_rtt": {
+            "loco5ac": {
+              "n": 32,
+              "p50_ms": 28.3,
+              "p95_ms": 36.9,
+              "p99_ms": 42.9,
+              "mean_ms": 27.3
+            },
+            "lbm5": {
+              "n": 32,
+              "p50_ms": 27.05,
+              "p95_ms": 39.0,
+              "p99_ms": 41.1,
+              "mean_ms": 26.77
+            },
+            "sxt": {
+              "n": 16,
+              "p50_ms": 31.55,
+              "p95_ms": 41.7,
+              "p99_ms": 45.1,
+              "mean_ms": 29.64
+            }
+          },
+          "ap_txpower_dbm": 11.0,
+          "station_deltas": {
+            "loco5ac": {
+              "tx_retries_delta": 2410,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 112637591,
+              "signal_dbm": -54,
+              "signal_avg_dbm": -53,
+              "tx_bitrate": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+              "rx_bitrate": "585.0 MBit/s VHT-MCS 7 80MHz VHT-NSS 2",
+              "airtime_weight": 256,
+              "airtime_share_pct": 76.9
+            },
+            "sxt": {
+              "tx_retries_delta": 105,
+              "tx_failed_delta": 2,
+              "tx_duration_delta_us": 14706626,
+              "signal_dbm": -63,
+              "signal_avg_dbm": -62,
+              "tx_bitrate": "108.0 MBit/s MCS 11 40MHz",
+              "rx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+              "airtime_weight": 256,
+              "airtime_share_pct": 10.0
+            },
+            "lbm5": {
+              "tx_retries_delta": 81,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 19181699,
+              "signal_dbm": -54,
+              "signal_avg_dbm": -55,
+              "tx_bitrate": "121.5 MBit/s MCS 6 40MHz",
+              "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+              "airtime_weight": 256,
+              "airtime_share_pct": 13.1
+            }
+          }
+        },
+        {
+          "active_stations": [
+            "loco5ac",
+            "sxt",
+            "lbm5"
+          ],
+          "direction": "down",
+          "secs": 8,
+          "udp_mbps": null,
+          "goodput_mbps": {
+            "sxt": 7.18,
+            "loco5ac": 77.97,
+            "lbm5": 12.31
+          },
+          "tcp_retransmits": {
+            "sxt": 255,
+            "loco5ac": 166,
+            "lbm5": 21
+          },
+          "total_goodput_mbps": 97.46,
+          "jain_fairness": 0.504,
+          "loaded_rtt": {
+            "loco5ac": {
+              "n": 32,
+              "p50_ms": 25.75,
+              "p95_ms": 35.4,
+              "p99_ms": 38.0,
+              "mean_ms": 23.85
+            },
+            "sxt": {
+              "n": 11,
+              "p50_ms": 27.7,
+              "p95_ms": 115.0,
+              "p99_ms": 132.0,
+              "mean_ms": 40.85
+            },
+            "lbm5": {
+              "n": 32,
+              "p50_ms": 25.95,
+              "p95_ms": 36.0,
+              "p99_ms": 38.3,
+              "mean_ms": 26.3
+            }
+          },
+          "ap_txpower_dbm": 11.0,
+          "station_deltas": {
+            "loco5ac": {
+              "tx_retries_delta": 3185,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 119251158,
+              "signal_dbm": -53,
+              "signal_avg_dbm": -53,
+              "tx_bitrate": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+              "rx_bitrate": "650.0 MBit/s VHT-MCS 7 80MHz short GI VHT-NSS 2",
+              "airtime_weight": 256,
+              "airtime_share_pct": 79.7
+            },
+            "sxt": {
+              "tx_retries_delta": 82,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 11505651,
+              "signal_dbm": -63,
+              "signal_avg_dbm": -62,
+              "tx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+              "rx_bitrate": "135.0 MBit/s MCS 7 40MHz",
+              "airtime_weight": 256,
+              "airtime_share_pct": 7.7
+            },
+            "lbm5": {
+              "tx_retries_delta": 119,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 18948928,
+              "signal_dbm": -56,
+              "signal_avg_dbm": -55,
+              "tx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+              "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+              "airtime_weight": 256,
+              "airtime_share_pct": 12.7
+            }
+          }
+        }
+      ],
+      "Bounded_Envelope_No256QAM_MCS_0_to_5": [
+        {
+          "active_stations": [
+            "loco5ac",
+            "sxt",
+            "lbm5"
+          ],
+          "direction": "down",
+          "secs": 8,
+          "udp_mbps": null,
+          "goodput_mbps": {
+            "loco5ac": 76.32,
+            "sxt": 7.07,
+            "lbm5": 15.58
+          },
+          "tcp_retransmits": {
+            "loco5ac": 159,
+            "sxt": 80,
+            "lbm5": 12
+          },
+          "total_goodput_mbps": 98.97,
+          "jain_fairness": 0.5337,
+          "loaded_rtt": {
+            "lbm5": {
+              "n": 32,
+              "p50_ms": 30.6,
+              "p95_ms": 35.0,
+              "p99_ms": 40.0,
+              "mean_ms": 29.44
+            },
+            "loco5ac": {
+              "n": 32,
+              "p50_ms": 31.0,
+              "p95_ms": 37.8,
+              "p99_ms": 39.6,
+              "mean_ms": 31.12
+            },
+            "sxt": {
+              "n": 17,
+              "p50_ms": 34.7,
+              "p95_ms": 196.0,
+              "p99_ms": 404.0,
+              "mean_ms": 67.97
+            }
+          },
+          "ap_txpower_dbm": 11.0,
+          "station_deltas": {
+            "loco5ac": {
+              "tx_retries_delta": 2882,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 116940238,
+              "signal_dbm": -53,
+              "signal_avg_dbm": -53,
+              "tx_bitrate": "351.0 MBit/s VHT-MCS 4 80MHz VHT-NSS 2",
+              "rx_bitrate": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+              "airtime_weight": 256,
+              "airtime_share_pct": 76.9
+            },
+            "sxt": {
+              "tx_retries_delta": 80,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 11052343,
+              "signal_dbm": -62,
+              "signal_avg_dbm": -62,
+              "tx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+              "rx_bitrate": "135.0 MBit/s MCS 6 40MHz short GI",
+              "airtime_weight": 256,
+              "airtime_share_pct": 7.3
+            },
+            "lbm5": {
+              "tx_retries_delta": 168,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 24017259,
+              "signal_dbm": -56,
+              "signal_avg_dbm": -56,
+              "tx_bitrate": "121.5 MBit/s MCS 6 40MHz",
+              "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+              "airtime_weight": 256,
+              "airtime_share_pct": 15.8
+            }
+          }
+        },
+        {
+          "active_stations": [
+            "loco5ac",
+            "sxt",
+            "lbm5"
+          ],
+          "direction": "down",
+          "secs": 8,
+          "udp_mbps": null,
+          "goodput_mbps": {
+            "lbm5": 10.33,
+            "sxt": 7.96,
+            "loco5ac": 62.56
+          },
+          "tcp_retransmits": {
+            "lbm5": 33,
+            "sxt": 127,
+            "loco5ac": 174
+          },
+          "total_goodput_mbps": 80.85,
+          "jain_fairness": 0.5335,
+          "loaded_rtt": {
+            "loco5ac": {
+              "n": 32,
+              "p50_ms": 25.1,
+              "p95_ms": 39.1,
+              "p99_ms": 45.0,
+              "mean_ms": 25.23
+            },
+            "lbm5": {
+              "n": 32,
+              "p50_ms": 25.25,
+              "p95_ms": 31.1,
+              "p99_ms": 42.0,
+              "mean_ms": 25.36
+            },
+            "sxt": {
+              "n": 10,
+              "p50_ms": 30.7,
+              "p95_ms": 133.0,
+              "p99_ms": 231.0,
+              "mean_ms": 55.47
+            }
+          },
+          "ap_txpower_dbm": 11.0,
+          "station_deltas": {
+            "loco5ac": {
+              "tx_retries_delta": 2438,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 95676229,
+              "signal_dbm": -53,
+              "signal_avg_dbm": -53,
+              "tx_bitrate": "468.0 MBit/s VHT-MCS 5 80MHz VHT-NSS 2",
+              "rx_bitrate": "650.0 MBit/s VHT-MCS 7 80MHz short GI VHT-NSS 2",
+              "airtime_weight": 256,
+              "airtime_share_pct": 76.8
+            },
+            "sxt": {
+              "tx_retries_delta": 74,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 12728555,
+              "signal_dbm": -62,
+              "signal_avg_dbm": -62,
+              "tx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+              "rx_bitrate": "108.0 MBit/s MCS 11 40MHz",
+              "airtime_weight": 256,
+              "airtime_share_pct": 10.2
+            },
+            "lbm5": {
+              "tx_retries_delta": 92,
+              "tx_failed_delta": 0,
+              "tx_duration_delta_us": 16233315,
+              "signal_dbm": -56,
+              "signal_avg_dbm": -56,
+              "tx_bitrate": "121.5 MBit/s MCS 6 40MHz",
+              "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+              "airtime_weight": 256,
+              "airtime_share_pct": 13.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "stage9b_20mhz_wisp_sector": {
+    "width_mhz": 20,
+    "standalone_dl": {
+      "loco5ac": {
+        "active_stations": [
+          "loco5ac"
+        ],
+        "direction": "down",
+        "secs": 6,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "loco5ac": 81.97
+        },
+        "tcp_retransmits": {
+          "loco5ac": 6
+        },
+        "total_goodput_mbps": 81.97,
+        "jain_fairness": 1.0,
+        "loaded_rtt": {
+          "lbm5": {
+            "n": 24,
+            "p50_ms": 4.01,
+            "p95_ms": 5.69,
+            "p99_ms": 7.93,
+            "mean_ms": 4.1
+          },
+          "sxt": {
+            "n": 24,
+            "p50_ms": 4.21,
+            "p95_ms": 6.4,
+            "p99_ms": 7.32,
+            "mean_ms": 4.43
+          },
+          "loco5ac": {
+            "n": 24,
+            "p50_ms": 4.62,
+            "p95_ms": 7.7,
+            "p99_ms": 8.09,
+            "mean_ms": 4.93
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 562,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 94352475,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -48,
+            "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+            "rx_bitrate": "104.0 MBit/s VHT-MCS 5 VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 100.0
+          },
+          "sxt": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7625,
+            "signal_dbm": -60,
+            "signal_avg_dbm": -59,
+            "tx_bitrate": "78.0 MBit/s MCS 12",
+            "rx_bitrate": "65.0 MBit/s MCS 6 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          },
+          "lbm5": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7625,
+            "signal_dbm": -54,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          }
+        }
+      },
+      "sxt": {
+        "active_stations": [
+          "sxt"
+        ],
+        "direction": "down",
+        "secs": 6,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "sxt": 61.44
+        },
+        "tcp_retransmits": {
+          "sxt": 8
+        },
+        "total_goodput_mbps": 61.44,
+        "jain_fairness": 1.0,
+        "loaded_rtt": {
+          "lbm5": {
+            "n": 24,
+            "p50_ms": 3.92,
+            "p95_ms": 8.04,
+            "p99_ms": 11.5,
+            "mean_ms": 4.45
+          },
+          "sxt": {
+            "n": 24,
+            "p50_ms": 3.81,
+            "p95_ms": 6.19,
+            "p99_ms": 8.32,
+            "mean_ms": 3.89
+          },
+          "loco5ac": {
+            "n": 24,
+            "p50_ms": 4.06,
+            "p95_ms": 8.39,
+            "p99_ms": 8.96,
+            "mean_ms": 4.56
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7392,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -48,
+            "tx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+            "rx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          },
+          "sxt": {
+            "tx_retries_delta": 1383,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 70547481,
+            "signal_dbm": -60,
+            "signal_avg_dbm": -59,
+            "tx_bitrate": "117.0 MBit/s MCS 14",
+            "rx_bitrate": "86.7 MBit/s MCS 12 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 100.0
+          },
+          "lbm5": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7392,
+            "signal_dbm": -53,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          }
+        }
+      },
+      "lbm5": {
+        "active_stations": [
+          "lbm5"
+        ],
+        "direction": "down",
+        "secs": 6,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "lbm5": 37.51
+        },
+        "tcp_retransmits": {
+          "lbm5": 0
+        },
+        "total_goodput_mbps": 37.51,
+        "jain_fairness": 1.0,
+        "loaded_rtt": {
+          "lbm5": {
+            "n": 24,
+            "p50_ms": 3.3,
+            "p95_ms": 4.72,
+            "p99_ms": 5.65,
+            "mean_ms": 3.14
+          },
+          "loco5ac": {
+            "n": 24,
+            "p50_ms": 2.88,
+            "p95_ms": 5.63,
+            "p99_ms": 6.98,
+            "mean_ms": 3.32
+          },
+          "sxt": {
+            "n": 24,
+            "p50_ms": 3.33,
+            "p95_ms": 4.6,
+            "p99_ms": 7.05,
+            "mean_ms": 3.41
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7392,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -47,
+            "tx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+            "rx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          },
+          "sxt": {
+            "tx_retries_delta": 0,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 7392,
+            "signal_dbm": -60,
+            "signal_avg_dbm": -59,
+            "tx_bitrate": "144.4 MBit/s MCS 15 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 0.0
+          },
+          "lbm5": {
+            "tx_retries_delta": 43,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 43089546,
+            "signal_dbm": -53,
+            "signal_avg_dbm": -54,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 100.0
+          }
+        }
+      }
+    },
+    "all3_dl_trials": [
+      {
+        "active_stations": [
+          "loco5ac",
+          "sxt",
+          "lbm5"
+        ],
+        "direction": "down",
+        "secs": 8,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "loco5ac": 28.9,
+          "sxt": 20.93,
+          "lbm5": 17.02
+        },
+        "tcp_retransmits": {
+          "loco5ac": 23,
+          "sxt": 18,
+          "lbm5": 2
+        },
+        "total_goodput_mbps": 66.85,
+        "jain_fairness": 0.9531,
+        "loaded_rtt": {
+          "lbm5": {
+            "n": 32,
+            "p50_ms": 3.96,
+            "p95_ms": 6.51,
+            "p99_ms": 9.72,
+            "mean_ms": 4.33
+          },
+          "loco5ac": {
+            "n": 32,
+            "p50_ms": 4.58,
+            "p95_ms": 7.72,
+            "p99_ms": 9.09,
+            "mean_ms": 4.9
+          },
+          "sxt": {
+            "n": 32,
+            "p50_ms": 3.36,
+            "p95_ms": 6.06,
+            "p99_ms": 7.01,
+            "mean_ms": 3.66
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 215,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 44352917,
+            "signal_dbm": -47,
+            "signal_avg_dbm": -47,
+            "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+            "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 43.1
+          },
+          "sxt": {
+            "tx_retries_delta": 750,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 32177394,
+            "signal_dbm": -61,
+            "signal_avg_dbm": -60,
+            "tx_bitrate": "117.0 MBit/s MCS 14",
+            "rx_bitrate": "86.7 MBit/s MCS 12 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 31.3
+          },
+          "lbm5": {
+            "tx_retries_delta": 32,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 26288220,
+            "signal_dbm": -54,
+            "signal_avg_dbm": -54,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 25.6
+          }
+        },
+        "spectral_efficiency_bps_per_hz": 3.342
+      },
+      {
+        "active_stations": [
+          "loco5ac",
+          "sxt",
+          "lbm5"
+        ],
+        "direction": "down",
+        "secs": 8,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "loco5ac": 28.91,
+          "lbm5": 15.43,
+          "sxt": 14.77
+        },
+        "tcp_retransmits": {
+          "loco5ac": 20,
+          "lbm5": 0,
+          "sxt": 18
+        },
+        "total_goodput_mbps": 59.11,
+        "jain_fairness": 0.9014,
+        "loaded_rtt": {
+          "sxt": {
+            "n": 25,
+            "p50_ms": 3.44,
+            "p95_ms": 6.15,
+            "p99_ms": 9.04,
+            "mean_ms": 3.64
+          },
+          "lbm5": {
+            "n": 32,
+            "p50_ms": 3.81,
+            "p95_ms": 7.1,
+            "p99_ms": 7.88,
+            "mean_ms": 4.19
+          },
+          "loco5ac": {
+            "n": 32,
+            "p50_ms": 4.74,
+            "p95_ms": 6.48,
+            "p99_ms": 9.27,
+            "mean_ms": 4.78
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 258,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 44205862,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -48,
+            "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+            "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 48.6
+          },
+          "sxt": {
+            "tx_retries_delta": 442,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 22771357,
+            "signal_dbm": -62,
+            "signal_avg_dbm": -60,
+            "tx_bitrate": "104.0 MBit/s MCS 13",
+            "rx_bitrate": "57.8 MBit/s MCS 11 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 25.0
+          },
+          "lbm5": {
+            "tx_retries_delta": 41,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 23932463,
+            "signal_dbm": -54,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 26.3
+          }
+        },
+        "spectral_efficiency_bps_per_hz": 2.955
+      }
+    ],
+    "all3_ul_trials": [
+      {
+        "active_stations": [
+          "loco5ac",
+          "sxt",
+          "lbm5"
+        ],
+        "direction": "up",
+        "secs": 8,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "loco5ac": 41.68,
+          "sxt": 4.85,
+          "lbm5": 26.6
+        },
+        "tcp_retransmits": {
+          "loco5ac": 164,
+          "sxt": 15,
+          "lbm5": 0
+        },
+        "total_goodput_mbps": 73.13,
+        "jain_fairness": 0.7222,
+        "loaded_rtt": {
+          "loco5ac": {
+            "n": 32,
+            "p50_ms": 6.03,
+            "p95_ms": 9.68,
+            "p99_ms": 10.4,
+            "mean_ms": 6.27
+          },
+          "sxt": {
+            "n": 32,
+            "p50_ms": 5.73,
+            "p95_ms": 10.9,
+            "p99_ms": 12.7,
+            "mean_ms": 6.1
+          },
+          "lbm5": {
+            "n": 31,
+            "p50_ms": 5.96,
+            "p95_ms": 11.3,
+            "p99_ms": 103.0,
+            "mean_ms": 9.6
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 386,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 2484152,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -47,
+            "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+            "rx_bitrate": "156.0 MBit/s VHT-MCS 8 VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 65.3
+          },
+          "sxt": {
+            "tx_retries_delta": 60,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 376939,
+            "signal_dbm": -60,
+            "signal_avg_dbm": -60,
+            "tx_bitrate": "144.4 MBit/s MCS 15 short GI",
+            "rx_bitrate": "65.0 MBit/s MCS 6 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 9.9
+          },
+          "lbm5": {
+            "tx_retries_delta": 18,
+            "tx_failed_delta": 1,
+            "tx_duration_delta_us": 943139,
+            "signal_dbm": -53,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "58.5 MBit/s MCS 6",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 24.8
+          }
+        },
+        "spectral_efficiency_bps_per_hz": 3.656
+      },
+      {
+        "active_stations": [
+          "loco5ac",
+          "sxt",
+          "lbm5"
+        ],
+        "direction": "up",
+        "secs": 8,
+        "udp_mbps": null,
+        "goodput_mbps": {
+          "loco5ac": 45.34,
+          "sxt": 2.62,
+          "lbm5": 25.16
+        },
+        "tcp_retransmits": {
+          "loco5ac": 161,
+          "sxt": 33,
+          "lbm5": 0
+        },
+        "total_goodput_mbps": 73.12,
+        "jain_fairness": 0.6611,
+        "loaded_rtt": {
+          "lbm5": {
+            "n": 32,
+            "p50_ms": 6.12,
+            "p95_ms": 8.83,
+            "p99_ms": 10.6,
+            "mean_ms": 6.27
+          },
+          "loco5ac": {
+            "n": 32,
+            "p50_ms": 5.36,
+            "p95_ms": 11.9,
+            "p99_ms": 14.4,
+            "mean_ms": 6.3
+          },
+          "sxt": {
+            "n": 32,
+            "p50_ms": 5.83,
+            "p95_ms": 10.9,
+            "p99_ms": 11.6,
+            "mean_ms": 6.73
+          }
+        },
+        "ap_txpower_dbm": 11.0,
+        "station_deltas": {
+          "loco5ac": {
+            "tx_retries_delta": 434,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 2621021,
+            "signal_dbm": -48,
+            "signal_avg_dbm": -47,
+            "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+            "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+            "airtime_weight": 256,
+            "airtime_share_pct": 71.8
+          },
+          "sxt": {
+            "tx_retries_delta": 32,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 255353,
+            "signal_dbm": -60,
+            "signal_avg_dbm": -59,
+            "tx_bitrate": "117.0 MBit/s MCS 14",
+            "rx_bitrate": "78.0 MBit/s MCS 12",
+            "airtime_weight": 256,
+            "airtime_share_pct": 7.0
+          },
+          "lbm5": {
+            "tx_retries_delta": 10,
+            "tx_failed_delta": 0,
+            "tx_duration_delta_us": 773193,
+            "signal_dbm": -54,
+            "signal_avg_dbm": -53,
+            "tx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "rx_bitrate": "72.2 MBit/s MCS 7 short GI",
+            "airtime_weight": 256,
+            "airtime_share_pct": 21.2
+          }
+        },
+        "spectral_efficiency_bps_per_hz": 3.656
+      }
+    ]
+  },
+  "stage9c_cotsq_and_station_fq_codel": {
+    "Default_TSQ_512KB_Default_CPE_Qdisc": {
+      "active_stations": [
+        "loco5ac",
+        "sxt",
+        "lbm5"
+      ],
+      "direction": "up",
+      "secs": 8,
+      "udp_mbps": null,
+      "goodput_mbps": {
+        "sxt": 9.96,
+        "loco5ac": 130.4,
+        "lbm5": 38.92
+      },
+      "tcp_retransmits": {
+        "sxt": 15,
+        "loco5ac": 0,
+        "lbm5": 0
+      },
+      "total_goodput_mbps": 179.28,
+      "jain_fairness": 0.5754,
+      "loaded_rtt": {
+        "loco5ac": {
+          "n": 32,
+          "p50_ms": 8.12,
+          "p95_ms": 11.2,
+          "p99_ms": 12.9,
+          "mean_ms": 8.17
+        },
+        "sxt": {
+          "n": 32,
+          "p50_ms": 6.39,
+          "p95_ms": 10.9,
+          "p99_ms": 14.9,
+          "mean_ms": 7.02
+        },
+        "lbm5": {
+          "n": 32,
+          "p50_ms": 7.58,
+          "p95_ms": 12.9,
+          "p99_ms": 49.6,
+          "mean_ms": 8.95
+        }
+      },
+      "ap_txpower_dbm": 11.0,
+      "station_deltas": {
+        "loco5ac": {
+          "tx_retries_delta": 642,
+          "tx_failed_delta": 0,
+          "tx_duration_delta_us": 3264539,
+          "signal_dbm": -54,
+          "signal_avg_dbm": -54,
+          "tx_bitrate": "162.0 MBit/s VHT-MCS 4 40MHz VHT-NSS 2",
+          "rx_bitrate": "526.6 MBit/s VHT-MCS 6 80MHz VHT-NSS 2",
+          "airtime_weight": 256,
+          "airtime_share_pct": 65.7
+        },
+        "sxt": {
+          "tx_retries_delta": 125,
+          "tx_failed_delta": 20,
+          "tx_duration_delta_us": 567414,
+          "signal_dbm": -63,
+          "signal_avg_dbm": -63,
+          "tx_bitrate": "108.0 MBit/s MCS 11 40MHz",
+          "rx_bitrate": "90.0 MBit/s MCS 10 40MHz short GI",
+          "airtime_weight": 256,
+          "airtime_share_pct": 11.4
+        },
+        "lbm5": {
+          "tx_retries_delta": 34,
+          "tx_failed_delta": 6,
+          "tx_duration_delta_us": 1136853,
+          "signal_dbm": -58,
+          "signal_avg_dbm": -57,
+          "tx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+          "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+          "airtime_weight": 256,
+          "airtime_share_pct": 22.9
+        }
+      }
+    },
+    "FuturaMAX_CoTSQ_128KB_Plus_CPE_FQ_CoDel_Q300": {
+      "active_stations": [
+        "loco5ac",
+        "sxt",
+        "lbm5"
+      ],
+      "direction": "up",
+      "secs": 8,
+      "udp_mbps": null,
+      "goodput_mbps": {
+        "loco5ac": 141.93,
+        "lbm5": 35.78,
+        "sxt": 4.19
+      },
+      "tcp_retransmits": {
+        "loco5ac": 0,
+        "lbm5": 0,
+        "sxt": 28
+      },
+      "total_goodput_mbps": 181.9,
+      "jain_fairness": 0.5144,
+      "loaded_rtt": {
+        "loco5ac": {
+          "n": 32,
+          "p50_ms": 8.09,
+          "p95_ms": 16.6,
+          "p99_ms": 20.0,
+          "mean_ms": 8.82
+        },
+        "sxt": {
+          "n": 32,
+          "p50_ms": 5.58,
+          "p95_ms": 8.66,
+          "p99_ms": 13.9,
+          "mean_ms": 5.93
+        },
+        "lbm5": {
+          "n": 32,
+          "p50_ms": 7.05,
+          "p95_ms": 12.5,
+          "p99_ms": 15.8,
+          "mean_ms": 7.91
+        }
+      },
+      "ap_txpower_dbm": 11.0,
+      "station_deltas": {
+        "loco5ac": {
+          "tx_retries_delta": 545,
+          "tx_failed_delta": 0,
+          "tx_duration_delta_us": 3105224,
+          "signal_dbm": -56,
+          "signal_avg_dbm": -55,
+          "tx_bitrate": "526.6 MBit/s VHT-MCS 6 80MHz VHT-NSS 2",
+          "rx_bitrate": "650.0 MBit/s VHT-MCS 7 80MHz short GI VHT-NSS 2",
+          "airtime_weight": 256,
+          "airtime_share_pct": 71.6
+        },
+        "sxt": {
+          "tx_retries_delta": 47,
+          "tx_failed_delta": 4,
+          "tx_duration_delta_us": 315769,
+          "signal_dbm": -64,
+          "signal_avg_dbm": -64,
+          "tx_bitrate": "162.0 MBit/s MCS 12 40MHz",
+          "rx_bitrate": "120.0 MBit/s MCS 5 40MHz short GI",
+          "airtime_weight": 256,
+          "airtime_share_pct": 7.3
+        },
+        "lbm5": {
+          "tx_retries_delta": 26,
+          "tx_failed_delta": 0,
+          "tx_duration_delta_us": 913722,
+          "signal_dbm": -56,
+          "signal_avg_dbm": -57,
+          "tx_bitrate": "121.5 MBit/s MCS 6 40MHz",
+          "rx_bitrate": "150.0 MBit/s MCS 7 40MHz short GI",
+          "airtime_weight": 256,
+          "airtime_share_pct": 21.1
+        }
+      }
+    }
+  },
+  "stage9d_procd_and_watchdog": {
+    "procd_ubus_status": {
+      "futuramax": {
+        "instances": {
+          "fmx_controller": {
+            "running": true,
+            "pid": 5522,
+            "command": [
+              "/usr/sbin/fmx_adaptive_controller.sh",
+              "phy0-ap0"
+            ],
+            "term_timeout": 5,
+            "respawn": {
+              "threshold": 3600,
+              "timeout": 5,
+              "retry": 5
+            }
+          },
+          "fmx_watchdog": {
+            "running": true,
+            "pid": 5523,
+            "command": [
+              "/usr/sbin/fmx_watchdog.sh",
+              "phy0-ap0"
+            ],
+            "term_timeout": 5,
+            "respawn": {
+              "threshold": 3600,
+              "timeout": 10,
+              "retry": 5
+            }
+          }
+        }
+      }
+    },
+    "controller_state": {
+      "mode": "SINGLE_STA_TURBO",
+      "active_count": 0,
+      "active_stations": ""
+    },
+    "watchdog_status": {
+      "status": "HEALTHY",
+      "mem_available_kb": 24696,
+      "if_up": 1,
+      "fail_count": 0
+    }
+  }
+}
