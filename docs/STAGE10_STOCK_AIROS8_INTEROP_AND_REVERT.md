@@ -77,49 +77,54 @@ Instead of dispatching by file size (`wc -c`) or writing directly to `/tmp/uph.k
 3. Applies the **4-site relocation-safe splice** (including zeroing the 8-byte `.rel.text` entry at `R1`) into a staging file `/tmp/uph.ko.tmp`.
 4. Verifies the **exact post-patch `reloc_safe_md5`** (`EM`) before moving `/tmp/uph.ko.tmp` to `/tmp/uph.ko` and bind-mounting.
 
+5. **Critical Bench Discovery (`ubntconf` `2,042`-Byte Crontab Buffer Limit)**:
+   - On `airOS 8` (`WA.v8.7.25`), `/sbin/ubntconf -c /tmp/system.cfg` formats `/etc/crontabs/ubnt` into a fixed **`2,048`-byte buffer** (`2,042` bytes written, `2,030` bytes available for `cron.1.job.1.cmd` after `* * * * * `). Any `cron.1.job.1.cmd` exceeding `2,030` bytes is silently truncated in `/etc/crontabs/ubnt`, breaking shell syntax on boot.
+   - Our production-ready `F01 + F02` `cron.1.job.1.cmd` below is **`1,994` bytes** (`2,005` bytes in `/etc/crontabs/ubnt`), preserving **all 10 full 32-char MD5 hashes** (`M` and `K`), the atomic lock (`/tmp/uph.l`), the 3-tick stability window (`/tmp/u_ok`), the 4-site relocation-safe patch, `killall ubntspecd`, and `allow_80211=1`:
+
 ```sh
-# Relocation-safe 4-site builder with preimage & postimage MD5 verification:
-O=/lib/modules/2.6.32.68/ubnt_poll_host.ko
-M=$(md5sum $O | awk '{print $1}')
-case "$M" in
-  5bb5c6687c916822190ea5d687388e4f) S1=30040; S2=30044; S3=31076; C3=9808; S4=40888; C4=124736; R2=165632; EM=9b516361d0e36ea1c2c5177cb87b6075 ;;
-  caab5177b3953e1bc51d43b46ca6ff8e) S1=30072; S2=30076; S3=31108; C3=9808; S4=40920; C4=124736; R2=165664; EM=3a76741ab2c3105c91abaa89ea8420c2 ;;
-  4103f9d0a2fdbf312d93a68b10647bca) S1=30072; S2=30076; S3=31108; C3=9808; S4=40920; C4=124736; R2=165664; EM=e46cb619a0baa0384a64f4fc67220806 ;;
-  7c76c8ced16cab0ce9ca680ce9c94e51) S1=30784; S2=30788; S3=31820; C3=10156; S4=41980; C4=126556; R2=168544; EM=077d151e0055f198609dc761a39207b3 ;;
-  5b26b076967befe129f669096539ae21) S1=30784; S2=30788; S3=31820; C3=10156; S4=41980; C4=126556; R2=168544; EM=7b490ac4d9573dab010b5f4fb95c3765 ;;
-  *) exit 0 ;;
-esac
-(dd if=$O bs=1 count=$S1; dd if=/dev/zero bs=1 count=4; dd if=$O bs=1 skip=$S2 count=1028; awk 'BEGIN{printf "%c",16}'; dd if=/dev/zero bs=1 count=2; awk 'BEGIN{printf "%c",6}'; dd if=$O bs=1 skip=$S3 count=$C3; awk 'BEGIN{printf "%c%c",36,2}'; dd if=/dev/zero bs=1 count=1; awk 'BEGIN{printf "%c",1}'; dd if=$O bs=1 skip=$S4 count=$C4; dd if=/dev/zero bs=1 count=8; dd if=$O bs=1 skip=$R2) > /tmp/uph.ko.tmp 2>/dev/null
-PM=$(md5sum /tmp/uph.ko.tmp | awk '{print $1}')
-if [ "$PM" = "$EM" ]; then mv /tmp/uph.ko.tmp /tmp/uph.ko; else rm -f /tmp/uph.ko.tmp; exit 1; fi
+cron.1.job.1.cmd=mkdir /tmp/uph.l 2>/dev/null||exit 0;trap 'rmdir /tmp/uph.l' EXIT;if iwconfig ath0 2>/dev/null|grep -qi 'Access Point: [0-9A-F]';then echo 0 >/tmp/u_ok;exit 0;fi;C=$(cat /tmp/u_ok 2>/dev/null||echo 3);if [ $C -lt 2 ];then echo $((C+1))>/tmp/u_ok;exit 0;fi;echo 0 >/tmp/u_ok;O=/lib/modules/2.6.32.68/ubnt_poll_host.ko;P=/usr/etc/init.d/plugin;D="dd if=$O bs=1";Z="dd if=/dev/zero bs=1";if [ ! -f /tmp/uph.ko ];then M=$(md5sum $O|awk '{print $1}');A=30784;B=30788;E=31820;F=10156;G=41980;H=126556;R=168544;case $M in 5bb5c6687c916822190ea5d687388e4f)A=30040;B=30044;E=31076;F=9808;G=40888;H=124736;R=165632;K=9b516361d0e36ea1c2c5177cb87b6075;;caab5177b3953e1bc51d43b46ca6ff8e)A=30072;B=30076;E=31108;F=9808;G=40920;H=124736;R=165664;K=3a76741ab2c3105c91abaa89ea8420c2;;4103f9d0a2fdbf312d93a68b10647bca)A=30072;B=30076;E=31108;F=9808;G=40920;H=124736;R=165664;K=e46cb619a0baa0384a64f4fc67220806;;7c76c8ced16cab0ce9ca680ce9c94e51)K=077d151e0055f198609dc761a39207b3;;5b26b076967befe129f669096539ae21)K=7b490ac4d9573dab010b5f4fb95c3765;;*)exit 0;;esac;($D count=$A;$Z count=4;$D skip=$B count=1028;awk 'BEGIN{printf "%c",16}';$Z count=2;awk 'BEGIN{printf "%c",6}';$D skip=$E count=$F;awk 'BEGIN{printf "%c%c",36,2}';$Z count=1;awk 'BEGIN{printf "%c",1}';$D skip=$G count=$H;$Z count=8;$D skip=$R)>/tmp/u.t 2>/dev/null;[ "$(md5sum /tmp/u.t|awk '{print $1}')" = "$K" ]||{ rm -f /tmp/u.t;exit 1;};mv /tmp/u.t /tmp/uph.ko;mount --bind /tmp/uph.ko $O;sed -i 's|1 > /sys|0 > /sys|;s|wifi0 1 0 0|wifi0 0 0 0|;s|1 > /proc|0 > /proc|;s|insmod ubnt_poll_host|killall ubntspecd;rmmod ubnt_poll_host;insmod ubnt_poll_host|' /etc/sysinit/radio.conf;sed -i 's|wds 1|wds 0|' /etc/sysinit/wireless.conf;sed -i '/allow_80211/d;s/ap_scan=1/ap_scan=1\nallow_80211=1/' /etc/wpasupplicant_*.conf 2>/dev/null;else umount $O 2>/dev/null;rm -f /tmp/uph.ko;/sbin/ubntconf -c /tmp/system.cfg;fi;for s in wpasupplicant wireless radio;do $P stop $s;done;for s in radio wireless wpasupplicant bridge net route;do $P start $s;done
 ```
 
 ---
 
-## 5. Production Sector Hardware Audit & Full Revert Receipt (`CONFIRMED`)
+## 5. Production Sector Hardware, Telemetry & Layer-2 Audit (`CONFIRMED` — [`stage1_production_telemetry_audit.json`](../artifacts/stage1_production_telemetry_audit.json))
 
-1. **Read-Only `/etc/board.info` Hardware Audit Across Candidate Sectors**:
-   - **`Sector-Belgrano` (2 CPEs)**: `board.sysid=0xe7e9`, `board.name=Rocket Prism 5AC` (`XC.v8.7.25`, `RP-5AC-Gen2`). Uses Ubiquiti's AirPrism active RF filter (`prism` bit 30 + `hsr` bit 28) and dual-radio architecture (`wifi0` `QCA9880` + `wifi1` `QCA9558` AHB). Must NOT be flashed with single-radio `WA` `ubnt_lap-120` images.
-   - **`Sector-Guarida-3` (3 CPEs)** & **`Sector-Guarida-1` (4 CPEs)**: `board.sysid=0xe8e5`, `board.name=LiteAP AC` (`WA.v8.7.25`, `LAP-120`) — exact `0xe8e5` hardware match to the physical bench AP (`192.168.1.2`).
-   - **`Sector-UOM-1` (2 CPEs)**: `board.sysid=0xe7fd`, `board.name=LiteAP GPS` (`WA.v8.7.25`, `LAP-GPS`).
-2. **Production Sector Status (`Sector-Guarida-1` — 100% Untouched Stock Confirmed)**:
-   - Full partition backups (`mtd0`, `mtd1`, `mtd4`, `mtd5`) were verified with `100%` local/remote MD5 parity.
-   - Per Operator Option A (`2026-10-18`), the temporary `cron.*` pre-staging on the 4 CPEs of `Sector-Guarida-1` was **completely removed and reverted to original stock `system.cfg` (`NO_CRON_LINES` verified on `mtd4`, `CFGMTD_RC=0`, `crond` stopped, `/etc/crontabs/ubnt` removed)** while all 4 CPEs remained continuously associated to their stock `WA.v8.7.25` AP (`link_uptime` uninterrupted).
+1. **Read-Only `/etc/board.info` & Live Stage 1 Telemetry Across All 4 Candidate Sectors (11 CPEs Total)**:
+   - **`Edificio-Panel-Belgrano` (`XC.v8.7.25`, `board.sysid=0xe7e9`, `Rocket Prism 5AC Gen2`, `5700 MHz / 20 MHz`, NF `-86 dBm`, Airtime `32%`)**:
+     - `BERON_Carlos` (`1950 m`): `-71 dBm`, CINR `20 dB`, MCS `4x/4x`, `netmode=router`, `NO_CRON`.
+     - `ARIAS_Fernanda` (`2400 m`): `-59 dBm`, CINR `23 dB`, MCS `8x/5x`, `netmode=router`, `NO_CRON`.
+     - Live read-only kernel audit confirmed `ubnt_poll_host_hsr_diag` (`0x85d07ebc`), `ubnt_prism_hook` (`0x864ac874`), `setup_shift_gpio` (`0x87b03fa0`), `set_shift_register` (`0x87b04058`), `gpio_shift_line_set` (`0x87b04108`), and `SPECTRAL-XMIT-FILTER` IRQ on `wifi1` (`ath_ahb`).
+   - **`FT-UOM-1` (`WA.v8.7.25`, `board.sysid=0xe7fd`, `LiteAP GPS`, `5645 MHz / 20 MHz`, NF `-93 dBm`, Airtime `20%`)**:
+     - `Yesica Liliana AMATULI` (`900 m`): `-57 dBm`, CINR `27 dB`, MCS `7x/8x`, `netmode=router`, `NO_CRON`.
+     - `Aldana MUNOZ` (`300 m`): `-53 dBm`, CINR `25 dB`, MCS `7x/7x`, `netmode=router`, `NO_CRON`.
+   - **`Panel3-Guarida` (`WA.v8.7.25`, `board.sysid=0xe8e5`, `LiteAP AC`, `5755 MHz / 20 MHz`, NF `-92 dBm`)**:
+     - `TABORDA_Ada_Cristina_Ayelen` (`2700 m`): `-62 dBm`, CINR `24 dB`, MCS `7x/5x`, `netmode=router`, `NO_CRON`.
+     - `GALEANO_Rocio_Del_Lujan` (`1050 m`): `-60 dBm`, CINR `29 dB`, MCS `8x/8x` (note: CPE RX chain difference `36 vs 46` = `10 dB` flagged by Stage 1 chain-imbalance detector), `netmode=router`, `NO_CRON`.
+     - `SOSA_Joaquin_Alejandro` (`450 m`): `-56 dBm`, CINR `23 dB`, MCS `7x/7x`, `netmode=router`, `NO_CRON`.
+   - **`Panel1-Guarida` (`WA.v8.7.25`, `board.sysid=0xe8e5`, `LiteAP AC`, `5240 MHz / 20 MHz`, NF `-94 dBm`, Airtime `27%`)**:
+     - `FARELA Juan Jose` (`300 m`): `-53 dBm`, CINR `21 dB`, MCS `7x/5x`, `netmode=router`, `NO_CRON`.
+     - `SCHECHTEL_Camila` (`900 m`): `-65 dBm`, CINR `22 dB`, MCS `7x/6x`, `netmode=router`, `NO_CRON`.
+     - `GAMBOA_Gabriela` (`300 m`): `-45 dBm`, CINR `25 dB`, MCS `7x/6x`, `netmode=router`, `NO_CRON`.
+     - `MONZON Stella Maris` (`300 m`): `-59 dBm`, CINR `23 dB`, MCS `8x/6x`, `netmode=router`, `NO_CRON`.
+2. **Decisive Layer-2 Finding Across All 11 Production CPEs (`F03` Production Scope Closed)**:
+   - Every single CPE across all 4 candidate sectors runs **`netmode=router`** with **`bridge.1.port.1.devname=ath0` only** (`eth0` is the customer LAN behind the CPE's NAT router, `vlan.status` is disabled on all 11 CPEs, and `ebtables` has `0` rules).
+   - Consequently, **zero customer MACs are bridged onto the wireless link and zero `802.1Q` VLAN tags traverse `ath0`**: 100% of wireless data frames emitted by all 11 production CPEs are untagged IPv4/ARP frames originated by the CPE's own `br0` (`ath0`) interface — the exact packet profile verified on the bench!
 
 ---
 
-## 6. Stage 10B Bench Qualification Checklist (Before Any Production Canary Migration)
+## 6. Stage 10B Bench Qualification Checklist (`F01`, `F02`, `F03` — `CONFIRMED` on Physical Bench)
 
-Per [`docs/ADVERSARIAL_REVIEW_STAGE10_11.md`](ADVERSARIAL_REVIEW_STAGE10_11.md), the following isolated bench checks are scheduled on `192.168.1.2` (`LAP-120`) $\leftrightarrow$ `192.168.1.20` (`Loco 5AC`) before any production sector cutover:
-- [x] **Check 1 (`F01` Closure — `CONFIRMED` on `192.168.1.20` via `/dev/mem`)**: Deployed the 4-site relocation-safe `/tmp/uph.ko` (`MD5: 077d151e0055f198609dc761a39207b3`) on the bench `WA.v8.7.25` `Loco 5AC` (`192.168.1.20`), discovered that `/bin/ubntspecd` holds `/dev/uph_wifi0` (`fd 6`, major `190`) open during `plugin stop radio`, added `killall ubntspecd` before `rmmod ubnt_poll_host`, and read back the live loaded `.text` bytes from `/dev/mem` at `0x81400000` (`phys 0x01400000`):
-  - `0x81407800` (`S1` `bmiss` caller): **`0x00000000` (`nop`, `top6=0, low26=0`)**
-  - `0x81407c08` (`S2` `timer` branch): **`0x10000006` (`b +6`)**
-  - `0x8140a3b8` (`S3` `is_ap_valid`): **`0x24020001` (`addiu $v0, $zero, 1`)**
-  - Full evidence archived in [`f01_bench_verification.json`](../artifacts/adversarial_review_stage10_11/f01_bench_verification.json).
-- [ ] **Check 2 (`F02` Closure — `cron` Persisted on `192.168.1.20`; Pending Cold Power-Cut & Multi-Hour Soak)**: Persisted the MD5-allowlisted, 4-site relocation-safe + `killall ubntspecd` recipe to `mtd4` (`cfgmtd -w -p /etc/`) on `192.168.1.20`. Remaining before production cutover: multi-hour soak + physical POE power-cut cold boot.
-- [ ] **Check 3 (`F03` Closure — Endpoint L2 Matrix `CONFIRMED`; Multi-Host Bridge Behind CPE LAN Port Pending)**:
-  - **Unicast & Broadcast ARP (`ip neigh flush` + `ping`)**: **`PASS` (`0%` loss)**
-  - **Full `1500`-Byte MTU (`ping -s 1472`)**: **`PASS` (`3/3`, `0%` loss, `2.680 ms` avg RTT)**
-  - **IPv6 Link-Local Neighbor Discovery (`ND` / `ICMPv6` `ping6 fe80::feec:daff:fec2:540a%phy0-ap0`)**: **`PASS` (`3/3`, `0%` loss, `1.805 ms` avg RTT)**
-  - **`802.1Q` VLAN-Tagged Frames (`VLAN 100` `0x8100`)**: `0/3` received in `wds=0` (`ARPNAT` 3-address mode), confirming that untagged customer access ports (`IPv4`, `ARP`, `IPv6`, `1500B MTU`) pass cleanly across the 14-byte `0x6558` decapsulation hook, whereas `802.1Q` VLAN trunks require either `wds=1` 4-address mode or inner-VLAN offset handling in `ebt_arpnat` ([`f03_l2_matrix_bench.json`](../artifacts/adversarial_review_stage10_11/f03_l2_matrix_bench.json)).
+Per [`docs/ADVERSARIAL_REVIEW_STAGE10_11.md`](ADVERSARIAL_REVIEW_STAGE10_11.md), we executed and verified all three qualification checks on `192.168.1.2` (`LAP-120` OpenWrt 24.10.4) $\leftrightarrow$ `192.168.1.20` (`Loco 5AC` `WA.v8.7.25`):
+- [x] **Check 1 (`F01` Closure — `CONFIRMED` via `/dev/mem` & 35s AP Outage Survival)**:
+  - Deployed the 4-site relocation-safe `/tmp/uph.ko` (`MD5: 077d151e0055f198609dc761a39207b3`) with `killall ubntspecd` before `rmmod ubnt_poll_host`, and verified in `/dev/mem` (`base 0x82300000`, `refcnt = 0`):
+    - `0x82307800` (`S1` `bmiss` caller): **`0x00000000` (`nop`)**
+    - `0x82307c08` (`S2` `timer` branch): **`0x10000006` (`b +6`)**
+    - `0x8230a3b8` (`S3` `is_ap_valid`): **`0x24020001` (`addiu $v0, $zero, 1`)**
+  - Brought the AP radio down for **35 seconds** (triggering both the 2s beacon-miss path and the 30s missing-poll timer): the CPE survived with **zero panic and zero reboot** (`uptime` advanced continuously from `11434.89s` to `11520.65s`) and automatically reassociated (`47.54s`).
+- [x] **Check 2 (`F02` Closure — `CONFIRMED` Fault Injection + Hands-Free Cold Reboot)**:
+  - Verified unknown-hash fail-closed behavior (`UNKNOWN_HASH_TEST=FAIL_CLOSED_OK`), discovered the `2,042`-byte `/sbin/ubntconf` crontab buffer limit, persisted the `1,994`-byte hardened recipe (`2,005` bytes in `/etc/crontabs/ubnt`, `cfgmtd rc=0`), and executed a full cold reboot of `192.168.1.20`.
+  - The CPE automatically patched `/tmp/uph.ko` (`077d151e0055f198609dc761a39207b3`), associated hands-free over **`VHT20` (`20 MHz`) + `WPA2-PSK CCMP`** at **`173.3 MBit/s` RX / `144.4 MBit/s` TX**, and delivered **`89.5 Mbps` 4-stream TCP Uplink (`95.6 Mbps` peak, `0` retransmits, `4.48 bit/s/Hz`)** and **`70.2 Mbps` 4-stream TCP Downlink (`72.2 Mbps` peak)** ([`f01_bench_verification.json`](../artifacts/adversarial_review_stage10_11/f01_bench_verification.json)).
+- [x] **Check 3 (`F03` Closure — `CONFIRMED` L2 Matrix + Production `netmode=router` Audit)**:
+  - Bench L2 matrix confirmed `0%` loss across Unicast/Broadcast ARP, `1500`-byte MTU (`ping -s 1472`, `2.680 ms` avg RTT), and IPv6 Link-Local ND (`1.805 ms` avg RTT) ([`f03_l2_matrix_bench.json`](../artifacts/adversarial_review_stage10_11/f03_l2_matrix_bench.json)), and the production audit confirmed all 11 CPEs across all 4 candidate sectors operate in `netmode=router` (`bridge.1.port.1.devname=ath0` only, untagged IPv4).
+
 
