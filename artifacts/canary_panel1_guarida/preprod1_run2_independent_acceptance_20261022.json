@@ -1,0 +1,100 @@
+{
+  "schema": "PREPROD1_RUN2_INDEPENDENT_RESULT_REVIEW_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN2_ADMISSION_TIMEOUT_ALL_RESTORED",
+  "utc": "2026-10-22T16:54:40.632595+00:00",
+  "receipt_sha256": "f3a9b39a62d724790dc95dc47c1e5c0e35adc87cf809a7416562caa69ccd1303",
+  "plan_sha256": "e75c2d0cfa09d87e1ec9bbd3cc5634f54e8cf694f7695bf7be07bb94d18488f1",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "3e0e3fc002bb67ad06eaf7e8725d01480f15af3317a2ef7378c18e7dac1a7a4e",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "ae467df78f84612e897bc39e99f64e3807950adf71ddaa0e2bbac6edcf33ac1a",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab"
+  },
+  "source_review_sha256": "3674dbb409c48ffc4d6b159d28a0dbc2802fecfb677a68c9173832b70ddbd814",
+  "ended_utc": "2026-10-22T16:53:20.804159+00:00",
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "scope": "Only local completed evidence/source validation; no device/network/credentials/Git/tests/agents. Only this independent review written.",
+  "verified_artifact_hashes": {
+    "failure-station-dumps.json": "451d516976b37fa6ca7768252be50ab0f262b393a0edfe0389e50755c8a163f3",
+    "daemon-evidence.json": "91f305b4e39523714105e793f5bddc9c5eac12e1f74a7edecc3acccecedc064d",
+    "SXT-guard-log.json": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525",
+    "LBM5-guard-log.json": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observed_result": {
+    "native_exit_rc": 76,
+    "native_stop_reason": "admission_timeout",
+    "daemon_clear_rc": 0,
+    "native_elapsed_through_end_seconds": 119.29999999999563,
+    "FOUR_ADMITTED": false,
+    "drop_requests": 0,
+    "completed_stable_epochs": 0,
+    "qualified_traffic_epochs": 0,
+    "session_reset_qualification": false,
+    "XC_exec_during_window": 0,
+    "observer_samples": 86,
+    "last_observed_auth_assoc_authorized": {
+      "f0:9f:c2:b2:b6:ba": true,
+      "64:d1:54:1b:96:97": true,
+      "b4:fb:e4:5c:d5:d2": false
+    },
+    "actions_log": "55890.80 START_ADMIT deadline=56010\n55891.91 IE_SET_ACK\n55891.94 PULSE 1 phase=ADMIT target= seconds=12\n55903.62 IE_CLEAR_ACK\n55938.13 IE_SET_ACK\n55938.15 PULSE 2 phase=ADMIT target= seconds=2\n55940.37 IE_CLEAR_ACK\n55975.12 IE_SET_ACK\n55975.18 PULSE 3 phase=ADMIT target= seconds=2\n55977.18 IE_CLEAR_ACK\n56010.07 IE_CLEAR_ACK\n56010.10 ENDED\n",
+    "wrapper_failures": [
+      {
+        "type": "RuntimeError",
+        "gate": "DAEMON_ENDED_DURING_ACQUISITION"
+      }
+    ],
+    "daemon_stderr_empty": true,
+    "listener_stderr_empty": true
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "exact_baseline_hashes_rules_bridge_IPv4_routes": true
+    },
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "boot_and_protected_config_hashes_exact": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "boot_and_protected_config_hashes_exact": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      }
+    },
+    "daemon_ended_and_owned_RAM_removed": true,
+    "capture_guards": "No qualifying epoch/capture was started; no pending capture wrappers from this run.",
+    "cleanup_errors": []
+  },
+  "decision": "Qualified negative: AP-only initial admission was not established within the frozen120s. None of5stableepochs,4recoverycycles or per-epochtraffic criteria is accepted. Preserve R1/R2 and earlier outcomes unchanged.",
+  "limits": [
+    "Timeout is not proof of a universal incompatibility or a causal explanation for cachedBSSID/IE behavior.",
+    "ZeroXCwindowcommands is verified; it does not turn failed admission into zero-touch success.",
+    "Nativewhole-time includes loop/clear overhead; no stable/recovery deadline was relaxed or rescored.",
+    "No production qualification, loadedperformance or OTA timing claim."
+  ],
+  "validation_exit_code": 0
+}

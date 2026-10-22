@@ -1,0 +1,69 @@
+{
+  "schema": "PREPROD_GUARIDA_INTEGRATION_INDEPENDENT_REVIEW_V1",
+  "status": "PASS_INTEGRATION_SCOPE_NO_GO_AND_HOLD_RETAINED",
+  "utc": "2026-10-22T17:12:01.326035+00:00",
+  "bindings": {
+    "artifacts/canary_panel1_guarida/preprod_guarida_final_gate_20261022.json": "e0dc740674c27f10413a6af9cc8ed54bdec41e37bde0d201278bc7be9fc8dfc3",
+    "artifacts/canary_panel1_guarida/preprod1_preserved_results_20261022.json": "a1cc809e2d00c9a1de24ebd7680987abc575ddcb11afee19b5e0e47715cc668f",
+    "artifacts/canary_panel1_guarida/preprod1_bench_result_20261022.json": "2e36d98d67cc1e63a0a9eacc59fd64a6f9f0386daae564f59736e2f8e5a8e0bf",
+    "artifacts/canary_panel1_guarida/preprod_guarida_readiness_20261022.json": "05dedd559d97cfb88e51d2a8416f498c6dc8505c0295ebbe201062c2c5b5f42e",
+    "artifacts/canary_panel1_guarida/preprod_guarida_independent_review_20261022.json": "7b0e0bfaa9ca65eb6fe4a0c8bf49f09519b98f43abd8dc9976320177247ff7d4",
+    "artifacts/canary_panel1_guarida/preprod1_run4_independent_acceptance_20261022.json": "b2805dd9d8853d81db25ebf376cca2065a6bbc1723093947e8381daeb9dd31c3",
+    "artifacts/canary_panel1_guarida/preprod_guarida_publication_20261022.json": "9118c55de3af3c58c258e2b28f95daa643a862d1fe1f6150e67d06d2ba463753",
+    "safety/preprod/README.md": "758ddd52d6c552bdea2bbd6a3aa1fe2206f9db5577901c17ff830d5ab4f7e2a1",
+    "docs/BENCH_PLAN.md": "f2da9da5123a61bab72d9d35ba217590234143e6c15b0b43c601b0689825e3dc",
+    "docs/CURRENT_STATE.md": "cabf6fadd4c26844275d5477beb176974cd0a284235cbfb9cf0876cd5d3b4d53",
+    "docs/RESEARCH_LEDGER.md": "2ded1e66cddccc56bfa4e23f9fd7fef51d4ebebfb6bbce8e09ae6ec2f6337d85",
+    "docs/DECISIONS.md": "7a9b446b1617ebb6633328e7463d3ba20f0b9ab127f18b653a683ab34051003b"
+  },
+  "scope": "Reviewed only newPREPRODheaders/topsections of4docs, newREADME, finalgate/index/refbindings andexactpubliccopy. Wholefilehashes bindthoserevisions; olderhistoricalsections were notgenerallyreaudited. No devices/network/credentials/Git/tests/agents orsource/docedits. Onlythisreview written.",
+  "must_fix_findings": [],
+  "claims_checked": {
+    "PREPROD1": "Fourfrozenattempts initialtimeout76/clear0,337samples,zeroXCwindowexec,zeroqualifiedepochs/droprecoveries. NOT_ACCEPTED/NOGO, finiteexactbenchnegative notuniversalimpossibility;5stableepochs/other3survival remainuntested.",
+    "restoration": "All4rawreceipts+source/planreviews andarchivedsources matchgate; allrestored/APoff/guardended/ownedRAM/emptydeltas preserved. WAconfigunmodified andnoproductioncontact claimedonlyforthisorder.",
+    "PREPROD2": "Realexternalhostwatchdog mechanism withrecordingcallbacks,21local/freshHEAD and15standalone hosttests; selectedcandidateNone/GOFalse. Failedboot/PoE/TFTP/realpostboot/hostpowerlossautonomy remainunqualified. Historicalv3REJECT andbenchimage separated.",
+    "method_limits": "R3max60snotactual60sexposure; R4priority+durationconfounded. R5olderstagednativeXCpositive remainsseparate; no production/performance/TDMA/GPS/customMAC/QCA/E2acceptance created.",
+    "public_kit": "Sevenbyte-exactfiles only, no firmware/config/backupbytes. READMEcorrectly treats public_kitdirectoryaslogicalhostroot and distinguishespublictest/defaultcommands fromprivateprepare/complete/repairrequirements. Sensitiveparentbundle remainsprivate; thisreviewpublishesnothing."
+  },
+  "reference_validation": {
+    "raw_trials": 4,
+    "matching_plan_and_source_reviews": 4,
+    "raw_artifact_references": 20,
+    "samples": 337,
+    "new_section_and_README_relative_links": 15,
+    "public_files_exact": 7,
+    "new_doc_head_summary_lines_maximum": 5
+  },
+  "local_checks": {
+    "bcd07c": {
+      "exit_code": 1,
+      "meaning": "All4raw/source/plan/review+20artifactrefs/337samples+P2pins passedbeforedefaultWindowsCP1252read failedonexistingUTF8documentation; nolinkconclusionfromfailedstep, noproducerchange."
+    },
+    "98b304": {
+      "exit_code": 0,
+      "meaning": "Correctedonlylocaldecoder toUTF8; docheadlimits+15newlinks+public7exact passed. No test/RF rerun."
+    },
+    "90f8f0": {
+      "exit_code": 0,
+      "meaning": "Preservednegativeindex4SHA values andfinalsummaryrawpointer inspectedsameR4negative."
+    }
+  },
+  "reused_independent_evidence": {
+    "P1_final": "preprod1_run4_independent_acceptance_20261022.json",
+    "P2_final": "preprod_guarida_independent_review_20261022.json",
+    "new_tests_executed": false
+  },
+  "execution_boundary": {
+    "production_GO": false,
+    "production_contact_permitted": false,
+    "production_execution_enabled": false,
+    "next_queued_RF_or_production_operation": null,
+    "bench_research_acceptance": false,
+    "offline_package_acceptance_only": true
+  },
+  "limitations": [
+    "Source/checklistpublicdistribution doesnotcreateproductionexecutionauthority orqualifyrealhardwarecallbacks.",
+    "Docsha isrevisionbinding, notgeneralreviewofallhistoricalcontent.",
+    "No missingwireless/recoverycriterion is rescored or closed by documentationintegration."
+  ]
+}

@@ -1,10 +1,16 @@
-<!-- doc-head: October22 scoped receipts and FMX0017 R5 - RESEARCH_LEDGER -->
-Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
-FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
-Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
-Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
-No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
+<!-- doc-head: October22 preproduction qualification and offline prestage - RESEARCH_LEDGER -->
+PREPROD1 NOT_ACCEPTED: four preserved initial-admission timeouts; multi-cycle recovery untested.
+PREPROD2 offline host watchdog/recording dry-run accepted; real AP rollback remains unqualified.
+Production GO is HOLD; no production contact or deployment candidate selection occurred.
+All bench restorations verified, guards/RAM cleaned and AP radio off.
+Historical R5 acceptance keeps its native-XC setup and other original limits; E2 NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: PREPROD1 qualified negative; PREPROD2 offline-only acceptance
+
+CONFIRMED: four prospective zero-touch recipes expired at initial120s admission, native76/clear0. R1 showed XC admission; R3 showed WA admission; no joint all-four baseline, drop/recovery or traffic epochs passed. Zero XC exec commands in every window; all restoration/hash/network/guard/RAM checks passed and AP radioOFF. Preserve all negatives and source bindings. Verdict: NOT_ACCEPTED for preproduction, no claim of universal impossibility or isolated timing causality.
+
+CONFIRMED: independent offline review accepted the host-process watchdog with recording callbacks,21 local/fresh-HEAD tests and15 public-only standalone tests. Twenty held backup copies verified privately. Real AP rollback, failed-boot/power-loss recovery and an exact deployment candidate remain UNKNOWN/unqualified; GO=false. Production received no contact. See [current evidence and next missing criteria](CURRENT_STATE.md) and the [final gate](../artifacts/canary_panel1_guarida/preprod_guarida_final_gate_20261022.json).
 
 ## 2026-10-22: FMX-0017 R5 accepted with method limits
 

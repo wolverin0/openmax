@@ -1,0 +1,34 @@
+{
+  "schema": "PREPROD_PUBLICATION_WHITESPACE_INDEPENDENT_REVIEW_V1",
+  "status": "PASS_EXPECTED_CRLF_BYTES_PRESERVED_CHECK_METADATA",
+  "utc": "2026-10-22T17:15:27.750263+00:00",
+  "scope": "Read-only local metadata/capturehash inspection only. No Gitcommands/configwrites, sources/evidence edits, tests, devices/network/credentials/agents. Onlythisnewreview written; no newpublicationauthority.",
+  "bindings": {
+    "whitespace_check_metadata_sha256": "e9f9a4a43ff77db5bf65f65268627b8afc2dc3ed7e83a377fee1ba2a38806687",
+    "preserved_private_default_output_sha256": "7595e75334edb0be843c8384f517a296da72657b4bc0e92fd32542533bc5ad72",
+    "preserved_private_default_output_bytes": 7342700,
+    "gitattributes_sha256": "eb5f517c3590a392ac8f7318d8ad9cb0f8b75eae4e77474dd658b3cf17b57992",
+    "final_gate_sha256": "e0dc740674c27f10413a6af9cc8ed54bdec41e37bde0d201278bc7be9fc8dfc3",
+    "integration_review_sha256": "230c62df9ec6f2ab95d9ab42511da67698c4b836a25d2ff3e06062abf91d7a4d"
+  },
+  "must_fix_findings": [],
+  "checks": {
+    "original_failure_preserved": {
+      "exit_code": 2,
+      "reported_trailing_whitespace_warnings": 57126,
+      "all_offending_lines_have_final_CR": true,
+      "space_or_tab_before_final_CR": 0,
+      "other_newblankEOF_or_space_before_tab_warnings": 0,
+      "private_raw_output_not_reproduced": true
+    },
+    "configured_check": "Coordinatorrecorded command git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --cached --check exits0/emptySHA. The per-commandoption addsCRlineendingrecognition while retaining originalthreewhitespacechecks; not a persisted/globalconfigchange. Commandnotrerunbyreviewer.",
+    "hash_preservation": "Relevant .gitattributes marks frozenreceipts/capturedsources/publickit as-text, so preservingliteralCRLF is required for recordedSHA equality. Normalizingthosebytes to appeasedefaultcheck would invalidate provenance. No contentwhitespace exception is implied.",
+    "unchanged_integration": "Everybinding inreview230c62 checkedunchanged, including4docs/README/gatee0dc/readiness/P1/P2reviews/index/public7manifest.",
+    "611aeb": {
+      "exit_code": 0,
+      "meaning": "PrivatedefaultcaptureexactSHA+size and57126CR-onlyoffendinglinepatterns checked; no7.3MBtooloutput or secretcontents emitted."
+    }
+  },
+  "publication_manifest_note": "Generalpublicevidencemanifest deliberatelyNOTboundhere toavoidself-referentialhashcycle; coordinatorwillregenerateit includingthisreview+metadata beforecommit. Exactfinalstagecount/commit/push remainscoordinatorevidence, not independentlyexecuted here.",
+  "outcome_boundaries": "PREPROD1NOT_ACCEPTED,PREPROD2offlineonly,productionGOFalse/HOLDandnoRFqueued unchanged."
+}

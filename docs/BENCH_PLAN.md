@@ -1,10 +1,47 @@
-<!-- doc-head: October22 FMX0017 R5 controlled-load bench accepted with limits -->
-Four exact CPEs authorized for 60.094 s; adaptive stream overlap 60.320 s; minimum delivery 99.9616%.
-AP-local ash/ubus owns IE decisions; one native fenced XC scan/enable prerequisite remains.
-Run8 60B IE passed; operator 32-byte negative and all earlier acquisition failures preserved.
-Exact restoration and owned RAM cleanup independently accepted; AP radio disabled; no flash/reboot.
-One controlled-load run only; no gain/capacity/OTA/production/TDMA/GPS or E2 acceptance.
+<!-- doc-head: October22 preproduction qualification and offline prestage - BENCH_PLAN -->
+PREPROD1 NOT_ACCEPTED: four preserved initial-admission timeouts; multi-cycle recovery untested.
+PREPROD2 offline host watchdog/recording dry-run accepted; real AP rollback remains unqualified.
+Production GO is HOLD; no production contact or deployment candidate selection occurred.
+All bench restorations verified, guards/RAM cleaned and AP radio off.
+Historical R5 acceptance keeps its native-XC setup and other original limits; E2 NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## October22 - CLOSED qualification: PREPROD1 NOT_ACCEPTED / PREPROD2 offline PASS, production HOLD
+
+Final result: four frozen recipes ended initial admission_timeout/76 with clear0; no all-four baseline/drop/recovery/traffic epochs qualified. All exact restorations/guards/owned RAM passed and AP radioOFF; no production contact. P2 local host watchdog and recording-only rollback preparation independently accepted; exact deployment candidate and real physical recovery remain unqualified. Production GO=HOLD. See [current result](CURRENT_STATE.md) and [final gate](../artifacts/canary_panel1_guarida/preprod_guarida_final_gate_20261022.json).
+
+Next named task: retain this negative preproduction qualification and the missing all-four + four target-only recoveries and exact-candidate/physical-rollback evidence. No unchanged retry or production operation queued. Sections below preserve the prospective methods and changed hypotheses as historical evidence, not active execution instructions. E2 remains NOT_ACCEPTED.
+
+### Historical frozen method and scope
+
+Parent: forward-plan Phase B/C and FMX-0017 exact-device admission. Operator's new order authorizes ONLY LAP120/Loco195/Rocket198/SXT/M5 bench and offline production-package preparation. Production contact is forbidden, including read-only probes. Existing production and irreversible-action gates remain.
+
+Question P1: can the AP's bounded autonomous60B run8 IE windows admit both stock WA/XC without any CPE control during the admission window, then recover each exact missing station without disconnecting the other three? R5 passed only with a nativeXC cache flush/scan prerequisite, so zero-touch remains unproven.
+
+Frozen prospective acceptance: exact unchanged5180MHz/20MHz/0dBm/AR and firmware; prepare Rocket's existing WPA2 network before window and close its setup command. No XC wpa_cli/scan/flush/enable/reassociate during window. AP native daemon owns pulse/clear decisions. Initial all-four authorization <=120s,60s stable baseline, then one AP-induced exact-MAC drop each WA/XC/SXT/M5; <=60s reacquisition each and60s stable after each. Each stable epoch includes32 low-rate radio-qualified echoes per CPE. Other3 retain authorization and nonreset station session/counters throughout each recovery. Preserve all transitions and low-rate radio-interface-qualified echoes; report finite RTT but no loaded-gain claim. Independent native guard budgets: legacy900s, Rocket1140s, AP1200s; no persistent commits. End acquisition by legacy budget minus60s. Full original configurations/protected hashes/boot/network state, owned process/file cleanup and AP radioOFF required.
+
+STOP/park: identity/hash/regulatory mismatch, failed guard, deadline, unexpected non-target drop or CPE command during window. Preserve negative and restore; do not relabel cached-BSSID failure as zero-touch. Necessary changed-hypothesis repairs allowed; no unchanged retries until green. A negative P1 leaves production GO=HOLD; independent P2 continues offline.
+
+Question P2: prepare a hash/size/board-bound migration checklist and default-disabled dry-run package; exercise watchdog health-failure rollback using recording stubs only. Current dirty safety/recovery and orchestration/rollback files are prior work, read-only to this task. No candidate is promoted from historical REJECT or bench-only identity to production-qualified. Missing exact-image/recovery/physical acceptance remains HOLD/UNKNOWN. Receipt target: artifacts/canary_panel1_guarida/preprod_guarida_readiness_20261022.json. Root owns bench/currentdocs/integration; candidate_safety owns additive offline package/tests; flash_review independently reviews method/source/result. Commit/push only this order's reviewed files; preserve prior dirty work.
+
+
+### PREPROD1 run1 negative preserved; run2 WA discovery priority
+
+R1 native initialIE was consumed by XC broadcast at0.24s, cleared at1.11s; XC/SXT/M5 later authorized with zeroXCexec duringwindow, but WAonlyprobed and initial120s expired. Nativeadmission_timeout/76, no runtime/listener errors; allconfig/hash/network/guard cleanup andradioOFF restoration passed. No multicycle acceptance follows.
+
+R2 changes one AP admission policy: whileWAis missing, onlyitsbroadcastprobe consumesIE, matchingacceptedR5; afterWAauthorizedXCprobesmayconsume. Timings, phase deadlines,5stableepochs,droporder,trafficquantification, guards andCPE command prohibition stayunchanged. Previousraw/frozenplan/source remainimmutable. This tests whether firstXCconsumptionstarvedWAdiscovery; no newCPEcache/scancommands.
+
+### PREPROD1 run2 negative preserved; run3 stock WA scan cadence
+
+R2 retained its120s deadline: no WA broadcast consumed the initial12s or later2s IE windows; native admission_timeout/76, no all-four admission/drop/traffic epochs. All restoration checks passed and AP radioOFF; zero XC commands during window. Independent acceptance and frozen sources remain preserved.
+
+R3 changes only the first ADMIT IE maximum12->60s to cover stock WA scan cadence. WA-broadcast-first clear after500ms, subsequent2s pulses and35s quiet remain; all recovery pulses stay2s (global pulse counter), deadlines120s initial/60s recovery and all acceptance/guards unchanged. AP logs timestamped WA probes even while IEoff. This separates a missed discovery window from a probe-seen/auth-failed result. No CPE cache/scan/reassociation control is added.
+
+### PREPROD1 run3 negative preserved; run4 ordered XC then WA discovery
+
+R3 captured WA broadcast with IEon, cleared after0.6s and WA authorized after29.3s in observation. SXT/M5 authorized too. XC remained auth-only after three later probe-triggered clears; all-four120s deadline expired. Native76/clear0,83snapshots, no stable/drop/traffic epochs. Exact restoration passed, AP radioOFF, zero XCexec duringwindow.
+
+R4 question: can AP discovery ordering combine R1 XC and R3 WA admissions? Missing XC receives probe-clear priority until authorized; then only missing WA broadcast consumes IE. During ADMIT while WA missing, pulses may last60s to cover stock scan cadence. OtherADMIT/recovery pulses remain2s, clear500ms andquiet35s unchanged. Same120s initial/60s recovery, stableepochs/echo/session/guards/restoration acceptance; no CPEcache/scan command. Failure remains a qualified negative/HOLD, with raw and source archives preserved.
 
 ## October22 - CLOSED FMX-0017 R5 controlled-load bench; limits retained
 

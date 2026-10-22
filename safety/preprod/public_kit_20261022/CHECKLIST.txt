@@ -1,0 +1,15 @@
+HOLD: OFFLINE PREPARATION ONLY. Production execution is disabled.
+PRIVATE backups and firmware must never be published. Windows ACL privacy is not qualified.
+Layer: external_controller_host_process. A Python host is required; no AP Python assumed.
+Health uses the SAME HOST monotonic clock, exact nonce/attempt and atomic file replacement.
+Only recording_stub exists. No network, power, firmware or TFTP adapter is provided.
+The real watchdog detects local health failure/timeout and journals ONE simulated rollback.
+Owner/intent files are retained, including after process death: never remove them to retry.
+Host/watchdog/AP power loss is NOT autonomous recovery; physical restore remains UNQUALIFIED.
+Local tests: from host/, python -B -m pytest test_watchdog.py -q. Fixtures are disposable.
+Local default: from host/, python -B -m safety.preprod.guarida_watchdog (PLAN_ONLY).
+watchdog-recording/ is a consumed, immutable demo; do not rerun/rearm it.
+Before any deployment: select/qualify exact image, fresh exact board/backups/protected state,
+prove failed-boot recovery and real rollback adapter/independent health, obtain execution order.
+Historical rejected image and reachable own-stock return do not satisfy those requirements.
+Never use install_openwrt_ddunlock or write bootloader/ART/factory/calibration/MAC/cfg.

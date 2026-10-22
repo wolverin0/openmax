@@ -1,10 +1,18 @@
-<!-- doc-head: October22 scoped receipts and FMX0017 R5 - DECISIONS -->
-Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
-FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
-Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
-Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
-No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
+<!-- doc-head: October22 preproduction qualification and offline prestage - DECISIONS -->
+PREPROD1 NOT_ACCEPTED: four preserved initial-admission timeouts; multi-cycle recovery untested.
+PREPROD2 offline host watchdog/recording dry-run accepted; real AP rollback remains unqualified.
+Production GO is HOLD; no production contact or deployment candidate selection occurred.
+All bench restorations verified, guards/RAM cleaned and AP radio off.
+Historical R5 acceptance keeps its native-XC setup and other original limits; E2 NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: Keep production HOLD after negative autonomous-admission qualification
+
+Decision: REJECT these four AP-only recipes as preproduction-ready; retain the older R5 PASS only within its original native-XC setup scope. No all-four baseline was obtained in PREPROD1, so drop/recovery and peer survival remain untested. Preserve each failed run, frozen recipe/source and exact restoration; zero client commands alone is not successful zero-touch admission.
+
+Accept PREPROD2 only as offline preparation with an external host-process watchdog and recording callbacks. Keep its real hardware execution disabled, no deployment candidate selected, historicalv3 REJECTED and all physical rollback/failed-boot/power-loss criteria unqualified. Publish the seven-file source/fixture kit and metadata; keep sensitive firmware/20 backups private. The additive owned rollback snapshot closes fresh-HEAD imports without modifying prior dirty recovery/rollback files. These decisions create no production authority and no wireless-gain/custom-MAC/QCA-firmware claim.
+
+Evidence and exact remaining criteria: [CURRENT_STATE](CURRENT_STATE.md), [final gate](../artifacts/canary_panel1_guarida/preprod_guarida_final_gate_20261022.json) and [offline independent review](../artifacts/canary_panel1_guarida/preprod_guarida_independent_review_20261022.json).
 
 ## 2026-10-22: FMX-0017 R5 accepted with method limits
 

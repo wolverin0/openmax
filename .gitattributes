@@ -27,3 +27,19 @@ artifacts/canary_panel1_guarida/root_multi_cpe_ie_window_20261022.py -text
 artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py -text
 artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py -text
 artifacts/canary_panel1_guarida/published_evidence_20261022/** -text
+
+# PREPROD hash-bound sources and receipts retain their captured bytes.
+tools/bench/preprod1_admitter.sh -text
+artifacts/canary_panel1_guarida/preprod1* -text
+artifacts/canary_panel1_guarida/preprod1*/** -text
+artifacts/canary_panel1_guarida/preprod_guarida* -text
+safety/preprod/*.py -text
+tests/test_preprod1_audit.py -text
+tests/test_preprod_guarida.py -text
+safety/preprod/public_kit_20261022/** -text
+# Keep reviewed preproduction documentation reproducible across Windows checkouts.
+docs/BENCH_PLAN.md text eol=lf
+docs/CURRENT_STATE.md text eol=lf
+docs/RESEARCH_LEDGER.md text eol=lf
+docs/DECISIONS.md text eol=lf
+safety/preprod/README.md text eol=lf

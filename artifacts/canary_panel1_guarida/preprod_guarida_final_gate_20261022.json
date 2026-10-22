@@ -1,0 +1,130 @@
+{
+  "schema": "PREPROD_GUARIDA_FINAL_GATE_V1",
+  "utc": "2026-10-22T17:10:07.305329+00:00",
+  "status": "NO_GO_BENCH_ZERO_TOUCH_AND_PHYSICAL_ROLLBACK_NOT_QUALIFIED",
+  "GO": false,
+  "production_contact_permitted": false,
+  "production_contact_executed": false,
+  "production_execution_enabled": false,
+  "parent": "FMX0017 / forward-plan PhaseB-C / BENCH_PLAN October22 preproduction qualification",
+  "PREPROD1": {
+    "status": "NOT_ACCEPTED",
+    "trials": [
+      {
+        "run": 1,
+        "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+        "receipt": "artifacts/canary_panel1_guarida/preprod1_20261022_run1/receipt.json",
+        "receipt_sha256": "7a75f3c4b17d3ddd3e3780539117e7b287c4dae6d0b3466be01520a97878bdbe",
+        "plan_sha256": "38b36e416b4058a71d4e08a66e8c2edcde8b67ec3b4b30d50827c2e3be39784d",
+        "source_review_sha256": "0aff4365a6db9049133f8ca9bd52ce66d00d5a82956ad9a19d75ff46200caab2",
+        "samples": 83,
+        "native_exit": 76,
+        "IE_clear_exit": 0,
+        "initial_all_four": false,
+        "drop_recovery_executed": false,
+        "XC_exec_during_window": 0,
+        "restoration": "PASS_ALL_ORIGINAL_PROFILES_HASHES_NETWORK_GUARDS_RAM_AP_RADIO_OFF"
+      },
+      {
+        "run": 2,
+        "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+        "receipt": "artifacts/canary_panel1_guarida/preprod1_20261022_run2/receipt.json",
+        "receipt_sha256": "f3a9b39a62d724790dc95dc47c1e5c0e35adc87cf809a7416562caa69ccd1303",
+        "plan_sha256": "e75c2d0cfa09d87e1ec9bbd3cc5634f54e8cf694f7695bf7be07bb94d18488f1",
+        "source_review_sha256": "3674dbb409c48ffc4d6b159d28a0dbc2802fecfb677a68c9173832b70ddbd814",
+        "samples": 86,
+        "native_exit": 76,
+        "IE_clear_exit": 0,
+        "initial_all_four": false,
+        "drop_recovery_executed": false,
+        "XC_exec_during_window": 0,
+        "restoration": "PASS_ALL_ORIGINAL_PROFILES_HASHES_NETWORK_GUARDS_RAM_AP_RADIO_OFF"
+      },
+      {
+        "run": 3,
+        "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+        "receipt": "artifacts/canary_panel1_guarida/preprod1_20261022_run3/receipt.json",
+        "receipt_sha256": "0df768974808cacd21b097b7e7cf75b4e8f9ec8fa6b1d6f49d534375d846dba0",
+        "plan_sha256": "83ac7380a5e8748bfaa097a973422e7dd5a00a6a4d416cd140838287890ef443",
+        "source_review_sha256": "cadfa91afb354466f52e6369baac67357e59cf59d4e201a46e454798ff7874ee",
+        "samples": 83,
+        "native_exit": 76,
+        "IE_clear_exit": 0,
+        "initial_all_four": false,
+        "drop_recovery_executed": false,
+        "XC_exec_during_window": 0,
+        "restoration": "PASS_ALL_ORIGINAL_PROFILES_HASHES_NETWORK_GUARDS_RAM_AP_RADIO_OFF"
+      },
+      {
+        "run": 4,
+        "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+        "receipt": "artifacts/canary_panel1_guarida/preprod1_20261022_run4/receipt.json",
+        "receipt_sha256": "4d013ff6a96a4bac090f6fae3782920d94079b57a2285ae811a05b73a7e1e96c",
+        "plan_sha256": "0bec54d13c74a976e4e069e4823e6127f7c1a94f60e6fec1278bdf91212d9a33",
+        "source_review_sha256": "204d2554772ad7555b69cd9dacc4061184b15822c89ef413b7f49c1c6b45fd30",
+        "samples": 85,
+        "native_exit": 76,
+        "IE_clear_exit": 0,
+        "initial_all_four": false,
+        "drop_recovery_executed": false,
+        "XC_exec_during_window": 0,
+        "restoration": "PASS_ALL_ORIGINAL_PROFILES_HASHES_NETWORK_GUARDS_RAM_AP_RADIO_OFF"
+      }
+    ],
+    "total_samples": 337,
+    "initial_admission_deadline_s": 120,
+    "qualified_epochs": 0,
+    "qualified_drop_recoveries": 0,
+    "all_four_zero_touch_proven": false,
+    "non_target_peer_survival_during_drop": "UNTESTED",
+    "independent_review": "preprod1_run4_independent_acceptance_20261022.json",
+    "independent_review_sha256": "b2805dd9d8853d81db25ebf376cca2065a6bbc1723093947e8381daeb9dd31c3",
+    "artifact_references_verified": 20
+  },
+  "PREPROD2": {
+    "status": "PASS_OFFLINE_HOST_WATCHDOG_RECORDING_ONLY",
+    "readiness": "preprod_guarida_readiness_20261022.json",
+    "readiness_sha256": "05dedd559d97cfb88e51d2a8416f498c6dc8505c0295ebbe201062c2c5b5f42e",
+    "independent_review": "preprod_guarida_independent_review_20261022.json",
+    "independent_review_sha256": "7b0e0bfaa9ca65eb6fe4a0c8bf49f09519b98f43abd8dc9976320177247ff7d4",
+    "watchdog_layer": "external_controller_host_process",
+    "driver": "recording_stub",
+    "test_counts": {
+      "local": 21,
+      "fresh_HEAD": 21,
+      "public_standalone": 15
+    },
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "private_backups_verified": 20,
+    "publish_firmware_or_backups": false,
+    "selected_deployment_candidate": null,
+    "real_AP_rollback_qualified": false,
+    "autonomy_after_host_or_AP_power_loss": false,
+    "public_kit_publication": "preprod_guarida_publication_20261022.json",
+    "public_kit_publication_sha256": "9118c55de3af3c58c258e2b28f95daa643a862d1fe1f6150e67d06d2ba463753"
+  },
+  "restoration": {
+    "status": "PASS_ALL_FOUR_TRIALS",
+    "AP_radio": "OFF",
+    "persistent_config_deltas_empty": true,
+    "guards_and_owned_RAM_ended": true,
+    "WA_configuration_mutated": false
+  },
+  "remaining_acceptance": [
+    "All four exact CPEs must first admit without CPE commands, then pass four target-only drop/recoveries and five stable traffic epochs.",
+    "An exact production candidate/profile and current target identity remain unqualified; current order forbids production contact.",
+    "Real AP rollback adapter, failed-boot/TFTP/power-cycle recovery and power-loss autonomy require physical qualification."
+  ],
+  "decision": "REJECT_CURRENT_AP_ONLY_RECIPES_AS_PREPRODUCTION_READY; preserve all negative evidence; offline preparation does not authorize production.",
+  "next_queued_RF_or_production_operation": null,
+  "limits": [
+    "Finite negative qualification on exact bench; does not prove universal AP-only impossibility.",
+    "R3 initial maximum60s was cleared afterabout6s; timing causality not isolated. R4 changes priority and later pulse maximum together.",
+    "Older R5 PASS retains its nativeXC setup prerequisite and original limited scope.",
+    "No wireless gain/capacity/TDMA/GPS/QCA firmware/customMAC/E2 acceptance."
+  ]
+}

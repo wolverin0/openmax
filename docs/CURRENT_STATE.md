@@ -1,10 +1,24 @@
-<!-- doc-head: October22 scoped receipts and FMX0017 R5 - CURRENT_STATE -->
-Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
-FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
-Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
-Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
-No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
+<!-- doc-head: October22 preproduction qualification and offline prestage - CURRENT_STATE -->
+PREPROD1 NOT_ACCEPTED: four preserved initial-admission timeouts; multi-cycle recovery untested.
+PREPROD2 offline host watchdog/recording dry-run accepted; real AP rollback remains unqualified.
+Production GO is HOLD; no production contact or deployment candidate selection occurred.
+All bench restorations verified, guards/RAM cleaned and AP radio off.
+Historical R5 acceptance keeps its native-XC setup and other original limits; E2 NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: Preproduction review NO GO; bench restored
+
+**CONFIRMED - PREPROD1 NOT_ACCEPTED.** Four frozen AP-only admission recipes ended at the120s initial deadline (`admission_timeout`, native exit76, IE clear exit0). R1 admitted XC/SXT/M5 but notWA; R3 admitted WA/SXT/M5 but XC remained auth-only. R4 XC-first ordering also failed all-four admission. There were zero XC exec commands during every guarded window. No run reached the stable baseline, AP-induced drop/recovery or radio-qualified traffic epochs; those criteria remain untested. The result rejects these recipes as preproduction-ready; it does not establish that all possible AP-only recipes are impossible. R3's60s maximum was actually cleared after about6s by WA, so its positive WA admission cannot be attributed to60s exposure. R4 changed both discovery priority and later pulse maximum, so causality is not isolated.
+
+All four trials preserved raw receipts, daemon events/actions and executed sources. Exact AP/Rocket configurations, protected hashes, ordered network state and original open legacy profiles were restored; guard/process/RAM cleanup passed, AP radioOFF. WA configuration was never changed. No production device, including Guarida, was contacted.
+
+**CONFIRMED - PREPROD2 offline preparation accepted; GO remains HOLD.** The private local prestage kit contains20 hash-verified backup copies, historical firmware and scripts/checklist. A real host watchdog process detects local health failure/timeout and dispatches one recorded rollback through `recording_stub`; independent review passed21 synthetic tests and15 standalone public-kit tests. Dependency closure was also checked against fresh HEAD. Firmware/backups stay ignored and private; the public kit contains seven byte-exact source/metadata/checklist/test files. Prepare/complete/repair commands require the private held evidence and are not public-clone workflows.
+
+**UNKNOWN / not qualified:** an exact deployment candidate, current production identity/configuration/health, real AP transfer/PoE/TFTP/postboot health and rollback, failed-boot recovery, and autonomous restoration after host/AP power loss. Historical productionv3 remains REJECTED; the accepted bench image is not a production candidate. The watchdog belongs to an external host controller; IE/admission decisions belong to AP-local Linux userspace/hostapd ubus. No QCA firmware, custom MAC, airMAX TDMA/GPS, capacity or performance gain is established.
+
+Evidence: [final gate](../artifacts/canary_panel1_guarida/preprod_guarida_final_gate_20261022.json), [PREPROD1 result](../artifacts/canary_panel1_guarida/preprod1_bench_result_20261022.json), [preserved attempts](../artifacts/canary_panel1_guarida/preprod1_preserved_results_20261022.json), [offline readiness](../artifacts/canary_panel1_guarida/preprod_guarida_readiness_20261022.json), [independent offline review](../artifacts/canary_panel1_guarida/preprod_guarida_independent_review_20261022.json), [public-kit instructions](../safety/preprod/README.md).
+
+Next task in the existing plan: retain production HOLD and the negative AP-only qualification; the missing research evidence is a prospectively specified all-four admission plus four target-only recoveries without peer session loss. Missing migration acceptance is an exact qualified candidate and physical rollback proof. No unchanged retry or production operation is queued. These are evidence gaps, not new permission gates; the operator's production-contact prohibition remains binding.
 
 ## 2026-10-22: FMX-0017 R5 accepted with method limits
 

@@ -1,0 +1,18 @@
+{
+  "status": "PASS_EXPECTED_CRLF_CAPTURE_BYTES_RETAINED",
+  "default_check": {
+    "command": "git diff --cached --check",
+    "exit_code": 2,
+    "output_bytes": 7342700,
+    "output_sha256": "7595e75334edb0be843c8384f517a296da72657b4bc0e92fd32542533bc5ad72",
+    "reported_lines": 57126,
+    "preserved_private": "preprod_guarida_20261022/history/whitespace-check/default.stdout"
+  },
+  "CRLF_aware_check": {
+    "command": "git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --cached --check",
+    "exit_code": 0,
+    "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "output_bytes": 0
+  },
+  "reason": "Hash-bound captured files intentionally retain CRLF under -text; CR is an expected line ending, not trailing content. Keep all other default whitespace checks and preserve original failure; no source/evidence bytes changed."
+}

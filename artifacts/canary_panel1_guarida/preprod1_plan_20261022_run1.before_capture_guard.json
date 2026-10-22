@@ -1,0 +1,74 @@
+{
+  "frozen": true,
+  "utc": "2026-10-22T16:37:25.667519+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB/C",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_run1.json",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "38e90a22dd924a51310ca04bcbd0d4f9ed0a5849267bda1a694c8135e498dde3",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "779a123a1c237324a74466207dec5fbe42d0748e352b9effb957ccf239a027e3",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b"
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR"
+  },
+  "acceptance": {
+    "initial_authorization_deadline_s": 120,
+    "stable_epochs": 5,
+    "stable_seconds_each": 60,
+    "AP_native_hold_integer_seconds": 61,
+    "recovery_deadline_s_each": 60,
+    "drop_order": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "drop_method": {
+      "reason": 3,
+      "deauth": true,
+      "ban_time": 0
+    },
+    "CPE_exec_commands_during_window": 0,
+    "native_daemon_owns_IE_and_drops": true,
+    "other_three_no_session_or_counter_reset": true,
+    "one_expected_session_reset_per_drop": true,
+    "low_rate_echo_per_CPE_per_epoch": 32,
+    "matched_radio_pairs_per_CPE_per_epoch": 32,
+    "echo_delivery": 1.0,
+    "restoration": "exact original profiles/protected/config/boot/network, AP radioOFF, all guards and owned RAM ended"
+  },
+  "pulse_recipe": {
+    "initial_max_seconds": 12,
+    "later_max_seconds": 2,
+    "missing_exact_probe_clear_delay_ms": 500,
+    "quiet_after_clear_seconds": 35,
+    "reason": "R5 observed25s WA and29s XC from clear to authorization; do not re-inject during that auth interval"
+  },
+  "guard_seconds": {
+    "AP": 1200,
+    "Rocket": 1140,
+    "legacy": 900,
+    "daemon": 780,
+    "controller_whole": 1100
+  },
+  "stop_conditions": [
+    "identity/hash/regulatory/guard/deadline/output-bound mismatch",
+    "non-target loss/session/counter reset",
+    "any XC exec command during admission window",
+    "no initial admission or recovery within frozen deadlines"
+  ],
+  "limits": [
+    "One bounded bench trial; no universal reliability/zero-loss/OTA timing/performance/capacity/production/E2 claim",
+    "Rocket SSID/PSK/RSN network prepared and enabled before AP window; no scan/cache flush/reassociate task",
+    "Legacy900s guards alter open->WPA2->open in RAM only",
+    "Native del_client ACK is not loss proof; observed loss and a new per-target AP station session required"
+  ]
+}

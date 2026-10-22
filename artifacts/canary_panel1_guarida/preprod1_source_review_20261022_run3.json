@@ -1,0 +1,42 @@
+{
+  "schema": "PREPROD1_INDEPENDENT_DELTA_REVIEW_V1",
+  "status": "PASS_LOCAL_PREPROD1_RUN3_INITIAL60S_WITH_METHOD_LIMITS",
+  "utc": "2026-10-22T16:57:14.093795+00:00",
+  "plan_sha256": "83ac7380a5e8748bfaa097a973422e7dd5a00a6a4d416cd140838287890ef443",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "7cf5bcdc3d8b4add214f7f392af79afa3dda9be8f4946f8eed4f2b6d01cec2bc",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "ae467df78f84612e897bc39e99f64e3807950adf71ddaa0e2bbac6edcf33ac1a",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab"
+  },
+  "scope": "Local read-only exactdelta review; only this review written. No hardware/network/credentials/Git/agents.",
+  "must_fix_findings": [],
+  "comparison": "Compared current7cf5bcdc daemon against exactR2executed3e0e3fc daemon. Only firstglobalpulse uses60s whenADMIT (else12s retained) and timestampedWAprobe instrumentation includingIEoff. Runnerae467 and allrecovery/quiet/drop/hold/guard/traffic/restoration criteria unchanged.",
+  "pulse_counter_note": "pulses is global and not reset perphase; newelse12s is not evidence that everyrecovery gets12s. Actualcontinuing recoverypulses remain2s. No change of acceptance from this detail.",
+  "verification": {
+    "413afd": {
+      "exit_code": 0,
+      "meaning": "Finalplan/all8sourcebindings exact, actualtwohunkdiff inspected, finaldaemon shellsyntax passed with hostGitsh."
+    }
+  },
+  "negative_preservation": {
+    "R2_review": "preprod1_run2_independent_acceptance_20261022.json",
+    "sha256": "ebc03629cb49c1131d9ec453adb4b082a5193ff03a69d805c169c344690bf678",
+    "result": "Initialadmissiontimeout, zeroqualifiedepochs andallrestored; unchanged."
+  },
+  "required_actual_result": "Frozeninitial120s/recovery60s,5stableepochs>=60s,4expectedtargetsessionresets/other3continuity, all4eachphase32echo/32radiopairs, zeroXCwindowexec, controlleddaemonend+fullrestoration/APoff. Negativevalid; no rescoring or window-timeXC rescue.",
+  "method_limits": [
+    "The60smaxIEpulse is a prospectivescancadence treatment with nativeWA-broadcastearlyclear; does not prove discovery or cause.",
+    "AP-only afterdeclaredWPA2preparation, not end-to-endzero-configuration; no OTA timing/performance/productionclaim.",
+    "All previous method and sampling limits retained."
+  ],
+  "prior_metadata_binding": {
+    "review_sha256": "70e73ff758c03f4acadf9a5b16e0e0f56b8f04af2714cb506830f4300757f71b",
+    "plan_sha256": "e9788b1650bc2932395e9a070b68c2071b45904a1c0f16022cc331037331e662",
+    "reason": "Prospectiveplanmetadata corrected to globalpulsecount/nonreset and2sactualrecovery. Sourcebindings/acceptanceunchanged; noRFbeforecorrectbinding."
+  }
+}

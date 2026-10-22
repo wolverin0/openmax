@@ -1,0 +1,89 @@
+{
+  "schema": "PREPROD1_PROSPECTIVE_METHOD_REVIEW_V1",
+  "status": "METHOD_ACCEPTED_PENDING_FROZEN_SOURCE_AND_BUDGET_REVIEW",
+  "utc": "2026-10-22T16:25:37.429635+00:00",
+  "scope": "Read-only local method/source review; only this artifact written. No devices, network, credentials, Git or agents. No production contacts are permitted. Not authorization to deploy or a preproduction outcome PASS.",
+  "parent": "PREPROD1: AP-local autonomous discovery/recovery of four exact isolated bench clients without window-time XC setup",
+  "evidence_basis": {
+    "R5_independent_acceptance": {
+      "file": "fmx0017_run5_independent_acceptance_20261022.json",
+      "sha256": "a2ee979e1ef9f1b97ec9668f203d93d5b5a90802ddec8f26d387668301bd328e"
+    },
+    "local_ubus_source": {
+      "path": "\\\\wsl.localhost\\Ubuntu\\home\\ggorbalan\\futuramax\\openwrt-24.10.4\\build_dir\\target-mips_24kc_musl\\hostapd-wpad-basic-mbedtls\\hostapd-2024.09.15~5ace39b0\\src\\ap\\ubus.c",
+      "bytes": 54576,
+      "sha256": "a32b0f259a31d384df48ce6af7029156ec8a3291c229de5004c0171e05ab9fae"
+    },
+    "local_source_manifest_sha256": "82ed975cfe782b6ece12323df71e07d79883ddcdc6dfabaa00983e8bf48db35b"
+  },
+  "existing_evidence_limit": "R5 proved one staged XC setup with four-way controlled adaptive traffic and restoration; it does not answer autonomous cached-BSSID rediscovery/reconnection. No earlier failure is rescored.",
+  "bench_allowlist": {
+    "AP": "exact LAP120 existing pinned identity",
+    "WA": "exact Loco195 fc:ec:da:c2:54:0a",
+    "XC": "exact Rocket198 b4:fb:e4:5c:d5:d2",
+    "SXT": "64:d1:54:1b:96:97",
+    "LBM5": "f0:9f:c2:b2:b6:ba",
+    "requirement": "Target endpoint, SSH pin and exact hardware identity must agree before any mutation; no production IP/pin/provider traversal, discovery scan of management networks or fallback to production."
+  },
+  "window_boundary": {
+    "preparation": "Existing normal XC WPA2 network may be enabled before an explicit durable WINDOW_START marker; preserve command transcript and exact original configuration. Any setup process/stream must be ended/fenced before window start. AP should be radio-off during this preparation so prior association cannot satisfy initial admission.",
+    "inside_window": "No XC wpa_cli, BSS flush, scan, reassociate, enable or disable commands. Read-only identity/status/traffic observations are allowed. Native autonomous WPA scanning is not a controller setup command. AP-local ash owns repeated exact60B run8 IE pulses/clear and expected single-target disconnects.",
+    "zero_touch_label": "AP-only admission/recovery after declared WPA2 preparation; not end-to-end zero-configuration or untouched preparation."
+  },
+  "disconnect_API": {
+    "source_lines": "ubus.c:465-512,132-156,1624",
+    "fields": {
+      "addr": "one exact allowlisted unicast MAC",
+      "reason": 3,
+      "deauth": "Explicit frozen boolean: false selects disassociation, true selects deauthentication. Do not vary silently between cycles.",
+      "ban_time": 0
+    },
+    "minimum_call_example": {
+      "addr": "fc:ec:da:c2:54:0a",
+      "reason": 3,
+      "deauth": true,
+      "ban_time": 0
+    },
+    "semantics": "One ubus RPC invokes a driver action plus hostapd local station-state removal. ban_time0 creates no ban and removes an existing ban. Source has no initialized reason default: always supply reason3.",
+    "proof_limit": "RPC returns0 even when station missing and does not propagate driver return; ACK alone is not a demonstrated drop/reconnect. Require station authorized beforehand, then observed target loss/new session/auth-assoc event. Cannot claim exactly one transmitted OTA frame. No retry after ambiguous invocation; record and fail/restore."
+  },
+  "recommended_minimal_frozen_recipe": {
+    "epochs": "Initial AP-only four-way admission + one fixed-order round of four single-CPE drop/recovery epochs (WA,XC,SXT,LBM5). This is multiple epochs, not repeatability of the whole experiment. If two complete rounds are desired, declare them and increase the watchdog budget BEFORE execution.",
+    "initial_admission_cap_seconds": 120,
+    "per_target_reacquisition_cap_seconds": 60,
+    "post_admission_or_recovery_stable_seconds": 60,
+    "one_target_at_a_time": true,
+    "progression": "Do not disconnect the next target until current target has rejoined and all four passed the full stable interval. Other three must remain auth/assoc/authorized throughout the target disruption, with nonregressing connected time and no deauth/disassoc/session-reset event.",
+    "IE_control": "Use the same60B accepted run8 IE. Freeze each pulse trigger/clear condition/max duration and total epoch bound. Probe-triggered native500ms clear and acknowledged set/update are existing controls, not over-air timing proof. Re-pulsing is bounded by phase/time/count, not open-ended retries.",
+    "traffic": "During each epoch retain timestamped independent management/CPE traffic and counter evidence; preserve radio/FDB/interface attribution so wired management cannot satisfy wireless success. Reuse the R5 final four-flow60s adaptive load unchanged (6001..200000 requests,1200B,>=99% delivery,>=59s overlap, finite empirical quantiles,>=32 radio pairs perCPE).",
+    "RF": "Exact AP5180MHz/20MHz/0dBm/globalAR; no reload/channel change/key/config changes during single-target reconnect tests."
+  },
+  "guard_budget_example_not_hardware_measurement": {
+    "worst_case_active_seconds": 660,
+    "calculation": "120s initial admission+60s initial stability+4*(60s recovery+60s stability)=660s; the final loaded60s can coincide with the last stable epoch. Add explicit measured telemetry/RPC and collection overhead if not overlapped.",
+    "restoration_reserved_seconds": 90,
+    "example_independent_watchdog_seconds": 900,
+    "conditions": "Replace R5 240/420/480s guards together with an agreed bounded budget; arms/readiness must be verified before window. Work must stop early enough for all restores before watchdog deadlines. Fixed budgets are upper bounds, not inferred hardware timing. Do not simply extend controller timeout while CPE/AP guards remain short.",
+    "restoration": "Reuse exact original hash/config/address/route/rules/protected comparisons, legacy open-profile checks, owned-process cancellation/ENDED and AP radio-off+emptydeltas; any failure prevents acceptance. Any prewindow deferred task must be fenced/ended before restore. No persistent watchdog or config writes."
+  },
+  "required_source_review_items": [
+    "R5 association-loss checker must permit ONLY the explicitly selected target and ONLY within its bounded recovery phase; any other station loss still aborts. Reset all-four60s timer on target recovery, never reuse the initial stability marker.",
+    "Fresh event/identity phase bindings prevent stale cached get_clients, stale probes and old admitted markers from satisfying a new cycle; distinguish disconnect ACK from observed disruption and new session.",
+    "All exact CPE allowlists and production exclusion before connecting; secrets from documented bench-only providers, never harvested/exported.",
+    "Independent HUP-surviving watchdogs, partial arm failures, daemon/listener own PID/start lifetimes, cleanup outcomes and source hashes remain fail-closed.",
+    "Current runtime del_client availability/schema and single frozen deauth boolean must be checked before first disruption; source support is not an already-executed exact-target result."
+  ],
+  "stop_conditions": [
+    "No autonomous initial admission within cap: qualified negative and restore; do not run an XC scan/setup rescue inside window.",
+    "No observed target disruption, no reconnect within cap, any non-target session loss, missing required ping/counter/radio proof or insufficient remaining guard budget: fail/restore.",
+    "Any identity/RF/protected/config drift, daemon/guard/cleanup uncertainty or unexpected production target: stop dependent work and preserve failure."
+  ],
+  "method_limits": [
+    "No gain/capacity/TDMA/production-readiness claim from this bench protocol.",
+    "Repeated IE changes and retries are AP-side experimental treatment; metadata timing causal attribution needs separate controls.",
+    "Continuous authorization means complete event evidence plus bounded timestamped sampling; record sampling gaps instead of claiming infinitely continuous observation."
+  ],
+  "missing_for_execution": [
+    "Frozen PREPROD1 sources/plan with explicit cycle count, phase timings, targets, watchdog/cleanup budget and bindings; independent code review remains required."
+  ]
+}
