@@ -17,6 +17,7 @@
  */
 
 #define _POSIX_C_SOURCE 200112L
+#define _XOPEN_SOURCE 600
 #include <errno.h>
 #include <fcntl.h>
 #include <stdint.h>
@@ -33,6 +34,7 @@
 #define EXIT_LEASE_EXPIRED     73
 #define EXIT_TRAFFIC_PREEMPT   74
 #define EXIT_MEM_PRESSURE      75
+#define EXIT_TELEMETRY_ERROR   76
 
 /* Safety hard bounds */
 #define MIN_FREE_RAM_KB     16384UL
@@ -50,7 +52,8 @@
 static uint64_t monotonic_ns(void) {
     struct timespec ts;
     if (clock_gettime(CLOCK_MONOTONIC, &ts) != 0) {
-        return 0;
+        fprintf(stderr, "{\"status\":\"ERR_CLOCK\"}\n");
+        exit(EXIT_TELEMETRY_ERROR);
     }
     return ((uint64_t)ts.tv_sec * 1000000000ULL) + (uint64_t)ts.tv_nsec;
 }
@@ -81,20 +84,36 @@ static unsigned long read_usable_ram_kb(void) {
     unsigned long mem_free = 0;
     unsigned long cached = 0;
     unsigned long buffers = 0;
+    unsigned long shmem = 0;
+    unsigned int found = 0;
     const char *p = buf;
     while (*p) {
-        if (strncmp(p, "MemFree:", 8) == 0) {
-            mem_free = strtoul(p + 8, NULL, 10);
-        } else if (strncmp(p, "Buffers:", 8) == 0) {
-            buffers = strtoul(p + 8, NULL, 10);
-        } else if (strncmp(p, "Cached:", 7) == 0) {
-            cached = strtoul(p + 7, NULL, 10);
-        }
+        /* Later unrelated meminfo fields may exceed this bounded read. Only
+         * complete required lines count; a partial final line proves nothing. */
         const char *nl = strchr(p, '\n');
         if (!nl) break;
+        if (strncmp(p, "MemFree:", 8) == 0) {
+            mem_free = strtoul(p + 8, NULL, 10);
+            found |= 1;
+        } else if (strncmp(p, "Buffers:", 8) == 0) {
+            buffers = strtoul(p + 8, NULL, 10);
+            found |= 2;
+        } else if (strncmp(p, "Cached:", 7) == 0) {
+            cached = strtoul(p + 7, NULL, 10);
+            found |= 4;
+        } else if (strncmp(p, "Shmem:", 6) == 0) {
+            shmem = strtoul(p + 6, NULL, 10);
+            found |= 8;
+        }
         p = nl + 1;
     }
-    return mem_free + buffers + cached;
+    if (found != 15 || UINT64_MAX - mem_free < (uint64_t)buffers + cached)
+        return 0;
+    uint64_t usable = (uint64_t)mem_free + buffers + cached;
+    /* Cached tmpfs/shmem is not reclaimable cache. Never count it as headroom. */
+    if (usable < shmem || usable - shmem > (unsigned long)-1)
+        return 0;
+    return (unsigned long)(usable - shmem);
 }
 
 /* Sum RX + TX bytes on ath0 and eth0 from /proc/net/dev */
@@ -106,12 +125,13 @@ static int read_interface_bytes(uint64_t *out_total_bytes) {
     }
     ssize_t n = read(fd, buf, sizeof(buf) - 1);
     close(fd);
-    if (n <= 0) {
+    if (n <= 0 || n == (ssize_t)sizeof(buf) - 1) {
         return -1;
     }
     buf[n] = '\0';
 
     uint64_t total = 0;
+    unsigned int interfaces = 0;
     const char *p = buf;
     while (*p) {
         while (*p == ' ' || *p == '\t') p++;
@@ -119,20 +139,22 @@ static int read_interface_bytes(uint64_t *out_total_bytes) {
             strncmp(p, "br0:", 4) == 0) {
             const char *colon = strchr(p, ':');
             if (colon) {
-                char *endp = NULL;
-                unsigned long long rx_b = strtoull(colon + 1, &endp, 10);
-                unsigned long long tx_b = 0;
-                /* Skip 7 RX fields (packets, errs, drop, fifo, frame, compressed, multicast) to reach TX bytes */
-                for (int i = 0; i < 8 && endp; i++) {
-                    tx_b = strtoull(endp, &endp, 10);
-                }
-                total += (uint64_t)rx_b + (uint64_t)tx_b;
+                unsigned long long f[16];
+                if (sscanf(colon + 1, "%llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %llu",
+                    &f[0], &f[1], &f[2], &f[3], &f[4], &f[5], &f[6], &f[7],
+                    &f[8], &f[9], &f[10], &f[11], &f[12], &f[13], &f[14], &f[15]) != 16)
+                    return -1;
+                if (UINT64_MAX - f[0] < f[8] || UINT64_MAX - total < f[0] + f[8])
+                    return -1;
+                total += f[0] + f[8];
+                interfaces++;
             }
         }
         const char *nl = strchr(p, '\n');
         if (!nl) break;
         p = nl + 1;
     }
+    if (!interfaces) return -1;
     *out_total_bytes = total;
     return 0;
 }
@@ -186,30 +208,43 @@ static uint32_t run_kernel_step(uint32_t opcode, uint32_t *rng_state, uint32_t *
     return batch;
 }
 
+static int parse_uint(const char *text, uint64_t maximum, uint64_t *out) {
+    const char *p;
+    char *end;
+    if (!text || !*text) return -1;
+    for (p = text; *p; p++) if (*p < '0' || *p > '9') return -1;
+    errno = 0;
+    unsigned long long value = strtoull(text, &end, 10);
+    if (errno == ERANGE || *end || value > maximum) return -1;
+    *out = value;
+    return 0;
+}
+
 int main(int argc, char **argv) {
     /*
      * Usage: /tmp/fmx_micro_worker <opcode:1..3> <seed> <total_iters> <duty_pct:1..20> <lease_ttl_s:1..180> <max_kbps>
      */
-    if (argc < 7) {
+    if (argc != 7) {
         fprintf(stderr, "{\"status\":\"ERR_ARGS\"}\n");
         return EXIT_INVALID_ARGS;
     }
 
-    uint32_t opcode = (uint32_t)strtoul(argv[1], NULL, 10);
-    uint32_t seed = (uint32_t)strtoul(argv[2], NULL, 10);
-    uint64_t target_iters = (uint64_t)strtoull(argv[3], NULL, 10);
-    uint32_t duty_pct = (uint32_t)strtoul(argv[4], NULL, 10);
-    uint32_t lease_ttl_s = (uint32_t)strtoul(argv[5], NULL, 10);
-    uint32_t max_kbps = (uint32_t)strtoul(argv[6], NULL, 10);
+    uint64_t args[6];
+    for (int i = 0; i < 6; i++) {
+        if (parse_uint(argv[i + 1], i == 2 ? UINT64_MAX : UINT32_MAX, &args[i]))
+            return EXIT_INVALID_ARGS;
+    }
+    uint32_t opcode = (uint32_t)args[0], seed = (uint32_t)args[1];
+    uint64_t target_iters = args[2];
+    uint32_t duty_pct = (uint32_t)args[3], lease_ttl_s = (uint32_t)args[4];
+    uint32_t max_kbps = (uint32_t)args[5];
 
     if (opcode < 1U || opcode > 3U || seed == 0U || target_iters == 0ULL) {
         return EXIT_INVALID_ARGS;
     }
-    if (duty_pct < 1U) duty_pct = 1U;
-    if (duty_pct > MAX_DUTY_PCT) duty_pct = MAX_DUTY_PCT;
-    if (lease_ttl_s < 1U || lease_ttl_s > MAX_LEASE_TTL_SEC) {
-        lease_ttl_s = MAX_LEASE_TTL_SEC;
-    }
+    if (duty_pct < 1U || duty_pct > MAX_DUTY_PCT ||
+        lease_ttl_s < 1U || lease_ttl_s > MAX_LEASE_TTL_SEC)
+        return EXIT_INVALID_ARGS;
 
     /* Lower scheduling priority before starting work loop */
     if (nice(19) == -1 && errno != 0) {
@@ -221,14 +256,14 @@ int main(int argc, char **argv) {
     uint64_t work_budget_ns = (SLICE_PERIOD_NS * (uint64_t)duty_pct) / 100ULL;
 
     unsigned long free_ram_kb = read_usable_ram_kb();
-    if (free_ram_kb > 0 && free_ram_kb < MIN_FREE_RAM_KB) {
+    if (free_ram_kb < MIN_FREE_RAM_KB) {
         printf("{\"status\":\"PREEMPT_MEM\",\"free_ram_kb\":%lu}\n", free_ram_kb);
         return EXIT_MEM_PRESSURE;
     }
 
     uint64_t prev_net_bytes = 0;
     uint64_t prev_guard_ns = start_ns;
-    (void)read_interface_bytes(&prev_net_bytes);
+    if (read_interface_bytes(&prev_net_bytes)) return EXIT_TELEMETRY_ERROR;
 
     uint32_t rng_state = seed;
     uint32_t accum = (opcode == OP_FNV1A_HASH_SWEEP) ? 2166136261U : 0U;
@@ -253,14 +288,16 @@ int main(int argc, char **argv) {
         /* 2. Periodic RAM & Customer Traffic Preemption Guard (every 150 ms < 200 ms requirement) */
         if (slice_idx > 0 && (slice_idx % GUARD_CHECK_SLICES) == 0) {
             free_ram_kb = read_usable_ram_kb();
-            if (free_ram_kb > 0 && free_ram_kb < MIN_FREE_RAM_KB) {
+            if (free_ram_kb < MIN_FREE_RAM_KB) {
                 printf("{\"status\":\"PREEMPT_MEM\",\"free_ram_kb\":%lu,\"done_iters\":%llu}\n",
                        free_ram_kb, (unsigned long long)done_iters);
                 return EXIT_MEM_PRESSURE;
             }
 
             uint64_t cur_net_bytes = 0;
-            if (read_interface_bytes(&cur_net_bytes) == 0 && cur_net_bytes >= prev_net_bytes) {
+            if (read_interface_bytes(&cur_net_bytes) || cur_net_bytes < prev_net_bytes)
+                return EXIT_TELEMETRY_ERROR;
+            {
                 uint64_t delta_ns = slice_start_ns - prev_guard_ns;
                 if (delta_ns > 0) {
                     uint64_t delta_bytes = cur_net_bytes - prev_net_bytes;
@@ -285,6 +322,7 @@ int main(int argc, char **argv) {
             }
             done_iters += run_kernel_step(opcode, &rng_state, &accum, step_batch);
             uint64_t now_ns = monotonic_ns();
+            if (now_ns >= deadline_ns) return EXIT_LEASE_EXPIRED;
             if (now_ns - slice_start_ns >= work_budget_ns) {
                 break;
             }

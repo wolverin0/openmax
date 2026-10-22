@@ -1,8 +1,29 @@
-<!-- doc-head: Prioritized backlog of 10 falsifiable OpenMax experiments (FMX-0016..FMX-0025) ordered by ROI/risk with PASS/FAIL/STOP/ROLLBACK gates -->
-Integrates confirmed Stage 10/11 and Step 1C (run17 PASS) baselines so proven work is never repeated.
-Every experiment specifies exact sysid/firmware, baseline, counterfactual, primary/secondary metrics, 1-day refutation test, and deterministic rollback.
-No production mutation or unauthorized radio access is permitted; Stage 0/1/2/3/4/5 progression gates apply.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - OPENMAX_NEW_EXPERIMENTS -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 passed its frozen AP-local controlled-load variant and exact restoration. See the [current result and limits](CURRENT_STATE.md). Run8 60B IE was accepted; supplied 32-byte negative and all prior failures remain preserved. Native XC setup remains required; no capacity/gain/OTA/zero-touch/production/E2 acceptance follows.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+## 2026-10-22 status override ? exact receipts, original acceptance preserved
+
+The ranking/specification below is retained as the experiment design record. Use this newer receipt status when reading its present-tense priority labels:
+
+FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open.
+- FMX-0018: the Oct 22 LAP-120/Rocket198 memory/Ethernet bench observations passed their recorded bounded gates. The original WA/XC/LTU fault-detector scope is not thereby fully qualified.
+- FMX-0019: Rocket198 wifi1/AirView-related presence and short ping observation passed; IRQ64 did not advance. No loaded TCP/p99 acceptance, continuous spectral capture, or zero-impact conclusion was demonstrated.
+- FMX-0020: the bounded 5%/10% duty, expiry, stop, preemption and cleanup/hash checks passed on LAP-120 and Rocket198. This does not meet the full original Loco195/LTU target coverage or establish fleet compute value.
+- FMX-0022: the current output is a model only; one topology meets the modeled gate and two are rejected. No physical relay was implemented or measured.
+- FMX-0025: 20/20 synthetic offline triage cases matched. Field accuracy and real-incident performance remain unmeasured.
+
+Evidence: `artifacts/canary_panel1_guarida/fmx_0018_0019_0020_bench_result_20261022.json`, [sanitized observatory summary](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json), and the run17/run25/run8 receipts linked from `docs/RESEARCH_LEDGER.md`. Keep the stated original gates and all historical failures. E2 remains `NOT_ACCEPTED`; none of these results authorizes production rollout or claims wireless improvement.
 
 # OpenMax Prioritized New Experiment Backlog (`FMX-0016` – `FMX-0025`)
 

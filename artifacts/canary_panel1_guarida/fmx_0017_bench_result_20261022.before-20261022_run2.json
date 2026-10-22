@@ -1,0 +1,320 @@
+{
+  "experiment": "FMX-0017",
+  "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "started_utc": "2026-10-22T13:25:26.411494+00:00",
+  "source_sha256": "aa3dc1fdcec10db27eaea99ab46bcdec1196e8f4e82312885265f9ce5d539906",
+  "bindings": {
+    "root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+  },
+  "failures": [
+    {
+      "type": "RuntimeError",
+      "gate": "REMOTE_EXIT_1_cat: can't open '/tmp/fmx-admitter-9e7907e92cee39413a8da073/daemon.id': No such file or directory\n"
+    }
+  ],
+  "cleanup_errors": [
+    "Daemon:DAEMON_CLEAR_OR_END_FAILED"
+  ],
+  "legacy_guards": {
+    "SXT": {
+      "directory": "/tmp/fmx-four-dd15dd457880e0453c8b17cb",
+      "source_sha256": "bc47004fe36299a13e151f6d32f62b4d6b960a78a93a537fe4a9223b0bd22337",
+      "ttl_seconds": 240,
+      "intent_recorded": true,
+      "pid": 8903,
+      "ticks": 4777697,
+      "deadline_uptime": 48017,
+      "host_armed": 723312.656,
+      "explicit_restore_signal_sent": true
+    },
+    "LBM5": {
+      "directory": "/tmp/fmx-four-6165dbebdc5b0b2b809e305c",
+      "source_sha256": "c255f2c44099670f4698a6effd8a84db29f177c25447ae78f8dee8eb561a4ffd",
+      "ttl_seconds": 240,
+      "intent_recorded": true,
+      "pid": 2868,
+      "ticks": 41771923,
+      "deadline_uptime": 417959,
+      "host_armed": 723312.937
+    }
+  },
+  "forbidden_actions_executed": false,
+  "persistent_config_writes": false,
+  "daemon_source_sha256": "77ef8d07fe30245e88b4d94f1474f61113524cfdd5450e093379b1fbaeb270cb",
+  "load_recipe": {
+    "count": 6001,
+    "interval_seconds": 0.01,
+    "payload_bytes": 1200,
+    "request_payload_target_mbps": 3.84,
+    "combined_echo_payload_target_mbps": 7.68,
+    "saturation_claim": false
+  },
+  "autonomy_scope": "AP-local IE decisions; one native timed XC scan/enable setup; Python observes only",
+  "load_stream_starts": {},
+  "rocket_baseline": {
+    "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
+    "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
+    "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
+    "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
+  },
+  "AP_initial": {
+    "interface": "phy0-ap0",
+    "ifindex": 64,
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "observed_regulatory_domains": [
+      "AR",
+      "US"
+    ],
+    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854",
+    "status": "PASS_AP_OBSERVER_RAM_WINDOW_ARMED",
+    "guard_pid": 673,
+    "guard_start": 4358315,
+    "guard_deadline_uptime": 44063,
+    "ttl_seconds": 480,
+    "remote_ram": "/tmp/fmx-step1c-ap-observer-a2b66f7da193dfd7010d88ed229fcd26",
+    "native_receipt_sha256": "ff6fdbac93c279ad55468e0165767de0f05dddd79db21c7bd3ce1f38a1ac0f92",
+    "ubus_methods_sha256": "1e2272ed9c30de102b19a8c5c7e6b98753efcfebebf55e1d44d483b7764ea9e9",
+    "persistent_writes": false,
+    "vendor_ie_changed": false
+  },
+  "open_reacquisition_probes": [
+    {
+      "name": "SXT",
+      "mono": 723295.546,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723297.609,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "SXT",
+      "mono": 723297.843,
+      "result": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=4.705 ms\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 4.705/4.705/4.705 ms\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723299.906,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723302.125,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723304.343,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723306.578,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723308.812,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 723310.093,
+      "result": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1066.885 ms\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 1066.885/1066.885/1066.885 ms\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "prior_guard_RAM_cleanup": {
+    "SXT": {
+      "exit_code": 0,
+      "stdout": "ALREADY_ABSENT\n",
+      "stderr": ""
+    },
+    "LBM5": {
+      "exit_code": 0,
+      "stdout": "ALREADY_ABSENT\n",
+      "stderr": ""
+    }
+  },
+  "AP_mode_transitions": [
+    {
+      "utc": "2026-10-22T13:26:02.775227+00:00",
+      "secure": true,
+      "ready": {
+        "interface": "phy0-ap0",
+        "ifindex": 65,
+        "bssid": "18:e8:29:74:55:a2",
+        "frequency_mhz": 5180,
+        "width_mhz": 20,
+        "txpower_dbm": 0,
+        "global_country": "AR",
+        "observed_regulatory_domains": [
+          "AR",
+          "US"
+        ],
+        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+      }
+    },
+    {
+      "utc": "2026-10-22T13:26:25.359432+00:00",
+      "secure": false,
+      "ready": {
+        "interface": "phy0-ap0",
+        "ifindex": 66,
+        "bssid": "18:e8:29:74:55:a2",
+        "frequency_mhz": 5180,
+        "width_mhz": 20,
+        "txpower_dbm": 0,
+        "global_country": "AR",
+        "observed_regulatory_domains": [
+          "AR",
+          "US"
+        ],
+        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+      }
+    }
+  ],
+  "AP_secure": {
+    "interface": "phy0-ap0",
+    "ifindex": 65,
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "observed_regulatory_domains": [
+      "AR",
+      "US"
+    ],
+    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+  },
+  "daemon_directory": "/tmp/fmx-admitter-9e7907e92cee39413a8da073",
+  "failure_AP_clients": {},
+  "failure_station_snapshot": {
+    "file": "failure-station-dumps.json",
+    "bytes": 20,
+    "sha256": "9b9d7430624e076e9d1d0f4c50e3e0d7eecf7fe5108424612aed51742052446b"
+  },
+  "daemon_evidence": {
+    "file": "daemon-evidence.json",
+    "bytes": 233,
+    "sha256": "104b0a7c720d1c842a07582d2a083263b82a7606869b3bd5bc3b2effbd6da254"
+  },
+  "daemon_restore_rc": "",
+  "legacy_restoration": {
+    "SXT": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+      "snapshot": "ab0fe2bd-55ef-4528-9032-6df20674573a\n4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c  /etc/config/wireless\n0c7ed7f439e9da169fc7f12908851fcc  /dev/mtd0\nae243dc4521318113d4781401997e3af  /dev/mtd3\n0634d29700fc835e3d7932da8eb79139  /dev/mtd4\n622939f192d37a4e9ba0b05daaad5014  /dev/mtd5\n03ef5cd199afa405aac7a9316e8280e2  /dev/mtd6\nd8fd8f66b380eb17e3856d3c75e84e0e  /dev/mtd7\necb99e6ffea7be1e5419350f725da86b  /dev/mtd8\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n3: br-lan: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000\n    inet 192.168.1.4/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n18: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    inet 10.99.0.3/24 brd 10.99.0.255 scope global phy0-sta0\n       valid_lft forever preferred_lft forever\n10.99.0.0/24 dev phy0-sta0 scope link  src 10.99.0.3 \n192.168.1.0/24 dev br-lan scope link  src 192.168.1.4 \nConnected to 18:e8:29:74:55:a2 (on phy0-sta0)\n\tSSID: FuturaMAX-LAB\n\tfreq: 5180.0\n\tRX: 8189 bytes (65 packets)\n\tTX: 6551 bytes (39 packets)\n\tsignal: -74 dBm\n\trx bitrate: 52.0 MBit/s MCS 11\n\ttx bitrate: 104.0 MBit/s MCS 13\n\tbss flags: short-slot-time\n\tdtim period: 2\n\tbeacon int: 100\n",
+      "ping": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=1.630 ms\n64 bytes from 10.99.0.3: seq=1 ttl=64 time=1.590 ms\n64 bytes from 10.99.0.3: seq=2 ttl=64 time=1.535 ms\n\n--- 10.99.0.3 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.535/1.585/1.630 ms\n",
+        "stderr": ""
+      },
+      "guard_log": {
+        "file": "SXT-guard-log.json",
+        "bytes": 52,
+        "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+      },
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "LBM5": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+      "snapshot": "6fc96796-6e67-4ff4-b928-b5ce0acf54ef\n0620f996529e137645ba41587cb81713  /tmp/system.cfg\n37fec0e91d8d890a6a71a9dcce9d96f0  /dev/mtd0\nd923e305db3bbb9805cc8191abe933f7  /dev/mtd1\ncd708dcf6efcc93439edcdecf918c9f5  /dev/mtd4\n3f44343069ebb39f52f13b17074803cd  /dev/mtd5\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN \n    inet 127.0.0.1/8 scope host lo\n6: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.1.5/24 brd 192.168.1.255 scope global br0\n    inet 10.99.0.4/24 brd 10.99.0.255 scope global br0\n    inet 169.254.182.186/16 brd 169.254.255.255 scope global br0\n10.99.0.0/24 dev br0  proto kernel  scope link  src 10.99.0.4 \n192.168.1.0/24 via 10.99.0.1 dev br0 \n169.254.0.0/16 dev br0  proto kernel  scope link  src 169.254.182.186 \ndefault via 192.168.1.1 dev br0 \nbridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.f09fc2b2b6ba\tno\t\teth0\n\t\t\t\t\t\t\tath0\n\t\t\t\t\t\t\teth1\nath0      IEEE 802.11na  ESSID:\"FuturaMAX-LAB\"  \n          Mode:Managed  Frequency:5.18 GHz  Access Point: 18:E8:29:74:55:A2   \n          Bit Rate:72.222 Mb/s   Tx-Power=10 dBm   Sensitivity:0/3  \n          RTS thr=256 B   Fragment thr:off\n          Encryption key:off\n          Power Management:off\n          Link Quality=21/94  Signal level=-75 dBm  Noise level=-100 dBm\n          Rx invalid nwid:0  Rx invalid crypt:22  Rx invalid frag:0\n          Tx excessive retries:0  Invalid misc:0   Missed beacon:0\n\nath0      get_authmode:1  \nath0      get_wds:0  \n",
+      "ping": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1.287 ms\n64 bytes from 10.99.0.4: seq=1 ttl=64 time=1.130 ms\n64 bytes from 10.99.0.4: seq=2 ttl=64 time=1.866 ms\n\n--- 10.99.0.4 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.130/1.427/1.866 ms\n",
+        "stderr": ""
+      },
+      "guard_log": {
+        "file": "LBM5-guard-log.json",
+        "bytes": 440,
+        "sha256": "47b8c1d0b829cf4a8fb96d0ab44b62f88e490cb170c15aae0e0f77ae59859a16"
+      },
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    }
+  },
+  "AP_restoration": {
+    "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+    "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+    "deltas_empty": true,
+    "guard_ended_verified": true,
+    "RAM_guard_cleanup": {
+      "exit_code": 0,
+      "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+      "stderr": ""
+    }
+  },
+  "rocket_restoration": {
+    "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+    "evidence": {
+      "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
+      "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
+      "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
+      "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
+    }
+  },
+  "events_artifact": {
+    "file": "hostapd-events.jsonl",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "ended_utc": "2026-10-22T13:30:35.609819+00:00",
+  "exit_code": 1,
+  "raw_receipt": "fmx0017_20261022_run1\\receipt.json",
+  "raw_receipt_sha256": "c7496b67b1d51512a8714930387b7f5a9ff8153f9b3068b3a8a57c377dc9536a",
+  "sample_count": 0
+}

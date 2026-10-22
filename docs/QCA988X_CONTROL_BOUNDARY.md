@@ -1,11 +1,33 @@
 # QCA988x control boundary — what the host can actually do
 
-<!-- doc-head: Current physical peer visibility and preserved control limits -->
-2026-10-17 (Stages 7-9): CONFIRMED on live 3-station bench (`LAP-120` QCA9882 AP, `10.1-ct-8x-__fW-022`): (1) `htt_max_amsdu_ampdu` (`1x8`, `1x16`, `2x32`, `3x64`), `aql_txq_limit`, `airtime_flags=3`, and per-station `airtime_weight` are honoured in real time by `mac80211`/`ath10k-ct`; (2) writing to `stations/<mac>/airtime` resets kernel airtime/deficit counters; (3) `spectral_scan0` emits Type-3 TLV FFT frames (`618.7 KB / 6,653 frames`), but `iw dev phy0-ap0 scan ... ap-force` on an AP vdev leaves `10.1-ct-8x-__fW-022` firmware in a persistent `102.4 ms` beacon-aligned scan sawtooth until module reload/reboot; (4) `FMX-0009` (`ATH10K_DBG_BUFFER` `0x2002`): `iw dev phy0-ap0 set bitrates ...` multi-rate masks send `WMI_PEER_ASSOC_CMDID` (`reassoc=true`) with updated rate bitmaps (`0x0F0F`, `0x000F`, `0xFFF0`), but `10.1-ct-8x-__fW-022` ignores `reassoc=true` rate-set narrowing on already-associated peers (`REFUTED` as live runtime fast-loop MCS clamp).
-October10 exact-peer bytes/rates and station TX-duration counters are now visible.
-Firmware RX-duration is inconsistent across snapshots; calibrated airtime remains UNKNOWN.
-Older firmware/source and October5 observations remain scoped historical evidence.
+<!-- doc-head: October22 exact-device compatibility alignment and historical scope -->
+Stock WA8/XC8 and four-generation PtMP confirmed by run17/run25/run8.
+Original dated benchmarks/static findings keep their hardware and firmware scope.
+No new performance, TDMA/GPS, relay, production or E2 acceptance follows.
+Current authoritative state and source receipts are linked below.
 <!-- /doc-head -->
+
+## October22 evidence alignment - current bench scope
+
+The accepted exact-device receipts supersede any universal present-tense reading
+of older incompatibility or topology statements below: run17 establishes stock
+WA.v8.7.25 Loco195 bidirectional association with the held LAP-120 OpenWrt AP;
+run25 adds stock XC.v8.7.25 Rocket198 concurrently (61.031s authorization,
+64/64 radio-qualified pings each); FMX-0016 run8 adds SXT OpenWrt/ath9k and
+stock airOS6 M5 concurrently (60.5s,64/64 each,256 matched radio echo pairs).
+All modified state was restored and the AP radio disabled. These are exact
+bench compatibility results; they do not establish capacity, performance gain,
+TDMA/GPS, all-revision support, physical relay or production acceptance.
+
+Sources: [current state](CURRENT_STATE.md),
+[run8 receipt](../artifacts/canary_panel1_guarida/root_four_cpe_result_20261022.json),
+[Oct22 scoped evidence alignment](../artifacts/canary_panel1_guarida/fmx_docs_alignment_20261022.json).
+Existing E2 remains `NOT_ACCEPTED` with its original gates. Original dated
+measurements, failures, static control limits and firmware scopes remain
+historical evidence, not permission to resume those recipes.
+Control boundary: AP/Linux/hostapd RAM admission plus native stock CPE association. No QCA-firmware per-frame scheduler, new PHY or proprietary airMAX TDMA capability is established.
+
+
 
 ## Current physical evidence - D2 refresh October10
 
@@ -309,3 +331,11 @@ notes say the feature was enabled. Cause UNKNOWN. Worth resolving before designi
    tree showed no `register_airtime` / AQL references while mainline does. If CT lags
    mainline here, the standard "use ath10k-ct on QCA988x" advice may **cost** the airtime
    scheduler. Verify per shipped OpenWrt version before recommending CT. **Open.**
+
+
+Historical dated document summary (retained from prior header):
+
+2026-10-17 (Stages 7-9): CONFIRMED on live 3-station bench (`LAP-120` QCA9882 AP, `10.1-ct-8x-__fW-022`): (1) `htt_max_amsdu_ampdu` (`1x8`, `1x16`, `2x32`, `3x64`), `aql_txq_limit`, `airtime_flags=3`, and per-station `airtime_weight` are honoured in real time by `mac80211`/`ath10k-ct`; (2) writing to `stations/<mac>/airtime` resets kernel airtime/deficit counters; (3) `spectral_scan0` emits Type-3 TLV FFT frames (`618.7 KB / 6,653 frames`), but `iw dev phy0-ap0 scan ... ap-force` on an AP vdev leaves `10.1-ct-8x-__fW-022` firmware in a persistent `102.4 ms` beacon-aligned scan sawtooth until module reload/reboot; (4) `FMX-0009` (`ATH10K_DBG_BUFFER` `0x2002`): `iw dev phy0-ap0 set bitrates ...` multi-rate masks send `WMI_PEER_ASSOC_CMDID` (`reassoc=true`) with updated rate bitmaps (`0x0F0F`, `0x000F`, `0xFFF0`), but `10.1-ct-8x-__fW-022` ignores `reassoc=true` rate-set narrowing on already-associated peers (`REFUTED` as live runtime fast-loop MCS clamp).
+October10 exact-peer bytes/rates and station TX-duration counters are now visible.
+Firmware RX-duration is inconsistent across snapshots; calibrated airtime remains UNKNOWN.
+Older firmware/source and October5 observations remain scoped historical evidence.

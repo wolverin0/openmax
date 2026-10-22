@@ -1,3 +1,34 @@
+<!-- doc-head: October22 exact-device compatibility alignment and historical scope -->
+Stock WA8/XC8 and four-generation PtMP confirmed by run17/run25/run8.
+Original dated benchmarks/static findings keep their hardware and firmware scope.
+No new performance, TDMA/GPS, relay, production or E2 acceptance follows.
+Current authoritative state and source receipts are linked below.
+<!-- /doc-head -->
+
+Publication note: the older scratch/disassembly archive links below refer to retained local-only evidence, outside this bounded Git delivery. The [publication manifest](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json) identifies the receipts published for the October22 order.
+
+## October22 evidence alignment - current bench scope
+
+The accepted exact-device receipts supersede any universal present-tense reading
+of older incompatibility or topology statements below: run17 establishes stock
+WA.v8.7.25 Loco195 bidirectional association with the held LAP-120 OpenWrt AP;
+run25 adds stock XC.v8.7.25 Rocket198 concurrently (61.031s authorization,
+64/64 radio-qualified pings each); FMX-0016 run8 adds SXT OpenWrt/ath9k and
+stock airOS6 M5 concurrently (60.5s,64/64 each,256 matched radio echo pairs).
+All modified state was restored and the AP radio disabled. These are exact
+bench compatibility results; they do not establish capacity, performance gain,
+TDMA/GPS, all-revision support, physical relay or production acceptance.
+
+Sources: [current state](CURRENT_STATE.md),
+[run8 receipt](../artifacts/canary_panel1_guarida/root_four_cpe_result_20261022.json),
+[Oct22 scoped evidence alignment](../artifacts/canary_panel1_guarida/fmx_docs_alignment_20261022.json).
+Existing E2 remains `NOT_ACCEPTED` with its original gates. Original dated
+measurements, failures, static control limits and firmware scopes remain
+historical evidence, not permission to resume those recipes.
+The archive below retains its original evidence scope; use the Oct22 current-state receipts for today's stock-compatibility status.
+
+
+
 # Stage 10 & 11 Complete Reverse-Engineering, Architecture & Bench Archive (2026-10-21)
 
 > **Purpose:** Permanent repository archive consolidating all static reverse-engineering proofs, kernel/firmware offsets, hardware experiments, and architectural discoveries generated across the Antigravity (`run:run_458a34fbc172`) and Codex (`run:run_204f7681fd7c`) sessions through **2026-10-21**, ensuring zero knowledge loss across context window compactions or future git commits.

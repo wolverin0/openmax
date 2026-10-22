@@ -1,0 +1,34 @@
+{
+  "experiment": "FMX-0017",
+  "state": "FROZEN_PRE_EXECUTION",
+  "utc": "2026-10-22T13:23:21.294212+00:00",
+  "acceptance": {
+    "stable_seconds": 60,
+    "load_ping_count": 6001,
+    "payload_bytes": 1200,
+    "interval_seconds": 0.01,
+    "minimum_delivery_ratio": 0.99,
+    "minimum_radio_pairs": 32,
+    "minimum_stream_overlap_seconds": 59,
+    "all_original_configs_protected_hashes_and_addresses_restored": true,
+    "ap_radio_off": true,
+    "controlled_daemon_exit": true
+  },
+  "scope": "four exact bench CPEs only; AP-local IE, one staged/fenced native XC setup; no production, flash, modules or persistent settings",
+  "sources": {
+    "tools\\bench\\fmx_admitter.sh": "71b1d8229549e325c21a12dac355e892970a96d89fa5644a8046f4b0a195f9f5",
+    "artifacts\\canary_panel1_guarida\\fmx0017_trial_20261022.py": "cd4c0efa56a1b4f99352de219c41dcbb3f2aa46cc62872f113d7b20975c9b4b3",
+    "artifacts\\canary_panel1_guarida\\root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts\\canary_panel1_guarida\\root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts\\canary_panel1_guarida\\root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+  },
+  "limitations": [
+    "No saturation/capacity or performance improvement claim",
+    "Not zero-touch XC discovery; native setup is a declared prerequisite",
+    "No OTA IE duration qualification"
+  ],
+  "explicit_operator_IE": "dd1e00156d0203020000800500340a16b0000a8000000018e8297455a2000400",
+  "method_note": "Operator explicitly provided a 32-byte vendor IE differing from run8 accepted 60-byte metadata. First run tests exact requested literal; a failure remains preserved, no attribution solely to daemon timing. Existing accepted IE is a distinct possible control treatment, not silently substituted.",
+  "failure": "Native ash rejected CRLF before daemon.id/IE operations; source archived in run1/failed-source",
+  "changed_hypothesis": "R2 received WA broadcast Probe but exited1 on native sleep0.5 unsupported. Preserve literal operator32B IE/timing/acceptance. Replace only fractional wait with already-installed ucode sleep500ms, measured native0.52s exit0, and preflight before RF. Autoarchive executed bytes."
+}

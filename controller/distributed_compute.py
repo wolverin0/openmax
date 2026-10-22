@@ -36,6 +36,8 @@ from enum import Enum, IntEnum
 import hashlib
 import hmac
 import json
+import math
+import time
 from typing import Any, Dict, List, Optional, Tuple
 
 
@@ -270,6 +272,17 @@ def evaluate_cpe_eligibility(
     reasons: List[str] = []
     preemption_required = False
 
+    measurements = (snapshot.free_ram_kb, snapshot.customer_kbps,
+                    snapshot.sector_airtime_pct, snapshot.rtt_p95_ms)
+    lease = (snapshot.lease_issued_at_epoch, snapshot.now_epoch)
+    if (any(not isinstance(v, (int, float)) or not math.isfinite(v) or v < 0 for v in measurements)
+            or type(snapshot.active_sector_workers) is not int or snapshot.active_sector_workers < 0
+            or type(snapshot.lease_ttl_sec) is not int or not 1 <= snapshot.lease_ttl_sec <= MAX_LEASE_TTL_SEC
+            or (any(v is not None for v in lease) and
+                (any(not isinstance(v, (int, float)) or not math.isfinite(v) or v < 0 for v in lease)
+                 or snapshot.now_epoch < snapshot.lease_issued_at_epoch))):
+        return EligibilityResult(snapshot.cpe_id, False, ('INVALID_OR_MISSING_TELEMETRY_OR_LEASE',), True)
+
     if snapshot.kill_switch_active:
         reasons.append("KILL_SWITCH_ACTIVE")
         preemption_required = True
@@ -324,6 +337,17 @@ def evaluate_cpe_eligibility(
     )
 
 
+def _valid_manifest_fields(manifest: SignedJobManifest) -> bool:
+    # Never truncate/coerce fields before authenticating: 5.9 must not sign as 5.
+    ranges = {'shard_id': (0, 0xFFFFFFFF), 'opcode': (1, 3), 'seed': (1, 0xFFFFFFFF),
+              'iterations': (1, 0xFFFFFFFFFFFFFFFF), 'duty_pct': (1, MAX_DUTY_CYCLE_PCT),
+              'lease_ttl_sec': (1, MAX_LEASE_TTL_SEC), 'max_customer_kbps': (0, 0xFFFFFFFF),
+              'issued_at_epoch': (0, 0x7FFFFFFFFFFFFFFF)}
+    return (all(type(getattr(manifest, key)) is int and lo <= getattr(manifest, key) <= hi
+                for key, (lo, hi) in ranges.items())
+            and all(isinstance(v, str) and bool(v) for v in (manifest.job_id, manifest.cpe_id)))
+
+
 def create_signed_job_manifest(
     *,
     job_id: str,
@@ -336,7 +360,7 @@ def create_signed_job_manifest(
     duty_pct: int = 5,
     lease_ttl_sec: int = DEFAULT_LEASE_TTL_SEC,
     max_customer_kbps: int = int(DEFAULT_MAX_CUSTOMER_KBPS),
-    issued_at_epoch: int = 1792641600,
+    issued_at_epoch: Optional[int] = None,
 ) -> SignedJobManifest:
     """Create and HMAC-SHA256 sign a validated declarative job manifest."""
     if opcode not in (
@@ -360,15 +384,17 @@ def create_signed_job_manifest(
         job_id=job_id,
         shard_id=shard_id,
         cpe_id=cpe_id,
-        opcode=int(opcode),
+        opcode=int(opcode) if isinstance(opcode, WorkerOpCode) else opcode,
         seed=seed,
         iterations=iterations,
         duty_pct=duty_pct,
         lease_ttl_sec=lease_ttl_sec,
         max_customer_kbps=max_customer_kbps,
-        issued_at_epoch=issued_at_epoch,
+        issued_at_epoch=int(time.time()) if issued_at_epoch is None else issued_at_epoch,
         signature_hex="",
     )
+    if not _valid_manifest_fields(unsigned):
+        raise ValueError('Invalid integer bounds or job/CPE identity')
     sig = hmac.new(secret_key, unsigned.canonical_payload_bytes(), hashlib.sha256).hexdigest()
     return dataclasses.replace(unsigned, signature_hex=sig)
 
@@ -382,6 +408,8 @@ def verify_signed_job_manifest(
     """Verify HMAC-SHA256 signature, opcode allowlist, safety bounds, and lease TTL."""
     if not secret_key:
         return False, "EMPTY_SECRET_KEY"
+    if not _valid_manifest_fields(manifest):
+        return False, 'INVALID_MANIFEST_FIELDS'
     if manifest.opcode not in (
         WorkerOpCode.OP_INT_MONTE_CARLO,
         WorkerOpCode.OP_FNV1A_HASH_SWEEP,
@@ -398,12 +426,18 @@ def verify_signed_job_manifest(
     expected_sig = hmac.new(
         secret_key, manifest.canonical_payload_bytes(), hashlib.sha256
     ).hexdigest()
-    if not hmac.compare_digest(expected_sig, manifest.signature_hex):
+    if (not isinstance(manifest.signature_hex, str) or len(manifest.signature_hex) != 64
+            or any(c not in '0123456789abcdef' for c in manifest.signature_hex)
+            or not hmac.compare_digest(expected_sig, manifest.signature_hex)):
         return False, "HMAC_SIGNATURE_MISMATCH"
 
-    if now_epoch is not None:
-        if now_epoch > manifest.issued_at_epoch + manifest.lease_ttl_sec:
-            return False, "MANIFEST_LEASE_EXPIRED"
+    now_epoch = time.time() if now_epoch is None else now_epoch
+    if not isinstance(now_epoch, (int, float)) or not math.isfinite(now_epoch):
+        return False, 'INVALID_CURRENT_TIME'
+    if now_epoch < manifest.issued_at_epoch:
+        return False, 'MANIFEST_NOT_YET_VALID'
+    if now_epoch > manifest.issued_at_epoch + manifest.lease_ttl_sec:
+        return False, "MANIFEST_LEASE_EXPIRED"
 
     return True, "VALID"
 

@@ -1,3 +1,32 @@
+<!-- doc-head: October22 exact-device compatibility alignment and historical scope -->
+Stock WA8/XC8 and four-generation PtMP confirmed by run17/run25/run8.
+Original dated benchmarks/static findings keep their hardware and firmware scope.
+No new performance, TDMA/GPS, relay, production or E2 acceptance follows.
+Current authoritative state and source receipts are linked below.
+<!-- /doc-head -->
+
+## October22 evidence alignment - current bench scope
+
+The accepted exact-device receipts supersede any universal present-tense reading
+of older incompatibility or topology statements below: run17 establishes stock
+WA.v8.7.25 Loco195 bidirectional association with the held LAP-120 OpenWrt AP;
+run25 adds stock XC.v8.7.25 Rocket198 concurrently (61.031s authorization,
+64/64 radio-qualified pings each); FMX-0016 run8 adds SXT OpenWrt/ath9k and
+stock airOS6 M5 concurrently (60.5s,64/64 each,256 matched radio echo pairs).
+All modified state was restored and the AP radio disabled. These are exact
+bench compatibility results; they do not establish capacity, performance gain,
+TDMA/GPS, all-revision support, physical relay or production acceptance.
+
+Sources: [current state](CURRENT_STATE.md),
+[run8 receipt](../artifacts/canary_panel1_guarida/root_four_cpe_result_20261022.json),
+[Oct22 scoped evidence alignment](../artifacts/canary_panel1_guarida/fmx_docs_alignment_20261022.json).
+Existing E2 remains `NOT_ACCEPTED` with its original gates. Original dated
+measurements, failures, static control limits and firmware scopes remain
+historical evidence, not permission to resume those recipes.
+The Stage7-9 Loco-OpenWrt topology and adaptive-controller recipes below belong to their Oct17 measurements. Loco195 is stock WA8 in the Oct22 fixture; no optimizer/procd service is being accepted or resumed by the newer compatibility result.
+
+
+
 # Stage 9 — 20 MHz Real-WISP Sector Width (`VHT20`), `QCA988x` Rate-Mask Control Boundary (`FMX-0009`), `CoTSQ` + Station `fq_codel` (`FMX-0013`), and Production `procd` + Canary Watchdog Qualification
 
 **Date:** 2026-10-17  

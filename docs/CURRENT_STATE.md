@@ -1,10 +1,32 @@
-<!-- doc-head: FMX0016 four-CPE multi-generation PtMP and telemetry PASS -->
-Run8: WA8/XC8/SXT ath9k/airOS6 M5 simultaneously authorized for60.5s.
-All four64/64 pings passed;256 radio request/reply pairs;41 station samples.
-Four ping streams overlap62.801s; AP5180MHz/20MHz/0dBm/AR andWDS enabled.
-Exact AP/Rocket and original open legacy profiles/hashes/IPv4/routes restored.
-Guards ended; owned RAM files removed; no flash/commit/cfgmtd/reboot/module work.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - CURRENT_STATE -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 independently passed its frozen controlled-load recipe: four exact WA/XC/SXT/M5 CPEs authorized for 60.094 s, four adaptive 1200-byte streams overlapping for 60.320 s, minimum delivery 99.9616% and 64 matched radio echo pairs each. RTT p95 WA/XC/SXT/M5: 15.211/14.980/14.770/15.212 ms. Exact AP/Rocket and original open legacy profiles, protected/config hashes and network state were restored; guards and owned RAM ended; AP radio off. AP-local Linux userspace ash/ubus owns IE decisions; one fenced native XC scan/enable setup remains. Positive uses run8's 60-byte IE; supplied 32-byte IE did not admit WA/XC and all failed acquisitions remain preserved. One adaptive run does not prove constant-rate/saturation/capacity/gain/OTA timing/zero-touch XC/production/TDMA/GPS or E2 acceptance.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+The three controller files were repaired and independently reviewed. The full requested test directory passed 228 tests, plus 11 offline load-helper tests. Changed C source remains host-fixture tested; historical hardware-worker evidence does not qualify that changed source. Documentation alignment reviewed 16 documents and 36 relative links. Reviewed code, documentation and the bounded public evidence pack are included in the authorized integration commit; unrelated prior work is preserved.
+
+## 2026-10-22: Receipt-backed status alignment
+
+This checkpoint reconciles current documentation to the named local receipts. It does not replace the authoritative execution order in `BENCH_PLAN.md`.
+
+- FMX-0015 run17: `PASS_DIRECT_STOCK_CPE_ASSOC_BIDIRECTIONAL_60S_RESTORED_OTA_PENDING`. Exact Loco195 stock WA.v8.7.25 associated to the held LAP-120 OpenWrt AP with AP WDS enabled in a bounded RAM window; bidirectional low-rate ICMP and restoration passed. OTA beacon-IE order/duration, loaded traffic and performance remain unqualified.
+- FMX0015-R18 run25: `PASS_MULTI_CPE_REPULSE_60S_RESTORED`. Exact Loco195 WA.v8.7.25 and Rocket198 XC.v8.7.25 held simultaneous authorization for 61.031 s; each radio-qualified 64/64 ping stream passed with 59.197 s actual overlap, and WA survived the measured discovery-IE re-pulse. Exact restoration passed. This is two exact CPE instances, not all airOS 8, capacity, production, TDMA/GPS or gain acceptance.
+- FMX-0016 run8: `PASS_FOUR_CPE_60S_RADIO_TRAFFIC_TELEMETRY_ALL_RESTORED`. Exact WA8/XC8, OpenWrt ath9k SXT and stock airOS6 M5 bench units simultaneously authorized for 60.5 s; each had 64/64 low-rate pings, 256 radio echo pairs and 62.801 s four-stream overlap. Exact restoration passed. No throughput, loaded-latency, capacity, relay or fleet claim.
+- FMX-0018/19/20: `fmx_0018_0019_0020_bench_result_20261022.json` reports `PASS_ALL_FMX_0018_0019_0020`. The bounded LAP-120/Rocket198 memory and Ethernet observations passed the stated RAM gate; Rocket wifi1/AirView presence was observed without IRQ64 delta or 10-sample ping change; the 49,800-byte RAM-only worker passed duty, lease, kill-switch, traffic-preemption and cleanup checks on both units. The IRQ count was unchanged, so no active spectral-blanking or scanning performance benefit is demonstrated. These are local bench checks, not wireless performance or production qualification.
+- FMX-0022/0025 observatory bundle: [sanitized observatory summary](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json) reports `PASS_OBSERVATORY_AND_TRIAGE_BENCHMARK`. Its FMX-0025 offline triage benchmark matched 20/20 synthetic cases (100%, stated 95% gate passed). FMX-0022 relay break-even entries are modeled estimates: two scenarios reject and one approves; this is not an implemented or measured relay. Production-sector rows are observational classifications, not permission to mutate sectors or proof of fleet-wide accuracy.
+
+FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open.
+
+E2 remains `NOT_ACCEPTED` with its existing gates. No performance improvement, TDMA/GPS result, production acceptance, cross-revision generalization or new execution authority follows from these receipts. The receipts establish only the exact observed cases and listed restoration checks.
 
 ## October22 - FMX-0016 four-CPE bench PASS (run8)
 

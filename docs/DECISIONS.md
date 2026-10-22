@@ -1,10 +1,24 @@
-<!-- doc-head: FMX0016 four-CPE multi-generation PtMP and telemetry PASS -->
-Run8: WA8/XC8/SXT ath9k/airOS6 M5 simultaneously authorized for60.5s.
-All four64/64 pings passed;256 radio request/reply pairs;41 station samples.
-Four ping streams overlap62.801s; AP5180MHz/20MHz/0dBm/AR andWDS enabled.
-Exact AP/Rocket and original open legacy profiles/hashes/IPv4/routes restored.
-Guards ended; owned RAM files removed; no flash/commit/cfgmtd/reboot/module work.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - DECISIONS -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 passed its frozen AP-local controlled-load variant and exact restoration. See the [current result and limits](CURRENT_STATE.md). Run8 60B IE was accepted; supplied 32-byte negative and all prior failures remain preserved. Native XC setup remains required; no capacity/gain/OTA/zero-touch/production/E2 acceptance follows.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+## 2026-10-22: Preserve exact scope of bench and observatory receipts
+
+**Decision.** Record the named Oct 22 results as bounded evidence only: run17 single stock-WA association, run25 simultaneous stock-WA/XC association and pulse survival, run8 exact four-generation low-rate compatibility, FMX-0018/19/20 bench checks, and FMX-0025's offline 20-case triage benchmark. Keep modeled FMX-0022 relay economics distinct from physical relay behavior.
+
+**Evidence.** See `artifacts/canary_panel1_guarida/root_goal_direct_association_20261022_run17/receipt.json`, `root_multi_cpe_20261022_run25/receipt.json`, `root_four_cpe_20261022_run8/verification.json`, `fmx_0018_0019_0020_bench_result_20261022.json`, and [sanitized observatory summary](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json).
+
+**Boundaries.** These receipts do not establish throughput/capacity improvement, loaded-latency acceptance, sector-scale behavior, TDMA/GPS capability, production readiness, or universal compatibility. FMX-0025's 20/20 synthetic triage accuracy is not field-validation. The one approved FMX-0022 break-even model case is not a deployed or measured relay. E2 retains its existing `NOT_ACCEPTED` status and gates. FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open.
 
 ## October22 - Keep FMX-0016 exact four-CPE RAM fixture; task complete
 

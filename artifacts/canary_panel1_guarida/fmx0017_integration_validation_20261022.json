@@ -1,0 +1,55 @@
+{
+  "status": "PASS_INTEGRATED_LOCAL_AND_BENCH_EVIDENCE",
+  "docs_checked": [
+    "FUTURAMAX_PROJECT_GUIDE.md",
+    "docs/CURRENT_STATE.md",
+    "docs/RESEARCH_LEDGER.md",
+    "docs/DECISIONS.md",
+    "docs/EXPERIMENTS.md",
+    "docs/HARDWARE_MATRIX.md",
+    "docs/QCA988X_CONTROL_BOUNDARY.md",
+    "docs/OPENMAX_NEW_EXPERIMENTS.md",
+    "docs/OPENMAX_RESEARCH_DECISION.md",
+    "docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md",
+    "docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md",
+    "docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md",
+    "docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md",
+    "docs/STAGE10_11_COMPLETE_RE_AND_BENCH_ARCHIVE_20261021.md",
+    "docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md",
+    "docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md",
+    "docs/BENCH_PLAN.md"
+  ],
+  "current_relative_links_checked": 97,
+  "missing_links": [],
+  "validation_note": "Initial checker incorrectly required header before title; corrected search accepts legitimate title-before-header format, same six-summary-line criterion. No document change for this checker correction.",
+  "controller_tests": {
+    "passed": 228,
+    "exit_code": 0,
+    "audit": "fmx_controller_audit_20261022.json",
+    "independent_review": "fmx_controller_independent_review_20261022.json"
+  },
+  "offline_load_tests": {
+    "passed": 11,
+    "exit_code": 0,
+    "receipt": "fmx0017_load_portability_validation_20261022.json"
+  },
+  "physical": "fmx0017_run5_independent_acceptance_20261022.json",
+  "limits": [
+    "One adaptive controlled-load run using run8 60B IE, native XC setup; no zero-touch/saturation/gain/OTA/production/E2 acceptance",
+    "Supplied32B negative and prior failed sources/plans/receipts preserved",
+    "C changes host-fixture tested only; not deployed",
+    "Production observatory original and unrelated station identifiers kept local; SHA-bound sanitized copies public",
+    "Unrelated prior dirty work preserved outside integration commit"
+  ],
+  "publication_note": "New receipt links are packaged. Existing historical Stage10/11 scratch/disassembly archive links remain explicitly local-only and are outside this bounded commit.",
+  "staged_whitespace_check": {
+    "full_default_exit_code": 2,
+    "full_reason": "SHA-bound captured CRLF/device stdout retained exactly. Default checker flags their original whitespace.",
+    "inherited_helper_CRLF_aware_exit_code": 2,
+    "inherited_warning": "Unchanged inherited root_four_cpe_ap_window_20261022.py:295 has a blank EOF line. Preserved exact reviewed/executed helper bytes.",
+    "owned_source_docs_CRLF_aware_exit_code": 0,
+    "owned_source_docs_paths": 27,
+    "CRLF_rule": "blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "raw_index_bytes_verified_exact": true
+  }
+}

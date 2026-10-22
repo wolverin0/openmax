@@ -1,8 +1,31 @@
-<!-- doc-head: Bench interop proof with recovered mixed L2 result and explicit production gaps -->
-F01 confirms hybrid interoperability, outage survival and software-reboot datapath.
-Recovered task6282 passes untagged MTU/IPv6 but fails tagged VLAN100 bridging.
-Production routed topology is separate; exact AP installation/restore is still unqualified.
+<!-- doc-head: October22 exact-device compatibility alignment and historical scope -->
+Stock WA8/XC8 and four-generation PtMP confirmed by run17/run25/run8.
+Original dated benchmarks/static findings keep their hardware and firmware scope.
+No new performance, TDMA/GPS, relay, production or E2 acceptance follows.
+Current authoritative state and source receipts are linked below.
 <!-- /doc-head -->
+
+## October22 evidence alignment - current bench scope
+
+The accepted exact-device receipts supersede any universal present-tense reading
+of older incompatibility or topology statements below: run17 establishes stock
+WA.v8.7.25 Loco195 bidirectional association with the held LAP-120 OpenWrt AP;
+run25 adds stock XC.v8.7.25 Rocket198 concurrently (61.031s authorization,
+64/64 radio-qualified pings each); FMX-0016 run8 adds SXT OpenWrt/ath9k and
+stock airOS6 M5 concurrently (60.5s,64/64 each,256 matched radio echo pairs).
+All modified state was restored and the AP radio disabled. These are exact
+bench compatibility results; they do not establish capacity, performance gain,
+TDMA/GPS, all-revision support, physical relay or production acceptance.
+
+Sources: [current state](CURRENT_STATE.md),
+[run8 receipt](../artifacts/canary_panel1_guarida/root_four_cpe_result_20261022.json),
+[Oct22 scoped evidence alignment](../artifacts/canary_panel1_guarida/fmx_docs_alignment_20261022.json).
+Existing E2 remains `NOT_ACCEPTED` with its original gates. Original dated
+measurements, failures, static control limits and firmware scopes remain
+historical evidence, not permission to resume those recipes.
+The patched-module method below is a historical alternative; the exact Oct22 stock WA/XC fixture does not require a CPE ubnt_poll_host.ko patch. The AP retains its already-qualified held mac80211 image; no pristine upstream AP claim is made. Keep each older throughput/reboot/patch claim tied to its own recorded build, topology and receipt.
+
+
 
 # Stage 10 (`FMX-0015`) — Stock `airOS 8` (`5AC`) Interoperability, OpenWrt $\to$ `airOS 8` Rollback Qualification & Software-Reboot Persistence Report
 
@@ -143,3 +166,10 @@ in the full agy session. Unknown-hash, outage and software-reboot cases are posi
 bench evidence; mount/unmount/plugin failures and orphan-lock recovery remain untested
 in the recovered receipts. Exact production AP install/restore and candidate boot remain
 separate gates. See the existing [takeover record](../artifacts/canary_panel1_guarida/TAKEOVER_20261018.md).
+
+
+Historical dated document summary (retained from prior header):
+
+F01 confirms hybrid interoperability, outage survival and software-reboot datapath.
+Recovered task6282 passes untagged MTU/IPv6 but fails tagged VLAN100 bridging.
+Production routed topology is separate; exact AP installation/restore is still unqualified.

@@ -1,0 +1,29 @@
+tools/bench/fmx_admitter.sh text eol=lf
+tools/bench/test_fmx0017_load.py text eol=lf
+controller/cooperative_sensor.py text eol=lf
+controller/distributed_compute.py text eol=lf
+controller/fmx_micro_worker.c text eol=lf
+tests/test_controller_regressions.py text eol=lf
+tests/test_micro_worker_runtime.py text eol=lf
+tests/test_controller_bench_receipts.py text eol=lf
+tests/fixtures/controller_bench_20261022.json -text
+# Preserve exact captured bytes for the published, hash-bound bench evidence.
+artifacts/canary_panel1_guarida/fmx0017* -text
+artifacts/canary_panel1_guarida/fmx0017*/** -text
+artifacts/canary_panel1_guarida/fmx_0017* -text
+artifacts/canary_panel1_guarida/fmx_controller* -text
+artifacts/canary_panel1_guarida/fmx_docs_alignment* -text
+artifacts/canary_panel1_guarida/fmx_0018_0019_0020_bench_result_20261022.json -text
+artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json -text
+artifacts/canary_panel1_guarida/root_goal_direct_association_20261022_run17/** -text
+artifacts/canary_panel1_guarida/root_multi_cpe_20261022_run25/** -text
+artifacts/canary_panel1_guarida/root_four_cpe_20261022_run8/** -text
+artifacts/canary_panel1_guarida/root_four_cpe_result_20261022.json -text
+artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py -text
+artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py -text
+artifacts/canary_panel1_guarida/root_four_cpe_trial_20261022.py -text
+artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py -text
+artifacts/canary_panel1_guarida/root_multi_cpe_ie_window_20261022.py -text
+artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py -text
+artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py -text
+artifacts/canary_panel1_guarida/published_evidence_20261022/** -text

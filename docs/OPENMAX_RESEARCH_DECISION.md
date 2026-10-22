@@ -1,8 +1,28 @@
-<!-- doc-head: Executive decision matrix (DO NOW / LAB NEXT / CONDITIONAL / NO-GO) integrating all OpenMax findings through Step 1C run17 PASS -->
-Consolidates hardware-verified truths across 1,800 WISP radios (airOS 8 WA/XC, LTU amesoc3/Arria10, OpenWrt 24.10.4).
-Separates immediate zero-risk NOC deployments (DO NOW) from high-ROI bench experiments (LAB NEXT), gated compute/relay options (CONDITIONAL), and refuted paths (NO-GO).
-Identifies FMX-0016 (passive fleet sensor roll-up) and FMX-0017 (Step 1D multi-CPE OTA discovery-IE qualification) as top next steps.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - OPENMAX_RESEARCH_DECISION -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 passed its frozen AP-local controlled-load variant and exact restoration. See the [current result and limits](CURRENT_STATE.md). Run8 60B IE was accepted; supplied 32-byte negative and all prior failures remain preserved. Native XC setup remains required; no capacity/gain/OTA/zero-touch/production/E2 acceptance follows.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+## 2026-10-22 status override ? matrix labels are not current authorization
+
+The decision matrix below records an earlier prioritization. Read its `DO NOW`, `LAB NEXT`, and `CONDITIONAL` labels as historical recommendations, not current authority or evidence of completion. The Oct 22 receipts update only these bounded results:
+
+FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open.
+- FMX-0018/19/20: scoped bench checks are recorded in the Oct 22 result; they do not complete every original target/gate or support deployment.
+- FMX-0022: relay break-even values are model outputs, not a physical relay result.
+- FMX-0025: 20/20 synthetic offline cases matched; this is not field validation.
+  Receipt: [sanitized observatory summary](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json); original receipt SHA256 is pinned in its publication provenance.
+
+Retain E2 `NOT_ACCEPTED`, all production and operational gates, and all performance/TDMA/GPS uncertainties. Current execution order remains `docs/BENCH_PLAN.md`.
 
 # OpenMax Master Research Decision Matrix (`DO NOW / LAB NEXT / CONDITIONAL / NO-GO`)
 

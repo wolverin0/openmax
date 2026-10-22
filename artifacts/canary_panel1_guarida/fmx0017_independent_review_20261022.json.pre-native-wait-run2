@@ -1,0 +1,113 @@
+{
+  "status": "PASS_SAFETY_WITH_METHOD_LIMIT",
+  "schema": "FMX0017_BOUNDED_INDEPENDENT_LOCAL_REVIEW",
+  "utc": "2026-10-22T13:32:20.272904+00:00",
+  "bindings": {
+    "tools/bench/fmx_admitter.sh": "0967e967a9d858a78197412668f0af0b9f7741a9ab50a992edc53477da4e249a",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "b11ded88f6360e5e4f0641278437f0d2573598b9bd34fef10b545e488fac3ac3",
+    "artifacts/canary_panel1_guarida/root_four_cpe_trial_20261022.py": "a0b144ab55a56ca6b5ebffcc51b0c3bea194976647e9a461132a55a9cdd4cce1",
+    "artifacts/canary_panel1_guarida/root_four_cpe_20261022_run8/receipt.json": "599b88d2dc980b6513f9781208e434cf8478bda0533b66a7741e87d043217c43",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_ie_window_20261022.py": "953822c7baf3fa3a8c7b51cc9b41e06eca7f16091b92f92064145a0fc0e25e8b",
+    "docs/BENCH_PLAN.md": "7e983453ea202abdb29c8a3db7920ab3fe40c2dc3bb445e231c6359b30a70de3",
+    ".gitattributes": "25d286a132bf444b771abbe5372ddd4c4ee2df7876fba683ff26245102f9f7c4"
+  },
+  "scope": "Read-only local source/method review; only this review artifact written. No device/network/credential access, no source/git edits, no agents. Admission for one guarded prospective bench acquisition only, not research outcome acceptance.",
+  "baseline_verified": {
+    "accepted_run8_receipt_sha256": "599b88d2dc980b6513f9781208e434cf8478bda0533b66a7741e87d043217c43",
+    "source_sha256": "a0b144ab55a56ca6b5ebffcc51b0c3bea194976647e9a461132a55a9cdd4cce1",
+    "three_recorded_helper_hashes_match_current": true,
+    "inherited_legacy_AP_Rocket_restoration": "Unchanged guard, identity, protected/config/network hash and original open-profile verification core compared against frozen run8 source."
+  },
+  "initial_required_findings_closed": [
+    {
+      "issue": "Deferred XC setup could outlive failure and modify network after Rocket restoration",
+      "fix": "Owned directory/token/allow fence; PID/start written before first allow check; repeat allow guards before modifying operations; remove allow first in finally, recover uncertain READY identity, cancel exactlivePID and verify ended; if unknown/unsafe, skip early Rocketguard restore and retain HOLD/independent420s guard. Acceptance requires setup fence/end and owned RAM cleanup."
+    },
+    {
+      "issue": "Daemon clear.rc alone could hide original runtime error/deadline",
+      "fix": "EXIT preserves original exit.rc and explicit stop.reason; only operator_signal/0 with clear0 accepted. Controller checks same daemon PID/start/nonZombie throughout loaded samples; listener PID/start bound and ended verified before source-hash-bound directory deletion."
+    },
+    {
+      "issue": "Host collection finish was not per-stream load duration",
+      "fix": "Native AP uptime markers per ping; actual elapsed and receive payload Mbps; each>=60s and four-way native-time overlap>=59s. Host collection elapsed retained only supplementary."
+    },
+    {
+      "issue": "Nonfinite empirical RTT could pass parser",
+      "fix": "Finite/nonnegative RTT and finite elapsed checks; received<=transmitted; nearest-rank quantiles and >=99% delivery remain fixed."
+    }
+  ],
+  "fresh_local_checks": {
+    "1a87b2": {
+      "exit_code": 0,
+      "meaning": "Git sh syntax of exact daemon; actual extracted cleanup preserves exit1/exit.rc1 while clear.rc0/reasonerror; isolated exact ping_finish accepts finite6001 sample and returns expected p50=3.001/p95=5.701/p99=5.941, rejects nonfinite overflow."
+    },
+    "29f86c": {
+      "exit_code": 0,
+      "meaning": "Actual extracted XC setup launched in disposable local directory without allow; writes identity then exits0 before any stubbed wpa_cli mutation. Static source additionally confirms safe_for_restore guards early Rocket restoration."
+    },
+    "a29ec4": {
+      "exit_code": 0,
+      "meaning": "Preserved pre-fix reproduction: exact old ping_finish accepted p99=Infinity. No target access or producer edits."
+    }
+  },
+  "unchanged_safety_boundaries": [
+    "Exact AP5180MHz/20MHz/0dBm/AR readiness and WDS; exact four clients; no persistent commit, flash, calibration/module/daemon restart or regulatory changes.",
+    "Legacy240s/Rocket420s/AP480s independent RAM guards retained; full original profiles/hashes/routes/addresses verified; AP radiooff and guard ended required.",
+    "AP local ash owns all vendor IE decisions after dispatch; Python observes and eventually signals shutdown only. XC native scan/enable setup explicitly staged, not zero-touch.",
+    "Any source/identity/RF mismatch, missing counters, daemon failure/deadline, insufficient load/radio evidence or incomplete restoration prevents trial PASS."
+  ],
+  "fixed_load_interpretation": {
+    "per_stream": "6001 echo requests,1200B payload,0.01s target interval",
+    "request_payload_target_mbps_total": 3.84,
+    "combined_request_reply_target_mbps_total": 7.68,
+    "per_cpe_minimum_delivery": 0.99,
+    "station_stability_min_seconds": 60,
+    "radio_matching_minimum_pairs_per_cpe": 32,
+    "radio_capture_scope": "First128 ICMP packets on corresponding radio/WDSinterface, snap128 enough for echo identifiers; not a complete RF payload/OTA corpus.",
+    "quantiles": "Empirical nearest rank of observed per-response RTT; descriptive for fixed offered load, not saturation/capacity/performance gain."
+  },
+  "required_method_limit": {
+    "literal_IE": "dd1e00156d0203020000800500340a16b0000a8000000018e8297455a2000400",
+    "literal_bytes": 32,
+    "run8_recipe_IE": "dd3a002722ffffff020100300206e82099038138fb0a23214c3513a4a15bfabc3725b021af9049751e2eb3835ff0ff254ecf491a67c5e7e4235a8f4a",
+    "run8_bytes": 60,
+    "equal": false,
+    "authorization_basis": "Coordinator explicitly relayed new operator order naming the32B literal; intentional experimental input, not an accidental port.",
+    "effect": "Preserve this literal prospectively and disclose metadata as an additional changed factor. Failure cannot isolate AP-local timing/daemon causality; success does not prove same-IE control equivalence. No hidden substitution. Coordinator records plan confound before RF."
+  },
+  "remaining_unknowns": [
+    "Actual32B literal recognition and phase completion on these CPEs.",
+    "Actual fixed-load delivery, finite RTT quantiles, session stability and radio pair evidence.",
+    "Actual final independent guard/restoration/cleanup results; no fixture is physical proof.",
+    "No AP-only zero-touch admission claim while native XC staging remains necessary; no TDMA/GPS/production/capacity claim."
+  ],
+  "must_fix_findings": [],
+  "line_ending_delta_review": {
+    "status": "PASS_SAFETY_WITH_METHOD_LIMIT",
+    "preserved_prior_review": {
+      "file": "fmx0017_independent_review_20261022.json.pre-lf-run1",
+      "sha256": "05ebd0e19789ac4cb67cb3ec07602e22d137a526c66d02ffd8b072a8b189c0f0"
+    },
+    "failed_source_directory": "fmx0017_20261022_run1/failed-source",
+    "failed_source_hashes": {
+      "fmx_admitter.sh": "77ef8d07fe30245e88b4d94f1474f61113524cfdd5450e093379b1fbaeb270cb",
+      "fmx0017_trial_20261022.py": "aa3dc1fdcec10db27eaea99ab46bcdec1196e8f4e82312885265f9ce5d539906"
+    },
+    "delta": "Exact archived shell bytes CRLF->LF normalization only (121CR removed). Runner adds one require rejecting anyCR or invalidshebang before first ap_client call; .gitattributes targets only this shell path as text eol=lf.",
+    "fresh_checks": {
+      "b127fe": {
+        "exit_code": 0,
+        "meaning": "Archived old hashes verified; byte-normalized shell equals current exactly; Python diff is one guard line; guard line128 precedes first connection294."
+      },
+      "c61800": {
+        "exit_code": 0,
+        "meaning": "Exact AST guard validLF accepts, CRLF rejects, invalidshebang rejects; exact final shell localGit sh -n succeeds. No hardware."
+      }
+    },
+    "method_unchanged": "Original32B operator-literal IE, AP-local decisions, XC staged setup, fixedload/stability/radio/restoration criteria and all original method limits retained.",
+    "runtime_boundary": "Run1 CRLF failure is not an IE/RF result and is not rescored. Coordinator owns actual prior restoration/owned-stage cleanup proof and next bounded execution."
+  }
+}

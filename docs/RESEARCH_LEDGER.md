@@ -1,10 +1,42 @@
-<!-- doc-head: FMX0016 four-CPE multi-generation PtMP and telemetry PASS -->
-Run8: WA8/XC8/SXT ath9k/airOS6 M5 simultaneously authorized for60.5s.
-All four64/64 pings passed;256 radio request/reply pairs;41 station samples.
-Four ping streams overlap62.801s; AP5180MHz/20MHz/0dBm/AR andWDS enabled.
-Exact AP/Rocket and original open legacy profiles/hashes/IPv4/routes restored.
-Guards ended; owned RAM files removed; no flash/commit/cfgmtd/reboot/module work.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - RESEARCH_LEDGER -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 passed its frozen AP-local controlled-load variant and exact restoration. See the [current result and limits](CURRENT_STATE.md). Run8 60B IE was accepted; supplied 32-byte negative and all prior failures remain preserved. Native XC setup remains required; no capacity/gain/OTA/zero-touch/production/E2 acceptance follows.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+## 2026-10-22: Receipt-backed compatibility, observability and triage results
+
+### Exact stock WA association: run17
+
+Receipt `artifacts/canary_panel1_guarida/root_goal_direct_association_20261022_run17/receipt.json` ended `PASS_DIRECT_STOCK_CPE_ASSOC_BIDIRECTIONAL_60S_RESTORED_OTA_PENDING` (exit 0). It records the exact stock WA.v8.7.25 CPE association, bidirectional low-rate ping evidence, 71.735 s observed stability, and successful bounded AP RAM-window restoration. Keep OTA IE qualification pending; this run does not establish loaded traffic or performance improvement.
+
+### Simultaneous stock WA/XC and discovery re-pulse: run25
+
+Receipt `artifacts/canary_panel1_guarida/root_multi_cpe_20261022_run25/receipt.json` ended `PASS_MULTI_CPE_REPULSE_60S_RESTORED` (exit 0). The exact stock WA.v8.7.25 and XC.v8.7.25 clients remained authorized for 61.031 s; each qualified radio ping stream was 64/64 with 0% loss and 59.197 s measured overlap. WA retained authorization through the measured 2.031 s API-acknowledged re-pulse. AP and Rocket restoration passed. Scope is two exact radios and a low-rate compatibility check.
+
+### Four-generation multi-CPE compatibility: run8
+
+`artifacts/canary_panel1_guarida/root_four_cpe_20261022_run8/verification.json` reports `PASS_ARTIFACT_CONTRACT_VERIFIED`, with raw receipt `root_four_cpe_result_20261022.json` status `PASS_FOUR_CPE_60S_RADIO_TRAFFIC_TELEMETRY_ALL_RESTORED`. The exact WA8/XC8/SXT-ath9k/M5-airOS6 units sustained four-way authorization 60.5 s; four streams overlapped 62.801 s, each passed 64/64 low-rate pings, and 256 wireless echo pairs were recorded. Restoration passed. The verifier explicitly excludes throughput/capacity/loaded-latency gains, relay/optimizer implementation and over-air IE timing qualification.
+
+### FMX-0018/19/20 bench result
+
+`artifacts/canary_panel1_guarida/fmx_0018_0019_0020_bench_result_20261022.json` reports `PASS_ALL_FMX_0018_0019_0020` (2026-10-22 13:05:37 to 13:06:07 UTC). FMX-0018 passed the stated 16 MiB healthy-RAM threshold on LAP-120 and Rocket198 and recorded Ethernet counters. FMX-0019 confirmed Rocket wifi1, `ubntspecd`, IRQ64 and AirView-related components present; IRQ64 delta was zero during observation and ten-sample ping baseline/during windows both reported 1 ms average. This supports presence and a short bounded non-degradation observation only, not continuous spectral capture, active blanking, or general RF safety/performance. FMX-0020's same 49,800-byte RAM-only worker passed 5%/10% duty checks, expected lease-expiry/kill-switch/traffic-preemption exits, cleanup, and config/module/protected-hash equality on both LAP-120 and Rocket198. It does not qualify fleet deployment or prove value over a server.
+
+### FMX-0022 model and FMX-0025 offline triage benchmark
+
+Public-safe copy: [`fmx_0016_0022_0025_observatory_public_20261022.json`](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json), SHA256 `ebef9606e402e1b831cca8c9e85291c396cc9cfd3e93444195c0225176ec16ab`. Its `publication_provenance.raw_receipt_sha256` pins the original source SHA256 `05a7a70a46a6593205ee6b066c737fa8ea422fa7410f1560aeedbc46510018bc`; the original receipt remains local-only and is not linked from this ledger.
+
+`artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json` reports `PASS_OBSERVATORY_AND_TRIAGE_BENCHMARK`. FMX-0025 matched all 20 synthetic cases (100%, stated 95% gate passed); no live incident or field-validation was measured. FMX-0022 relay break-even analysis rejects two listed topologies and approves one modeled obstructed-link case (86.81% modeled airtime savings); these calculations are not a physical relay experiment or an implemented feature. The included production-sector labels remain observations in the captured dataset, not fleet-wide accuracy evidence or authorization for operational changes.
+
+**Current boundary:** E2 stays `NOT_ACCEPTED`. No performance gain, production readiness, sector-scale relay benefit, TDMA/GPS result, or all-revision compatibility is claimed. FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open. Earlier failed attempts remain in their original records.
 
 ## October22 - FMX-0016 run8: four-CPE multi-generation compatibility PASS
 

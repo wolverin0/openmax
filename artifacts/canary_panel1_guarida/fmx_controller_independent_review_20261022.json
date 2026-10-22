@@ -1,0 +1,65 @@
+{
+  "status": "ACCEPTED_LOCAL_CONTROLLER_CHANGES_HARDWARE_UNQUALIFIED",
+  "schema": "FMX_CONTROLLER_INDEPENDENT_LOCAL_REVIEW",
+  "utc": "2026-10-22T13:30:37.474686+00:00",
+  "baseline_commit": "5abd62d8c7356c0f59afbf8453c4986c7a4fb4d6",
+  "bindings": {
+    "controller/cooperative_sensor.py": "48a5bb8d86340c990dd22fa2621e7756bb6fd7cf6e29f7ea5143d5347b0285db",
+    "controller/distributed_compute.py": "81f1657505108fdf16e38c9c6e3b5962889cd0ac0265dc2c41a593eb43fe51ec",
+    "controller/fmx_micro_worker.c": "3b31af9b4788b217249a407ec7d92a6c44e8323bcfb20ce030abb27f65424b42",
+    "tests/test_controller_regressions.py": "f810c95d327e3b71786e2fb7739c7f1c3a1f7fcd114d94ebae2348016d87ca91",
+    "tests/test_micro_worker_runtime.py": "78ecf260d6e38504e6bc7458e53744e123dfe4ad1866396a77b0a7bc343d595f",
+    "tests/test_controller_bench_receipts.py": "4d46478c4a3deb6143406a6a1705a6e8b0ee80446634d73cbd3c1fe894d63263",
+    "tests/fixtures/controller_bench_20261022.json": "8524d32c5180f3ef161ca283ea7d150dcc783b4af3cc0ecf3805ab82c0e8af07"
+  },
+  "audit_receipt": {
+    "file": "fmx_controller_audit_20261022.json",
+    "sha256": "733b0f8c0c079f85b9f9a7e0236a5c9f832515842624e7d626b9b2a2bbb43f9b"
+  },
+  "scope": "Read-only git diff against tracked baseline and bounded live source inspection of three owned controller files, tests and sanitized fixture receipts. Reviewer no hardware/network/credentials/source/git mutations/subagents. Only this review artifact written.",
+  "diff_findings": [
+    "Cooperative: circular angular span and north-crossing center, ceil70percent threshold, reject nonfinite relay inputs and require strict airtime improvement. No radio actuator added.",
+    "Python distributed: nonfinite/missing/incoherent snapshot rejection, strict integer/range validation before HMAC canonicalization, signature format and current/future/expired clock checks; factory defaults issuance to current time.",
+    "C worker: strict CLI unsigned bounds, invalid clock/memory/net and missing/reset-interface telemetry failclosed; Shmem excluded from cache headroom; fixed arithmetic kernels unchanged."
+  ],
+  "required_finding_closed": {
+    "location": "controller/fmx_micro_worker.c:77-116 read_usable_ram_kb",
+    "initial_source_sha256": "ae2b764a69f0b9d3de7c702a8e0494d45695b0e7135913ef9e724eef073c9fc5",
+    "issue": "Treating n==1023 as full-file truncation rejected healthy long meminfo despite complete required fields at its start.",
+    "evidence": "Preserved independent_review_meminfo_regression in bound author audit; author fake host harness reproduced exit75 instead of expected success.",
+    "fix": "Parse only newline-terminated complete lines in bounded prefix; require MemFree/Buffers/Cached/Shmem; tolerate irrelevant long tail, never consume partial required line.",
+    "final_source_sha256": "3b31af9b4788b217249a407ec7d92a6c44e8323bcfb20ce030abb27f65424b42"
+  },
+  "evidence": {
+    "9967f2": {
+      "exit_code": 0,
+      "meaning": "Reviewer actual git diff HEAD reviewed all three files after parent clarified read-only Git permitted; no mutations."
+    },
+    "117156": {
+      "exit_code": 0,
+      "checks": 10,
+      "meaning": "Reviewer pure-Python positive eligibility, invalid/nonfinite/lease rejection, valid HMAC, lossy alias/future rejection, relay rejection, north circular bearing. No pytest/service/device actions."
+    },
+    "author_baseline": {
+      "command": "python -B -m pytest tests/ -q (heavy-slot)",
+      "exit_code": 0,
+      "passed": 191
+    },
+    "author_final_suite": {
+      "command": "node wezbridge/scripts/heavy-slot.cjs run -- python -B -m pytest tests/ -q",
+      "exit_code": 0,
+      "passed": 228,
+      "seconds": 3.71,
+      "fresh_after_last_source_change": true,
+      "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning"
+    },
+    "final_suite_bound_summary": "Author final228PASS exit0,3.71s after final meminfo fix; source/test/fixture SHA pins independently rechecked. Full stdout remains in author audit; reviewer did not duplicate full suite."
+  },
+  "limits": [
+    "Local host compiler fixtures replace proc, clock, stop-file, sleep and priority calls; no modified C execution on radio/MIPS hardware. Historical hardware binary b48e70 is separate evidence and cannot qualify this changed source.",
+    "Preemption timing, RAM margin and hardware ABI/performance remain unqualified until a separately authorized exact-target test; no deployment authorization from this review.",
+    "Relay, airtime fallback and fleet economics are scoped models/advisories, not measured wireless gains; held low-rate ping does not prove relay or capacity.",
+    "No new bypass path or remaining must-fix regression identified in this bounded tracked diff. Unchanged surrounding functions are not a new full security audit."
+  ],
+  "must_fix_findings": []
+}

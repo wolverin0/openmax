@@ -1,10 +1,113 @@
-<!-- doc-head: FMX0016 four-CPE multi-generation PtMP and telemetry PASS -->
-Run8: WA8/XC8/SXT ath9k/airOS6 M5 simultaneously authorized for60.5s.
-All four64/64 pings passed;256 radio request/reply pairs;41 station samples.
-Four ping streams overlap62.801s; AP5180MHz/20MHz/0dBm/AR andWDS enabled.
-Exact AP/Rocket and original open legacy profiles/hashes/IPv4/routes restored.
-Guards ended; owned RAM files removed; no flash/commit/cfgmtd/reboot/module work.
+<!-- doc-head: October22 FMX0017 R5 controlled-load bench accepted with limits -->
+Four exact CPEs authorized for 60.094 s; adaptive stream overlap 60.320 s; minimum delivery 99.9616%.
+AP-local ash/ubus owns IE decisions; one native fenced XC scan/enable prerequisite remains.
+Run8 60B IE passed; operator 32-byte negative and all earlier acquisition failures preserved.
+Exact restoration and owned RAM cleanup independently accepted; AP radio disabled; no flash/reboot.
+One controlled-load run only; no gain/capacity/OTA/production/TDMA/GPS or E2 acceptance.
 <!-- /doc-head -->
+
+## October22 - CLOSED FMX-0017 R5 controlled-load bench; limits retained
+
+FMX-0017 R5 independently passed its frozen controlled-load recipe: four exact WA/XC/SXT/M5 CPEs authorized for 60.094 s, four adaptive 1200-byte streams overlapping for 60.320 s, minimum delivery 99.9616% and 64 matched radio echo pairs each. RTT p95 WA/XC/SXT/M5: 15.211/14.980/14.770/15.212 ms. Exact AP/Rocket and original open legacy profiles, protected/config hashes and network state were restored; guards and owned RAM ended; AP radio off. AP-local Linux userspace ash/ubus owns IE decisions; one fenced native XC scan/enable setup remains. Positive uses run8's 60-byte IE; supplied 32-byte IE did not admit WA/XC and all failed acquisitions remain preserved. One adaptive run does not prove constant-rate/saturation/capacity/gain/OTA timing/zero-touch XC/production/TDMA/GPS or E2 acceptance.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+All acquisition/restoration criteria for this frozen bounded variant are complete. Preserve runs1-4, their frozen sources/plans and negative results. Original extended OTA/loaded-goodput and E2 gates remain open. No further RF acquisition or optimization is queued here. Integrate reviewed docs/controller and public receipts; commit/push as authorized. Historical sections below retain their prospective recipes.
+
+
+## October22 - Frozen FMX-0017 plan (executed runs1-5)
+
+Parent: forward-plan Phase B/C and OpenMax native interoperability, extending
+accepted run17/run25/run8. Question: can a bounded LAP-120 ash daemon own the
+vendor-IE admission timing without an external Python decision loop, retain
+four exact CPEs, and measure RTT p95 during a fixed offered load?
+
+Minimum missing evidence: daemon/event/source hashes, AP-local pulse/clear
+acks and monotonic times, 60s four-client authorization and station counters,
+four simultaneous 1200-byte ICMP streams at 100pps each (7.68 Mbit/s combined
+request+reply payload target, excluding headers; not a saturation benchmark),
+per-CPE received/transmitted, empirical nearest-rank p50/p95/p99, radio capture
+at stream start, and full AP/Rocket/SXT/M5 restoration with AP radio off.
+
+Fixed acceptance: unchanged exact RF 5180MHz/20MHz/0dBm/AR and firmware;
+AP WDS, AC WDS and original legacy station modes; >=60s four-way stable,
+>=99% echo delivery per CPE with finite RTT quantiles and positive station
+byte deltas; at least32 matched radio echo pairs per CPE; no session resets;
+no Python-directed vendor IE decisions after daemon dispatch. Report actual
+load duration/achieved receive payload rate, never infer channel saturation.
+SXT/M5 retain independent240s RAM guards, Rocket420s, AP480s. XC native scan
+and delayed enable/reassociate may be staged once as a bounded local shell
+setup task; this prerequisite must be reported, not called zero-touch XC.
+The daemon itself controls WA event-triggered withdrawal and the XC held
+window/clear. The operator explicitly supplied32-byte IE dd1e00156d...
+for this run; run8 accepted a distinct60-byte dd3a002722... IE. This is an
+authorized input difference, so a negative cannot isolate daemon timing;
+preserve it before any separate accepted-IE control treatment. No permanent service/flash/config commits, module or RF tuning.
+
+STOP: identity/hash/regulatory discrepancy, failed guard, deadline or lost
+management, unexpected interface or unowned delta; preserve failed receipt,
+clear IE, restore original open legacy profiles and verify over RF, restore
+AP disabled and Rocket hashes/rules/bridge/ordered addresses/routes. Park an
+AP-only admission claim if native-client staging remains necessary. Existing
+E2/production/TDMA/GPS gates remain; this is one bounded bench deliverable.
+Coordinator owns devices and BENCH_PLAN. Parallel workers own docs alignment
+and controller/tests only. Commit/push explicitly authorized for reviewed
+changes and receipts in this order; preserve unrelated preexisting work.
+
+
+### Preserved run1-run3 acquisition failures and next bounded treatment
+
+- Run1: CRLF source caused native ash illegal-option exit before daemon.id or
+  IE operations. Original source bytes preserved. All four devices restored;
+  exact never-started owned files removed after source/error/process checks.
+  LF source, path-specific Git attributes and pre-device byte guard added.
+- Run2: the operator's literal32-byte IE received a WA broadcast probe, then
+  unsupported native sleep0.5 terminated the daemon. No IE compatibility
+  conclusion follows. All restoration passed; source/events/error retained.
+- Run3: installed ucode sleep500ms was first measured0.52s/exit0 and used;
+  WA broadcast probe then clear0.58s later was observed, but WA/XC never
+  completed authorization within100s (legacy SXT/M5 did). Daemon ended by
+  operator signal/exit0, no runtime error; all restoration passed. This is
+  a qualified negative for the exact32-byte admission recipe, not every IE
+  or stock airOS interoperation. Accepted run8 used distinct60-byte metadata.
+
+The next IE control explicitly selects the accepted run8 byte string in
+an allowlisted argument; the operator32B variant remains the default and
+its negatives remain preserved. Admission timing/guards remain unchanged.
+This one input change is evaluated before workload starts, isolating the
+admission question from the separately recorded native-load adaptation.
+
+Native loopback-only preflight also proved BusyBox ping rejects fractional
+-i0.01; -i0 failed to terminate even with-w2, and that exact owned probe was
+stopped with PID/start checks. Existing -A adaptive with-i1 passed2/2 on both
+IPv4/IPv6 loopback. Therefore use four bounded60s adaptive echo streams,
+1200B, countcap200000, minimum6001 transmitted each,>=99% delivery and finite
+RTT quantiles. Actual receive/offered payload rates and stream timing must
+be measured; this replaces the unsupported fixed100pps recipe, without a
+constant-load, saturation or improvement claim. Preserve >=60s association,
+>=59s stream overlap,>=32 matched radio pairs perCPE and complete restoration.
+Drain stdout concurrently to disk under explicit bounds so SSH flow-control
+cannot silently pace or stall the measurement. No new packages/firmware.
+
+### Run4 preserved negative; run5 event alignment before load
+
+Run4 used the accepted60B IE. WA authorized43.12s after daemon start;
+AP second-IE clear was78.29s after start. The one-shot native XC enable
+was fixed near65s and was not conditioned on AP clear. XC reachedAuth,
+notAssoc/authorization; no loaded acquisition began. This supports a timing
+alignment hypothesis, not proof that timing is the only cause. All four
+modified-device restorations and owned RAM cleanup passed; no helper error.
+
+Run5 changes only acquisition synchronization: AP observes exact XC probe
+(broadcast or addressed to its BSSID), waits installed ucode500ms and clears
+IE;85s fallback bounds a missing-probe window. Native XC starts after45s,
+flushes cache and scans, accepts only a fresh exactBSSID/5180/SSID/CCMP row,
+waits2s and enables/reassociates. Its setup deadline is110s, acquisition115s
+capped by legacy_end-88. Existing >=80s guarded measurement budget and240s
+legacy restore timers remain. Fresh BSS row and setup output must be retained
+on failure as well as success. Same adaptive load/60s stability/99% delivery,
+6001-minimum traffic,59s overlap,32 matched pairs and exact restore gates.
+No external Python loop decides pulse/clear or native XC transition timing.
 
 ## October22 - CLOSED PASS FMX-0016 four-CPE Multi-Generation PtMP + telemetry (run8)
 

@@ -1,0 +1,19 @@
+{
+  "status": "PASS_LOCAL_LOAD_FIXTURES_AND_NATIVE_PREFLIGHT",
+  "utc": "2026-10-22T13:52:19.541874+00:00",
+  "source_sha256": "42d9a88972fa015ce12d750dcd027dee67982d41d38cf1ff9ffc18530f8c451d",
+  "local_checks": [
+    {
+      "command": "node ../wezbridge/scripts/heavy-slot.cjs run -- python -B -m pytest tools/bench/test_fmx0017_load.py -q",
+      "exit_code": 0,
+      "passed": 11,
+      "seconds": 1.72
+    }
+  ],
+  "native_preflight": [
+    "fmx0017_native_adaptive_loopback_probe_20261022.json",
+    "fmx0017_native_load_wrapper_race_fix_probe_20261022.json"
+  ],
+  "preserved_failure": "fmx0017_native_load_wrapper_probe_20261022.json",
+  "scope": "loopback-only native probes and pure offline fixtures; no RF/loaded four-CPE result yet"
+}

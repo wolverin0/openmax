@@ -11,6 +11,7 @@ and closed-loop controller gating.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import math
 from typing import Dict, List, Optional, Sequence
 
 
@@ -217,7 +218,10 @@ def evaluate_relay_feasibility(
       2) Local sidelobe/inter-CPE link RSSI >= min_rssi_b_a_dbm (-68 dBm default),
       3) T_relay < T_direct with at least min_airtime_savings_pct net sector airtime saved.
     """
-    if r_b_ap_mbps <= 0.0 or r_b_a_mbps <= 0.0 or r_a_ap_mbps <= 0.0:
+    if (not all(math.isfinite(v) for v in (r_b_ap_mbps, r_b_a_mbps, r_a_ap_mbps,
+            rssi_b_a_dbm, overhead_factor, min_rssi_b_a_dbm, min_airtime_savings_pct))
+            or min(r_b_ap_mbps, r_b_a_mbps, r_a_ap_mbps) <= 0
+            or overhead_factor < 1 or not 0 <= min_airtime_savings_pct <= 100):
         return RelayFeasibilityResult(
             approved=False,
             direct_airtime_ms_per_mbit=float("inf"),
@@ -225,7 +229,7 @@ def evaluate_relay_feasibility(
             effective_relay_rate_mbps=0.0,
             airtime_savings_pct=0.0,
             speedup_ratio=0.0,
-            reason="REJECT: non-positive link rate input",
+            reason="REJECT: non-finite or invalid link/gate input",
         )
 
     gamma = max(1.0, float(overhead_factor))
@@ -251,7 +255,7 @@ def evaluate_relay_feasibility(
             ),
         )
 
-    if airtime_savings_pct < min_airtime_savings_pct:
+    if relay_ms_per_mbit >= direct_ms_per_mbit or airtime_savings_pct < min_airtime_savings_pct:
         return RelayFeasibilityResult(
             approved=False,
             direct_airtime_ms_per_mbit=direct_ms_per_mbit,
@@ -292,14 +296,10 @@ def _angular_span_deg(angles_deg: Sequence[float]) -> float:
     if len(angles_deg) <= 1:
         return 0.0
     norm = sorted((a % 360.0) for a in angles_deg)
-    max_gap = 0.0
-    for idx in range(len(norm)):
-        nxt = norm[(idx + 1) % len(norm)]
-        gap = (nxt - norm[idx]) % 360.0
-        if len(norm) == 2 and idx == 1:
-            gap = (norm[0] + 360.0 - norm[1]) % 360.0
-        if gap > max_gap:
-            max_gap = gap
+    # The wrap gap is 360, not 0, when all bearings coincide.
+    gaps = [b - a for a, b in zip(norm, norm[1:])]
+    gaps.append(norm[0] + 360.0 - norm[-1])
+    max_gap = max(gaps)
     return max(0.0, 360.0 - max_gap)
 
 
@@ -350,7 +350,7 @@ def localize_sector_faults(
         if s.cinr_db <= low_cinr_threshold_db or cinr_drop >= cinr_drop_threshold_db:
             rf_degraded.append(s)
 
-    if n_total >= 2 and len(qoe_degraded) >= max(2, int(0.7 * n_total)):
+    if n_total >= 2 and len(qoe_degraded) >= max(2, math.ceil(0.7 * n_total)):
         qoe_span = _angular_span_deg([s.azimuth_deg for s in qoe_degraded])
         # If QoE degradation spans a wide sector arc (> max_interference_wedge_deg)
         # or RF RSSI/CINR is intact across most degraded nodes -> backhaul/AP fault
@@ -383,7 +383,10 @@ def localize_sector_faults(
             affected = [s.cpe_id for s in rf_degraded]
             for cid in affected:
                 per_cpe[cid] = ANGULAR_RF_INTERFERENCE_CLUSTER
-            center_deg = sum(s.azimuth_deg for s in rf_degraded) / float(len(rf_degraded))
+            # Unwrap this narrow wedge relative to one member before averaging.
+            origin = rf_angles[0] % 360
+            center_deg = (origin + sum((a - origin + 180) % 360 - 180
+                                      for a in rf_angles) / len(rf_angles)) % 360
             return FaultLocalizationReport(
                 sector_classification=ANGULAR_RF_INTERFERENCE_CLUSTER,
                 affected_cpe_ids=affected,

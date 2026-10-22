@@ -1,9 +1,30 @@
-<!-- doc-head: Experiment register with seed evidence and current acceptance limits -->
-2026-10-07: FMX-0007 has seed measurements but no accepted baseline; FMX-0008 remains inconclusive.
-Both AC radios were available for the archived runs; a missing second radio is not the current blocker.
-Loaded RF failed at zero commanded power; do not repeat unchanged or advance Phase 3.
-Older recovery/build entries are historical; CURRENT_STATE and BENCH_PLAN control current authority.
+<!-- doc-head: October22 scoped receipts and FMX0017 R5 - EXPERIMENTS -->
+Run17/run25/run8 compatibility and FMX0018/19/20 plus observatory results retain their original limits.
+FMX0017 R5: AP-local admission, four exact CPEs and adaptive loaded RTT passed one guarded run.
+Run8 60-byte IE accepted; supplied 32-byte IE negative preserved; native XC setup remains required.
+Exact restoration and owned RAM cleanup verified; AP radio off; independent acceptance recorded.
+No improvement/capacity/OTA/production/TDMA/GPS claim; E2 stays NOT_ACCEPTED.
 <!-- /doc-head -->
+
+## 2026-10-22: FMX-0017 R5 accepted with method limits
+
+FMX-0017 R5 passed its frozen AP-local controlled-load variant and exact restoration. See the [current result and limits](CURRENT_STATE.md). Run8 60B IE was accepted; supplied 32-byte negative and all prior failures remain preserved. Native XC setup remains required; no capacity/gain/OTA/zero-touch/production/E2 acceptance follows.
+
+Evidence: [R5 receipt](../artifacts/canary_panel1_guarida/fmx0017_20261022_run5/receipt.json), [independent acceptance](../artifacts/canary_panel1_guarida/fmx0017_run5_independent_acceptance_20261022.json), [preserved negatives](../artifacts/canary_panel1_guarida/fmx0017_preserved_negatives_20261022.json), [public provenance](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json).
+
+## 2026-10-22 receipt update ? scoped compatibility and observatory checks
+
+This dated update supplements the historical experiment table below; it does not rewrite old archived performance claims or change the authoritative order/gates in `BENCH_PLAN.md`.
+
+| Receipt | Exact accepted observation | Limit |
+|---|---|---|
+| `root_goal_direct_association_20261022_run17/receipt.json` | Stock WA.v8.7.25 association, bidirectional low-rate ping, 71.735 s stability and AP RAM-window restoration; status `PASS_DIRECT_STOCK_CPE_ASSOC_BIDIRECTIONAL_60S_RESTORED_OTA_PENDING`. | OTA IE qualification pending; no loaded performance claim. |
+| `root_multi_cpe_20261022_run25/receipt.json` | Exact stock WA/XC.v8.7.25 simultaneous authorization for 61.031 s; 64/64 radio-qualified pings each with 59.197 s overlap; WA survived measured discovery re-pulse; restoration passed. | Two exact CPEs only; low-rate; not all airOS8 or production qualification. |
+| `root_four_cpe_20261022_run8/verification.json` | Exact WA8/XC8/SXT-ath9k/M5-airOS6 four-way authorization 60.5 s; 64/64 pings each, 256 radio echo pairs, 62.801 s overlap and restoration. | No throughput/capacity/loaded-latency gain, relay, over-air IE timing or production acceptance. |
+| `fmx_0018_0019_0020_bench_result_20261022.json` | Overall `PASS_ALL_FMX_0018_0019_0020`; RAM threshold checks, Rocket wifi1/AirView presence and short ping observation, and bounded worker duty/expiry/kill/preemption/cleanup/hash checks passed. | IRQ64 delta was zero; no active spectral capture or performance benefit. Worker checks do not qualify fleet deployment. |
+| [sanitized observatory summary](../artifacts/canary_panel1_guarida/fmx_0016_0022_0025_observatory_public_20261022.json) | Overall `PASS_OBSERVATORY_AND_TRIAGE_BENCHMARK`; FMX-0025 offline synthetic triage matched 20/20 cases. | FMX-0022 is modeled break-even only (two rejects, one modeled approval); production rows are observations, not field accuracy. |
+
+**Status boundary:** these results do not change E2's `NOT_ACCEPTED` state or its gates. No performance, production, TDMA/GPS, fleet-wide accuracy, all-revision interoperability, or physical relay conclusion is implied. FMX-0017 R5 now has separate scoped controlled-load acceptance above; broader OTA/loaded-goodput and E2 gates remain open. Historical negative evidence remains intact.
 
 # FuturaMAX experiment register
 

@@ -1,0 +1,145 @@
+{
+  "schema": "futuramax-docs-evidence-alignment-v1",
+  "created_utc": "2026-10-22",
+  "scope": "Receipt-backed documentation review and alignment; source receipts read locally, no device access, no git mutation.",
+  "source_receipts": {
+    "run17": {
+      "path": "root_goal_direct_association_20261022_run17/receipt.json",
+      "sha256": "229d8f4741b4561de1805ea75fa1da8580b115b3161042c2b73d5cca8f936aba"
+    },
+    "run25": {
+      "path": "root_multi_cpe_20261022_run25/receipt.json",
+      "sha256": "11427b93eebf263db87951377011cbfef75cdbf011ed8209b5d1e1bbd10bdfa9"
+    },
+    "run8": {
+      "path": "root_four_cpe_20261022_run8/verification.json",
+      "sha256": "c5ebd7a7f8f9d3131ba7ca6af11776c38a3344061fa0b76e84d2e4d491995f7b"
+    },
+    "fmx18_19_20": {
+      "path": "fmx_0018_0019_0020_bench_result_20261022.json",
+      "sha256": "7e02f5a7a361c0d8ba6c863f46193a7f1ed0456ce11b1a6b9679ee79de516a93"
+    },
+    "observatory": {
+      "public_path": "fmx_0016_0022_0025_observatory_public_20261022.json",
+      "public_sha256": "ebef9606e402e1b831cca8c9e85291c396cc9cfd3e93444195c0225176ec16ab",
+      "original_local_only_path": "fmx_0016_0022_0025_observatory_result_20261022.json",
+      "original_sha256": "05a7a70a46a6593205ee6b066c737fa8ea422fa7410f1560aeedbc46510018bc",
+      "publication_provenance_verified": true,
+      "distribution": "sanitized public copy referenced by docs; original receipt remains local-only"
+    },
+    "run8_raw": {
+      "path": "root_four_cpe_result_20261022.json",
+      "sha256": "3b5d83cb2de81a00cfd9eef30e9e4fe62284ba36fe7cca4c0171b8ce4bad637f"
+    }
+  },
+  "verified_statuses": {
+    "run17": "PASS_DIRECT_STOCK_CPE_ASSOC_BIDIRECTIONAL_60S_RESTORED_OTA_PENDING",
+    "run25": "PASS_MULTI_CPE_REPULSE_60S_RESTORED",
+    "run8": "PASS_ARTIFACT_CONTRACT_VERIFIED",
+    "run8_raw": "PASS_FOUR_CPE_60S_RADIO_TRAFFIC_TELEMETRY_ALL_RESTORED",
+    "fmx18_19_20": "PASS_ALL_FMX_0018_0019_0020",
+    "observatory": "PASS_OBSERVATORY_AND_TRIAGE_BENCHMARK",
+    "fmx25_triage": {
+      "correct": 20,
+      "total": 20,
+      "accuracy_pct": 100.0
+    },
+    "fmx19_irq64_delta": 0,
+    "fmx22_model_scenarios": 3
+  },
+  "documentation_updated": [
+    "docs/CURRENT_STATE.md",
+    "docs/DECISIONS.md",
+    "docs/RESEARCH_LEDGER.md",
+    "docs/EXPERIMENTS.md",
+    "docs/OPENMAX_NEW_EXPERIMENTS.md",
+    "docs/OPENMAX_RESEARCH_DECISION.md"
+  ],
+  "header_checks": {
+    "docs/CURRENT_STATE.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    },
+    "docs/DECISIONS.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    },
+    "docs/RESEARCH_LEDGER.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    },
+    "docs/EXPERIMENTS.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    },
+    "docs/OPENMAX_NEW_EXPERIMENTS.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    },
+    "docs/OPENMAX_RESEARCH_DECISION.md": {
+      "paired": true,
+      "lines_including_delimiters": 7
+    }
+  },
+  "acceptance_boundaries": [
+    "E2 remains NOT_ACCEPTED",
+    "No throughput/capacity or loaded-latency gain accepted",
+    "No TDMA/GPS or production result claimed",
+    "FMX-0017 AP-local status left unclaimed pending coordinator result",
+    "FMX-0022 relay result remains modeled, not a physical relay",
+    "FMX-0025 synthetic offline benchmark is not field validation"
+  ],
+  "verification": "Receipt assertions and source-publication hash provenance passed; six owned docs reference sanitized observatory copy; six owned plus ten coordinator docs reviewed; 36 relative links resolve; Stage10 explicitly distinguishes the stock CPE module patch from the patched AP image; git diff --check passed.",
+  "reviewed_alignment_docs": [
+    "FUTURAMAX_PROJECT_GUIDE.md",
+    "docs/HARDWARE_MATRIX.md",
+    "docs/QCA988X_CONTROL_BOUNDARY.md",
+    "docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md",
+    "docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md",
+    "docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md",
+    "docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md",
+    "docs/STAGE10_11_COMPLETE_RE_AND_BENCH_ARCHIVE_20261021.md",
+    "docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md",
+    "docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md"
+  ],
+  "link_review": "36/36 relative links in opening alignment blocks for six owned plus ten coordinator docs resolve locally.",
+  "coordinator_followup": {
+    "stage10_ambiguity_corrected": "CPE ubnt_poll_host.ko patch is not required; held patched AP image remains",
+    "public_evidence_manifest": "fmx0017_publication_manifest_20261022.json",
+    "originals_retained_local": true
+  },
+  "final_crosscheck": {
+    "reviewed_owned_docs": [
+      "docs/CURRENT_STATE.md",
+      "docs/DECISIONS.md",
+      "docs/RESEARCH_LEDGER.md",
+      "docs/EXPERIMENTS.md",
+      "docs/OPENMAX_NEW_EXPERIMENTS.md",
+      "docs/OPENMAX_RESEARCH_DECISION.md"
+    ],
+    "reviewed_coordinator_docs": [
+      "FUTURAMAX_PROJECT_GUIDE.md",
+      "docs/HARDWARE_MATRIX.md",
+      "docs/QCA988X_CONTROL_BOUNDARY.md",
+      "docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md",
+      "docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md",
+      "docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md",
+      "docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md",
+      "docs/STAGE10_11_COMPLETE_RE_AND_BENCH_ARCHIVE_20261021.md",
+      "docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md",
+      "docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md"
+    ],
+    "all_reviewed_docs_relative_links_resolved": 36,
+    "stage10_patch_boundary": "clarified in source: no CPE ubnt_poll_host.ko patch required; held AP mac80211 image remains patched",
+    "public_copy_provenance": "PASS original local receipt SHA matches sanitized public-copy provenance"
+  },
+  "publication_link_check": {
+    "manifest": "fmx0017_publication_manifest_20261022.json",
+    "path_map": "fmx0017_publication_paths_20261022.json",
+    "reviewed_document_count": 16,
+    "raw_local_only_paths_in_manifest": 9,
+    "markdown_links_retargeted": 0,
+    "raw_local_only_markdown_link_targets_found": 0,
+    "result": "PASS_NO_MARKDOWN_LINK_TARGETS_TO_RAW_LOCAL_ONLY_PATHS_FOUND_IN_16_REVIEWED_DOCS; RAW_SHA_PROVENANCE_TEXT_PRESERVED"
+  }
+}

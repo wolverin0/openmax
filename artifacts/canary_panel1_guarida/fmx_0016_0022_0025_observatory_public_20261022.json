@@ -1,0 +1,342 @@
+{
+  "generated_utc": "2026-10-22T13:12:25.960371+00:00",
+  "experiments": [
+    "FMX-0016-STAGE1",
+    "FMX-0020-VERIFY",
+    "FMX-0022-MODEL",
+    "FMX-0025"
+  ],
+  "status": "PASS_OBSERVATORY_AND_TRIAGE_BENCHMARK",
+  "production_sectors": [
+    {
+      "sector_id": "sector_01",
+      "firmware": "XC.v8.7.25",
+      "frequency_mhz": 5700,
+      "chanbw_mhz": 20,
+      "cpe_count": 2,
+      "sector_classification": "HEALTHY",
+      "per_cpe_classification_counts": {
+        "HEALTHY": 2
+      },
+      "airtime_taxes_numeric_only": [
+        {
+          "airtime_share": 0.3934,
+          "useful_byte_share": 0.2308,
+          "airtime_tax_ratio": 1.705,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.6066,
+          "useful_byte_share": 0.7692,
+          "airtime_tax_ratio": 0.789,
+          "is_airtime_hog": false
+        }
+      ]
+    },
+    {
+      "sector_id": "sector_02",
+      "firmware": "WA.v8.7.25",
+      "frequency_mhz": 5645,
+      "chanbw_mhz": 20,
+      "cpe_count": 2,
+      "sector_classification": "HEALTHY",
+      "per_cpe_classification_counts": {
+        "HEALTHY": 2
+      },
+      "airtime_taxes_numeric_only": [
+        {
+          "airtime_share": 0.5,
+          "useful_byte_share": 0.5,
+          "airtime_tax_ratio": 1.0,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.5,
+          "useful_byte_share": 0.5,
+          "airtime_tax_ratio": 1.0,
+          "is_airtime_hog": false
+        }
+      ]
+    },
+    {
+      "sector_id": "sector_03",
+      "firmware": "WA.v8.7.25",
+      "frequency_mhz": 5755,
+      "chanbw_mhz": 20,
+      "cpe_count": 3,
+      "sector_classification": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+      "per_cpe_classification_counts": {
+        "HEALTHY": 2,
+        "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT": 1
+      },
+      "airtime_taxes_numeric_only": [
+        {
+          "airtime_share": 0.3311,
+          "useful_byte_share": 0.3333,
+          "airtime_tax_ratio": 0.993,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.2462,
+          "useful_byte_share": 0.3333,
+          "airtime_tax_ratio": 0.739,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.4227,
+          "useful_byte_share": 0.3333,
+          "airtime_tax_ratio": 1.268,
+          "is_airtime_hog": false
+        }
+      ]
+    },
+    {
+      "sector_id": "sector_04",
+      "firmware": "WA.v8.7.25",
+      "frequency_mhz": 5240,
+      "chanbw_mhz": 20,
+      "cpe_count": 4,
+      "sector_classification": "HEALTHY",
+      "per_cpe_classification_counts": {
+        "HEALTHY": 4
+      },
+      "airtime_taxes_numeric_only": [
+        {
+          "airtime_share": 0.2396,
+          "useful_byte_share": 0.25,
+          "airtime_tax_ratio": 0.959,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.2218,
+          "useful_byte_share": 0.25,
+          "airtime_tax_ratio": 0.887,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.3175,
+          "useful_byte_share": 0.25,
+          "airtime_tax_ratio": 1.27,
+          "is_airtime_hog": false
+        },
+        {
+          "airtime_share": 0.2211,
+          "useful_byte_share": 0.25,
+          "airtime_tax_ratio": 0.884,
+          "is_airtime_hog": false
+        }
+      ]
+    }
+  ],
+  "relay_break_even_evaluations": {
+    "Edificio_BERON_via_ARIAS_sidelobe": {
+      "approved": false,
+      "direct_ms_per_mbit": 17.33,
+      "relay_ms_per_mbit": 42.07,
+      "airtime_savings_pct": -142.81,
+      "reason": "REJECT: inter-CPE sidelobe RSSI -78.0 dBm < minimum gate -68.0 dBm"
+    },
+    "Panel1_SCHECHTEL_via_GAMBOA_half_duplex_tax": {
+      "approved": false,
+      "direct_ms_per_mbit": 12.82,
+      "relay_ms_per_mbit": 18.27,
+      "airtime_savings_pct": -42.52,
+      "reason": "REJECT: relay costs 18.3 ms/Mbit vs direct 12.8 ms/Mbit (savings -42.5% < 15.0% gate)"
+    },
+    "Obstructed_MCS0_Edge_CPE_via_WideBeam_Loco": {
+      "approved": true,
+      "direct_ms_per_mbit": 153.85,
+      "relay_ms_per_mbit": 20.3,
+      "airtime_savings_pct": 86.81,
+      "reason": "APPROVE: relay cuts airtime by 86.8% (153.8 -> 20.3 ms/Mbit, 7.58x effective rate gain)"
+    }
+  },
+  "fmx_0025_triage_benchmark": {
+    "experiment": "FMX-0025",
+    "total_cases": 20,
+    "correct_predictions": 20,
+    "accuracy_pct": 100.0,
+    "gate_95pct_pass": true,
+    "cases": [
+      {
+        "case": "healthy_0",
+        "expected": "HEALTHY",
+        "predicted": "HEALTHY",
+        "match": true
+      },
+      {
+        "case": "healthy_1",
+        "expected": "HEALTHY",
+        "predicted": "HEALTHY",
+        "match": true
+      },
+      {
+        "case": "healthy_2",
+        "expected": "HEALTHY",
+        "predicted": "HEALTHY",
+        "match": true
+      },
+      {
+        "case": "healthy_3",
+        "expected": "HEALTHY",
+        "predicted": "HEALTHY",
+        "match": true
+      },
+      {
+        "case": "sector_wide_0",
+        "expected": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "predicted": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "match": true
+      },
+      {
+        "case": "sector_wide_1",
+        "expected": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "predicted": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "match": true
+      },
+      {
+        "case": "sector_wide_2",
+        "expected": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "predicted": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "match": true
+      },
+      {
+        "case": "sector_wide_3",
+        "expected": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "predicted": "SECTOR_WIDE_OR_BACKHAUL_FAULT",
+        "match": true
+      },
+      {
+        "case": "angular_rf_0",
+        "expected": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "predicted": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "match": true
+      },
+      {
+        "case": "angular_rf_1",
+        "expected": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "predicted": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "match": true
+      },
+      {
+        "case": "angular_rf_2",
+        "expected": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "predicted": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "match": true
+      },
+      {
+        "case": "angular_rf_3",
+        "expected": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "predicted": "ANGULAR_RF_INTERFERENCE_CLUSTER",
+        "match": true
+      },
+      {
+        "case": "chain_imbalance_0",
+        "expected": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "predicted": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "match": true
+      },
+      {
+        "case": "chain_imbalance_1",
+        "expected": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "predicted": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "match": true
+      },
+      {
+        "case": "chain_imbalance_2",
+        "expected": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "predicted": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "match": true
+      },
+      {
+        "case": "chain_imbalance_3",
+        "expected": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "predicted": "CPE_CHAIN_IMBALANCE_OR_MISALIGNMENT",
+        "match": true
+      },
+      {
+        "case": "poe_cable_0",
+        "expected": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "predicted": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "match": true
+      },
+      {
+        "case": "poe_cable_1",
+        "expected": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "predicted": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "match": true
+      },
+      {
+        "case": "poe_cable_2",
+        "expected": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "predicted": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "match": true
+      },
+      {
+        "case": "poe_cable_3",
+        "expected": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "predicted": "CPE_ETHERNET_POE_CABLE_FAULT",
+        "match": true
+      }
+    ]
+  },
+  "fmx_0020_hardware_shard_verification": {
+    "opcode1_seed12345_iters400k_accum314372_verified": true,
+    "opcode2_seed67890_iters800k_accum1737585398_verified": true
+  },
+  "fleet_compute_economics": {
+    "duty_5pct_0200_0700": {
+      "active_cpes": 1402,
+      "active_breakdown": {
+        "ar9342": 1148,
+        "qca9558": 42,
+        "ltu_amesoc3": 212
+      },
+      "duty_pct": 5,
+      "window_hours": 5.0,
+      "effective_aggregate_coremark": 142759.0,
+      "effective_int_gsteps_per_s": 4.33,
+      "effective_fp64_mflops": 10051.84,
+      "nightly_int_tsteps": 77.95,
+      "incremental_fleet_power_w": 532.7,
+      "nightly_incremental_energy_kwh": 2.664,
+      "equivalent_modern_server_cores_int": 3.97,
+      "equivalent_modern_server_cores_fp64": 0.209,
+      "noc_server_power_for_same_int_work_w": 42.1,
+      "fleet_energy_efficiency_gsteps_per_wh": 29.26,
+      "noc_server_energy_efficiency_gsteps_per_wh": 230.4
+    },
+    "duty_10pct_0200_0700": {
+      "active_cpes": 1402,
+      "active_breakdown": {
+        "ar9342": 1148,
+        "qca9558": 42,
+        "ltu_amesoc3": 212
+      },
+      "duty_pct": 10,
+      "window_hours": 5.0,
+      "effective_aggregate_coremark": 285518.0,
+      "effective_int_gsteps_per_s": 8.661,
+      "effective_fp64_mflops": 20103.68,
+      "nightly_int_tsteps": 155.89,
+      "incremental_fleet_power_w": 714.9,
+      "nightly_incremental_energy_kwh": 3.575,
+      "equivalent_modern_server_cores_int": 7.93,
+      "equivalent_modern_server_cores_fp64": 0.419,
+      "noc_server_power_for_same_int_work_w": 84.3,
+      "fleet_energy_efficiency_gsteps_per_wh": 43.61,
+      "noc_server_energy_efficiency_gsteps_per_wh": 230.4
+    }
+  },
+  "publication_provenance": {
+    "raw_receipt_sha256": "05a7a70a46a6593205ee6b066c737fa8ea422fa7410f1560aeedbc46510018bc",
+    "raw_receipt_retained_local": true,
+    "removed": [
+      "customer identifiers and names",
+      "sector names",
+      "production MAC and management IP addresses",
+      "free-form production recommendations"
+    ],
+    "status_interpretation": "Original scoped bench/offline result preserved; aggregate production observation is not operational acceptance"
+  }
+}
