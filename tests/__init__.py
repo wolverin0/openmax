@@ -1,0 +1,1 @@
+"""FuturaMAX test package."""

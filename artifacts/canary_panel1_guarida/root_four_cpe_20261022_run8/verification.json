@@ -1,0 +1,120 @@
+{
+  "status": "PASS_ARTIFACT_CONTRACT_VERIFIED",
+  "experiment": "FMX-0016",
+  "run": "20261022_run8",
+  "raw_receipt_sha256": "599b88d2dc980b6513f9781208e434cf8478bda0533b66a7741e87d043217c43",
+  "four_way_association_stability_seconds": 60.5,
+  "four_ping_streams_overlap_seconds": 62.801438093185425,
+  "sample_count": 41,
+  "total_wireless_echo_pairs": 256,
+  "telemetry": {
+    "WA": {
+      "mac": "fc:ec:da:c2:54:0a",
+      "interface": "phy0-ap0.sta2",
+      "ping_transmitted": 64,
+      "ping_received": 64,
+      "radio_request_reply_pairs": 64,
+      "loss_percent": 0,
+      "first_request_epoch": 1792394485.907562,
+      "last_request_epoch": 1792394548.953397,
+      "signal_dbm": {
+        "min": -44,
+        "median": -43,
+        "max": -42
+      },
+      "observed_idle_RTT_ms": {
+        "min": 1.261,
+        "median": 1.405,
+        "p95": 5.3337,
+        "max": 74.21
+      },
+      "first_connected_seconds": 50,
+      "last_connected_seconds": 109,
+      "rx_bytes_delta": 23136,
+      "tx_bytes_delta": 70503
+    },
+    "XC": {
+      "mac": "b4:fb:e4:5c:d5:d2",
+      "interface": "phy0-ap0.sta4",
+      "ping_transmitted": 64,
+      "ping_received": 64,
+      "radio_request_reply_pairs": 64,
+      "loss_percent": 0,
+      "first_request_epoch": 1792394486.113132,
+      "last_request_epoch": 1792394549.170544,
+      "signal_dbm": {
+        "min": -36,
+        "median": -35,
+        "max": -33
+      },
+      "observed_idle_RTT_ms": {
+        "min": 1.225,
+        "median": 1.355,
+        "p95": 2.53975,
+        "max": 9.031
+      },
+      "first_connected_seconds": 17,
+      "last_connected_seconds": 76,
+      "rx_bytes_delta": 22336,
+      "tx_bytes_delta": 71005
+    },
+    "SXT": {
+      "mac": "64:d1:54:1b:96:97",
+      "interface": "phy0-ap0",
+      "ping_transmitted": 64,
+      "ping_received": 64,
+      "radio_request_reply_pairs": 64,
+      "loss_percent": 0,
+      "first_request_epoch": 1792394486.113872,
+      "last_request_epoch": 1792394549.172691,
+      "signal_dbm": {
+        "min": -61,
+        "median": -59,
+        "max": -59
+      },
+      "observed_idle_RTT_ms": {
+        "min": 1.302,
+        "median": 1.801,
+        "p95": 6.98995,
+        "max": 10.835
+      },
+      "first_connected_seconds": 80,
+      "last_connected_seconds": 139,
+      "rx_bytes_delta": 7714,
+      "tx_bytes_delta": 7210
+    },
+    "LBM5": {
+      "mac": "f0:9f:c2:b2:b6:ba",
+      "interface": "phy0-ap0",
+      "ping_transmitted": 64,
+      "ping_received": 64,
+      "radio_request_reply_pairs": 64,
+      "loss_percent": 0,
+      "first_request_epoch": 1792394486.151959,
+      "last_request_epoch": 1792394549.188793,
+      "signal_dbm": {
+        "min": -53,
+        "median": -52,
+        "max": -51
+      },
+      "observed_idle_RTT_ms": {
+        "min": 1.173,
+        "median": 1.366,
+        "p95": 5.165450000000001,
+        "max": 9.109
+      },
+      "first_connected_seconds": 48,
+      "last_connected_seconds": 107,
+      "rx_bytes_delta": 15349,
+      "tx_bytes_delta": 20485
+    }
+  },
+  "restoration": "PASS exact AP/Rocket and both original open legacy profiles/protected hashes/boot/IPv4/routes; guards ended and owned temporary guard files removed",
+  "classification": "CONFIRMED_EXACT_BENCH_FOUR_CPE_MULTI_GENERATION_COMPATIBILITY_AND_TELEMETRY",
+  "limits": [
+    "Low-rate ICMP and association test only; no throughput/capacity/loaded-latency gain claim",
+    "AP+four per-station time series plus two legacy CPE self reports; no cooperative relay or optimizer implemented",
+    "Original240s legacy guard deadline retained; accepted run uses2s activation delay and explicit XC native scan before Auth",
+    "IE timestamps are API acknowledgements; over-air IE timing unqualified"
+  ]
+}

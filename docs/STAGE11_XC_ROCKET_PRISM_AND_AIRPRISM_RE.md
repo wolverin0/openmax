@@ -106,3 +106,43 @@ When the operator connects the physical **`Rocket Prism 5AC Gen2` (`sysid = 0xe7
 
 ### Track 2 (Conditional on Track 1 `hsr` Trace) — OpenWrt `ath79` Support
 - Only after Track 1 identifies the exact runtime consumer of `hsr_param = 31` (`+0x1e8c0`) and measures stock AirPrism adjacent-channel rejection will we evaluate an `initramfs` OpenWrt test image incorporating the exact 6-entry band-edge `prism` selector and `hsr` driver.
+
+---
+
+## 5. Physical Bench Qualification on `Rocket Prism 5AC Gen2` (`ES-10XP` Port `0/6`) — `CONFIRMED`
+
+Full machine-readable receipt saved to [`artifacts/stage11_rocket_prism_bench_20261021.json`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/artifacts/stage11_rocket_prism_bench_20261021.json) and partition backups saved to [`artifacts/rocket_prism_backups_b4fbe45cd5d2/`](file:///G:/_OneDrive/OneDrive/Desktop/Py%20Apps/futuraMAX/artifacts/rocket_prism_backups_b4fbe45cd5d2).
+
+1. **U-Boot Recovery & Factory Reset Mechanics (`CONFIRMED`)**:
+   - In `XC` U-Boot (`do_urescue` at `0x9f00845c`), TFTP recovery uses the `WIFI0` MAC (`b4:fb:e4:5d:d5:d2`) and executes `NetLoop(DHCP)` before falling back to `192.168.1.20`.
+   - At power-on (`0x802054dc`), holding Reset immediately sets `bootcmd="sleep 2;urescue"` at $t=0\text{ s}$, then enters `uhandlereset` (`0x80204f40`), which counts 10 seconds (`0x80204fd8..0x80205024`). Releasing Reset before 10 seconds skips `uclearcfg` (`0x802050b0`) while still entering `urescue`. Holding Reset for $\ge 12\text{--}15\text{ s}$ executes `uclearcfg` (`mtd4` `cfg` erase) and blinks all 4 signal LEDs together 3 times before entering `urescue`.
+   - Upgraded unit from `XC.v8.7.4` to **`XC.qca955x.v8.7.25.48568.260730.1009`**, cleared `mtd4` (`cfg`) via the 15-second `uhandlereset` hold, and verified SSH login at `192.168.100.198` (`ubnt`/`ubnt`).
+
+2. **Hardware Identity & AirPrism Variant on Bench Unit (`CONFIRMED`)**:
+   - **`board.sysid=0xe7e9`**, `board.model=RP-5AC-Gen2`, `board.bom=13-00545-14`, `MAC=b4:fb:e4:5c:d5:d2`.
+   - **SoC & Memory**: `QCA955x` (`MIPS 74Kc V5.0`, `720 MHz` CPU / `600 MHz` DDR / `200 MHz` AHB), `128 MB` RAM (`126,932 kB`), `16 MB` SPI NOR (`ath-nor0`).
+   - **AirPrism Flag (`CONFIRMED`)**: `/etc/board.info` specifies `radio.1.regdomain_flags=fcc_new_grant,ts=0x5bf46e5a,prism` (**`prism`**, NOT `hsr`!).
+     - That means this `Rocket Prism 5AC Gen2` (`0xe7e9`, `BOM 13-00545-14`) uses the **pure GPIO-switched 6-entry `prism` filter table (`GPIO 13, 14, 15, 16`)** in `ubnthal.ko`, NOT the SPI-tuned `hsr` (`ath-spectral-filter`) daughterboard!
+   - **Dual-Radio Architecture (`CONFIRMED`)**:
+     - `wifi0` (`ath_pci` `0000:00:00.0`, IRQ 75): Main 5 GHz 802.11ac 2x2 radio (`TARGET TYPE: 7 Vers 0x4100016c` = `QCA9880v2`), `txpower.max=28 dBm`.
+     - `wifi1` (`ath_ahb` `0xb8100000`, IRQ 2): Integrated `QCA9558` AHB 1x1 radio used simultaneously for the `2.4 GHz` management AP (`ath1` `RP-5AC-Gen2:B4FBE45CD5D2` on `192.168.172.1`) and `airview` spectral scanning (`radio.2.chanbw=5,10,20,40,80`).
+
+3. **Protected Partition Backups (`CONFIRMED`)**:
+   - `mtd0_u-boot.bin` (`262,144` bytes): `sha256: 4dc70e1486904f31ee025986777a53ec03b93f8cd303445e5ad31bc0bc1cfc56`
+   - `mtd1_u-boot-env.bin` (`65,536` bytes): `sha256: b286e07dd4d7c20036106ae8f85f03bfad853a32899ccb57d62c789be5531af3`
+   - `mtd4_cfg.bin` (`262,144` bytes): `sha256: 57c9d8bd857d089fc28b595e8b67fed82b9c5958302c07053d13bcf60687a431`
+   - `mtd5_EEPROM.bin` (`65,536` bytes): `sha256: 99b9edd9001f128412841ae7ba79f2feaa809b0538d03eb153b493472f320b65`
+
+4. **Track 1 Live Verification — Channel/Width Sweep, `ath-spectral-filter` Interrupt, and Relocation-Safe `/tmp/uph.ko` (`CONFIRMED`)**:
+   - **Channel & Bandwidth Sweep (`5180..5785 MHz`, `20/40/80 MHz`)**:
+     - Switching `chanbw` and `freq` via `iwpriv wifi0 chanbw <w>` + `iwconfig ath0 freq <f>` immediately triggers `umac.ko` (`BW divisor: %#X` at `.rodata.str1.4+0x10dc0`):
+       - `20 MHz` (`5180 MHz`, `5240 MHz`) $\rightarrow$ `BW divisor: 0X411`
+       - `40 MHz` (`5500 MHz`, `5785 MHz`) $\rightarrow$ `BW divisor: 0X422`
+       - `80 MHz` (`5240 MHz`, `5500 MHz`) $\rightarrow$ `BW divisor: 0X444`
+   - **Live Hardware Interrupts (`/proc/interrupts`)**:
+     - `IRQ 64` (`ATH GPIO ath-spectral-filter`, `GPIO 21`): **`1,415` interrupts** recorded during live operation, confirming active hardware TX-blanking synchronization between `wifi0` (`QCA9880v2`, `IRQ 75`) and `wifi1` (`AirView` AHB radio, `IRQ 2`).
+     - `IRQ 22` (`ATH MISC hs-uart`): **`42,062` interrupts** from the onboard GPS UART (`ubnt-gps-reader`).
+   - **Live RAM Load of Relocation-Safe Patched `/tmp/uph.ko` (`ubnt_op_mode=0`)**:
+     - Uploaded the 4-site relocation-safe patched `ubnt_poll_host.ko` (`189,880` bytes) to `/tmp/uph.ko`, executed `rmmod ubnt_poll_host && insmod /tmp/uph.ko && echo 0 > /sys/module/umac/parameters/ubnt_op_mode`, and verified clean module registration (`ubnt_poll_host: Hooks registered`, `Allocated chardev region for major 190`) with **zero kernel panics or relocation errors**, then restored stock `ubnt_poll_host.ko` (`ubnt_op_mode=1`).
+
+

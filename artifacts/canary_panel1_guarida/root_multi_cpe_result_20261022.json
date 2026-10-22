@@ -1,0 +1,184 @@
+{
+  "utc": "2026-10-22T05:32:04.889025+00:00",
+  "status": "PASS_MULTI_CPE_REPULSE_60S_RESTORED",
+  "experiment": "FMX0015-R18-MULTI-CPE-REPULSE",
+  "accepted_run": "20261022_run25",
+  "receipt_sha256": "11427b93eebf263db87951377011cbfef75cdbf011ed8209b5d1e1bbd10bdfa9",
+  "source_sha256": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+  "classification": "CONFIRMED_ON_EXACT_BENCH",
+  "hardware": "LAP-120 held OpenWrt; Loco195 stock WA.v8.7.25; Rocket198 stock XC.v8.7.25",
+  "RF": {
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "AP_txpower_dbm": 0,
+    "country": "AR",
+    "AP_WDS": true
+  },
+  "simultaneous_WPA2_WDS_stability_seconds": 61.03099999995902,
+  "final_flags": {
+    "b4:fb:e4:5c:d5:d2": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "wds": true,
+      "aid": 2
+    },
+    "fc:ec:da:c2:54:0a": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "wds": true,
+      "aid": 1
+    }
+  },
+  "final_station_counters": {
+    "b4:fb:e4:5c:d5:d2": {
+      "connected_seconds": 67,
+      "rx_bytes": 24093,
+      "tx_bytes": 223429
+    },
+    "fc:ec:da:c2:54:0a": {
+      "connected_seconds": 74,
+      "rx_bytes": 31691,
+      "tx_bytes": 234147
+    }
+  },
+  "pings": {
+    "WA_pulse_ping": {
+      "transmitted": 8,
+      "received": 8,
+      "loss_percent": 0,
+      "wds_child": "phy0-ap0.sta1",
+      "matched_wireless_request_reply_pairs": 8,
+      "first_request_epoch": 1792374430.585785,
+      "last_request_epoch": 1792374437.594292,
+      "capture_exit_code": 0
+    },
+    "dual_ping_WA": {
+      "transmitted": 64,
+      "received": 64,
+      "loss_percent": 0,
+      "wds_child": "phy0-ap0.sta1",
+      "matched_wireless_request_reply_pairs": 64,
+      "first_request_epoch": 1792374442.425739,
+      "last_request_epoch": 1792374505.463395,
+      "capture_exit_code": 0
+    },
+    "dual_ping_XC": {
+      "transmitted": 64,
+      "received": 64,
+      "loss_percent": 0,
+      "wds_child": "phy0-ap0.sta2",
+      "matched_wireless_request_reply_pairs": 64,
+      "first_request_epoch": 1792374446.266114,
+      "last_request_epoch": 1792374509.34816,
+      "capture_exit_code": 0
+    }
+  },
+  "simultaneous_ping_request_overlap_seconds": 59.19728112220764,
+  "repulse": {
+    "requested_seconds": 2,
+    "duration_api_ack_seconds": 2.030999999959022,
+    "XC_enabled_after_pulse_start_seconds": 1.7809999999590218,
+    "WA_survived": true,
+    "OTA_duration_qualified": false
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true
+    },
+    "Rocket": "PASS_EXACT_HASHES_RULES_BRIDGE_WPA_RECONFIGURED",
+    "rocket_guard_ended": true,
+    "ordered_IPv4_and_routes_exactly_restored": true,
+    "rocket_system_running_md5": "c2d90e1e0dfa5b44cb0e2700b2ccd27f",
+    "rocket_AUTO_md5": "6cad92c5c89b6c3d19fbaa80d9d8fa04",
+    "module_and_measured_protected_partition_hashes_unchanged": true,
+    "bridge_management_IP": "192.168.100.198 stays on br0",
+    "cleanup_errors": []
+  },
+  "decision": "KEEP bounded two-stock-CPE interoperability and discovery re-pulse recipe. No performance, TDMA, production or scale claim.",
+  "preserved_attempts": [
+    {
+      "run": 18,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "ROCKET_GUARD_NOT_READY_OK"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 19,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "CLIENT_PIN_CHANGED"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 20,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "DIRECT_WDS_PING_FAILED_fc:ec:da:c2:54:0a"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 21,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "WDS_CAPTURE_START_FAILED"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 22,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "DUAL_AUTHORIZATION_NOT_REACHED"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 23,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "PRE_STREAM_PING_FAILED_fc:ec:da:c2:54:0a"
+      },
+      "cleanup_errors": [],
+      "later_restore_recheck": null
+    },
+    {
+      "run": 24,
+      "status": "INCOMPLETE_MULTI_CPE_PRESERVED",
+      "failure": {
+        "type": "RuntimeError",
+        "gate": "PRE_STREAM_PING_FAILED_b4:fb:e4:5c:d5:d2"
+      },
+      "cleanup_errors": [
+        "Rocket:ROCKET_EXACT_RESTORE_CHANGED"
+      ],
+      "later_restore_recheck": "root_multi_cpe_20261022_run24/restore_final_recheck.json"
+    }
+  ],
+  "interpretation_limits": [
+    "61.031s is concurrent association stability. Pings overlap59.197s; frozen contract required simultaneous traffic and60s association, not60s ping overlap. A supplementary stricter post-analysis assertion failed and is retained below; no radio retry or acceptance change followed.",
+    "IE duration is API acknowledgement timing; OTA beacon/probe qualification remains pending.",
+    "XC Auth during IE inR22 failed to associate; late enable at1.7s allowed Auth after clear inR24/R25. This timing explanation is INFERRED rather than a controlled causal claim.",
+    "R24 initial XC preflight1/3 failed; fresh R25 actual64/64 is accepted.",
+    "R24 stock runtime promoted existing169.254 primary IPv4; initial restore check and failed ifconfig attempt preserved. Fresh repair restored observed baseline; R25 independent guard restored the complete captured address order/routes without moving198 offbr0."
+  ]
+}

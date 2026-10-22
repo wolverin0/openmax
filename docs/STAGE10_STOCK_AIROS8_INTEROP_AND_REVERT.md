@@ -1,3 +1,9 @@
+<!-- doc-head: Bench interop proof with recovered mixed L2 result and explicit production gaps -->
+F01 confirms hybrid interoperability, outage survival and software-reboot datapath.
+Recovered task6282 passes untagged MTU/IPv6 but fails tagged VLAN100 bridging.
+Production routed topology is separate; exact AP installation/restore is still unqualified.
+<!-- /doc-head -->
+
 # Stage 10 (`FMX-0015`) — Stock `airOS 8` (`5AC`) Interoperability, OpenWrt $\to$ `airOS 8` Rollback Qualification & Software-Reboot Persistence Report
 
 **Date**: 2026-10-18 (Updated with `gpt-6-astra` `xhigh` Adversarial Audit Remediations `F01–F03`, `F12`)  
@@ -79,7 +85,7 @@ Instead of dispatching by file size (`wc -c`) or writing directly to `/tmp/uph.k
 
 5. **Critical Bench Discovery (`ubntconf` `2,042`-Byte Crontab Buffer Limit)**:
    - On `airOS 8` (`WA.v8.7.25`), `/sbin/ubntconf -c /tmp/system.cfg` formats `/etc/crontabs/ubnt` into a fixed **`2,048`-byte buffer** (`2,042` bytes written, `2,030` bytes available for `cron.1.job.1.cmd` after `* * * * * `). Any `cron.1.job.1.cmd` exceeding `2,030` bytes is silently truncated in `/etc/crontabs/ubnt`, breaking shell syntax on boot.
-   - Our production-ready `F01 + F02` `cron.1.job.1.cmd` below is **`1,994` bytes** (`2,005` bytes in `/etc/crontabs/ubnt`), preserving **all 10 full 32-char MD5 hashes** (`M` and `K`), the atomic lock (`/tmp/uph.l`), the 3-tick stability window (`/tmp/u_ok`), the 4-site relocation-safe patch, `killall ubntspecd`, and `allow_80211=1`:
+   - Our bench-tested `F01 + F02` `cron.1.job.1.cmd` below is **`1,994` bytes** (`2,005` bytes in `/etc/crontabs/ubnt`), preserving **all 10 full 32-char MD5 hashes** (`M` and `K`), the atomic lock (`/tmp/uph.l`), the 3-tick stability window (`/tmp/u_ok`), the 4-site relocation-safe patch, `killall ubntspecd`, and `allow_80211=1`:
 
 ```sh
 cron.1.job.1.cmd=mkdir /tmp/uph.l 2>/dev/null||exit 0;trap 'rmdir /tmp/uph.l' EXIT;if iwconfig ath0 2>/dev/null|grep -qi 'Access Point: [0-9A-F]';then echo 0 >/tmp/u_ok;exit 0;fi;C=$(cat /tmp/u_ok 2>/dev/null||echo 3);if [ $C -lt 2 ];then echo $((C+1))>/tmp/u_ok;exit 0;fi;echo 0 >/tmp/u_ok;O=/lib/modules/2.6.32.68/ubnt_poll_host.ko;P=/usr/etc/init.d/plugin;D="dd if=$O bs=1";Z="dd if=/dev/zero bs=1";if [ ! -f /tmp/uph.ko ];then M=$(md5sum $O|awk '{print $1}');A=30784;B=30788;E=31820;F=10156;G=41980;H=126556;R=168544;case $M in 5bb5c6687c916822190ea5d687388e4f)A=30040;B=30044;E=31076;F=9808;G=40888;H=124736;R=165632;K=9b516361d0e36ea1c2c5177cb87b6075;;caab5177b3953e1bc51d43b46ca6ff8e)A=30072;B=30076;E=31108;F=9808;G=40920;H=124736;R=165664;K=3a76741ab2c3105c91abaa89ea8420c2;;4103f9d0a2fdbf312d93a68b10647bca)A=30072;B=30076;E=31108;F=9808;G=40920;H=124736;R=165664;K=e46cb619a0baa0384a64f4fc67220806;;7c76c8ced16cab0ce9ca680ce9c94e51)K=077d151e0055f198609dc761a39207b3;;5b26b076967befe129f669096539ae21)K=7b490ac4d9573dab010b5f4fb95c3765;;*)exit 0;;esac;($D count=$A;$Z count=4;$D skip=$B count=1028;awk 'BEGIN{printf "%c",16}';$Z count=2;awk 'BEGIN{printf "%c",6}';$D skip=$E count=$F;awk 'BEGIN{printf "%c%c",36,2}';$Z count=1;awk 'BEGIN{printf "%c",1}';$D skip=$G count=$H;$Z count=8;$D skip=$R)>/tmp/u.t 2>/dev/null;[ "$(md5sum /tmp/u.t|awk '{print $1}')" = "$K" ]||{ rm -f /tmp/u.t;exit 1;};mv /tmp/u.t /tmp/uph.ko;mount --bind /tmp/uph.ko $O;sed -i 's|1 > /sys|0 > /sys|;s|wifi0 1 0 0|wifi0 0 0 0|;s|1 > /proc|0 > /proc|;s|insmod ubnt_poll_host|killall ubntspecd;rmmod ubnt_poll_host;insmod ubnt_poll_host|' /etc/sysinit/radio.conf;sed -i 's|wds 1|wds 0|' /etc/sysinit/wireless.conf;sed -i '/allow_80211/d;s/ap_scan=1/ap_scan=1\nallow_80211=1/' /etc/wpasupplicant_*.conf 2>/dev/null;else umount $O 2>/dev/null;rm -f /tmp/uph.ko;/sbin/ubntconf -c /tmp/system.cfg;fi;for s in wpasupplicant wireless radio;do $P stop $s;done;for s in radio wireless wpasupplicant bridge net route;do $P start $s;done
@@ -114,7 +120,7 @@ cron.1.job.1.cmd=mkdir /tmp/uph.l 2>/dev/null||exit 0;trap 'rmdir /tmp/uph.l' EX
 
 ## 6. Stage 10B Bench Qualification Checklist (`F01`, `F02`, `F03` — `CONFIRMED` on Physical Bench)
 
-Per [`docs/ADVERSARIAL_REVIEW_STAGE10_11.md`](ADVERSARIAL_REVIEW_STAGE10_11.md), we executed and verified all three qualification checks on `192.168.1.2` (`LAP-120` OpenWrt 24.10.4) $\leftrightarrow$ `192.168.1.20` (`Loco 5AC` `WA.v8.7.25`):
+Per [`docs/ADVERSARIAL_REVIEW_STAGE10_11.md`](ADVERSARIAL_REVIEW_STAGE10_11.md), the recorded bench checks have the scoped outcomes below on `192.168.1.2` (`LAP-120` OpenWrt 24.10.4) $\leftrightarrow$ `192.168.1.20` (`Loco 5AC` `WA.v8.7.25`):
 - [x] **Check 1 (`F01` Closure — `CONFIRMED` via `/dev/mem` & 35s AP Outage Survival)**:
   - Deployed the 4-site relocation-safe `/tmp/uph.ko` (`MD5: 077d151e0055f198609dc761a39207b3`) with `killall ubntspecd` before `rmmod ubnt_poll_host`, and verified in `/dev/mem` (`base 0x82300000`, `refcnt = 0`):
     - `0x82307800` (`S1` `bmiss` caller): **`0x00000000` (`nop`)**
@@ -122,9 +128,18 @@ Per [`docs/ADVERSARIAL_REVIEW_STAGE10_11.md`](ADVERSARIAL_REVIEW_STAGE10_11.md),
     - `0x8230a3b8` (`S3` `is_ap_valid`): **`0x24020001` (`addiu $v0, $zero, 1`)**
   - Brought the AP radio down for **35 seconds** (triggering both the 2s beacon-miss path and the 30s missing-poll timer): the CPE survived with **zero panic and zero reboot** (`uptime` advanced continuously from `11434.89s` to `11520.65s`) and automatically reassociated (`47.54s`).
 - [x] **Check 2 (`F02` Closure — `CONFIRMED` Fault Injection + Hands-Free Cold Reboot)**:
-  - Verified unknown-hash fail-closed behavior (`UNKNOWN_HASH_TEST=FAIL_CLOSED_OK`), discovered the `2,042`-byte `/sbin/ubntconf` crontab buffer limit, persisted the `1,994`-byte hardened recipe (`2,005` bytes in `/etc/crontabs/ubnt`, `cfgmtd rc=0`), and executed a full cold reboot of `192.168.1.20`.
+  - Verified unknown-hash fail-closed behavior (`UNKNOWN_HASH_TEST=FAIL_CLOSED_OK`), discovered the `2,042`-byte `/sbin/ubntconf` crontab buffer limit, persisted the `1,994`-byte hardened recipe (`2,005` bytes in `/etc/crontabs/ubnt`, `cfgmtd rc=0`), and executed a software reboot of `192.168.1.20`; this receipt does not establish a physical power cut.
   - The CPE automatically patched `/tmp/uph.ko` (`077d151e0055f198609dc761a39207b3`), associated hands-free over **`VHT20` (`20 MHz`) + `WPA2-PSK CCMP`** at **`173.3 MBit/s` RX / `144.4 MBit/s` TX**, and delivered **`89.5 Mbps` 4-stream TCP Uplink (`95.6 Mbps` peak, `0` retransmits, `4.48 bit/s/Hz`)** and **`70.2 Mbps` 4-stream TCP Downlink (`72.2 Mbps` peak)** ([`f01_bench_verification.json`](../artifacts/adversarial_review_stage10_11/f01_bench_verification.json)).
 - [x] **Check 3 (`F03` Closure — `CONFIRMED` L2 Matrix + Production `netmode=router` Audit)**:
-  - Bench L2 matrix confirmed `0%` loss across Unicast/Broadcast ARP, `1500`-byte MTU (`ping -s 1472`, `2.680 ms` avg RTT), and IPv6 Link-Local ND (`1.805 ms` avg RTT) ([`f03_l2_matrix_bench.json`](../artifacts/adversarial_review_stage10_11/f03_l2_matrix_bench.json)), and the production audit confirmed all 11 CPEs across all 4 candidate sectors operate in `netmode=router` (`bridge.1.port.1.devname=ath0` only, untagged IPv4).
+  - Recovered raw task6282 records MTU/ARP-flush ping `3/3`, `0%` loss, `2.680 ms` average; IPv6 link-local ND/ping `3/3`, `0%` loss, `1.805 ms` average; **VLAN100 tagged bridging `0/3`, `100%` loss**. The original cited JSON was not located; [the recovered source and result](../artifacts/adversarial_review_stage10_11/f03_recovered_from_agy_20261019.json) preserve this mixed outcome. Production `netmode=router`/ath0-only topology is separately audited and does not require tagged wireless bridging. Do not call the complete matrix a pass.
 
 
+
+## October 19 evidence boundary
+
+The four production CPE cron commands match the documented 1994-byte recipe, but no
+complete hybrid-CPE to stock-AP to stock-customer-service reversal receipt was located
+in the full agy session. Unknown-hash, outage and software-reboot cases are positive
+bench evidence; mount/unmount/plugin failures and orphan-lock recovery remain untested
+in the recovered receipts. Exact production AP install/restore and candidate boot remain
+separate gates. See the existing [takeover record](../artifacts/canary_panel1_guarida/TAKEOVER_20261018.md).

@@ -1,0 +1,950 @@
+{
+  "experiment": "FMX-0016",
+  "status": "PASS_FOUR_CPE_60S_RADIO_TRAFFIC_TELEMETRY_ALL_RESTORED",
+  "started_utc": "2026-10-22T11:00:36.391906+00:00",
+  "source_sha256": "a0b144ab55a56ca6b5ebffcc51b0c3bea194976647e9a461132a55a9cdd4cce1",
+  "bindings": {
+    "root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+  },
+  "failures": [],
+  "cleanup_errors": [],
+  "legacy_guards": {
+    "SXT": {
+      "directory": "/tmp/fmx-four-e48e98be978c65f40143968d",
+      "source_sha256": "8aa642ca2bea93218f9d4ee544178d175cf366f57c0ac7d13ab9340e7fdbc635",
+      "ttl_seconds": 240,
+      "intent_recorded": true,
+      "pid": 7669,
+      "ticks": 3911365,
+      "deadline_uptime": 39353,
+      "host_armed": 714649.187,
+      "explicit_restore_signal_sent": true
+    },
+    "LBM5": {
+      "directory": "/tmp/fmx-four-b8dea07438e628af7612fb2c",
+      "source_sha256": "dc649682f7e61c271b96ea10ac1810e4a589dc2f2a4124a6ede49d69b30f4003",
+      "ttl_seconds": 240,
+      "intent_recorded": true,
+      "pid": 2470,
+      "ticks": 40905551,
+      "deadline_uptime": 409295,
+      "host_armed": 714649.453,
+      "explicit_restore_signal_sent": true
+    }
+  },
+  "forbidden_actions_executed": false,
+  "persistent_config_writes": false,
+  "rocket_baseline": {
+    "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
+    "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
+    "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
+    "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
+  },
+  "AP_initial": {
+    "interface": "phy0-ap0",
+    "ifindex": 59,
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "observed_regulatory_domains": [
+      "AR",
+      "US"
+    ],
+    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854",
+    "status": "PASS_AP_OBSERVER_RAM_WINDOW_ARMED",
+    "guard_pid": 30694,
+    "guard_start": 3489279,
+    "guard_deadline_uptime": 35372,
+    "ttl_seconds": 480,
+    "remote_ram": "/tmp/fmx-step1c-ap-observer-c908246f2c63aa7336781b8e95531682",
+    "native_receipt_sha256": "ff6fdbac93c279ad55468e0165767de0f05dddd79db21c7bd3ce1f38a1ac0f92",
+    "ubus_methods_sha256": "d2ed8223e7b686c0bcf76c83288b4bbe7fe4ed1f72515d1102fadb9ead99b6ed",
+    "persistent_writes": false,
+    "vendor_ie_changed": false
+  },
+  "open_reacquisition_probes": [
+    {
+      "name": "SXT",
+      "mono": 714605.406,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714607.484,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "SXT",
+      "mono": 714607.718,
+      "result": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=4.119 ms\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 4.119/4.119/4.119 ms\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714609.781,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714612.0,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714614.218,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714616.437,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714618.671,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714620.89,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714623.109,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714625.343,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714627.562,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714629.781,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714632.0,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714634.234,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714636.453,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714638.671,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714640.89,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714643.125,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714645.343,
+      "result": {
+        "exit_code": 1,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "LBM5",
+      "mono": 714646.625,
+      "result": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1067.141 ms\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 1067.141/1067.141/1067.141 ms\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "prior_guard_RAM_cleanup": {
+    "SXT": {
+      "exit_code": 0,
+      "stdout": "ALREADY_ABSENT\n",
+      "stderr": ""
+    },
+    "LBM5": {
+      "exit_code": 0,
+      "stdout": "ALREADY_ABSENT\n",
+      "stderr": ""
+    }
+  },
+  "AP_mode_transitions": [
+    {
+      "utc": "2026-10-22T11:01:39.249808+00:00",
+      "secure": true,
+      "ready": {
+        "interface": "phy0-ap0",
+        "ifindex": 60,
+        "bssid": "18:e8:29:74:55:a2",
+        "frequency_mhz": 5180,
+        "width_mhz": 20,
+        "txpower_dbm": 0,
+        "global_country": "AR",
+        "observed_regulatory_domains": [
+          "AR",
+          "US"
+        ],
+        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+      }
+    },
+    {
+      "utc": "2026-10-22T11:04:12.788982+00:00",
+      "secure": false,
+      "ready": {
+        "interface": "phy0-ap0",
+        "ifindex": 63,
+        "bssid": "18:e8:29:74:55:a2",
+        "frequency_mhz": 5180,
+        "width_mhz": 20,
+        "txpower_dbm": 0,
+        "global_country": "AR",
+        "observed_regulatory_domains": [
+          "AR",
+          "US"
+        ],
+        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+      }
+    }
+  ],
+  "AP_secure": {
+    "interface": "phy0-ap0",
+    "ifindex": 60,
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "observed_regulatory_domains": [
+      "AR",
+      "US"
+    ],
+    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+  },
+  "WA_discovery_clear": {
+    "mono": 714665.515,
+    "probe": {
+      "address": "fc:ec:da:c2:54:0a",
+      "ifname": "phy0-ap0",
+      "target": "ff:ff:ff:ff:ff:ff",
+      "signal": -42,
+      "freq": 5180,
+      "ht_capabilities": {
+        "ht_capabilities_info": -21247,
+        "supported_mcs_set": {
+          "a_mpdu_params": 27,
+          "ht_extended_capabilities": 0,
+          "tx_bf_capability_info": 0,
+          "asel_capabilities": 0,
+          "supported_mcs_set": [
+            255,
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "vht_capabilities": {
+        "vht_capabilities_info": -1308524493,
+        "vht_supported_mcs_set": {
+          "rx_map": -1281,
+          "rx_highest": 0,
+          "tx_map": -1281,
+          "tx_highest": 0
+        }
+      }
+    }
+  },
+  "WA_pre_pulse_ping": {
+    "exit_code": 0,
+    "stdout": "PING fe80::feec:daff:fec2:540a (fe80::feec:daff:fec2:540a): 56 data bytes\n64 bytes from fe80::feec:daff:fec2:540a: seq=1 ttl=64 time=3.091 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=2 ttl=64 time=1.335 ms\n\n--- fe80::feec:daff:fec2:540a ping statistics ---\n3 packets transmitted, 2 packets received, 33% packet loss\nround-trip min/avg/max = 1.335/2.213/3.091 ms\n",
+    "stderr": ""
+  },
+  "XC_explicit_discovery": {
+    "start_mono": 714695.406,
+    "cache_flush": {
+      "exit_code": 0,
+      "stdout": "OK\n",
+      "stderr": ""
+    },
+    "scan_request": {
+      "exit_code": 0,
+      "stdout": "OK\n",
+      "stderr": ""
+    },
+    "network_disabled": true,
+    "target_BSS": {
+      "scan_result": "18:e8:29:74:55:a2\t5180\t-71\t[WPA2-PSK-CCMP][ESS]\tFuturaMAX-LAB\n",
+      "BSS_metadata": "id=13\nbssid=18:e8:29:74:55:a2\nfreq=5180\nbeacon_int=0\ncapabilities=0x0011\nqual=25\nnoise=-91\nlevel=-71\ntsf=0000000000000000\nage=0\nie=000d4675747572614d41582d4c414201016c30140100000fac040100000fac040100000fac020c00\nflags=[WPA2-PSK-CCMP][ESS]\nssid=FuturaMAX-LAB\n",
+      "observed_mono": 714720.906,
+      "raw_vendor_IE_exported": false
+    },
+    "clear_ack_mono": 714720.953,
+    "enable_after_clear_seconds": 1.047000000020489
+  },
+  "last_auth_flags": {
+    "b4:fb:e4:5c:d5:d2": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "preauth": false,
+      "wds": true,
+      "wmm": true,
+      "ht": true,
+      "vht": true,
+      "he": false,
+      "wps": false,
+      "mfp": false,
+      "mbo": false,
+      "rrm": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extended_capabilities": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "aid": 4,
+      "bytes": {
+        "rx": 625,
+        "tx": 25946
+      },
+      "airtime": {
+        "rx": 0,
+        "tx": 39618
+      },
+      "packets": {
+        "rx": 5,
+        "tx": 37
+      },
+      "rate": {
+        "rx": 600000,
+        "tx": 5200000
+      },
+      "signal": -33,
+      "capabilities": {
+        "vht": {
+          "su_beamformee": false,
+          "mu_beamformee": false,
+          "mcs_map": {
+            "rx": {
+              "1ss": 9,
+              "2ss": 9,
+              "3ss": -1,
+              "4ss": -1,
+              "5ss": -1,
+              "6ss": -1,
+              "7ss": -1,
+              "8ss": -1
+            },
+            "tx": {
+              "1ss": 9,
+              "2ss": 9,
+              "3ss": -1,
+              "4ss": -1,
+              "5ss": -1,
+              "6ss": -1,
+              "7ss": -1,
+              "8ss": -1
+            }
+          }
+        }
+      }
+    },
+    "f0:9f:c2:b2:b6:ba": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "preauth": false,
+      "wds": false,
+      "wmm": true,
+      "ht": true,
+      "vht": false,
+      "he": false,
+      "wps": false,
+      "mfp": false,
+      "mbo": false,
+      "rrm": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extended_capabilities": [],
+      "aid": 3,
+      "bytes": {
+        "rx": 4821,
+        "tx": 9426
+      },
+      "airtime": {
+        "rx": 0,
+        "tx": 730
+      },
+      "packets": {
+        "rx": 71,
+        "tx": 37
+      },
+      "rate": {
+        "rx": 7220000,
+        "tx": 600000
+      },
+      "signal": -52,
+      "capabilities": {}
+    },
+    "fc:ec:da:c2:54:0a": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "preauth": false,
+      "wds": true,
+      "wmm": true,
+      "ht": true,
+      "vht": true,
+      "he": false,
+      "wps": false,
+      "mfp": false,
+      "mbo": false,
+      "rrm": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extended_capabilities": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "aid": 2,
+      "bytes": {
+        "rx": 11441,
+        "tx": 54976
+      },
+      "airtime": {
+        "rx": 0,
+        "tx": 101917
+      },
+      "packets": {
+        "rx": 35,
+        "tx": 194
+      },
+      "rate": {
+        "rx": 11700000,
+        "tx": 5200000
+      },
+      "signal": -44,
+      "capabilities": {
+        "vht": {
+          "su_beamformee": false,
+          "mu_beamformee": false,
+          "mcs_map": {
+            "rx": {
+              "1ss": 9,
+              "2ss": 9,
+              "3ss": -1,
+              "4ss": -1,
+              "5ss": -1,
+              "6ss": -1,
+              "7ss": -1,
+              "8ss": -1
+            },
+            "tx": {
+              "1ss": 9,
+              "2ss": 9,
+              "3ss": -1,
+              "4ss": -1,
+              "5ss": -1,
+              "6ss": -1,
+              "7ss": -1,
+              "8ss": -1
+            }
+          }
+        }
+      }
+    },
+    "64:d1:54:1b:96:97": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "preauth": false,
+      "wds": false,
+      "wmm": true,
+      "ht": true,
+      "vht": false,
+      "he": false,
+      "wps": false,
+      "mfp": false,
+      "mbo": false,
+      "rrm": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extended_capabilities": [
+        4,
+        0,
+        10,
+        2,
+        0,
+        64,
+        0,
+        64
+      ],
+      "aid": 1,
+      "bytes": {
+        "rx": 1420,
+        "tx": 501
+      },
+      "airtime": {
+        "rx": 0,
+        "tx": 730
+      },
+      "packets": {
+        "rx": 13,
+        "tx": 4
+      },
+      "rate": {
+        "rx": 1950000,
+        "tx": 600000
+      },
+      "signal": -59,
+      "capabilities": {}
+    }
+  },
+  "pre_stream_probes": {
+    "WA": {
+      "exit_code": 0,
+      "stdout": "PING fe80::feec:daff:fec2:540a (fe80::feec:daff:fec2:540a): 56 data bytes\n64 bytes from fe80::feec:daff:fec2:540a: seq=0 ttl=64 time=1.313 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=1 ttl=64 time=1.278 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=2 ttl=64 time=1.285 ms\n\n--- fe80::feec:daff:fec2:540a ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.278/1.292/1.313 ms\n",
+      "stderr": ""
+    },
+    "XC": {
+      "exit_code": 0,
+      "stdout": "PING fe80::b6fb:e4ff:fe5c:d5d2 (fe80::b6fb:e4ff:fe5c:d5d2): 56 data bytes\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=0 ttl=64 time=2.867 ms\n\n--- fe80::b6fb:e4ff:fe5c:d5d2 ping statistics ---\n3 packets transmitted, 1 packets received, 66% packet loss\nround-trip min/avg/max = 2.867/2.867/2.867 ms\n",
+      "stderr": ""
+    },
+    "SXT": {
+      "exit_code": 0,
+      "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=1.440 ms\n64 bytes from 10.99.0.3: seq=1 ttl=64 time=1.191 ms\n64 bytes from 10.99.0.3: seq=2 ttl=64 time=1.424 ms\n\n--- 10.99.0.3 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.191/1.351/1.440 ms\n",
+      "stderr": ""
+    },
+    "LBM5": {
+      "exit_code": 0,
+      "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1.270 ms\n64 bytes from 10.99.0.4: seq=1 ttl=64 time=1.151 ms\n64 bytes from 10.99.0.4: seq=2 ttl=64 time=1.122 ms\n\n--- 10.99.0.4 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.122/1.181/1.270 ms\n",
+      "stderr": ""
+    }
+  },
+  "first_station_dumps": {
+    "file": "first-station-dumps.json",
+    "bytes": 3098,
+    "sha256": "a411da76409a59a3c212b50c7df7894b23976e0b23b6c41ce922203ea6df6b57"
+  },
+  "four_way_stability_seconds": 60.5,
+  "four_authorized_60s": true,
+  "pings": {
+    "WA": {
+      "mac": "fc:ec:da:c2:54:0a",
+      "interface": "phy0-ap0.sta2",
+      "stdout": "PING fe80::feec:daff:fec2:540a (fe80::feec:daff:fec2:540a): 56 data bytes\n64 bytes from fe80::feec:daff:fec2:540a: seq=0 ttl=64 time=74.210 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=1 ttl=64 time=1.434 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=2 ttl=64 time=1.395 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=3 ttl=64 time=1.346 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=4 ttl=64 time=3.736 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=5 ttl=64 time=1.738 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=6 ttl=64 time=1.407 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=7 ttl=64 time=1.425 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=8 ttl=64 time=1.337 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=9 ttl=64 time=2.472 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=10 ttl=64 time=3.836 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=11 ttl=64 time=1.355 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=12 ttl=64 time=1.334 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=13 ttl=64 time=7.430 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=14 ttl=64 time=1.366 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=15 ttl=64 time=1.388 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=16 ttl=64 time=1.455 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=17 ttl=64 time=1.326 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=18 ttl=64 time=1.273 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=19 ttl=64 time=2.366 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=20 ttl=64 time=1.359 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=21 ttl=64 time=1.339 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=22 ttl=64 time=1.403 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=23 ttl=64 time=1.365 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=24 ttl=64 time=1.413 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=25 ttl=64 time=1.261 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=26 ttl=64 time=1.331 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=27 ttl=64 time=1.544 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=28 ttl=64 time=1.376 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=29 ttl=64 time=1.322 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=30 ttl=64 time=1.319 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=31 ttl=64 time=1.367 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=32 ttl=64 time=1.374 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=33 ttl=64 time=1.363 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=34 ttl=64 time=3.155 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=35 ttl=64 time=1.675 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=36 ttl=64 time=2.786 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=37 ttl=64 time=1.523 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=38 ttl=64 time=3.380 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=39 ttl=64 time=1.908 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=40 ttl=64 time=1.388 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=41 ttl=64 time=1.508 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=42 ttl=64 time=1.345 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=43 ttl=64 time=3.082 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=44 ttl=64 time=11.588 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=45 ttl=64 time=1.538 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=46 ttl=64 time=1.808 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=47 ttl=64 time=1.713 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=48 ttl=64 time=1.443 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=49 ttl=64 time=2.270 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=50 ttl=64 time=1.411 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=51 ttl=64 time=1.350 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=52 ttl=64 time=1.431 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=53 ttl=64 time=2.913 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=54 ttl=64 time=1.386 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=55 ttl=64 time=1.337 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=56 ttl=64 time=1.672 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=57 ttl=64 time=1.386 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=58 ttl=64 time=5.598 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=59 ttl=64 time=1.357 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=60 ttl=64 time=1.340 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=61 ttl=64 time=1.353 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=62 ttl=64 time=1.386 ms\n64 bytes from fe80::feec:daff:fec2:540a: seq=63 ttl=64 time=1.319 ms\n\n--- fe80::feec:daff:fec2:540a ping statistics ---\n64 packets transmitted, 64 packets received, 0% packet loss\nround-trip min/avg/max = 1.261/3.126/74.210 ms\n",
+      "stderr": "",
+      "exit_code": 0,
+      "capture_exit_code": 0,
+      "transmitted": 64,
+      "received": 64,
+      "captured_requests": 64,
+      "captured_replies": 64,
+      "paired": 64,
+      "capture": {
+        "file": "WA-capture.json",
+        "bytes": 16384,
+        "sha256": "8d71ca5b221248967bf3592d98da08835c35deecf0ea640c6ff3893a9c170a9d"
+      },
+      "pass": true
+    },
+    "XC": {
+      "mac": "b4:fb:e4:5c:d5:d2",
+      "interface": "phy0-ap0.sta4",
+      "stdout": "PING fe80::b6fb:e4ff:fe5c:d5d2 (fe80::b6fb:e4ff:fe5c:d5d2): 56 data bytes\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=0 ttl=64 time=9.031 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=1 ttl=64 time=1.403 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=2 ttl=64 time=1.269 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=3 ttl=64 time=1.303 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=4 ttl=64 time=5.025 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=5 ttl=64 time=1.562 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=6 ttl=64 time=1.478 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=7 ttl=64 time=1.294 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=8 ttl=64 time=1.228 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=9 ttl=64 time=1.641 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=10 ttl=64 time=1.641 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=11 ttl=64 time=1.518 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=12 ttl=64 time=1.288 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=13 ttl=64 time=1.304 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=14 ttl=64 time=1.304 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=15 ttl=64 time=1.301 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=16 ttl=64 time=1.512 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=17 ttl=64 time=1.558 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=18 ttl=64 time=1.516 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=19 ttl=64 time=1.746 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=20 ttl=64 time=2.007 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=21 ttl=64 time=1.231 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=22 ttl=64 time=1.315 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=23 ttl=64 time=1.389 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=24 ttl=64 time=1.351 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=25 ttl=64 time=1.267 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=26 ttl=64 time=1.266 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=27 ttl=64 time=1.234 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=28 ttl=64 time=1.289 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=29 ttl=64 time=1.386 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=30 ttl=64 time=1.288 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=31 ttl=64 time=1.329 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=32 ttl=64 time=2.548 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=33 ttl=64 time=1.527 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=34 ttl=64 time=1.840 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=35 ttl=64 time=4.134 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=36 ttl=64 time=1.298 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=37 ttl=64 time=1.523 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=38 ttl=64 time=1.361 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=39 ttl=64 time=1.270 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=40 ttl=64 time=1.761 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=41 ttl=64 time=1.529 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=42 ttl=64 time=1.277 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=43 ttl=64 time=1.357 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=44 ttl=64 time=1.353 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=45 ttl=64 time=2.464 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=46 ttl=64 time=1.301 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=47 ttl=64 time=2.493 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=48 ttl=64 time=1.282 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=49 ttl=64 time=1.225 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=50 ttl=64 time=2.298 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=51 ttl=64 time=1.350 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=52 ttl=64 time=1.230 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=53 ttl=64 time=1.287 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=54 ttl=64 time=2.361 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=55 ttl=64 time=1.486 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=56 ttl=64 time=1.883 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=57 ttl=64 time=1.232 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=58 ttl=64 time=1.232 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=59 ttl=64 time=1.261 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=60 ttl=64 time=1.613 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=61 ttl=64 time=1.458 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=62 ttl=64 time=1.238 ms\n64 bytes from fe80::b6fb:e4ff:fe5c:d5d2: seq=63 ttl=64 time=1.344 ms\n\n--- fe80::b6fb:e4ff:fe5c:d5d2 ping statistics ---\n64 packets transmitted, 64 packets received, 0% packet loss\nround-trip min/avg/max = 1.225/1.704/9.031 ms\n",
+      "stderr": "",
+      "exit_code": 0,
+      "capture_exit_code": 0,
+      "transmitted": 64,
+      "received": 64,
+      "captured_requests": 64,
+      "captured_replies": 64,
+      "paired": 64,
+      "capture": {
+        "file": "XC-capture.json",
+        "bytes": 16384,
+        "sha256": "f157f127e9f7dd1403e9a1eada7423065becd03738c91f18d9a77fe2e6631968"
+      },
+      "pass": true
+    },
+    "SXT": {
+      "mac": "64:d1:54:1b:96:97",
+      "interface": "phy0-ap0",
+      "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=4.696 ms\n64 bytes from 10.99.0.3: seq=1 ttl=64 time=2.474 ms\n64 bytes from 10.99.0.3: seq=2 ttl=64 time=1.569 ms\n64 bytes from 10.99.0.3: seq=3 ttl=64 time=1.335 ms\n64 bytes from 10.99.0.3: seq=4 ttl=64 time=1.336 ms\n64 bytes from 10.99.0.3: seq=5 ttl=64 time=1.557 ms\n64 bytes from 10.99.0.3: seq=6 ttl=64 time=2.039 ms\n64 bytes from 10.99.0.3: seq=7 ttl=64 time=2.164 ms\n64 bytes from 10.99.0.3: seq=8 ttl=64 time=1.538 ms\n64 bytes from 10.99.0.3: seq=9 ttl=64 time=1.346 ms\n64 bytes from 10.99.0.3: seq=10 ttl=64 time=1.374 ms\n64 bytes from 10.99.0.3: seq=11 ttl=64 time=7.018 ms\n64 bytes from 10.99.0.3: seq=12 ttl=64 time=1.851 ms\n64 bytes from 10.99.0.3: seq=13 ttl=64 time=2.102 ms\n64 bytes from 10.99.0.3: seq=14 ttl=64 time=1.636 ms\n64 bytes from 10.99.0.3: seq=15 ttl=64 time=1.310 ms\n64 bytes from 10.99.0.3: seq=16 ttl=64 time=1.326 ms\n64 bytes from 10.99.0.3: seq=17 ttl=64 time=2.196 ms\n64 bytes from 10.99.0.3: seq=18 ttl=64 time=2.474 ms\n64 bytes from 10.99.0.3: seq=19 ttl=64 time=1.819 ms\n64 bytes from 10.99.0.3: seq=20 ttl=64 time=10.835 ms\n64 bytes from 10.99.0.3: seq=21 ttl=64 time=1.305 ms\n64 bytes from 10.99.0.3: seq=22 ttl=64 time=2.329 ms\n64 bytes from 10.99.0.3: seq=23 ttl=64 time=4.742 ms\n64 bytes from 10.99.0.3: seq=24 ttl=64 time=2.811 ms\n64 bytes from 10.99.0.3: seq=25 ttl=64 time=1.302 ms\n64 bytes from 10.99.0.3: seq=26 ttl=64 time=7.805 ms\n64 bytes from 10.99.0.3: seq=27 ttl=64 time=1.685 ms\n64 bytes from 10.99.0.3: seq=28 ttl=64 time=1.491 ms\n64 bytes from 10.99.0.3: seq=29 ttl=64 time=6.538 ms\n64 bytes from 10.99.0.3: seq=30 ttl=64 time=1.631 ms\n64 bytes from 10.99.0.3: seq=31 ttl=64 time=1.667 ms\n64 bytes from 10.99.0.3: seq=32 ttl=64 time=1.496 ms\n64 bytes from 10.99.0.3: seq=33 ttl=64 time=1.783 ms\n64 bytes from 10.99.0.3: seq=34 ttl=64 time=2.017 ms\n64 bytes from 10.99.0.3: seq=35 ttl=64 time=2.236 ms\n64 bytes from 10.99.0.3: seq=36 ttl=64 time=5.066 ms\n64 bytes from 10.99.0.3: seq=37 ttl=64 time=1.550 ms\n64 bytes from 10.99.0.3: seq=38 ttl=64 time=8.685 ms\n64 bytes from 10.99.0.3: seq=39 ttl=64 time=6.831 ms\n64 bytes from 10.99.0.3: seq=40 ttl=64 time=1.304 ms\n64 bytes from 10.99.0.3: seq=41 ttl=64 time=2.007 ms\n64 bytes from 10.99.0.3: seq=42 ttl=64 time=1.982 ms\n64 bytes from 10.99.0.3: seq=43 ttl=64 time=1.848 ms\n64 bytes from 10.99.0.3: seq=44 ttl=64 time=2.887 ms\n64 bytes from 10.99.0.3: seq=45 ttl=64 time=1.643 ms\n64 bytes from 10.99.0.3: seq=46 ttl=64 time=1.536 ms\n64 bytes from 10.99.0.3: seq=47 ttl=64 time=2.105 ms\n64 bytes from 10.99.0.3: seq=48 ttl=64 time=1.591 ms\n64 bytes from 10.99.0.3: seq=49 ttl=64 time=2.071 ms\n64 bytes from 10.99.0.3: seq=50 ttl=64 time=1.617 ms\n64 bytes from 10.99.0.3: seq=51 ttl=64 time=1.918 ms\n64 bytes from 10.99.0.3: seq=52 ttl=64 time=2.110 ms\n64 bytes from 10.99.0.3: seq=53 ttl=64 time=1.658 ms\n64 bytes from 10.99.0.3: seq=54 ttl=64 time=1.867 ms\n64 bytes from 10.99.0.3: seq=55 ttl=64 time=2.176 ms\n64 bytes from 10.99.0.3: seq=56 ttl=64 time=1.660 ms\n64 bytes from 10.99.0.3: seq=57 ttl=64 time=1.696 ms\n64 bytes from 10.99.0.3: seq=58 ttl=64 time=1.604 ms\n64 bytes from 10.99.0.3: seq=59 ttl=64 time=1.726 ms\n64 bytes from 10.99.0.3: seq=60 ttl=64 time=1.448 ms\n64 bytes from 10.99.0.3: seq=61 ttl=64 time=1.604 ms\n64 bytes from 10.99.0.3: seq=62 ttl=64 time=1.675 ms\n64 bytes from 10.99.0.3: seq=63 ttl=64 time=2.861 ms\n\n--- 10.99.0.3 ping statistics ---\n64 packets transmitted, 64 packets received, 0% packet loss\nround-trip min/avg/max = 1.302/2.524/10.835 ms\n",
+      "stderr": "",
+      "exit_code": 0,
+      "capture_exit_code": 0,
+      "transmitted": 64,
+      "received": 64,
+      "captured_requests": 64,
+      "captured_replies": 64,
+      "paired": 64,
+      "capture": {
+        "file": "SXT-capture.json",
+        "bytes": 11899,
+        "sha256": "bd9664dd92f161f598ceae6b969fa6f0eaae54b314a5949584c50848ea347e59"
+      },
+      "pass": true
+    },
+    "LBM5": {
+      "mac": "f0:9f:c2:b2:b6:ba",
+      "interface": "phy0-ap0",
+      "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=9.109 ms\n64 bytes from 10.99.0.4: seq=1 ttl=64 time=1.297 ms\n64 bytes from 10.99.0.4: seq=2 ttl=64 time=1.813 ms\n64 bytes from 10.99.0.4: seq=3 ttl=64 time=1.280 ms\n64 bytes from 10.99.0.4: seq=4 ttl=64 time=1.324 ms\n64 bytes from 10.99.0.4: seq=5 ttl=64 time=1.475 ms\n64 bytes from 10.99.0.4: seq=6 ttl=64 time=1.301 ms\n64 bytes from 10.99.0.4: seq=7 ttl=64 time=1.318 ms\n64 bytes from 10.99.0.4: seq=8 ttl=64 time=1.735 ms\n64 bytes from 10.99.0.4: seq=9 ttl=64 time=1.661 ms\n64 bytes from 10.99.0.4: seq=10 ttl=64 time=2.132 ms\n64 bytes from 10.99.0.4: seq=11 ttl=64 time=1.838 ms\n64 bytes from 10.99.0.4: seq=12 ttl=64 time=1.280 ms\n64 bytes from 10.99.0.4: seq=13 ttl=64 time=1.265 ms\n64 bytes from 10.99.0.4: seq=14 ttl=64 time=1.371 ms\n64 bytes from 10.99.0.4: seq=15 ttl=64 time=1.305 ms\n64 bytes from 10.99.0.4: seq=16 ttl=64 time=1.314 ms\n64 bytes from 10.99.0.4: seq=17 ttl=64 time=1.362 ms\n64 bytes from 10.99.0.4: seq=18 ttl=64 time=1.303 ms\n64 bytes from 10.99.0.4: seq=19 ttl=64 time=1.802 ms\n64 bytes from 10.99.0.4: seq=20 ttl=64 time=3.682 ms\n64 bytes from 10.99.0.4: seq=21 ttl=64 time=1.883 ms\n64 bytes from 10.99.0.4: seq=22 ttl=64 time=2.026 ms\n64 bytes from 10.99.0.4: seq=23 ttl=64 time=8.553 ms\n64 bytes from 10.99.0.4: seq=24 ttl=64 time=3.172 ms\n64 bytes from 10.99.0.4: seq=25 ttl=64 time=1.198 ms\n64 bytes from 10.99.0.4: seq=26 ttl=64 time=1.316 ms\n64 bytes from 10.99.0.4: seq=27 ttl=64 time=1.186 ms\n64 bytes from 10.99.0.4: seq=28 ttl=64 time=1.354 ms\n64 bytes from 10.99.0.4: seq=29 ttl=64 time=1.317 ms\n64 bytes from 10.99.0.4: seq=30 ttl=64 time=1.359 ms\n64 bytes from 10.99.0.4: seq=31 ttl=64 time=1.416 ms\n64 bytes from 10.99.0.4: seq=32 ttl=64 time=1.290 ms\n64 bytes from 10.99.0.4: seq=33 ttl=64 time=2.035 ms\n64 bytes from 10.99.0.4: seq=34 ttl=64 time=1.238 ms\n64 bytes from 10.99.0.4: seq=35 ttl=64 time=2.102 ms\n64 bytes from 10.99.0.4: seq=36 ttl=64 time=1.236 ms\n64 bytes from 10.99.0.4: seq=37 ttl=64 time=1.241 ms\n64 bytes from 10.99.0.4: seq=38 ttl=64 time=1.307 ms\n64 bytes from 10.99.0.4: seq=39 ttl=64 time=1.182 ms\n64 bytes from 10.99.0.4: seq=40 ttl=64 time=1.202 ms\n64 bytes from 10.99.0.4: seq=41 ttl=64 time=6.283 ms\n64 bytes from 10.99.0.4: seq=42 ttl=64 time=1.226 ms\n64 bytes from 10.99.0.4: seq=43 ttl=64 time=1.385 ms\n64 bytes from 10.99.0.4: seq=44 ttl=64 time=2.222 ms\n64 bytes from 10.99.0.4: seq=45 ttl=64 time=1.196 ms\n64 bytes from 10.99.0.4: seq=46 ttl=64 time=1.887 ms\n64 bytes from 10.99.0.4: seq=47 ttl=64 time=1.903 ms\n64 bytes from 10.99.0.4: seq=48 ttl=64 time=1.173 ms\n64 bytes from 10.99.0.4: seq=49 ttl=64 time=1.564 ms\n64 bytes from 10.99.0.4: seq=50 ttl=64 time=1.442 ms\n64 bytes from 10.99.0.4: seq=51 ttl=64 time=1.426 ms\n64 bytes from 10.99.0.4: seq=52 ttl=64 time=1.191 ms\n64 bytes from 10.99.0.4: seq=53 ttl=64 time=1.618 ms\n64 bytes from 10.99.0.4: seq=54 ttl=64 time=1.355 ms\n64 bytes from 10.99.0.4: seq=55 ttl=64 time=2.342 ms\n64 bytes from 10.99.0.4: seq=56 ttl=64 time=1.231 ms\n64 bytes from 10.99.0.4: seq=57 ttl=64 time=5.363 ms\n64 bytes from 10.99.0.4: seq=58 ttl=64 time=1.370 ms\n64 bytes from 10.99.0.4: seq=59 ttl=64 time=1.343 ms\n64 bytes from 10.99.0.4: seq=60 ttl=64 time=4.046 ms\n64 bytes from 10.99.0.4: seq=61 ttl=64 time=2.006 ms\n64 bytes from 10.99.0.4: seq=62 ttl=64 time=1.922 ms\n64 bytes from 10.99.0.4: seq=63 ttl=64 time=1.222 ms\n\n--- 10.99.0.4 ping statistics ---\n64 packets transmitted, 64 packets received, 0% packet loss\nround-trip min/avg/max = 1.173/1.957/9.109 ms\n",
+      "stderr": "",
+      "exit_code": 0,
+      "capture_exit_code": 0,
+      "transmitted": 64,
+      "received": 64,
+      "captured_requests": 64,
+      "captured_replies": 64,
+      "paired": 64,
+      "capture": {
+        "file": "LBM5-capture.json",
+        "bytes": 11899,
+        "sha256": "ae7c8e476a7d83105a822ab63ed18b0ccfca1c9cd4ba1a5c4d130abd87f30289"
+      },
+      "pass": true
+    }
+  },
+  "radio_traffic_pass": true,
+  "all_radio_counters_advanced": true,
+  "acquisition_complete": true,
+  "legacy_restoration": {
+    "SXT": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+      "snapshot": "ab0fe2bd-55ef-4528-9032-6df20674573a\n4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c  /etc/config/wireless\n0c7ed7f439e9da169fc7f12908851fcc  /dev/mtd0\nae243dc4521318113d4781401997e3af  /dev/mtd3\n0634d29700fc835e3d7932da8eb79139  /dev/mtd4\n622939f192d37a4e9ba0b05daaad5014  /dev/mtd5\n03ef5cd199afa405aac7a9316e8280e2  /dev/mtd6\nd8fd8f66b380eb17e3856d3c75e84e0e  /dev/mtd7\necb99e6ffea7be1e5419350f725da86b  /dev/mtd8\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n3: br-lan: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000\n    inet 192.168.1.4/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n16: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    inet 10.99.0.3/24 brd 10.99.0.255 scope global phy0-sta0\n       valid_lft forever preferred_lft forever\n10.99.0.0/24 dev phy0-sta0 scope link  src 10.99.0.3 \n192.168.1.0/24 dev br-lan scope link  src 192.168.1.4 \nConnected to 18:e8:29:74:55:a2 (on phy0-sta0)\n\tSSID: FuturaMAX-LAB\n\tfreq: 5180.0\n\tRX: 7591 bytes (60 packets)\n\tTX: 6981 bytes (44 packets)\n\tsignal: -76 dBm\n\trx bitrate: 78.0 MBit/s MCS 12\n\ttx bitrate: 117.0 MBit/s MCS 14\n\tbss flags: short-slot-time\n\tdtim period: 2\n\tbeacon int: 100\n",
+      "ping": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=1.684 ms\n64 bytes from 10.99.0.3: seq=1 ttl=64 time=4.635 ms\n64 bytes from 10.99.0.3: seq=2 ttl=64 time=1.479 ms\n\n--- 10.99.0.3 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.479/2.599/4.635 ms\n",
+        "stderr": ""
+      },
+      "guard_log": {
+        "file": "SXT-guard-log.json",
+        "bytes": 52,
+        "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+      },
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "LBM5": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+      "snapshot": "6fc96796-6e67-4ff4-b928-b5ce0acf54ef\n0620f996529e137645ba41587cb81713  /tmp/system.cfg\n37fec0e91d8d890a6a71a9dcce9d96f0  /dev/mtd0\nd923e305db3bbb9805cc8191abe933f7  /dev/mtd1\ncd708dcf6efcc93439edcdecf918c9f5  /dev/mtd4\n3f44343069ebb39f52f13b17074803cd  /dev/mtd5\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN \n    inet 127.0.0.1/8 scope host lo\n6: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.1.5/24 brd 192.168.1.255 scope global br0\n    inet 10.99.0.4/24 brd 10.99.0.255 scope global br0\n    inet 169.254.182.186/16 brd 169.254.255.255 scope global br0\n10.99.0.0/24 dev br0  proto kernel  scope link  src 10.99.0.4 \n192.168.1.0/24 via 10.99.0.1 dev br0 \n169.254.0.0/16 dev br0  proto kernel  scope link  src 169.254.182.186 \ndefault via 192.168.1.1 dev br0 \nbridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.f09fc2b2b6ba\tno\t\teth0\n\t\t\t\t\t\t\tath0\n\t\t\t\t\t\t\teth1\nath0      IEEE 802.11na  ESSID:\"FuturaMAX-LAB\"  \n          Mode:Managed  Frequency:5.18 GHz  Access Point: 18:E8:29:74:55:A2   \n          Bit Rate:72.222 Mb/s   Tx-Power=10 dBm   Sensitivity:0/3  \n          RTS thr=256 B   Fragment thr:off\n          Encryption key:off\n          Power Management:off\n          Link Quality=23/94  Signal level=-73 dBm  Noise level=-100 dBm\n          Rx invalid nwid:0  Rx invalid crypt:20  Rx invalid frag:0\n          Tx excessive retries:0  Invalid misc:0   Missed beacon:0\n\nath0      get_authmode:1  \nath0      get_wds:0  \n",
+      "ping": {
+        "exit_code": 0,
+        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1.235 ms\n64 bytes from 10.99.0.4: seq=1 ttl=64 time=1.098 ms\n64 bytes from 10.99.0.4: seq=2 ttl=64 time=1.285 ms\n\n--- 10.99.0.4 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.098/1.206/1.285 ms\n",
+        "stderr": ""
+      },
+      "guard_log": {
+        "file": "LBM5-guard-log.json",
+        "bytes": 552,
+        "sha256": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70"
+      },
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    }
+  },
+  "AP_restoration": {
+    "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+    "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+    "deltas_empty": true,
+    "guard_ended_verified": true,
+    "RAM_guard_cleanup": {
+      "exit_code": 0,
+      "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+      "stderr": ""
+    }
+  },
+  "rocket_restoration": {
+    "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+    "evidence": {
+      "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
+      "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
+      "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
+      "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
+    }
+  },
+  "events_artifact": {
+    "file": "hostapd-events.jsonl",
+    "bytes": 24748,
+    "sha256": "edbb5784f9542988887aa665090f2fb6dd3e8a2d413ca876d708c81879df58ca"
+  },
+  "ended_utc": "2026-10-22T11:04:44.782929+00:00",
+  "exit_code": 0,
+  "raw_receipt": "root_four_cpe_20261022_run8\\receipt.json",
+  "raw_receipt_sha256": "599b88d2dc980b6513f9781208e434cf8478bda0533b66a7741e87d043217c43",
+  "sample_count": 41,
+  "verified_summary": {
+    "status": "PASS_ARTIFACT_CONTRACT_VERIFIED",
+    "experiment": "FMX-0016",
+    "run": "20261022_run8",
+    "raw_receipt_sha256": "599b88d2dc980b6513f9781208e434cf8478bda0533b66a7741e87d043217c43",
+    "four_way_association_stability_seconds": 60.5,
+    "four_ping_streams_overlap_seconds": 62.801438093185425,
+    "sample_count": 41,
+    "total_wireless_echo_pairs": 256,
+    "telemetry": {
+      "WA": {
+        "mac": "fc:ec:da:c2:54:0a",
+        "interface": "phy0-ap0.sta2",
+        "ping_transmitted": 64,
+        "ping_received": 64,
+        "radio_request_reply_pairs": 64,
+        "loss_percent": 0,
+        "first_request_epoch": 1792394485.907562,
+        "last_request_epoch": 1792394548.953397,
+        "signal_dbm": {
+          "min": -44,
+          "median": -43,
+          "max": -42
+        },
+        "observed_idle_RTT_ms": {
+          "min": 1.261,
+          "median": 1.405,
+          "p95": 5.3337,
+          "max": 74.21
+        },
+        "first_connected_seconds": 50,
+        "last_connected_seconds": 109,
+        "rx_bytes_delta": 23136,
+        "tx_bytes_delta": 70503
+      },
+      "XC": {
+        "mac": "b4:fb:e4:5c:d5:d2",
+        "interface": "phy0-ap0.sta4",
+        "ping_transmitted": 64,
+        "ping_received": 64,
+        "radio_request_reply_pairs": 64,
+        "loss_percent": 0,
+        "first_request_epoch": 1792394486.113132,
+        "last_request_epoch": 1792394549.170544,
+        "signal_dbm": {
+          "min": -36,
+          "median": -35,
+          "max": -33
+        },
+        "observed_idle_RTT_ms": {
+          "min": 1.225,
+          "median": 1.355,
+          "p95": 2.53975,
+          "max": 9.031
+        },
+        "first_connected_seconds": 17,
+        "last_connected_seconds": 76,
+        "rx_bytes_delta": 22336,
+        "tx_bytes_delta": 71005
+      },
+      "SXT": {
+        "mac": "64:d1:54:1b:96:97",
+        "interface": "phy0-ap0",
+        "ping_transmitted": 64,
+        "ping_received": 64,
+        "radio_request_reply_pairs": 64,
+        "loss_percent": 0,
+        "first_request_epoch": 1792394486.113872,
+        "last_request_epoch": 1792394549.172691,
+        "signal_dbm": {
+          "min": -61,
+          "median": -59,
+          "max": -59
+        },
+        "observed_idle_RTT_ms": {
+          "min": 1.302,
+          "median": 1.801,
+          "p95": 6.98995,
+          "max": 10.835
+        },
+        "first_connected_seconds": 80,
+        "last_connected_seconds": 139,
+        "rx_bytes_delta": 7714,
+        "tx_bytes_delta": 7210
+      },
+      "LBM5": {
+        "mac": "f0:9f:c2:b2:b6:ba",
+        "interface": "phy0-ap0",
+        "ping_transmitted": 64,
+        "ping_received": 64,
+        "radio_request_reply_pairs": 64,
+        "loss_percent": 0,
+        "first_request_epoch": 1792394486.151959,
+        "last_request_epoch": 1792394549.188793,
+        "signal_dbm": {
+          "min": -53,
+          "median": -52,
+          "max": -51
+        },
+        "observed_idle_RTT_ms": {
+          "min": 1.173,
+          "median": 1.366,
+          "p95": 5.165450000000001,
+          "max": 9.109
+        },
+        "first_connected_seconds": 48,
+        "last_connected_seconds": 107,
+        "rx_bytes_delta": 15349,
+        "tx_bytes_delta": 20485
+      }
+    },
+    "restoration": "PASS exact AP/Rocket and both original open legacy profiles/protected hashes/boot/IPv4/routes; guards ended and owned temporary guard files removed",
+    "classification": "CONFIRMED_EXACT_BENCH_FOUR_CPE_MULTI_GENERATION_COMPATIBILITY_AND_TELEMETRY",
+    "limits": [
+      "Low-rate ICMP and association test only; no throughput/capacity/loaded-latency gain claim",
+      "AP+four per-station time series plus two legacy CPE self reports; no cooperative relay or optimizer implemented",
+      "Original240s legacy guard deadline retained; accepted run uses2s activation delay and explicit XC native scan before Auth",
+      "IE timestamps are API acknowledgements; over-air IE timing unqualified"
+    ]
+  },
+  "verification_artifact": "root_four_cpe_20261022_run8\\verification.json",
+  "prior_attempt_AP_RAM_cleanup": "root_four_cpe_ram_cleanup_20261022.json"
+}
