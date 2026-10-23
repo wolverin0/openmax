@@ -1,0 +1,115 @@
+{
+  "experiment": "PANEL1_GUARIDA_ZERO_TOUCH_CANARY_20261022",
+  "target": "10.10.200.41",
+  "started_utc": "2026-10-23T17:55:34.829489+00:00",
+  "status": "PASS_MONZON_OPENWRT_STA_WDS_ROUTER_LIVE_VERIFIED",
+  "events": [
+    {
+      "utc": "2026-10-23T17:55:35.865159+00:00",
+      "phase": "STAGING_CANDIDATE_IMAGE_IN_TMP"
+    },
+    {
+      "utc": "2026-10-23T17:55:58.734172+00:00",
+      "phase": "STOCK_PREFLIGHT_PASSED",
+      "memfree_kib": 14120
+    },
+    {
+      "utc": "2026-10-23T17:56:00.148493+00:00",
+      "phase": "RAM_STAGE_COMPLETE",
+      "memfree_after_kib": 13604
+    },
+    {
+      "utc": "2026-10-23T17:56:00.299380+00:00",
+      "phase": "RAM_INITTAB_VERIFIED"
+    },
+    {
+      "utc": "2026-10-23T17:56:00.358380+00:00",
+      "phase": "PID1_HUP_RELOAD_COMPLETE",
+      "rc": 0
+    },
+    {
+      "utc": "2026-10-23T17:56:00.453718+00:00",
+      "phase": "REBOOT_HANDOFF_SENT",
+      "rc": 0
+    },
+    {
+      "utc": "2026-10-23T17:56:08.456418+00:00",
+      "phase": "NATIVE_OBSERVER_PROGRESS",
+      "count": 1,
+      "latest": "INIT_PREPARED_BEFORE_QUIESCE"
+    },
+    {
+      "utc": "2026-10-23T17:57:24.473913+00:00",
+      "phase": "NATIVE_OBSERVER_PROGRESS",
+      "count": 2,
+      "latest": "INIT_QUIESCED_WATCHDOG_GUARD_PASSED"
+    },
+    {
+      "utc": "2026-10-23T18:00:26.348832+00:00",
+      "phase": "OPENWRT_SSH_CONNECTED",
+      "elapsed_s": 265.89,
+      "ssh_key_sha256": "6bc3b1dc828bfbefd5fe05325d22f428b2a2a7e22570ee38a1b898b03e516554"
+    },
+    {
+      "utc": "2026-10-23T18:00:27.393552+00:00",
+      "phase": "OPENWRT_IDENTITY_AND_MAC80211_VERIFIED",
+      "mac80211_sha256": "19a8fde6c6e5efbec3b5b3ddb28399631fc3bba516c5341c8f40e7263124c416"
+    },
+    {
+      "utc": "2026-10-23T18:00:31.922508+00:00",
+      "phase": "OPENWRT_PROTECTED_PARTITIONS_VERIFIED",
+      "sha_map": {
+        "mac80211": "19a8fde6c6e5efbec3b5b3ddb28399631fc3bba516c5341c8f40e7263124c416",
+        "/dev/mtd0": "988de5143235db3c0afc810b3bbad0b9177e96ec8493b4873486eb626d80ebfc",
+        "/dev/mtd1": "63213a0bb3ec161faa51abf53417dcab7325b529c12150073923c6ab42cf711f",
+        "/dev/mtd7": "e48878fc71382a51f652a501add4c64f470f990faaa1e3bf65098431ac754e93"
+      }
+    },
+    {
+      "utc": "2026-10-23T18:01:14.462805+00:00",
+      "phase": "LUCI_WEBUI_INSTALLED_AND_STARTED"
+    },
+    {
+      "utc": "2026-10-23T18:01:20.319937+00:00",
+      "phase": "MONZON_OPENWRT_CUTOVER_COMPLETE"
+    }
+  ],
+  "native_records": [
+    {
+      "nonce": "1aa3778048e1ccb86558639ee714293e53080b36463ee1463d0ac5f1f8ff3ec0",
+      "target": "10.10.200.41",
+      "board_sha256": "45d56ec54f30b0e97b5033ee4fe8054197aee5de9b24462e529d61e73e422e92",
+      "status": "INIT_PREPARED_BEFORE_QUIESCE",
+      "journal_blocks": 0,
+      "original_sha256": "1f7cd16cdf3fef7bab13cf6acfc236bdda6d67db08054298544ec72bd563ab7f",
+      "candidate_sha256": "08efe7668f61c096d8f6eb34e110d2ec2081cddaafc0cd63a3e4c31c4adb19c3",
+      "stock_verified": true,
+      "image_verified": false,
+      "relock_ok": true,
+      "pid1_parent": true,
+      "quiesced": false,
+      "watchdog_guard_ms": 0,
+      "before_free_kib": 13440,
+      "after_free_kib": 13196
+    },
+    {
+      "nonce": "1aa3778048e1ccb86558639ee714293e53080b36463ee1463d0ac5f1f8ff3ec0",
+      "target": "10.10.200.41",
+      "board_sha256": "45d56ec54f30b0e97b5033ee4fe8054197aee5de9b24462e529d61e73e422e92",
+      "status": "INIT_QUIESCED_WATCHDOG_GUARD_PASSED",
+      "journal_blocks": 0,
+      "original_sha256": "1f7cd16cdf3fef7bab13cf6acfc236bdda6d67db08054298544ec72bd563ab7f",
+      "candidate_sha256": "08efe7668f61c096d8f6eb34e110d2ec2081cddaafc0cd63a3e4c31c4adb19c3",
+      "stock_verified": true,
+      "image_verified": false,
+      "relock_ok": true,
+      "pid1_parent": true,
+      "quiesced": true,
+      "watchdog_guard_ms": 75969,
+      "before_free_kib": 13440,
+      "after_free_kib": 13196
+    }
+  ],
+  "openwrt_cpe_diagnostics": "Connected to 78:45:58:a0:34:a2 (on phy0-sta0)\n\tSSID: FT-Guarida1\n\tfreq: 5240.0\n\tRX: 6978801 bytes (15212 packets)\n\tTX: 666361 bytes (2583 packets)\n\tsignal: -47 dBm\n\trx bitrate: 144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2\n\ttx bitrate: 104.0 MBit/s VHT-MCS 5 VHT-NSS 2\n\tbss flags: short-slot-time\n\tdtim period: 2\n\tbeacon int: 30\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n    inet6 ::1/128 scope host \n       valid_lft forever preferred_lft forever\n2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel master br-lan state UP qlen 1000\n    link/ether 24:5a:4c:e1:05:40 brd ff:ff:ff:ff:ff:ff\n3: br-lan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    link/ether 24:5a:4c:e1:05:40 brd ff:ff:ff:ff:ff:ff\n    inet 192.168.1.20/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n    inet6 fe80::265a:4cff:fee1:540/64 scope link \n       valid_lft forever preferred_lft forever\n4: br-wan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    link/ether 24:5a:4c:e0:05:40 brd ff:ff:ff:ff:ff:ff\n    inet 10.10.200.41/24 brd 10.10.200.255 scope global br-wan\n       valid_lft forever preferred_lft forever\n    inet6 fe80::265a:4cff:fee0:540/64 scope link \n       valid_lft forever preferred_lft forever\n5: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-wan state UP qlen 1000\n    link/ether 24:5a:4c:e0:05:40 brd ff:ff:ff:ff:ff:ff\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\ntable inet fw4 {\n\tchain srcnat_wan {\n\t\tmeta nfproto ipv4 masquerade comment \"!fw4: Masquerade IPv4 wan traffic\"\n\t}\n}\nPING 10.10.200.1 (10.10.200.1): 56 data bytes\n64 bytes from 10.10.200.1: seq=0 ttl=64 time=9.772 ms\n64 bytes from 10.10.200.1: seq=1 ttl=64 time=29.758 ms\n64 bytes from 10.10.200.1: seq=2 ttl=64 time=15.379 ms\n64 bytes from 10.10.200.1: seq=3 ttl=64 time=14.317 ms\n\n--- 10.10.200.1 ping statistics ---\n4 packets transmitted, 4 packets received, 0% packet loss\nround-trip min/avg/max = 9.772/17.306/29.758 ms\nPING 192.168.1.176 (192.168.1.176): 56 data bytes\n64 bytes from 192.168.1.176: seq=0 ttl=64 time=0.757 ms\n64 bytes from 192.168.1.176: seq=1 ttl=64 time=1.057 ms\n64 bytes from 192.168.1.176: seq=2 ttl=64 time=0.639 ms\n\n--- 192.168.1.176 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 0.639/0.817/1.057 ms\n1792772485 80:af:ca:d8:50:27 192.168.1.176 WR300 *\n13848\n",
+  "ended_utc": "2026-10-23T18:01:20.319937+00:00"
+}
