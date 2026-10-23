@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-23T03:39:09.284721+00:00",
+  "parent": "FMX0017 / original forward-plan PhaseB-C; PREPROD1 full four-CPE recovery",
+  "question": "Does stock XC AP_SCAN2 pre-window use configured SSID for autonomous recovery instead of scan-derived BSS identity?",
+  "evidence": {
+    "AF_receipt_sha256": "2a15f4d81cf29b6f22b51cc5226981ef4e94e671a8cfa481d8494e8980a61b69",
+    "AF_independent_sha256": "534825d4ebac25c97bb3163bf0669944702dafcaa81fb8b4d72e37c340433e9f",
+    "AF_owner_frames_sha256": "d0bbfb938460346b7ebddcd59b119eb81f02bc115564532695f47deec44d15aa",
+    "AF_result": "scan_ssid0->1->0 confirmed, nativeXC78 recovery_timeout, initialIE0present/18recoveryIE0absent, allrestored",
+    "XC_driver_readonly_sha256": "c20579b541776b7b7b490031031f9c071299e2ce91ec6fa70ae383fba50d04d1",
+    "driver": "wext",
+    "XC_autoassoc_readonly_sha256": "bee1d93ddbacdf6f86b866fe3e98a655f07c2df07ecf745d4f585c059583dca3",
+    "autoassoc": 0,
+    "original_config_readonly_sha256": "b04fa7ba2e0021a78fe240d9de32d37c6c45f567a04d178ed567ccf6b274c267"
+  },
+  "upstream_sources": [
+    {
+      "url": "https://w1.fi/wpa_supplicant/devel/structwpa__config.html",
+      "supports": "AP_SCAN2 associates using configured SSID/security without selected BSSID; single security policy required; unsuitable for nl80211. ExactXC WEXT verified; proprietary effect not established."
+    },
+    {
+      "url": "https://w1.fi/wpa_supplicant/devel/ctrl_iface_page.html",
+      "supports": "AP_SCAN command and RECONFIGURE original file reload"
+    }
+  ],
+  "control_boundary": "Externalcontroller prewindow stockwpa_supplicant global RAM policy; WEXT driver/firmware association encoding effect UNKNOWN",
+  "hypothesis": "Inferred scan-derived BSS identity defect may be avoided by configuredSSID selection; upstream source is not exactXC binary evidence.",
+  "minimum_change": "OnlyAP_SCAN1->2 after existing exactfreshsecureBSS/IEclear, before enable/reassociate and window. Keep originalscan_ssid0; require getter0 and AP_SCAN1 baselineACK, checkpoint before AP_SCAN2, thenACK2. No save/newprocess/newdeferredtask.",
+  "rollback": "Independent originalRocketguard RECONFIGURE reloads unchanged AUTO.conf ap_scan1/scan_ssid0. Afterguardends and exacthash/net/rules checks require AP_SCAN1 ACK and actualscan_ssid0; report ACK/configreload, not independent globalmode readback.",
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR"
+  },
+  "acceptance_unchanged": true,
+  "guards_unchanged": true,
+  "selection_caveat": "Mode2 does not use BSSID selection; actual onlyAP120/BSSID/labSSID associations must be verified. Prepared nondefaultmode2 result is not untoucheddefaultmode1 universal compatibility.",
+  "stop_park_condition": "Unsupported setter/originalscan0/restoreACK failure or original admission/recovery/stream/continuity/restoration gate fails: preserve negative and reject this hypothesis without unchanged retry.",
+  "decisive_evidence": "Same initial/recoveryframe traces plus all fourtrue losses/new sessions, otherthreecontinuous, fiveholds/twenty32echo+32RFpairs, zeroCPEwindowcommands and exactrestore",
+  "production_access_permitted": false
+}

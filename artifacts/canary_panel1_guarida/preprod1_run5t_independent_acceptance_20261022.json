@@ -1,0 +1,558 @@
+{
+  "status": "NOT_ACCEPTED_PREPROD1_XC_TIMEOUT_TRACE_COMPLETE_ALL_RESTORED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T21:55:21.124157+00:00",
+  "receipt_sha256": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb",
+  "plan_sha256": "732725426e7f71ca2232fdbbb7f598c01400d6c46af8501ba4c0a5e453b36387",
+  "source_review_sha256": "553eb653e7812766201206f9184ed77dc02c39d5be702d7ebe9ed99b1bd7465c",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "e59354ec915ee767e1c6a313a70cf0f2422d4079ddf34dac13c59b741c48c5ce",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T21:46:37.267387+00:00",
+  "ended_utc": "2026-10-22T21:52:51.522623+00:00",
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "AP_diagnostic_trace_complete": true,
+  "conclusion": "T records a real WA recovery/new session and complete subsequent traffic epoch, then XC recovery timeout. Logging instrumentation completed and restored successfully, but TRACE_COMPLETE is not wireless PASS. Only one of four target recoveries and two of five epochs qualify.",
+  "native_evidence": {
+    "artifact": {
+      "file": "daemon-evidence.json",
+      "bytes": 148009,
+      "sha256": "51d60e751f44a8a74d710561aebf668d0fa50fa6c9e5e063afe008a9d51ee1aa"
+    },
+    "exit_code": 78,
+    "stop_reason": "recovery_timeout",
+    "restore_rc": 0,
+    "stderr_and_listener_stderr_empty": true,
+    "initial_four_admitted_s": 4.22,
+    "stable_holds_completed": [
+      {
+        "epoch": 0,
+        "actual_seconds": 60.44
+      },
+      {
+        "epoch": 1,
+        "actual_seconds": 60.67
+      }
+    ],
+    "WA": {
+      "loss": 73799.73,
+      "old_WDS_ifindex": 196,
+      "retired": 73805.8,
+      "retirement_wait_s": 6.07,
+      "IE_set_ACK": 73805.97,
+      "IE_clear_ACK": 73830.94,
+      "exposure_s": 24.97,
+      "recovered": 73854.85,
+      "loss_to_recovered_s": 55.12,
+      "new_session_verified": true,
+      "epoch1_traffic_verified": true
+    },
+    "XC": {
+      "loss": 73916.53,
+      "old_WDS_ifindex": 195,
+      "retired": 73922.92,
+      "retirement_wait_s": 6.39,
+      "IE_set_ACK": 73923.03,
+      "IE_clear_ACK": 73946.68,
+      "exposure_s": 23.65,
+      "daemon_ended": 73976.26,
+      "loss_to_ended_s": 59.73,
+      "clear_to_ended_s": 29.58,
+      "recovered": false,
+      "new_session_verified": false
+    },
+    "remaining_drops_not_executed": [
+      "SXT",
+      "LBM5"
+    ]
+  },
+  "observer_packet_audit": {
+    "samples_total": 133,
+    "post_initial_admission_samples": 131,
+    "non_target_authorization_checks": 462,
+    "non_target_sessions_connected_rx_tx_counters_continuous": true,
+    "target_session_resets": [
+      {
+        "sample": 72,
+        "drop": "1",
+        "MAC": "fc:ec:da:c2:54:0a",
+        "before": {
+          "interface": "phy0-ap0.sta3",
+          "connected_seconds": 63,
+          "rx_bytes": 22343,
+          "tx_bytes": 7954
+        },
+        "after": {
+          "interface": "phy0-ap0.sta3",
+          "connected_seconds": 1,
+          "rx_bytes": 625,
+          "tx_bytes": 634
+        }
+      }
+    ],
+    "qualified_epochs": 2,
+    "required_epochs": 5,
+    "traffic_recomputed": {
+      "0": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta3",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-WA.json",
+            "bytes": 10879,
+            "sha256": "b39e2dbb0df8fd73c29cd6be7f7c1bf34c5ec85955b87ad7e933639ff0d979a0"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta2",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-XC.json",
+            "bytes": 10879,
+            "sha256": "957d7e5ae57a89af2e7cadbb9a7f183778e040a1792b55f3fb353fc9d40b1650"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-SXT.json",
+            "bytes": 8074,
+            "sha256": "d99317e8c58785c7c1aced0b2889b4a1f8afefbe61ec8f8ab306a5d92da58080"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-LBM5.json",
+            "bytes": 8074,
+            "sha256": "ee607653bf61b28b2277d0f7346f9f8b9984796d9fa6896391549264deb3975b"
+          }
+        }
+      },
+      "1": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta3",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-WA.json",
+            "bytes": 10943,
+            "sha256": "1ec87542f7d161a3264aa227f42baae0248a01514506c89d0cc308e2fefff99e"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta2",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-XC.json",
+            "bytes": 10943,
+            "sha256": "0d43a02b10023fa7b9c3cc8ca0c7fbd44b5abf49e68e96040f3541f5a705be78"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-SXT.json",
+            "bytes": 8140,
+            "sha256": "e3b6e92e07ccf1500239dc87874a705af0354043a9a9a68843f026b084726d23"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-LBM5.json",
+            "bytes": 8138,
+            "sha256": "0f18a4ea1bf1f08463470634929f0eeaad361a741d880daa5dcf6a3315209689"
+          }
+        }
+      }
+    },
+    "unexecuted_epochs": [
+      2,
+      3,
+      4
+    ],
+    "XC_audited_commands": 48,
+    "XC_exec_during_window": 0
+  },
+  "AP_debug_public_proofs": {
+    "status": "TRACE_COMPLETE",
+    "CLI_binary_SHA_verified": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "base_source_SHA_verified": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "PING_before_window": true,
+    "DEBUG_verified": true,
+    "showkeys_changed": false,
+    "original_level": "INFO",
+    "original_timestamp": "0",
+    "original_BSS_logger": "2",
+    "logger_restore_acknowledged": true,
+    "global_level_timestamp_restored_verified": true,
+    "logging_guard_PID_start": [
+      "17423",
+      "7392436"
+    ],
+    "logging_guard_ended_verified": true,
+    "owned_debug_RAM_cleanup_verified": true,
+    "errors": [],
+    "private_receipt_SHA_as_reported_not_opened": "edb8ac73abe6d81689e7ea5d652eb2dafb22261128f4ad3eb66979246e13483e",
+    "XC_snapshot_sequence_count": 8,
+    "sequence_bound": 14,
+    "each_sequence_capture_bound_bytes": 50000,
+    "additional_inherited_capture": "Base attach also captures log.before.txt<=50000bytes, separate from XC-snapshot-00..13 count. No claim of14total private files or direct private size verification.",
+    "source_enforced_capture_limits": "Frozen source enforces per-read byte bounds,>=5s nonforced intervals and final reserved slot; public complete result reports8captures.",
+    "public_excerpt_artifact": {
+      "file": "AP-debug-excerpt.json",
+      "bytes": 2155,
+      "sha256": "6308be51ec5b58175bea31b765ac13e69df992e4a6d3cdf0b81926f4f384cd9e"
+    },
+    "public_context_lines": 9,
+    "public_context_MAC_and_sensitive_pattern_check_passed": true
+  },
+  "diagnostic_facts_and_limits": [
+    "Filtered public context contains successful open-system authentication/authenticated messages for exact XC. It does not provide an association rejection reason or a successful new XC session.",
+    "The first selected line is visibly truncated historical context with a local deauth message; it must not be assigned to T as a newly timed event. Snapshot difference/deduplication is not a temporal proof.",
+    "Embedded log dates are the AP device clock (Oct19), not the hostUTC time of this Oct22run. No calibrated RF/UTC correlation is claimed.",
+    "Postattach baseline, finite log window, deduplication and privacy filtering can omit context; absence of assoc/reject text is not proof no association request/rejection occurred.",
+    "DEBUG/extraRPCs can perturb timing. No isolated cause, performance comparison or repair success is inferred."
+  ],
+  "restoration": {
+    "cleanup_errors": [],
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hashes_exact": 8,
+        "ordered_IPv4_routes_exact": true,
+        "ping": "3/3",
+        "owned_RAM_removed": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hashes_exact": 5,
+        "ordered_IPv4_routes_exact": true,
+        "ping": "3/3",
+        "owned_RAM_removed": true
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "all_four_baseline_snapshots_exact": true
+    },
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "daemon_process_ended": {
+      "exit_code": 0,
+      "stdout": "ENDED\n",
+      "stderr": ""
+    },
+    "daemon_owned_RAM_removed": true,
+    "capture_startup_workers_ended": 8,
+    "native_capture_guards_ended": 8,
+    "logging_restored_before_profile_reload_and_AP_off": "Positive trace proofs under frozen finally order; errors cannot skip original radio-off/restoration.",
+    "bridge": {
+      "owned_table_deleted_original_names_exact": true,
+      "original_tables": "table inet fw4\n",
+      "final_forward_drop_counters": [
+        4147,
+        82
+      ],
+      "limit": "Filtering evidence only, no causal/performance claim."
+    },
+    "forbidden_actions_executed": false,
+    "persistent_config_writes": false
+  },
+  "limits": [
+    "Full PREPROD1 remains NOT_ACCEPTED; no helper completion or partial WA success rescues XC timeout or historical negatives.",
+    "Missing final three epochs and SXT/M5 recoveries remain unexecuted.",
+    "90s logging guard is best effort, controlled end proven here; not host/power-loss recovery proof. AP restoration is frozen pinned context/configuration verification, not fresh raw-MTD capture.",
+    "Only public local receipts/artifacts/frozen sources inspected; private DEBUG history/receipt/snapshots not opened. No hardware/network/credentials/tests/Git/source edits by reviewer."
+  ],
+  "artifact_references_verified": [
+    {
+      "file": "preflight-0-WA.json",
+      "bytes": 548,
+      "sha256": "41d418481612ee46fd641efb55aa73780e12b8a6415d99c4687ee2bffa69d185"
+    },
+    {
+      "file": "preflight-0-XC.json",
+      "bytes": 548,
+      "sha256": "638facdbfd086c3e7eb14c95911724380154e75f2fe877a6c0db95743d53bcf0"
+    },
+    {
+      "file": "preflight-0-SXT.json",
+      "bytes": 452,
+      "sha256": "4a65fba05e358127a80a9400042b4a197b4ff6bdce5accce47daaf1a38af90c2"
+    },
+    {
+      "file": "preflight-0-LBM5.json",
+      "bytes": 452,
+      "sha256": "e6e9f3952744bac08e269f23ad45d3cf3da8919f0adc6e86184d6390c861c653"
+    },
+    {
+      "file": "preflight-1-WA.json",
+      "bytes": 548,
+      "sha256": "a421c5638384eac21b548e05e81a8291e58bf7c3d0023c5cda92f9d52f6b8dae"
+    },
+    {
+      "file": "preflight-1-XC.json",
+      "bytes": 482,
+      "sha256": "ae2aa700a3aad4d7b767923b2290aa357d6137f81e36ef7553de54c458ce1b3f"
+    },
+    {
+      "file": "preflight-1-SXT.json",
+      "bytes": 452,
+      "sha256": "3b0c956de3b543dbcfd761b088a9558918d20885e71cfc0e3e37e78883d94393"
+    },
+    {
+      "file": "preflight-1-LBM5.json",
+      "bytes": 452,
+      "sha256": "848b78696cfdac62406674644f515309d57e239f08bbdc17b0430b996a203665"
+    },
+    {
+      "file": "epoch0-WA.json",
+      "bytes": 10879,
+      "sha256": "b39e2dbb0df8fd73c29cd6be7f7c1bf34c5ec85955b87ad7e933639ff0d979a0"
+    },
+    {
+      "file": "epoch0-XC.json",
+      "bytes": 10879,
+      "sha256": "957d7e5ae57a89af2e7cadbb9a7f183778e040a1792b55f3fb353fc9d40b1650"
+    },
+    {
+      "file": "epoch0-SXT.json",
+      "bytes": 8074,
+      "sha256": "d99317e8c58785c7c1aced0b2889b4a1f8afefbe61ec8f8ab306a5d92da58080"
+    },
+    {
+      "file": "epoch0-LBM5.json",
+      "bytes": 8074,
+      "sha256": "ee607653bf61b28b2277d0f7346f9f8b9984796d9fa6896391549264deb3975b"
+    },
+    {
+      "file": "epoch1-WA.json",
+      "bytes": 10943,
+      "sha256": "1ec87542f7d161a3264aa227f42baae0248a01514506c89d0cc308e2fefff99e"
+    },
+    {
+      "file": "epoch1-XC.json",
+      "bytes": 10943,
+      "sha256": "0d43a02b10023fa7b9c3cc8ca0c7fbd44b5abf49e68e96040f3541f5a705be78"
+    },
+    {
+      "file": "epoch1-SXT.json",
+      "bytes": 8140,
+      "sha256": "e3b6e92e07ccf1500239dc87874a705af0354043a9a9a68843f026b084726d23"
+    },
+    {
+      "file": "epoch1-LBM5.json",
+      "bytes": 8138,
+      "sha256": "0f18a4ea1bf1f08463470634929f0eeaad361a741d880daa5dcf6a3315209689"
+    },
+    {
+      "file": "failure-station-dumps.json",
+      "bytes": 2316,
+      "sha256": "571f5b476ab3d2fc39f0b42a0a193773ab6462dbc29ebe7becdeb1b803864f81"
+    },
+    {
+      "file": "daemon-evidence.json",
+      "bytes": 148009,
+      "sha256": "51d60e751f44a8a74d710561aebf668d0fa50fa6c9e5e063afe008a9d51ee1aa"
+    },
+    {
+      "file": "AP-debug-excerpt.json",
+      "bytes": 2155,
+      "sha256": "6308be51ec5b58175bea31b765ac13e69df992e4a6d3cdf0b81926f4f384cd9e"
+    },
+    {
+      "file": "setup-0-WA-capture.json",
+      "bytes": 274,
+      "sha256": "d2c3958107a4767a392db138e455afa6c1ee31a87afabe856f0ad49f3510139d"
+    },
+    {
+      "file": "setup-0-XC-capture.json",
+      "bytes": 274,
+      "sha256": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f"
+    },
+    {
+      "file": "setup-0-SXT-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-0-LBM5-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-1-WA-capture.json",
+      "bytes": 274,
+      "sha256": "d2c3958107a4767a392db138e455afa6c1ee31a87afabe856f0ad49f3510139d"
+    },
+    {
+      "file": "setup-1-XC-capture.json",
+      "bytes": 274,
+      "sha256": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f"
+    },
+    {
+      "file": "setup-1-SXT-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-1-LBM5-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "SXT-guard-log.json",
+      "bytes": 52,
+      "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+    },
+    {
+      "file": "LBM5-guard-log.json",
+      "bytes": 552,
+      "sha256": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70"
+    },
+    {
+      "file": "hostapd-events.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binding_files": [
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/receipt.json",
+      "bytes": 1303869,
+      "sha256": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_plan_20261022_run5t.json",
+      "bytes": 13230,
+      "sha256": "732725426e7f71ca2232fdbbb7f598c01400d6c46af8501ba4c0a5e453b36387"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_source_review_20261022_run5t.json",
+      "bytes": 7671,
+      "sha256": "553eb653e7812766201206f9184ed77dc02c39d5be702d7ebe9ed99b1bd7465c"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/fmx_admitter.sh",
+      "bytes": 12599,
+      "sha256": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/preprod1_trial_20261022.py",
+      "bytes": 55469,
+      "sha256": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py",
+      "bytes": 8027,
+      "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py",
+      "bytes": 14489,
+      "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py",
+      "bytes": 22519,
+      "sha256": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py",
+      "bytes": 1899,
+      "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py",
+      "bytes": 4595,
+      "sha256": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py",
+      "bytes": 47196,
+      "sha256": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/test_preprod1_audit.py",
+      "bytes": 43898,
+      "sha256": "e59354ec915ee767e1c6a313a70cf0f2422d4079ddf34dac13c59b741c48c5ce"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/preprod1_AP_debug_20261022.py",
+      "bytes": 7824,
+      "sha256": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/root_goal_ap_assoc_debug_20261022.py",
+      "bytes": 13684,
+      "sha256": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5t/executed-source/root_goal_hostapd_cli_20261022.bin",
+      "bytes": 59016,
+      "sha256": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52"
+    }
+  ]
+}

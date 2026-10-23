@@ -1,0 +1,93 @@
+{
+  "status": "PASS_LOCAL_PREPROD1_RUN5I_GUARDED_EXACT_OLD_WDS_RETIREMENT",
+  "reviewed_utc": "2026-10-22T19:26:32.840295+00:00",
+  "plan_sha256": "3387a10627f49db28716b788d5536c77ab666b0e83c024bab9b6e9c58d86c19e",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "e8e6a9611ecb11dcf2de352900b12560547d005e04b3636f3a4d16eb809c3501",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17b55bc7e40ce1a8c11389601c16015c8e8884e20e0922d4ac8df88101fb3205",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "5aada1f62a26a0b58603567a4f2e77a249c7d6b1eec2e957888fcea9d17ed95d"
+  },
+  "must_fix_findings": [],
+  "scope": "Independent local source/archive/metadata review only; no device/network/credentials/tests/Git/producer changes. Only the two authorized review JSONs written.",
+  "blocked_revision_preserved": {
+    "review_file": "preprod1_source_review_20261022_run5i.json",
+    "review_sha256": "4dbb1f3406d1b96638d2c48c2f119308d2701c738647f856b14dde9dc561d483",
+    "archive_receipt_sha256": "a515904ca24d6b4c8b6ecdea55b687a7a6be1723a24c8fecc056eb9e2755990e",
+    "not_executed": true
+  },
+  "findings": [
+    "Before exactWA/XC drop, daemon binds numericpositive aid to its WDSchild, verifies iwstationget exact targetMAC/onchild prefix and numericpositive sysfsifindex; legacy drops unchanged.",
+    "Same current ifindex blocks both pulse and RECOVERED path and logsWAIT once. Different valid index or actual absent child/ifindex paths permits retired record; old child binding then clears.",
+    "Readguard resolves original blocker: successfulcat rejects empty/nondecimal/zero-leading index; failedcat with either path existing exits88. Only failedcat with both paths absent counts as disappearance. No swallowed I/O error is treated as retirement.",
+    "Barrier covers immediate WAIT_LOSS->RECOVER pulse and later RECOVER acceptance. Other-three protection and strict60s phase_end from original observed loss remain before success; waiting consumes this deadline rather than extending it.",
+    "Runner17b55, owned nft isolation and existingguard/cleanup unchanged. All nine current bindings, three precondition hashes, RF, acceptance/guard/stop fields and53test metadata verified."
+  ],
+  "preconditions": {
+    "exact_previous_restoration": {
+      "file": "preprod1_20261022_run5h/receipt.json",
+      "sha256": "37714e823e68c4969cf336dd4e99e5601b0a0982ac087020680ecbc885b9fbd3"
+    },
+    "independent_negative_and_restore": {
+      "file": "preprod1_run5h_independent_acceptance_20261022.json",
+      "sha256": "3e67eb0f42efd69d6bf63c9b49e9da5c507b1fda7e45c91e2097e8f50b2b9159"
+    },
+    "authentication_diagnostic": {
+      "file": "preprod1_r5h_AP_auth_diagnostic_20261022.json",
+      "sha256": "4f337f3a1efb0eef434ae8f557768bf302f992461c52a95bb8c57e58fbc3a2a0"
+    }
+  },
+  "verification": {
+    "reviewer_readonly_delta_checks": {
+      "tool_chunks": [
+        "acb57f",
+        "83d011",
+        "af3387"
+      ],
+      "exit_code": 0,
+      "tests_rerun": false
+    },
+    "coordinator_readguard_red": {
+      "file": "preprod1_r5i_red_ifindex_read_guard_20261022.json",
+      "sha256": "e4373ed9a6d42f09200697485b1cbecd6ee371fff91fb98e01df8d0b3861a9fa",
+      "failed": 4,
+      "exit_code": 1,
+      "tool_chunk": "593dfa",
+      "preserved": true
+    },
+    "coordinator_lifecycle_red": {
+      "file": "preprod1_r5i_red_wds_retirement_20261022.json",
+      "sha256": "0196d7cdd66973d9dd9e7b74bedac3cd68b4f6835eb93ab5c2e27c70661b37c8",
+      "failed": 2,
+      "exit_code": 1,
+      "preserved": true
+    },
+    "coordinator_fixture_failure": {
+      "file": "preprod1_r5i_fixture_failure_20261022.json",
+      "sha256": "75e25636b542a7d7dddee517ade646a4a887d1252b2ab5a9e141e41a271fe4fb",
+      "preserved": true,
+      "scope": "Missing fixture context, corrected fixture only; not represented as a device result."
+    },
+    "coordinator_final_contracts": {
+      "file": "preprod1_r5i_guarded_contract_tests_20261022.json",
+      "sha256": "08fd8800e3d488cf6bceb05e17bf7af4e8ec01bb02a33989a33dfcbe73ed3629",
+      "passed": 53,
+      "exit_code": 0,
+      "seconds": 1.3,
+      "tool_chunk": "2979a1",
+      "native_bash_syntax_exit_code": 0,
+      "execution_owner": "coordinator; no independent rerun"
+    }
+  },
+  "method_limits": [
+    "One new prospective isolated-bench treatment only. Old-child retirement barrier is evidence-led hypothesis; it does not guarantee firmware deauth completion or subsequent association.",
+    "Keep original120s initial,60s each recovery,five>=60s holds,32/32echo+32pairs eachCPE/epoch,four exact target-only session resets and uninterrupted peers,zeroXCwindowcommands,all restoration/owned nft/RAM/APoff criteria.",
+    "No prior failed source/receipt rescored. Physical acceptance requires final raw evidence and exact restoration.",
+    "No production contact or wider control authority granted."
+  ]
+}

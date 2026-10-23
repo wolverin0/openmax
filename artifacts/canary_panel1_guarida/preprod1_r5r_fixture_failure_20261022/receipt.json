@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-22T21:09:20.363522+00:00",
+  "status": "FAIL_OLD_SHELL_FIXTURE_MISSING_XC_FLOOR_INITIALIZATION",
+  "failed": 1,
+  "passed": 94,
+  "seconds": 3.26,
+  "exit_code": 1,
+  "tool_chunk": "11034c",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "efc1f7fcfc464c17eefdf31210794ec0da9a2a9a319237b7953ee6eeea0c5fa8",
+    "tests/test_preprod1_audit.py": "ac40a350ac1c692c128386a00f16647cdf78c7702abf890639327b7bc8fbac93"
+  },
+  "reason": "Existingexactmissingtargettestusescommonshell_headerwhichinitializesWAfloorbutnotnewXCfloor; actualnativesourcealreadyinitializesboth. set-u correctlyrefusedfixture. NoRF."
+}

@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-23T04:52:42.231608+00:00",
+  "scope": "Pinned bench LAP120 readonly executable/package provenance; no RF/service/runtime write/production/CPE access",
+  "AP_identity_verified": true,
+  "radio_disabled_noVAP_verified": true,
+  "stock_wpad_sha256": "f48e4ffa30b382b1526c7d8b32889b19dbc498a362443f41142646db60fb3a12",
+  "stock_wpad_bytes": 864296,
+  "package_and_release": [
+    "Package: wpad-basic-mbedtls",
+    "Version: 2024.09.15~5ace39b0-r2",
+    "Depends: hostapd-common (=2024.09.15~5ace39b0-r2), libc, libnl-tiny1, hostapd-common, ucode, libucode20230711, ucode-mod-fs, ucode-mod-nl80211, ucode-mod-rtnl, ucode-mod-ubus, ucode-mod-uloop, libubus20250102, libblobmsg-json20240329, libudebug, libmbedtls21",
+    "Conflicts: hostapd, hostapd-basic, hostapd-basic-openssl, hostapd-basic-wolfssl, hostapd-basic-mbedtls, hostapd-mini, hostapd-openssl, hostapd-wolfssl, hostapd-mbedtls, wpad, wpad-mesh-openssl, wpad-mesh-wolfssl, wpad-mesh-mbedtls, wpad-basic, wpad-basic-openssl, wpad-basic-wolfssl, wpad, wpad-mesh-openssl, wpad-mesh-wolfssl, wpad-mesh-mbedtls, wpad-basic, wpad-basic-openssl, wpad-basic-wolfssl",
+    "Provides: hostapd, wpa-supplicant",
+    "Source: feeds/base/network/services/hostapd",
+    "SourceName: hostapd",
+    "License: BSD-3-Clause",
+    "Section: net",
+    "Require-User: network=101:network=101",
+    "SourceDateEpoch: 1760997621",
+    "URL: http://hostap.epitest.fi/",
+    "CPE-ID: cpe:/a:w1.fi:hostapd",
+    "Maintainer: Felix Fietkau <nbd@nbd.name>",
+    "Architecture: mips_24kc",
+    "Installed-Size: 911360",
+    "Description:  This package contains a basic IEEE 802.1x/WPA Authenticator and Supplicant with WPA-PSK, SAE (WPA3-Personal), 802.11r and 802.11w support.",
+    "DISTRIB_ID='OpenWrt'",
+    "DISTRIB_RELEASE='24.10.4'",
+    "DISTRIB_REVISION='r28959-29397011cc'",
+    "DISTRIB_TARGET='ath79/generic'",
+    "DISTRIB_ARCH='mips_24kc'",
+    "DISTRIB_DESCRIPTION='OpenWrt 24.10.4 r28959-29397011cc'",
+    "DISTRIB_TAINTS='no-all'"
+  ],
+  "local_held_build": {
+    "unstripped_sha256": "5fe401fd0c15d9d155ea257513bf3f239d2601bcc313419415b4f394d5734f9a",
+    "ipkg_sha256": "af78ee2a7269ffa7bc2c357add9b9ef9c253ebe7ff2c4a5865af8de4018b3c2c",
+    "byte_match_stock": false
+  },
+  "interpretation": "Existing held source identity does not yet prove exact running binary build match. Retain provenance gap; isolated newbuild is explicit userspace treatment, not samebinary patch claim."
+}

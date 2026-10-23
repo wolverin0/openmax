@@ -1,0 +1,104 @@
+--- a/src/ap/ieee802_11.c
++++ b/src/ap/ieee802_11.c
+@@ -16,6 +16,9 @@
+ #ifdef CONFIG_FMX_PREPROD1_XC_SSID_COMPAT
+ #include "crypto/sha1.h"
+ #include "hostapd_preprod1_xc_ssid.h"
++#ifdef CONFIG_FMX_PREPROD1_XC_ASSOCRESP_COMPAT
++#include "hostapd_preprod1_xc_assocresp.h"
++#endif
+ #endif
+ #include "crypto/sha256.h"
+ #include "crypto/sha384.h"
+@@ -4501,7 +4504,12 @@
+ 	struct ieee802_11_elems elems;
+ #ifdef CONFIG_FMX_PREPROD1_XC_SSID_COMPAT
+ 	u8 explicit_ssid[32];
+-	int explicit_len;
++	int explicit_len = 0;
++#endif
++	int status;
++
++#ifdef CONFIG_FMX_PREPROD1_XC_ASSOCRESP_COMPAT
++	sta->fmx_xc_response = 0;
+ #endif
+ 
+ 	if (ieee802_11_parse_elems(ies, ies_len, &elems, 1) == ParseFailed) {
+@@ -4531,8 +4539,27 @@
+ 	}
+ #endif
+ 
+-	return __check_assoc_ies(hapd, sta, ies, ies_len, &elems, reassoc,
+-				 false);
++	status = __check_assoc_ies(hapd, sta, ies, ies_len, &elems, reassoc,
++				   false);
++#ifdef CONFIG_FMX_PREPROD1_XC_ASSOCRESP_COMPAT
++	if (status == WLAN_STATUS_SUCCESS && explicit_len > 0) {
++		/* Stable across retries; new peer allocations start at zero. */
++		if (!sta->fmx_xc_nonce_valid) {
++			if (os_get_random(sta->fmx_xc_nonce,
++					  sizeof(sta->fmx_xc_nonce)) < 0) {
++				forced_memzero(sta->fmx_xc_nonce,
++					       sizeof(sta->fmx_xc_nonce));
++				return WLAN_STATUS_UNSPECIFIED_FAILURE;
++			}
++			sta->fmx_xc_nonce_valid = 1;
++		}
++		sta->fmx_xc_response = 1;
++	} else {
++		sta->fmx_xc_nonce_valid = 0;
++		forced_memzero(sta->fmx_xc_nonce, sizeof(sta->fmx_xc_nonce));
++	}
++#endif
++	return status;
+ }
+ 
+ 
+@@ -5234,6 +5261,30 @@
+ 			  wpabuf_len(hapd->conf->assocresp_elements));
+ 		p += wpabuf_len(hapd->conf->assocresp_elements);
+ 	}
++
++#ifdef CONFIG_FMX_PREPROD1_XC_ASSOCRESP_COMPAT
++	/* A peer-scoped representation fix, before ordinary response TX. */
++	if (sta && sta->fmx_xc_response && sta->fmx_xc_nonce_valid &&
++	    status_code == WLAN_STATUS_SUCCESS && !reassoc &&
++	    hapd->iface->freq == 5180 &&
++	    hapd->conf->wpa == WPA_PROTO_RSN &&
++	    hapd->conf->wpa_key_mgmt == WPA_KEY_MGMT_PSK &&
++	    hapd->conf->rsn_pairwise == WPA_CIPHER_CCMP &&
++	    !os_memcmp(addr, sta->addr, ETH_ALEN)) {
++		const u8 legacy_rssi[2] = { 0, 0 };
++		int len;
++
++		len = fmx_preprod1_xc_assocresp(p, buf + buflen - p,
++					      hapd->own_addr, sta->addr,
++					      sta->fmx_xc_nonce, legacy_rssi);
++		if (len != 44) {
++			res = WLAN_STATUS_UNSPECIFIED_FAILURE;
++			goto done;
++		}
++		p += len;
++		wpa_printf(MSG_INFO, "FMX-PREPROD1-XC-ASSOCRESP: encoded; normal WPA pending");
++	}
++#endif
+ 
+ 	send_len += p - reply->u.assoc_resp.variable;
+ 
+--- a/src/ap/sta_info.h
++++ b/src/ap/sta_info.h
+@@ -84,6 +84,14 @@
+ 	struct sta_info *next; /* next entry in sta list */
+ 	struct sta_info *hnext; /* next entry in hash table list */
+ 	u8 addr[6];
++#ifdef CONFIG_FMX_PREPROD1_XC_ASSOCRESP_COMPAT
++#ifndef CONFIG_FMX_PREPROD1_XC_SSID_COMPAT
++#error "XC response requires the strict explicit-SSID path"
++#endif
++	u8 fmx_xc_response;
++	u8 fmx_xc_nonce_valid;
++	u8 fmx_xc_nonce[4];
++#endif
+ 	be32 ipaddr;
+ 	struct dl_list ip6addr; /* list head for struct ip6addr */
+ 	u16 aid; /* STA's unique AID (1 .. 2007) or 0 if not yet assigned */

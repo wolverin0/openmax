@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-22T22:06:51.477291+00:00",
+  "status": "PASS_READONLY_ANY_CAPTURE_CAPABILITY_RADIO_OFF",
+  "AP_radio_up": false,
+  "version": {
+    "exit_code": 0,
+    "stdout": "tcpdump version 4.99.5\nlibpcap version 1.10.5 (with TPACKET_V3)\n32-bit build, 64-bit time_t\n",
+    "stderr": ""
+  },
+  "devices": {
+    "exit_code": 0,
+    "stdout": "1.eth0 [Up, Running, Connected]\n2.br-lan [Up, Running, Connected]\n3.any (Pseudo-device that captures on all interfaces) [Up, Running]\n4.lo [Up, Running, Loopback]\n",
+    "stderr": ""
+  },
+  "commands": [
+    "ubus -t 4 call network.wireless status",
+    "tcpdump --version",
+    "tcpdump -D"
+  ],
+  "device_writes": false,
+  "CPE_contact": false,
+  "limit": "Capability enumeration only, no packet/RF capture or path-causality proof."
+}

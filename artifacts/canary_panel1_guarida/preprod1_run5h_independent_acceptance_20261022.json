@@ -1,0 +1,192 @@
+{
+  "schema": "PREPROD1_RUN5H_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5H_WA_RECOVERY_TIMEOUT_ALL_RESTORED_ISOLATION_REMOVED",
+  "reviewed_utc": "2026-10-22T19:20:16.599919+00:00",
+  "receipt_sha256": "37714e823e68c4969cf336dd4e99e5601b0a0982ac087020680ecbc885b9fbd3",
+  "plan_sha256": "ada72495326f15b3ef629656204dae9426c41d74f64d959247b0156c8cb60c9b",
+  "source_review_sha256": "07c7c2d692498bf8132b9b9ada395f0810ba2520b90618ecb827303a4fdcc308",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "06f8468c5c5c647eee76afa7b3e1d65f5faab82396f7242fce0edc7b04d4787c",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17b55bc7e40ce1a8c11389601c16015c8e8884e20e0922d4ac8df88101fb3205",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "6fb48483f8a135a0a8550b2b048d6c057849dca59c1c4e22b4cf2baa1dd83bbc"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T19:17:40.036562+00:00",
+  "scope": "Independent local source/native/packet/artifact review only; no devices/network/credentials/tests/Git/producer changes.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "artifact_bindings_verified": {
+    "preflight-0-WA.json": "246ec9651afe9aed24a799ea4a725ff42f9800a1b6eb2ab42e90f6fa8b3a759d",
+    "preflight-0-XC.json": "3f92914500128c19ba2d65fa4406a875343ab3a5df0ae46266e6df2d047d74ba",
+    "preflight-0-SXT.json": "f1e88493c3babdcd1ee891aa54d35cb248d29ad4f0274a9d75e454fd3bb48ffd",
+    "preflight-0-LBM5.json": "069e0d9e95bd5aa0bbf3442c65eb0d471619ea70305e9ce6dfdb2f18c253afb2",
+    "epoch0-WA.json": "a5c4439d9f8a2eceda63298dd7f7c28cfa8e9a863b2bd9eba84cc4eb657b5bea",
+    "epoch0-XC.json": "c6566425addd74c42b526c36118bba5de2598c8b3973691edc1058c34404a863",
+    "epoch0-SXT.json": "74c9b2c42c36b77f38319b51703d0883441287c9ce0752b844e22bf824fed8df",
+    "epoch0-LBM5.json": "17c410a147d39be0ce87feafbc2ef35103f3d506c5ba7a93fea490d1f78ba130",
+    "failure-station-dumps.json": "51ba690994b40aa9dcf6601a57fd6d7e1002f8208187797818cb0978fdaae948",
+    "daemon-evidence.json": "3bf733bbff73f776c1e89fb5cfdf90e4c55d1b69c3f49fbd745e574f3beaea41",
+    "setup-0-WA-capture.json": "7528d0de047b2483873e7db5aace495ed40d606e3ed767a8afdb39f135a60f5c",
+    "setup-0-XC-capture.json": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f",
+    "setup-0-SXT-capture.json": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4",
+    "setup-0-LBM5-capture.json": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4",
+    "SXT-guard-log.json": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525",
+    "LBM5-guard-log.json": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observed_acquisition": {
+    "initial_admission_seconds": 27.2,
+    "native_baseline_hold_seconds": 60.16,
+    "baseline_epoch0_packet_evidence": {
+      "WA": {
+        "artifact": "epoch0-WA.json",
+        "sha256": "a5c4439d9f8a2eceda63298dd7f7c28cfa8e9a863b2bd9eba84cc4eb657b5bea",
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_RTT_count": 32,
+        "p95_ms_recomputed": 3.526,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "interface": "phy0-ap0.sta4",
+        "native_listening_recorded": true,
+        "preflight_excluded": true
+      },
+      "XC": {
+        "artifact": "epoch0-XC.json",
+        "sha256": "c6566425addd74c42b526c36118bba5de2598c8b3973691edc1058c34404a863",
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_RTT_count": 32,
+        "p95_ms_recomputed": 4.912,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "interface": "phy0-ap0.sta2",
+        "native_listening_recorded": true,
+        "preflight_excluded": true
+      },
+      "SXT": {
+        "artifact": "epoch0-SXT.json",
+        "sha256": "74c9b2c42c36b77f38319b51703d0883441287c9ce0752b844e22bf824fed8df",
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_RTT_count": 32,
+        "p95_ms_recomputed": 4.689,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "interface": "phy0-ap0",
+        "native_listening_recorded": true,
+        "preflight_excluded": true
+      },
+      "LBM5": {
+        "artifact": "epoch0-LBM5.json",
+        "sha256": "17c410a147d39be0ce87feafbc2ef35103f3d506c5ba7a93fea490d1f78ba130",
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_RTT_count": 32,
+        "p95_ms_recomputed": 3.696,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "interface": "phy0-ap0",
+        "native_listening_recorded": true,
+        "preflight_excluded": true
+      }
+    },
+    "completed_baseline_epochs": 1,
+    "completed_post_recovery_epochs": 0,
+    "target_drop_requests": 1,
+    "WA_loss_observed": true,
+    "successful_target_recoveries": 0,
+    "verified_new_target_sessions": 0,
+    "XC_window_exec_count": 0,
+    "observer_samples_total": 93,
+    "post_admission_peer_samples_checked": 75,
+    "other_three_authorization_and_monotonic_session_counters_through_observed_recovery": true,
+    "maximum_observed_peer_sample_gap_seconds": 2.641,
+    "failure_WA_absent": true,
+    "native_exit_rc": 78,
+    "native_stop_reason": "recovery_timeout",
+    "native_clear_rc": 0,
+    "native_stderr_listener_empty": true,
+    "failures": [
+      {
+        "type": "RuntimeError",
+        "gate": "DAEMON_ENDED_DURING_ACQUISITION"
+      }
+    ]
+  },
+  "bridge_isolation": {
+    "owner_table_identity_exact": true,
+    "only_two_bridge_forward_rules_priority_minus300": true,
+    "no_INPUT_OUTPUT_hook": true,
+    "drop_counters": [
+      {
+        "direction": "eth0_to_wireless",
+        "packets": 2857,
+        "bytes": 370212
+      },
+      {
+        "direction": "wireless_to_eth0",
+        "packets": 60,
+        "bytes": 7904
+      }
+    ],
+    "final_table_snapshot_sha256": "1f5173d433cd95dcbee49b37eb88ed3a28f757596432ca22423f5c08426e493b",
+    "after_final_RFoff_original_table_names_exact": true,
+    "original_table_list": "table inet fw4\n",
+    "owned_cleanup_after_verified_final_down_archived": true,
+    "limit": "Positive counters prove traffic matched/drop rules; they do not prove sole rootcause, loop topology or quantified management improvement."
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "Rocket": {
+      "exact_four_pretrial_snapshots": true,
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED"
+    },
+    "SXT_LBM5": {
+      "SXT": {
+        "same_original_boot_hashes_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      },
+      "LBM5": {
+        "same_original_boot_hashes_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      }
+    },
+    "daemon_ended_clear0_owned_RAM_removed": true,
+    "capture_native_guards_ended": 4,
+    "isolation_owned_table_removed_original_tables_restored": true,
+    "cleanup_errors": []
+  },
+  "interpretation": {
+    "WA_recovery": "First RECOVER broadcast64607.97 triggeredclear64608.58; laterprobe activity continued but noRECOVERED before original60s deadline. Final WA absent. This remains a genuine failed recovery under frozen criterion.",
+    "cause": "UNKNOWN; timing alone does not establish cached-BSSID, association-status, key or RF mechanism. Next necessary diagnostic should identify exact auth/assoc/reject events using existing bounded evidence before choosing another timing treatment.",
+    "unexecuted_criteria": "WA new-session recovery plus remainingXC/SXT/M5drops and fourpost-recoveryepochs are not accepted or substituted by initialbaseline."
+  },
+  "decision": "Preserve R5h negative. One baseline epoch/packet acquisition and observed peer survival are partial positives; full PREPROD1 remains NOT_ACCEPTED. Exact all-device restoration, APoff and owned isolation removal verified.",
+  "objective_continuity": "Coordinator continues necessary evidence-led repair; restoration completes this treatment, not the until-PASS parent task.",
+  "reviewer_validation_note": "First tiny summary1b0ded raisedKeyError because failedWA was absent, not a validation failure; corrected parser treats actualabsence explicitly. No producer changes.",
+  "validation_exit_code": 0
+}

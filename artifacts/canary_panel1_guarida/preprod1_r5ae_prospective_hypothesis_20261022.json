@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-23T02:58:55.198609+00:00",
+  "parent": "FMX0017 / original forward-plan PhaseB-C; PREPROD1 complete acquisition",
+  "question": "Retain the WDS retirement race repair while restoring the original reject-any-stderr success contract.",
+  "evidence": {
+    "blocked_plan": "preprod1_plan_20261022_run5ad.json",
+    "blocked_plan_sha256": "5ecc5e6c1a8181a97610c0944c80fe198bb8df4925a2ed2ba6d6a90c380f6b48",
+    "blocked_review": "preprod1_source_review_20261022_run5ad.json",
+    "blocked_review_sha256": "965b6a12e922c701563fb4257f6e48854b0d0fb2472e50670317ddb7c7a1e1de",
+    "blocked_source_sha256": "bb06a0721e7ceb68642fb003f0700e92236d7ce696cb217bd3a67ba477cd1169",
+    "physical_execution_of_AD": false
+  },
+  "minimum_change": "Require empty stderr after a successful station-dump RPC; only exact237/-19 proof-bound retired target remains the explicit exception. Add a real AST regression rc0+unexpected stderr; preserve the first failure.",
+  "unchanged": "Native/RF/SSID/security/timing/load/CPE/window/acceptance/restoration gates unchanged; no claimed fix of the measured SSID omission.",
+  "stop": "Do not execute the blocked AD source; obtain new exact source/plan independent preflight after the regression and success suites pass.",
+  "production_access_permitted": false
+}

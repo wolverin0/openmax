@@ -1,0 +1,190 @@
+{
+  "schema": "PREPROD1_RUN5J_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5J_CAPTURE_STARTUP_OBSERVATION_TIMEOUT_ALL_RESTORED",
+  "reviewed_utc": "2026-10-22T19:41:15.604469+00:00",
+  "receipt_sha256": "05de219ba4575eb75c55a022c5d49a7098108591655df5d57aa8452febbfbd0f",
+  "plan_sha256": "69778d62f3f520a4d6181a5e258f262be0d5200065cffb801bc65999947ae2c5",
+  "source_review_sha256": "4fedfcf2f1445c73b692a53141080feef65ec868b514798c39f2cc7a97461127",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "e8e6a9611ecb11dcf2de352900b12560547d005e04b3636f3a4d16eb809c3501",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "4e5d20d9e73a06813ec8e26da9a8d092991a6feea9ab3bcd5068b60efe2b3bdd",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "6dfa6184b2bdc418c91b12ca85dc605d6aa55c4c7c62a8fb9d714a23e30f826e"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T19:39:00.371665+00:00",
+  "scope": "Independent local artifact/source review only; no devices/network/credentials/tests/Git/producer changes.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "artifact_bindings_verified": {
+    "preflight-0-WA.json": "a594bb1c0d6609ee18f9c940af1562cf0cbd0e0a8aed827a76507c0a96e715ec",
+    "preflight-0-XC.json": "28e1850c05666d3dbac74cf1472e35658540feab191cc274266827b0010f55eb",
+    "preflight-0-SXT.json": "64000ec22dca3cabe363dad815ed641f6ddf97ec97b9147f76b64d49a8afd923",
+    "preflight-0-LBM5.json": "2a75293affb1fbee5f24231fc6af76cd0ce13f084fc8ec5c52f9458ad93bb167",
+    "failure-station-dumps.json": "0dbf11e1be690f94329de1ab1f10e439e9e835c813c2c4548c53031ffa63c5b3",
+    "daemon-evidence.json": "f9b076cb6aae19d23ebf1abf75c9510c894f493ea7db0b3b4935018b3645e808",
+    "setup-0-WA-capture.json": "0d7df2de4a641c83dfb27be8866360aa7f102e7cbf3cddb67e32aba4a2ad4706",
+    "setup-0-XC-capture.json": "bb1ec2a21b43cd00c376ebabe31bd735ade2963e6b4a01356f385f21f7592037",
+    "setup-0-SXT-capture.json": "6e4b15b8ac9ed30c7678ac852badc6495d9377139ca88d319fa39698759d46bc",
+    "setup-0-LBM5-capture.json": "7bdca9991b1b22f6ba8de798a79ac2b26c97cf8beebd8d625446229785b39bfe",
+    "SXT-guard-log.json": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525",
+    "LBM5-guard-log.json": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observed_acquisition": {
+    "daemon_transport": {
+      "source_bytes": 9483,
+      "commands": 21,
+      "max_command_bytes": 947,
+      "completed_commands": 21,
+      "complete": true
+    },
+    "initial_four_admission_seconds": 5.15,
+    "observer_samples": 6,
+    "completed_qualified_epochs": 0,
+    "qualified32_ping_streams_launched": 0,
+    "target_drops": 0,
+    "target_recoveries": 0,
+    "new_target_session_resets": 0,
+    "WDS_retirement_barrier_exercised": false,
+    "XC_window_exec_count": 0,
+    "failures": [
+      {
+        "type": "RuntimeError",
+        "gate": "CAPTURE_LISTENING_TIMEOUT"
+      }
+    ],
+    "native_exit_rc": 0,
+    "native_stop_reason": "operator_signal",
+    "IE_clear_rc": 0
+  },
+  "capture_startup_evidence": {
+    "WA": {
+      "artifact": {
+        "file": "setup-0-WA-capture.json",
+        "bytes": 421,
+        "sha256": "0d7df2de4a641c83dfb27be8866360aa7f102e7cbf3cddb67e32aba4a2ad4706"
+      },
+      "native_start_uptime": 65883.71,
+      "native_end_uptime": 65931.4,
+      "listening_present_in_final_stderr": true,
+      "startup_prefix_observed_before_failure": "empty",
+      "startup_arrival_time": "UNKNOWN",
+      "captured_packets": 0,
+      "captured_kernel_drops": 0,
+      "exit_code": 0,
+      "ended_under_native_guard": true
+    },
+    "XC": {
+      "artifact": {
+        "file": "setup-0-XC-capture.json",
+        "bytes": 421,
+        "sha256": "bb1ec2a21b43cd00c376ebabe31bd735ade2963e6b4a01356f385f21f7592037"
+      },
+      "native_start_uptime": 65883.81,
+      "native_end_uptime": 65931.43,
+      "listening_present_in_final_stderr": true,
+      "startup_prefix_observed_before_failure": "empty",
+      "startup_arrival_time": "UNKNOWN",
+      "captured_packets": 0,
+      "captured_kernel_drops": 0,
+      "exit_code": 0,
+      "ended_under_native_guard": true
+    },
+    "SXT": {
+      "artifact": {
+        "file": "setup-0-SXT-capture.json",
+        "bytes": 416,
+        "sha256": "6e4b15b8ac9ed30c7678ac852badc6495d9377139ca88d319fa39698759d46bc"
+      },
+      "native_start_uptime": 65884.08,
+      "native_end_uptime": 65931.35,
+      "listening_present_in_final_stderr": true,
+      "startup_prefix_observed_before_failure": "empty",
+      "startup_arrival_time": "UNKNOWN",
+      "captured_packets": 0,
+      "captured_kernel_drops": 0,
+      "exit_code": 0,
+      "ended_under_native_guard": true
+    },
+    "LBM5": {
+      "artifact": {
+        "file": "setup-0-LBM5-capture.json",
+        "bytes": 416,
+        "sha256": "7bdca9991b1b22f6ba8de798a79ac2b26c97cf8beebd8d625446229785b39bfe"
+      },
+      "native_start_uptime": 65884.08,
+      "native_end_uptime": 65931.22,
+      "listening_present_in_final_stderr": true,
+      "startup_prefix_observed_before_failure": "empty",
+      "startup_arrival_time": "UNKNOWN",
+      "captured_packets": 0,
+      "captured_kernel_drops": 0,
+      "exit_code": 0,
+      "ended_under_native_guard": true
+    }
+  },
+  "interpretation": {
+    "confirmed": "The native daemon now stages/dispatches successfully; first capture startup barrier timed out. Allfour final capture streams include listening headers and zero packets, but no qualifiedpings were launched.",
+    "unknown": "When headers actually became available to host is unrecorded. Empty startup prefixes and laterheaders do not prove tcpdump failed to start or that headers arrivedwithin5s.",
+    "source_boundary": "capture_listening checks deadline before draining currently ready stderr, and only runs when mainloop returns from station/nft/RPC observations. A delayed poll can reject without timestamping an on-time arrival.",
+    "minimum_supported_changed_hypothesis": "Bounded dedicated host readiness observation can timestamp actual header detection strictly before unchanged5s cutoff while retainingstderr. It must terminate/join without competing stderr readers and preserve native45/48bounds. No timeout extension or posthoc acceptance of J.",
+    "no_RF_loss_inferred": true
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "exact_four_pretrial_snapshots": true
+    },
+    "SXT_LBM5": {
+      "SXT": {
+        "same_original_boot_hashes_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      },
+      "LBM5": {
+        "same_original_boot_hashes_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true
+      }
+    },
+    "daemon_ended_clear0_owned_RAM_removed": true,
+    "capture_native_guards_ended": 4,
+    "owned_nft_table_removed_original_table_names_exact": true,
+    "filter_drop_counters": [
+      {
+        "packets": 1821,
+        "bytes": 245622
+      },
+      {
+        "packets": 50,
+        "bytes": 7226
+      }
+    ],
+    "cleanup_errors": []
+  },
+  "decision": "R5j remains NOT_ACCEPTED: boundedtransport repair worked but capturestartup observation failed before any qualifiedpacket epoch or WDS lifecycle test. Exact allrestoration accepted; no earlierfailure rescued.",
+  "objective_continuity": "Coordinator continues only minimum evidence-led startup observation repair and newly bound treatment; full fiveholds/fourrecoveries/peer-session/32echo32pairs remain mandatory.",
+  "limits": [
+    "Capturestartup header timing is a hostcontrol observation, not OTA or RFcapability proof.",
+    "No performance/production/cold-cache/zero-setup acceptance."
+  ],
+  "validation_exit_code": 0
+}

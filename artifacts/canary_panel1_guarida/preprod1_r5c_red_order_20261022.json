@@ -1,0 +1,10 @@
+{
+  "status": "EXPECTED_FAIL_BEFORE_R5C_ORDER_FIX",
+  "exit_code": 1,
+  "failed": 1,
+  "seconds": 0.24,
+  "tool_chunk": "f568dc",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5c-red-order -- python -B -m pytest tests/test_preprod1_audit.py::test_xc_enable_cannot_observe_open_ap_setup -q",
+  "source_before_sha256": "8e3af6bbd083f1b9af0b7dde84ad421491ddc0e70b3279c73777c15535a6a909",
+  "reason": "ActualsetupASThasnoAPclearbeforeXCenable; assertiondiffENABLEvsCLEAR. Failurepreserved, sourcefixednotfixtureweakened."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "EXPECTED_FAIL_BEFORE_R5D_CAPTURE_BINDING_FIX",
+  "exit_code": 1,
+  "failed": 1,
+  "seconds": 0.24,
+  "tool_chunk": "bcb4ef",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5d-red-binding -- python -B -m pytest tests/test_preprod1_audit.py::test_capture_helper_survives_the_legacy_baseline_snapshot -q",
+  "source_before_sha256": "ca5ed19b4524b5c1391f25cbc5c969945b524d0d8dc58149d81df6c246ccbd3e",
+  "reason": "ExecutedactualASTload,snapshot,captureassignments reproduce str hasnoadaptive_ping_wrapper. Sourcebindingrenamed, testnotweakened."
+}

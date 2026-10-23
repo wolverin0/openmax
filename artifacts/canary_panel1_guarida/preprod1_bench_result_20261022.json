@@ -1,768 +1,391 @@
 {
-  "experiment": "PREPROD1_FMX0017_ZERO_TOUCH_RECOVERY",
-  "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
-  "started_utc": "2026-10-22T17:04:32.775303+00:00",
-  "source_sha256": "ae467df78f84612e897bc39e99f64e3807950adf71ddaa0e2bbac6edcf33ac1a",
-  "bindings": {
-    "root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
-    "root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
-    "root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
-  },
-  "failures": [
-    {
-      "type": "RuntimeError",
-      "gate": "DAEMON_ENDED_DURING_ACQUISITION"
-    }
-  ],
-  "cleanup_errors": [],
-  "legacy_guards": {
-    "SXT": {
-      "directory": "/tmp/fmx-four-5540855b9b2deb75514f78c3",
-      "source_sha256": "1e26df3aa9a677e0ede66191b47e599fbe0dfd7b02782ac18d2cce8b47db2c7d",
-      "ttl_seconds": 900,
-      "intent_recorded": true,
-      "pid": 17221,
-      "ticks": 6094478,
-      "deadline_uptime": 61844,
-      "host_armed": 736480.718,
-      "explicit_restore_signal_sent": true
-    },
-    "LBM5": {
-      "directory": "/tmp/fmx-four-3fee82206b4efb947f80a431",
-      "source_sha256": "79eda6f0507e9aa3c6f0e7d2656be9d1bac3aa699a63056a01b5ec8002bd3456",
-      "ttl_seconds": 900,
-      "intent_recorded": true,
-      "pid": 5835,
-      "ticks": 43088766,
-      "deadline_uptime": 431787,
-      "host_armed": 736481.0,
-      "explicit_restore_signal_sent": true
-    }
-  },
-  "forbidden_actions_executed": false,
-  "persistent_config_writes": false,
-  "daemon_source_sha256": "3622bb63d2ccc53011352ccef4b4a9f66c56edbe3c6c427aa5ca6457e1464ee6",
-  "frozen_plan_sha256": "0bec54d13c74a976e4e069e4823e6127f7c1a94f60e6fec1278bdf91212d9a33",
-  "review_sha256": "204d2554772ad7555b69cd9dacc4061184b15822c89ef413b7f49c1c6b45fd30",
-  "IE_variant": "run8_accepted_60_byte",
-  "autonomy_scope": "AP-only admission/recovery; no XC exec commands during admission window",
-  "XC_command_audit": [
-    {
-      "mono": 736431.859,
-      "window": false,
-      "command": "md5sum /tmp/system.cfg /tmp/running.cfg /etc/wpasupplicant_AUTO.conf /lib/modules/2.6.32.68/ubnt_poll_host.ko /lib/modules/2.6.32.68/umac.ko /dev/mtdblock0 /dev/mtdblock1 /dev/mtdblock4 /dev/mtdblock5"
-    },
-    {
-      "mono": 736432.328,
-      "window": false,
-      "command": "brctl show; ifconfig br0 | head -n 4"
-    },
-    {
-      "mono": 736432.359,
-      "window": false,
-      "command": "ip -4 addr show dev br0; route -n"
-    },
-    {
-      "mono": 736432.421,
-      "window": false,
-      "command": "ebtables -L FORWARD"
-    },
-    {
-      "mono": 736432.484,
-      "window": false,
-      "command": "exec /bin/sh -c 'set -eu\ntrap '\"'\"''\"'\"' HUP\none=0; two=0; restore=0\ncleanup() {\n trap - EXIT USR1 TERM INT\n set +e\n wpa_cli -i ath0 reconfigure\n rc=$?\n test \"$one\" = 0 || ebtables -D FORWARD -i ath0 -o eth0 -j DROP || rc=91\n test \"$two\" = 0 || ebtables -D FORWARD -i eth0 -o ath0 -j DROP || rc=92\n sleep 2\n primary=$(ip -4 addr show dev br0 | awk '\"'\"'/inet /{print $2;exit}'\"'\"')\n if test \"$primary\" = 169.254.213.210/16; then\n  if ip -4 addr show dev br0 | grep -q '\"'\"'inet 192.168.100.198/24'\"'\"'; then\n   ip -4 addr del 169.254.213.210/16 dev br0 || rc=93\n   ip -4 addr add 169.254.213.210/16 brd 169.254.255.255 dev br0 || rc=94\n  else rc=95; fi\n fi\n printf '\"'\"'ROCKET_RESTORE_RC=%s\\n'\"'\"' \"$rc\"\n exit \"$rc\"\n}\ntrap cleanup EXIT\ntrap '\"'\"'exit 0'\"'\"' USR1 TERM INT\nebtables -I FORWARD -i ath0 -o eth0 -j DROP\none=1\nebtables -I FORWARD -i eth0 -o ath0 -j DROP\ntwo=1\nwpa_cli -i ath0 disable_network 0 | grep -q '\"'\"'^OK$'\"'\"'\nprintf '\"'\"'READY %s %s\\n'\"'\"' \"$$\" \"$(awk '\"'\"'{print $22}'\"'\"' /proc/$$/stat)\"\nend=$(($(cut -d. -f1 /proc/uptime)+1140))\nwhile test \"$(cut -d. -f1 /proc/uptime)\" -lt \"$end\"; do sleep 1; done\n'"
-    },
-    {
-      "mono": 736432.609,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 ssid '\"FuturaMAX-LAB\"'"
-    },
-    {
-      "mono": 736432.812,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 psk '\"FuturaMAX2026\"'"
-    },
-    {
-      "mono": 736432.984,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 key_mgmt WPA-PSK"
-    },
-    {
-      "mono": 736433.0,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 proto RSN"
-    },
-    {
-      "mono": 736433.062,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 pairwise CCMP"
-    },
-    {
-      "mono": 736433.109,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 group CCMP"
-    },
-    {
-      "mono": 736433.171,
-      "window": false,
-      "command": "wpa_cli -i ath0 set_network 0 scan_freq 5180"
-    },
-    {
-      "mono": 736433.234,
-      "window": false,
-      "command": "wpa_cli -i ath0 enable_network 0"
-    },
-    {
-      "mono": 736433.296,
-      "window": false,
-      "command": "wpa_cli -i ath0 status; wpa_cli -i ath0 list_networks"
-    },
-    {
-      "mono": 736650.5,
-      "window": false,
-      "command": "set -eu\nif test -r /proc/18234/stat && test \"$(awk '{print $22}' /proc/18234/stat)\" = 5754704 && test \"$(awk '{print $3}' /proc/18234/stat)\" != Z; then kill -USR1 18234; else echo OWN_GUARD_ALREADY_ENDED; fi"
-    },
-    {
-      "mono": 736653.359,
-      "window": false,
-      "command": "md5sum /tmp/system.cfg /tmp/running.cfg /etc/wpasupplicant_AUTO.conf /lib/modules/2.6.32.68/ubnt_poll_host.ko /lib/modules/2.6.32.68/umac.ko /dev/mtdblock0 /dev/mtdblock1 /dev/mtdblock4 /dev/mtdblock5"
-    },
-    {
-      "mono": 736653.875,
-      "window": false,
-      "command": "brctl show; ifconfig br0 | head -n 4"
-    },
-    {
-      "mono": 736653.906,
-      "window": false,
-      "command": "ip -4 addr show dev br0; route -n"
-    },
-    {
-      "mono": 736653.984,
-      "window": false,
-      "command": "ebtables -L FORWARD"
-    }
-  ],
-  "native_wait_preflight": {
-    "exit_code": 0,
-    "stdout": "/usr/bin/ucode\n/bin/ping\n/usr/bin/tcpdump\n",
-    "stderr": ""
-  },
-  "rocket_baseline": {
-    "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
-    "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
-    "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
-    "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
-  },
-  "XC_pre_window_status": {
-    "exit_code": 0,
-    "stdout": "wpa_state=SCANNING\naddress=b4:fb:e4:5c:d5:d2\nuuid=def8a099-fb00-5790-b3e9-10634fbd88c5\nnetwork id / ssid / bssid / flags\n0\tFuturaMAX-LAB\tany\t\n",
-    "stderr": ""
-  },
-  "control_window_start": {
-    "mono": 736433.359,
-    "utc": "2026-10-22T17:04:35.707091+00:00"
-  },
-  "guard_budgets": {
-    "AP": 1200,
-    "Rocket": 1140,
-    "legacy": 900,
-    "daemon": 780
-  },
-  "AP_initial": {
-    "interface": "phy0-ap0",
-    "ifindex": 93,
-    "bssid": "18:e8:29:74:55:a2",
-    "frequency_mhz": 5180,
-    "width_mhz": 20,
-    "txpower_dbm": 0,
-    "global_country": "AR",
-    "observed_regulatory_domains": [
-      "AR",
-      "US"
-    ],
-    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
-    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854",
-    "status": "PASS_AP_OBSERVER_RAM_WINDOW_ARMED",
-    "guard_pid": 16755,
-    "guard_start": 5673025,
-    "guard_deadline_uptime": 57930,
-    "ttl_seconds": 1200,
-    "remote_ram": "/tmp/fmx-step1c-ap-observer-e5dc4a610e6722dcd7caf3ca725658a1",
-    "native_receipt_sha256": "ff6fdbac93c279ad55468e0165767de0f05dddd79db21c7bd3ce1f38a1ac0f92",
-    "ubus_methods_sha256": "68a6fd5061d15ae9f3130c9e3bfcd52ed387702a4a03a4123fd65d663776e455",
-    "persistent_writes": false,
-    "vendor_ie_changed": false
-  },
-  "open_reacquisition_probes": [
-    {
-      "name": "SXT",
-      "mono": 736442.312,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736444.39,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "SXT",
-      "mono": 736444.609,
-      "result": {
-        "exit_code": 0,
-        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=4.806 ms\n\n--- 10.99.0.3 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 4.806/4.806/4.806 ms\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736446.671,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736448.906,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736451.125,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736453.343,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736455.562,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736457.796,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736460.015,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736462.234,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736464.453,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736466.687,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736468.906,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736471.125,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736473.343,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736475.578,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736477.796,
-      "result": {
-        "exit_code": 1,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
-        "stderr": ""
-      }
-    },
-    {
-      "name": "LBM5",
-      "mono": 736478.015,
-      "result": {
-        "exit_code": 0,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=5.759 ms\n\n--- 10.99.0.4 ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 5.759/5.759/5.759 ms\n",
-        "stderr": ""
-      }
-    }
-  ],
-  "prior_guard_RAM_cleanup": {
-    "SXT": {
-      "exit_code": 0,
-      "stdout": "ALREADY_ABSENT\n",
-      "stderr": ""
-    },
-    "LBM5": {
-      "exit_code": 0,
-      "stdout": "ALREADY_ABSENT\n",
-      "stderr": ""
-    }
-  },
-  "AP_mode_transitions": [
-    {
-      "utc": "2026-10-22T17:05:30.820593+00:00",
-      "secure": true,
-      "ready": {
-        "interface": "phy0-ap0",
-        "ifindex": 94,
-        "bssid": "18:e8:29:74:55:a2",
-        "frequency_mhz": 5180,
-        "width_mhz": 20,
-        "txpower_dbm": 0,
-        "global_country": "AR",
-        "observed_regulatory_domains": [
-          "AR",
-          "US"
-        ],
-        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
-        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
-      }
-    },
-    {
-      "utc": "2026-10-22T17:07:40.899710+00:00",
-      "secure": false,
-      "ready": {
-        "interface": "phy0-ap0",
-        "ifindex": 95,
-        "bssid": "18:e8:29:74:55:a2",
-        "frequency_mhz": 5180,
-        "width_mhz": 20,
-        "txpower_dbm": 0,
-        "global_country": "AR",
-        "observed_regulatory_domains": [
-          "AR",
-          "US"
-        ],
-        "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
-        "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
-      }
-    }
-  ],
-  "AP_secure": {
-    "interface": "phy0-ap0",
-    "ifindex": 94,
-    "bssid": "18:e8:29:74:55:a2",
-    "frequency_mhz": 5180,
-    "width_mhz": 20,
-    "txpower_dbm": 0,
-    "global_country": "AR",
-    "observed_regulatory_domains": [
-      "AR",
-      "US"
-    ],
-    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
-    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
-  },
-  "daemon_directory": "/tmp/fmx-admitter-4a73fa615f7927c501e870ee",
-  "daemon_id": [
-    "17497",
-    "5678472"
-  ],
-  "last_auth_flags": {
-    "b4:fb:e4:5c:d5:d2": {
-      "auth": true,
-      "assoc": false,
-      "authorized": false,
-      "preauth": false,
-      "wds": false,
-      "wmm": false,
-      "ht": false,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [],
-      "aid": 0,
-      "capabilities": {}
-    },
-    "f0:9f:c2:b2:b6:ba": {
-      "auth": true,
-      "assoc": true,
-      "authorized": true,
-      "preauth": false,
-      "wds": false,
-      "wmm": true,
-      "ht": true,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [],
-      "aid": 2,
-      "bytes": {
-        "rx": 11761,
-        "tx": 20316
-      },
-      "airtime": {
-        "rx": 0,
-        "tx": 730
-      },
-      "packets": {
-        "rx": 180,
-        "tx": 91
-      },
-      "rate": {
-        "rx": 7220000,
-        "tx": 600000
-      },
-      "signal": -52,
-      "capabilities": {}
-    },
-    "64:d1:54:1b:96:97": {
-      "auth": true,
-      "assoc": true,
-      "authorized": true,
-      "preauth": false,
-      "wds": false,
-      "wmm": true,
-      "ht": true,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [
-        4,
-        0,
-        10,
-        2,
-        0,
-        64,
-        0,
-        64
-      ],
-      "aid": 1,
-      "bytes": {
-        "rx": 1446,
-        "tx": 501
-      },
-      "airtime": {
-        "rx": 0,
-        "tx": 730
-      },
-      "packets": {
-        "rx": 14,
-        "tx": 4
-      },
-      "rate": {
-        "rx": 7800000,
-        "tx": 600000
-      },
-      "signal": -57,
-      "capabilities": {}
-    }
-  },
-  "failure_AP_clients": {
-    "b4:fb:e4:5c:d5:d2": {
-      "auth": true,
-      "assoc": false,
-      "authorized": false,
-      "preauth": false,
-      "wds": false,
-      "wmm": false,
-      "ht": false,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [],
-      "aid": 0,
-      "capabilities": {}
-    },
-    "f0:9f:c2:b2:b6:ba": {
-      "auth": true,
-      "assoc": true,
-      "authorized": true,
-      "preauth": false,
-      "wds": false,
-      "wmm": true,
-      "ht": true,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [],
-      "aid": 2,
-      "bytes": {
-        "rx": 11888,
-        "tx": 20541
-      },
-      "airtime": {
-        "rx": 0,
-        "tx": 730
-      },
-      "packets": {
-        "rx": 182,
-        "tx": 92
-      },
-      "rate": {
-        "rx": 7220000,
-        "tx": 600000
-      },
-      "signal": -53,
-      "capabilities": {}
-    },
-    "64:d1:54:1b:96:97": {
-      "auth": true,
-      "assoc": true,
-      "authorized": true,
-      "preauth": false,
-      "wds": false,
-      "wmm": true,
-      "ht": true,
-      "vht": false,
-      "he": false,
-      "wps": false,
-      "mfp": false,
-      "mbo": false,
-      "rrm": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "extended_capabilities": [
-        4,
-        0,
-        10,
-        2,
-        0,
-        64,
-        0,
-        64
-      ],
-      "aid": 1,
-      "bytes": {
-        "rx": 1446,
-        "tx": 501
-      },
-      "airtime": {
-        "rx": 0,
-        "tx": 730
-      },
-      "packets": {
-        "rx": 14,
-        "tx": 4
-      },
-      "rate": {
-        "rx": 7800000,
-        "tx": 600000
-      },
-      "signal": -57,
-      "capabilities": {}
-    }
-  },
-  "failure_station_snapshot": {
-    "file": "failure-station-dumps.json",
-    "bytes": 1504,
-    "sha256": "5a2ab563e35d74a840043f5cfed5ce29c5a1e8be245bd85b744f9bd0afdc02eb"
-  },
-  "control_window_end": {
-    "mono": 736609.421,
-    "utc": "2026-10-22T17:07:31.773741+00:00"
-  },
-  "daemon_ended_verified": {
-    "exit_code": 0,
-    "stdout": "ENDED\n",
-    "stderr": ""
-  },
-  "daemon_evidence": {
-    "file": "daemon-evidence.json",
-    "bytes": 141699,
-    "sha256": "543bb5ff35a5a561aa2ea1a62601fd75881eb50d7cfec95b3de4ac5fd3122dd4"
-  },
-  "daemon_restore_rc": "0",
-  "daemon_acceptance": false,
+  "schema": "preprod1-safe-public-projection-v1",
+  "raw_relative_path": "artifacts/canary_panel1_guarida/preprod_guarida_20261022/history/preprod1_publication_final_20261023/bench_result.raw.json",
+  "raw_sha256": "00a02a80022d5ff7a23560bc2a6182e06abb80950ab821e00db08ef34467b123",
+  "raw_bytes": 137161,
+  "raw_withheld": true,
+  "byte_identical_to_raw": false,
+  "runtime_precondition_replacement": false,
+  "recovery_matrix_complete": true,
+  "full_PREPROD1_PASS": true,
   "daemon_RAM_files_removed": true,
-  "legacy_restoration": {
-    "SXT": {
-      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
-      "snapshot": "ab0fe2bd-55ef-4528-9032-6df20674573a\n4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c  /etc/config/wireless\n0c7ed7f439e9da169fc7f12908851fcc  /dev/mtd0\nae243dc4521318113d4781401997e3af  /dev/mtd3\n0634d29700fc835e3d7932da8eb79139  /dev/mtd4\n622939f192d37a4e9ba0b05daaad5014  /dev/mtd5\n03ef5cd199afa405aac7a9316e8280e2  /dev/mtd6\nd8fd8f66b380eb17e3856d3c75e84e0e  /dev/mtd7\necb99e6ffea7be1e5419350f725da86b  /dev/mtd8\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n3: br-lan: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000\n    inet 192.168.1.4/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n34: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    inet 10.99.0.3/24 brd 10.99.0.255 scope global phy0-sta0\n       valid_lft forever preferred_lft forever\n10.99.0.0/24 dev phy0-sta0 scope link  src 10.99.0.3 \n192.168.1.0/24 dev br-lan scope link  src 192.168.1.4 \nConnected to 18:e8:29:74:55:a2 (on phy0-sta0)\n\tSSID: FuturaMAX-LAB\n\tfreq: 5180.0\n\tRX: 13473 bytes (110 packets)\n\tTX: 7157 bytes (44 packets)\n\tsignal: -74 dBm\n\trx bitrate: 78.0 MBit/s MCS 12\n\ttx bitrate: 52.0 MBit/s MCS 11\n\tbss flags: short-slot-time\n\tdtim period: 2\n\tbeacon int: 100\n",
-      "ping": {
-        "exit_code": 0,
-        "stdout": "PING 10.99.0.3 (10.99.0.3): 56 data bytes\n64 bytes from 10.99.0.3: seq=0 ttl=64 time=2.662 ms\n64 bytes from 10.99.0.3: seq=1 ttl=64 time=1.601 ms\n64 bytes from 10.99.0.3: seq=2 ttl=64 time=1.589 ms\n\n--- 10.99.0.3 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.589/1.950/2.662 ms\n",
-        "stderr": ""
+  "multicycle_pass": true,
+  "persistent_config_writes": false,
+  "diagnostic_acquisition_complete": false,
+  "acquisition_complete": true,
+  "forbidden_actions_executed": false,
+  "daemon_acceptance": true,
+  "daemon_diagnostic_acceptance": false,
+  "diagnostic_only": false,
+  "traffic_qualification_complete": true,
+  "sample_count": 231,
+  "exit_code": 0,
+  "status": "PASS_PREPROD1_AP_ONLY_ZERO_TOUCH_FOUR_CPE_MULTICYCLE_RESTORED",
+  "cleanup_error_count": 0,
+  "failure_count": 0,
+  "failure_categories": [],
+  "experiment": "PREPROD1_FMX0017_ZERO_TOUCH_RECOVERY",
+  "raw_receipt_sha256": "21dc576a41f8cb10514eda70f66002148763a197363560d621232338c895d234",
+  "frozen_plan_sha256": "b1ed3288873799ef5a9096f10e3321fec4ac28599584b8a85e2ee91c66a5aeb1",
+  "review_sha256": "27f852dbe3a179b36e45d7e275cf37c76a1436dbdd74323b2d40e75980e85e25",
+  "daemon_source_sha256": "3a52a0d10026ee0a6c69f96a8aae77bf7e48605332904173fd18397a6e3a283a",
+  "source_sha256": "6ad1d19018a093edf07635501884cce570e5c5e044b4ad6332cfde5f7f6c619d",
+  "intake_sha256": "6cf4c8d72166ff2256d35a944d665c18bf7c03268ee32702c484ee0db7b7212b",
+  "started_utc": "2026-10-23T08:25:34.249720+00:00",
+  "ended_utc": "2026-10-23T08:35:26.237403+00:00",
+  "epoch_traffic": {
+    "0": {
+      "WA": {
+        "qualifying": true,
+        "p95_ms": 9.504,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "1d4edb223958372f50ea5804ca72df3a03a8c3a4bd23a5d16b28dafe3cf789cf",
+          "bytes": 10947
+        }
       },
-      "guard_log": {
-        "file": "SXT-guard-log.json",
-        "bytes": 52,
-        "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+      "XC": {
+        "qualifying": true,
+        "p95_ms": 4.86,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "18382e80f73a2a439d05c38af3c8276796b7f051f74df61e12ab7fa5d390613e",
+          "bytes": 10945
+        }
       },
-      "RAM_guard_cleanup": {
-        "exit_code": 0,
-        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
-        "stderr": ""
+      "SXT": {
+        "qualifying": true,
+        "p95_ms": 9.521,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "6e32b20cd6927bc0b2fd0fdad11061abce24eb896761ee1bc857975e0567c372",
+          "bytes": 8142
+        }
+      },
+      "LBM5": {
+        "qualifying": true,
+        "p95_ms": 10.082,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "526c45447865ef42b3b930a093e43359a69e037c3b08febac9d07863c9ebf238",
+          "bytes": 8143
+        }
       }
     },
-    "LBM5": {
-      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
-      "snapshot": "6fc96796-6e67-4ff4-b928-b5ce0acf54ef\n0620f996529e137645ba41587cb81713  /tmp/system.cfg\n37fec0e91d8d890a6a71a9dcce9d96f0  /dev/mtd0\nd923e305db3bbb9805cc8191abe933f7  /dev/mtd1\ncd708dcf6efcc93439edcdecf918c9f5  /dev/mtd4\n3f44343069ebb39f52f13b17074803cd  /dev/mtd5\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN \n    inet 127.0.0.1/8 scope host lo\n6: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.1.5/24 brd 192.168.1.255 scope global br0\n    inet 10.99.0.4/24 brd 10.99.0.255 scope global br0\n    inet 169.254.182.186/16 brd 169.254.255.255 scope global br0\n10.99.0.0/24 dev br0  proto kernel  scope link  src 10.99.0.4 \n192.168.1.0/24 via 10.99.0.1 dev br0 \n169.254.0.0/16 dev br0  proto kernel  scope link  src 169.254.182.186 \ndefault via 192.168.1.1 dev br0 \nbridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.f09fc2b2b6ba\tno\t\teth0\n\t\t\t\t\t\t\tath0\n\t\t\t\t\t\t\teth1\nath0      IEEE 802.11na  ESSID:\"FuturaMAX-LAB\"  \n          Mode:Managed  Frequency:5.18 GHz  Access Point: 18:E8:29:74:55:A2   \n          Bit Rate:72.222 Mb/s   Tx-Power=10 dBm   Sensitivity:0/3  \n          RTS thr=256 B   Fragment thr:off\n          Encryption key:off\n          Power Management:off\n          Link Quality=21/94  Signal level=-75 dBm  Noise level=-100 dBm\n          Rx invalid nwid:0  Rx invalid crypt:22  Rx invalid frag:0\n          Tx excessive retries:0  Invalid misc:0   Missed beacon:0\n\nath0      get_authmode:1  \nath0      get_wds:0  \n",
-      "ping": {
-        "exit_code": 0,
-        "stdout": "PING 10.99.0.4 (10.99.0.4): 56 data bytes\n64 bytes from 10.99.0.4: seq=0 ttl=64 time=1.282 ms\n64 bytes from 10.99.0.4: seq=1 ttl=64 time=1.228 ms\n64 bytes from 10.99.0.4: seq=2 ttl=64 time=1.371 ms\n\n--- 10.99.0.4 ping statistics ---\n3 packets transmitted, 3 packets received, 0% packet loss\nround-trip min/avg/max = 1.228/1.293/1.371 ms\n",
-        "stderr": ""
+    "1": {
+      "WA": {
+        "qualifying": true,
+        "p95_ms": 8.216,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "1888683b5b4f7f991e3d0b011d2ecee9b1b31d5e2f5012d06a1c46da1d9f2756",
+          "bytes": 10881
+        }
       },
-      "guard_log": {
-        "file": "LBM5-guard-log.json",
-        "bytes": 552,
-        "sha256": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70"
+      "XC": {
+        "qualifying": true,
+        "p95_ms": 9.457,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "4c72a7e103e4896d2b38d34bc32d61c8691008d4e5bbc4a11de7eb741890b02f",
+          "bytes": 10883
+        }
       },
-      "RAM_guard_cleanup": {
-        "exit_code": 0,
-        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
-        "stderr": ""
+      "SXT": {
+        "qualifying": true,
+        "p95_ms": 10.569,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "647a0118aaa0d59d613131068fca364f49fbfe6f382b169f8325a62897118154",
+          "bytes": 8079
+        }
+      },
+      "LBM5": {
+        "qualifying": true,
+        "p95_ms": 12.043,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "be81941dd0cf231280bace56c9c2ca4f711cf4eecdb59ad15284fc64f63c90bd",
+          "bytes": 8080
+        }
+      }
+    },
+    "2": {
+      "WA": {
+        "qualifying": true,
+        "p95_ms": 13.788,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "4d1f58af8058e4f3dc4d87e0c1d54b6ef005953b62d3f398d2f18b018d5583c7",
+          "bytes": 10885
+        }
+      },
+      "XC": {
+        "qualifying": true,
+        "p95_ms": 20.398,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "f2e550eba12e2f01a7979df5be0e7441c840286ec7cd16bab99b1411c0ecf1c0",
+          "bytes": 10894
+        }
+      },
+      "SXT": {
+        "qualifying": true,
+        "p95_ms": 210.631,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "0d1ebd5ed10d8b4611dc524750532f6c04c93f15006a5bcc8f964bc8d1545c19",
+          "bytes": 8097
+        }
+      },
+      "LBM5": {
+        "qualifying": true,
+        "p95_ms": 18.84,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "ba7b47756f32e4d2bb4c5cdd0fe4751ff51687f4c49a7a39b47be1e6fdeb0e23",
+          "bytes": 8084
+        }
+      }
+    },
+    "3": {
+      "WA": {
+        "qualifying": true,
+        "p95_ms": 12.974,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "6ff9cf5c7fbd96eaf70140ee8f0acfbae47a4b6714cefbbd004c90255df6b651",
+          "bytes": 10949
+        }
+      },
+      "XC": {
+        "qualifying": true,
+        "p95_ms": 9.752,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "ea9914a10cb108d63235871d9ddd35d9ac92bf6a52558bb22c7dbc7eccd2addc",
+          "bytes": 10947
+        }
+      },
+      "SXT": {
+        "qualifying": true,
+        "p95_ms": 35.847,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "2207df70c1c75ffb90162f35d225f1707dd4bfcee99201b23a18406606ca8bec",
+          "bytes": 8144
+        }
+      },
+      "LBM5": {
+        "qualifying": true,
+        "p95_ms": 12.293,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "81382becbf696ca68c30fc9650db658aa6189d7f79fe1d159ebd32286b0e261b",
+          "bytes": 8147
+        }
+      }
+    },
+    "4": {
+      "WA": {
+        "qualifying": true,
+        "p95_ms": 11.174,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "a5382325f899750658f0ae3ab6fe1e89c5b70c5d2a845acfce91067dbb87d8d3",
+          "bytes": 10949
+        }
+      },
+      "XC": {
+        "qualifying": true,
+        "p95_ms": 13.739,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "a41d7fcd2dbac4a26dddd0c92e9aab3c1fd8e75dd1fe4261ffbe09acfbf6c862",
+          "bytes": 10950
+        }
+      },
+      "SXT": {
+        "qualifying": true,
+        "p95_ms": 8.438,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "5c7913a38bfcdfd7297620734e76217b65378a20a0d26dabebd4c2497f90f8e3",
+          "bytes": 8140
+        }
+      },
+      "LBM5": {
+        "qualifying": true,
+        "p95_ms": 18.44,
+        "paired": 32,
+        "transmitted": 32,
+        "received": 32,
+        "reply_timings": 32,
+        "failure_count": 0,
+        "failure_categories": [],
+        "artifact": {
+          "sha256": "9d57712776cf774897e8bf3466489067a7b24864e918ecaeb3c2dbd49499dad9",
+          "bytes": 8144
+        }
       }
     }
   },
+  "verified_session_resets": [
+    1,
+    2,
+    3,
+    4
+  ],
   "AP_restoration": {
-    "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
-    "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
-    "deltas_empty": true,
     "guard_ended_verified": true,
-    "RAM_guard_cleanup": {
-      "exit_code": 0,
-      "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
-      "stderr": ""
-    }
+    "deltas_empty": true,
+    "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF"
   },
   "rocket_restoration": {
-    "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
-    "evidence": {
-      "hashes": "c2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/system.cfg\nc2d90e1e0dfa5b44cb0e2700b2ccd27f  /tmp/running.cfg\n6cad92c5c89b6c3d19fbaa80d9d8fa04  /etc/wpasupplicant_AUTO.conf\n5b26b076967befe129f669096539ae21  /lib/modules/2.6.32.68/ubnt_poll_host.ko\n815952ccbc2507834ae749e6388ba85b  /lib/modules/2.6.32.68/umac.ko\n0966ab9e3deed2fedfdcc63ff0b275fa  /dev/mtdblock0\n835f6343cbfadeba62702716f90d97bd  /dev/mtdblock1\n6769feda4dfc8142aed47f720f9c13dc  /dev/mtdblock4\nb8c74de44755422f1c7daffc48fca7f6  /dev/mtdblock5\n",
-      "bridge": "bridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.b4fbe45cd5d2\tno\t\teth0\n\t\t\t\t\t\t\tath0\nbr0       Link encap:Ethernet  HWaddr B4:FB:E4:5C:D5:D2  \n          inet addr:192.168.100.198  Bcast:192.168.100.255  Mask:255.255.255.0\n          inet6 addr: fe80::b6fb:e4ff:fe5c:d5d2/64 Scope:Link\n          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1\n",
-      "addresses": "12: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.100.198/24 brd 192.168.100.255 scope global br0\n    inet 169.254.213.210/16 brd 169.254.255.255 scope global br0\nKernel IP routing table\nDestination     Gateway         Genmask         Flags Metric Ref    Use Iface\n192.168.100.0   0.0.0.0         255.255.255.0   U     0      0        0 br0\n169.254.0.0     0.0.0.0         255.255.0.0     U     0      0        0 br0\n0.0.0.0         192.168.100.1   0.0.0.0         UG    0      0        0 br0\n",
-      "rules": "Bridge table: filter\n\nBridge chain: FORWARD, entries: 0, policy: ACCEPT\n"
+    "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED"
+  },
+  "legacy_restoration": {
+    "SXT": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
+    },
+    "LBM5": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
     }
   },
-  "events_artifact": {
-    "file": "hostapd-events.jsonl",
-    "bytes": 0,
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  "AP_compat_restoration": {
+    "guard_ended_verified": true,
+    "stock_service_healthy": true,
+    "owned_mount_absent": true,
+    "status": "PASS_COMPAT_STOCK_RESTORED"
   },
-  "ended_utc": "2026-10-22T17:08:16.402097+00:00",
-  "exit_code": 1,
-  "raw_receipt": "preprod1_20261022_run4\\receipt.json",
-  "raw_receipt_sha256": "4d013ff6a96a4bac090f6fae3782920d94079b57a2285ae811a05b73a7e1e96c",
-  "sample_count": 85
+  "canonical_public_summary": true,
+  "full_PREPROD1_independently_accepted": true,
+  "independent_acceptance": {
+    "file": "artifacts/canary_panel1_guarida/preprod1_run5ap_independent_acceptance_20261022.json",
+    "bytes": 22511,
+    "sha256": "e66059c48008464ee0da78c7e37b3c4c495a3db1f30b922cecef90ca8f6b2e8f"
+  },
+  "final_acceptance": {
+    "file": "artifacts/canary_panel1_guarida/preprod1_final_acceptance_20261023.json",
+    "bytes": 17167,
+    "sha256": "f0f836f556ff822257018ce896e262ba63d279d45664c2d22a405190d7d6e9a9"
+  },
+  "public_raw_receipt": {
+    "file": "artifacts/canary_panel1_guarida/preprod1_public_evidence_20261023/preprod1_20261022_run5ap__receipt.json.public.json",
+    "bytes": 10081,
+    "sha256": "a46348a90c5dc2d65009d3ed4527373337fe9ab6f59621f7a8bdc65755ad13da"
+  },
+  "acceptance_scope": "One completed frozen admission and four-drop recovery qualification on the exact prepared bench, using temporary AP E86 userspace compatibility.",
+  "PREPROD2": {
+    "status": "HOLD",
+    "GO": false,
+    "selected_deployment_candidate": null,
+    "production_execution_enabled": false
+  },
+  "limits": [
+    "Single completed frozen prepared-bench qualification; prior failures remain separate and unrescored.",
+    "SXT epoch2 p95 RTT is 210.631 ms. No p95 threshold belongs to this P1 gate; no low-latency, QoE, gain or performance claim follows.",
+    "Host launch phasing is not calibrated RF timing.",
+    "Power/firmware behavior below unchanged configured ceilings remains bounded by previously recorded field-gate limits.",
+    "PREPROD2 deployment candidate remains null and GO remains HOLD; this report authorizes no production action.",
+    "Fresh WA protected/config/boot snapshots and a fresh direct AP boot snapshot are not claimed; restoration coverage is the frozen contract stated by the independent report.",
+    "Public projections retain raw SHA provenance and are not byte-identical raw runtime prerequisite replacements.",
+    "Raw firmware, wpad executables, backups, raw management frames and foreign probes remain local and unpublished. Existing Git history is not purged.",
+    "P1 does not select the E86 bench executable as a production deployment candidate."
+  ]
 }

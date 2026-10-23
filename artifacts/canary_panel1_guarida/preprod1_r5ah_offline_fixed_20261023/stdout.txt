@@ -1,0 +1,115 @@
+............F.F......................................................... [ 30%]
+........................................................................ [ 60%]
+........................................................................ [ 91%]
+.....................                                                    [100%]
+================================== FAILURES ===================================
+_ test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic[diagnostic_no_WA-1-0-1-2-DROP_REQUEST n=2 target=b4:fb:e4:5c:d5:d2] _
+
+tmp_path = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1055/test_actual_native_stable_tran1')
+mode = 'diagnostic_no_WA', epoch = 1, drop = 0, expected_epoch = 1
+expected_drop = 2, tag = 'DROP_REQUEST n=2 target=b4:fb:e4:5c:d5:d2'
+
+    @pytest.mark.parametrize('mode,epoch,drop,expected_epoch,expected_drop,tag', [
+        ('diagnostic_no_WA', 0, 0, 1, 0, 'STABLE_START epoch=1'),
+        ('diagnostic_no_WA', 1, 0, 1, 2, f'DROP_REQUEST n=2 target={XC}'),
+        ('diagnostic_no_WA', 2, 2, 2, 2, 'DIAGNOSTIC_ONLY_COMPLETE'),
+        ('qualify', 0, 0, 0, 1, f'DROP_REQUEST n=1 target={WA}'),
+        ('qualify', 4, 4, 4, 4, 'COMPLETE'),
+    ])
+    def test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic(
+            tmp_path, mode, epoch, drop, expected_epoch, expected_drop, tag):
+        native = NATIVE.read_text(encoding='utf8')
+        block = re.split(r'(?m)^\s*STABLE\)\n', native, maxsplit=1)[1]
+        block = re.split(r'(?m)^\s*COMPLETE\)', block, maxsplit=1)[0]
+        git_bash = Path(os.environ.get('ProgramFiles', 'C:/Program Files')) / 'Git/bin/bash.exe'
+        bash = str(git_bash) if git_bash.is_file() else shutil.which('bash')
+        if not bash:
+            pytest.skip('POSIX fixture shell unavailable')
+        body = f'''set -eu
+    D={shlex.quote(tmp_path.as_posix())}
+    mode={mode}; epoch={epoch}; drop_n={drop}; phase=STABLE; stable_end=0; t=500
+    WA={WA}; XC={XC}; rows=synthetic
+    all_good() {{ return 0; }}
+    good() {{ return 0; }}
+    now() {{ echo 500; }}
+    log() {{ echo "$*"; }}
+    jsonfilter() {{ echo 4; }}
+    iw() {{ printf 'Station %s (on %s)' "$5" "$2"; }}
+    cat() {{ echo 21; }}
+    ubus() {{ :; }}
+    collect() {{ :; }}
+    protect_peers() {{ :; }}
+    for step in 1; do
+    case STABLE in
+    STABLE)
+    {block}
+    esac
+    done
+    printf 'FINAL epoch=%s drop=%s\\n' "$epoch" "$drop_n"
+    '''
+        result = subprocess.run([bash, '-s'], input=body.encode(), stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE, timeout=10)
+>       assert result.returncode == 0, result.stderr.decode(errors='replace')
+E       AssertionError: /usr/bin/bash: line 53: OBJ: unbound variable
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Program Files\\Git\\bin\\bash.exe', '-s'], returncode=1, stdout=b'STABLE_DONE epoch=1\nOLD...target=b4:fb:e4:5c:d5:d2 reason=3 deauth=true ban_time=0\n', stderr=b'/usr/bin/bash: line 53: OBJ: unbound variable\n').returncode
+
+tests\test_preprod1_no_WA_diagnostic.py:129: AssertionError
+_ test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic[qualify-0-0-0-1-DROP_REQUEST n=1 target=fc:ec:da:c2:54:0a] _
+
+tmp_path = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1055/test_actual_native_stable_tran3')
+mode = 'qualify', epoch = 0, drop = 0, expected_epoch = 0, expected_drop = 1
+tag = 'DROP_REQUEST n=1 target=fc:ec:da:c2:54:0a'
+
+    @pytest.mark.parametrize('mode,epoch,drop,expected_epoch,expected_drop,tag', [
+        ('diagnostic_no_WA', 0, 0, 1, 0, 'STABLE_START epoch=1'),
+        ('diagnostic_no_WA', 1, 0, 1, 2, f'DROP_REQUEST n=2 target={XC}'),
+        ('diagnostic_no_WA', 2, 2, 2, 2, 'DIAGNOSTIC_ONLY_COMPLETE'),
+        ('qualify', 0, 0, 0, 1, f'DROP_REQUEST n=1 target={WA}'),
+        ('qualify', 4, 4, 4, 4, 'COMPLETE'),
+    ])
+    def test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic(
+            tmp_path, mode, epoch, drop, expected_epoch, expected_drop, tag):
+        native = NATIVE.read_text(encoding='utf8')
+        block = re.split(r'(?m)^\s*STABLE\)\n', native, maxsplit=1)[1]
+        block = re.split(r'(?m)^\s*COMPLETE\)', block, maxsplit=1)[0]
+        git_bash = Path(os.environ.get('ProgramFiles', 'C:/Program Files')) / 'Git/bin/bash.exe'
+        bash = str(git_bash) if git_bash.is_file() else shutil.which('bash')
+        if not bash:
+            pytest.skip('POSIX fixture shell unavailable')
+        body = f'''set -eu
+    D={shlex.quote(tmp_path.as_posix())}
+    mode={mode}; epoch={epoch}; drop_n={drop}; phase=STABLE; stable_end=0; t=500
+    WA={WA}; XC={XC}; rows=synthetic
+    all_good() {{ return 0; }}
+    good() {{ return 0; }}
+    now() {{ echo 500; }}
+    log() {{ echo "$*"; }}
+    jsonfilter() {{ echo 4; }}
+    iw() {{ printf 'Station %s (on %s)' "$5" "$2"; }}
+    cat() {{ echo 21; }}
+    ubus() {{ :; }}
+    collect() {{ :; }}
+    protect_peers() {{ :; }}
+    for step in 1; do
+    case STABLE in
+    STABLE)
+    {block}
+    esac
+    done
+    printf 'FINAL epoch=%s drop=%s\\n' "$epoch" "$drop_n"
+    '''
+        result = subprocess.run([bash, '-s'], input=body.encode(), stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE, timeout=10)
+>       assert result.returncode == 0, result.stderr.decode(errors='replace')
+E       AssertionError: /usr/bin/bash: line 53: OBJ: unbound variable
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Program Files\\Git\\bin\\bash.exe', '-s'], returncode=1, stdout=b'STABLE_DONE epoch=0\nOLD...target=fc:ec:da:c2:54:0a reason=2 deauth=true ban_time=0\n', stderr=b'/usr/bin/bash: line 53: OBJ: unbound variable\n').returncode
+
+tests\test_preprod1_no_WA_diagnostic.py:129: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_preprod1_no_WA_diagnostic.py::test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic[diagnostic_no_WA-1-0-1-2-DROP_REQUEST n=2 target=b4:fb:e4:5c:d5:d2]
+FAILED tests/test_preprod1_no_WA_diagnostic.py::test_actual_native_stable_transitions_keep_qualifier_order_and_separate_diagnostic[qualify-0-0-0-1-DROP_REQUEST n=1 target=fc:ec:da:c2:54:0a]
+2 failed, 235 passed in 7.15s

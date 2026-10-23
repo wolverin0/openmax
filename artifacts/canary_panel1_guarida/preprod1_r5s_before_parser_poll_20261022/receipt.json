@@ -1,0 +1,12 @@
+{
+  "status": "RED_REPRODUCED",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5s-red -- python -B -m pytest tests/test_preprod1_audit.py -q -k 'partial_json or partial_event'",
+  "exit_code": 1,
+  "failed": 5,
+  "deselected": 95,
+  "seconds": 0.68,
+  "tool_receipt": "a5aff4",
+  "source_sha256": "efc1f7fcfc464c17eefdf31210794ec0da9a2a9a319237b7953ee6eeea0c5fa8",
+  "tests_sha256": "2e126b8e8dd9696cd2c8ecd46548505b25599bb98173ee4cfe95e4fe2dee56df",
+  "reason": "Actual old parser polls for every partial line; new regression also requires original phase deadline before any fast-path skip."
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "PREPROD1_RUN5C_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5C_FOUR_ADMITTED_CONTROLLER_FAILURE_ALL_RESTORED",
+  "utc": "2026-10-22T18:11:56.354460+00:00",
+  "receipt_sha256": "0d958b0468ef026ed40daa8415c3101a895599b47af3c1f92797d9e9ddd1ad57",
+  "plan_sha256": "c10b3678fbba1f8be312a0f28cb7908b66538e751ea44d4f1ec0374a818195f9",
+  "source_review_sha256": "52ce465939f0b634a5bfffd6ad62c7c083e1b0cfe71702a1d0d5ad4841adf0a7",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "83034a22397a5691480cee9ce3a12768990e92638f0ee7967217755a978a5258",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "ca5ed19b4524b5c1391f25cbc5c969945b524d0d8dc58149d81df6c246ccbd3e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "38621dfe2b63ca6a63db3c1c132d8c8c742ec38aa48d3f3ae99c9c88db7b9414"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T18:10:11.274499+00:00",
+  "scope": "Local completed-artifact/source review only; no device, network, credentials, tests, Git or producer edits.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "artifact_bindings_verified": {
+    "failure-station-dumps.json": "a7f0e1d9ffa34415163ee69ab0cf019ebe7ca5f8b10ac4678341e36efd7a76d7",
+    "daemon-evidence.json": "3d69a85996383eb57787c29b64e90fcb458cbdda7022fbdf09347b8832fb9879",
+    "SXT-guard-log.json": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525",
+    "LBM5-guard-log.json": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observed_acquisition": {
+    "initial_four_admitted": true,
+    "initial_admission_seconds": 45.76,
+    "initial_admission_deadline_seconds": 120,
+    "all_four_AP_auth_assoc_authorized": true,
+    "WA_XC_WDS": true,
+    "stable_epoch0_started": true,
+    "qualified_60_second_epochs": 0,
+    "drop_requests": 0,
+    "qualified_recoveries": 0,
+    "qualified_traffic_epochs": 0,
+    "observer_samples": 34,
+    "XC_window_exec_count": 0,
+    "native_stop_reason": "operator_signal",
+    "native_exit_rc": 0,
+    "IE_clear_rc": 0,
+    "failures": [
+      {
+        "type": "AttributeError",
+        "gate": "'str' object has no attribute 'adaptive_ping_wrapper'"
+      }
+    ],
+    "controller_failure_source": "Archived runner lines111/313/394: imported baseline module is overwritten by a legacy snapshot string before baseline.adaptive_ping_wrapper. Failure precedes first capture launch."
+  },
+  "preparation_evidence": {
+    "AP_seed_and_explicit_clear_acknowledged": true,
+    "fresh_secure_BSS_mono": 740273.546,
+    "enable_request_mono": 740275.609,
+    "control_window_start": {
+      "mono": 740275.765,
+      "utc": "2026-10-22T18:08:38.114474+00:00"
+    },
+    "positive_pre_window_waiting_state": "4WAY_HANDSHAKE",
+    "all_native_preparation_commands_synchronous_before_window": true,
+    "test_source_archive_exact": true
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "exact_baseline_hashes_rules_bridge_ordered_IPv4_routes": true
+    },
+    "SXT_LBM5": {
+      "SXT": {
+        "same_boot_protected_config_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true,
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
+      },
+      "LBM5": {
+        "same_boot_protected_config_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true,
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
+      }
+    },
+    "daemon_ended_owned_RAM_removed": true,
+    "capture_guards": "No capture launched: controller failed constructing first capture wrapper. No capture or ping files present.",
+    "cleanup_errors": []
+  },
+  "decision": "Initial four-way admission observed within120s; full PREPROD1 remains NOT_ACCEPTED because controller failed before first qualified epoch. Five stability/traffic epochs, four target session resets/recoveries and peer continuity unexecuted; not failed wireless outcomes. Prior negatives immutable.",
+  "objective_continuity": "Coordinator continues authorized until-PASS objective through minimum shadowing repair and fresh reviewed run; this result is not an operator pause.",
+  "limits": [
+    "Pre-window native preparation explicit; no zero-setup claim.",
+    "Initial admission does not establish repeatability, four reconnects,60s stability, traffic, performance improvement or production readiness."
+  ],
+  "reviewer_evidence_note": "First local validation 3e842c exited1 because current runner had already changed for next revision. Final validation correctly uses archived executed runner, daemon and tests for R5c, with exact frozen hashes; no historical producer files altered.",
+  "validation_exit_code": 0
+}

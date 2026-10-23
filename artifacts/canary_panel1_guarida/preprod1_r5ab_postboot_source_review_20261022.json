@@ -1,0 +1,96 @@
+{
+  "status": "SOURCE_ONLY_PENDING_OPERATOR_PLACEMENT_AND_FINAL_PLAN",
+  "source_review_passed": true,
+  "reviewer": "flash_review independent local public postboot delta review",
+  "reviewed_utc": "2026-10-23T00:46:01.972733+00:00",
+  "freeze_sha256": "43e5ab0e7ab34ed316c45ba630bb390ebef8f4a544294dbcd643c3989cbac649",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "e5c389bdd3784db9b8ce98fb9e6f84d36dde210920b21682807e524163628fdb",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "c3c563ddb1a874cf76b50eaba6aee142dfbadab37467a377c48a5f77056997dc",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "tests/test_preprod1_remote_deadline.py": "dbc3a3d21da831140e89afb569979d0d9ebb40b738817c6d10ef95ed9c347685",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "13689970aedd3e4f429d11b14ecc928f70d7a31b13bddbf0808f73e7fffb3fc3",
+    "artifacts/canary_panel1_guarida/preprod1_r5ab_legacy_intake_20261022.json": "2e3d99601ac0f51dce24937d896b3ea3b33667efdf0f8d3721d30f7eb0da375a"
+  },
+  "bindings_verified": 17,
+  "findings": [],
+  "runner_delta": {
+    "previous_runner": {
+      "file": "preprod1_r5ab_before_postboot_intake_20261022.py",
+      "sha256": "ea2abfaac0daebb32af6a3ae0cb45a02fe90a029423e19a9c55fa6d3d2f3e571"
+    },
+    "current_sha256": "e5c389bdd3784db9b8ce98fb9e6f84d36dde210920b21682807e524163628fdb",
+    "changes": [
+      "INTAKE points to the new versioned postboot intake.",
+      "Run receipt records intake file name and exact byte SHA256.",
+      "Exact intake bytes are archived as executed-source/legacy_intake.json before device work."
+    ],
+    "unchanged": "Bounded remote/XC audit/legacy handshake repairs remain admitted. Native, RF, initial/recovery trace operations, timeouts, traffic/session/peer and restoration acceptance are unchanged."
+  },
+  "intake_eligibility": {
+    "file": "preprod1_r5ab_legacy_intake_20261022.json",
+    "sha256": "2e3d99601ac0f51dce24937d896b3ea3b33667efdf0f8d3721d30f7eb0da375a",
+    "original_intake_sha256": "37d92736e926e94589095079434dc895c13b9e74d24d618428e3cb42208ff1c9",
+    "SXT_entry_exactly_unchanged": true,
+    "M5_unchanged_fields": [
+      "pin",
+      "system_config",
+      "system_md5",
+      "tools"
+    ],
+    "M5_only_changed_or_added_fields": [
+      "boot_id",
+      "identity",
+      "requalification"
+    ],
+    "M5_boot": "80c585ae-1f9e-482e-997c-cda0403f3077",
+    "identity_exact_current_RO_composition": true,
+    "postboot_RO_sha256": "07b5d056caf6b95442ad9ba1dd77039e2d2324ad0cd24465a5c4235175205e46",
+    "independent_observation_sha256": "5365b82441c5c2b2a0ea72578fd800e172d16b496a3c0609c7db3bf3b9838fcc",
+    "old_guard_RAM_absent_recorded": true,
+    "stage_distinguishes_postboot_Ethernet_requalification_from_new_RF_measurement": true,
+    "legacy_loader_status_retained_is_not_new_RF_acceptance": true,
+    "reboot_cause": "UNKNOWN"
+  },
+  "strict_gates_retained": [
+    "At setup the freshly acquired baseline boot must equal the newly recorded intake boot; another change fails LEGACY_BOOT_CHANGED.",
+    "Final restore snapshot boot/config/protected/network/open profile must match that run fresh baseline exactly; no historical criterion is relaxed.",
+    "No forced write of old indirect routes or link-local timing, and no substitution of new boot into old AA/Ethernet receipts."
+  ],
+  "evidence": {
+    "fresh_author_test_receipt": {
+      "file": "artifacts/canary_panel1_guarida/preprod1_r5ab_offline_postboot_20261022/receipt.json",
+      "sha256": "62aa34eb5fa25bda07209ba05480d622e8908bf0eda22f34b3ec9b99fd57b5f1",
+      "exit_code": 0,
+      "result": "184 passed in5.34s",
+      "stdout_sha256": "64c841430b948196f2ed76206d618d0e0b1d9e97437e9fb5493bcc21147291bf",
+      "stderr_sha256": "3a3c41df8a6da6485a5dc49bc5c7e4b76dca3747c2aefbf1de288befe2c3c9a7"
+    },
+    "prior_source_review_sha256": "6083593e279f0508ace05da2d539006fec6b1bc919fd8b8e66cb505c8736b1f7",
+    "reviewer_tests_executed": false
+  },
+  "execution_preconditions_pending": [
+    "Operator must confirm M5 LAN removed from EdgeRouterport8 and return to the planned far RF position with PoE maintained. The reviewer has no physical confirmation.",
+    "Final actual physical plan/preconditions and exact independent source/plan preflight must be frozen after placement. This source-only artifact does not authorize RF."
+  ],
+  "RF_execution_authorized": false,
+  "PREPROD1_accepted": false,
+  "AA_or_prior_ETH_rescored": false,
+  "limits": [
+    "Local public source/data and hash inspection only; no network, devices, credentials, private logs, tests, builds or Git operations by reviewer.",
+    "Fresh fixture result is enabling software evidence, not wireless or restoration acceptance.",
+    "Initial typed intake PASS is inherited loader compatibility; explicit stage/provenance states that only M5 postboot identity/runtime were requalified over Ethernet.",
+    "AA abort, earlier checksum failure and Ethernet boot mismatch remain negative; no cause is inferred from the reboot interval."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "status": "PASS_LOCAL_XC_RECOVERY_IE_SUPPRESSED_NO_DEBUG_CONTRAST",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T21:59:51.902325+00:00",
+  "plan_sha256": "764defbb65c714c8cc82073f64e402a02a459cf1191e15c00ce25ffba913d1ae",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "f387c75c7ba1cf57daca06cbb1410c110ebb9ec10ac6b66ee9d57dc5c2b7f0b8",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed"
+  },
+  "preconditions": {
+    "S_noDEBUG_baseline": {
+      "file": "preprod1_20261022_run5s/receipt.json",
+      "sha256": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3"
+    },
+    "S_independent": {
+      "file": "preprod1_run5s_independent_acceptance_20261022.json",
+      "sha256": "5a497b000402ff22242a743aef701b7370a4fc9ab3cb8731537f88279e57df49"
+    },
+    "T_negative_restored": {
+      "file": "preprod1_20261022_run5t/receipt.json",
+      "sha256": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb"
+    },
+    "T_independent": {
+      "file": "preprod1_run5t_independent_acceptance_20261022.json",
+      "sha256": "b73e9b98fdb7455a4071ad4df8a40ea6205c426ffd48d011c5f7031b77cf21e6"
+    },
+    "T_diagnostic_interpretation": {
+      "file": "preprod1_r5t_diagnostic_interpretation_20261022.json",
+      "sha256": "d855470954ed8dcf5f4245f972de3a06f6138f1c5b60efddaa0e1e4740ce4420"
+    },
+    "prospective_U_hypothesis": {
+      "file": "preprod1_r5u_prospective_hypothesis_20261022.json",
+      "sha256": "6c8f2d46d6e2cd6ce63a6b132793c5bb87110d5c6e4269126441b07bc721f35d"
+    }
+  },
+  "must_fix_findings": [],
+  "delta_review": [
+    "Compared native U directly with frozen executed S45da, the explicit no-DEBUG baseline. Only XC recovery announcement policy changes: after old_wds_retired succeeds, pulse_missing asserts ie_on0, logs suppression once, and returns without reinjection.",
+    "Old XC floor/dwell/broadcast-clear branch is removed. If IE is unexpectedly on during XC recovery, both the pulse path and IE-decision branch reject with89. Old WDS barrier remains first; its read/identity errors stay fail-closed.",
+    "Initial both-seen admission, exact WA>=20/current-broadcast policy, legacy2s recovery, reason2/deauthtrue/ban0, native pre/postcollection deadlines and global60s including WDS wait are unchanged. All original outcome maps compare equal to S.",
+    "Plan AP_debug is exactFalse. Runner17001 leaves ap_traceNone and conditionally skips Trace construction/staging/start/sample/finish and its runtime imports. Trace file is only a local hash-bound offline contract dependency; CLI/base-debug binaries are not on the U runtime path. Thus U uses the S no-DEBUG route as its comparison, not a causal comparison with instrumented T."
+  ],
+  "static_staging_byte_check": {
+    "tool_chunk": "1d843d",
+    "classification": "Pure rendering of unchanged upload helper AST on actual source and valid-format24hex path; no shell/device/test execution.",
+    "source_bytes": 12161,
+    "staging_commands": 26,
+    "max_actual_staging_command_bytes": 943,
+    "hard_bound": 4096,
+    "source_bound": 16384,
+    "plan_metadata_matches": true
+  },
+  "offline_evidence": {
+    "file": "preprod1_r5u_contract_tests_20261022.json",
+    "sha256": "4a03d50baf3a2ddc5f427c3c81d4300c864689185bdb419d79c19eca5bc4c4a6",
+    "passed": 112,
+    "exit_code": 0,
+    "seconds": 3.66,
+    "tool_receipt": "045be6",
+    "native_shell_syntax_exit": 0,
+    "native_shell_syntax_tool_receipt": "bc6dee",
+    "RED": {
+      "file": "preprod1_r5u_before_XC_quiet_20261022/receipt.json",
+      "sha256": "ae97250b73bf3cb9ca27bf3341e8587906ecd5ac644fc971eff2d4dd8831f19d",
+      "failed": 6,
+      "exit_code": 1
+    },
+    "classification": "Coordinator-executed evidence inspected, not rerun. Six actual native quiet-policy cases first failed against old policy and now verify no reinjection on empty/broadcast/directed/foreign inputs, once-only log, retained WDS barrier and unexpected IE rejection. They replace six superseded policy tests;106 other contracts unchanged. No user acceptance criterion replaced."
+  },
+  "method_limits": [
+    "Prospective cache/IE-policy question only. T qualified driver-reported authentication response ACK under its source interpretation, not OTA/CPE upper-stack receipt or an association failure cause.",
+    "S/T remain overall negative. Suppressing discovery may succeed or fail; no cache persistence or vendor causality is assumed.",
+    "Full120s initial admission, four60s recoveries/new sessions, five>=60s holds, twenty32/32echo+32radio flows, other-three continuity and zeroXCwindow commands remain mandatory. Quiet policy or retained auth/ACK cannot count as loss or recovery.",
+    "All exact configuration/protected/boot/network/APoff/nft/guard/RAM restoration gates remain unchanged. No RF or CPE setting/firmware change.",
+    "Local public source/plan/evidence inspection and static byte rendering only. No hardware/network/credentials/private raw/tests/Git or producer edits by reviewer."
+  ]
+}

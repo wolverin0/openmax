@@ -1,0 +1,81 @@
+{
+  "status": "PASS_BOUNDED_WITH_LIMITS_RESPONSE_FIELDS_AND_UNCHANGED_POWER_CEILING",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-23T06:43:16.935976+00:00",
+  "parent": "FMX0017/PREPROD1 same isolated bench repair",
+  "scope": "Public metadata/source-only independent assessment. No devices, network, target execution, private frame/log/disassembly reads, binary analysis, tests execution, implementation changes or production access.",
+  "public_evidence": [
+    {
+      "file": "preprod1_r5al_response_wire_schema_20261023.json",
+      "sha256": "8c792db3ed8a71cd50c055e105091f849c22c77f700f9ea3fa52a0e9f1d311ca"
+    },
+    {
+      "file": "preprod1_r5al_response_control_boundary_20261023.json",
+      "sha256": "fa4ef528c319889fa4acf8678d353dccb7e77953068bf4b7fb7e46ebd80d3d54"
+    },
+    {
+      "file": "preprod1_r5al_power_control_boundary_20261023.json",
+      "sha256": "265622a55566574645883522d46c071378152a6d773b0b1713eb95571efa8796"
+    },
+    {
+      "file": "preprod1_r5al_global_TX_limit_boundary_20261023.json",
+      "sha256": "4769582110a9cbd27e3711ec7536344dbd9b957fb7047b00020c0258015a0bf3"
+    },
+    {
+      "file": "preprod1_r5al_TXpower_API_binding_20261023.json",
+      "sha256": "8a1b0949fca8b30e0eb04c6bfd98f09d93eac250450bbb57e9e41a6ce82c3cf8"
+    },
+    {
+      "file": "preprod1_r5al_power_gate_readonly_20261023.json",
+      "sha256": "b1e1b12d0112c4b772492585f7e91d8b815fc0ed0a65a540ec7c8e0b418b91ee"
+    },
+    {
+      "file": "preprod1_r5al_ATPC_init_readonly_20261023.json",
+      "sha256": "37e1e526076a29ee5d9dd59c59eef6c9754e273c29e0acdd848103b67a6fc855"
+    },
+    {
+      "file": "preprod1_r5al_mca_ATPC_readonly_20261023.json",
+      "sha256": "9654e9b2655723ddde9c1734bf89fb27acc201184f459c18eca4bc8a6aaa3150"
+    }
+  ],
+  "codec_review": {
+    "status": "PASS_MODEL_ONLY",
+    "header_file": "tools/bench/hostapd_preprod1_xc_assocresp.h",
+    "header_sha256": "12e75a40c614d09557496fa18b3665738c2e62c9d21de83575051d623f76323f",
+    "test_file": "tests/test_preprod1_xc_assocresp_compat.py",
+    "test_sha256": "d3e15f57f302966a1333942f31de18d8fd74bb92487bf60c1004622b0ec8d369",
+    "synthetic_receipt_sha256": "a3c72978fd7ee4b056dd64c7a12021cb8a8e0fdedaf8521f8f7f78b0b632e434",
+    "synthetic_receipt_cases": 58,
+    "compile_exit": 0,
+    "native_exit": 0,
+    "schema_framing": "IE44bytes; outer BE16 ciphertext length VALUE32; nonce4 is already wire-order; proto9/APMAC/chainmasks3,3/TLV3empty/APpower0/zero padding.",
+    "checks": "Exact lab MAC eligibility, cap>=44/nonNULL, HMAC-SHA1(keyXC,dataAP), AES128ECB two16byteblocks, output copied only after allsuccess, crypto failures preserve output, temporary buffers erased and AES context deinitialized.",
+    "tests_reused_not_executed_by_reviewer": true,
+    "not_target_driver_or_WPA_handshake_validation": true
+  },
+  "power_gate": {
+    "disposition": "CLOSED_FOR_BOUNDED_UNCHANGED_CONFIGURED_CEILING_TREATMENT_WITH_LIMITS",
+    "baseline": "Pinned public read-only metadata reports configured and driver-reported28dBm unchanged; AP remains0dBm.",
+    "API_binding": "ExactUMAC wlan_set_txpow converts dBm to half-dBm, dispatches both bands through ic+19c28; offload init binds thisslot to ol_ath_setTxPowerLimit. wlan_get_txpow reports node half-dBm/2.",
+    "driver_limit": "Public exactmodule report documents device/board clamping then radio/PDEV WMI params3/4 and stored clampedlimit. Existing configured28 maps56half-dBm before clamps.",
+    "response_path_separation": "Assocresponse handler stores peer RSSI/APpower metadata; no ordinaryTXpowerAPI/ATPCsetter calls or global-limit replacement field. HTcomm7 forwards RSSI; separate HTcomm13 ATPCsetting path is not invoked by the proposed response.",
+    "meaning_of_no_power_increase": "No raised configured/global TXceiling or new ATPCsetting. This is not a calibrated instantaneous RF-power guarantee and doesnot prove ATPC disabled or no within-ceiling algorithm change.",
+    "FW_enforcement": "INFERRED from existing driver/firmware contract; not direct FW execution proof.",
+    "RSSI_zero": "Documented legacy omitted-field default/tolerated wire representation; unavailable semantics and FW algorithm effects remain UNKNOWN.",
+    "ATPC_readback": "Shared scratch read is not actualflag proof. No blind toggle permitted because originalflag cannot be restored from it.",
+    "basis_limit": "Reviewer verified public report hashes and consistency; did not reopen proprietary binaries or private static proof bytes."
+  },
+  "admission_boundaries": [
+    "This is field/safety-direction admission only, NOT permission to launch an unreviewed binary or RF plan. Integration, consistent cleanbuild/provenance, frozen exactsource/binarybindings, lifecycle restoration proof and exactindependent artifactpreflight remain required before RF.",
+    "Only exactlab AP/XC after strictly decoded type2/IE0absent request and otherwise normal successful association; normal SSID/RSN/PSK/4way/status/AID checks remain unchanged. InitialstandardIE0 path remains untouched; no reassociation or BSS-wide injection.",
+    "AP0dBm5180/20/AR and original XC configuration/driverglobalceiling remain unchanged; no ATPCsetter, power-limit write, new capabilitybits, firmwareflash, customMAC/polling implementation or protected changes.",
+    "Data-path consequences after acceptedtype3 remain UNKNOWN and are appropriate to measure with the unchanged bounded diagnostic, actualWPA2/session/peer continuity and strict32echo+32radio-pair gates. Pre-proven interoperability is not an additional prerequisite.",
+    "MAC-derived obfuscation is not authentication; no claimTDMA/airMAX implementation or universal compatibility.",
+    "Any allocation/codec/entropy/eligibility failure must failclosed at integration; caller must obtain freshnonce from existing secure random API and never substitute fabricated measurement feedback.",
+    "Original failures remain negative and fullPREPROD1 four-recovery/five-epoch qualification is still pending."
+  ],
+  "findings": [],
+  "blockers_for_offline_integration_direction": [],
+  "RF_launch_accepted": false,
+  "full_PREPROD1_PASS": false
+}

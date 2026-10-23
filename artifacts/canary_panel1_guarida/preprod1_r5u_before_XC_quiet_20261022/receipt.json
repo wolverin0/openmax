@@ -1,0 +1,14 @@
+{
+  "status": "RED_REPRODUCED_BEFORE_RF",
+  "failed": 6,
+  "deselected": 106,
+  "exit_code": 1,
+  "seconds": 0.57,
+  "tool_receipt": "610afe",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5u-quiet-red -- python -B -m pytest tests/test_preprod1_audit.py -q -k 'xc_recovery_does_not_reinject or xc_quiet'",
+  "files": {
+    "preprod1_admitter.sh": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32",
+    "test_preprod1_audit.py": "f387c75c7ba1cf57daca06cbb1410c110ebb9ec10ac6b66ee9d57dc5c2b7f0b8"
+  },
+  "scope": "Six superseded XC20s/probe policy cases replaced by six quietpolicycases; all106othercontracts unchanged."
+}

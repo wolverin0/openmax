@@ -1,0 +1,76 @@
+{
+  "status": "PASS_LOCAL_PREPROD1_RUN5F_WA_BROADCAST_RECOVERY_WITH_UNCHANGED_DEADLINE",
+  "reviewed_utc": "2026-10-22T18:46:41.682955+00:00",
+  "plan_sha256": "c281858523d228f188ab6f33a026068d66479aeb0ba49f8aa5a632943feb8dc5",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "06f8468c5c5c647eee76afa7b3e1d65f5faab82396f7242fce0edc7b04d4787c",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "0a50b72c46f39109bc993e0c89786848225cf5870833cff6a590cf7b362dab2e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "02a252eaf662578910d4cfbbf2830259cddb34065e917091dbfd039da267f012"
+  },
+  "must_fix_findings": [],
+  "scope": "Independent local source, metadata and frozen precondition review only. No devices/network/credentials/tests/Git or producer changes.",
+  "findings": [
+    "Exact daemon diff adds60s maximum IE only for missing exactWA RECOVER, retains2s for other targets, and requires WA broadcast probe to trigger clear while exact nonWA valid-target probe policy is unchanged. WA phase/probe timestamp logging adds evidence only.",
+    "Recovery60s deadline is unchanged and checked before success branch. A60s pulse maximum is not an extension of that deadline or a promise of enough post-clear authentication time; a late broadcast may still produce a valid negative.",
+    "Runner0a50 is byte-identical to R5e; initial preparation, per-pulse ADMIT barrier,45s native capture guard/48s controller readiness, all station/packet/cleanup gates unchanged.",
+    "Nine current source bindings and31-test metadata match frozen plan. RF, acceptance, guard budgets and stop_conditions exactly equal R5e.",
+    "Fresh additive restoration review and six wired RPC/AP-off records match all three frozen precondition hashes. This does not rescind original R5e failed receipt."
+  ],
+  "preconditions": {
+    "late_restoration": {
+      "file": "preprod1_r5e_recovery_20261022/receipt.json",
+      "sha256": "77a223b842735f75eee0be244febfcdb08e534531d75848e3541cc70b633fe72",
+      "status": "PASS_ADDITIVE_BENCH_RESTORATION_AP_OFF_ALL_OWNED_GUARDS_RAM_ENDED"
+    },
+    "independent_restoration": {
+      "file": "preprod1_r5e_restoration_review_20261022.json",
+      "sha256": "af27f3672bf902719afd658d3ccdeeaeb8dd5c63cd206da2c2cf7ac0fb946fb0",
+      "status": "PASS_ADDITIVE_RESTORATION_ONLY_R5E_RESEARCH_INCOMPLETE"
+    },
+    "wired_health": {
+      "file": "preprod1_r5f_wired_health_preflight_20261022.json",
+      "sha256": "0647e981ae0001ff3c36919419022fe8ef538c86ad1b3749016b756146b2e79b",
+      "status": "PASS_SIX_WIRED_RPCS_AND_AP_OFF"
+    }
+  },
+  "verification": {
+    "reviewer_readonly_diff_inspection": {
+      "tool_chunks": [
+        "6d4a41",
+        "5396a1"
+      ],
+      "exit_code": 0,
+      "tests_rerun": false
+    },
+    "coordinator_red_contracts": {
+      "file": "preprod1_r5f_red_wa_recovery_20261022.json",
+      "sha256": "d2a8335b1d1b51ff67e671779c3dca43ec3ee11f81d1958e4771354c1ccbb703",
+      "failed": 2,
+      "exit_code": 1,
+      "tool_chunk": "c84efb",
+      "preserved": true
+    },
+    "coordinator_final_contracts": {
+      "file": "preprod1_r5f_contract_tests_20261022.json",
+      "sha256": "5d077f1df397d37d87ddab9c3dc9ede144836d254280ea65d83f9ead1e80002f",
+      "passed": 31,
+      "exit_code": 0,
+      "seconds": 1.73,
+      "tool_chunk": "9dea13",
+      "native_bash_syntax_exit_code": 0,
+      "execution_owner": "coordinator; not rerun by independent reviewer"
+    }
+  },
+  "method_limits": [
+    "One prospective exact isolated-bench treatment only; no production contact or permission follows.",
+    "R5e recovered native data motivate changed WA recovery policy; exact device-level causality and a successful recovery are not established.",
+    "Retain120s initial/60s each recovery,five>=60s holds,32/32echo and32radio pairs perCPE/epoch, target-only session reset and other-three continuity, zero XC commands during window and full exact restoration.",
+    "Full physical acceptance only after final complete raw evidence and independently verified restoration. No previous negative or absent observer/packet evidence is rescued."
+  ]
+}

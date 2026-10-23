@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-23T04:45:54.375649+00:00",
+  "parent": "FMX0017/original forward-plan PhaseB-C/PREPROD1",
+  "question": "Can AP userspace normalize the explicitly transmitted XC SSID without changing normal SSID or WPA2 validation, allowing zero-touch recovery?",
+  "existing_evidence": {
+    "AJ_decode": {
+      "file": "preprod1_r5aj_owner_offline_decode_20261023.json",
+      "sha256": "cc92b8311ef5b82910b6d2b5999089631b5ddb9f4158a4e6107b256aff63410c",
+      "answer": "18of18 owned AH requests contain exactlabSSID in type2/proto9 ciphertext, no standardIE0"
+    },
+    "AP_source": "check_ssid NULL fails before normal WPA checks and ubusAssoc",
+    "quiet_and_scan_variants": "Preserved negatives; no proven cache-control repair"
+  },
+  "minimum_missing_evidence": [
+    "Native C exact-wire decoder rejects malformed/ambiguous/foreign/wrong-proto data and never overrides an existing SSID",
+    "Integration preserves check_ssid/WMM/rates/RSN/PSK/4way and scopes explicitcompat to exactbench AP+XC under WPA2CCMP",
+    "Isolated incremental userspace build, exact stock provenance, ELF/deps and bytebound independent review",
+    "Concrete runtime RAM mount/service/jail/watchdog/restore plan independently accepted before any execution",
+    "Same AH diagnostic with newcompat only, then original fullP1 fourrecoveries/fiveholds/twentystreams if decisive diagnostic succeeds"
+  ],
+  "treatment": "New explicit AP userspace RAM compatibility; not vanilla stock success. No firmware flash or CPE-window commands. Crypto format normalization is not authentication.",
+  "implementation_boundary": "Independent small decoder from owned wire schema with standard hostapd crypto; no proprietary code copied. ID0present untouched; explicit extracted bytes enter existing normal check_ssid. No configuredSSID fallback or forcedsuccess.",
+  "offline_ownership": [
+    "tools/bench/hostapd_preprod1_xc_ssid.h",
+    "tools/bench/hostapd_preprod1_xc_ssid.patch",
+    "tests/test_preprod1_xc_ssid_compat.py",
+    "New private isolated WSL copy and public metadata only"
+  ],
+  "stop_or_park": [
+    "Reject decoder on ambiguity or failed security invariants; preserve failed checks before repair",
+    "No RF until exactbinary/runtime lifecycle and source review accepted",
+    "No production contact, protected-partition writes, flash or signature bypass",
+    "Do not expand into TDMA/customMAC or unrelated tuning"
+  ],
+  "acceptance_unchanged": "Full original P1 criteria plus explicit compatibility source/binary/guard/restoration; P2 kit refreshed only after result. Prior vanilla negatives retained. Publication only after fullPASS and independentacceptance.",
+  "authorization_basis": "User173056784 R5 implementation and continueuntil fullPASS; AGENTS12.1/12.2/12.3 minimumnecessary repairs. No generic renewed approval required; operational gates still apply."
+}

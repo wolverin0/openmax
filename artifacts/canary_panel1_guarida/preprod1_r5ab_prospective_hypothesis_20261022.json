@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-23T00:00:29.880299+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB-C / PREPROD1",
+  "question": "Original AA question remains: successful initial versus failed XC recovery association SSID IE0 through the same APcontrol path.",
+  "existing_evidence": "Z complete257-byte recovery requests omit SSID; AA aborted before initial trace/window after EXEC-ACK hang while arming LBM5 guard.",
+  "local_stack_observation": {
+    "owner": "root",
+    "pid": 506424,
+    "tool": "py-spy dump --json --nonblocking, no locals",
+    "frames": [
+      "Paramiko channel._wait_for_event:1217",
+      "channel.exec_command:255",
+      "client.exec_command:566",
+      "root_four_cpe_access_20261022.remote:30",
+      "preprod1_trial_20261022.arm_legacy:441",
+      "main:521"
+    ],
+    "limit": "Observed live tool output, no separate raw stack artifact retained; not RF evidence."
+  },
+  "repair_required": "Legacy guard applies WPA2 after2s while AP is still open. Separate readiness RPC can lose RF before its EXEC-ACK. Paramiko exec timeout does not bound that ACK wait; local fixture reproduces missing bound.",
+  "minimum_change": "Runner-only generic remote owned-channel absolute timer before exec, concurrent bounded stdout/stderr drain, XC audit gate before opening channel; read guard identity/deadline in the same dispatch command before the2s apply. Preserve existing native legacy source and restoration.",
+  "missing_evidence": "After confirmed AA restoration, fresh offline regression/source preflight and the same AA initial/recovery physical comparison.",
+  "stop_park": "Preserve any failure; native guards plus exact restoration remain mandatory. No unchanged failed retry, no acceptance relaxation or new research branch.",
+  "RF": "5180MHz/20MHz/0dBm/AR unchanged",
+  "acceptance": "Original four real losses/new sessions<=60s/other-three continuous/five>=60s holds/twenty32echo+32radio pairs/zeroCPEwindowcommands/exactrestoration; diagnostics do not rescue any failure.",
+  "AA_restoration": "IN_PROGRESS; SXT verified; LBM5 native fallback and remaining final closure pending.",
+  "production_access_permitted": false
+}

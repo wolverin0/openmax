@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-22T21:58:29.243545+00:00",
+  "status": "PASS_OFFLINE_CONTRACTS_NOT_RF_ACCEPTANCE",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5u-contract -- python -B -m pytest tests/test_preprod1_audit.py -q",
+  "passed": 112,
+  "failed": 0,
+  "seconds": 3.66,
+  "exit_code": 0,
+  "tool_receipt": "045be6",
+  "native_bash_n": {
+    "exit_code": 0,
+    "tool_receipt": "bc6dee"
+  },
+  "bindings": {
+    "tools/bench/preprod1_admitter.sh": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "tests/test_preprod1_audit.py": "f387c75c7ba1cf57daca06cbb1410c110ebb9ec10ac6b66ee9d57dc5c2b7f0b8"
+  },
+  "scope": "106unchangedcontracts plus6XCquietpolicy regressions replace6supersededXC20s/probe policy cases; nowirelessacceptancerelaxation.",
+  "RED": {
+    "file": "preprod1_r5u_before_XC_quiet_20261022/receipt.json",
+    "sha256": "ae97250b73bf3cb9ca27bf3341e8587906ecd5ac644fc971eff2d4dd8831f19d",
+    "failed": 6,
+    "exit_code": 1
+  },
+  "staging": {
+    "source_bytes": 12161,
+    "commands": 26,
+    "max_command_bytes": 943,
+    "hard_command_bound": 4096,
+    "tool_receipt": "65ac7f"
+  }
+}

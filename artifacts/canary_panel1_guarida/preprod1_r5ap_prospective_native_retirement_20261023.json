@@ -1,0 +1,51 @@
+{
+  "schema": "preprod1-prospective-native-retirement-observation-v1",
+  "utc": "2026-10-23T08:14:37.492830+00:00",
+  "parent": "FMX0017 / original forward-plan Phase B-C / PREPROD1 full four-recovery qualifier",
+  "question": "Can the same full phased qualifier proceed through an old WDS interface whose ifindex is temporarily unreadable during teardown, while preserving the original proof-of-retirement and60-second recovery gates?",
+  "existing_evidence": {
+    "AO_receipt": {
+      "file": "preprod1_20261022_run5ao/receipt.json",
+      "sha256": "9b7ab31a40e8f675cc3b87d2c6bcda9a4f85d0126812cd0a38e33ee7faecd6ab",
+      "status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+      "full_PASS": false,
+      "observed": "InitialFOUR and firsthold/4strict32of32flows passed with measuredhostphases0/.25/.5/.75; nativeexit88 stopped firstWAretirement beforeanyrecoverypulse/XCdrop; alloriginalstates/APstock restored withRFoff/cleanupempty"
+    },
+    "native_evidence": {
+      "file": "preprod1_20261022_run5ao/daemon-evidence.json",
+      "sha256": "7d8ee44ff84c06f0e8b5bca2d6893ea69623f9d71d865c955faf37f477011743",
+      "stop_reason": "old_wds_ifindex_read_failed",
+      "exit_code": 88,
+      "WA_drop_observed_AP_uptime": 111066.49,
+      "WAIT_old_WDS_AP_uptime": 111066.53,
+      "end_AP_uptime": 111071.64
+    },
+    "exact_source_boundary": "old_wds_retired already cats ifindex first; a failed read plus a still-present ifindex or directory exits88 immediately. The source proves this rejection boundary; transient sysfs teardown is INFERRED, not directly observed as the underlying kernel cause."
+  },
+  "minimum_missing_evidence": "Deterministic red/green shell cases for unreadable attribute with temporary directory/link presence, followed by disappearance; persistent unreadability must never become retirement and must remain bounded by the original recovery deadline.",
+  "changed_hypothesis": "Unreadable while the old path or symlink still exists is an unresolved observation. Wait without pulsing/recovering across that barrier, continue otherpeerchecks and the original60-second deadline. Declare retirement only after a valid different ifindex or proven path/directory/symlink absence. Empty/zero/malformed successful reads remain rejected.",
+  "implementation_scope": "Existing native Linux/sysfs observation only, plus disposable fixture tests; no timeoutincrease, fastpass, CPEcommand, radio/power/rate/ATPC/firmware/auth/pulse recipe change. Same phased offered-load acquisition from AO.",
+  "acceptance_unchanged": {
+    "initial_seconds": 120,
+    "recovery_seconds_each": 60,
+    "drops": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "stable_epochs": 5,
+    "stable_seconds_minimum_each": 60,
+    "strict_flows": 20,
+    "transmitted_received_RFpairs_each": 32,
+    "XC_commands_in_window": 0,
+    "other_three_continuous": true,
+    "old_WDS_retirement_proven_before_recovery_pulse": true,
+    "exact_restoration_AP_radio_off": true,
+    "independent_acceptance_required": true
+  },
+  "stop_park_condition": "One guarded full acquisition after exact-source regression tests and independent preflight. Preserve AOexit88 and all AM/ANpacket deficits. Persistent unreadability or any quality deficit staysNOT_ACCEPTED; no unchangedretry, rescore or acceptance reduction.",
+  "RF_unchanged": "5180MHz/20MHz/AP0dBm/AR; original CPE profiles and configured TX ceilings",
+  "production_contact_permitted": false,
+  "publication_requires_full_PASS_and_independent_acceptance": true
+}

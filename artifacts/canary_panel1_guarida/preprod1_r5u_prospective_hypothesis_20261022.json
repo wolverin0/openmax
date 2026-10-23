@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-22T21:56:10.741374+00:00",
+  "status": "PROSPECTIVE_NOT_EXECUTED",
+  "parent": "FMX0017 / forward-plan PhaseB-C / PREPROD1",
+  "question": "Does XC autonomously recover with the existing secure AP and NO recovery IE reinjection?",
+  "baseline": "Snative45da/noDEBUG (Tdiagnosticaddsreasonqualificationonly). Initialbothseen/APsecurepreparation, WA20s/currentbroadcast, legacy2s unchanged.",
+  "evidence": {
+    "S_negative": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3",
+    "T_negative": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb",
+    "T_independent": "b73e9b98fdb7455a4071ad4df8a40ea6205c426ffd48d011c5f7031b77cf21e6",
+    "T_interpretation": "d855470954ed8dcf5f4245f972de3a06f6138f1c5b60efddaa0e1e4740ce4420"
+  },
+  "hypothesis": "XCinitialfreshsecureBSSpreparationalreadymeasured. Recovery IE announcements may unnecessarilychange cacheddiscovery/airMAXstate aroundsuccessfulAuthResponses. MechanismandcachepersistenceUNKNOWN; do notclaimcausalproof. Simplest existing route is keepsecureBSSunchanged whilewaiting for exacttargetnewsession.",
+  "primary_change": "Suppresspulse_missing IEsetONLYforRECOVERexactXC afteroriginaloldWDSbarrier, assertIEalreadyoff andlogonce. No delay/drop/flags/session/peer/restorationrelaxation; all fourrecoverytargets stillrequired<=60s. Preserve initialADMITbothseen andWA/legacyrecipes. ParkdiagnosticDEBUGafterqualifiedT, using same noDEBUGbaselineS; currentrunnerconditionalinactive no APdebugcommands.",
+  "minimum_missing_evidence": "Fullsamefive60s stableepochs/twenty32echo+32radio-pair streams/fourtargetloss+newsession recoveries<=60s/continuousother3/zeroXCwindowexec/exactallrestoration and independent acceptance.",
+  "stop": "Anydeadline/peer/session/hash/guard/IEunexpectedstate failsandrestores. Anegativepreserved; nounchangedretry. No production/firmware/CPEcommandchange."
+}

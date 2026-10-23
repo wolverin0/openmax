@@ -1,0 +1,56 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____ test_expected_xc_old_wds_retirement_does_not_abort_snapshot[ABSENT\n] ____
+
+state = 'ABSENT\n'
+
+    @pytest.mark.parametrize('state', ['ABSENT\n', 'INDEX 101\n'])
+    def test_expected_xc_old_wds_retirement_does_not_abort_snapshot(state):
+        collect, record, _calls = snapshot_fixture(state=state)
+>       rows, raw = collect()
+
+tests\test_preprod1_station_snapshot.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+artifacts\canary_panel1_guarida\preprod1_trial_20261022.py:410: in station_snapshot
+    text=remote(ap,'iw dev '+name+' station dump')['stdout'];raw[name]=text
+tests\test_preprod1_station_snapshot.py:51: in remote
+    require(not check or code == 0, 'REMOTE_EXIT_' + str(code) + '_' + err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ok = False, reason = 'REMOTE_EXIT_237_command failed: No such device (-19)\n'
+
+    def require(ok, reason):
+        if not ok:
+>           raise RuntimeError(reason)
+E           RuntimeError: REMOTE_EXIT_237_command failed: No such device (-19)
+
+tests\test_preprod1_station_snapshot.py:19: RuntimeError
+__ test_expected_xc_old_wds_retirement_does_not_abort_snapshot[INDEX 101\n] ___
+
+state = 'INDEX 101\n'
+
+    @pytest.mark.parametrize('state', ['ABSENT\n', 'INDEX 101\n'])
+    def test_expected_xc_old_wds_retirement_does_not_abort_snapshot(state):
+        collect, record, _calls = snapshot_fixture(state=state)
+>       rows, raw = collect()
+
+tests\test_preprod1_station_snapshot.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+artifacts\canary_panel1_guarida\preprod1_trial_20261022.py:410: in station_snapshot
+    text=remote(ap,'iw dev '+name+' station dump')['stdout'];raw[name]=text
+tests\test_preprod1_station_snapshot.py:51: in remote
+    require(not check or code == 0, 'REMOTE_EXIT_' + str(code) + '_' + err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ok = False, reason = 'REMOTE_EXIT_237_command failed: No such device (-19)\n'
+
+    def require(ok, reason):
+        if not ok:
+>           raise RuntimeError(reason)
+E           RuntimeError: REMOTE_EXIT_237_command failed: No such device (-19)
+
+tests\test_preprod1_station_snapshot.py:19: RuntimeError
+=========================== short test summary info ===========================
+FAILED tests/test_preprod1_station_snapshot.py::test_expected_xc_old_wds_retirement_does_not_abort_snapshot[ABSENT\n]
+FAILED tests/test_preprod1_station_snapshot.py::test_expected_xc_old_wds_retirement_does_not_abort_snapshot[INDEX 101\n]
+2 failed, 8 deselected in 0.28s

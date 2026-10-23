@@ -1,0 +1,29 @@
+{
+  "status": "READ_ONLY_AFTER_RUN5_WINDOW_ENDED_AND_RESTORED",
+  "window_ended": {
+    "mono": 738842.671,
+    "utc": "2026-10-22T17:44:45.025408+00:00"
+  },
+  "raw_sha256": "4b21517fcf46faed4e785fd55007530b0e50c326031c6a88ac2893c8e064930d",
+  "raw_private": true,
+  "commands": [
+    {
+      "command": "wpa_cli -i ath0 status",
+      "exit_code": 0,
+      "bytes": 87
+    },
+    {
+      "command": "wpa_cli -i ath0 bss 18:e8:29:74:55:a2",
+      "exit_code": 0,
+      "bytes": 0
+    },
+    {
+      "command": "logread | tail -n 100",
+      "exit_code": 0,
+      "bytes": 0
+    }
+  ],
+  "status_output": "wpa_state=SCANNING\naddress=b4:fb:e4:5c:d5:d2\nuuid=def8a099-fb00-5790-b3e9-10634fbd88c5\n",
+  "BSS_fields": [],
+  "log_markers": []
+}

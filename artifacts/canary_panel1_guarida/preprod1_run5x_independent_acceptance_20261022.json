@@ -1,0 +1,334 @@
+{
+  "status": "NOT_ACCEPTED_PREPROD1_XC_QUIET_RECOVERY_TIMEOUT_ALL_RESTORED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T22:49:19.084228+00:00",
+  "receipt_sha256": "8910ce80daea938b2c883336c3bc5c0eab427039a0f036adef8ccc963d887655",
+  "plan_sha256": "db284e9968b59e64c0fd9fb584171113c187304cb64fe8316def7ca65de7c6af",
+  "source_review_sha256": "f62d40a12995b374bf95618a91868540182bfd4c4145f6cdbb6183848638527a",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "effe6bef4ebbc42dfc8917ff8af56069b58e6637bad834338827fa360ced1c4e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "459ee6d180174e0f930becad77d6afa82aaa7fd38a4f4b9c12d364be875f952e",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed"
+  },
+  "source_bindings_verified": 10,
+  "preconditions_verified": 16,
+  "public_artifact_references_verified": 37,
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T22:41:07.721844+00:00",
+  "ended_utc": "2026-10-22T22:47:34.147213+00:00",
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "failures": [
+    {
+      "type": "RuntimeError",
+      "gate": "DAEMON_ENDED_DURING_ACQUISITION",
+      "frames": [
+        {
+          "file": "preprod1_trial_20261022.py",
+          "line": 525,
+          "function": "main"
+        },
+        {
+          "file": "root_four_cpe_access_20261022.py",
+          "line": 19,
+          "function": "require"
+        }
+      ]
+    }
+  ],
+  "cleanup_errors": [],
+  "conclusion": "X demonstratesWAnewsessionrecovery55.32s andtwofullyqualified60shold/traffic epochs. ExactXCquietpolicywasexercisedonceafteroldWDSretirementwithnoIE_SETduringrecovery, butXCdidnotrecoverbeforeoriginaldeadline(nativeexit78). Onlyoneoffournewtargetsessions andtwooffiveepochs; fullPREPROD1isNOT_ACCEPTED.",
+  "native_evidence": {
+    "artifact": {
+      "file": "daemon-evidence.json",
+      "bytes": 193592,
+      "sha256": "f647db1570f70c6ff9179789429df2a68777bda80f4b660af41bf4371b646fab"
+    },
+    "exit_code": 78,
+    "stop_reason": "recovery_timeout",
+    "restore_rc": 0,
+    "stderr_and_listener_stderr_empty": true,
+    "initial_four_admitted_seconds": 37.08,
+    "stable_holds_completed": [
+      {
+        "epoch": 0,
+        "actual_seconds": 60.28
+      },
+      {
+        "epoch": 1,
+        "actual_seconds": 60.44
+      }
+    ],
+    "WA": {
+      "loss": 77086.49,
+      "old_WDS_ifindex": 218,
+      "retired": 77091.85,
+      "recovered": 77141.81,
+      "loss_to_recovered_seconds": 55.32,
+      "new_session_verified": true
+    },
+    "XC": {
+      "loss": 77202.77,
+      "old_WDS_ifindex": 217,
+      "retired": 77207.59,
+      "retirement_wait_seconds": 4.82,
+      "quiet_suppression_log": 77207.61,
+      "suppression_count": 1,
+      "no_IE_SET_between_loss_and_end": true,
+      "ended": 77262.25,
+      "loss_to_ended_seconds": 59.48,
+      "retired_to_ended_seconds": 54.66,
+      "recovered": false,
+      "new_session_verified": false
+    },
+    "unexecuted_drops": [
+      "SXT",
+      "LBM5"
+    ]
+  },
+  "observer_traffic": {
+    "samples_total": 165,
+    "post_initial_admission_samples": 141,
+    "non_target_authorization_checks": 492,
+    "non_target_connected_rx_tx_counters_continuous": true,
+    "target_session_resets": [
+      {
+        "sample": 93,
+        "drop": "1",
+        "MAC": "fc:ec:da:c2:54:0a",
+        "before": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 61,
+          "rx_bytes": 19321,
+          "tx_bytes": 7386,
+          "signal_dbm": -45
+        },
+        "after": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 1,
+          "rx_bytes": 325,
+          "tx_bytes": 312,
+          "signal_dbm": -43
+        }
+      }
+    ],
+    "qualified_epochs": 2,
+    "required_epochs": 5,
+    "flows_recomputed": {
+      "0": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 12.501,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta4",
+          "artifact": {
+            "file": "epoch0-WA.json",
+            "bytes": 10950,
+            "sha256": "4c63789d4fe9715dfb4625b8b0a98fc75d92c893bb034c5de187017bf25a3700"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 5.55,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta2",
+          "artifact": {
+            "file": "epoch0-XC.json",
+            "bytes": 10945,
+            "sha256": "7ed9372f0840bf3964826aa39d029d262d9ee3bfd23a41fc2c5848d7b599d19b"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 9.598,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch0-SXT.json",
+            "bytes": 8140,
+            "sha256": "26dff02520e1536a669d53d696b77af384b77ec6f07248a8c749868c1c15fea4"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 10.213,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch0-LBM5.json",
+            "bytes": 8141,
+            "sha256": "355f763433ca85cd30352537965a7490aa546d81f863ff1785afccd0d48fa809"
+          }
+        }
+      },
+      "1": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 9.602,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta4",
+          "artifact": {
+            "file": "epoch1-WA.json",
+            "bytes": 10945,
+            "sha256": "ac10c4152ba4bf8880b2f50e3d9d05e826658087ec08a828aa270487ced2c53e"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 11.432,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta2",
+          "artifact": {
+            "file": "epoch1-XC.json",
+            "bytes": 10946,
+            "sha256": "85465107cf00ea0486ca93b0fb1519a3f74700ae1e5f4a8031e708c97dd2ae8b"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 11.526,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch1-SXT.json",
+            "bytes": 8142,
+            "sha256": "c1046a8fd79bdc23395c7098d83e142e6f0a2615a862e53f9615eb134e1a3979"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "p95_ms": 12.766,
+          "qualifying": true,
+          "reasons": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch1-LBM5.json",
+            "bytes": 8143,
+            "sha256": "cf6d3dc0f25398063457cde885365e2dae39e222d3e10fe91896ad4dcf733cc2"
+          }
+        }
+      }
+    },
+    "QualificationFailure_count": 0,
+    "XC_audited_commands": 48,
+    "XC_exec_during_window": 0
+  },
+  "X_continuation_limits": {
+    "packet_deficit_continuation_exercised": false,
+    "reason": "No packetdeficitamongthe8completedstreams. FailureisnativeXCdeadline, notqualificationfailure. No evidencefromthisrun thathostcontinuationchangedwirelessbehavior.",
+    "recovery_matrix_complete": false,
+    "all_twenty_traffic_streams_complete": false
+  },
+  "instrumentation": {
+    "capture_dispatch": "Originalprimarycaptures--immediate-mode -B64, noany/DEBUG.",
+    "8startup_headers_before_shared5s": true,
+    "failure_frames_metadata_only": true,
+    "parser_counters": "lines441/events441/partial_skips0/state_polls441; partialskipfastpathnotexercised."
+  },
+  "restoration": {
+    "cleanup_errors": [],
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hash_entries_exact": 8,
+        "ordered_network_exact": true,
+        "restoration_ping3of3": true,
+        "guard_ended_and_owned_RAM_removed": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hash_entries_exact": 5,
+        "ordered_network_exact": true,
+        "restoration_ping3of3": true,
+        "guard_ended_and_owned_RAM_removed": true
+      }
+    },
+    "Rocket_exact_baseline_hashes_bridge_rules_ordered_addresses_routes": true,
+    "Rocket_status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "daemon_clear_rc": 0,
+    "daemon_ended_verified": {
+      "exit_code": 0,
+      "stdout": "ENDED\n",
+      "stderr": ""
+    },
+    "daemon_RAM_removed": true,
+    "capture_startup_workers_ended": 8,
+    "capture_native_guards_ended": 8,
+    "original_nft_table_names_exact_after_restore": true,
+    "bridge_owner_comment_verified": true,
+    "bridge_forward_only_verified": true,
+    "bridge_drop_counters_packets": [
+      3681,
+      87
+    ],
+    "persistent_config_writes": false,
+    "forbidden_actions_executed": false
+  },
+  "limits": [
+    "XCquietpolicyhasaboundedphysicalnegativehere; no inferenceofcachecause/upper-stackreason/universalbehavior. Parentacceptanceisnotrescoredorrelaxed.",
+    "No SXT/LBM5drop/recovery or epochs2..4 occurred. QualifyingtwoepochsandWAnewsessioncannotreplaceoriginalfive/fourcriteria.",
+    "Recordedhostpeercontinuityisfiniteobservations, notcontinuousOTAtrace. Nativeeventsareprocessedlogs, notcalibratedRFtimestamps.",
+    "No immediate-mode performance/causalityclaim. APrestoreisexistingpinnedconfig/guard/radiooffcontract, nofreshrawMTDcapture.",
+    "Localpublicartifactauditonly; nohardware/network/privatecredentials/DEBUG/tests/Git/sourceedits. Earliernegative/supplementbytesunchanged."
+  ]
+}

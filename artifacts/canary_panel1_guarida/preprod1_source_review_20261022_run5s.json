@@ -1,0 +1,79 @@
+{
+  "status": "PASS_LOCAL_PARTIAL_JSON_POLL_WITH_POSTCOLLECT_DEADLINES",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T21:26:58.275819+00:00",
+  "plan_sha256": "26d1eaca065eec42860b5063d46accc379bb771d2eb301687d60557d21939a4e",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "ba62b0e1b809c155515dc8aa9a2c2769deb8893e435d3727bdea16dec1947799"
+  },
+  "preconditions": {
+    "latest_R_negative_restored": {
+      "file": "preprod1_20261022_run5r/receipt.json",
+      "sha256": "1657648b84797c2b270a37e2b35c3ca90c3793e74deb8a8188eb8bd5fe3535ae"
+    },
+    "independent_R_negative": {
+      "file": "preprod1_run5r_independent_acceptance_20261022.json",
+      "sha256": "5dc89e078e309527d5185147d2398c660380b34ec38274783c5c95f4e9fb7f0d"
+    },
+    "prospective_changed_hypothesis": {
+      "file": "preprod1_r5s_prospective_hypothesis_20261022.json",
+      "sha256": "4eaa01799dd4e5d6cf2edcf4079f75f8a9df4d78270e4d856343624acd79df19"
+    }
+  },
+  "must_fix_findings": [],
+  "superseded_unexecuted_review": {
+    "file": "preprod1_r5s_preflight_before_postcollect_20261022/preprod1_source_review_20261022_run5s.json",
+    "sha256": "7a1d707e4edbc0db147ebde963728e81cd4b6f1a018db138277b1106b5c614dc",
+    "archive_receipt_sha256": "ed4a472fb78503c8447ab2ba215afad96200041dd1fe3a01c6cdc22fdd268491",
+    "all_five_archive_bindings_verified": true,
+    "physical_run_started": false,
+    "reason": "The old version could cross a deadline inside collect before IE or loss transitions. It is superseded, not represented as hardware evidence."
+  },
+  "exact_delta_review": [
+    "Compared actual native and test bytes with the archived unexecuted S version. Added global end check before partial skip and phase/global checks immediately after collect updates current native time, before probe logging, IE decisions or phase transitions.",
+    "ADMIT expiry exits76, WAIT_LOSS expiry77, RECOVER expiry78 and global780s expiry83. A status poll crossing a phase/global deadline therefore cannot be accepted by a late good/lost result in this block. Strict equality with the deadline rejects.",
+    "The existing partial skip remains preceded by liveness/event/buffer/phase/global checks. Complete events still collect; partial polls share next native integer time. Earlier exact sampling/RF-latency guarantees are not implied.",
+    "No changes to runner c538, RF, IE/drop/WDS/pulse policies, original120/60/5hold/20flow/session/peer acceptance or restoration guards. Parsed acceptance and all those control maps compare equal with archived S."
+  ],
+  "static_staging_byte_check": {
+    "tool_chunk": "950ea6",
+    "classification": "Pure rendering of unchanged AST-extracted upload helper with actual source and valid-format24-hex path; no shell/device execution or tests.",
+    "source_bytes": 12599,
+    "staging_commands": 27,
+    "max_actual_staging_command_bytes": 943,
+    "hard_bound": 4096,
+    "source_bound": 16384,
+    "plan_metadata_matches": true
+  },
+  "offline_evidence": {
+    "file": "preprod1_r5s_contract_tests_20261022.json",
+    "sha256": "259a0cedf7468a291c9ce93d9f2102a3babd72e28d58cbc19410945cd23abb3b",
+    "passed": 104,
+    "exit_code": 0,
+    "seconds": 3.77,
+    "tool_receipt": "573fb7",
+    "native_shell_syntax_exit": 0,
+    "native_shell_syntax_tool_receipt": "1340f1",
+    "postcollect_red": {
+      "file": "preprod1_r5s_postcollect_red_20261022/receipt.json",
+      "sha256": "5ed50891c33995c739ca6778f33e68dc0b8b2a861e6236132c020bad8a4a782b",
+      "failed": 4,
+      "exit_code": 1
+    },
+    "classification": "Coordinator-executed actual-block evidence inspected without rerun. Four regressions force collect fromtime99 totime100 and require phase76/77/78/global83 before any IE decision. Old4RED preserved; prior100 contracts remain revision-bound and not hardware evidence."
+  },
+  "frozen_limits": [
+    "Full physical result still requires all original initial/recovery deadlines, five actual>=60s stable holds, four new target sessions, other-three continuity, twenty32/32echo+32radio flows, zeroXCwindow commands and exact all-device restoration.",
+    "Only local source-bound admission; no RF, timing, performance, causal, reliability, production or PREPROD1 acceptance.",
+    "Processed events are not RF timestamps; parser scheduling is not exact1s peer/RF sampling.",
+    "No hardware/network/credentials/private raw/tests/Git/source edits; only the authorized current review file replaced after verifying its exact immutable archive."
+  ]
+}

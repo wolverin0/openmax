@@ -1,0 +1,100 @@
+{
+  "status": "PASS_LOCAL_BOUNDED_PRIVATE_AP_XC_DIAGNOSTIC_INSTRUMENTATION",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T21:46:14.043594+00:00",
+  "plan_sha256": "732725426e7f71ca2232fdbbb7f598c01400d6c46af8501ba4c0a5e453b36387",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "e59354ec915ee767e1c6a313a70cf0f2422d4079ddf34dac13c59b741c48c5ce",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52"
+  },
+  "preconditions": {
+    "latest_S_negative_restored": {
+      "file": "preprod1_20261022_run5s/receipt.json",
+      "sha256": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3"
+    },
+    "independent_S_negative": {
+      "file": "preprod1_run5s_independent_acceptance_20261022.json",
+      "sha256": "5a497b000402ff22242a743aef701b7370a4fc9ab3cb8731537f88279e57df49"
+    },
+    "prospective_T_diagnostic": {
+      "file": "preprod1_r5t_prospective_hypothesis_20261022.json",
+      "sha256": "0fd159e34113c4882dabc59a3e747d2a167b2dd76ca26befd5b8054b56f83cb3"
+    }
+  },
+  "must_fix_findings": [],
+  "corrected_privacy_finding": {
+    "old_plan_sha256": "906f8657779aef1baec53ea2d833c92f61e3a42dfda52f6c06222074c0cc7c89",
+    "old_Trace_sha256": "847c0ccad1c2b0a4b4c84c811817f9512f1049864f71866fe415ea7a055dc7cd",
+    "finding": "Old public_context accepted a line containing XC plus another MAC. It was blocked before execution.",
+    "fix": "Final source rejects any matched MAC different from XC, even when XC is present. Mixed-MAC actual regression failed before fix and is preserved. Existing key/passphrase/hexdump filtering,100-line/600-char public bounds remain.",
+    "preserved_red": {
+      "file": "preprod1_r5t_before_mixed_MAC_filter_20261022/receipt.json",
+      "sha256": "7332f3a07c70010f707719158b193211b6cffae8a75a7a23dccc0c4ede336661",
+      "failed": 1,
+      "exit_code": 1
+    }
+  },
+  "safety_review": [
+    "Compared runner against frozen executed S. Native daemon45da and all RF/IE/drop/WDS/deadline/hold/packet/session/peer/guard/restore maps remain unchanged; only AP logging diagnostics are added. No in-window XC command is added.",
+    "Held DebugWindow source b8dc and59016-byte CLI b168 are unchanged. Stage performs exact wpad/pin/UID-GID/no-K checks, private owned IPC permissions, full binary SHA and global PING before AP arm/RF. Existing immutable source evidence is reused, with actual runtime PING still mandatory.",
+    "Trace starts once observer sees exact DROP_REQUEST n2. Existing90s best-effort logging guard is armed before changing BSS syslog/globalDEBUG; new layer captures exact guard argv to PID/start and requires positive ended proof. It is logging cleanup, not a replacement for1200s AP RF protection.",
+    "Private snapshots are each bounded50000bytes, spaced at least5s when not forced, with non-forced cap13 and slot14 reserved for the final capture. Raw logs and private receipts remain in the ignored private history directory.",
+    "Finish independently attempts final capture, exact original BSS logger and global level/timestamp restore, owned RAM cleanup and guard-ended verification. Each failure remains an error but cannot skip remaining attempts or the runner original AP-off/restoration path. Finish is idempotent and positive TRACE_COMPLETE proof is mandatory for full PASS.",
+    "Runner finally finishes trace before legacy profile reload/AP radio-off and preserves trace errors separately; earlier acquisition/trace failures still reach existing restoration."
+  ],
+  "static_transport_checks": {
+    "CLI": {
+      "tool_chunk": "d05454",
+      "classification": "Pure rendering of actual immutable DebugWindow.put AST with local PUT_CHUNK512, actual binary and a fixed-format32hex directory; no commands executed.",
+      "binary_bytes": 59016,
+      "commands": 118,
+      "max_command_bytes": 2344,
+      "hard_bound": 4096
+    },
+    "native": {
+      "source_bytes": 12599,
+      "commands": 27,
+      "max_command_bytes": 943,
+      "classification": "Byte-identical to reviewed executed S45da; unchanged revision-bound rendering evidence reused."
+    }
+  },
+  "offline_evidence": {
+    "file": "preprod1_r5t_contract_tests_20261022.json",
+    "sha256": "311d6c8817c3e8875e4c4f69bc16822be28010f4f499380d695c101026e27263",
+    "passed": 112,
+    "exit_code": 0,
+    "seconds": 3.61,
+    "tool_receipt": "a47b72",
+    "preserved_capture_cap_red": {
+      "file": "preprod1_r5t_before_final_snapshot_slot_20261022/receipt.json",
+      "sha256": "9f64be49691d76b1229558170cfd21119f9ef79ef76eadb425b73c38d9c5112f",
+      "failed": 1,
+      "passed": 1,
+      "exit_code": 1
+    },
+    "preserved_mixed_MAC_red": {
+      "file": "preprod1_r5t_before_mixed_MAC_filter_20261022/receipt.json",
+      "sha256": "7332f3a07c70010f707719158b193211b6cffae8a75a7a23dccc0c4ede336661",
+      "failed": 1,
+      "exit_code": 1
+    },
+    "classification": "Coordinator-executed current-byte contracts inspected, not rerun:104prior plus independent restore failures, public filtering, runner restoration ordering and reserved final capture slot. Native syntax reused unchanged45da from1340f1. No target runtime/diagnostic acquisition accepted here."
+  },
+  "limits": [
+    "This is necessary AP diagnostic instrumentation, not a new radio treatment, TDMA/performance claim or PREPROD1 acceptance. All original full physical criteria remain mandatory.",
+    "DEBUG and additional host RPCs may perturb observation timing. No direct latency/performance comparison or causal attribution is supported merely by this instrumentation.",
+    "First snapshot is a baseline after attach; events before or during setup may be absent from the new-only public context. Deduplication/redaction may omit repeated/contextual lines; absence of a reason is not proof no rejection occurred. Private raw snapshots remain available only to the coordinator under their private scope.",
+    "90s logging guard is best effort; positive controlled logger/level/guard/RAM proof is required. It does not prove restoration after host or power loss.",
+    "Only public local sources, plan/evidence and static command rendering inspected. No hardware/network/credentials/private raw/tests/Git/source edits by reviewer."
+  ]
+}

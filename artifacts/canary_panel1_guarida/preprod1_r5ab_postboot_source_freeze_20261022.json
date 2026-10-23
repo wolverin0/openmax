@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-23T00:44:54.611795+00:00",
+  "status": "FROZEN_POSTBOOT_INTAKE_DELTA_ONLY_PENDING_FAR_PLACEMENT_AND_PHYSICAL_PLAN",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "e5c389bdd3784db9b8ce98fb9e6f84d36dde210920b21682807e524163628fdb",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "c3c563ddb1a874cf76b50eaba6aee142dfbadab37467a377c48a5f77056997dc",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "tests/test_preprod1_remote_deadline.py": "dbc3a3d21da831140e89afb569979d0d9ebb40b738817c6d10ef95ed9c347685",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "13689970aedd3e4f429d11b14ecc928f70d7a31b13bddbf0808f73e7fffb3fc3",
+    "artifacts/canary_panel1_guarida/preprod1_r5ab_legacy_intake_20261022.json": "2e3d99601ac0f51dce24937d896b3ea3b33667efdf0f8d3721d30f7eb0da375a"
+  },
+  "prior_source_freeze_sha256": "84d546972165ec5c5ff2a39c9769b3be7f4b65c7c4e53f556bd73e6dbfdad2fc",
+  "prior_source_review_sha256": "6083593e279f0508ace05da2d539006fec6b1bc919fd8b8e66cb505c8736b1f7",
+  "runner_delta": "Only new versioned INTAKE path, intake name/hash receipt metadata and archived exact legacy_intake.json. No remote/admitter/RF/trace/guard/acceptance change.",
+  "fresh_fixture_receipt": "preprod1_r5ab_offline_postboot_20261022/receipt.json",
+  "fresh_fixture_receipt_sha256": "62aa34eb5fa25bda07209ba05480d622e8908bf0eda22f34b3ec9b99fd57b5f1",
+  "fresh_fixture_result": "184 passed in5.34s; enabling only",
+  "new_epoch": {
+    "M5_boot": "80c585ae-1f9e-482e-997c-cda0403f3077",
+    "cause": "UNKNOWN; operator reports no power interruption",
+    "intake": "preprod1_r5ab_legacy_intake_20261022.json",
+    "intake_sha256": "2e3d99601ac0f51dce24937d896b3ea3b33667efdf0f8d3721d30f7eb0da375a"
+  },
+  "preserved_negatives": [
+    "AA prewindow hostabort",
+    "M5 RF checksum capability failure",
+    "M5 Ethernet boot mismatch"
+  ],
+  "physical_execution_permitted": false,
+  "physical_dependency": "Operator must remove M5 LAN from EdgeRouterport8 and restore far placement with PoE kept powered; confirmation pending. Final actualplan+exactindependent preflight still required."
+}

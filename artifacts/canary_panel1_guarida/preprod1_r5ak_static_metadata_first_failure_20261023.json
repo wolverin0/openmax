@@ -1,0 +1,87 @@
+{
+  "status": "PRESERVED_STATIC_CHECK_FAILURE",
+  "failed_check": "Initial checker compared ordered DT_NEEDED list, pending diagnosis",
+  "ELF": {
+    "stock": {
+      "sha256": "f48e4ffa30b382b1526c7d8b32889b19dbc498a362443f41142646db60fb3a12",
+      "bytes": 864296,
+      "machine": "EM_MIPS",
+      "class": 32,
+      "little_endian": false,
+      "type": "ET_DYN",
+      "needed": [
+        "libmbedcrypto.so.16",
+        "libmbedx509.so.7",
+        "libmbedtls.so.21",
+        "libubox.so.20240329",
+        "libubus.so.20250102",
+        "libblobmsg_json.so.20240329",
+        "libucode.so.20230711",
+        "libnl-tiny.so.1",
+        "libudebug.so",
+        "libgcc_s.so.1",
+        "libc.so"
+      ],
+      "interpreter": "/lib/ld-musl-mips-sf.so.1",
+      "DT_BIND_NOW": 0,
+      "DT_FLAGS_1": 134217729,
+      "PT_GNU_STACK": {
+        "flags": 6,
+        "bytes": 0
+      },
+      "PT_GNU_RELRO": {
+        "flags": 4,
+        "bytes": 8840
+      },
+      "VHT_mandatory_marker_present": true,
+      "compat_marker_present": false
+    },
+    "compat": {
+      "sha256": "f7bbd229b0ea99c5f38365d176af1a3ca4057a4e6719b6059e892798fdcf3a57",
+      "bytes": 864276,
+      "machine": "EM_MIPS",
+      "class": 32,
+      "little_endian": false,
+      "type": "ET_EXEC",
+      "needed": [
+        "libmbedcrypto.so.16",
+        "libmbedx509.so.7",
+        "libmbedtls.so.21",
+        "libubox.so.20240329",
+        "libubus.so.20250102",
+        "libblobmsg_json.so.20240329",
+        "libucode.so.20230711",
+        "libnl-tiny.so.1",
+        "libudebug.so",
+        "libgcc_s.so.1",
+        "libc.so"
+      ],
+      "interpreter": "/lib/ld-musl-mips-sf.so.1",
+      "DT_BIND_NOW": 0,
+      "DT_FLAGS_1": 1,
+      "PT_GNU_STACK": {
+        "flags": 6,
+        "bytes": 0
+      },
+      "PT_GNU_RELRO": {
+        "flags": 4,
+        "bytes": 8864
+      },
+      "VHT_mandatory_marker_present": true,
+      "compat_marker_present": true
+    }
+  },
+  "translation_unit_checks": {
+    "wpa_supplicant": {
+      "units": 72,
+      "all_AC": true,
+      "all_compat": true
+    },
+    "hostapd": {
+      "units": 87,
+      "all_AC": true,
+      "all_compat": true
+    }
+  },
+  "binary_execution": false
+}

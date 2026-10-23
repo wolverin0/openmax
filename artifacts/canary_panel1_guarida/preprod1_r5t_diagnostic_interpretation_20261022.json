@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-22T21:56:10.738375+00:00",
+  "status": "QUALIFIED_NEGATIVE_DIAGNOSTIC_NOT_RF_CAUSAL_PROOF",
+  "T_receipt_sha256": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb",
+  "T_independent_sha256": "b73e9b98fdb7455a4071ad4df8a40ea6205c426ffd48d011c5f7031b77cf21e6",
+  "confirmed": {
+    "logging_trace_complete": true,
+    "new_XC_authenticated_INFO_lines": [
+      "Mon Oct 19 18:09:42 2026 daemon.info hostapd: phy0-ap0: STA b4:fb:e4:5c:d5:d2 IEEE 802.11: authenticated",
+      "Mon Oct 19 18:09:47 2026 daemon.info hostapd: phy0-ap0: STA b4:fb:e4:5c:d5:d2 IEEE 802.11: authenticated"
+    ],
+    "new_retained_diagnostic_string_counts": {
+      "did not acknowledge authentication response": 0,
+      "send_auth_reply: send failed": 0,
+      "assoc rejected by ubus handler": 0,
+      "mgmt::assoc_req": 0,
+      "association request: STA=": 0,
+      "did not acknowledge association response": 0
+    },
+    "private_snapshot_count": 8,
+    "private_raw_not_published": true
+  },
+  "source": {
+    "path": "Ubuntu:/home/ggorbalan/futuramax/openwrt-24.10.4/build_dir/target-mips_24kc_musl/hostapd-wpad-basic-mbedtls/hostapd-2024.09.15~5ace39b0/src/ap/ieee802_11.c",
+    "sha256": "b44e5b451a08139ccf98dc0a5cefcb9806b918107168e8a157ce893166f2b918",
+    "reviewed_callback": "handle_auth_cb lines6496-6511: literalINFOauthenticated afterok!=0/statusSUCCESS/Open transaction2",
+    "pinned_runtime_wpad_sha256": "f48e4ffa30b382b1526c7d8b32889b19dbc498a362443f41142646db60fb3a12",
+    "provenance": "ExistingdirectDEBUGreviewtree/CLIbuildrelation; no freshreproduciblewpadbuild inthiscomparison."
+  },
+  "inference": "Underthereviewedsamebuildsource/runtimebinding, INFOauthenticated implies driverreportedAuthResponseACK for thoseevents. It is not directOTA/CPEupperstackproof.",
+  "unknown": [
+    "WhyXCdoesnotfinishassociation",
+    "WhetheranAssocReqwastransmitted,arrived,rejectedbeforeubus,ormissedbycapture",
+    "ExactRFtimeofprocessedubusnotifications"
+  ],
+  "limits": [
+    "HistoricaltruncatedfirstpubliccontextlineisnotfromT; discardedfirstlineofeachprivate50ktail for thiscomparison.",
+    "APclockOct19isstale; noabsoluteUTCcorrelation.",
+    "AbsenceofdiagnosticstringsinretainedlogsdoesnotproveabsenceofAFrequestorfailure.",
+    "DEBUGaddsdiagnosticoverhead; no performancecausalityclaim."
+  ],
+  "next_question": "Relative toS (noDEBUG), does XC recover on unchangedsecureAP with no reinjecteddiscoveryIE? ExistingseededBSScachepersistence isUNKNOWN; testnotassume."
+}

@@ -1,0 +1,84 @@
+{
+  "status": "PASS_LOCAL_PROSPECTIVE_REASON2_SINGLE_FACTOR_BENCH_TRIAL",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T20:40:03.616502+00:00",
+  "plan_sha256": "21a63b8359c147e610ace9da31b7bb45b9b19e13d53ce4857c93759818ea4d3b",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "cb9540a6d70334f71e1aeca713b882c9cada2a5505ee3d8188af352dc0c57cd4",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "aab1df3fddf86721a1c48bcc869ca9c7142a8fa88886405d5660dfc5d7c5c311"
+  },
+  "preconditions": {
+    "prior_full_trial_restored": {
+      "file": "preprod1_20261022_run5l/receipt.json",
+      "sha256": "f84b2e18f8b11d9cdd771cf2392e6410ee0839d5e8064ce640ae582f14318677"
+    },
+    "independent_prior_full_trial": {
+      "file": "preprod1_run5l_independent_acceptance_20261022.json",
+      "sha256": "810596e1ad48d523c92ad0262b29ee3e9c7c8da0acf11bc36ca5a44f17e234a3"
+    },
+    "latest_diagnostic_restored": {
+      "file": "preprod1_20261022_r5n3_WA_readonly/receipt.json",
+      "sha256": "e90bcbf31e4985dc66cb1d70162f62fa847ae5c2696538f9f5525af704691c5a"
+    },
+    "independent_diagnostic_negative": {
+      "file": "preprod1_r5n3_WA_readonly_independent_acceptance_20261022.json",
+      "sha256": "b872180ae9f32f9564a6e43269138d64f2ede7815ad0b673cd087eae2206c998"
+    },
+    "safe_partial_client_data": {
+      "file": "preprod1_r5n3_partial_client_excerpt_20261022.json",
+      "sha256": "29f6718424887488d35886345873c6741a4ba3f2d98bfb6c645ffda9d6b1fb7a"
+    },
+    "late_listener_absent_AP_off": {
+      "file": "preprod1_r5n3_listener_late_verification_20261022.json",
+      "sha256": "c318d22aa73c4c0639b3e73953fad46906a34d440efd5049b131e6634b592778"
+    },
+    "prospective_changed_hypothesis": {
+      "file": "preprod1_r5o_prospective_hypothesis_20261022.json",
+      "sha256": "a254f8b555c3c5cf88a57b6b4614a546d318a6354daaa952df440393f84a394d"
+    }
+  },
+  "must_fix_findings": [],
+  "delta_review": [
+    "Exact native diff against executed R5l-equivalent archived750524 source changes only DROP_REQUEST log reason3 to2 and del_client JSON reason3 to2. Runner c5388eb5 is unchanged. No delay, IE, WDS retirement, peer-monitoring, RF, capture, cleanup or watchdog code changes.",
+    "Reason2 is a prospectively declared single-factor deauthentication treatment; its effect on stock WA reconnection remains UNKNOWN. Neither the prior negative nor the partial diagnostic establishes reason3 as a cause.",
+    "Four new actual native-request stub cases verify the exact four bench MACs, reason2/deauthtrue/ban_time0 JSON. This confirms command construction, not station loss, new session or hardware recovery."
+  ],
+  "unchanged_acceptance": [
+    "Initial all-four authorization within120s; five actual stable holds at least60s, each with four32/32 echoes and at least32 matched radio request/reply pairs.",
+    "Four exact target drops, observed loss and one new target session/reset each; recovery within60s including WDS retirement/dwell; other three continuously authorized without session/counter resets.",
+    "Zero XC exec during the control window; existing explicitly declared prewindow setup only.",
+    "RF5180/20/0dBm/globalAR, original guard/deadline budgets, exact protected/configuration/boot/network restoration, radio off, original nft tables and all owned workers/guards/RAM ended."
+  ],
+  "additive_diagnostic_preconditions": {
+    "partial_client_excerpt_sha256": "29f6718424887488d35886345873c6741a4ba3f2d98bfb6c645ffda9d6b1fb7a",
+    "facts": "Public excerpt reports WA WPA2-PSK/CCMP COMPLETED at expected BSSID with unchanged two-file configuration bracket. Logread is absent and filtered kernel does not contain a recovery reason. Original N3 remains INCOMPLETE.",
+    "late_listener_receipt_sha256": "c318d22aa73c4c0639b3e73953fad46906a34d440efd5049b131e6634b592778",
+    "cleanup": "Fresh supplemental recorded PID26611/start6923737 ABSENT and AP off; closes earlier ownership uncertainty additively without modifying its negative receipt."
+  },
+  "offline_evidence": {
+    "file": "preprod1_r5o_contract_tests_20261022.json",
+    "sha256": "6158ef2a6f9850339b79a18e5ae296fffc43785cd1cfc2711fa8901d1550c76d",
+    "passed": 85,
+    "exit_code": 0,
+    "seconds": 3.02,
+    "tool_chunk": "a9bbde",
+    "native_shell_syntax_exit": 0,
+    "native_shell_syntax_tool_chunk": "549f5b",
+    "red_file": "preprod1_r5o_before_reason2_20261022/receipt.json",
+    "red_sha256": "13353d03ac0e9141c3b4462a132b6574d4ddf861111c56dce5e27dcec968f203",
+    "classification": "Coordinator-executed current85 contracts and syntax evidence inspected, not rerun. Four actual stub-JSON regressions failed on oldreason3; prior81 unchanged checks reused. Earlier85-pass variant with nonbench test MAC is explicitly historical, not current-byte evidence."
+  },
+  "limits": [
+    "Local source-bound admission for one isolated bench run only, not PREPROD1/hardware acceptance.",
+    "No result of R5o exists yet; full acceptance requires final physical evidence and complete exact restoration.",
+    "No causal, reliability, performance, production or universal zero-touch claim; all old failures and diagnostic limitations remain preserved.",
+    "Reviewer inspected public local artifacts and exact source/test delta only; no devices/network/credentials/private raw/tests/Git or producer edits."
+  ]
+}

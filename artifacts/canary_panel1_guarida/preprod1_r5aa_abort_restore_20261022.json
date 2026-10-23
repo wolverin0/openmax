@@ -1,0 +1,86 @@
+{
+  "status": "INCOMPLETE_ABORT_RESTORATION",
+  "started_utc": "2026-10-22T23:56:22.834991+00:00",
+  "source_sha256": "90bbc70a4dd345edaa30e1b857ae35b0ffa2dc1347764235f44d30a88addcd8d",
+  "events": [
+    {
+      "device": "SXT",
+      "action": "owned_guard_USR1",
+      "evidence": {
+        "exit_code": 0,
+        "stdout": "IDENTITY 17341 8515909\n",
+        "stderr": ""
+      }
+    },
+    {
+      "device": "LBM5",
+      "action": "guard_signal_uncertain_native_fallback",
+      "error": "RuntimeError"
+    }
+  ],
+  "errors": [
+    {
+      "error_type": "RuntimeError",
+      "gate": "LEGACY_RESTORATION_NOT_CONFIRMED"
+    }
+  ],
+  "production_access": false,
+  "experiment_acquisition": false,
+  "interrupted_receipt_sha256": "67e612cef3b67b72b4ee831d7ccfdf21666b084f7f7c895a403ae808f0a1e672",
+  "reason": "Host interrupted after EXEC-ACK hang at arm_legacy LBM5 readiness; no finally or admission.",
+  "AP_guard_precheck": {
+    "exit_code": 0,
+    "stdout": "7726 8095166\n82151\n81437.93 74917.47\n",
+    "stderr": ""
+  },
+  "unstarted_staged_trace_inventory": [
+    [
+      "/tmp/fmx-assoc-debug-264e0cb014dcfd6251692db8097471c9",
+      "264e0cb014dcfd6251692db8097471c9",
+      "2658 drwx--x--- 0 101",
+      "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+      "mtime_not_acquired"
+    ],
+    [
+      "/tmp/fmx-assoc-debug-e5eb7a985b951e94249c04d273db5632",
+      "e5eb7a985b951e94249c04d273db5632",
+      "2662 drwx--x--- 0 101",
+      "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+      "mtime_not_acquired"
+    ]
+  ],
+  "secure_restore_management_RF": {
+    "interface": "phy0-ap0",
+    "ifindex": 234,
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "observed_regulatory_domains": [
+      "AR",
+      "US"
+    ],
+    "regulatory_sha256": "3b3e43b1e0b2ce9954fea4ccf0147168f90b267f4405a0a23adcc3fd4bbb99e0",
+    "phy_sha256": "7e514db4e704f731ecb6fb8adeab5c480512918b9f6bac04d455e303b8617854"
+  },
+  "open_restore_management_ready": true,
+  "legacy_restoration": {
+    "SXT": {
+      "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+      "snapshot": "ab0fe2bd-55ef-4528-9032-6df20674573a\n4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c  /etc/config/wireless\n0c7ed7f439e9da169fc7f12908851fcc  /dev/mtd0\nae243dc4521318113d4781401997e3af  /dev/mtd3\n0634d29700fc835e3d7932da8eb79139  /dev/mtd4\n622939f192d37a4e9ba0b05daaad5014  /dev/mtd5\n03ef5cd199afa405aac7a9316e8280e2  /dev/mtd6\nd8fd8f66b380eb17e3856d3c75e84e0e  /dev/mtd7\necb99e6ffea7be1e5419350f725da86b  /dev/mtd8\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n3: br-lan: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000\n    inet 192.168.1.4/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n84: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    inet 10.99.0.3/24 brd 10.99.0.255 scope global phy0-sta0\n       valid_lft forever preferred_lft forever\n10.99.0.0/24 dev phy0-sta0 scope link  src 10.99.0.3 \n192.168.1.0/24 dev br-lan scope link  src 192.168.1.4 \nConnected to 18:e8:29:74:55:a2 (on phy0-sta0)\n\tSSID: FuturaMAX-LAB\n\tfreq: 5180.0\n\tRX: 12816 bytes (108 packets)\n\tTX: 8213 bytes (52 packets)\n\tsignal: -77 dBm\n\trx bitrate: 52.0 MBit/s MCS 11\n\ttx bitrate: 78.0 MBit/s MCS 12\n\tbss flags: short-slot-time\n\tdtim period: 2\n\tbeacon int: 100\n",
+      "cleanup": {
+        "exit_code": 0,
+        "stdout": "OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    }
+  },
+  "last_restore_observation": {
+    "LBM5": {
+      "error_type": "SSHException",
+      "gate": "No existing session"
+    }
+  },
+  "ended_utc": "2026-10-23T00:07:17.666351+00:00"
+}

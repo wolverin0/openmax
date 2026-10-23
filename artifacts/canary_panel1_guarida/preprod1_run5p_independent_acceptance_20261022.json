@@ -1,0 +1,361 @@
+{
+  "status": "NOT_ACCEPTED_PREPROD1_DISASSOCIATED_WA_RECOVERY_TIMEOUT_ALL_RESTORED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T20:55:38.570012+00:00",
+  "receipt_sha256": "d238d16d21e41986afe324b59da60c124090fad8ecf097368595b946233c2b04",
+  "plan_sha256": "6874bf0c884dd91c53d11c8013614556c8a30b6e4f0148720a9ec4135339f65a",
+  "source_review_sha256": "a651e8a8110390c139df103469c61688c1d99185578323ed8ad09297060953a6",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "b8ba94217cca722bb9599832c982d64b88fb0f6aa595f99e8e40c2637553b5d7",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "a26154b930c8304362e9cbfad2ffd88398a6ff5f76590d797c2ec76ab0b58262"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T20:49:27.380196+00:00",
+  "ended_utc": "2026-10-22T20:54:12.651478+00:00",
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "conclusion": "Reason4/deauthfalse disassociation caused observed WA loss but did not produce a new authorized target session within the unchanged60s recovery deadline. Initial baseline is valid; no remaining drops or subsequent epochs are accepted. All restoration gates pass.",
+  "native_evidence": {
+    "artifact": {
+      "file": "daemon-evidence.json",
+      "bytes": 85335,
+      "sha256": "f881ba20f8a9d339c6e3fc5bce9a70426210036591ff654c51f5b9e9ad585732"
+    },
+    "exit_code": 78,
+    "stop_reason": "recovery_timeout",
+    "restore_rc": 0,
+    "stderr_empty": true,
+    "listener_stderr_empty": true,
+    "initial_four_admitted_s": 40.7,
+    "stable_holds_completed": [
+      {
+        "epoch": 0,
+        "actual_seconds": 60.33
+      }
+    ],
+    "drop_requests": [
+      {
+        "number": 1,
+        "target": "WA",
+        "reason": 4,
+        "deauth": false,
+        "ban_time": 0,
+        "request_uptime": 70399.29,
+        "observed_loss_uptime": 70399.63,
+        "request_to_loss_s": 0.34,
+        "old_WDS_child": "phy0-ap0.sta4",
+        "old_ifindex": 173,
+        "old_WDS_retired_uptime": 70429.54,
+        "retirement_wait_included_s": 29.91,
+        "IE_set_ACK_uptime": 70429.66,
+        "same_pulse_broadcast_seen_uptime": 70431.26,
+        "dwell_ready_uptime": 70450.31,
+        "IE_clear_ACK_uptime": 70450.92,
+        "actual_IE_exposure_s": 21.26,
+        "daemon_ended_uptime": 70459.34,
+        "loss_to_ended_s": 59.71,
+        "clear_to_ended_s": 8.42,
+        "deadline_seconds": 60,
+        "recovered": false,
+        "new_target_session_verified": false
+      }
+    ],
+    "remaining_drops_not_executed": [
+      "XC",
+      "SXT",
+      "LBM5"
+    ]
+  },
+  "packet_and_observer_audit": {
+    "samples_total": 101,
+    "post_initial_admission_peer_samples_verified": 74,
+    "other_three_authorized_and_connected_rx_tx_counters_nondecreasing": true,
+    "WA_authorized_samples_after_observed_loss": 0,
+    "post_loss_samples": 38,
+    "qualified_epochs_completed": 1,
+    "required_epochs": 5,
+    "initial_traffic_recomputed": {
+      "WA": {
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_rtt_samples": 32,
+        "interface": "phy0-ap0.sta4",
+        "startup_before_shared_deadline": true,
+        "artifact": {
+          "file": "epoch0-WA.json",
+          "bytes": 10883,
+          "sha256": "529131d7ee66d93e089a63bca8a4c01cfce0529e07ad4d0d1808e635aa13c4e1"
+        }
+      },
+      "XC": {
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_rtt_samples": 32,
+        "interface": "phy0-ap0.sta2",
+        "startup_before_shared_deadline": true,
+        "artifact": {
+          "file": "epoch0-XC.json",
+          "bytes": 10885,
+          "sha256": "c067864ed6701c3feeff59f185bc693b78c5198e23bf415e6c59e5f41a92533d"
+        }
+      },
+      "SXT": {
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_rtt_samples": 32,
+        "interface": "phy0-ap0",
+        "startup_before_shared_deadline": true,
+        "artifact": {
+          "file": "epoch0-SXT.json",
+          "bytes": 8076,
+          "sha256": "b79104a15df0668fb280b424f39dcff60bdc6340e8338254e08fea5441c0ca1c"
+        }
+      },
+      "LBM5": {
+        "transmitted": 32,
+        "received": 32,
+        "matched_radio_pairs": 32,
+        "finite_rtt_samples": 32,
+        "interface": "phy0-ap0",
+        "startup_before_shared_deadline": true,
+        "artifact": {
+          "file": "epoch0-LBM5.json",
+          "bytes": 8078,
+          "sha256": "4f99c6572fdbee06bf7d987c9dd05437399f1603f92bd9cd18f2acaa0530a9f0"
+        }
+      }
+    },
+    "later_epochs_not_executed": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "XC_audited_commands": 48,
+    "XC_commands_during_window": 0,
+    "ACK_or_retained_auth_is_not_recovery": true
+  },
+  "restoration": {
+    "cleanup_errors": [],
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_and_protected_hash_entries_exact": 8,
+        "ordered_IPv4_and_routes_exact": true,
+        "management_ping": "3/3",
+        "owned_RAM_cleanup": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_and_protected_hash_entries_exact": 5,
+        "ordered_IPv4_and_routes_exact": true,
+        "management_ping": "3/3",
+        "owned_RAM_cleanup": true
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "all_four_baseline_snapshots_exact": true
+    },
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "daemon_process_ended": {
+      "exit_code": 0,
+      "stdout": "ENDED\n",
+      "stderr": ""
+    },
+    "daemon_owned_RAM_removed": true,
+    "capture_startup_workers_ended": 4,
+    "native_capture_guards_ended": 4,
+    "bridge": {
+      "owned_table_deleted_original_names_exact": true,
+      "original_tables": "table inet fw4\n",
+      "final_forward_drop_counters": [
+        3127,
+        54
+      ],
+      "limits": "Counters prove filtering, not cause or performance benefit."
+    },
+    "forbidden_actions_executed": false,
+    "persistent_config_writes": false
+  },
+  "interpretation_limits": [
+    "The actual29.91s old-WDS retirement consumed the same60s recovery budget; only8.42s remained after IE clear before timeout. These are timing observations, not proof of a vendor failure cause or permission to relax the deadline.",
+    "One disassociation treatment does not prove universal failure or a reason-code root cause.",
+    "No actual new target session or successful recovery occurred; auth retention and command ACK cannot rescue it.",
+    "Only one of five required epochs and four of twenty qualified flows completed; all older failed runs remain negative.",
+    "AP restored under the existing pinned context/configuration contract, not a new full raw-MTD acquisition.",
+    "Public local artifacts and frozen sources only; no hardware/network/credentials/private raw/tests/Git/source edits by reviewer."
+  ],
+  "artifact_references_verified": [
+    {
+      "file": "preflight-0-WA.json",
+      "bytes": 548,
+      "sha256": "743ed07bde582ce8278d64cd3faf499732915b6a84812ecc1c44ee553be62eb1"
+    },
+    {
+      "file": "preflight-0-XC.json",
+      "bytes": 483,
+      "sha256": "b1fb0ebedf4ea587a77ebdab15118d5d1f3db9214da6bcca492f706ba05301c9"
+    },
+    {
+      "file": "preflight-0-SXT.json",
+      "bytes": 452,
+      "sha256": "6734e8f54715ba04b9a3ce93562b0f88cddc04e4eaf3c828d0c7183bf94b6d1b"
+    },
+    {
+      "file": "preflight-0-LBM5.json",
+      "bytes": 452,
+      "sha256": "485ea200b8bac61baef4126bfe6b4309bd1122aaea5ab1baae6f67d5e583e72f"
+    },
+    {
+      "file": "epoch0-WA.json",
+      "bytes": 10883,
+      "sha256": "529131d7ee66d93e089a63bca8a4c01cfce0529e07ad4d0d1808e635aa13c4e1"
+    },
+    {
+      "file": "epoch0-XC.json",
+      "bytes": 10885,
+      "sha256": "c067864ed6701c3feeff59f185bc693b78c5198e23bf415e6c59e5f41a92533d"
+    },
+    {
+      "file": "epoch0-SXT.json",
+      "bytes": 8076,
+      "sha256": "b79104a15df0668fb280b424f39dcff60bdc6340e8338254e08fea5441c0ca1c"
+    },
+    {
+      "file": "epoch0-LBM5.json",
+      "bytes": 8078,
+      "sha256": "4f99c6572fdbee06bf7d987c9dd05437399f1603f92bd9cd18f2acaa0530a9f0"
+    },
+    {
+      "file": "failure-station-dumps.json",
+      "bytes": 2314,
+      "sha256": "746e851ad05cf193aa6a53d2c42c8ac2e32c98f415ceb95762cacfdcae6376d2"
+    },
+    {
+      "file": "daemon-evidence.json",
+      "bytes": 85335,
+      "sha256": "f881ba20f8a9d339c6e3fc5bce9a70426210036591ff654c51f5b9e9ad585732"
+    },
+    {
+      "file": "setup-0-WA-capture.json",
+      "bytes": 274,
+      "sha256": "7528d0de047b2483873e7db5aace495ed40d606e3ed767a8afdb39f135a60f5c"
+    },
+    {
+      "file": "setup-0-XC-capture.json",
+      "bytes": 274,
+      "sha256": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f"
+    },
+    {
+      "file": "setup-0-SXT-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-0-LBM5-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "SXT-guard-log.json",
+      "bytes": 52,
+      "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+    },
+    {
+      "file": "LBM5-guard-log.json",
+      "bytes": 552,
+      "sha256": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70"
+    },
+    {
+      "file": "hostapd-events.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binding_files": [
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5p/receipt.json",
+      "bytes": 801557,
+      "sha256": "d238d16d21e41986afe324b59da60c124090fad8ecf097368595b946233c2b04"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_plan_20261022_run5p.json",
+      "bytes": 9990,
+      "sha256": "6874bf0c884dd91c53d11c8013614556c8a30b6e4f0148720a9ec4135339f65a"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_source_review_20261022_run5p.json",
+      "bytes": 5583,
+      "sha256": "a651e8a8110390c139df103469c61688c1d99185578323ed8ad09297060953a6"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5p/executed-source/fmx_admitter.sh",
+      "bytes": 10105,
+      "sha256": "b8ba94217cca722bb9599832c982d64b88fb0f6aa595f99e8e40c2637553b5d7"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5p/executed-source/preprod1_trial_20261022.py",
+      "bytes": 53906,
+      "sha256": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py",
+      "bytes": 8027,
+      "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py",
+      "bytes": 14489,
+      "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py",
+      "bytes": 22519,
+      "sha256": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py",
+      "bytes": 1899,
+      "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py",
+      "bytes": 4595,
+      "sha256": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py",
+      "bytes": 47196,
+      "sha256": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5p/executed-source/test_preprod1_audit.py",
+      "bytes": 35831,
+      "sha256": "a26154b930c8304362e9cbfad2ffd88398a6ff5f76590d797c2ec76ab0b58262"
+    }
+  ]
+}

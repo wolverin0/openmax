@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-23T06:55:37.896509+00:00",
+  "parent": "FMX0017/original forward-plan PhaseB-C/PREPROD1",
+  "question": "Under the same AH-age/load recovery recipe, does an independently encoded peer-scoped message3 response permit XC WPA2 recovery and RF traffic after its transmitted SSID has passed all normal AP checks?",
+  "baseline": {
+    "file": "preprod1_20261022_run5ak/receipt.json",
+    "sha256": "18a245a980c2d78821dd00c2896ab7d057c213d1de6ccf6306db08cd6b0e5984",
+    "answer": "negative: explicitSSIDdecoded+APsuccessfulAssocTXcallback; noWPAcompletion/nativeXCtimeout, exactrestore"
+  },
+  "treatment": {
+    "AP_binary_sha256": "e86a3aafe2ac427e01ee402d1da0df5b7f37e1dbe113bd2d90109ff5ac72ea09",
+    "variant": "independentstrictwireSSIDplusperpeerresponse3, normalWPA unchanged",
+    "only_new_primary_wire_change": "44byte response forvalidatedtype2/IE0absent/normalchecksSUCCESS; initialstandardSSIDandotherpeers unchanged",
+    "field_review": "ab17327cc465dc0e2f50b59f17f94cd38d1bbccaa1c0229faa46837541f3c598",
+    "limits": "RSSI0algorithmUNKNOWNbelowunchangedoriginalTXceiling; noATPCconfigchange"
+  },
+  "fixed_recipe": {
+    "frequency_MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR",
+    "initial_hold_seconds": 116,
+    "next_hold_seconds": 61,
+    "only_drop": "XC n2 age174..184s afterFOUR",
+    "prior_WA_drop": false,
+    "recovery_limit_seconds": 60,
+    "post_hold_seconds": 61,
+    "epochs": 3,
+    "strict_streams": 12,
+    "echo_each": 32,
+    "RF_pairs_each": 32,
+    "XC_window_commands": 0
+  },
+  "acceptance": "Originaldiagnosticcriteria+nativefreshsession/retirement/otherthreecontinuous/exactfullrestore/APoff. NeverfullPREPROD1PASS.",
+  "prerequisites": "ExactnewbinaryRFoffnativeguardlifecyclePASS plusindependentacceptance andexactRFplanPF beforeRF.",
+  "stop": "Anyfailurepreservedandrestored. Positiveadvancesoriginalfull4recoveries/5holds/20flows+independentacceptance beforecommit/push. No productioncontact/flash/newTDMA/capability.",
+  "measured_result": "NOT_ACQUIRED"
+}

@@ -1,0 +1,79 @@
+{
+  "frozen": true,
+  "utc": "2026-10-22T20:26:45.774352+00:00",
+  "parent": "FMX0017 / PREPROD1 four reconnections stillACTIVE_NOT_ACCEPTED",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_r5n2_WA_readonly.json",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "e06107e4d3b079ac2c046e88dce79679aa04cccdf83590ffd05ab9ccaddf4568",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_loco195_eth_readonly_20261021.py": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "tests/test_preprod1_audit.py": "ae549b37127b2d1b6fed9566f1a1d9645822692b3ebaa773a3868d2eb649ece7",
+    "tools/bench/preprod1_admitter.sh": "75052479baf25b8fa04e6168be47a99d2fb3254fc55230ed75d394caef2f6e12"
+  },
+  "question": "NsecureWAauth/assoc/authorized/wds succeeded, but strictlistener-end audit returnedrc0withstderr beforeping/SSH. Specificstderrnotretained, causeUNKNOWN. RetainusefulCPEqueriesbeforeownershipaudit; closechannelimmediately, verifyPID/ticks onlyinparentfinally beforeAPrestore. Keepstrictfailurecriteria, capturefailedqueryresultprivate.",
+  "preconditions": {
+    "prior_negative_AP_restored": {
+      "file": "preprod1_20261022_r5n_WA_readonly/receipt.json",
+      "sha256": "0ef68f00bcc573ff6ef8d445390037a18b8fa12ab27ca1f783ce5e1624493ed9"
+    },
+    "independent_prior_negative": {
+      "file": "preprod1_r5n_WA_readonly_independent_acceptance_20261022.json",
+      "sha256": "ede35c9ec388db96886e97a947a46ffefb9e3178076b3bc14c446bab5ae3bbde"
+    },
+    "late_original_listener_ABSENT_and_APoff": {
+      "file": "preprod1_r5n_listener_late_verification_20261022.json",
+      "sha256": "426c322b6bde5a802496d787bb87f544736e05475d3c6707cc453e2a01410b94"
+    }
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR",
+    "mode": "ExistingAParm thenrevertRAMencryptiontohashboundPSK2baseline; exactnative60BIE ON->exactWA broadcastfreq5180/ifnamephy0-ap0->500ms->CLEAR; requireauth/assoc/authorized/wds beforeIPpath/read."
+  },
+  "bounds": {
+    "existing_AP_guard_s": 480,
+    "WA_RF_path_wait_s": 45,
+    "SSH_transport_connect_and_auth_s_each": 6,
+    "query_output_bound_bytes": 65536,
+    "query_channel_open_timeout_s": 6,
+    "query_execution_absolute_channel_close_deadline_s": 6,
+    "query_total_nominal_bound_s": 12,
+    "WA_RF_path_wait_rule": "Remainingbudgethalvedforopen+execution; absolute45spostcheck beforeacceptingreply. ExistingAPhelpersretainexistingguardedtimeouts.",
+    "channel_timer": "StartbeforeexecACK/read/exitstatus; expiryclosersonlyownedquerychannel, neverwholetransport; cancelfinally. InstalledParamikoChannel._set_closedunblocksACK/stream/status waits; inspectedprimarylocalcodeaf6482.",
+    "secure_AP_ready_total_s": 20,
+    "secure_WA_admission_total_s": 90,
+    "listener_start_ACK_and_identity_s": 6,
+    "listener_end_owned_PID_start_check_s": 8,
+    "listener_lifetime": "Samehost90sadmissiondeadline; closesubscriberchannelimmediatelyafteracquisition(successorfailure). ExactPID/start-end auditisdeferreduntilafterCPEreads inparentfinallyandstillmandatoryforPASS. No ubus-t/nativeprocesswatchdogclaim; sameAP480hostlossRFbound."
+  },
+  "restoration": "ExistingAPguard/ownerhashes/protectedconfig/network/radioOFF/noVAP/guardended/ownedRAM/nftexactoriginaltables; noCPEmutation so noCPErollbackguardneeded. PrivateevidencewriteorCPEclosefailure cannot skipAPrestore. APcloseerroralsoheldincleanup_errorswithoutskippingfinalreceipt.",
+  "acceptance_scope": "OnlyREADONLY_DIAGNOSTIC_ACQUIRED_AND_AP_RESTORED. NeverPREPROD1PASS/norescoringL/G; laterfullfivestables/fourrecoveries/20streamscriteriaunchanged.",
+  "stop": "Pinnedkey/board/exactfullWAMAC/hash/output/deadline orreadfailure=>preservefailureandattemptoriginalAPrestore. Noexternalcontact beyondexactbenchAP+WA.",
+  "private_raw": "Existinggitignoredpreprod_guarida_20261022/history; publicreceiptkeepshash+filteredauthlines; nosecrets/sourcefirmwareimagespublish.",
+  "dependency_publication": "Existingreadonlyroot_loco195_eth_readonly_20261021.py isbyteunchangedandneededonlyforpinnedcredentialpointer. Explicitlyincludeasrelatedpublicdependencyafterreview; neverincludeitscredentialreferencedfile.",
+  "diagnostic_success": "Essentialstatus/log/kernelrc0+nostderr; exactlyoneknownnativewpa_state; logorkernel nonempty; CPEconfigMD5beforeafterequal. bssFAILretainedexplicitlybutnotessential. Noqueryfailuremaycountasacquired.",
+  "public_privacy": "Rawiwconfig/log/kernelstayprivate; publicradioonlySHA. Publicstatus/BSS/uptime/hashoutputsandfilteredauthlines; existingcredentialpointerneverprinted/copied.",
+  "source_control": "DiagnosticCLIaccepts --execute LABEL, validateslabelcharsetandfrozenexactsource/review beforeconnections. OldMsource/plan/receiptimmutableinexecutedarchive; no rerunMwithnewbytes.",
+  "stop_park_condition": "Onlythisknownsecurepathretrieval; no newlogframework/package/install/CPEsetting oranotherdwellvariant. Failure=>preservediagnosticINCOMPLETE, restoreAP, useanyscopedpartialretainedlogsifpresent; do notrepairqueryprotocoljusttoforcehelperPASS. Parentfullfourrecovery remainsACTIVE; nextrepairneedschangeddecision-relevantevidence.",
+  "offline_contracts": {
+    "file": "preprod1_r5n2_contract_tests_20261022.json",
+    "sha256": "a2e1ba95fb3fefde1eed63050fa5c6e61c06fb7af99f89a198fffcf35837cfa5",
+    "passed": 81,
+    "exit_code": 0
+  },
+  "preserved_fixture_failure": {
+    "file": "preprod1_r5n_fixture_failure_20261022/receipt.json",
+    "sha256": "494a3f23701d96fb4a9d1ca1f8f8def8b558a5d4a428a06d5df4c97569161796",
+    "failed": 2,
+    "passed": 78,
+    "exit_code": 1
+  },
+  "cleanup_order": "Acquisitionfinallyclosesonlysubscriberchannel; mainreturnsfromsecureadmission->ping->pinnedreadonlyCPEdata. ParentfinallyWAclose->independenttryownedlistenerend->privateevidencewrite->independenttryAPrestore/off/guard/RAM/nft->APclose->finalreceipt. A listener-auditerrorstillpreventsdiagnosticPASS butcannotpreemptCPEevidenceorAPrestore.",
+  "failure_preservation": "Strictreadonlycheckraiseswithquery_resultattribute; main/cleanupcopythatresultonlyintoprivateenvelope. Publicgatekeepscodewithoutstdout/stderrmaterial. OriginalNstderrremainsUNKNOWN andoldreceiptunchanged."
+}

@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-22T22:10:44.508263+00:00",
+  "status": "PASS_OFFLINE_CONTRACTS_NOT_RF_ACCEPTANCE",
+  "command": "node ../wezbridge/scripts/heavy-slot.cjs run --label preprod1-r5v-contract -- python -B -m pytest tests/test_preprod1_audit.py -q",
+  "passed": 120,
+  "failed": 0,
+  "seconds": 3.94,
+  "exit_code": 0,
+  "tool_receipt": "2a61ae",
+  "native_bash_n": {
+    "exit_code": 0,
+    "tool_receipt": "bc6dee",
+    "reused": true,
+    "exact_unchanged_native_sha256": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d"
+  },
+  "bindings": {
+    "tools/bench/preprod1_admitter.sh": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "6ae1729b197b93ee961ff83e767116c47dc05517fe217fc44650aa4b1ea1ed1f",
+    "tests/test_preprod1_audit.py": "8a06b9d55211e0f99e455088a57cc9cc9e944056a67c437996fb15ec49a44820",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed"
+  },
+  "scope": "112unchangedcontracts+8diagnosticcommand/bounds/header/barrier/cleanup contracts. Earlier4 fixture setup errors from Windows PYTEST_CURRENT_TEST environment length; preserved, fixed explicit short IDs only.",
+  "preserved_fixture_failure": {
+    "file": "preprod1_r5v_before_short_case_ids_20261022/receipt.json",
+    "sha256": "5b023768bafbd1a1876e4552625c6048232198c59f214e140841471ba1a13b06"
+  }
+}

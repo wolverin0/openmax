@@ -1,0 +1,56 @@
+{
+  "experiment": "FMX-0016",
+  "stage": "VERSIONED_POSTBOOT_LEGACY_IDENTITY_CONFIG_REQUALIFICATION",
+  "status": "PASS_OPEN_RF_LEGACY_IDENTITY_CONFIG_INTAKE",
+  "utc": "2026-10-23T00:42:59.738499+00:00",
+  "devices": {
+    "SXT": {
+      "pin": "ea1cd14925371b2cb7900fdeedf2f1b45c390092691adc09e767283f27e9cbd8",
+      "identity": "DISTRIB_ID='OpenWrt'\nDISTRIB_RELEASE='24.10.4'\nDISTRIB_REVISION='r28959-29397011cc'\nDISTRIB_TARGET='ath79/mikrotik'\nDISTRIB_ARCH='mips_24kc'\nDISTRIB_DESCRIPTION='OpenWrt 24.10.4 r28959-29397011cc'\nDISTRIB_TAINTS='no-all'\n{\n\t\"kernel\": \"6.6.110\",\n\t\"hostname\": \"fmx-sta-n1\",\n\t\"system\": \"Atheros AR9344 rev 3\",\n\t\"model\": \"MikroTik RouterBOARD SXT 5nD r2 (SXT Lite5)\",\n\t\"board_name\": \"mikrotik,routerboard-sxt-5nd-r2\",\n\t\"rootfs_type\": \"squashfs\",\n\t\"release\": {\n\t\t\"distribution\": \"OpenWrt\",\n\t\t\"version\": \"24.10.4\",\n\t\t\"revision\": \"r28959-29397011cc\",\n\t\t\"target\": \"ath79/mikrotik\",\n\t\t\"description\": \"OpenWrt 24.10.4 r28959-29397011cc\",\n\t\t\"builddate\": \"1760891865\"\n\t}\n}\nphy#0\n\tInterface phy0-sta0\n\t\tifindex 4\n\t\twdev 0x1\n\t\taddr 64:d1:54:1b:96:97\n\t\tssid FuturaMAX-LAB\n\t\ttype managed\n\t\tchannel 36 (5180 MHz), width: 20 MHz, center1: 5180 MHz\n\t\ttxpower 11.00 dBm\n\t\tmulticast TXQ:\n\t\t\tqsz-byt\tqsz-pkt\tflows\tdrops\tmarks\toverlmt\thashcol\ttx-bytes\ttx-packets\n\t\t\t0\t0\t0\t0\t0\t0\t0\t0\t\t0\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n3: br-lan: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000\n    inet 192.168.1.4/24 brd 192.168.1.255 scope global br-lan\n       valid_lft forever preferred_lft forever\n4: phy0-sta0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000\n    inet 10.99.0.3/24 brd 10.99.0.255 scope global phy0-sta0\n       valid_lft forever preferred_lft forever\n4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c  /etc/config/wireless\n/sbin/wifi\n/sbin/uci\ndev:    size   erasesize  name\nmtd0: 00040000 00020000 \"booter\"\nmtd1: 003c0000 00020000 \"kernel\"\nmtd2: 07c00000 00020000 \"ubi\"\nmtd3: 00020000 00010000 \"RouterBoot\"\nmtd4: 0000c000 00010000 \"bootloader1\"\nmtd5: 00001000 00010000 \"hard_config\"\nmtd6: 00001000 00010000 \"bios\"\nmtd7: 00001000 00010000 \"soft_config\"\nmtd8: 00010000 00010000 \"bootloader2\"\n",
+      "wireless_config": {
+        "file": "sxt-wireless.cfg",
+        "bytes": 357,
+        "sha256": "4b0ad893db97b1e1219a1d0888dd82af32f089b36e9b50b85529f6673148d10c"
+      },
+      "wireless_changes": "",
+      "boot_id": "ab0fe2bd-55ef-4528-9032-6df20674573a"
+    },
+    "LBM5": {
+      "pin": "d8365da1c702d5c4d89e76a6ced5666f5a184b9c64de46feabb23c5d55c31127",
+      "identity": {
+        "exit_code": 0,
+        "stdout": "80c585ae-1f9e-482e-997c-cda0403f3077\n209.72 178.55\nf0:9f:c2:b2:b6:ba\nf0:9f:c2:b3:b6:ba\nXW.v6.1.4\n80c585ae-1f9e-482e-997c-cda0403f3077\n0620f996529e137645ba41587cb81713  /tmp/system.cfg\n37fec0e91d8d890a6a71a9dcce9d96f0  /dev/mtd0\nd923e305db3bbb9805cc8191abe933f7  /dev/mtd1\ncd708dcf6efcc93439edcdecf918c9f5  /dev/mtd4\n3f44343069ebb39f52f13b17074803cd  /dev/mtd5\n1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN \n    inet 127.0.0.1/8 scope host lo\n6: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN \n    inet 192.168.1.5/24 brd 192.168.1.255 scope global br0\n    inet 10.99.0.4/24 brd 10.99.0.255 scope global br0\n    inet 169.254.182.186/16 brd 169.254.255.255 scope global br0\n10.99.0.0/24 dev br0  proto kernel  scope link  src 10.99.0.4 \n192.168.1.0/24 dev br0  proto kernel  scope link  src 192.168.1.5 \n169.254.0.0/16 dev br0  proto kernel  scope link  src 169.254.182.186 \ndefault via 192.168.1.1 dev br0 \nbridge name\tbridge id\t\tSTP enabled\tinterfaces\nbr0\t\tffff.f09fc2b2b6ba\tno\t\teth0\n\t\t\t\t\t\t\tath0\n\t\t\t\t\t\t\teth1\nath0      IEEE 802.11na  ESSID:\"FuturaMAX-LAB\"  \n          Mode:Managed  Frequency:5.775 GHz  Access Point: Not-Associated   \n          Bit Rate:0 kb/s   Tx-Power=10 dBm   Sensitivity:0/3  \n          RTS thr:off   Fragment thr:off\n          Encryption key:off\n          Power Management:off\n          Link Quality=0/94  Signal level=-96 dBm  Noise level=-102 dBm\n          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0\n          Tx excessive retries:0  Invalid misc:0   Missed beacon:0\n\nath0      get_authmode:1  \nath0      get_wds:0  \n",
+        "stderr": ""
+      },
+      "system_config": {
+        "file": "lbm5-system.cfg",
+        "bytes": 2455,
+        "sha256": "49ca0e578cf9f29301a86c2cdf9c910792321be7d2b0acb4e26f9971dd071192"
+      },
+      "system_md5": "0620f996529e137645ba41587cb81713",
+      "tools": {
+        "exit_code": 0,
+        "stdout": "wpa_supplicant v2.1\nCopyright (c) 2003-2014, Jouni Malinen <j@w1.fi> and contributors\nwpa_supplicant v2.1\nCopyright (c) 2003-2014, Jouni Malinen <j@w1.fi> and contributors\n\nThis software may be distributed under the terms of the BSD license.\nSee README for more details.\n\nusage:\n  wpa_supplicant [-BddhKLqqtvW] [-P<pid file>] [-g<global ctrl>] \\\n        [-G<group>] \\\n        -i<ifname> -c<config file> [-C<ctrl>] [-D<driver>] [-H<hostapd path>] [-p<driver_param>] \\\n        [-b<br_ifname>] [-e<entropy file>] [-f<debug file>] \\\n        [-o<override driver>] [-O<override ctrl>] \\\n        [-N -i<ifname> -c<conf> [-C<ctrl>] [-D<driver>] \\\n        [-p<driver_param>] [-b<br_ifname>] [-I<config file>] ...]\n\ndrivers:\n  wext = Linux wireless extensions (generic)\n  wextap = (null)\noptions:\n  -b = optional bridge interface name\n  -B = run daemon in the background\n  -c = Configuration file\n  -C = ctrl_interface parameter (only used if -c is not)\n  -i = interface name\n  -I = additional configuration file\n  -d = increase debugging verbosity (-dd even more)\n  -D = driver name (can be multiple drivers: nl80211,wext)\n  -e = entropy file\n  -f = log output to debug file instead of stdout\n  -g = global ctrl_interface\n  -G = global ctrl_interface group\n  -K = include keys (passwords, etc.) in debug output\n  -t = include timestamp in debug messages\n  -h = show this help text\n  -H = connect to a hostapd instance to manage state changes\n  -L = show license (BSD)\n  -o = override driver parameter for new interfaces\n  -O = override ctrl_interface parameter for new interfaces\n  -p = driver parameters\n  -P = PID file\n  -q = decrease debugging verbosity (-qq even less)\n  -v = show version\n  -W = wait for a control interface monitor before starting\n  -N = start describing new interface\nexample:\n  wpa_supplicant -Dwext -iwlan0 -c/etc/wpa_supplicant.conf\nath0      get_wds:0  \nlrwxrwxrwx    1 ubnt     admin            7 Jan 12 07:18 /tmp -> var/tmp\nrootfs / rootfs rw 0 0\n/dev/root / squashfs ro,relatime 0 0\nnone /proc proc rw,relatime 0 0\nnone /sys sysfs rw,relatime 0 0\nnone /sys/kernel/debug debugfs rw,relatime 0 0\ntmpfs /var tmpfs rw,relatime,size=9216k 0 0\ndev /dev tmpfs rw,relatime 0 0\nnone /dev/pts devpts rw,relatime,mode=600 0 0\n",
+        "stderr": ""
+      },
+      "boot_id": "80c585ae-1f9e-482e-997c-cda0403f3077",
+      "requalification": {
+        "file": "preprod1_r5aa_M5_postboot_ethernet_readonly_20261022.json",
+        "sha256": "07b5d056caf6b95442ad9ba1dd77039e2d2324ad0cd24465a5c4235175205e46",
+        "independent_file": "preprod1_r5aa_M5_newboot_independent_observation_20261022.json",
+        "independent_sha256": "5365b82441c5c2b2a0ea72578fd800e172d16b496a3c0609c7db3bf3b9838fcc",
+        "old_guard_RAM_absent": true,
+        "old_boot": "6fc96796-6e67-4ff4-b928-b5ce0acf54ef",
+        "cause": "UNKNOWN; operator reports no power interruption; no agent reboot command",
+        "runtime_baseline": "Current newboot IPv4/routes/open profile; no old indirect route/linklocal was written. Per-trial before/after restoration remains exact."
+      }
+    }
+  },
+  "provenance": {
+    "original_file": "root_four_cpe_intake_20261022_run1\\receipt.json",
+    "original_sha256": "37d92736e926e94589095079434dc895c13b9e74d24d618428e3cb42208ff1c9",
+    "M5_current_RO": "preprod1_r5aa_M5_postboot_ethernet_readonly_20261022.json",
+    "M5_current_RO_sha256": "07b5d056caf6b95442ad9ba1dd77039e2d2324ad0cd24465a5c4235175205e46",
+    "limits": "No new OpenRF link measurement. Reuse original capabilities because same pinned hardware/config/protected hashes; refresh only M5 epoch/current identity. SXT entry unchanged. Actual AB setup requires the exact recorded boot and freshly snapshots both devices before guarded treatment; after-test boot/config/protected/network/open restoration gates unchanged. AA and prior Ethernet remain negative."
+  }
+}

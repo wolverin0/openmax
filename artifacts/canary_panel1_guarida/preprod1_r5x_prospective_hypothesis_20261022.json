@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-22T22:37:09.020153+00:00",
+  "status": "PROSPECTIVE_NOT_EXECUTED",
+  "parent": "FMX0017 / forward-plan PhaseB-C / PREPROD1",
+  "question": "Measure the pending AP-only XC quiet recovery and full independent recovery matrix even if an earlier completed traffic stream has a packet deficit; fullPASS still requires every originalqualitygate.",
+  "baseline": "Wnativef7bb/noDEBUG/noany/immediateB64,AP0dBm/5180/20/AR unchanged. Wpacketfailures preserved; quiet has not yet been measured.",
+  "evidence": {
+    "preprod1_20261022_run5w/receipt.json": "5897140c5a2ae4861ab118e858cb3ea79a877fba584f4477d8010279af83809b",
+    "preprod1_run5w_independent_acceptance_20261022.json": "3d27a30c3116607ec7f15ca464a717e356081b1c382be1b3f6f083562d202286"
+  },
+  "hypothesis": "A completed boundedstream packet deficit is an acceptancefailure but not byitself loss of APstationauthorization/session/safecontrol. Abortingallindependentremainingrecoveries hides the parentmissingmeasurement. No packetlossmechanismclaimed, not a wirelessoptimization.",
+  "primary_change": "Hostonly acquisitioncontinuation: storeactual transmitted/received/pairs/p95/qualifying/reasons for every stream; append each deficit failure and continue onlyremainingplannedbenchcycles whilealloriginalsafety/otherpeer/session/deadlinegates hold. Malformed/output/exit/start/deadline/peer/session failures stillstopandrestore immediately.",
+  "acceptance_unchanged": "All20streams must independentlyqualify32tx32rx32timesfinite/nonnegativeand>=32matchedradiochildpairs, all5original60sholds/all4loss+freshsession<=60/continuousother3/zeroXCwindowexec/exactrestoration. Finaltrafficaggregate gate rechecks all20 actualcounts andqualifying flags; any recordeddeficit stillpreventsPASS. No warmingdelay/extraecho/RF/nativechange or discardednegative.",
+  "minimum_missing_evidence": "ActualXCquietnewsession<=60 andremainingSXT/M5recoveries plusunchangedfullpositiveacceptance.",
+  "stop": "Anyunsafe/invalid/malformed/transport/output/deadline/peer/session/guard/identity conditionstops. A packetdeficitcontinuesboundedmatrixonly andisneverrescored; native780/root1100 andallguards unchanged. Production/firmware/CPEcommands unchanged."
+}

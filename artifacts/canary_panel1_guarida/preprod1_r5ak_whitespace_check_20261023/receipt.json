@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "label": "default",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "docs/CURRENT_STATE.md",
+        "docs/BENCH_PLAN.md",
+        "docs/DECISIONS.md",
+        "docs/RESEARCH_LEDGER.md",
+        "tests/test_preprod1_audit.py",
+        "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py",
+        "tools/bench/preprod1_admitter.sh"
+      ],
+      "exit_code": 2,
+      "stdout_bytes": 264883,
+      "stderr_bytes": 451,
+      "stdout_sha256": "1da88070cdeebb650932f29f291fc3bf4c61dd0addef1abea40377f9d5545104",
+      "stderr_sha256": "4b13bf2add3d4df244977f1a2286e90cc121d438a8b0a06c79989370f4f6d38f"
+    },
+    {
+      "label": "frozen_CRLF",
+      "command": [
+        "git",
+        "-c",
+        "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+        "diff",
+        "--check",
+        "--",
+        "docs/CURRENT_STATE.md",
+        "docs/BENCH_PLAN.md",
+        "docs/DECISIONS.md",
+        "docs/RESEARCH_LEDGER.md",
+        "tests/test_preprod1_audit.py",
+        "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py",
+        "tools/bench/preprod1_admitter.sh"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 451,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4b13bf2add3d4df244977f1a2286e90cc121d438a8b0a06c79989370f4f6d38f"
+    }
+  ],
+  "explanation": "Revision-bound sources retain exact CRLF bytes; cr-at-eol checks actual trailing spaces without changing frozen sources or global Git config."
+}

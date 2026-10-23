@@ -1,0 +1,85 @@
+{
+  "scope": "Pinned LAP120 own wpad service only; readonly",
+  "procd_service": {
+    "wpad": {
+      "instances": {
+        "hostapd": {
+          "running": true,
+          "pid": 1487,
+          "command": [
+            "/usr/sbin/hostapd",
+            "-s",
+            "-g",
+            "/var/run/hostapd/global"
+          ],
+          "term_timeout": 5,
+          "limits": {
+            "core": "unlimited"
+          },
+          "respawn": {
+            "threshold": 3600,
+            "timeout": 1,
+            "retry": 0
+          },
+          "no_new_privs": true,
+          "capabilities": "/etc/capabilities/wpad.json",
+          "user": "network",
+          "group": "network",
+          "jail": {
+            "name": "hostapd",
+            "procfs": false,
+            "sysfs": false,
+            "ubus": false,
+            "log": false,
+            "ronly": false,
+            "netns": false,
+            "userns": false,
+            "cgroupsns": false,
+            "console": false
+          }
+        },
+        "supplicant": {
+          "running": true,
+          "pid": 1488,
+          "command": [
+            "/usr/sbin/wpa_supplicant",
+            "-n",
+            "-s",
+            "-g",
+            "/var/run/wpa_supplicant/global"
+          ],
+          "term_timeout": 5,
+          "limits": {
+            "core": "unlimited"
+          },
+          "respawn": {
+            "threshold": 3600,
+            "timeout": 1,
+            "retry": 0
+          },
+          "no_new_privs": true,
+          "capabilities": "/etc/capabilities/wpad.json",
+          "user": "network",
+          "group": "network",
+          "jail": {
+            "name": "wpa_supplicant",
+            "procfs": false,
+            "sysfs": false,
+            "ubus": false,
+            "log": false,
+            "ronly": false,
+            "netns": false,
+            "userns": false,
+            "cgroupsns": false,
+            "console": false
+          }
+        }
+      }
+    }
+  },
+  "process_roles": {
+    "exit_code": 1,
+    "stdout": "PROCESS 1487\nName:\thostapd\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nCapEff:\t000001ffffffffff\nCapBnd:\t000001ffffffffff\nNoNewPrivs:\t0\nARGV /sbin/ujail|-t|5|-n|hostapd|-U|network|-G|network|-C|/etc/capabilities/wpad.json|-c|--|/usr/sbin/hostapd|-s|-g|/var/run/hostapd/global|\nEXE /sbin/ujail\nCHILDREN ",
+    "stderr": "cat: can't open '/proc/1487/task/1487/children': No such file or directory\n"
+  }
+}

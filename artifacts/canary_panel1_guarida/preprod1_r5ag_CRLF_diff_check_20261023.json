@@ -1,0 +1,24 @@
+{
+  "first_check_exit_code": 2,
+  "first_check_issue": "Default git whitespace classified frozen CRLF source line endings as trailing whitespace; no source normalization/edit performed.",
+  "corrected_command": [
+    "git",
+    "-c",
+    "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "diff",
+    "--check",
+    "--",
+    "docs/CURRENT_STATE.md",
+    "docs/BENCH_PLAN.md",
+    "docs/DECISIONS.md",
+    "docs/RESEARCH_LEDGER.md",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py",
+    "tests/test_preprod1_scan_policy.py",
+    "tests/test_preprod1_ap_scan_mode.py"
+  ],
+  "corrected_exit_code": 0,
+  "corrected_stdout_bytes": 0,
+  "corrected_stderr_sha256": "4b13bf2add3d4df244977f1a2286e90cc121d438a8b0a06c79989370f4f6d38f",
+  "unrelated_preserved_count": 16,
+  "sources_not_changed": true
+}

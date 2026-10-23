@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-22T23:28:42.279272+00:00",
+  "status": "PASS_OFFLINE_CONTRACTS_ONLY",
+  "exit_code": 0,
+  "passed": 157,
+  "file": "preprod1_r5z_offline_final_20261022/receipt.json",
+  "sha256": "1968af716e4c1a38edd7ef102d743051e364244581e4b811809cea6173e8f0cd",
+  "stdout": {
+    "file": "preprod1_r5z_offline_final_20261022/pytest.stdout.txt",
+    "sha256": "ada31e3d4e47b73a7a46705adf1e5541aeec3294d8463f73a3429dd0e79c6d1c"
+  },
+  "stderr": {
+    "file": "preprod1_r5z_offline_final_20261022/pytest.stderr.txt",
+    "sha256": "3a3c41df8a6da6485a5dc49bc5c7e4b76dca3747c2aefbf1de288befe2c3c9a7"
+  },
+  "fresh_checks": "157 local fixture contracts including generated native guard+interactive wrapper Bash-n; blocked exec-ACK closed by pre-dispatch owned absolute timer; private prefix<=262144 and truncation never rescued; dead/unbound nativeguard prevents notify1; notify-reset failure retains nativeguard/source while ending listener and archiving; original AP restoration independent; exact active deps archived. No devices/services/network.",
+  "prior_reproduced_failures": {
+    "file": "preprod1_r5z_blockers_reproduced_20261022/receipt.json",
+    "sha256": "9959fcae75aa63a42693f95229c5b73197d4de66e87c341c24907d89b94b8ea3",
+    "exit_code": 1,
+    "failures": 2,
+    "status": "RETAINED_NOT_RESCORING"
+  },
+  "prior_passing_revisions": [
+    {
+      "file": "preprod1_r5z_offline_initial_20261022/receipt.json",
+      "sha256": "e5465f44b196a08079da564e63482ebe68fb9f9da8fe78a8e62e81cd7e1a851d"
+    },
+    {
+      "file": "preprod1_r5z_offline_archive_fix_20261022/receipt.json",
+      "sha256": "a72428264add97d366faa4a887d3cceb48d54addb1d14ce1e41a364598e9031b"
+    },
+    {
+      "file": "preprod1_r5z_offline_preflight_repairs_20261022/receipt.json",
+      "sha256": "60640b2302528f0140c5b5b2322405247bf2b3f00a9f0cce7e449f2461a68b8f"
+    }
+  ],
+  "baseline_warning": "Existing pytest_asyncio unset-loop-scope deprecation retained, unrelated configuration not edited."
+}

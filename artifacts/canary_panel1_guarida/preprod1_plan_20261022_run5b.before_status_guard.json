@@ -1,0 +1,92 @@
+{
+  "frozen": true,
+  "utc": "2026-10-22T17:49:16.819648+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB/C",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_run5b.json",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "83034a22397a5691480cee9ce3a12768990e92638f0ee7967217755a978a5258",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "1b1e7b60c6929716a10e935af7eb40d0292c7cd2f5b8096926aca65f170f94cb",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "38c16359527a19e8461d427d2c50494cf47a07179ed3d1720965486260db5403"
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR"
+  },
+  "acceptance": {
+    "initial_authorization_deadline_s": 120,
+    "stable_epochs": 5,
+    "stable_seconds_each": 60,
+    "AP_native_hold_integer_seconds": 61,
+    "recovery_deadline_s_each": 60,
+    "drop_order": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "drop_method": {
+      "reason": 3,
+      "deauth": true,
+      "ban_time": 0
+    },
+    "CPE_exec_commands_during_window": 0,
+    "native_daemon_owns_IE_and_drops": true,
+    "other_three_no_session_or_counter_reset": true,
+    "one_expected_session_reset_per_drop": true,
+    "low_rate_echo_per_CPE_per_epoch": 32,
+    "matched_radio_pairs_per_CPE_per_epoch": 32,
+    "echo_delivery": 1.0,
+    "restoration": "exact original profiles/protected/config/boot/network, AP radioOFF, all guards and owned RAM ended"
+  },
+  "pulse_recipe": {
+    "initial_max_seconds": 60,
+    "later_max_seconds": 60,
+    "missing_exact_probe_clear_delay_ms": 500,
+    "quiet_after_clear_seconds": 35,
+    "reason": "R5 observed25s WA and29s XC from clear to authorization; do not re-inject during that auth interval",
+    "initial_probe_relevance": "In each ADMIT pulse, remember exactmissingXC validprobe and exactmissingWA broadcast; clear only when each is goodORseen in that same pulse.",
+    "first_recovery_max_seconds": 2,
+    "pulse_counter_scope": "No duration decision depends on pulse count; recovery stays2s.",
+    "later_max_condition": "Only ADMIT while WA missing uses max60s; otherwise max2s, all recovery max2s.",
+    "seen_scope": "Reset seen_xc and seen_wa on every pulse start; stale observations never crosspulse.",
+    "RECOVER_rule": "Only exacttarget validprobe consumes window; other3 authorization/session/counters protected."
+  },
+  "guard_seconds": {
+    "AP": 1200,
+    "Rocket": 1140,
+    "legacy": 900,
+    "daemon": 780,
+    "controller_whole": 1100
+  },
+  "stop_conditions": [
+    "identity/hash/regulatory/guard/deadline/output-bound mismatch",
+    "non-target loss/session/counter reset",
+    "any XC exec command during admission window",
+    "no initial admission or recovery within frozen deadlines"
+  ],
+  "limits": [
+    "One bounded bench trial; no universal reliability/zero-loss/OTA timing/performance/capacity/production/E2 claim",
+    "Legacy900s guards alter open->WPA2->open in RAM only",
+    "Native del_client ACK is not loss proof; observed loss and a new per-target AP station session required",
+    "Zero-touch claim is scoped to this explicit pre-window preparation, not a universal untouched-cache cold start.",
+    "One explicit initialfreshscan/enable/reassociate onlybeforewindow, usingthepreviousFMX0017workingrecipe; statusmustnotCOMPLETEDbeforewindow."
+  ],
+  "capture_safety": "Same proven R5 native PID/start-owned wrapper, independent45s deadline; wrapper-end verification before CPE restore, after stoppingAPdaemon. No acceptance change.",
+  "changed_hypothesis": "R5fixedbarrier andpostsecureprep executed, butXCneverassociated. PriorpositiveFMX0017setup explicitlyscannedwhileIEactive, observedfreshsecureBSS, thenenabled/reassociated. R5benablesexactIEbeforethatboundedprep, recordsfreshBSS andnotCOMPLETEDprestatus, thenopenswindow. SamebarrierandallRF/admission/recovery/stable/traffic/session/guard/restorationcriteria. No deferredCPEsetup or commandwithinwindow.",
+  "initial_XC_preparation": [
+    "RocketrollbackguarddisablebeforeAPopenlegacysetup; APmodeTrue first.",
+    "APsetexact60BIEandupdatebeaconbefore anyXCfreshBSSscan.",
+    "Setnetwork; flush0andscan; wait<=35s for exactBSSID/5180/WPA2CCMP/SSID fromscan_results.",
+    "Wait2s thenenable0/reassociate/status synchronously beforewindow; noCOMPLETEDallowedbeforewindow.",
+    "Thencontrol_windowTrue andstartsameAPnativebothseenbarrier; noXCexec/task duringwindow."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "status": "PASS_LOCAL_PREPROD1_RUN5L_SAME_PULSE_WA_DWELL_WITH_ORIGINAL_RECOVERY_DEADLINE",
+  "reviewed_utc": "2026-10-22T19:53:20.015029+00:00",
+  "plan_sha256": "a24e66a8befa9ae6c39a4c6b2b99513ce5f753598c7561319a09245e6a066912",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "75052479baf25b8fa04e6168be47a99d2fb3254fc55230ed75d394caef2f6e12",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "fc728d0fe4e13519eb2a9226be82b25464852448544bd533e7b7fea872fdb936"
+  },
+  "must_fix_findings": [],
+  "scope": "Independent local source/test-delta/metadata review only; no devices/network/credentials/tests/Git/producer changes.",
+  "findings": [
+    "Only native missingWA RECOVER policy gains same-pulse broadcast memory and minimum liveIE dwell. After acknowledged setIE, native integernow+21 guarantees>=20real seconds while WAremainsmissing; resets per pulse, never carries oldprobe evidence.",
+    "A directedWAprobe alone cannotclear. Broadcastcanarriveearly and is remembered; once nativeclock reachesbound, decisioncanfinish on later loop withoutanotherprobe. No blockingdwell; otherthree checks continue eachiteration.",
+    "OriginalRECOVER successbranch remains: genuineearlygoodtarget maycomplete/clear before dwell. Frozenplan explicitly limits minimum to WHILEMISSING and forbids claiming20s exposure in that earlysuccess case.",
+    "Original60s deadline from observedloss still includes WDSretirement+dwell+auth and ischecked before recovery acceptance. Initial ADMIT/otherCPE2s policy, exactdropmethod, guardedWDSidentity/IOread, runnerc538/nft/capture/startup/transport unchanged.",
+    "Allnine currenthashes, threepreconditions, actualfinalinstrumented70-test metadata and preservedredreceipt match frozenplan. Acceptance/RF/guard/stopfields equalR5k. Source10103bytes fits existing16384transport and recorded22chunks/max947 fits4096commandbound."
+  ],
+  "preconditions": {
+    "exact_previous_restoration": {
+      "file": "preprod1_20261022_run5k/receipt.json",
+      "sha256": "ebf474bc34b43d8833b5e4fee1e8f167b9e1e632164e29c96a5a5f6e7f806d3a"
+    },
+    "independent_negative_and_restore": {
+      "file": "preprod1_run5k_independent_acceptance_20261022.json",
+      "sha256": "df94a7a97c4dfbd07b3a05c7dfa99b19acfb848485e1fb57be3342cef6a961b1"
+    },
+    "prospective_measured_duration_hypothesis": {
+      "file": "preprod1_r5l_prospective_hypothesis_20261022.json",
+      "sha256": "da87bee5e5404f0827167e00e6515953453e6432510d08d5e2653c312f397453"
+    }
+  },
+  "verification": {
+    "reviewer_readonly_delta_checks": {
+      "tool_chunks": [
+        "04e1f5",
+        "20d514"
+      ],
+      "exit_code": 0,
+      "tests_rerun": false
+    },
+    "coordinator_red_regression": {
+      "file": "preprod1_r5l_before_dwell_20261022/receipt.json",
+      "sha256": "369713a6b12ee5e735671cc6b946bd3a32481d58cede8d71fb7f4e361598f060",
+      "failed": 2,
+      "exit_code": 1
+    },
+    "coordinator_final_contracts": {
+      "file": "preprod1_r5l_contract_tests_20261022.json",
+      "sha256": "a35bb9dcebc74791178d045f7738cef400c6f1b68de9853cd79ba932c8ff82a0",
+      "passed": 70,
+      "exit_code": 0,
+      "seconds": 3.28,
+      "tool_chunk": "8a9bb2",
+      "launch_tool_chunk": "870bdc",
+      "execution_owner": "coordinator; not independently rerun",
+      "revision_limit": "Final instrumented750524source tested; earlier70pass before logging is not substituted for these finalbytes."
+    }
+  },
+  "method_limits": [
+    "One prospective isolated-bench timing treatment only. Cross-run20.24s nativepartialsuccess versus2.12/2.31s negatives motivates hypothesis, not isolatedcausality; R5g is notrescored into fullPASS.",
+    "Actual measuredliveIEexposure must be reported from ACK/clearlogs; integerbudget is a controlbound, not OTA timing measurement. Early genuineauthorization maylegitimatelyshorten exposure but cannot be labeled20s.",
+    "Keep original120s initial/60srecovery/five>=60holds/fourtarget-only session resets and peersintact/32echo+32radiopairs eachCPEepoch/zeroXCwindowcommands/exactrestoration/APoff/ownednft/RAM.",
+    "Full physicalacceptance pending finalsource-bound evidence and allrestoration. No productioncontact, timeoutrelaxation or speculativefirmwarecontrol."
+  ]
+}

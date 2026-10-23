@@ -1,0 +1,180 @@
+{
+  "frozen": true,
+  "utc": "2026-10-22T21:43:33.794117+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB/C",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_run5t.json",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17001a37fd467a11c607a67abbad7109dacac083f05bbc68e5a08fa94e08f682",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "72f058451f31ce3f0062fd57f83ba085ef7f7555ac3639cd357580d918a05d78",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "847c0ccad1c2b0a4b4c84c811817f9512f1049864f71866fe415ea7a055dc7cd",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52"
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR"
+  },
+  "acceptance": {
+    "initial_authorization_deadline_s": 120,
+    "stable_epochs": 5,
+    "stable_seconds_each": 60,
+    "AP_native_hold_integer_seconds": 61,
+    "recovery_deadline_s_each": 60,
+    "drop_order": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "drop_method": {
+      "reason": 2,
+      "deauth": true,
+      "ban_time": 0
+    },
+    "CPE_exec_commands_during_window": 0,
+    "native_daemon_owns_IE_and_drops": true,
+    "other_three_no_session_or_counter_reset": true,
+    "one_expected_session_reset_per_drop": true,
+    "low_rate_echo_per_CPE_per_epoch": 32,
+    "matched_radio_pairs_per_CPE_per_epoch": 32,
+    "echo_delivery": 1.0,
+    "restoration": "exact original profiles/protected/config/boot/network, AP radioOFF, all guards and owned RAM ended"
+  },
+  "pulse_recipe": {
+    "initial_max_seconds": 60,
+    "later_max_seconds": 60,
+    "missing_exact_probe_clear_delay_ms": 500,
+    "quiet_after_clear_seconds": 35,
+    "reason": "R5 observed25s WA and29s XC from clear to authorization; do not re-inject during that auth interval",
+    "initial_probe_relevance": "In each ADMIT pulse, remember exactmissingXC validprobe and exactmissingWA broadcast; clear only when each is goodORseen in that same pulse.",
+    "first_recovery_max_seconds": 60,
+    "pulse_counter_scope": "Nodurationdecisiondependsonpulsecounter. RECOVERmissingWAorXCmax60,legacymax2; sameglobal60recoverydeadline.",
+    "later_max_condition": "ADMITwhileWAmissing OR RECOVERexacttargetWAorXCwhilethatstocktargetmissingusesmax60; othercasesmax2.",
+    "seen_scope": "Reset seen_xc and seen_wa on every pulse start; stale observations never crosspulse.",
+    "RECOVER_rule": "WAandXC eachbindownsamepulseseen andownnativefloor+21postIEACK, requirecurrentprocessedexacttargetbroadcastbeforeexisting500msclear. Empty/foreign/directedloopcannotclearfromoldseen. WAcodeunchangedfromQ. Initialbothseenandlegacyexacttargetlogicunchanged. CurrenteventisnotRFtimestamp. ActualearlygoodtargetstilloriginalRECOVERpath/no20sexposureclaim.",
+    "WA_recovery_max_seconds": 60,
+    "other_CPE_recovery_max_seconds": 2,
+    "WA_recovery_minimum_live_IE_seconds_while_missing": 20,
+    "WA_recovery_native_integer_dwell_seconds": 21,
+    "other_CPE_recovery_scope": "LegacySXT/LBM5only",
+    "XC_recovery_max_seconds": 60,
+    "XC_recovery_minimum_live_IE_seconds_while_missing": 20,
+    "XC_recovery_native_integer_dwell_seconds": 21
+  },
+  "guard_seconds": {
+    "AP": 1200,
+    "Rocket": 1140,
+    "legacy": 900,
+    "daemon": 780,
+    "controller_whole": 1100
+  },
+  "stop_conditions": [
+    "identity/hash/regulatory/guard/deadline/output-bound mismatch",
+    "non-target loss/session/counter reset",
+    "any XC exec command during admission window",
+    "no initial admission or recovery within frozen deadlines"
+  ],
+  "limits": [
+    "One bounded bench trial; no universal reliability/zero-loss/OTA timing/performance/capacity/production/E2 claim",
+    "Legacy900s guards alter open->WPA2->open in RAM only",
+    "Native del_client ACK is not loss proof; observed loss and a new per-target AP station session required",
+    "Zero-touch claim is scoped to this explicit pre-window preparation, not a universal untouched-cache cold start.",
+    "One explicit initialfreshscan/enable/reassociate onlybeforewindow, usingthepreviousFMX0017workingrecipe; statusmustnotCOMPLETEDbeforewindow."
+  ],
+  "capture_safety": "ExistingnativePID/start-owned45s captureguard and48sfromfirstcapturelaunchunchanged. HOST-onlypercapreadinessworkers poll20ms untilexactnativeheader/deadline/EOF/error; strictready_mono<samefirstlaunch+5s cutoff, noextension. Mainrecordsheader+observationtime, starts32onlyafterall4ready; latenativeheader/pendingafterdeadlinefails. Retainconsumedstderrprefixandfailurestreams. Joinboundedworkersandverifyendedbeforeotherstderrreads/CPErestore; unfinishedworkerpreventsPASS.",
+  "changed_hypothesis": "Snegativefullyrestored:418objects/418lines0partialskip means parserfastpathnotexercised; do notattributeXCfailuretoJSONpartialpolls. TonlyaddsnecessaryAPhostapdDEBUGdiagnosticswithprovensamebuildheldCLI/90sloggingguard, to obtain exactXCAuth/noAssocrejectreason. All S native/RF/IE/drop/WDS/60-120/holds/traffic/sessions/peers/restorationunchanged,zeroXCexec. No speculativewirelessparameterchange.",
+  "initial_XC_preparation": [
+    "RocketrollbackguarddisablebeforeAPopenlegacysetup; APmodeTrue first.",
+    "APsetexact60BIEandupdatebeaconbefore anyXCfreshBSSscan.",
+    "Setnetwork; flush0andscan; wait hard<=35s for exactBSSID/5180/WPA2CCMP/SSID; clamp RPC and postcheck deadline.",
+    "AfterfreshsecureBSS APclearvendorIE/updatebeacon ACK, beforewait2/enable/reassociate; oldseednotleftonwhileenable.",
+    "Wait2s thenenable0/reassociate/status beforewindow; require exactlyone nativewaitingstate, rejectFAIL/UNKNOWN/empty/duplicate/COMPLETED.",
+    "Thencontrol_windowTrue andstartsameAPnativebothseenbarrier; noXCexec/task duringwindow."
+  ],
+  "preconditions": {
+    "latest_S_negative_restored": {
+      "file": "preprod1_20261022_run5s/receipt.json",
+      "sha256": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3"
+    },
+    "independent_S_negative": {
+      "file": "preprod1_run5s_independent_acceptance_20261022.json",
+      "sha256": "5a497b000402ff22242a743aef701b7370a4fc9ab3cb8731537f88279e57df49"
+    },
+    "prospective_T_diagnostic": {
+      "file": "preprod1_r5t_prospective_hypothesis_20261022.json",
+      "sha256": "0fd159e34113c4882dabc59a3e747d2a167b2dd76ca26befd5b8054b56f83cb3"
+    }
+  },
+  "bridge_isolation": {
+    "owner_scope": "table namefmx_preprod_+exactexistingAPguard32hexTOKEN, tablecommentTOKEN; absentbeforearm",
+    "rules": "two bridgeFORWARD-300 rules eth0to phy0-ap0* and reverse counterdrop; policyaccept, noINPUT/OUTPUT",
+    "lifetime": "existingAP1200sHUPsafeguard; installedonlyafterarm; no newwatchdog",
+    "restore": "insideexistinglock after networkreload+FINALwifi down; requireubusradio0.up=false and iwdevnoInterface; onlyexactownercommenttablemaydelete; absentnormal; wrongowner/offfailure retainsisolationandfails",
+    "verify": "tableidentityduringhostobservation, finalowncounterssnapshot; exactoriginalnfttablenamesafterrestore",
+    "control_boundary": "Linuxbridgeforwardfiltering; noath10k/firmware/RF/regulatorychange"
+  },
+  "recovery_retirement_barrier": {
+    "targets": "WA/XC exactstockWDS targets only; legacytargets unchanged",
+    "pre_drop_binding": "hostapdpositiveaid->exactchild; iwdevchild stationgetexacttargetMAC required; readpositiveoldkernelifindex, logOLD_WDS_BIND",
+    "barrier": "oldchildifindexsame => noIEpulse andnoRECOVERED; missingordifferent =>OLD_WDS_RETIRED thenexistingrecipe",
+    "deadline": "Original60sfromDROP_OBSERVED includesallwaiting; noextension",
+    "scope": "AP Linux/hostapd/WDS lifecycle only; noCPEexec or targetfirmwarechange",
+    "read_failure": "Readsuccessmustcanonicalpositiveinteger; failedreadwithexistingifindexorchildpath exits88. Onlyfailedread+bothpathsabsent countsabsent; changedvalidifindex countsretired. No silentcat||true."
+  },
+  "daemon_transport": {
+    "source_bytes": 12599,
+    "staging_commands": 27,
+    "max_actual_staging_command_bytes": 943,
+    "hard_command_bound_bytes": 4096,
+    "source_transfer_bound_bytes": 16384,
+    "chunk_characters": 512,
+    "integrity": "ownedpathfreshdirectory/nosymlinks; exactbyteoffseteachappend; finalfullSHA thenagainSHAbeforeshortexec",
+    "failure": "stop withoutlaunch onwrongoffset/hash; retainpartialfailureevidence andexistingwatchdogs; no retryuntilgreen",
+    "old_dispatch_failure_bytes": 10312,
+    "old_native_program_never_started": true
+  },
+  "offline_contracts": {
+    "file": "preprod1_r5t_contract_tests_20261022.json",
+    "sha256": "f615064f8c7b526fd13ef355d7f8b27df45a96c93deceaa2392126b1b38d87b3",
+    "passed": 112,
+    "exit_code": 0
+  },
+  "parser_poll_policy": {
+    "complete_event": "Always collect currentfourstationstate before decisions",
+    "partial_event": "Skip redundantcollect onlywhile native t<next_state_poll; aftercollect next_state_poll=t+1. Readtimeout remains1s; noexact1sRF/peer samplingguarantee.",
+    "deadlines": "ADMIT120/WAIT_LOSS5/RECOVER60 and global780 checked beforepartialskip AND immediatelypostcollectbeforeIE/transitions; noextension.",
+    "instrumentation": "PARSER_COUNTERS atcleanup: inputlines,decodedobjects,partialskips,statepolls",
+    "limits": "Processed event is not RFtimestamp; noeventlatencyclaim. Completeeventstatepolls still cost subprocess time; actual result remainsunknown."
+  },
+  "AP_debug": {
+    "enabled": true,
+    "scope": "APhostapdplaintextdiagnosticaroundXCtargetrecoveryonly; notwirelessadmissioncontrol",
+    "stage": "ExistingDebugWindow stage+globalPINGbeforeAParm/controlwindow; sameexactwpadSHA/UID101/PIDstart/no-K;held59016BCLIsha",
+    "binary_sha256": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "base_source_sha256": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "activation": "Onlyonce whenAPobserverseesDROP_REQUESTn2. Existing90sbest-effortloggingguardbeginsbeforelogger/DEBUGchange; bindits exactshargvPID/start. No newRFguard; existingAP1200same.",
+    "capture": "Privateignoredhistoryonly, <=14snapshots*50000B, nonforceinterval>=5s; onefirstbaselineandlastforcedcapture. PublicnewXCplaintextcontext<=100lines, nohexdumps/keys/otherMACs. Emptyreasonstaysunknown. Reservefinalslot: nonforcecapturesstopat13; finishforceallowed14. Finalslotgapreproduced1RED/1PASS thenfixedbeforeRF.",
+    "raw_directory": "preprod_guarida_20261022/history/preprod1_20261022_run5t_AP_debug",
+    "restoration": "OnRECOVEREDn2 orfinallybeforeanylegacyprofile/radioreload: independently capture/resetoriginalBSSlogger/resetoriginalgloballevel+timestamp/cleanupownedRAM/proveexactguardPIDended; errorspreventPASS butalwayscontinueoriginalAPoff.",
+    "guards": "90sloggingguard isbest-effortonly; not780sRFprotection. ExistingAP/Rocket/legacy/nativeguardbudgetsunchanged; exactcontrolledendproofrequired.",
+    "transport": "Existingbaseputalgorithm withlocalmodulePUT_CHUNK512, actualCLI118commands,max2344<4096; finalbinarySHAverify; sourceunchangedheldCLI.",
+    "acceptance": "OriginalcompletewirelessPASS plus positiveTRACE_COMPLETE, originallevel/loggerrestored, guardended/RAMcleanup, privatecapture/filteredexcerpt; missingreasoncannotjustifyhypothesisbutdoesnotitselfinventawirelessfailure."
+  },
+  "capture_cap_red": {
+    "file": "preprod1_r5t_before_final_snapshot_slot_20261022/receipt.json",
+    "sha256": "9f64be49691d76b1229558170cfd21119f9ef79ef76eadb425b73c38d9c5112f",
+    "failed": 1,
+    "passed": 1,
+    "exit_code": 1
+  }
+}

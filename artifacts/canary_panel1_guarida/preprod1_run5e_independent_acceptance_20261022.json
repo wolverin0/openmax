@@ -1,0 +1,81 @@
+{
+  "schema": "PREPROD1_RUN5E_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5E_MANAGEMENT_FAILURE_RESTORATION_UNVERIFIED",
+  "reviewed_utc": "2026-10-22T18:31:40.326076+00:00",
+  "receipt_sha256": "d1a9a94acb95197f0c5c3ca5f3a99c8789b3d4b62c8881b4998d2caa77dfe84a",
+  "plan_sha256": "809c90446e6d00953490601d97f03299ab75a40db40c5ff9ac1c8bc5574ff840",
+  "source_review_sha256": "8b5267b766e21d5b56461982e5cf683049ca4d772f09fe6099b3718eaf86155c",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "83034a22397a5691480cee9ce3a12768990e92638f0ee7967217755a978a5258",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "0a50b72c46f39109bc993e0c89786848225cf5870833cff6a590cf7b362dab2e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "f177cd429248797263f6ebebb336f0150083aa962f383307df423bdb44fb4db0"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T18:25:23.801949+00:00",
+  "scope": "Independent local completed-artifact/source/diagnostic review only; no hardware/network/credentials/tests/Git/producer changes.",
+  "research_acceptance": false,
+  "restoration_verified": false,
+  "artifact_bindings_verified": {
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "diagnostic_bindings": {
+    "preprod1_r5e_management_failure_20261022.json": "04206534be27b4cb1257636b28feb2356635ef6688921aea17e1bf13d41d95f5",
+    "preprod1_r5e_management_observation_20261022.json": "f2ddff57cb330fc5b7618f5459b96ad7ed1912b349017d88ccb8090424d83fec"
+  },
+  "observed_acquisition": {
+    "observer_samples": 1,
+    "initial_four_admission_verified": false,
+    "qualified_60_second_epochs": 0,
+    "target_drops": 0,
+    "qualified_recoveries": 0,
+    "qualified_traffic_epochs": 0,
+    "captures_launched": 0,
+    "new_traffic_ready_path_exercised": false,
+    "XC_window_exec_count": 0,
+    "positive_pre_window_waiting_state": "4WAY_HANDSHAKE",
+    "control_window_start": {
+      "mono": 741161.156,
+      "utc": "2026-10-22T18:23:23.504208+00:00"
+    },
+    "control_window_end": {
+      "mono": 741189.25,
+      "utc": "2026-10-22T18:23:51.604883+00:00"
+    },
+    "failures": [
+      {
+        "type": "TimeoutError",
+        "gate": ""
+      }
+    ]
+  },
+  "restoration": {
+    "AP": "UNVERIFIED: cleanup channel opening timed out; no fresh radio-off, config/protected, network or RAM-cleanup proof.",
+    "Rocket": "UNVERIFIED: cleanup channel opening timed out; no fresh baseline/guard-ended proof.",
+    "SXT_LBM5": "UNVERIFIED: legacy cleanup channel opening timed out; no final original open/config/network proof.",
+    "daemon": "UNVERIFIED: no ended/clear acknowledgement or native evidence download.",
+    "independent_guards": "Armed according to acquisition records; elapsed planned deadlines are not proof of execution, cleanup or health.",
+    "cleanup_errors": [
+      "Daemon:Timeout opening channel.",
+      "legacy:Timeout opening channel.",
+      "AP:Timeout opening channel.",
+      "Rocket:Timeout opening channel."
+    ]
+  },
+  "diagnostic_interpretation": {
+    "initial_management_failure": "Pinned AP connection failed with no existing SSH session; AP ping0/2 and both banners timed out. Later both exact management neighbors Unreachable, XC error originated from own source and is not XC success.",
+    "host_sample": "Ethernet27 up1Gbps;3s sample15broadcasts,0errors/discards. No observed broadcast storm in that sample. Host low free RAM observed, not established cause.",
+    "cause": "UNKNOWN; current evidence cannot separate radio/device, switch/path or host/resource cause.",
+    "not_a_wireless_admission_negative": "No four-way or traffic result and no absent packet result can be inferred from management failure."
+  },
+  "decision": "Preserve failed R5e acquisition and cleanup errors. PREPROD1 remains NOT_ACCEPTED and restoration unverified. No earlier successful restoration or expected watchdog deadline rescues this result.",
+  "objective_continuity": "Active task is necessary bench recovery and fresh proof under coordinator ownership, not another RF attempt. Production remains forbidden. Operator physical questions are external dependencies; this review performs no device action.",
+  "additive_completion_policy": "A later fresh restoration supplement may be independently bound as additive evidence without editing/rescoring this failed receipt or claiming the unexecuted epochs/recoveries passed.",
+  "validation_exit_code": 0
+}

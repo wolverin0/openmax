@@ -1,0 +1,60 @@
+{
+  "status": "PASS_LOCAL_BOUNDED_WA_READONLY_DIAGNOSTIC_WITH_AP_RESTORATION",
+  "reviewed_utc": "2026-10-22T20:11:12.249072+00:00",
+  "reviewer": "flash_review",
+  "plan_sha256": "7df6c2dd40d04eb21921c10fa59bf2fa60a1acd271fab0e258a55b8fc44e4c16",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "9bc28074f28e6302e49c288c33d51f154e32476b6408314e62b81baeb48f149e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_loco195_eth_readonly_20261021.py": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "tests/test_preprod1_audit.py": "a13edf39567229706f1bf42177508ab55e235c4d10c6373c05cf6980872eac7b"
+  },
+  "preconditions": {
+    "previous_all_restored": {
+      "file": "preprod1_20261022_run5l/receipt.json",
+      "sha256": "f84b2e18f8b11d9cdd771cf2392e6410ee0839d5e8064ce640ae582f14318677"
+    },
+    "independent_L_negative": {
+      "file": "preprod1_run5l_independent_acceptance_20261022.json",
+      "sha256": "810596e1ad48d523c92ad0262b29ee3e9c7c8da0acf11bc36ca5a44f17e234a3"
+    },
+    "wired_WA_attempt": {
+      "file": "preprod1_r5l_WA_postrestore_diagnostic_20261022.json",
+      "sha256": "03e21e6c0ca747fc9e43d5bbbef171036787fd79685afe8227571fc7f3278750"
+    },
+    "prior_blocked_preflight": {
+      "file": "preprod1_r5m_before_readonly_review_fixes_20261022/receipt.json",
+      "sha256": "132a336396f691b9e487d964992564f5c0c97e2a74c5aca3bec207de7c280ae2"
+    }
+  },
+  "must_fix_findings": [],
+  "scope": "Independent offline source and evidence review only. No target connections, credentials loaded, RF execution, tests rerun, or source modifications by reviewer.",
+  "reviewed_corrections": [
+    "Each read query owns its channel: separate bounded channel opening followed by execution timer started before exec ACK, stream reads and exit status; expiry closes only that channel and prevents success. Nominal query budgets are separately open 6s plus execution 6s.",
+    "RF path ping uses half remaining absolute budget for each open/execution component and rejects completion after its original 45s deadline.",
+    "Diagnostic success requires status/log/kernel rc0 without stderr, one recognized native WPA state, nonempty log or kernel evidence and exact before/after configuration hash results.",
+    "Raw iwconfig radio output is excluded from public diagnostic fields; complete private evidence remains under the private history directory, with public hash only. Credential pointer contents must not be published.",
+    "WA close, private evidence failure and AP close are recorded independently; none bypass the AP restoration attempt or final receipt. Any failure or cleanup error prevents acceptance."
+  ],
+  "unchanged_safety": [
+    "Exact SSH host pin precedes password authentication; board and full WA bridge MAC checks precede diagnostic queries.",
+    "Frozen existing AP guard, legal RF context, bridge isolation and radio-off-before-owned-table deletion remain in use; original nft table names and owned RAM cleanup are required.",
+    "No IE pulse, deauthentication, offered load, CPE settings, firmware, protected-partition or production operation is added."
+  ],
+  "offline_evidence": {
+    "file": "preprod1_r5m_contract_tests_20261022.json",
+    "sha256": "4ada2467fd9b96c880cd31991d93d1b549b05e31bb323fc505e2bf2a22d1c85d",
+    "passed": 78,
+    "exit_code": 0,
+    "tool_chunk": "6f1419",
+    "classification": "Coordinator-executed synthetic offline contracts inspected, not independently rerun. New blocked ACK/status fixtures exercise timer-driven owned-channel closure. Prior 70 unchanged contracts are reused revision-bound evidence, not hardware proof."
+  },
+  "acceptance_limits": [
+    "Local admission for one bounded retained-WA-diagnostic acquisition with exact AP restoration only. Actual target ABI, reachability, diagnostic data and restoration remain runtime gates.",
+    "This review does not accept PREPROD1, association, reconnection, performance or production readiness. R5l and all earlier failed results remain unchanged.",
+    "The superseded four-finding source/plan were archived without RF execution; their failed preflight is not rescored."
+  ]
+}

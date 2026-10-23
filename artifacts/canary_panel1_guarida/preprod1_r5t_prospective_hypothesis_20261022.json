@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-22T21:38:30.372447+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB-C / PREPROD1",
+  "status": "PROSPECTIVE_NOT_EXECUTED",
+  "question": "What exact AP hostapd reason accompanies XC authentication without association during target-only recovery?",
+  "evidence": {
+    "S_raw": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3",
+    "S_independent": "5a497b000402ff22242a743aef701b7370a4fc9ab3cb8731537f88279e57df49",
+    "held_debug_helper": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "held_CLI": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52"
+  },
+  "learned": "SfailedXCtimeout78; 418completeobjects in418lines means partialJSONfastpathnotexercised and cannotexplainthisfailure. Initialfour/WA55.37s/epoch1passed, allrestored. XC69probe/3Auth/0Assoc notifications. Existing APDEBUGtool proved PING/DEBUG/restoration/RAM cleanup in directrun10/10b/11.",
+  "minimum_change": "Reuse held samebuildCLI and existing90s loggingguard to instrument XC recovery only. Stage/PINGbeforewindow; enableDEBUGwithoutshowkeys onlyafterXCdrop observed, bind exactguardPID/start; capture bounded50000B private snapshots at>=5s intervals,max14. Restore originalgloballevel/timestamp and BSSlogger independently before profile/radio restoration, cleanup ownedRAM and verifyguardended. PubliconlyredactednewXCcontextlines; no rawkeys/config. Keep S native/RF/IE/drop/WDS/time/traffic/hold/session/peer/restoration criteria unchanged.",
+  "minimum_missing_evidence": "APplaintextrejectreason or explicit missingdiagnostic iflogretentiondoesnotexposeit; originalcompletefourrecoveryPASSstillrequired. SameRFisnotunchangedretrybecause addednecessarydiagnostic instrumentation; noparameterguess.",
+  "stop": "Original60/120/global/guards or anyidentity/loggingrestore/guard/RAM/peer/packet mismatch fails; no CPEXCcommandduringwindow, nofirmware/production. Failedcapture cannotpreventAPoff or rescueacceptance.",
+  "private_raw_directory": "preprod_guarida_20261022/history/preprod1_20261022_run5t_AP_debug",
+  "publish_dependencies": "Only existingopenhostapd_cli59016B SHA-bound utility and existingdebugsource additionally needed for reproducibility; notfirmware/backups/proprietarymodules."
+}

@@ -1,0 +1,52 @@
+{
+  "status": "PASS_AP_POSTRESTORE_READONLY_LOG_ACQUISITION",
+  "started_utc": "2026-10-22T23:11:33.810156+00:00",
+  "device_writes": false,
+  "production_access": false,
+  "queries": {
+    "before": "ubus call network.wireless status",
+    "log": "logread | tail -n 200",
+    "after": "ubus call network.wireless status"
+  },
+  "private_directory": "preprod_guarida_20261022\\history\\preprod1_20261022_run5y_AP_postrestore",
+  "artifacts": {
+    "before": {
+      "file": "before.json",
+      "bytes": 927,
+      "sha256": "bbcf6e96630b3a979f32ee461f9c44dcb99853a1a77a8d39e451171992568eb3",
+      "exit_code": 0,
+      "stderr_empty": true
+    },
+    "log": {
+      "file": "log.json",
+      "bytes": 21402,
+      "sha256": "9e75cdb7a3d6c512b248ad4c8be07876c31e9881e21e91d6756f246a6c7396c2",
+      "exit_code": 0,
+      "stderr_empty": true
+    },
+    "after": {
+      "file": "after.json",
+      "bytes": 927,
+      "sha256": "bbcf6e96630b3a979f32ee461f9c44dcb99853a1a77a8d39e451171992568eb3",
+      "exit_code": 0,
+      "stderr_empty": true
+    }
+  },
+  "before_AP_off": true,
+  "selected_log": [
+    "Mon Oct 19 19:18:27 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: authenticated",
+    "Mon Oct 19 19:18:27 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: associated (aid 2)",
+    "Mon Oct 19 19:18:27 2026 daemon.notice hostapd: phy0-ap0: WDS-STA-INTERFACE-ADDED ifname=phy0-ap0.sta2 sta_addr=<mac>",
+    "Mon Oct 19 19:18:28 2026 daemon.notice hostapd: phy0-ap0: AP-STA-CONNECTED <mac> auth_alg=open",
+    "Mon Oct 19 19:18:28 2026 daemon.notice hostapd: phy0-ap0: EAPOL-4WAY-HS-COMPLETED <mac>",
+    "Mon Oct 19 19:22:03 2026 daemon.notice hostapd: phy0-ap0: AP-STA-DISCONNECTED <mac>",
+    "Mon Oct 19 19:22:08 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: deauthenticated due to local deauth request",
+    "Mon Oct 19 19:22:08 2026 daemon.err hostapd: nl80211: NL80211_ATTR_STA_VLAN (addr=<mac> ifname=phy0-ap0 vlan_id=0) failed: -2 (No such file or directory)",
+    "Mon Oct 19 19:22:08 2026 daemon.notice hostapd: phy0-ap0: WDS-STA-INTERFACE-REMOVED ifname=phy0-ap0.sta2 sta_addr=<mac>",
+    "Mon Oct 19 19:22:10 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: authenticated",
+    "Mon Oct 19 19:22:16 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: authenticated",
+    "Mon Oct 19 19:22:21 2026 daemon.info hostapd: phy0-ap0: STA <mac> IEEE 802.11: authenticated"
+  ],
+  "after_AP_off": true,
+  "ended_utc": "2026-10-22T23:11:34.924319+00:00"
+}

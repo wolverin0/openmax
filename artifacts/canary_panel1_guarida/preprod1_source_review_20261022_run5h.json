@@ -1,0 +1,73 @@
+{
+  "status": "PASS_LOCAL_PREPROD1_RUN5H_OWNED_AP_BRIDGE_ISOLATION_EXISTING_GUARD",
+  "reviewed_utc": "2026-10-22T19:13:04.823640+00:00",
+  "plan_sha256": "ada72495326f15b3ef629656204dae9426c41d74f64d959247b0156c8cb60c9b",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "06f8468c5c5c647eee76afa7b3e1d65f5faab82396f7242fce0edc7b04d4787c",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17b55bc7e40ce1a8c11389601c16015c8e8884e20e0922d4ac8df88101fb3205",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "6fb48483f8a135a0a8550b2b048d6c057849dca59c1c4e22b4cf2baa1dd83bbc"
+  },
+  "must_fix_findings": [],
+  "scope": "Independent local source/test-delta/metadata review only; no devices/network/credentials/tests/Git/producer changes.",
+  "findings": [
+    "Isolation helper restricts table name to fmx_preprod_ plus exact32hex owner. Atomic nft bridge table has owner comment and only two forward priority-300 eth0<->phy0-ap0* counter-drop rules, policyaccept; noINPUT/OUTPUT or other existing-table mutations.",
+    "Baseline table names recorded and fresh own name required absent. Existing AP1200s guard and owned restore script are generated/hash-bound after wrapping restore_body; guard is armed before table install and before legacy RF preparation. No additional watchdog or unbounded platform added.",
+    "Changed restore template requires exactlytwo wifi-down lines and unique final reload/down anchor. Cleanup is after final down inside existing restoring lock, with radio0.up==false and no iwInterface required before deletion. Wrong owner/list error fails closed after RFoff; absence is normal.",
+    "Loop owner/presence is required each host iteration. Final counter snapshot has independent best-effort try and cannot prevent APrestore. Table names must return exactly to baseline after APrestore or cleanup fails; owned RAM removal remains guarded.",
+    "Nine current bindings,47-test metadata and all three prior restoration/native-check preconditions exactly match frozen plan. RF, acceptance, guard budgets and stop_conditions equal R5g; fixed preflight/capture/packet/session criteria unchanged."
+  ],
+  "preconditions": {
+    "late_exact_restoration": {
+      "file": "preprod1_r5g_recovery_20261022/receipt.json",
+      "sha256": "4d174bac6bef6d27231e017d6eda9de3c0a4d5cd306ea0a614867dc1e2357719",
+      "status": "PASS_ADDITIVE_BENCH_RESTORATION_AP_OFF_ALL_OWNED_GUARDS_RAM_ENDED"
+    },
+    "independent_negative_and_restore": {
+      "file": "preprod1_run5g_independent_acceptance_20261022.json",
+      "sha256": "cf2ae86da1f7edfeefa04f45b59038fd1f82359c154e6b096cce026de36cb6c2",
+      "status": "INCOMPLETE_PREPROD1_RUN5G_MANAGEMENT_FAILURE_LATE_EXACT_RESTORATION_VERIFIED"
+    },
+    "native_full_rule_check": {
+      "file": "preprod1_r5h_native_rules_check_20261022.json",
+      "sha256": "66decb8f81144e026fe4c77e6a36c5f441338dbc57bfe8bc6cffcb8f3d87b457",
+      "status": "PASS_NATIVE_FULL_RULES_CHECK_NO_MUTATION_RADIO_OFF"
+    }
+  },
+  "verification": {
+    "reviewer_readonly_delta_checks": {
+      "tool_chunks": [
+        "9db268",
+        "83f910"
+      ],
+      "exit_code": 0,
+      "tests_rerun": false
+    },
+    "coordinator_contracts": {
+      "file": "preprod1_r5h_contract_tests_20261022.json",
+      "sha256": "4847a94627744de83e0b8cd5690c3dc87b2846dcde852df2b666274609dd4e83",
+      "passed": 47,
+      "exit_code": 0,
+      "seconds": 1.2,
+      "tool_chunk": "d48e13",
+      "execution_owner": "coordinator; not rerun by independent reviewer"
+    },
+    "preserved_fixture_failure": {
+      "file": "preprod1_r5h_fixture_failure_20261022.json",
+      "sha256": "80c2a58688dbb8574fccec556cf1fd4e93b1396106246e72a0a70139f03dc519",
+      "interpretation": "Queued job ran after implementation:6PASS/1FAIL was absent-table mock syntax, corrected fixture then47PASS. Not represented as a pre-fix behavioral regression."
+    },
+    "native_full_rules_check": "Exact-source native nft--check exit0 and unchanged table-list/APoff metadata; no live table installed in that check."
+  },
+  "method_limits": [
+    "One prospective exact isolated-bench trial. Kernel own-source warnings support reflection/loop only as an INFERRED hypothesis; filtering effectiveness requires live counters/observations, not native--check.",
+    "Isolation deliberately changes wired-to-wireless transit to protect the control path; AP-local management/pings remain outside its forwardhook. No EdgeRouter/production contact or mutation.",
+    "FullPASS still requires120s initial/60s recovery/five>=60s holds/32echo+32pairs eachCPEeachEpoch/four target-only session resets and peers uninterrupted/zeroXCwindowcommands/exactrestoration/APoff/guards/RAM/table cleanup.",
+    "Previous management failures and partial native/packet results remain unchanged; no rescoring. Any failed ownership/off/table-restore check prevents acceptance."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-23T06:43:06.692610+00:00",
+  "parent": "FMX0017/PhaseB-C/PREPROD1",
+  "question": "Does a strictly peer-scoped valid message3 response close the exact XC receive gate under unchanged normalSSID/RSN/PSK/WPA flow?",
+  "minimum_change": [
+    "Keep previouslyvalidatedSSIDdecoder unchanged",
+    "Per-station flag setonlyafter strictdecodedtype2 andoriginalnormalchecksSUCCESS; resetonnewrequest; fresh4byte nonce stableforthestationattempt",
+    "Append independentlyimplemented44byte responseonlytoexistingSUCCESS response forfixedAP/XC/5180/RSN-PSK-CCMP/assocnotreassoc andthatflag; noBSS-wide injection",
+    "Existingcleancohortbuildofbotharchives, standardcrypto, samejail/RAMnativeguard/exactrestoration"
+  ],
+  "fields": "No newcaps. Chainmask3/3 physical, proto9,nonce4,legacydefaultRSSI0/0,emptyTLV3,APpowermetadata0. RSSI0 not assertedunavailable; boundedglobalTXcapgate stillindependentreviewpending.",
+  "prerequisites_before_device_execution": [
+    "Exactplan source/model/build and powerfieldgate independentPASS",
+    "Stock/RAMuserspace lifecycle RFoff nativeguard restore verified fornewbinary",
+    "SameAH agedXC-only diagnostic beforeoriginalfullqualifier"
+  ],
+  "stop": "Anyinvalidfield/normalcheck/peer/buffer/crypto/lifecycle/PFgate blocksnewbinarydeviceexecution. Preservefailures. ApositiveRFdiagnosticstillrequiresoriginal4recoveries/5holds/20flows.",
+  "RF": false,
+  "production_access": false
+}

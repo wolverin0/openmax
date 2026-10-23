@@ -1,0 +1,185 @@
+{
+  "status": "NOT_ACCEPTED_WA_ESSENTIAL_READ_FAILED_AP_RESTORED_LISTENER_END_UNVERIFIED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T20:35:38.474962+00:00",
+  "raw_status": "INCOMPLETE_READONLY_DIAGNOSTIC_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T20:32:49.065475+00:00",
+  "ended_utc": "2026-10-22T20:34:00.007868+00:00",
+  "receipt_sha256": "e90bcbf31e4985dc66cb1d70162f62fa847ae5c2696538f9f5525af704691c5a",
+  "plan_sha256": "98f5d6940113c60e26e58dee015e75a3970363c07d0096055b5c2e70d541163c",
+  "preflight_review_sha256": "1c8f1887c4e27a199641c9ab58744bd06edbf12d310dd1ec22f360b8817651ec",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_loco195_eth_readonly_20261021.py": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "tests/test_preprod1_audit.py": "ae549b37127b2d1b6fed9566f1a1d9645822692b3ebaa773a3868d2eb649ece7",
+    "tools/bench/preprod1_admitter.sh": "75052479baf25b8fa04e6168be47a99d2fb3254fc55230ed75d394caef2f6e12"
+  },
+  "diagnostic_accepted": false,
+  "PREPROD1_accepted": false,
+  "AP_restoration_verified": true,
+  "owned_listener_end_verified": false,
+  "all_owned_process_restoration_verified": false,
+  "findings": [
+    {
+      "classification": "CONFIRMED",
+      "finding": "All eight executed-source hashes and frozen plan/review bindings match. AP secure readiness remains5180MHz/20MHz/0dBm/globalAR; exact WA directed and broadcast probes are received and IE set/clear ACKs pass."
+    },
+    {
+      "classification": "CONFIRMED",
+      "finding": "WA AP row has auth/assoc/authorized/wds true. First path ping0/1, second1/1 at4.359ms. This is secure admission plus one IP response, not stability/reconnection/traffic acceptance."
+    },
+    {
+      "classification": "CONFIRMED_RECEIPT_AND_ARCHIVED_CONTROL_FLOW",
+      "finding": "WA_readonly_hashes_unchanged=true is set only after successful exact before/after query equality for /tmp/system.cfg and /tmp/running.cfg. Reaching that point also follows pinned SSH authentication and board/full bridge MAC checks. Actual hash values and query result bodies are not public in this receipt; no absent XC configuration path is included in the claim."
+    },
+    {
+      "classification": "CONFIRMED_NEGATIVE",
+      "finding": "public_WA_diagnostic rejects WA_ESSENTIAL_READ_FAILED, so at least one status/log/kernel query returned nonzero or stderr. No validated native WPA state, retained authentication lines or full public query envelope was emitted. Exact failed command, result and reason remain unknown in this public-only audit."
+    },
+    {
+      "classification": "CONFIRMED_UNVERIFIED_CLEANUP",
+      "finding": "Listener-end audit records READONLY_QUERY_EXIT_0 for PID26611/start6923737; mandatory LISTENER_ENDED result is absent. Its process termination remains unverified by this final receipt; the earlier runs late supplements do not prove this new identity ended."
+    },
+    {
+      "classification": "CONFIRMED_AP_RESTORATION",
+      "finding": "AP restore reports radio-off/empty deltas/same wireless configuration hash as prewindow and guard-ended verification. Original nft table names and owned AP RAM removal pass even after acquisition/listener failures. This is the frozen pinned context/configuration contract, not new raw-MTD acquisition."
+    }
+  ],
+  "partial_evidence": {
+    "WA_AP_flags": {
+      "auth": true,
+      "assoc": true,
+      "authorized": true,
+      "wds": true
+    },
+    "path_probes": [
+      {
+        "mono": 748991.593,
+        "result": {
+          "exit_code": 1,
+          "stdout": "PING fe80::feec:daff:fec2:540a (fe80::feec:daff:fec2:540a): 56 data bytes\n\n--- fe80::feec:daff:fec2:540a ping statistics ---\n1 packets transmitted, 0 packets received, 100% packet loss\n",
+          "stderr": ""
+        }
+      },
+      {
+        "mono": 748992.625,
+        "result": {
+          "exit_code": 0,
+          "stdout": "PING fe80::feec:daff:fec2:540a (fe80::feec:daff:fec2:540a): 56 data bytes\n64 bytes from fe80::feec:daff:fec2:540a: seq=0 ttl=64 time=4.359 ms\n\n--- fe80::feec:daff:fec2:540a ping statistics ---\n1 packets transmitted, 1 packets received, 0% packet loss\nround-trip min/avg/max = 4.359/4.359/4.359 ms\n",
+          "stderr": ""
+        }
+      }
+    ],
+    "WA_configuration_hash_scope": [
+      "/tmp/system.cfg",
+      "/tmp/running.cfg"
+    ],
+    "WA_configuration_hash_bracket_verified": true,
+    "subscriber_identity": {
+      "pid": "26611",
+      "ticks": "6923737"
+    },
+    "private_raw_sha256_as_recorded_only": "2613d080ffeaf6643332af8095c8f33cf8c2f478c89d52a1dcf4cf6296944854"
+  },
+  "restoration_evidence": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true
+    },
+    "nft_exact_original_tables_restored": true,
+    "owned_RAM_cleanup": {
+      "exit_code": 0,
+      "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+      "stderr": ""
+    },
+    "raw_cleanup_errors": [
+      {
+        "stage": "listener_end",
+        "type": "RuntimeError",
+        "gate": "READONLY_QUERY_EXIT_0"
+      }
+    ],
+    "listener_end_separate_unknown": true
+  },
+  "next_minimum_evidence": "A fresh read-only end check of listener26611/start6923737 can close ownership uncertainty. A coordinator-filtered public excerpt of existing status/log/kernel rc+stderr and safe retained authentication lines is needed to identify which essential query failed and whether already captured data answers the WA recovery question. No new RF/timing treatment or helper PASS is implied.",
+  "limits": [
+    "N3 remains INCOMPLETE; configuration preservation and initial authorization do not rescue essential-read or listener-end failure.",
+    "No CPE native status, scan-state cause or authentication/recovery reason can be inferred from the absent public query envelope.",
+    "PREPROD1/five epochs/four recoveries/full traffic/stability/production acceptance remain unverified.",
+    "Only scoped public local receipt, plan/review and executed-source were read; no private raw, credentials, device/network, RF, tests, Git or producer-source changes."
+  ],
+  "artifact_bindings": [
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/receipt.json",
+      "bytes": 12681,
+      "sha256": "e90bcbf31e4985dc66cb1d70162f62fa847ae5c2696538f9f5525af704691c5a"
+    },
+    {
+      "file": "preprod1_plan_20261022_r5n3_WA_readonly.json",
+      "bytes": 7802,
+      "sha256": "98f5d6940113c60e26e58dee015e75a3970363c07d0096055b5c2e70d541163c"
+    },
+    {
+      "file": "preprod1_source_review_20261022_r5n3_WA_readonly.json",
+      "bytes": 4946,
+      "sha256": "1c8f1887c4e27a199641c9ab58744bd06edbf12d310dd1ec22f360b8817651ec"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/preprod1_r5m_WA_readonly_20261022.py",
+      "bytes": 17518,
+      "sha256": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/root_four_cpe_access_20261022.py",
+      "bytes": 8027,
+      "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/root_four_cpe_ap_window_20261022.py",
+      "bytes": 14489,
+      "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/root_goal_direct_link_connection_20261022.py",
+      "bytes": 1899,
+      "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/root_loco195_eth_readonly_20261021.py",
+      "bytes": 4129,
+      "sha256": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/preprod1_trial_20261022.py",
+      "bytes": 53906,
+      "sha256": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/test_preprod1_audit.py",
+      "bytes": 34851,
+      "sha256": "ae549b37127b2d1b6fed9566f1a1d9645822692b3ebaa773a3868d2eb649ece7"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/preprod1_admitter.sh",
+      "bytes": 10103,
+      "sha256": "75052479baf25b8fa04e6168be47a99d2fb3254fc55230ed75d394caef2f6e12"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/AP_guard.sh",
+      "bytes": 617,
+      "sha256": "eb9ceba8bd950835b00a663079af62f766d154dc5b1c9c444f3075fb29e373a7"
+    },
+    {
+      "file": "preprod1_20261022_r5n3_WA_readonly/executed-source/AP_restore.sh",
+      "bytes": 2956,
+      "sha256": "dc08e9c0f164a8196f621dca9503dcb3d009acafb5732c1e45bc0d5634aa7067"
+    }
+  ]
+}

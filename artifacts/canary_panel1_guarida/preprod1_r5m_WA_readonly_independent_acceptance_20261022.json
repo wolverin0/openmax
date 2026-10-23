@@ -1,0 +1,145 @@
+{
+  "status": "NOT_ACCEPTED_READONLY_WA_DIAGNOSTIC_NOT_ACQUIRED_AP_RESTORED",
+  "reviewed_utc": "2026-10-22T20:13:30.465004+00:00",
+  "reviewer": "flash_review",
+  "raw_status": "INCOMPLETE_READONLY_DIAGNOSTIC_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T20:11:32.474779+00:00",
+  "ended_utc": "2026-10-22T20:12:29.760916+00:00",
+  "receipt_sha256": "c6ae69fd1405d1c7242bdbdd6f7415152a26ef6a20f382adcda73f1aa0c2ec77",
+  "plan_sha256": "7df6c2dd40d04eb21921c10fa59bf2fa60a1acd271fab0e258a55b8fc44e4c16",
+  "preflight_review_sha256": "fac4918c972bc2ccbc3382ec5bbc5a709036d6b807ccbdfca968718d620e8c35",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "9bc28074f28e6302e49c288c33d51f154e32476b6408314e62b81baeb48f149e",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_loco195_eth_readonly_20261021.py": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "tests/test_preprod1_audit.py": "a13edf39567229706f1bf42177508ab55e235c4d10c6373c05cf6980872eac7b"
+  },
+  "diagnostic_accepted": false,
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "findings": [
+    {
+      "classification": "CONFIRMED",
+      "finding": "Acquisition terminated with READONLY_QUERY_EXEC_DEADLINE during AP-to-WA radio reachability probing. Exactly22 completed probes are publicly recorded, each one packet sent and zero received; the final timed-out query has no returned result, so no additional packet count is asserted."
+    },
+    {
+      "classification": "CONFIRMED_FROM_ARCHIVED_CONTROL_FLOW",
+      "finding": "No successful path probe exists and no WA identity, status, BSS, authentication lines or configuration bracket appears in the final receipt. Execution therefore did not reach WA direct-tcpip SSH or the subsequent diagnostic queries. No WA diagnostic or before/after WA configuration equality can be accepted."
+    },
+    {
+      "classification": "CONFIRMED_ARTIFACT_BINDING",
+      "finding": "All seven executed-source files exactly match the frozen plan and preflight review. Archived AP guard is HUP-immune with480s bound; archived restore verifies radio-off/no interfaces before owner-bound nft deletion."
+    },
+    {
+      "classification": "CONFIRMED_RECEIPT_AND_FROZEN_VALIDATOR",
+      "finding": "Final AP restoration reports radio-off, empty UCI deltas and the same wireless configuration hash as prewindow; guard-ended verification, exact original nft table names and owned RAM removal all pass, with no cleanup errors. This is the existing pinned AP context/configuration restoration contract, not a new full raw-MTD capture."
+    }
+  ],
+  "RF_context": {
+    "bssid": "18:e8:29:74:55:a2",
+    "frequency_mhz": 5180,
+    "width_mhz": 20,
+    "txpower_dbm": 0,
+    "global_country": "AR",
+    "ttl_seconds": 480,
+    "persistent_writes": false,
+    "vendor_ie_changed": false
+  },
+  "path_probe_evidence": {
+    "completed_queries": 22,
+    "completed_successes": 0,
+    "completed_packets_received": 0,
+    "first_recorded_monotonic": 747659.437,
+    "last_recorded_monotonic": 747701.984,
+    "failure_gate": "READONLY_QUERY_EXEC_DEADLINE",
+    "last_query_output_unavailable": true
+  },
+  "restoration_evidence": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true
+    },
+    "nft_exact_original_tables_restored": true,
+    "owned_RAM_cleanup": {
+      "exit_code": 0,
+      "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+      "stderr": ""
+    },
+    "cleanup_errors": []
+  },
+  "privacy_and_scope": "Only public receipt, frozen plan/review and archived sources were read. Private raw diagnostics, credential pointers contents, devices/network and tests were not accessed. No raw private evidence was opened or republished.",
+  "next_minimum_evidence": "A proven management path to this exact pinned WA, followed by retained native authentication/status/kernel evidence, is still missing. This attempt establishes no diagnosis of the WA reconnection failure and does not justify another timing treatment or unchanged retry.",
+  "limits": [
+    "No PREPROD1, association, recovery, performance or production acceptance.",
+    "All previous negative results remain preserved; this diagnostic is itself incomplete.",
+    "No target action, test execution, source/document/Git mutation or hardware access by the independent reviewer."
+  ],
+  "artifact_bindings": [
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/receipt.json",
+      "bytes": 10606,
+      "sha256": "c6ae69fd1405d1c7242bdbdd6f7415152a26ef6a20f382adcda73f1aa0c2ec77"
+    },
+    {
+      "file": "preprod1_plan_20261022_r5m_WA_readonly.json",
+      "bytes": 4832,
+      "sha256": "7df6c2dd40d04eb21921c10fa59bf2fa60a1acd271fab0e258a55b8fc44e4c16"
+    },
+    {
+      "file": "preprod1_source_review_20261022_r5m_WA_readonly.json",
+      "bytes": 4753,
+      "sha256": "fac4918c972bc2ccbc3382ec5bbc5a709036d6b807ccbdfca968718d620e8c35"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/preprod1_r5m_WA_readonly_20261022.py",
+      "bytes": 10654,
+      "sha256": "9bc28074f28e6302e49c288c33d51f154e32476b6408314e62b81baeb48f149e"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/root_four_cpe_access_20261022.py",
+      "bytes": 8027,
+      "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/root_four_cpe_ap_window_20261022.py",
+      "bytes": 14489,
+      "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/root_goal_direct_link_connection_20261022.py",
+      "bytes": 1899,
+      "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/root_loco195_eth_readonly_20261021.py",
+      "bytes": 4129,
+      "sha256": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/preprod1_trial_20261022.py",
+      "bytes": 53906,
+      "sha256": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/test_preprod1_audit.py",
+      "bytes": 31329,
+      "sha256": "a13edf39567229706f1bf42177508ab55e235c4d10c6373c05cf6980872eac7b"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/AP_guard.sh",
+      "bytes": 617,
+      "sha256": "f568338465d9a81e8d4e4dbccfcc60016767e032f8a723858fd2cc7e99818ee1"
+    },
+    {
+      "file": "preprod1_20261022_r5m_WA_readonly/executed-source/AP_restore.sh",
+      "bytes": 2956,
+      "sha256": "52e582666b4a74848b456ebc8527952b0e9cf17ba4bf21919b7885d3c0590e33"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "status": "PASS_LOCAL_BOUNDED_M5_RESTORATION_WINDOW_ONLY",
+  "reviewer": "flash_review independent local public delta review",
+  "reviewed_utc": "2026-10-23T00:15:07.714792+00:00",
+  "source_sha256": "6c063ae6494e8f9fa4fe341c25b29a66844c01d0714675a33fee6131ceeb4b50",
+  "plan_sha256": "5ac31b57b9bef21bd9fbe1573c81f9f4f267484cc087d4f8cbd94b02b6612740",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "706ce66c6dd53316e9e1ae3f83b7f7c4b1345fe0a53fd20e4711845064f5e013",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "812a9fbd620e8d9679704236a71a9e530e88f3c0262f12344c92cb3495b2ff46",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "6c063ae6494e8f9fa4fe341c25b29a66844c01d0714675a33fee6131ceeb4b50",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.py": "90bbc70a4dd345edaa30e1b857ae35b0ffa2dc1347764235f44d30a88addcd8d",
+    "tests/test_preprod1_remote_deadline.py": "6da47cddd6e09f05e138c0da302be4c616ccd2a7fb9b1505c944c3f258f0ac71"
+  },
+  "bindings_verified": 17,
+  "input_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_20261022_run5aa/receipt.json": {
+      "sha256": "67e612cef3b67b72b4ee831d7ccfdf21666b084f7f7c895a403ae808f0a1e672",
+      "bytes": 15920
+    },
+    "artifacts/canary_panel1_guarida/root_four_cpe_intake_20261022_run1/receipt.json": {
+      "sha256": "37d92736e926e94589095079434dc895c13b9e74d24d618428e3cb42208ff1c9",
+      "bytes": 17263
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_final_closure_20261022.json": {
+      "sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742",
+      "bytes": 3373
+    },
+    "artifacts/canary_panel1_guarida/preprod1_run5aa_independent_acceptance_20261022.json": {
+      "sha256": "de9aabe6a9e4f507cc152848b5a399fae48d16697af54ae2d792f0f16b16b5b6",
+      "bytes": 12783
+    }
+  },
+  "prior_blocker_review_sha256": "e3c065af244083df6e2f3133c454e1c8efb0edfda6af07d403534914b083c089",
+  "findings": [],
+  "closed_blockers": [
+    {
+      "id": "M5_CONNECT_DEADLINE",
+      "verification": "Timer/Event is armed before connect_legacy. Proxy clamps open-channel timeout to remaining absolute acquisition time, publishes only the newly forwarded socket, closes it on expiry, checks expiry after open and after complete pinned auth/MAC identity. Late success is rejected; AP transport is not closed."
+    },
+    {
+      "id": "M5_GUARD_ID_FAILCLOSED",
+      "verification": "Python requires exactly two positive decimal PID/start values. Both are fixed into the next command, which rechecks nonsymlink guard.id exact contents, own guard source, restored marker and restore.rc0 before ended proof and before fixed-file RAM deletion."
+    },
+    {
+      "id": "M5_CLOSE_CANNOT_SKIP_AP_RESTORE",
+      "verification": "M5 close errors are captured independently before AP closure. AP close errors are also captured; final receipt status stays incomplete on either error."
+    }
+  ],
+  "retained_safety": {
+    "native_AP_guard_seconds": 180,
+    "management_acquisition_seconds": 90,
+    "RF": {
+      "MHz": 5180,
+      "width_MHz": 20,
+      "AP_dBm": 0,
+      "country": "AR"
+    },
+    "guard_180_literal_and_TTL_match": true,
+    "atomic_owned_nft_install_while_AP_off": true,
+    "native_restore_verifies_final_AP_off_before_owner_bound_nft_delete": true,
+    "original_nft_names_checked_after_restore": true,
+    "pinned_SSH_before_credentials_and_exact_M5_radio_MAC": true,
+    "original_boot_config_protected_hashes_network_open_profile_required": true,
+    "owned_legacy_guard_ended_and_RAM_required": true,
+    "AP_off_guard_ended_RAM_required_for_success": true,
+    "no_IE_admitter_load_or_CPE_profile_treatment": true,
+    "no_force_reset_flash_or_production_contact": true
+  },
+  "fallback_limit": "192.168.1.5 uses the same recorded M5 SSH pin and MAC verification and is attempted only after primary ping success plus a failed primary connection. A negative is not proof that every Ethernet path is absent.",
+  "evidence": {
+    "fresh_author_contract_receipt": {
+      "file": "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_contract_tests_20261022.json",
+      "sha256": "4880473c38c8acd6de1981cd3ee2d8aee0e5f3f62806930126d58b92fd231b26",
+      "exit_code": 0,
+      "result": "11 passed, 5 deselected in 0.30s"
+    },
+    "tests_reviewed": "Eight malformed guard IDs, one valid identity, blocked owned socket and late-success deadline cases; no tests rerun by reviewer.",
+    "unchanged_reused_evidence": "Existing exact AP helper/native restore/nft owner guard and bounded RPC source retained byte-identical; local source hashes verified."
+  },
+  "limits": [
+    "Local static/public review only; no device, network, credentials, private logs, builds, Git changes or test execution by reviewer.",
+    "Source admission is not proof of M5 restoration or of fallback guard expiry on hardware.",
+    "The final AP native guard remains the independent RF deadline if controller cleanup becomes uncertain; uncertainty prevents restoration PASS.",
+    "AA original receipt stays aborted and unmodified. This window cannot produce PREPROD1 acceptance or rescue its missing admission/epochs/recoveries.",
+    "Root must preserve any negative result and verify original M5 and AP restoration before further experimental RF."
+  ],
+  "PREPROD1_accepted": false,
+  "hardware_restoration_accepted": false,
+  "execution_authorized_to_reviewer": false
+}

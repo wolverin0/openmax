@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-22T20:45:32.911423+00:00",
+  "parent": "FMX0017 / PREPROD1 / forward-plan PhaseB-C",
+  "question": "Does exact-target AP disassociation, retaining its authentication state, permit fresh stock-CPE sessions after four actual drops?",
+  "existing_evidence": {
+    "run5o_receipt": {
+      "file": "preprod1_20261022_run5o/receipt.json",
+      "sha256": "5999080574cc3be65728ae1c87a6583f2be23143140e69dd42f84a8d6621f9db"
+    },
+    "observed": "Reason2deauthexactWA: initialallfour32/32+32pairs and60.73stable; loss69846.02/oldWDSretired69850.89/IE69851.06->69872.70; stillmissinguntil60stimeout78. Other3survived; fullrestore. Changingreasonaloneinsufficient."
+  },
+  "hypothesis": "INFERREDcandidate: deauthenticationdestroysauthenticationcontext; disassociation(deauthfalse)preservesauthenticationcontextandmaypermitdifferentstockreassociation. ExactvendorbehaviorUNKNOWN.",
+  "primary_change": "Replaceonlydropprimitive reason2/deauthtrue withstandardinactivitydisassociation reason4/deauthfalse, sameexacttargetban0. NoIE/WDS/RF/time/guard/CPEchanges.",
+  "minimum_missing_evidence": "Fullprospective5x60s/20x32echo+32radiopairs/4actualobservedloss+newtargetsessions/other3continuous/zeroXCcommands/exactrestore. A mereACKorauthretentionisnotnewsessionacceptance.",
+  "definition_source": "https://www.w1.fi/wpa_supplicant/devel/ieee802__11__defs_8h_source.html",
+  "stop": "Sameoldgates/deadlines; ifnegativerestoreandpreserve. Nooptionalcollectorrepair/noextendtime/noacceptanceweaken."
+}

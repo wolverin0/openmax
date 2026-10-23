@@ -1,0 +1,109 @@
+{
+  "status": "STATIC_BUILD_ACCEPTANCE_ONLY_NOT_RUNTIME",
+  "checks": {
+    "all_compiled_units_coherent_AC": true,
+    "needed_list_identical": true,
+    "ELF_ABI_PIE_BIND_NOW_identical": true,
+    "NX_stack": true,
+    "RELRO": true,
+    "no_WX_load": true,
+    "VHT_and_compat_present": true
+  },
+  "original_source_unchanged": true,
+  "build_receipt_sha256": "e3331a24ff4d245915b2d72afee0eefce27e51e27563ff08274e31c00c81a5be",
+  "build_recipe_sha256": "4b49956ad7b941902f790631aea25b0ea7aae06f0380ca793b21f028491455e6",
+  "source_patch_sha256": "7573c43372ffc89cf2428aedf34de08e9be136d2db111883695d5d4b3303e27b",
+  "decoder_sha256": "34a85e278810284a6d68976736366e4efe59c7020f2515712c06f4bb0367526e",
+  "translation_unit_checks": {
+    "wpa_supplicant": {
+      "units": 72,
+      "all_AC": true,
+      "all_compat": true
+    },
+    "hostapd": {
+      "units": 87,
+      "all_AC": true,
+      "all_compat": true
+    }
+  },
+  "ELF": {
+    "stock": {
+      "sha256": "f48e4ffa30b382b1526c7d8b32889b19dbc498a362443f41142646db60fb3a12",
+      "bytes": 864296,
+      "machine": "EM_MIPS",
+      "class": 32,
+      "little_endian": false,
+      "type": "ET_DYN",
+      "needed": [
+        "libmbedcrypto.so.16",
+        "libmbedx509.so.7",
+        "libmbedtls.so.21",
+        "libubox.so.20240329",
+        "libubus.so.20250102",
+        "libblobmsg_json.so.20240329",
+        "libucode.so.20230711",
+        "libnl-tiny.so.1",
+        "libudebug.so",
+        "libgcc_s.so.1",
+        "libc.so"
+      ],
+      "load_flags": [
+        5,
+        6
+      ],
+      "interpreter": "/lib/ld-musl-mips-sf.so.1",
+      "DT_BIND_NOW": 0,
+      "DT_FLAGS_1": 134217729,
+      "PT_GNU_STACK": {
+        "flags": 6,
+        "bytes": 0
+      },
+      "PT_GNU_RELRO": {
+        "flags": 4,
+        "bytes": 8840
+      },
+      "VHT_mandatory_marker_present": true,
+      "compat_marker_present": false
+    },
+    "compat": {
+      "sha256": "99122e15246efc0006c82fc23a8667f7ccdcdf9d15bd2f46edc7e95c0f7b6923",
+      "bytes": 864312,
+      "machine": "EM_MIPS",
+      "class": 32,
+      "little_endian": false,
+      "type": "ET_DYN",
+      "needed": [
+        "libmbedcrypto.so.16",
+        "libmbedx509.so.7",
+        "libmbedtls.so.21",
+        "libubox.so.20240329",
+        "libubus.so.20250102",
+        "libblobmsg_json.so.20240329",
+        "libucode.so.20230711",
+        "libnl-tiny.so.1",
+        "libudebug.so",
+        "libgcc_s.so.1",
+        "libc.so"
+      ],
+      "load_flags": [
+        5,
+        6
+      ],
+      "interpreter": "/lib/ld-musl-mips-sf.so.1",
+      "DT_BIND_NOW": 0,
+      "DT_FLAGS_1": 134217729,
+      "PT_GNU_STACK": {
+        "flags": 6,
+        "bytes": 0
+      },
+      "PT_GNU_RELRO": {
+        "flags": 4,
+        "bytes": 8840
+      },
+      "VHT_mandatory_marker_present": true,
+      "compat_marker_present": true
+    }
+  },
+  "target_execution": false,
+  "scope": "Explicit newAPuserspaceRAMcompat; exact prior build byte equivalence unproven. Sourceversion, dynamicdependencies/interpreter/hardening and AC compilefeatures qualified offline."
+}

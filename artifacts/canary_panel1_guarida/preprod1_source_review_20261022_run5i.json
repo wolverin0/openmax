@@ -1,0 +1,34 @@
+{
+  "status": "BLOCK_PREFLIGHT_IFINDEX_READ_ERROR_CAN_MIMIC_RETIREMENT_NOT_EXECUTED",
+  "reviewed_utc": "2026-10-22T19:26:32.837296+00:00",
+  "plan_sha256": "c0eefe9da737cdace26110629a2d34f81ac52723c1df209a764a2cd4c5ae08d1",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "51ed2215af203ad396ea72fbefbe56243ac3e03c0aeda78de3aa0b3744601707",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "17b55bc7e40ce1a8c11389601c16015c8e8884e20e0922d4ac8df88101fb3205",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "774a075a92a347729e6ac2575f7286bfedb3588deb741af1d16615274ef20681"
+  },
+  "scope": "Local independent review; no hardware/network/credentials/tests/Git/source changes.",
+  "archive_receipt": {
+    "file": "artifacts/canary_panel1_guarida/preprod1_r5i_before_ifindex_read_guard_20261022/receipt.json",
+    "sha256": "a515904ca24d6b4c8b6ecdea55b687a7a6be1723a24c8fecc056eb9e2755990e"
+  },
+  "must_fix_findings": [
+    {
+      "source": "tools/bench/preprod1_admitter.sh",
+      "source_sha256": "51ed2215af203ad396ea72fbefbe56243ac3e03c0aeda78de3aa0b3744601707",
+      "symbol": "old_wds_retired",
+      "finding": "catifindex||true treats read failure or invalid/empty output on a still-existing interface as retirement, allowing IE or RECOVERED without proving lifecycle barrier.",
+      "minimum_fix": "Successful read must be positive numeric index; failed read with child/ifindex path present fails closed; only actual both-path absence or different valid index qualifies retirement.",
+      "severity": "BLOCK_BEFORE_RF"
+    }
+  ],
+  "execution_authorized": false,
+  "hardware_executed": false,
+  "verification": "Exact old nine-source archive checked; coordinator four actual helper red fixtures reproduced failure. Earlier49tests did not cover this blocker and do not authorize execution."
+}

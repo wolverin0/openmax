@@ -1,0 +1,512 @@
+{
+  "status": "NOT_ACCEPTED_PREPROD1_WA_RECOVERED_XC_TIMEOUT_ALL_RESTORED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T21:06:40.721707+00:00",
+  "receipt_sha256": "e590a6cf3f1af9cdae788c3ea435eb65df01839553ee2d87add7c344c1b78f3f",
+  "plan_sha256": "923b6722bb277f9c2850cd4ce00a52fdade694b320e8abd3fc5e434c76425fd8",
+  "source_review_sha256": "45c756889be0a817dbc2e9d201b3c6d7efc5b6a0e56d936791ab22f039ea2e87",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "1da64249e74c526d5bf861b9d2bbc037b81361ace46144e11940ed5b07e88f81",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "9245652dd0d1e5b6e13644038881cbbe2039072874b17714ad84660c1f1d62c9"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T20:58:14.085542+00:00",
+  "ended_utc": "2026-10-22T21:04:55.803749+00:00",
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "conclusion": "Q confirms one observed WA loss and a new WA session followed by a complete second stable/traffic epoch. XC then fails its unchanged60s recovery deadline; no new XC session, final three epochs or remaining two target drops are accepted. All restorations pass. Partial WA success is not full PREPROD1 acceptance.",
+  "native_evidence": {
+    "artifact": {
+      "file": "daemon-evidence.json",
+      "bytes": 152834,
+      "sha256": "af7ba1ff375dee12a6ee850cbe13237b2f173682e0c9d41d1668b8b1692997d6"
+    },
+    "exit_code": 78,
+    "stop_reason": "recovery_timeout",
+    "restore_rc": 0,
+    "stderr_and_listener_stderr_empty": true,
+    "initial_four_admitted_s": 49.42,
+    "stable_holds_completed": [
+      {
+        "epoch": 0,
+        "actual_seconds": 60.49
+      },
+      {
+        "epoch": 1,
+        "actual_seconds": 60.45
+      }
+    ],
+    "WA": {
+      "request_uptime": 70928.25,
+      "observed_loss_uptime": 70928.7,
+      "old_WDS_ifindex": 178,
+      "old_WDS_retired_uptime": 70933.87,
+      "retirement_wait_s": 5.17,
+      "IE_set_ACK_uptime": 70934.03,
+      "current_processed_WA_broadcast_log_uptime": 70959.08,
+      "fresh_broadcast_anchor_uptime": 70959.12,
+      "IE_clear_ACK_uptime": 70959.69,
+      "IE_exposure_s": 25.66,
+      "native_recovered_uptime": 70983.71,
+      "loss_to_recovered_s": 55.01,
+      "new_session_counter_reset_verified": true,
+      "post_recovery_epoch1_traffic_verified": true
+    },
+    "XC": {
+      "request_uptime": 71044.25,
+      "observed_loss_uptime": 71044.77,
+      "old_WDS_ifindex": 177,
+      "old_WDS_retired_uptime": 71049.89,
+      "retirement_wait_s": 5.12,
+      "IE_windows": [
+        {
+          "set_ACK": 71050.07,
+          "clear_ACK": 71051.96,
+          "exposure_s": 1.89
+        },
+        {
+          "set_ACK": 71086.39,
+          "clear_ACK": 71087.91,
+          "exposure_s": 1.52
+        }
+      ],
+      "daemon_ended_uptime": 71104.16,
+      "loss_to_ended_s": 59.39,
+      "recovered": false,
+      "new_session_verified": false
+    },
+    "remaining_drops_not_executed": [
+      "SXT",
+      "LBM5"
+    ]
+  },
+  "observer_and_packet_audit": {
+    "samples_total": 182,
+    "post_initial_admission_samples": 148,
+    "non_target_authorization_checks": 517,
+    "all_non_target_sessions_and_connected_rx_tx_counters_continuous": true,
+    "observed_target_session_resets": [
+      {
+        "sample": 108,
+        "drop": "1",
+        "MAC": "fc:ec:da:c2:54:0a",
+        "before": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 61,
+          "rx_bytes": 22885,
+          "tx_bytes": 7490
+        },
+        "after": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 1,
+          "rx_bytes": 625,
+          "tx_bytes": 634
+        }
+      }
+    ],
+    "actual_qualified_epochs": 2,
+    "required_epochs": 5,
+    "traffic_recomputed": {
+      "0": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta4",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-WA.json",
+            "bytes": 10943,
+            "sha256": "1bd22c2fcd5a975ca9c7e193366c92794b6ff5cb0a1f14e8efe2980ca462ffbc"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta2",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-XC.json",
+            "bytes": 10943,
+            "sha256": "e1bb435dbaafbb791ff87ed7c069176e98862ed903c776091b00cdbb625df563"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-SXT.json",
+            "bytes": 8140,
+            "sha256": "7fde1d9116f7590d0c712a6631e7bceaebb5693ebee2ffa9081814d24f134532"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch0-LBM5.json",
+            "bytes": 8138,
+            "sha256": "4d68d386298c9f56c871516408ddfcd5f6ce05d4406197ba7888ef22941542d8"
+          }
+        }
+      },
+      "1": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta4",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-WA.json",
+            "bytes": 10943,
+            "sha256": "44266fca782c7c2497c04810daecb1d88d5f24b4bc6982a496974ec0bb5dedac"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0.sta2",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-XC.json",
+            "bytes": 10945,
+            "sha256": "78a6028b49bc5a01691e1c57f9f9037b0b06860cc1b969e1731f7940f030b930"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-SXT.json",
+            "bytes": 8140,
+            "sha256": "f84fdabe36a41c6b0056cc812205d388eb4b493e96255683b2ad5916703ec9b6"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 32,
+          "radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "interface": "phy0-ap0",
+          "startup_before_shared_deadline": true,
+          "artifact": {
+            "file": "epoch1-LBM5.json",
+            "bytes": 8138,
+            "sha256": "cfd33c982a192e8b0b6ca9edf0a0c3f05cc1a303051d4c826611fe77757be6e8"
+          }
+        }
+      }
+    },
+    "unexecuted_epochs": [
+      2,
+      3,
+      4
+    ],
+    "XC_audited_commands": 48,
+    "XC_commands_during_control_window": 0,
+    "ACK_or_retained_auth_is_not_session_acceptance": true
+  },
+  "fresh_event_check": {
+    "predicate_exercised": true,
+    "evidence": "Native actions record exact WA broadcast processed at70959.08, fresh_broadcast=1 anchor at70959.12, exact WA broadcast clear trigger and ACK70959.69. Archived source requires current processed WA broadcast and existing same-pulse/>=21-floor guards.",
+    "limits": "These are host processing/native uptime log observations, not RF receive timestamps, event-to-frame latency or proof of causality. G/H/K and all old failures remain unchanged."
+  },
+  "restoration": {
+    "cleanup_errors": [],
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hashes_exact": 8,
+        "ordered_IPv4_routes_exact": true,
+        "ping": "3/3",
+        "owned_RAM_removed": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hashes_exact": 5,
+        "ordered_IPv4_routes_exact": true,
+        "ping": "3/3",
+        "owned_RAM_removed": true
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "all_four_baseline_snapshots_exact": true
+    },
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "daemon_process_ended": {
+      "exit_code": 0,
+      "stdout": "ENDED\n",
+      "stderr": ""
+    },
+    "daemon_owned_RAM_removed": true,
+    "capture_startup_workers_ended": 8,
+    "native_capture_guards_ended": 8,
+    "bridge": {
+      "owned_table_deleted_original_names_exact": true,
+      "original_tables": "table inet fw4\n",
+      "final_forward_drop_counters": [
+        4737,
+        87
+      ],
+      "limit": "Filtering evidence only, not cause or performance."
+    },
+    "forbidden_actions_executed": false,
+    "persistent_config_writes": false
+  },
+  "limits": [
+    "Q remains negative because only one of four target recoveries and two of five required epochs completed.",
+    "WA recovery/new-session evidence is real for this run, but does not establish universal reliability or explain why O failed.",
+    "XC failure cause remains UNKNOWN; short IE exposure and observed probes alone do not prove vendor behavior.",
+    "No performance/production/OTA timing/full PREPROD1 claim. AP restored under frozen pinned context/configuration contract, not a new raw-MTD capture.",
+    "Only public local artifacts and frozen executed-source inspected. No hardware/network/credentials/private raw/tests/Git/source edits by reviewer."
+  ],
+  "artifact_references_verified": [
+    {
+      "file": "preflight-0-WA.json",
+      "bytes": 548,
+      "sha256": "43f0392ca32cce186e11812061fde946b16d1546d556ccd5e42a5d69b7760e41"
+    },
+    {
+      "file": "preflight-0-XC.json",
+      "bytes": 480,
+      "sha256": "432c9dcdc90553408ca75e50d38cc4038c9e3d12f0e29ee333ffd8c4dfa3e997"
+    },
+    {
+      "file": "preflight-0-SXT.json",
+      "bytes": 454,
+      "sha256": "5c8eb2a0d715c64043cccbc16d6b90ed0b44fd831f21eaf1349a22803e6b0334"
+    },
+    {
+      "file": "preflight-0-LBM5.json",
+      "bytes": 454,
+      "sha256": "32ae40696b6a23296bf022bcb6e78b423cde8e94eefa32fba472fe9505a7eafd"
+    },
+    {
+      "file": "preflight-1-WA.json",
+      "bytes": 550,
+      "sha256": "58bbe9923bf7cedb77aea3d23abf0946860699e25e2970697b330c62e1431e65"
+    },
+    {
+      "file": "preflight-1-XC.json",
+      "bytes": 482,
+      "sha256": "7c7b5b5df0cb069472966822233f79497ca10ebc2b535aa04d1f9352176b3d6a"
+    },
+    {
+      "file": "preflight-1-SXT.json",
+      "bytes": 452,
+      "sha256": "712c83bf03169f19e3f9b3e0228c538493c73c18e2df698291598f2bae772352"
+    },
+    {
+      "file": "preflight-1-LBM5.json",
+      "bytes": 452,
+      "sha256": "27db777160914e2fb13690ba104dc3e7bb9e3506c9d31184724e749e4f91297b"
+    },
+    {
+      "file": "epoch0-WA.json",
+      "bytes": 10943,
+      "sha256": "1bd22c2fcd5a975ca9c7e193366c92794b6ff5cb0a1f14e8efe2980ca462ffbc"
+    },
+    {
+      "file": "epoch0-XC.json",
+      "bytes": 10943,
+      "sha256": "e1bb435dbaafbb791ff87ed7c069176e98862ed903c776091b00cdbb625df563"
+    },
+    {
+      "file": "epoch0-SXT.json",
+      "bytes": 8140,
+      "sha256": "7fde1d9116f7590d0c712a6631e7bceaebb5693ebee2ffa9081814d24f134532"
+    },
+    {
+      "file": "epoch0-LBM5.json",
+      "bytes": 8138,
+      "sha256": "4d68d386298c9f56c871516408ddfcd5f6ce05d4406197ba7888ef22941542d8"
+    },
+    {
+      "file": "epoch1-WA.json",
+      "bytes": 10943,
+      "sha256": "44266fca782c7c2497c04810daecb1d88d5f24b4bc6982a496974ec0bb5dedac"
+    },
+    {
+      "file": "epoch1-XC.json",
+      "bytes": 10945,
+      "sha256": "78a6028b49bc5a01691e1c57f9f9037b0b06860cc1b969e1731f7940f030b930"
+    },
+    {
+      "file": "epoch1-SXT.json",
+      "bytes": 8140,
+      "sha256": "f84fdabe36a41c6b0056cc812205d388eb4b493e96255683b2ad5916703ec9b6"
+    },
+    {
+      "file": "epoch1-LBM5.json",
+      "bytes": 8138,
+      "sha256": "cfd33c982a192e8b0b6ca9edf0a0c3f05cc1a303051d4c826611fe77757be6e8"
+    },
+    {
+      "file": "failure-station-dumps.json",
+      "bytes": 2323,
+      "sha256": "02cd6dd78793d701c68ba59e56db9b1af73e5ebc676b964e9172d2f2da35ffb6"
+    },
+    {
+      "file": "daemon-evidence.json",
+      "bytes": 152834,
+      "sha256": "af7ba1ff375dee12a6ee850cbe13237b2f173682e0c9d41d1668b8b1692997d6"
+    },
+    {
+      "file": "setup-0-WA-capture.json",
+      "bytes": 274,
+      "sha256": "7528d0de047b2483873e7db5aace495ed40d606e3ed767a8afdb39f135a60f5c"
+    },
+    {
+      "file": "setup-0-XC-capture.json",
+      "bytes": 274,
+      "sha256": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f"
+    },
+    {
+      "file": "setup-0-SXT-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-0-LBM5-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-1-WA-capture.json",
+      "bytes": 274,
+      "sha256": "7528d0de047b2483873e7db5aace495ed40d606e3ed767a8afdb39f135a60f5c"
+    },
+    {
+      "file": "setup-1-XC-capture.json",
+      "bytes": 274,
+      "sha256": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f"
+    },
+    {
+      "file": "setup-1-SXT-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "setup-1-LBM5-capture.json",
+      "bytes": 269,
+      "sha256": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4"
+    },
+    {
+      "file": "SXT-guard-log.json",
+      "bytes": 52,
+      "sha256": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525"
+    },
+    {
+      "file": "LBM5-guard-log.json",
+      "bytes": 552,
+      "sha256": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70"
+    },
+    {
+      "file": "hostapd-events.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binding_files": [
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5q/receipt.json",
+      "bytes": 1613423,
+      "sha256": "e590a6cf3f1af9cdae788c3ea435eb65df01839553ee2d87add7c344c1b78f3f"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_plan_20261022_run5q.json",
+      "bytes": 10302,
+      "sha256": "923b6722bb277f9c2850cd4ce00a52fdade694b320e8abd3fc5e434c76425fd8"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_source_review_20261022_run5q.json",
+      "bytes": 6111,
+      "sha256": "45c756889be0a817dbc2e9d201b3c6d7efc5b6a0e56d936791ab22f039ea2e87"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5q/executed-source/fmx_admitter.sh",
+      "bytes": 10205,
+      "sha256": "1da64249e74c526d5bf861b9d2bbc037b81361ace46144e11940ed5b07e88f81"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5q/executed-source/preprod1_trial_20261022.py",
+      "bytes": 53906,
+      "sha256": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py",
+      "bytes": 8027,
+      "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py",
+      "bytes": 14489,
+      "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py",
+      "bytes": 22519,
+      "sha256": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py",
+      "bytes": 1899,
+      "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py",
+      "bytes": 4595,
+      "sha256": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py",
+      "bytes": 47196,
+      "sha256": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab"
+    },
+    {
+      "file": "artifacts/canary_panel1_guarida/preprod1_20261022_run5q/executed-source/test_preprod1_audit.py",
+      "bytes": 36587,
+      "sha256": "9245652dd0d1e5b6e13644038881cbbe2039072874b17714ad84660c1f1d62c9"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "status": "SOURCE_ONLY_PENDING_M5_CLOSURE_AND_FINAL_PLAN",
+  "source_review_passed": true,
+  "reviewer": "flash_review independent local public source-only review",
+  "reviewed_utc": "2026-10-23T00:28:39.342275+00:00",
+  "freeze_sha256": "84d546972165ec5c5ff2a39c9769b3be7f4b65c7c4e53f556bd73e6dbfdad2fc",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "ea2abfaac0daebb32af6a3ae0cb45a02fe90a029423e19a9c55fa6d3d2f3e571",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "c3c563ddb1a874cf76b50eaba6aee142dfbadab37467a377c48a5f77056997dc",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "tests/test_preprod1_remote_deadline.py": "dbc3a3d21da831140e89afb569979d0d9ebb40b738817c6d10ef95ed9c347685",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "13689970aedd3e4f429d11b14ecc928f70d7a31b13bddbf0808f73e7fffb3fc3"
+  },
+  "bindings_verified": 16,
+  "findings": [],
+  "reviewed_delta_against_AA_executed_source": {
+    "baseline_runner_sha256": "706ce66c6dd53316e9e1ae3f83b7f7c4b1345fe0a53fd20e4711845064f5e013",
+    "new_runner_sha256": "ea2abfaac0daebb32af6a3ae0cb45a02fe90a029423e19a9c55fa6d3d2f3e571",
+    "bounded_remote": "Absolute end starts before bounded session open; own Timer closes only that channel and is armed before exec ACK. stdout/stderr are both drained under65536/8192 byte limits, exit and monotonic expiry checked, timer cancelled/channel closed on every path.",
+    "XC_audit_preserved": "The actual AuditedXC.record_command runs before opening any RPC channel. Its window=True rejection records the attempt and prevents channel creation; direct high-level exec_command uses the same gate. No zero-touch audit bypass is introduced by direct Paramiko channel access.",
+    "legacy_identity": "Runtime assignment access.remote=remote also bounds the connector identity read; underlying access source stays byte-identical.",
+    "legacy_readiness": "Guard source is uploaded/MD5 verified and intent saved before launch. One existing launch RPC waits for ready and returns guard PID/start/deadline, all positive; it no longer requires a fresh ACK after the native two-second profile transition. Native guard writes id/deadline before ready.",
+    "revision_archival": "The new deadline test source is copied into executed-source alongside existing runner/audit/native artifacts.",
+    "unchanged": "Native33f23 bytes, RF, IE/drop/recovery/WDS policy, initial-versus-recovery trace helpers and original timing/traffic/session/peer/restoration acceptance remain unchanged."
+  },
+  "evidence": {
+    "fresh_author_test_receipt": {
+      "file": "artifacts/canary_panel1_guarida/preprod1_r5ab_offline_final_20261022/receipt.json",
+      "sha256": "0e7d3d0b0934393a5b544277d6ee94f57393d7bed2549651b3196268afccf8a5",
+      "exit_code": 0,
+      "result": "184 passed in5.88s",
+      "stdout_sha256": "014aee89bbccc2bf39eb180969e4e6e30189a9fb3bee2a8b2435f6b3891da98a",
+      "stderr_sha256": "3a3c41df8a6da6485a5dc49bc5c7e4b76dca3747c2aefbf1de288befe2c3c9a7"
+    },
+    "retained_red_receipts_and_original_test_bytes": {
+      "preprod1_r5ab_remote_regression_red_20261022.json": "c74fe168132181b3a84fe54844fefdea95c02a9472368e578281a20019af4f42",
+      "preprod1_r5ab_initial_remote_regression_20261022.py": "581cf7f75c2db13133adcd0010c78334ca5418c99a13a474c4f0b3f454b5cc34",
+      "preprod1_r5ab_legacy_handshake_red_20261022.json": "3f3234dcf677ac0238dd9a0c5ff695e8ed457d7c445d856470d13d067577afd9",
+      "preprod1_r5ab_legacy_handshake_regression_20261022.py": "5d1c878e41e7ac683b06f36e231b0ad15b5b425dba790a42370b5017fe2d8633"
+    },
+    "actual_regressions_inspected": [
+      "Stalled ACK is released by its own absolute channel deadline.",
+      "Bounded dual-stream stdout/stderr handling and output overflow closure.",
+      "Actual AuditedXC plus new remote rejects window=True before channel open.",
+      "Actual nested arm_legacy requires one dispatch/readiness RPC and records positive guard identity."
+    ],
+    "reviewer_tests_executed": false
+  },
+  "execution_blockers": [
+    "M5 exact owned guard ended/source/restore.rc0/RAM closure remains pending.",
+    "Exact LiteBeam M5 Ethernet cable confirmation remains pending; Nano connection is not equivalent.",
+    "No final physical AB plan/preconditions/current-state admission is frozen or reviewed by this artifact."
+  ],
+  "RF_execution_authorized": false,
+  "PREPROD1_accepted": false,
+  "hardware_restoration_accepted": false,
+  "limits": [
+    "Source-only local public comparison and evidence hashes, no tests, devices, network, credentials, private logs, builds or Git operations by reviewer.",
+    "184 fixture passes validate repair contracts; they do not establish hardware execution, wireless improvement or research acceptance.",
+    "AA prewindow abort and subsequent M5 helper negative stay preserved; source changes cannot rescue them.",
+    "A final source/plan/precondition-bound preflight is still required after exact M5 closure before root executes AB."
+  ]
+}

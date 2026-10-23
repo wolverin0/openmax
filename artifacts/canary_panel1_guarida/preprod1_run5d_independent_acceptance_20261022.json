@@ -1,0 +1,112 @@
+{
+  "schema": "PREPROD1_RUN5D_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5D_FOUR_ADMITTED_CAPTURE_TIMEOUT_ALL_RESTORED",
+  "reviewed_utc": "2026-10-22T18:17:51.088624+00:00",
+  "receipt_sha256": "54634294bdae855a58a869a799f01fc95b209378e115cab13925dbd39d637ec4",
+  "plan_sha256": "3f0d01c852c20e2e1a1939ee8cde810658210adab93efcf88b6a0f76a1fc0800",
+  "source_review_sha256": "ea65b0c9ea381b3145bc92bd2ac21bf35806b9592641ba76c466e053de576c6f",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "83034a22397a5691480cee9ce3a12768990e92638f0ee7967217755a978a5258",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "421527a418ace193285f52470c13e3f68e94437a6829d7d3735e63c06ece31df",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "4eb595f48979dcdf860d5f74ed75c11f2dbbc35407bb19c49df26a5282462166"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T18:16:45.021855+00:00",
+  "scope": "Independent local completed-artifact/source review only; no devices/network/credentials/tests/Git/producer edits.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "artifact_bindings_verified": {
+    "failure-station-dumps.json": "9354398ad3d8f3429aa9e300f505ecd184e11dcdf88d28ab6051befe9939918b",
+    "daemon-evidence.json": "f9dd490b898e748a172aa86da5394fe9c9b03ba62ddfb49912733615ce747809",
+    "SXT-guard-log.json": "260f689cc9d4459f74dc76c0a8005f7ef9b47b353a6e2ab33cf24573d6ca5525",
+    "LBM5-guard-log.json": "67e53dfdb5c7991f744202c3ef37534c214f64e45618c01d1eb75c95f8daaf70",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observed_acquisition": {
+    "initial_four_admitted": true,
+    "initial_admission_seconds": 51.17,
+    "all_four_AP_auth_assoc_authorized": true,
+    "WA_XC_WDS": true,
+    "stable_epoch0_started": true,
+    "qualified_60_second_epochs": 0,
+    "target_drops": 0,
+    "qualified_recoveries": 0,
+    "qualified_traffic_epochs": 0,
+    "pending_traffic_epoch": 0,
+    "observer_samples": 57,
+    "XC_window_exec_count": 0,
+    "native_exit_rc": 0,
+    "native_stop_reason": "operator_signal",
+    "native_clear_rc": 0,
+    "native_stderr_listener_empty": true,
+    "failures": [
+      {
+        "type": "RuntimeError",
+        "gate": "QUALIFY_CAPTURE_TIMEOUT"
+      }
+    ]
+  },
+  "preparation_evidence": {
+    "explicit_AP_seed_then_secure_fresh_scan_then_clear_before_enable": true,
+    "positive_pre_window_waiting_state": "4WAY_HANDSHAKE",
+    "control_window_start": {
+      "mono": 740618.671,
+      "utc": "2026-10-22T18:14:21.030534+00:00"
+    },
+    "no_deferred_XC_setup": true
+  },
+  "restoration": {
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "Rocket": {
+      "status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+      "exact_baseline_hashes_rules_bridge_ordered_IPv4_routes": true
+    },
+    "SXT_LBM5": {
+      "SXT": {
+        "same_boot_protected_config_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true,
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
+      },
+      "LBM5": {
+        "same_boot_protected_config_network": true,
+        "management_ping_exit0": true,
+        "owned_RAM_removed": true,
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED"
+      }
+    },
+    "daemon_ended_owned_RAM_removed": true,
+    "capture_native_guards_ended": 4,
+    "cleanup_errors": []
+  },
+  "minimum_support_repair_finding": {
+    "confirmed_source_boundary": "Controller waits capture only3s after completed ping while its independently owned native capture wrapper has45s deadline. It can reject a still-running, bounded capture before that native deadline.",
+    "cause_unknown": "No raw ping/capture stdout/stderr/exit artifacts were saved for this failed epoch; therefore missing packets, capture interface/filter or output-drain effects are not distinguished.",
+    "necessary_next_change": "Align capture completion observation to its existing bounded native deadline and preserve per-flow outputs/exit/status before gate failure. Retain32/32echo,32matchedradio pairs, all station/session criteria and independent cleanup.",
+    "no_wireless_failure_inferred": true
+  },
+  "decision": "Partial initial admission confirmed; PREPROD1 remains NOT_ACCEPTED. First epoch packet qualification failed in acquisition. No60s epoch, target reconnect, traffic or peer continuity success claimed; all previous failures preserved.",
+  "objective_continuity": "This negative does not pause authorized until-PASS objective. Coordinator owns necessary evidence-led acquisition repair and fresh source-bound run.",
+  "limits": [
+    "Not a physical capacity, improvement, production or zero-setup qualification.",
+    "No packet counts reconstructed from absent artifacts and no failed receipt rescued."
+  ],
+  "validation_exit_code": 0
+}

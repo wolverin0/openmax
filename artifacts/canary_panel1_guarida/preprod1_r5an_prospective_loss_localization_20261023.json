@@ -1,0 +1,51 @@
+{
+  "schema": "preprod1-prospective-loss-localization-v1",
+  "utc": "2026-10-23T07:32:58.740757+00:00",
+  "parent": "FMX0017 / original forward-plan Phase B-C / PREPROD1 full four-recovery qualifier",
+  "question": "Does the same prepared bench matrix satisfy all original gates while contemporaneous AP station delivery counters locate any missing echo?",
+  "existing_evidence": {
+    "AM_receipt": {
+      "file": "preprod1_20261022_run5am/receipt.json",
+      "sha256": "f89487381d25c78e1e49161d7f7da0a08cad7a2f6db5610022b8f508884fc530",
+      "full_PASS": false,
+      "four_recoveries_observed": true,
+      "traffic": "19 of 20 flows32/32; XCepoch3 seq16 request recorded, no echo/reply,31pairs; zero capture kernel drops"
+    },
+    "owned_packet_artifact": {
+      "file": "preprod1_20261022_run5am/epoch3-XC.json",
+      "sha256": "f4490e556d54496f1054d0f18dcd45532cb35add5087b5bd3fc55944bf766eb6"
+    },
+    "owned_postwindow_snapshot": {
+      "file": "preprod1_20261022_run5am/failure-station-dumps.json",
+      "sha256": "a61b2c06cae9c4ae2c69f4d822751847b2e6b85c9a9380057dabaca0e7c5b75c",
+      "XC_tx_failed": 2,
+      "XC_rx_drop_misc": 2,
+      "XC_tx_retries": 0,
+      "limitation": "Postwindow cumulative totals have no contemporaneous baseline; they cannot attribute sequence16 or prove an RF cause."
+    }
+  },
+  "changed_acquisition": "Persist optional tx_failed/tx_retries/rx_drop_misc/rx_packets/tx_packets from each already-executed AP station dump and append APuptime to that same command. No new polling RPC, CPE command, radio/traffic/firmware/IE treatment or auth behavior. Unsupported optional counters remain null, never zero. Existing required counters and retirement fail-closed checks remain.",
+  "minimum_missing_evidence": "Bounded APuptime for each station snapshot plus before/after delivery-counter deltas around any missing request/reply. This can bound a datapath failure without claiming over-air visibility.",
+  "acceptance_unchanged": {
+    "initial_seconds": 120,
+    "recovery_seconds_each": 60,
+    "drops": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "stable_epochs": 5,
+    "stable_seconds_minimum_each": 60,
+    "flows": 20,
+    "transmitted_received_RFpairs_each": 32,
+    "XC_commands_in_window": 0,
+    "other_three_continuous": true,
+    "exact_restoration_AP_radio_off": true,
+    "independent_acceptance_required": true
+  },
+  "stop_park_condition": "One guarded full acquisition. Preserve every quality failure. If contemporaneous deltas still do not locate a loss, retain UNKNOWN cause and choose only the minimum diagnostic required by that observed result; never relax 32/32 or rerun unchanged until green.",
+  "RF_unchanged": "5180MHz/20MHz/AP0dBm/AR, original CPE settings and configured TX ceilings",
+  "production_contact_permitted": false,
+  "publication_requires_full_PASS_and_independent_acceptance": true
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "PREPROD1_R5E_ADDITIVE_RESTORATION_REVIEW_V1",
+  "status": "PASS_ADDITIVE_RESTORATION_ONLY_R5E_RESEARCH_INCOMPLETE",
+  "reviewed_utc": "2026-10-22T18:44:58.568301+00:00",
+  "scope": "Local supplement/source/record review only; no device/network/credentials/tests/Git/producer changes. Only this new review written.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "bindings": {
+    "preprod1_20261022_run5e/receipt.json": "d1a9a94acb95197f0c5c3ca5f3a99c8789b3d4b62c8881b4998d2caa77dfe84a",
+    "preprod1_r5e_recovery_20261022/AP-postrestore-diagnostic.json": "3cab91b4a5962b4f163b1adb27ebe5b6f7e0ca9e617854ebd01b5ab7af074e46",
+    "preprod1_r5e_recovery_20261022/daemon-evidence.json": "2ec71363b50d413ece12fc949f11d7336fb9f8a676557762a1c007af9d481d15",
+    "preprod1_r5e_recovery_20261022/receipt.json": "77a223b842735f75eee0be244febfcdb08e534531d75848e3541cc70b633fe72",
+    "preprod1_r5e_recovery_20261022/Rocket-guard-identity.json": "eabbd69f07aa3c383fd552b9cb45860f2b417f70d29275c642145e978d07b869",
+    "preprod1_r5e_recovery_20261022/Rocket-restoration.json": "ce141aa352814368bb95782b28aa16cda071b4d4045c44f5de75e4f77a19afcb",
+    "preprod1_run5e_independent_acceptance_20261022.json": "d7c771bd8649fc50005b1ea842092a93a3fe5024f4dc9e7c9752406bc2054f5a"
+  },
+  "restoration_ended_utc": "2026-10-22T18:42:07.626257+00:00",
+  "verification": {
+    "AP": {
+      "pinned_exact_board_MAC_recorded": true,
+      "frozen_off_identity_runtime_network_config_guards": true,
+      "radio_off_no_VAP_empty_deltas": true,
+      "actual_owned_guard_id_matches_pretrial": true,
+      "fresh_ENDED_then_owned_RAM_cleanup": true,
+      "earlier_restore_guard_check_failure_preserved": true,
+      "proof_boundary": "Frozen off() verifies pinned board/kernel/runtime module/config/network/wifi hashes and radio-off state; this supplement is not a new full raw-MTD capture."
+    },
+    "Rocket": {
+      "guard_LF_source_sha256_exact_archived": true,
+      "guard_cmdline_MD5_recomputed_from_exact_archived_shell_argv": true,
+      "unique_PID_start_identity": "20989/6219873",
+      "guard_ended": true,
+      "all_four_restoration_snapshots_equal_R5e_pretrial": true,
+      "current_boot": "2e80e6d6-9ffe-4484-8e58-32805ab393fc",
+      "current_uptime_seconds": 63367.74,
+      "old_handoff_boot_mismatch": "Preserved stale49a9 constant mismatch; not the pretrial baseline. Long current uptime and exact guard program/start identity do not support a reboot during this treatment.",
+      "no_broad_process_kill_claim": true
+    },
+    "legacy": {
+      "SXT": {
+        "same_original_boot_hashes_network": true,
+        "owned_guard_identity_matches_trial": true,
+        "management_ping_exit0": true,
+        "owned_RAM_cleanup_exit0": true
+      },
+      "LBM5": {
+        "same_original_boot_hashes_network": true,
+        "owned_guard_identity_matches_trial": true,
+        "management_ping_exit0": true,
+        "owned_RAM_cleanup_exit0": true
+      }
+    },
+    "AP_daemon": {
+      "fresh_ended_and_clear_rc0": true,
+      "owned_RAM_cleanup_exit0": true,
+      "native_recovery_timeout78_preserved": true
+    },
+    "earlier_failed_attempts_preserved": {
+      "AP_restore_error": [
+        {
+          "stage": "APrestore",
+          "type": "RuntimeError",
+          "message": "REMOTE_COMMAND_FAILED"
+        }
+      ],
+      "legacy_attempt_count": 4,
+      "Rocket_old_handoff_guard_identity_error": {
+        "type": "RuntimeError",
+        "message": "ROCKET_BOOT_CHANGED"
+      }
+    }
+  },
+  "recovered_native_evidence": {
+    "initial_admission_seconds": 6.17,
+    "native_epoch0_hold_seconds": 60.29,
+    "WA_drop_observed": true,
+    "native_exit_rc": 78,
+    "native_stop_reason": "recovery_timeout",
+    "no_RECOVERED_record": true,
+    "qualification_limit": "These are recovered AP-local records; original controller has one observation/no packet epoch. They do not establish independent peer continuity,32echo/32pairs or successful multicycle recovery and do not rescue original R5e."
+  },
+  "decision": "Accept additive fresh exact restoration evidence only. Retain original R5e TimeoutError/fourcleanup errors and dated restoration-unverified review unchanged. PREPROD1 remains NOT_ACCEPTED; native WA recovery timed out and full observer/traffic/session evidence is absent.",
+  "validation_exit_code": 0
+}

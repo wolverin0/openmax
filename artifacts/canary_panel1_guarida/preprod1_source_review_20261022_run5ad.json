@@ -1,0 +1,56 @@
+{
+  "status": "BLOCK_STATION_SUCCESS_STDERR_NOT_FAILCLOSED",
+  "reviewer": "flash_review independent local public preflight",
+  "reviewed_utc": "2026-10-23T02:58:11.107377+00:00",
+  "plan_sha256": "5ecc5e6c1a8181a97610c0944c80fe198bb8df4925a2ed2ba6d6a90c380f6b48",
+  "source_sha256": "bb06a0721e7ceb68642fb003f0700e92236d7ce696cb217bd3a67ba477cd1169",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "bb06a0721e7ceb68642fb003f0700e92236d7ce696cb217bd3a67ba477cd1169",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "c3c563ddb1a874cf76b50eaba6aee142dfbadab37467a377c48a5f77056997dc",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "tests/test_preprod1_remote_deadline.py": "dbc3a3d21da831140e89afb569979d0d9ebb40b738817c6d10ef95ed9c347685",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "13689970aedd3e4f429d11b14ecc928f70d7a31b13bddbf0808f73e7fffb3fc3",
+    "artifacts/canary_panel1_guarida/preprod1_r5ac_legacy_intake_20261022.json": "6cf4c8d72166ff2256d35a944d665c18bf7c03268ee32702c484ee0db7b7212b",
+    "tests/test_preprod1_station_snapshot.py": "33ad61676ea3b847cf41eb2cbd49c6e9d39e2f0ef1fee66367ef689a9ec962eb"
+  },
+  "full_binding_precondition_validation_completed": false,
+  "stop_reason": "Concrete preserved-contract regression reproduced; review stopped without trying to rescue this revision.",
+  "findings": [
+    {
+      "id": "STATION_DUMP_SUCCESS_STDERR",
+      "severity": "BLOCK",
+      "function": "station_snapshot",
+      "evidence": "Changed station dump to remote(check=False). Only nonzero exit branch validates errors. A zero exit with nonempty stderr is accepted and its row parsed, unlike the previous remote(check=True) behavior. This widens the exception beyond exact237/No such device(-19).",
+      "pure_actual_AST_reproduction": {
+        "host_only": true,
+        "network_or_devices": false,
+        "source_sha256": "bb06a0721e7ceb68642fb003f0700e92236d7ce696cb217bd3a67ba477cd1169",
+        "input": "iw dev returns no children; base station dump returns rc0, one valid SXT row and nonempty synthetic stderr.",
+        "expected": "Reject the unexpected stderr as before.",
+        "actual": "Accepted, returned one station row.",
+        "regression_reproduced": true
+      },
+      "minimum_fix": "Require empty stderr on every successful station dump. Keep the exact expected-retirement nonzero branch separate and add an actual AST regression for rc0 plus stderr. No timing/RF/native/acceptance changes."
+    }
+  ],
+  "partial_source_inspection": "The nonzero ENODEV branch requires expected native WA/XC drop and exact old-child binding plus canonical absent/different-positive-index proof. That inspection does not admit this blocked source or replace full final binding verification.",
+  "RF_execution_admitted": false,
+  "PREPROD1_accepted": false,
+  "limits": [
+    "No network, hardware, credentials, private logs, Git or source modifications by reviewer.",
+    "One bounded pure host-only AST fixture executed under explicit task allowance; no full test suite rerun.",
+    "This is a software regression reproduction, not a claim that rc0 plus stderr occurred during AC.",
+    "Plan5ecc/sourcebb06 were not physically executed; preserve this BLOCK and original bytes before repair."
+  ]
+}

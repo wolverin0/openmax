@@ -1,0 +1,30 @@
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+F............F.......................................................... [ 75%]
+.....................................................................    [100%]
+================================== FAILURES ===================================
+_ test_postwindow_diagnostic_is_guarded_after_native_end_before_profile_restoration _
+
+    def test_postwindow_diagnostic_is_guarded_after_native_end_before_profile_restoration():
+        main=extract(SOURCE,'main');acquisition=next(n for n in main.body if isinstance(n,ast.Try))
+        final=ast.unparse(ast.Module(body=acquisition.finalbody,type_ignores=[]))
+        start=final.index('control_window = False')
+        proof=final.index("rec['daemon_ended_verified'] = remote(")
+        diagnostic=final.index('postwindow_xc_evidence(rocket, directory, reader.readonly_command,')
+>       assert start<proof<diagnostic<final.index('mode(False)')<final.index('helper.restore(ap)')
+E       ValueError: substring not found
+
+tests\test_preprod1_audit.py:1081: ValueError
+_ test_mgmt_failure_has_independent_original_restoration_and_no_cpe_executor __
+
+    def test_mgmt_failure_has_independent_original_restoration_and_no_cpe_executor():
+        final = ast.unparse(ast.Module(body=next(n for n in extract(SOURCE, 'main').body
+            if isinstance(n, ast.Try)).finalbody, type_ignores=[]))
+>       assert final.index('mgmt_trace.finish(ap)') < final.index('helper.restore(ap)')
+E       ValueError: substring not found
+
+tests\test_preprod1_audit.py:1312: ValueError
+=========================== short test summary info ===========================
+FAILED tests/test_preprod1_audit.py::test_postwindow_diagnostic_is_guarded_after_native_end_before_profile_restoration
+FAILED tests/test_preprod1_audit.py::test_mgmt_failure_has_independent_original_restoration_and_no_cpe_executor
+2 failed, 283 passed in 8.63s

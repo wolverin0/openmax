@@ -1,0 +1,92 @@
+{
+  "frozen": true,
+  "utc": "2026-10-22T20:31:54.296295+00:00",
+  "parent": "FMX0017 / PREPROD1 four reconnections stillACTIVE_NOT_ACCEPTED",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_r5n3_WA_readonly.json",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_loco195_eth_readonly_20261021.py": "f969ea1389d95d893b7ee44106a6ad563fbff9f7a2aa761323e68a3c03d71d28",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "tests/test_preprod1_audit.py": "ae549b37127b2d1b6fed9566f1a1d9645822692b3ebaa773a3868d2eb649ece7",
+    "tools/bench/preprod1_admitter.sh": "75052479baf25b8fa04e6168be47a99d2fb3254fc55230ed75d394caef2f6e12"
+  },
+  "question": "N2exactWAkey/board/MACandSSH+pingproved; collectorwronglyrequiredXC-only/etc/wpasupplicant_AUTO.conf(absentactualWA). Minimalone-linefix hashonlyobserved/tmp/system.cfg+/tmp/running.cfg beforeafter, thenacquireexistingreadonlyqueries. No listener/RF/WPA2/timingchange.",
+  "preconditions": {
+    "prior_negative_AP_restored": {
+      "file": "preprod1_20261022_r5n2_WA_readonly/receipt.json",
+      "sha256": "620de2bbf3ece3738e89df62222b49e5103c7fa6832dae1a518153d8373f3261"
+    },
+    "independent_prior_negative": {
+      "file": "preprod1_r5n2_WA_readonly_independent_acceptance_20261022.json",
+      "sha256": "9997fc2465b7eabbad2cdbe390d437322ebd083fa985e1ae375cb8cb82c5c686"
+    },
+    "confirmed_exact_WA_and_rejected_query_excerpt": {
+      "file": "preprod1_r5n2_rejected_queries_excerpt_20261022.json",
+      "sha256": "ec6fc12a5a7cd2976b9dea083735fbb5e5e0e4f3b7ccb3e03eff05d719cd20cd"
+    },
+    "late_prior_listener_ABSENT_and_APoff": {
+      "file": "preprod1_r5n2_listener_late_verification_20261022.json",
+      "sha256": "6399cd2a8a8c7d1a8967bb79f1dfd86f0377444a1f09a9e68e4e74f2c2168108"
+    }
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR",
+    "mode": "ExistingAParm thenrevertRAMencryptiontohashboundPSK2baseline; exactnative60BIE ON->exactWA broadcastfreq5180/ifnamephy0-ap0->500ms->CLEAR; requireauth/assoc/authorized/wds beforeIPpath/read."
+  },
+  "bounds": {
+    "existing_AP_guard_s": 480,
+    "WA_RF_path_wait_s": 45,
+    "SSH_transport_connect_and_auth_s_each": 6,
+    "query_output_bound_bytes": 65536,
+    "query_channel_open_timeout_s": 6,
+    "query_execution_absolute_channel_close_deadline_s": 6,
+    "query_total_nominal_bound_s": 12,
+    "WA_RF_path_wait_rule": "Remainingbudgethalvedforopen+execution; absolute45spostcheck beforeacceptingreply. ExistingAPhelpersretainexistingguardedtimeouts.",
+    "channel_timer": "StartbeforeexecACK/read/exitstatus; expiryclosersonlyownedquerychannel, neverwholetransport; cancelfinally. InstalledParamikoChannel._set_closedunblocksACK/stream/status waits; inspectedprimarylocalcodeaf6482.",
+    "secure_AP_ready_total_s": 20,
+    "secure_WA_admission_total_s": 90,
+    "listener_start_ACK_and_identity_s": 6,
+    "listener_end_owned_PID_start_check_s": 8,
+    "listener_lifetime": "Samehost90sadmissiondeadline; closesubscriberchannelimmediatelyafteracquisition(successorfailure). ExactPID/start-end auditisdeferreduntilafterCPEreads inparentfinallyandstillmandatoryforPASS. No ubus-t/nativeprocesswatchdogclaim; sameAP480hostlossRFbound."
+  },
+  "restoration": "ExistingAPguard/ownerhashes/protectedconfig/network/radioOFF/noVAP/guardended/ownedRAM/nftexactoriginaltables; noCPEmutation so noCPErollbackguardneeded. PrivateevidencewriteorCPEclosefailure cannot skipAPrestore. APcloseerroralsoheldincleanup_errorswithoutskippingfinalreceipt.",
+  "acceptance_scope": "OnlyREADONLY_DIAGNOSTIC_ACQUIRED_AND_AP_RESTORED. NeverPREPROD1PASS/norescoringL/G; laterfullfivestables/fourrecoveries/20streamscriteriaunchanged.",
+  "stop": "Pinnedkey/board/exactfullWAMAC/hash/output/deadline orreadfailure=>preservefailureandattemptoriginalAPrestore. Noexternalcontact beyondexactbenchAP+WA.",
+  "private_raw": "Existinggitignoredpreprod_guarida_20261022/history; publicreceiptkeepshash+filteredauthlines; nosecrets/sourcefirmwareimagespublish.",
+  "dependency_publication": "Existingreadonlyroot_loco195_eth_readonly_20261021.py isbyteunchangedandneededonlyforpinnedcredentialpointer. Explicitlyincludeasrelatedpublicdependencyafterreview; neverincludeitscredentialreferencedfile.",
+  "diagnostic_success": "Essentialstatus/log/kernelrc0+nostderr; exactlyoneknownnativewpa_state; logorkernel nonempty; CPEconfigMD5beforeafterequal. bssFAILretainedexplicitlybutnotessential. Noqueryfailuremaycountasacquired.",
+  "public_privacy": "Rawiwconfig/log/kernelstayprivate; publicradioonlySHA. Publicstatus/BSS/uptime/hashoutputsandfilteredauthlines; existingcredentialpointerneverprinted/copied.",
+  "source_control": "DiagnosticCLIaccepts --execute LABEL, validateslabelcharsetandfrozenexactsource/review beforeconnections. OldMsource/plan/receiptimmutableinexecutedarchive; no rerunMwithnewbytes.",
+  "stop_park_condition": "Onlythisknownsecurepathretrieval; no newlogframework/package/install/CPEsetting oranotherdwellvariant. Failure=>preservediagnosticINCOMPLETE, restoreAP, useanyscopedpartialretainedlogsifpresent; do notrepairqueryprotocoljusttoforcehelperPASS. Parentfullfourrecovery remainsACTIVE; nextrepairneedschangeddecision-relevantevidence.",
+  "offline_contracts": {
+    "file": "preprod1_r5n3_contract_tests_20261022.json",
+    "sha256": "2bbb96d2742af4c3c0d6421c2e0d780866fd72e78ee5d5e9ddf03dbd2a1781f5",
+    "passed": 81,
+    "exit_code": 0
+  },
+  "preserved_fixture_failure": {
+    "file": "preprod1_r5n_fixture_failure_20261022/receipt.json",
+    "sha256": "494a3f23701d96fb4a9d1ca1f8f8def8b558a5d4a428a06d5df4c97569161796",
+    "failed": 2,
+    "passed": 78,
+    "exit_code": 1
+  },
+  "cleanup_order": "Acquisitionfinallyclosesonlysubscriberchannel; mainreturnsfromsecureadmission->ping->pinnedreadonlyCPEdata. ParentfinallyWAclose->independenttryownedlistenerend->privateevidencewrite->independenttryAPrestore/off/guard/RAM/nft->APclose->finalreceipt. A listener-auditerrorstillpreventsdiagnosticPASS butcannotpreemptCPEevidenceorAPrestore.",
+  "failure_preservation": "Strictreadonlycheckraiseswithquery_resultattribute; main/cleanupcopythatresultonlyintoprivateenvelope. Publicgatekeepscodewithoutstdout/stderrmaterial. OriginalNstderrremainsUNKNOWN andoldreceiptunchanged.",
+  "WA_configuration_hash_scope": {
+    "actual_files": [
+      "/tmp/system.cfg",
+      "/tmp/running.cfg"
+    ],
+    "evidence": "N2privateexcerptbothpresentandMD5b4ef405f738914fd38ab64ec2a0ae2d9; beforeafterNOTverifiedinN2aborted. N3willstrictlybracketthese2actualfiles.",
+    "absent_not_claimed": "/etc/wpasupplicant_AUTO.conf isabsentonWA; nopreservation/hashclaimforthatunsupportedXCpath."
+  },
+  "known_nonblocking_support_failure": "OwnedlistenerauditmayagainemitawkENOENTstderrbetweenchecks; remainsstrictFAIL ifso, primaryrawdiagnosticmaystillbeusedwithouthelperPASS. Preservepublicgate/privatequeryresult; freshlatePIDverificationrequiredifnormalendedproofmissing. Do notpolishthisoptionalhelperinstead ofactingontheclientdata."
+}

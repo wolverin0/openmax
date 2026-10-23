@@ -1,0 +1,457 @@
+{
+  "status": "NOT_ACCEPTED_PREPROD1_XC_REASON3_RECOVERY_TIMEOUT_AND_LBM5_TRAFFIC_DEFICITS_ALL_RESTORED",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T23:07:43.299855+00:00",
+  "receipt_sha256": "c759a6e3aa9381fafbe095e8b99c912dd09cddc4b40eff81f7736be073530bb2",
+  "plan_sha256": "1aa29bc527b3da4b39f3c0bf4096b7bfe8e73dfdef0035e248a3d63426fa5c83",
+  "source_review_sha256": "b4d1f0ffe404dcc4de5dd7b7f070dba4381605ff2904ce938e423f1f7cdd7d77",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "34226c120a4b52a5eb3c18421fd0c6e85da7771c92c5920e7bd4d911cff0a09f",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "bdd9182daa28f1568483940dd71f94bf383f82f56207fb1b7053e82040e374f5",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed"
+  },
+  "source_bindings_verified": 11,
+  "preconditions_verified": 20,
+  "public_artifact_references_verified": 37,
+  "private_artifact_references_not_opened": 4,
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "started_utc": "2026-10-22T22:58:49.187539+00:00",
+  "ended_utc": "2026-10-22T23:05:22.726791+00:00",
+  "PREPROD1_accepted": false,
+  "restoration_verified": true,
+  "failures": [
+    {
+      "type": "QualificationFailure",
+      "gate": "QUALIFY_ECHO_FAILED_LBM5",
+      "epoch": 0,
+      "CPE": "LBM5"
+    },
+    {
+      "type": "QualificationFailure",
+      "gate": "QUALIFY_RADIO_PAIRS_FAILED_LBM5",
+      "epoch": 0,
+      "CPE": "LBM5"
+    },
+    {
+      "type": "QualificationFailure",
+      "gate": "QUALIFY_ECHO_FAILED_LBM5",
+      "epoch": 1,
+      "CPE": "LBM5"
+    },
+    {
+      "type": "QualificationFailure",
+      "gate": "QUALIFY_RADIO_PAIRS_FAILED_LBM5",
+      "epoch": 1,
+      "CPE": "LBM5"
+    },
+    {
+      "type": "RuntimeError",
+      "gate": "DAEMON_ENDED_DURING_ACQUISITION",
+      "frames": [
+        {
+          "file": "preprod1_trial_20261022.py",
+          "line": 553,
+          "function": "main"
+        },
+        {
+          "file": "root_four_cpe_access_20261022.py",
+          "line": 19,
+          "function": "require"
+        }
+      ]
+    }
+  ],
+  "cleanup_errors": [],
+  "conclusion": "Y physicallyappliedreason3ONLYXCwithrestoredSIEpolicy, butXCfailedrecovery(native78). WAnewsessionrecovered54.81s. Two nativeholds completed, yetLBM5traffic26/32and31/32failsbothmeasuredtraffic epochs. HostcontinuedplannedobservationswhilepreservingfourQualificationFailures; nofullP1acceptanceorpartialrescue.",
+  "native_evidence": {
+    "artifact": {
+      "file": "daemon-evidence.json",
+      "bytes": 170861,
+      "sha256": "94975068f0eb44dfaeeddb0ce84e343a3f3835e9027da222c0c8cc2e0828f684"
+    },
+    "exit_code": 78,
+    "stop_reason": "recovery_timeout",
+    "restore_rc": 0,
+    "stderr_and_listener_stderr_empty": true,
+    "initial_four_admitted_seconds": 36.52,
+    "stable_holds_completed": [
+      {
+        "epoch": 0,
+        "actual_seconds": 61.4
+      },
+      {
+        "epoch": 1,
+        "actual_seconds": 60.5
+      }
+    ],
+    "drop_stimuli_observed": [
+      {
+        "n": 1,
+        "target": "WA",
+        "reason": 2,
+        "deauth": true,
+        "ban_time": 0
+      },
+      {
+        "n": 2,
+        "target": "XC",
+        "reason": 3,
+        "deauth": true,
+        "ban_time": 0
+      }
+    ],
+    "WA": {
+      "loss": 78155.13,
+      "old_WDS_ifindex": 224,
+      "retired": 78160.63,
+      "recovered": 78209.94,
+      "loss_to_recovered_seconds": 54.81,
+      "new_session_verified": true
+    },
+    "XC": {
+      "loss": 78271.1,
+      "old_WDS_ifindex": 223,
+      "retired": 78276.47,
+      "IE_set_ACK": 78276.64,
+      "IE_clear_ACK": 78302.56,
+      "IE_exposure_seconds": 25.92,
+      "native_cleanup_ended": 78331.31,
+      "loss_to_cleanup_end_seconds": 60.21,
+      "recovered": false,
+      "new_session_verified": false,
+      "timing_limit": "ENDED includesclear/cleanup; notexacttimeoutdecisiontimestamp."
+    },
+    "unexecuted_drops": [
+      "SXT",
+      "LBM5"
+    ]
+  },
+  "observer_traffic": {
+    "samples_total": 168,
+    "post_initial_admission_samples": 144,
+    "non_target_authorization_checks": 501,
+    "non_target_connected_rx_tx_counters_continuous": true,
+    "target_session_resets": [
+      {
+        "sample": 94,
+        "drop": "1",
+        "MAC": "fc:ec:da:c2:54:0a",
+        "before": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 62,
+          "rx_bytes": 19933,
+          "tx_bytes": 7490,
+          "signal_dbm": -47
+        },
+        "after": {
+          "interface": "phy0-ap0.sta4",
+          "connected_seconds": 1,
+          "rx_bytes": 625,
+          "tx_bytes": 634,
+          "signal_dbm": -43
+        }
+      }
+    ],
+    "native_holds_completed": 2,
+    "fully_qualified_traffic_epochs": 0,
+    "required_epochs": 5,
+    "individual_qualifying_streams": 6,
+    "required_streams": 20,
+    "flows_recomputed": {
+      "0": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 14.089,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta4",
+          "artifact": {
+            "file": "epoch0-WA.json",
+            "bytes": 10885,
+            "sha256": "fbe5bd8c0e6bc1d9e2a1dca1c92a23586f657e44487b62d0c1af253cbf4c4897"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 11.549,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta2",
+          "artifact": {
+            "file": "epoch0-XC.json",
+            "bytes": 10883,
+            "sha256": "0df4648ad869923675f8daec6be7dce92be3ba3b2f16e810ef12c5cf885e6358"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 10.315,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch0-SXT.json",
+            "bytes": 8077,
+            "sha256": "f944398cc041433266a3fe60d042576358a9552574f681a5df865bda5b5f970a"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 26,
+          "matched_radio_pairs": 26,
+          "finite_RTT_samples": 26,
+          "missing_echo_reply_sequences": [
+            0,
+            1,
+            6,
+            7,
+            8,
+            10
+          ],
+          "p95_ms": 111.583,
+          "qualifying": false,
+          "failures": [
+            "QUALIFY_ECHO_FAILED_LBM5",
+            "QUALIFY_RADIO_PAIRS_FAILED_LBM5"
+          ],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch0-LBM5.json",
+            "bytes": 7260,
+            "sha256": "f78da71ffe70e258e3448a2df47192ca13807ee1ab47db6ebf18d0cc63e9a373"
+          }
+        }
+      },
+      "1": {
+        "WA": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 12.122,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta4",
+          "artifact": {
+            "file": "epoch1-WA.json",
+            "bytes": 10947,
+            "sha256": "22374f232b9bde767ffd2b0f0512c4203f973ee91aba8b39aa9c9c6505c1be91"
+          }
+        },
+        "XC": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 10.801,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0.sta2",
+          "artifact": {
+            "file": "epoch1-XC.json",
+            "bytes": 10946,
+            "sha256": "1559361898bbe1d82a29a474d6f23d1b0e91512d9e3d30694df923d125e3ff15"
+          }
+        },
+        "SXT": {
+          "transmitted": 32,
+          "received": 32,
+          "matched_radio_pairs": 32,
+          "finite_RTT_samples": 32,
+          "missing_echo_reply_sequences": [],
+          "p95_ms": 15.123,
+          "qualifying": true,
+          "failures": [],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch1-SXT.json",
+            "bytes": 8143,
+            "sha256": "ea1b436b1183e22566543a86c99d17a2f9f7dfb00194f4cfe7bc56bdfc74084d"
+          }
+        },
+        "LBM5": {
+          "transmitted": 32,
+          "received": 31,
+          "matched_radio_pairs": 31,
+          "finite_RTT_samples": 31,
+          "missing_echo_reply_sequences": [
+            8
+          ],
+          "p95_ms": 22.73,
+          "qualifying": false,
+          "failures": [
+            "QUALIFY_ECHO_FAILED_LBM5",
+            "QUALIFY_RADIO_PAIRS_FAILED_LBM5"
+          ],
+          "startup_before_shared5s": true,
+          "interface": "phy0-ap0",
+          "artifact": {
+            "file": "epoch1-LBM5.json",
+            "bytes": 8025,
+            "sha256": "cdf57f497d6bf9a89c2ce822ed16695574d9c054df88926ff686d67ab0bd800a"
+          }
+        }
+      }
+    },
+    "QualificationFailure_count": 4,
+    "packet_deficit_continuation_exercised": true,
+    "XC_audited_commands": 52,
+    "XC_exec_during_window": 0
+  },
+  "optional_postwindow_diagnostic": {
+    "status": "INCOMPLETE_POSTWINDOW_READONLY",
+    "public_reported_canonical_wpa_state": "SCANNING",
+    "public_errors": [
+      "log:READ_FAILED"
+    ],
+    "window_closed": {
+      "mono": 758036.015,
+      "utc": "2026-10-22T23:04:38.364376+00:00"
+    },
+    "direct_owned_queries_audited_after_window": [
+      {
+        "window": false,
+        "command": "wpa_cli -i ath0 status",
+        "mono": 758036.937,
+        "postwindow_readonly": true
+      },
+      {
+        "window": false,
+        "command": "cat /proc/uptime",
+        "mono": 758036.953,
+        "postwindow_readonly": true
+      },
+      {
+        "window": false,
+        "command": "logread | tail -n 80",
+        "mono": 758037.015,
+        "postwindow_readonly": true
+      },
+      {
+        "window": false,
+        "command": "dmesg | tail -n 60",
+        "mono": 758037.078,
+        "postwindow_readonly": true
+      }
+    ],
+    "source_enforces_exact_daemon_ENDED_before_query": true,
+    "source_enforces45s_remaining_host_legacy_budget": true,
+    "actual_remaining_budget_not_independently_recorded": true,
+    "declared_private_directory": "preprod_guarida_20261022\\history\\preprod1_20261022_run5y_XC_postwindow",
+    "artifacts_metadata_only": {
+      "status": {
+        "file": "status.json",
+        "bytes": 142,
+        "sha256": "08c929536968e17964e77b073218a88628681d41c339c749552202818ef1c04f"
+      },
+      "uptime": {
+        "file": "uptime.json",
+        "bytes": 71,
+        "sha256": "aad5c6961924f650577e33a5e06dbe63dd7cbcc5c09da5a279655a4c68fa287f"
+      },
+      "log": {
+        "file": "log.json",
+        "bytes": 76,
+        "sha256": "64eb2a363057c037ea5ea266919f4de7378f9cb5f65ffa5a69a7caef8b234fe4"
+      },
+      "kernel": {
+        "file": "kernel.json",
+        "bytes": 3349,
+        "sha256": "16f29e2eb6b511cd6cf765dddaf212c6cc025fa99028d8932b9c29c838f1d076"
+      }
+    },
+    "private_bytes_read_by_reviewer": false,
+    "hashes_sizes_and_private_owner_verification": "Reportedbyproducer/rootowner; not independentlyopened/byteverified here. Theseareoutsidepublicrundir, notmissingpublicreferences.",
+    "acceptance_role": "Optionalpostwindowonly; SCANNINGisnotduring-windowrecoveryproof, logREAD_FAILEDremainsINCOMPLETE andno rawreasoninferred."
+  },
+  "restoration": {
+    "cleanup_errors": [],
+    "legacy": {
+      "SXT": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hash_entries_exact": 8,
+        "ordered_network_exact": true,
+        "restoration_ping3of3": true,
+        "guard_ended_and_owned_RAM_removed": true
+      },
+      "LBM5": {
+        "status": "PASS_OPEN_RF_CONFIG_PROTECTED_HASHES_GUARD_ENDED",
+        "same_boot": true,
+        "configuration_protected_hash_entries_exact": 5,
+        "ordered_network_exact": true,
+        "restoration_ping3of3": true,
+        "guard_ended_and_owned_RAM_removed": true
+      }
+    },
+    "Rocket_exact_baseline_hashes_bridge_rules_ordered_addresses_routes": true,
+    "Rocket_status": "PASS_EXACT_HASHES_RULES_BRIDGE_ORDERED_IPv4_ROUTES_GUARD_ENDED",
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "RAM_guard_cleanup": {
+        "exit_code": 0,
+        "stdout": "AP_OWNED_RAM_GUARD_REMOVED\n",
+        "stderr": ""
+      }
+    },
+    "daemon_clear_rc": 0,
+    "daemon_ended_verified": {
+      "exit_code": 0,
+      "stdout": "ENDED\n",
+      "stderr": ""
+    },
+    "daemon_RAM_removed": true,
+    "capture_startup_workers_ended": 8,
+    "capture_native_guards_ended": 8,
+    "original_nft_table_names_exact_after_restore": true,
+    "bridge_owner_comment_verified": true,
+    "bridge_forward_only_verified": true,
+    "bridge_drop_counters_packets": [
+      3569,
+      88
+    ],
+    "persistent_config_writes": false,
+    "forbidden_actions_executed": false
+  },
+  "limits": [
+    "Reason3treatmentboundednegativehere; no verifiedclientmechanism/cachecause/universalbehavior. RestoredSIEbaselineversusXquietisexplicit, notisolatedreason3causalityagainstX.",
+    "Onlyoneoffournewtargetsessions. NativeholdsarepositivebutLBM5deficitsmeanneithertrafficepochqualifies. Allcounts/failuresunchanged.",
+    "Privatepostwindowrawnotread, metadataonly. No publiclogfailurecauseorprivateauthreasonclaimed. FourreadonlyCPEqueriesoccurafterwindowFalse andsource-verifiednativeend, notzeroCPEexecoverall.",
+    "No SXT/LBM5drop/recovery or epochs2..4. Partialstate/echo/capturecannotrescueoriginalthresholds.",
+    "APrestoreusesexistingpinnedconfig/guard/radiooffcontract,nofreshrawMTDcapture. HosteventtimesarenotRFtimestamps.",
+    "Localpublicauditonly; nohardware/network/credentials/privateDEBUG/tests/Git/sourceedits. Earliernegativesremainbytepreserved."
+  ]
+}

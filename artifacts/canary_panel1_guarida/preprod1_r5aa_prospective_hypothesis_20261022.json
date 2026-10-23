@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-22T23:42:22.599940+00:00",
+  "parent": "FMX0017 / original forward-plan PhaseB-C / PREPROD1",
+  "question": "Does a successful initial XC association include SSID IE0 while recovery requests omit it, under the same exact AP receive/control path?",
+  "existing_evidence_file": "preprod1_r5z_missing_ssid_interpretation_20261022.json",
+  "existing_evidence_sha256": "c4cc494bf0fa2cfbbe3012bbdd8b293342d16262a21889966e9015a954fe640e",
+  "minimum_change": "Same Z native/wireless/traffic/RF recipe and proven APcontrol instrumentation. Add an initial APTrace from the freshly secure BSS before finalXCenable/status, end/reset it as soon as FOUR_ADMITTED before epoch0traffic, then reuse original recovery trace around exactXCdrop2. Stage two independentlyowned copies of the same heldCLI beforeRF. Initialnative180s bounded by original120s admission plus prep, recovery90 unchanged. No -a/DEBUG/newVAP/reload/beacon/target-window command.",
+  "initial_guard_seconds": 180,
+  "recovery_guard_seconds": 90,
+  "baseline_notify0": "InitialfreshownedBSS/config/default0. Recoverymustreceiveandvalidate priorinitialtrace finishedTRACE_COMPLETE/reset0ACK/guardandlistenerended and ownedRAMcleanup; no unproven mutable default claim after prior SET.",
+  "limits": "Same5s absolute ownedchannel readytimer,262144stdout/8192stderr/2000wholeframecap, exactguardlivePID/start/argv/SHA beforeenable, independentreset/listener/archive/RAM and originalAPoffrestore. Privateframesonly; public safe IEstructure+fullSeqCtrl. MalformedreceivedIE isdata, acquisitiontruncationfails.",
+  "acceptance": "All original 4true losses/new sessions<=60/other3continuous/five>=60sholds/twenty32echo32pairs/zeroCPEwindowcommands/exactoriginalrestore. Neither diagnostics nor packetdeficitcontinuation can rescue any failure.",
+  "fixed_RF": "5180/20/0dBm/AR unchanged",
+  "stop_park": "Missing/truncated/invalid/uncertaintrace, IPC/guard/identity/peer/session/deadline failure ->preserve and restore. After actual initial/recovery comparison choose only the minimum source/evidence-supported repair, no unchanged timing retry or newplatform.",
+  "production_access_permitted": false,
+  "P2": "Unchanged offlinePASS/HOLD, not physicalrollbackqualified"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "INVALID_HARDENING_BASELINE_NO_EXECUTE",
+  "binary_sha256": "f7bbd229b0ea99c5f38365d176af1a3ca4057a4e6719b6059e892798fdcf3a57",
+  "cause": "Live stock is ET_DYN with DF_1_PIE; R2 direct relink omitted -pie and yielded ET_EXEC. Needed libraries already match in same order.",
+  "correction_to_initial_metadata_failure_label": "Failure was type equality in second assert, not ordered needed list; pending-diagnosis wording in first failure record is not causal proof.",
+  "changed_hypothesis": "Retain clean coherentAC compilation, add original PIE hardening to linker. No security criterion relaxed.",
+  "device_execution": false
+}

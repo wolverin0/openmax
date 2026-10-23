@@ -1,0 +1,201 @@
+{
+  "schema": "PREPROD1_RUN5G_INDEPENDENT_PHYSICAL_RESULT_V1",
+  "status": "INCOMPLETE_PREPROD1_RUN5G_MANAGEMENT_FAILURE_LATE_EXACT_RESTORATION_VERIFIED",
+  "reviewed_utc": "2026-10-22T19:06:39.175474+00:00",
+  "receipt_sha256": "b0c9ba07efb38a0e411c8fa6bb5f8ed8b2ede38d83482e78c759a2c5243fed06",
+  "plan_sha256": "7a4428b2a2b555659b81c67a0018bee6d6d0343e718aebed0b8722ddcd29e698",
+  "source_review_sha256": "b258c8bd7821d2ae4801df24dfa1fa4177f449f68f51eced8d388a0dcf2b92d5",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "06f8468c5c5c647eee76afa7b3e1d65f5faab82396f7242fce0edc7b04d4787c",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "3a1884cde15f343fd8b45c7eab78d54a7f8e7b09ab836e2f7c96b526de1b89ea",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "fb0cee06575a9194881dc3594e5c67250fed883948736e6fb2d2e86f993d274f"
+  },
+  "raw_status": "INCOMPLETE_FOUR_CPE_PRESERVED",
+  "raw_exit_code": 1,
+  "ended_utc": "2026-10-22T18:58:57.608075+00:00",
+  "scope": "Independent local artifact/source/supplement review only; no devices/network/credentials/tests/Git/producer changes.",
+  "research_acceptance": false,
+  "restoration_verified": true,
+  "restoration_proof_is_late_additive": true,
+  "original_cleanup_errors_preserved": [
+    "Daemon:SSH session not active",
+    "legacy:SSH session not active",
+    "AP:CLIENT_PIN_CHANGED",
+    "Rocket:Timeout opening channel."
+  ],
+  "artifact_bindings_verified": {
+    "preflight-0-WA.json": "c836e3fbfc1b12a3071bd5e16cba75d94b93a65a1a944e0ce449cd6176284124",
+    "preflight-0-XC.json": "193b10fcc838b0e43f3d665cb4cdf5a6963611037bca5a75e7d9e0935b137d65",
+    "preflight-0-SXT.json": "43b2be88f9baf23d43a9b1e9d707dc7321291d32bb7a5f9031b51aab46603a10",
+    "preflight-0-LBM5.json": "d0b73fdb6229f9d688a167836da85003f00b113aa601680e1e6fdec9af1f27ec",
+    "epoch0-WA.json": "eca0c08ae4832413d75df3e36f0450de4163ebb67996484fa80e56415ce89c0a",
+    "epoch0-XC.json": "4d8da3c09b5dbc25743896a013a9e991b727af6ee44213df7b2d078632924da2",
+    "epoch0-SXT.json": "52e8633e39737db2bb4a0ac1c5e1fe99258347b987a07d03a4feaac8c250e615",
+    "epoch0-LBM5.json": "a26beb3695123a44f6b70996ee4045fb05b36708ced7fb63617e16db073b7983",
+    "setup-0-WA-capture.json": "7528d0de047b2483873e7db5aace495ed40d606e3ed767a8afdb39f135a60f5c",
+    "setup-0-XC-capture.json": "d75712d626251de79e73fd9d37435f80086dd7c12be0672087204c3aaefc5f2f",
+    "setup-0-SXT-capture.json": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4",
+    "setup-0-LBM5-capture.json": "339607c838a1c522d493108816e9928361aa07d015076ad0ceb9baa9ac7942b4",
+    "hostapd-events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "packet_qualified_epochs": {
+    "0": {
+      "WA": {
+        "artifact": "epoch0-WA.json",
+        "sha256": "eca0c08ae4832413d75df3e36f0450de4163ebb67996484fa80e56415ce89c0a",
+        "transmitted": 32,
+        "received": 32,
+        "RTT_count": 32,
+        "matched_radio_pairs": 32,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "p95_ms_recomputed": 3.711,
+        "interface": "phy0-ap0.sta4",
+        "exact_native_listening_recorded": true,
+        "fixed_preflight_artifact_unscored": {
+          "file": "preflight-0-WA.json",
+          "bytes": 548,
+          "sha256": "c836e3fbfc1b12a3071bd5e16cba75d94b93a65a1a944e0ce449cd6176284124"
+        }
+      },
+      "XC": {
+        "artifact": "epoch0-XC.json",
+        "sha256": "4d8da3c09b5dbc25743896a013a9e991b727af6ee44213df7b2d078632924da2",
+        "transmitted": 32,
+        "received": 32,
+        "RTT_count": 32,
+        "matched_radio_pairs": 32,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "p95_ms_recomputed": 3.473,
+        "interface": "phy0-ap0.sta2",
+        "exact_native_listening_recorded": true,
+        "fixed_preflight_artifact_unscored": {
+          "file": "preflight-0-XC.json",
+          "bytes": 411,
+          "sha256": "193b10fcc838b0e43f3d665cb4cdf5a6963611037bca5a75e7d9e0935b137d65"
+        }
+      },
+      "SXT": {
+        "artifact": "epoch0-SXT.json",
+        "sha256": "52e8633e39737db2bb4a0ac1c5e1fe99258347b987a07d03a4feaac8c250e615",
+        "transmitted": 32,
+        "received": 32,
+        "RTT_count": 32,
+        "matched_radio_pairs": 32,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "p95_ms_recomputed": 10.43,
+        "interface": "phy0-ap0",
+        "exact_native_listening_recorded": true,
+        "fixed_preflight_artifact_unscored": {
+          "file": "preflight-0-SXT.json",
+          "bytes": 454,
+          "sha256": "43b2be88f9baf23d43a9b1e9d707dc7321291d32bb7a5f9031b51aab46603a10"
+        }
+      },
+      "LBM5": {
+        "artifact": "epoch0-LBM5.json",
+        "sha256": "a26beb3695123a44f6b70996ee4045fb05b36708ced7fb63617e16db073b7983",
+        "transmitted": 32,
+        "received": 32,
+        "RTT_count": 32,
+        "matched_radio_pairs": 32,
+        "ping_exit_code": 0,
+        "capture_exit_code": 0,
+        "p95_ms_recomputed": 8.763,
+        "interface": "phy0-ap0",
+        "exact_native_listening_recorded": true,
+        "fixed_preflight_artifact_unscored": {
+          "file": "preflight-0-LBM5.json",
+          "bytes": 454,
+          "sha256": "d0b73fdb6229f9d688a167836da85003f00b113aa601680e1e6fdec9af1f27ec"
+        }
+      }
+    }
+  },
+  "observed_controller": {
+    "samples": 52,
+    "packet_qualified_epochs": 1,
+    "fully_qualified_stability_recovery_epochs": 0,
+    "verified_target_session_resets": [],
+    "independently_observed_successful_recoveries": 0,
+    "XC_window_exec_count": 0,
+    "capture_native_guards_ended": 4,
+    "failures": [
+      {
+        "type": "SSHException",
+        "gate": "Timeout opening channel."
+      }
+    ],
+    "coverage_limit": "Controller continuity ended before native STABLE_DONE/drop/recovery; no epoch1+ packet evidence. Exact baseline stability/recovery/peer acceptance remains incomplete."
+  },
+  "recovered_native_evidence": {
+    "initial_admission_seconds": 35.21,
+    "native_hold_seconds": {
+      "0": 61.64,
+      "1": 62.22
+    },
+    "WA_loss_then_recovered_seconds": 38.48,
+    "WA_recovered_record": true,
+    "XC_drop_observed_but_no_recovered_record": true,
+    "native_exit_rc": 0,
+    "native_stop_reason": "operator_signal",
+    "IE_clear_rc": 0,
+    "qualification_limit": "Recovered AP-local records do not replace missing controller station/counter continuity, target-session reset verification or epoch1+ traffic. No rescoring original SSH failure."
+  },
+  "late_restoration_addendum": {
+    "receipt_file": "preprod1_r5g_recovery_20261022/receipt.json",
+    "receipt_sha256": "4d174bac6bef6d27231e017d6eda9de3c0a4d5cd306ea0a614867dc1e2357719",
+    "ended_utc": "2026-10-22T19:05:23.183790+00:00",
+    "files": {
+      "daemon-evidence.json": "1e6086e84e1db685cd6a3aceab2e26dbd92a1277c79c6878a26f4531c4338448",
+      "receipt.json": "4d174bac6bef6d27231e017d6eda9de3c0a4d5cd306ea0a614867dc1e2357719",
+      "Rocket-restoration.json": "7fbe1419948525d02e499151c98ab970189891146d4e103198f1c4c1bd79943b"
+    },
+    "AP": {
+      "status": "PASS_RAM_WINDOW_RESTORED_RADIO_OFF",
+      "exact_original_owned_guard_identity": true,
+      "pinned_runtime_config_network_off_validation": true,
+      "empty_deltas_guard_ended_owned_RAM_removed": true
+    },
+    "Rocket": {
+      "exact_archived_guard_cmdline_MD5_recomputed": true,
+      "exact_unique_PID_start_guard_ended": true,
+      "all_four_fresh_snapshots_equal_pretrial": true,
+      "status": "PASS_EXACT_CONFIG_PROTECTED_HASHES_BRIDGE_ORDERED_ADDRESSES_ROUTES_RULES_GUARD_ENDED"
+    },
+    "SXT_LBM5": {
+      "SXT": {
+        "same_original_boot_hashes_network": true,
+        "owned_guard_identity_exact": true,
+        "management_ping_exit0": true,
+        "owned_RAM_cleanup_exit0": true
+      },
+      "LBM5": {
+        "same_original_boot_hashes_network": true,
+        "owned_guard_identity_exact": true,
+        "management_ping_exit0": true,
+        "owned_RAM_cleanup_exit0": true
+      }
+    },
+    "daemon_ended_clear0_owned_RAM_removed": true,
+    "no_original_receipt_mutation": true
+  },
+  "management_diagnostic": {
+    "file": "preprod1_r5g_management_diagnostic_20261022.json",
+    "sha256": "4009832dac040149cfe67402d2c5ee7829bcce8eacf361de97e9c2d3394f6055",
+    "pinned_reconnect_seconds": 0.421,
+    "own_source_bridge_warning_count": 38,
+    "interpretation": "Own-source packets on eth0/WDS overlap management failure and support L2 reflection/loop as an INFERRED hypothesis; not a proven physical topology or sole failure cause. CLIENT_PIN_CHANGED in failed cleanup does not by itself establish hostkey rotation when transport was inactive."
+  },
+  "decision": "R5g remains NOT_ACCEPTED: packet acquisition passed for epoch0, but management failure prevented complete observer/traffic/session/recovery proof. Late exact restoration accepted separately. Preserve all failures and no fullPASS/no production claim.",
+  "objective_continuity": "Coordinator continues minimum necessary management-path safety repair and fresh prospective review; no unchanged RF retry or inference from expected guard expiry.",
+  "validation_exit_code": 0
+}

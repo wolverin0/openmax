@@ -1,0 +1,72 @@
+{
+  "status": "PASS_LOCAL_PASSIVE_AP_PATH_OBSERVER_WITH_ORIGINAL_QUALIFICATION_GATES",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T22:11:41.421852+00:00",
+  "plan_sha256": "e0bbe1a1c57e35d348aa08a5b604376f3754c3ebfee12b590bf7c867520d2a69",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "6ae1729b197b93ee961ff83e767116c47dc05517fe217fc44650aa4b1ea1ed1f",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "8a06b9d55211e0f99e455088a57cc9cc9e944056a67c437996fb15ec49a44820",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed"
+  },
+  "scope": "Independentlocalpublicpreflightonly. No hardware/network/credentials/private logs/tests/Git mutations/source modifications.",
+  "bindings_verified": {
+    "sources": 10,
+    "preconditions": 9,
+    "offline_contract_metadata_sha256": "e722a45d38c4215fc1e4b7b2e21620f92c74a412cc6a76be9c222645e3be517c",
+    "preserved_short_ID_fixture_failure_sha256": "5b023768bafbd1a1876e4552625c6048232198c59f214e140841471ba1a13b06"
+  },
+  "source_delta": {
+    "baseline": "U executed-source runner17001/nativef7bb; Ufailedbaselineecho andquietpolicyremainsunmeasured.",
+    "unchanged_old_top_level_functions_except_main": true,
+    "new_functions": [
+      "path_capture_command",
+      "path_capture_evidence",
+      "validate_path_capture"
+    ],
+    "native_policy_unchanged": true,
+    "original_acceptance_RF_deadlines_guards_preparation_retirement_bridge_exact_unchanged": true,
+    "AP_debug": false
+  },
+  "findings": [],
+  "admission_basis": [
+    "Onlyepoch0 addsonepassive APtcpdump any observer filteredexactXCIPv6ICMPechotypes128/129. Noadditional ping orCPEcommand.",
+    "Newobserver usesexistingPID/startowned45snativewrapper/48sSSHchannel, sharesfirstprimarylaunch+5sstrictstartupdeadline andjoinsboundedstartupworkersbeforestderrdrain/restoration.",
+    "Capturecount256/snap128, stdout65536/stderr8192 enforced. Archiveevidencebeforevalidation; unfinished/overflow/exit/header/startup failuresrecordcleanup_errors andpreventPASS. Eachcleanuptryisindependent of originallegacy/AP/Rocketrestoration.",
+    "Originaltwentyqualifiedstreams stillrequire32/32finiteecho and32matchedradiochildpairs. Any-interfaceevidencecannotreplaceorrescueanyfailedoriginalgate.",
+    "OriginalnativequietXCpolicy andall120/60/780deadlines/newtargetsession/non-targetcontinuity/fiveholds/exactrestorations unchanged. UnexpectedIEonstillfails89."
+  ],
+  "evidence": {
+    "author_fresh_offline_tests": {
+      "passed": 120,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 3.94,
+      "tool_receipt": "2a61ae",
+      "executed_by_reviewer": false
+    },
+    "native_syntax_reused": {
+      "exit_code": 0,
+      "tool_receipt": "bc6dee",
+      "reused": true,
+      "exact_unchanged_native_sha256": "f7bb385c7756af2f2faf6c40063dffc723301cda991b3f8dc10b2e2ff62c4a7d"
+    },
+    "capability": "Pinnedreadonlyenumerationshowedanyavailable/APradiooff; this isnotactualpacketacquisitionproof.",
+    "prior_fixture_errors": "FourWindowsPYTEST_CURRENT_TESTenvironment-lengthsetup errors preserved; finalshortcaseIDtestrevisionpassed. No failurediscarded."
+  },
+  "limits": [
+    "LocalpreflightdoesnotacceptPREPROD1orprovefutureRX/echo/quietrecoverybehavior. Unegativeunchanged.",
+    "Anycapturecanobserve duplicatepackets atmultipleAPinterfaces. Counts/timestampsarenotone-to-oneRFframes, calibratedRFtiming, or path-losscausalityproof.",
+    "FixedIPv6headerfilterobservesgenerateddirectICMPv6echo; no claim of arbitraryextensionheadercoverage. Diagnosticpacketcapcanendearly, andobserveroverheadcanperturb timing.",
+    "Newobservercleanup/errorrequirementsareadditionalfailclosedinstrumentationchecks, notsubstitutesforfullfrozenphysicalcriteria.",
+    "RuntimeAPdebugisdisabled; Traceonlyremainsanofflinecontractdependency."
+  ],
+  "RF_accepted": false,
+  "PREPROD1_accepted": false
+}

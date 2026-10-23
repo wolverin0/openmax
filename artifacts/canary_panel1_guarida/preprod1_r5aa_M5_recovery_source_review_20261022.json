@@ -1,0 +1,49 @@
+{
+  "status": "BLOCK_LOCAL_M5_RECOVERY_PREFLIGHT",
+  "reviewed_utc": "2026-10-23T00:12:05.384899+00:00",
+  "reviewer": "flash_review independent local public source inspection",
+  "source_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "06966e7572f7b6cbc6df5f5c84cd0d2fc772280da6a130828f54eee5957a42e1",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.py": "90bbc70a4dd345edaa30e1b857ae35b0ffa2dc1347764235f44d30a88addcd8d",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "706ce66c6dd53316e9e1ae3f83b7f7c4b1345fe0a53fd20e4711845064f5e013",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_final_closure_20261022.json": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742",
+    "artifacts/canary_panel1_guarida/preprod1_run5aa_independent_acceptance_20261022.json": "de9aabe6a9e4f507cc152848b5a399fae48d16697af54ae2d792f0f16b16b5b6"
+  },
+  "hardware_execution_by_reviewer": false,
+  "tests_executed_by_reviewer": false,
+  "PREPROD1_accepted": false,
+  "findings": [
+    {
+      "id": "M5_CONNECT_DEADLINE",
+      "scope": "management acquisition",
+      "evidence": "Loop deadline is checked only before ping/connect. connect_legacy has separate connection/handshake/auth/identity waits and can return after end; successful return has no monotonic postcheck.",
+      "minimum_fix": "Bound only the owned connection attempt by remaining absolute 90 second acquisition budget, close owned attempt on expiry, and reject any result returned after end."
+    },
+    {
+      "id": "M5_GUARD_ID_FAILCLOSED",
+      "scope": "restoration acceptance and RAM deletion",
+      "evidence": "read p s does not validate exactly two positive numeric fields before the process-ended test. Missing/malformed identity can fail the live test and be printed as M5_GUARD_ENDED, then permit RAM deletion.",
+      "minimum_fix": "Require exactly two positive integer PID/start values before testing process liveness or removing guard RAM."
+    },
+    {
+      "id": "M5_CLOSE_CANNOT_SKIP_AP_RESTORE",
+      "scope": "failure cleanup",
+      "evidence": "Unprotected c.close() is the first operation in finally. An exception there bypasses the AP restore/nft/RAM block and final receipt save.",
+      "minimum_fix": "Record/catch the owned M5 close error independently and always attempt AP closure and durable final result."
+    }
+  ],
+  "reviewed_positive_boundaries": [
+    "TTL is set to 180 and the exact native guard literal +480 is replaced with +180.",
+    "Atomic owned bridge table is installed while AP is confirmed off; patched native restore verifies final radio-off before owner-bound nft deletion.",
+    "No IE/admitter/load/scan/CPE treatment is added; M5 reads compare original boot, config/protected hashes, network and open profile before cleanup.",
+    "Exact original owned M5 directory/source hash and nonsymlink fixed-file cleanup are retained.",
+    "arm failure does not delete nft unless helper.off verifies radio remains off; otherwise native guarded restore remains the fallback."
+  ],
+  "limits": [
+    "Static local public review only. No radio, network, credentials, private data, builds or tests executed.",
+    "Findings are source failure-path/correctness defects; they are not claims that those failures occurred on hardware.",
+    "AA remains aborted and LBM5 restoration remains unknown; a future recovery success cannot rescue AA research acceptance."
+  ]
+}

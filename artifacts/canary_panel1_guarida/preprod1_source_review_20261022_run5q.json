@@ -1,0 +1,83 @@
+{
+  "status": "PASS_LOCAL_O_BASELINE_CURRENT_PROCESSED_WA_BROADCAST_CONTRAST",
+  "reviewer": "flash_review",
+  "reviewed_utc": "2026-10-22T20:58:00.119149+00:00",
+  "plan_sha256": "923b6722bb277f9c2850cd4ce00a52fdade694b320e8abd3fc5e434c76425fd8",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "1da64249e74c526d5bf861b9d2bbc037b81361ace46144e11940ed5b07e88f81",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "c5388eb593e9eb605529835cd999daffdb22a3b66d8aec37803eddcf67b91098",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "9245652dd0d1e5b6e13644038881cbbe2039072874b17714ad84660c1f1d62c9"
+  },
+  "preconditions": {
+    "latest_P_negative_restored": {
+      "file": "preprod1_20261022_run5p/receipt.json",
+      "sha256": "d238d16d21e41986afe324b59da60c124090fad8ecf097368595b946233c2b04"
+    },
+    "independent_P_negative": {
+      "file": "preprod1_run5p_independent_acceptance_20261022.json",
+      "sha256": "5e7abf9c4a4c5256d96c909b5150100e46b8d4be17525696a01df5a6e74e212a"
+    },
+    "comparison_baseline_O": {
+      "file": "preprod1_20261022_run5o/receipt.json",
+      "sha256": "5999080574cc3be65728ae1c87a6583f2be23143140e69dd42f84a8d6621f9db"
+    },
+    "independent_baseline_O": {
+      "file": "preprod1_run5o_independent_acceptance_20261022.json",
+      "sha256": "114247aa08282061b52e7c485f09cb1b07078e30ba8716232e9b6671a9d64969"
+    },
+    "bounded_peer_timing_evidence": {
+      "file": "preprod1_r5q_probe_alignment_evidence_20261022.json",
+      "sha256": "ca597bc994f44945d23422f7cde4f3b948e456bb68773ed3c8f2baaf9c02c8f1"
+    },
+    "prospective_changed_hypothesis": {
+      "file": "preprod1_r5q_prospective_hypothesis_20261022.json",
+      "sha256": "f89b25150bc4ff20b4551129cac077ed89a85edfe7c791324361e66a6a8a41a0"
+    }
+  },
+  "must_fix_findings": [],
+  "delta_review": [
+    "Compared native source directly with executed O daemon cb9540a6, not P. Drop primitive is exactly O reason2/deauthtrue/ban0; the only behavior change versus O is requiring the current processed exact WA broadcast in addition to existing same-pulse seen_wa and native>=21-floor condition before recovery IE clear. The log adds fresh_broadcast=1.",
+    "Existing loop resets probe_address and probe_target before every input read, so empty, foreign and directed current events cannot use old same-pulse seen state to clear the IE. The required broadcast target itself satisfies the existing valid-target allowlist.",
+    "Initial same-pulse both-client admission, other target recovery, global60s including WDS wait/current event/authentication, early-good completion, peer protection and all outcome gates are unchanged.",
+    "Full acceptance map compares byte-for-byte as parsed JSON with O. RF, guards, isolation, WDS barrier, captures and XC preparation also compare equal. Pulse recipe differs only in its declared WA recovery clear predicate."
+  ],
+  "static_staging_byte_check": {
+    "tool_chunk": "3aee1a",
+    "classification": "Pure AST-extracted unchanged upload-command rendering with actual daemon and a valid-format24-hex directory; no shell/device execution or tests run.",
+    "source_bytes": 10205,
+    "staging_commands": 22,
+    "max_actual_staging_command_bytes": 947,
+    "hard_bound": 4096,
+    "plan_metadata_matches": true
+  },
+  "method_evidence": {
+    "file": "preprod1_r5q_probe_alignment_evidence_20261022.json",
+    "sha256": "ca597bc994f44945d23422f7cde4f3b948e456bb68773ed3c8f2baaf9c02c8f1",
+    "five_referenced_daemon_artifact_hashes_verified": true,
+    "limits": "G contains only a partial native positive and is not rescued. H/K fresh-probe negatives remain negative, so freshness alone is not an established cause. L/O recorded older WA broadcast at clear only support this prospective contrast. Current processed event is not an RF receive timestamp or an OTA timing guarantee."
+  },
+  "offline_evidence": {
+    "file": "preprod1_r5q_contract_tests_20261022.json",
+    "sha256": "64a101bcaf108ccb611da018c72e71952456680a801ecc880d8af858b091fdc5",
+    "passed": 89,
+    "exit_code": 0,
+    "seconds": 2.71,
+    "tool_chunk": "cfe3c1",
+    "native_shell_syntax_exit": 0,
+    "red_file": "preprod1_r5q_before_fresh_probe_20261022/receipt.json",
+    "red_sha256": "35183db635931927b7f46e9caaa78b18c1bf88d5bdae52d77e8a5eaf030a1c7f",
+    "classification": "Coordinator-executed actual native decision-block contracts inspected, not rerun. Four negative current-event cases failed before change with fresh positive retained; new revision passes. Existing outcome/guard contracts remain revision-bound evidence, not hardware proof."
+  },
+  "limits": [
+    "One prospective isolated bench treatment versus explicit O baseline. P disassociation is rejected and is not the Q comparison baseline.",
+    "All original5stable epochs,20qualified32/32 echoes+32radio pairs,4observed losses/newtarget sessions, other-three continuity, zeroXCwindow commands and exact restoration remain mandatory.",
+    "Vendor effect and recovery cause remain UNKNOWN until measurement. No older failed run, partial native recovery or initial baseline is promoted.",
+    "No hardware/network/credentials/private raw/tests/Git/source edits; public local exact-delta review and requested static byte rendering only."
+  ]
+}

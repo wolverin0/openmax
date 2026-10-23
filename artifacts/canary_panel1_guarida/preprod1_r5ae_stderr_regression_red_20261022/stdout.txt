@@ -1,0 +1,26 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_unknown_or_unproven_interface_failure_still_fails_closed[success_with_stderr] _
+
+options = {'dump_code': 0, 'dump_error': 'netlink warning\n'}
+
+    @pytest.mark.parametrize('options', [
+        {'target': SXT},
+        {'dump_code': 1},
+        {'dump_error': 'netlink receive failed\n'},
+        {'state': 'INDEX 100\n'},
+        {'state': 'INDEX 0\n'},
+        {'state': 'INDEX 101\ntrailing\n'},
+        {'probe_code': 88},
+        {'recovered': True},
+        pytest.param({'dump_code': 0, 'dump_error': 'netlink warning\n'}, id='success_with_stderr'),
+    ])
+    def test_unknown_or_unproven_interface_failure_still_fails_closed(options):
+        collect, record, _calls = snapshot_fixture(**options)
+>       with pytest.raises(RuntimeError):
+E       Failed: DID NOT RAISE <class 'RuntimeError'>
+
+tests\test_preprod1_station_snapshot.py:87: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_preprod1_station_snapshot.py::test_unknown_or_unproven_interface_failure_still_fails_closed[success_with_stderr]
+1 failed, 10 deselected in 0.22s

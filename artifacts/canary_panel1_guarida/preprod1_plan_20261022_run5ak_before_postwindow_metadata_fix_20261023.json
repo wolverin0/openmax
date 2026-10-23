@@ -1,0 +1,875 @@
+{
+  "frozen": true,
+  "utc": "2026-10-23T05:38:34.162246+00:00",
+  "parent": "FMX0017 / forward-plan PhaseB/C",
+  "production_access_permitted": false,
+  "review_file": "preprod1_source_review_20261022_run5ak.json",
+  "source_bindings": {
+    "tools/bench/preprod1_admitter.sh": "75ace9a49ba4ca0a6cac4905e8ecc227e0ba4e0dac6c774efb0c4897241ccd37",
+    "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py": "5336d9d82c398bd04e8e2e8dcd1becbacd026905ae967569e70191fd549edd32",
+    "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+    "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+    "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+    "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+    "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+    "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+    "tests/test_preprod1_audit.py": "839f60096cab70ddc2f568b5d53640bf8f20f8797a1576ed442afc82f9fe035f",
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "7e783141f1079494c0731128ba54335c1aefaa943d7975389bcbf2d584328030",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+    "tests/test_preprod1_remote_deadline.py": "dbc3a3d21da831140e89afb569979d0d9ebb40b738817c6d10ef95ed9c347685",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "13689970aedd3e4f429d11b14ecc928f70d7a31b13bddbf0808f73e7fffb3fc3",
+    "artifacts/canary_panel1_guarida/preprod1_r5ac_legacy_intake_20261022.json": "6cf4c8d72166ff2256d35a944d665c18bf7c03268ee32702c484ee0db7b7212b",
+    "tests/test_preprod1_station_snapshot.py": "6a9d209a9bf204ca21127bde56aedc2f27447d6bbb3cc7aa0ecad67e15b96956",
+    "tests/test_preprod1_scan_policy.py": "f2cf73884cdbf44784b1080a2e3c662f011ccd65c49b83a4a7ae1c83b3ec4522",
+    "tests/test_preprod1_ap_scan_mode.py": "cdb9da44666be2a219e837206da9f63d1d1438120ec2a0223bc34815608c48cc",
+    "tests/test_preprod1_no_WA_diagnostic.py": "b8960dfb913e916694f0be7ac39ee417bdd51920cb2561e9ca2fb452b6ee40d1",
+    "artifacts/canary_panel1_guarida/preprod1_AP_compat_20261023.py": "460c8194d23d016206a9f6e26f205087d78796f15e3dd8b4a0917089e11e996d",
+    "artifacts/canary_panel1_guarida/preprod_guarida_20261022/history/preprod1_r5ak_AP_compat/wpad.compat": "99122e15246efc0006c82fc23a8667f7ccdcdf9d15bd2f46edc7e95c0f7b6923",
+    "tools/bench/hostapd_preprod1_xc_ssid.h": "34a85e278810284a6d68976736366e4efe59c7020f2515712c06f4bb0367526e",
+    "tools/bench/hostapd_preprod1_xc_ssid.patch": "7573c43372ffc89cf2428aedf34de08e9be136d2db111883695d5d4b3303e27b",
+    "tools/bench/build_preprod1_xc_ssid.py": "4b49956ad7b941902f790631aea25b0ea7aae06f0380ca793b21f028491455e6",
+    "tests/test_preprod1_xc_ssid_compat.py": "a1ed2ee65601ced66d00622412bf2af1cd5c4030ebb170030de44d5ebc5aca23",
+    "tests/test_preprod1_AP_compat.py": "e3213f8cb00b3a9786846894a467bc06979f681653f851e635dd700a7ece84e2",
+    "tests/test_preprod1_AP_compat_integration.py": "108e3273f12b5585c229ce9e8fb78f2e30589d40c53dde599bea245505e6e840"
+  },
+  "RF": {
+    "MHz": 5180,
+    "width_MHz": 20,
+    "AP_dBm": 0,
+    "country": "AR"
+  },
+  "acceptance": {
+    "initial_authorization_deadline_s": 120,
+    "stable_epochs": 5,
+    "stable_seconds_each": 60,
+    "AP_native_hold_integer_seconds": 61,
+    "recovery_deadline_s_each": 60,
+    "drop_order": [
+      "WA",
+      "XC",
+      "SXT",
+      "LBM5"
+    ],
+    "drop_method": {
+      "reason_default": 2,
+      "reason_by_target": {
+        "WA": 2,
+        "XC": 3,
+        "SXT": 2,
+        "LBM5": 2
+      },
+      "deauth": true,
+      "ban_time": 0
+    },
+    "CPE_exec_commands_during_window": 0,
+    "native_daemon_owns_IE_and_drops": true,
+    "other_three_no_session_or_counter_reset": true,
+    "one_expected_session_reset_per_drop": true,
+    "low_rate_echo_per_CPE_per_epoch": 32,
+    "matched_radio_pairs_per_CPE_per_epoch": 32,
+    "echo_delivery": 1.0,
+    "restoration": "exact original profiles/protected/config/boot/network, AP radioOFF, all guards and owned RAM ended"
+  },
+  "pulse_recipe": {
+    "initial_max_seconds": 60,
+    "later_max_seconds": 60,
+    "missing_exact_probe_clear_delay_ms": 500,
+    "quiet_after_clear_seconds": 35,
+    "reason": "R5 observed25s WA and29s XC from clear to authorization; do not re-inject during that auth interval",
+    "initial_probe_relevance": "In each ADMIT pulse, remember exactmissingXC validprobe and exactmissingWA broadcast; clear only when each is goodORseen in that same pulse.",
+    "first_recovery_max_seconds": 60,
+    "pulse_counter_scope": "Nodurationdecisiondependsonpulsecounter. RECOVERmissingWAorXCmax60,legacymax2; sameglobal60recoverydeadline.",
+    "later_max_condition": "ADMITwhileWAmissing OR RECOVERexacttargetWAorXCwhilethatstocktargetmissingusesmax60; othercasesmax2.",
+    "seen_scope": "Reset seen_xc and seen_wa on every pulse start; stale observations never crosspulse.",
+    "RECOVER_rule": "WAandXC eachbindownsamepulseseen andownnativefloor+21postIEACK, requirecurrentprocessedexacttargetbroadcastbeforeexisting500msclear. Empty/foreign/directedloopcannotclearfromoldseen. WAcodeunchangedfromQ. Initialbothseenandlegacyexacttargetlogicunchanged. CurrenteventisnotRFtimestamp. ActualearlygoodtargetstilloriginalRECOVERpath/no20sexposureclaim.",
+    "WA_recovery_max_seconds": 60,
+    "other_CPE_recovery_max_seconds": 2,
+    "WA_recovery_minimum_live_IE_seconds_while_missing": 20,
+    "WA_recovery_native_integer_dwell_seconds": 21,
+    "other_CPE_recovery_scope": "LegacySXT/LBM5only",
+    "XC_recovery_max_seconds": 60,
+    "XC_recovery_minimum_live_IE_seconds_while_missing": 20,
+    "XC_recovery_native_integer_dwell_seconds": 21
+  },
+  "guard_seconds": {
+    "AP": 1200,
+    "Rocket": 1140,
+    "legacy": 900,
+    "daemon": 780,
+    "controller_whole": 1100
+  },
+  "stop_conditions": [
+    "identity/hash/regulatory/guard/deadline/output-bound mismatch",
+    "non-target loss/session/counter reset",
+    "any XC exec command during admission window",
+    "no initial admission or recovery within frozen deadlines",
+    "Originalscan_ssidnot0, setter/getter mismatch, or originalscan_ssid0notobservedafterrollback"
+  ],
+  "limits": [
+    "One bounded bench trial; no universal reliability/zero-loss/OTA timing/performance/capacity/production/E2 claim",
+    "Legacy900s guards alter open->WPA2->open in RAM only",
+    "Native del_client ACK is not loss proof; observed loss and a new per-target AP station session required",
+    "Zero-touch claim is scoped to this explicit pre-window preparation, not a universal untouched-cache cold start.",
+    "One explicit initialfreshscan/enable/reassociate onlybeforewindow, usingthepreviousFMX0017workingrecipe; statusmustnotCOMPLETEDbeforewindow.",
+    "Original XC ap_scan1/scan_ssid0/autoassoc0; all preparation before controlwindow, zeroCPEcommands during nativewindow.",
+    "Explicit newAP userspace compatibility only; no vanilla success, no authentication proof from MAC-derived crypto, same normal SSID/RSN/PSK/4way.",
+    "Generated scripts staged/hash-verified LF directly from bound source; legacy write_text archive copies may be CRLF. Preserve raw and normalized hashes; no raw-byte equality claim for those text copies."
+  ],
+  "capture_safety": "Same four primary radiochild captures per epoch; AP_path_capture=False. AH diagnostic exactly3epochs/12captures and strict32echo+32RFpairs each. Full qualifier retains5epochs/20captures and alloriginalgates. All captures--immediate-mode -B64KiB/64packets128snaplen/exactpeerfilters/interfaces/native45/controller48/strictreadinesssamefirstlaunch+5. Noextraqualificationping. OwnedPIDstartnativeguard/hostworkerjoin/endedverification beforeCPErestore; failurepreventsanyaccepteddiagnostic, no wideneddeadline/rescore. DiagnosticcannotsetfullP1PASS.",
+  "changed_hypothesis": "Same AH age/load/no-prior-WA diagnostic, changing only AP wpad99122 explicit strict XC wire-SSID normalization. Owned18 requests actually contain SSID; no standardIE0. Normal SSID/RSN/PSK/4way untouched; original negatives remain.",
+  "initial_XC_preparation": [
+    "OriginalRocketrollbackguarddisableduringAPopenlegacysetup; APmodeTruefirst.",
+    "Sameexact60BIEdiscoveryseed thenoriginalWPA2CCMPnetwork/flush0/singlefreshscan; hard35sexactAP120BSSID/5180/WPA2CCMP/SSIDgate.",
+    "APclearIEACK; actualGETscan_ssid0 andbaselineAP_SCAN1ACKonly; rejectedAP_SCAN2andscan_ssid1NOTapplied.",
+    "Sameinitialtrace/wait2/enable/reassociate/statuswaitingstatecheck; controlwindowstartsafterpreparation.",
+    "Launchsameownednativewithexplicitdiagnostic_no_WAargument; allsubsequentadmission/recoverydecisionsAP-local; noCPEwindowcommands."
+  ],
+  "preconditions": {
+    "S_noDEBUG_baseline": {
+      "file": "preprod1_20261022_run5s/receipt.json",
+      "sha256": "dc0e0ed31e384e7537c9e4e97977de57ccbe3367f0f680bcede0127b2e48bff3"
+    },
+    "S_independent": {
+      "file": "preprod1_run5s_independent_acceptance_20261022.json",
+      "sha256": "5a497b000402ff22242a743aef701b7370a4fc9ab3cb8731537f88279e57df49"
+    },
+    "T_negative_restored": {
+      "file": "preprod1_20261022_run5t/receipt.json",
+      "sha256": "2f07c17ab5ae3b28b23b40dbdba3695264c133a078831cb96c25f990c9ad2ceb"
+    },
+    "T_independent": {
+      "file": "preprod1_run5t_independent_acceptance_20261022.json",
+      "sha256": "b73e9b98fdb7455a4071ad4df8a40ea6205c426ffd48d011c5f7031b77cf21e6"
+    },
+    "T_diagnostic_interpretation": {
+      "file": "preprod1_r5t_diagnostic_interpretation_20261022.json",
+      "sha256": "d855470954ed8dcf5f4245f972de3a06f6138f1c5b60efddaa0e1e4740ce4420"
+    },
+    "U_negative_restored": {
+      "file": "preprod1_20261022_run5u/receipt.json",
+      "sha256": "6bed1906a66ca889ffc9949a11a897da12a44519cf14fedf13a12aa94d0ece41"
+    },
+    "U_independent": {
+      "file": "preprod1_run5u_independent_acceptance_20261022.json",
+      "sha256": "9ee8bb9237ffa3f86989dedd90a373630bc393cd433263fbf6fb570986e33efa"
+    },
+    "V_readonly_capability": {
+      "file": "preprod1_r5v_any_capture_capability_readonly_20261022.json",
+      "sha256": "17d3cff7b1b3e2438bbe9294b4612a6f90d77debf13333023119a253024e0061"
+    },
+    "V_negative": {
+      "file": "preprod1_20261022_run5v/receipt.json",
+      "sha256": "ed4783d0096d2302397d5f552c16d951db9c64288bcb3c74c7b0c6fa36a6afe1"
+    },
+    "V_independent": {
+      "file": "preprod1_run5v_independent_acceptance_20261022.json",
+      "sha256": "02b9277309ac9b7eba9ca8069c075e48fba25727870bb20991c8b3582571992a"
+    },
+    "V_postrestore_cleanup": {
+      "file": "preprod1_r5v_postrestore_cleanup_20261022.json",
+      "sha256": "bc54f1d02d3ba0ef7d1bc2b6586ee080878f0ca6c1a226ade2ef51b3838c38fd"
+    },
+    "V_postrestore_independent": {
+      "file": "preprod1_run5v_postrestore_independent_20261022.json",
+      "sha256": "5eb9940ff539e828babf9a17d2a526fbab5259198709b1c87dc755e2f4ef1496"
+    },
+    "capture_source_boundary": {
+      "file": "preprod1_r5w_capture_delivery_source_20261022.json",
+      "sha256": "1f2441854dbf16d799b5df404900d9876422e4ec5ba922e0181325aeb0bf245a"
+    },
+    "W_negative_restored": {
+      "file": "preprod1_20261022_run5w/receipt.json",
+      "sha256": "5897140c5a2ae4861ab118e858cb3ea79a877fba584f4477d8010279af83809b"
+    },
+    "W_independent": {
+      "file": "preprod1_run5w_independent_acceptance_20261022.json",
+      "sha256": "3d27a30c3116607ec7f15ca464a717e356081b1c382be1b3f6f083562d202286"
+    },
+    "X_quiet_negative_restored": {
+      "file": "preprod1_20261022_run5x/receipt.json",
+      "sha256": "8910ce80daea938b2c883336c3bc5c0eab427039a0f036adef8ccc963d887655"
+    },
+    "X_independent": {
+      "file": "preprod1_run5x_independent_acceptance_20261022.json",
+      "sha256": "8dbbfcb6cd62500159136e2fa1b3a42c66ee3a41a7d9e00604216741a0aa9f15"
+    },
+    "X_quiet_interpretation": {
+      "file": "preprod1_r5x_quiet_interpretation_20261022.json",
+      "sha256": "ce23d001bb589e47ec52da10f64a57201d04fdbe54a51b7c24d003c7fd83470d"
+    },
+    "S_native_baseline": {
+      "file": "preprod1_20261022_run5s/executed-source/fmx_admitter.sh",
+      "sha256": "45da06394bbf3f77f5f145829116641dfd12e78d4c0cadc36b7b44146de4aa32"
+    },
+    "prospective_Y_hypothesis": {
+      "file": "preprod1_r5y_prospective_hypothesis_20261022.json",
+      "sha256": "c2e7cf2fdb64cba56d400d034d485200bd020daff82743188ae5e4729773f0e5"
+    },
+    "Y_negative_restored": {
+      "file": "preprod1_20261022_run5y/receipt.json",
+      "sha256": "c759a6e3aa9381fafbe095e8b99c912dd09cddc4b40eff81f7736be073530bb2"
+    },
+    "Y_independent": {
+      "file": "preprod1_run5y_independent_acceptance_20261022.json",
+      "sha256": "c6e52a0ddd50b8a191649492d47d3bc8df08a3e01b0926908e86ff2e95ae4894"
+    },
+    "Y_client_interpretation": {
+      "file": "preprod1_r5y_client_failure_interpretation_20261022.json",
+      "sha256": "2ca126e131ab5de2df17383385debdde475500afddf17cb4f915ab0b516dad09"
+    },
+    "Y_client_postrestore": {
+      "file": "preprod1_r5y_XC_postrestore2_readonly_20261022.json",
+      "sha256": "3306c72b4dcda9b9709f48b46b3581f5695d5b9939b3b3377d19e2d29f40ff1e"
+    },
+    "AP_mgmt_source": {
+      "file": "preprod1_r5z_AP_mgmt_source_boundary_20261022.json",
+      "sha256": "ba0390c89f73be2b10065880db194d8335e74a3b5de174536a5cfa36bdfb2422"
+    },
+    "prospective_Z": {
+      "file": "preprod1_r5z_prospective_hypothesis_20261022.json",
+      "sha256": "e421ed195dad15b27093059a7d56aeda8c0cacf79bc6f81fade762ca453cdeda"
+    },
+    "Z_failed_preflight_regressions": {
+      "file": "preprod1_r5z_blockers_reproduced_20261022/receipt.json",
+      "sha256": "9959fcae75aa63a42693f95229c5b73197d4de66e87c341c24907d89b94b8ea3"
+    },
+    "Z_negative_restored": {
+      "file": "preprod1_20261022_run5z/receipt.json",
+      "sha256": "08cdb9cb08a74e5e43082d77ba3f132bd3193af7298aa56dfabca92d72c0f883"
+    },
+    "Z_independent": {
+      "file": "preprod1_run5z_independent_acceptance_20261022.json",
+      "sha256": "6cdcb676b005aba07d42201eda597f99067215ea9d9fe30a7e2dcee778a6128e"
+    },
+    "Z_owner_verified_missing_SSID": {
+      "file": "preprod1_r5z_missing_ssid_interpretation_20261022.json",
+      "sha256": "c4cc494bf0fa2cfbbe3012bbdd8b293342d16262a21889966e9015a954fe640e"
+    },
+    "prospective_AA": {
+      "file": "preprod1_r5aa_prospective_hypothesis_20261022.json",
+      "sha256": "ea527f7d77040f310650b9f7fdb6226500ae6ca351d93aa94073f91abacaf1c7"
+    },
+    "AA_prewindow_abort_negative": {
+      "file": "preprod1_20261022_run5aa/receipt.json",
+      "sha256": "67e612cef3b67b72b4ee831d7ccfdf21666b084f7f7c895a403ae808f0a1e672"
+    },
+    "AA_independent_negative": {
+      "file": "preprod1_run5aa_independent_acceptance_20261022.json",
+      "sha256": "de9aabe6a9e4f507cc152848b5a399fae48d16697af54ae2d792f0f16b16b5b6"
+    },
+    "AA_known_devices_AP_closed": {
+      "file": "preprod1_r5aa_abort_final_closure_20261022.json",
+      "sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742"
+    },
+    "AA_AP_off_readonly": {
+      "file": "preprod1_r5aa_AP_postclosure_readonly_20261022.json",
+      "sha256": "839cd04d37ec7fcbdc2cf134f4754b2dbd3f65bb3370cd84b88f6940bb70dc6d"
+    },
+    "AA_M5_RF_recovery_negative": {
+      "file": "preprod1_r5aa_M5_recovery_window_20261022.json",
+      "sha256": "30799559bacaffaa230b3bb47565722aa37f86ccd8ce47ee742348f3619e5ab4"
+    },
+    "AA_M5_RF_independent_negative": {
+      "file": "preprod1_r5aa_M5_recovery_independent_acceptance_20261022.json",
+      "sha256": "0de4d2f804ba43aa7956fe0d12fda6ef177f8d872099be77761aeb78ee7a63fa"
+    },
+    "AA_M5_ETH_boot_change_negative": {
+      "file": "preprod1_r5aa_M5_ethernet_source_check_20261022.json",
+      "sha256": "c03dfb9ebac0061f456337a403ba34355086c269e3c78c0b6757c149b186c665"
+    },
+    "AA_M5_postboot_readonly": {
+      "file": "preprod1_r5aa_M5_postboot_ethernet_readonly_20261022.json",
+      "sha256": "07b5d056caf6b95442ad9ba1dd77039e2d2324ad0cd24465a5c4235175205e46"
+    },
+    "AA_M5_newboot_independent": {
+      "file": "preprod1_r5aa_M5_newboot_independent_observation_20261022.json",
+      "sha256": "5365b82441c5c2b2a0ea72578fd800e172d16b496a3c0609c7db3bf3b9838fcc"
+    },
+    "AA_M5_newboot_interpretation": {
+      "file": "preprod1_r5aa_M5_newboot_interpretation_20261022.json",
+      "sha256": "f6bb371bdf07d78e077b8eaa25bb4188696895be7c386cbc11f9dc3709f6d5da"
+    },
+    "AB_versioned_legacy_intake": {
+      "file": "preprod1_r5ab_legacy_intake_20261022.json",
+      "sha256": "2e3d99601ac0f51dce24937d896b3ea3b33667efdf0f8d3721d30f7eb0da375a"
+    },
+    "AB_prospective_hypothesis": {
+      "file": "preprod1_r5ab_prospective_hypothesis_20261022.json",
+      "sha256": "7c2e88b2917405962bb9bc03d238a9cb6bde41dae0bfe3d456abda3bbb37a1f7"
+    },
+    "AB_remote_red_regression": {
+      "file": "preprod1_r5ab_remote_regression_red_20261022.json",
+      "sha256": "c74fe168132181b3a84fe54844fefdea95c02a9472368e578281a20019af4f42"
+    },
+    "AB_legacy_handshake_red_regression": {
+      "file": "preprod1_r5ab_legacy_handshake_red_20261022.json",
+      "sha256": "3f3234dcf677ac0238dd9a0c5ff695e8ed457d7c445d856470d13d067577afd9"
+    },
+    "AB_postboot_offline_fixtures": {
+      "file": "preprod1_r5ab_offline_postboot_20261022/receipt.json",
+      "sha256": "62aa34eb5fa25bda07209ba05480d622e8908bf0eda22f34b3ec9b99fd57b5f1"
+    },
+    "AB_postboot_source_freeze": {
+      "file": "preprod1_r5ab_postboot_source_freeze_20261022.json",
+      "sha256": "43e5ab0e7ab34ed316c45ba630bb390ebef8f4a544294dbcd643c3989cbac649"
+    },
+    "AB_postboot_source_review": {
+      "file": "preprod1_r5ab_postboot_source_review_20261022.json",
+      "sha256": "f5f900f81bf53fa6186940bfd6bc17d6b8cc2d62a59704e6791a13757ece3669"
+    },
+    "AB_operator_RF_placement": {
+      "file": "preprod1_r5ab_operator_RF_placement_20261022.json",
+      "sha256": "30e425b7481f3348873d41b4353e34348b6aadf4f3b8dd1588077bf5a7d49617"
+    },
+    "AB_negative": {
+      "file": "preprod1_20261022_run5ab/receipt.json",
+      "sha256": "b2b6f9ea111fbb7a5472e5281571337f345ccb2ab18e8c0f9aba8b577163fac3"
+    },
+    "AB_independent_negative": {
+      "file": "preprod1_run5ab_independent_acceptance_20261022.json",
+      "sha256": "b10e48de75f317015b9cf8c98b98656d8db965c92eabada00d17684d4c765a46"
+    },
+    "AC_prospective": {
+      "file": "preprod1_r5ac_prospective_hypothesis_20261022.json",
+      "sha256": "f4a16df79f1859f3b05b2d6d5d266e0bf8a39d8e788f6fc9644436045836dcdf"
+    },
+    "AC_versioned_intake": {
+      "file": "preprod1_r5ac_legacy_intake_20261022.json",
+      "sha256": "6cf4c8d72166ff2256d35a944d665c18bf7c03268ee32702c484ee0db7b7212b"
+    },
+    "AC_offline_fixtures": {
+      "file": "preprod1_r5ac_offline_20261022/receipt.json",
+      "sha256": "5e6c54633c68a364372671cd3bdedbc04c44c5941cf5081177e63411c97be469"
+    },
+    "AC_previous_runner": {
+      "file": "preprod1_r5ac_before_intake_update_20261022.py",
+      "sha256": "e5c389bdd3784db9b8ce98fb9e6f84d36dde210920b21682807e524163628fdb"
+    },
+    "AC_negative": {
+      "file": "preprod1_20261022_run5ac/receipt.json",
+      "sha256": "effeba4ebb15b907d82f5ca1a4058ad556ce2b2922300002fbefbcde31fb36c4"
+    },
+    "AC_independent_negative": {
+      "file": "preprod1_run5ac_independent_acceptance_20261022.json",
+      "sha256": "a91104322f548c26d4434f4aa5ac356ab55509ce34153db6c8366a36e648cd53"
+    },
+    "AC_owner_SSID_comparison": {
+      "file": "preprod1_r5ac_initial_recovery_SSID_comparison_20261022.json",
+      "sha256": "3b3ccd61eceb3c7b9b93089fd65a880b289857731bd007b18728ae48d26b7694"
+    },
+    "AD_prospective": {
+      "file": "preprod1_r5ad_prospective_hypothesis_20261022.json",
+      "sha256": "ab45cf5fc7b9dbbffa6cae9328a50200f6674931141d9508c14bb422b5fbf37e"
+    },
+    "AD_red_regression": {
+      "file": "preprod1_r5ad_station_regression_red_20261022/receipt.json",
+      "sha256": "e7ff43deb4e74c028b1b5f60d1a82d745cb3008b4a9be087556a0b5848d2544e"
+    },
+    "AD_offline_fixtures": {
+      "file": "preprod1_r5ad_offline_20261022/receipt.json",
+      "sha256": "d629f860b16ffb39b4ab5e4f8599bc3c317ca9cdbdcf040ad17fd4813e06c768"
+    },
+    "AD_previous_runner": {
+      "file": "preprod1_r5ad_before_stationrace_fix_20261022.py",
+      "sha256": "4ad43eaf4f26122339e97924c5e5c1dd2bc43dbd75b8399d88f73dfc0b8d3b87"
+    },
+    "AD_blocked_plan": {
+      "file": "preprod1_plan_20261022_run5ad.json",
+      "sha256": "5ecc5e6c1a8181a97610c0944c80fe198bb8df4925a2ed2ba6d6a90c380f6b48"
+    },
+    "AD_blocked_review": {
+      "file": "preprod1_source_review_20261022_run5ad.json",
+      "sha256": "965b6a12e922c701563fb4257f6e48854b0d0fb2472e50670317ddb7c7a1e1de"
+    },
+    "AE_prospective": {
+      "file": "preprod1_r5ae_prospective_hypothesis_20261022.json",
+      "sha256": "f0ab4e22ccbcf1227d357ad5dd891f3096809092a79f40a36a16c2361682d941"
+    },
+    "AE_red_regression": {
+      "file": "preprod1_r5ae_stderr_regression_red_20261022/receipt.json",
+      "sha256": "e736340aa30455eb455992c2616b7d9d7ad2ff146c2d4f2e7727da88f863a56b"
+    },
+    "AE_offline_fixtures": {
+      "file": "preprod1_r5ae_offline_20261022/receipt.json",
+      "sha256": "bbcb4e692cd9201463b3c16ef69134a5c04f23ea7a3147156c8e0cd6be50d6b4"
+    },
+    "AE_previous_runner": {
+      "file": "preprod1_r5ae_before_stderr_guard_20261022.py",
+      "sha256": "bb06a0721e7ceb68642fb003f0700e92236d7ce696cb217bd3a67ba477cd1169"
+    },
+    "AE_previous_tests": {
+      "file": "preprod1_r5ae_before_stderr_regression_20261022.py",
+      "sha256": "33ad61676ea3b847cf41eb2cbd49c6e9d39e2f0ef1fee66367ef689a9ec962eb"
+    },
+    "AE_negative": {
+      "file": "preprod1_20261022_run5ae/receipt.json",
+      "sha256": "d7afe112261d0e8e999921b8fe915ee02c7edbd15adf48c84d711d2a8051473a"
+    },
+    "AE_independent_negative": {
+      "file": "preprod1_run5ae_independent_acceptance_20261022.json",
+      "sha256": "159c02e790b4c2c32dd58add0fd419523bcefc328a0dea6e215d7adda743f84f"
+    },
+    "AE_owner_fullwindow_frames": {
+      "file": "preprod1_r5ae_owner_frame_comparison_20261023.json",
+      "sha256": "4403419ae7742e6630d39836a8d767c0da3ddad6a42221512b4cf4c1ffb91d3e"
+    },
+    "AF_pinned_XC_readonly_policy": {
+      "file": "preprod1_r5af_XC_scan_policy_readonly_20261023.json",
+      "sha256": "b04fa7ba2e0021a78fe240d9de32d37c6c45f567a04d178ed567ccf6b274c267"
+    },
+    "AF_prospective": {
+      "file": "preprod1_r5af_prospective_hypothesis_20261023.json",
+      "sha256": "81281aeeec1d9d3caa618ca276b2717f170b3c5f1dda76bcd489e29b2aeb4c7c"
+    },
+    "AF_offline_fixtures": {
+      "file": "preprod1_r5af_offline_20261023/receipt.json",
+      "sha256": "7dd1b6061c37a94d1aa7bb0bdea7e1e76174d5fb9ccbb5246aad61922b452b90"
+    },
+    "AF_previous_runner": {
+      "file": "preprod1_r5af_before_directed_scan_20261023.py",
+      "sha256": "74aa07f5052278e9b2656cf610a1bdaf67c47f4acb7bee6a474c83d773e11340"
+    },
+    "AF_negative": {
+      "file": "preprod1_20261022_run5af/receipt.json",
+      "sha256": "2a15f4d81cf29b6f22b51cc5226981ef4e94e671a8cfa481d8494e8980a61b69"
+    },
+    "AF_independent_negative": {
+      "file": "preprod1_run5af_independent_acceptance_20261022.json",
+      "sha256": "534825d4ebac25c97bb3163bf0669944702dafcaa81fb8b4d72e37c340433e9f"
+    },
+    "AF_owner_fullwindow_frames": {
+      "file": "preprod1_r5af_owner_frame_comparison_20261023.json",
+      "sha256": "d0bbfb938460346b7ebddcd59b119eb81f02bc115564532695f47deec44d15aa"
+    },
+    "AG_pinned_XC_WEXT": {
+      "file": "preprod1_r5ag_XC_control_surface_readonly_20261023.json",
+      "sha256": "c20579b541776b7b7b490031031f9c071299e2ce91ec6fa70ae383fba50d04d1"
+    },
+    "AG_pinned_XC_autoassoc0": {
+      "file": "preprod1_r5ag_XC_autoassoc_readonly_20261023.json",
+      "sha256": "bee1d93ddbacdf6f86b866fe3e98a655f07c2df07ecf745d4f585c059583dca3"
+    },
+    "AG_prospective": {
+      "file": "preprod1_r5ag_prospective_hypothesis_20261023.json",
+      "sha256": "65dcded46bdffd9f1eab38b8491e39e14b4327638a57c63c44c8555bca65a02b"
+    },
+    "AG_offline_fixtures": {
+      "file": "preprod1_r5ag_offline_20261023/receipt.json",
+      "sha256": "15fa39136073b3e3c484b398009ab6fb74dc40e1cff27cb37aaafe5cc5d1233a"
+    },
+    "AG_previous_runner": {
+      "file": "preprod1_r5ag_before_ap_scan2_20261023.py",
+      "sha256": "919e7b3a31d58cca55cc6a3a99a2497fe1933c42f7c522045a3355b962f2fa4d"
+    },
+    "AG_previous_scan_tests": {
+      "file": "preprod1_r5ag_before_scan_policy_test_20261023.py",
+      "sha256": "9f903248f7f129eb30c43fa3b968a732660952beb0a3028ce0f13b34da82f82e"
+    },
+    "AG_negative": {
+      "file": "preprod1_20261022_run5ag/receipt.json",
+      "sha256": "c57def9f590ceb1dd9745b54967d6a657830e6145852a981e17855c214037841"
+    },
+    "AG_independent_negative": {
+      "file": "preprod1_run5ag_independent_acceptance_20261022.json",
+      "sha256": "fe3d2cd899da52c0e8a461d070aaa59d3a9b087405d73e924b3575e4eabd30eb"
+    },
+    "AH_prospective": {
+      "file": "preprod1_r5ah_prospective_hypothesis_20261023.json",
+      "sha256": "f52c669c1e8774d1c4642a4de76012a66a81b5e7b3f08775e312e7e76410e498"
+    },
+    "AH_first_failed_fixtures": {
+      "file": "preprod1_r5ah_offline_20261023/receipt.json",
+      "sha256": "0e57d6391f6213b21c4b845feb16672d781c79ce5d4ea93872101a41bef20b9f"
+    },
+    "AH_second_failed_fixtures": {
+      "file": "preprod1_r5ah_offline_fixed_20261023/receipt.json",
+      "sha256": "b3d7bedf6d6b261e05317575ee9c099a7d25acf627e185b69bacb66ef2715fa6"
+    },
+    "AH_offline_fixtures": {
+      "file": "preprod1_r5ah_offline_final_20261023/receipt.json",
+      "sha256": "2d96c81ce9650738bca2b51155c1e56fe1f329eb1fac11d516295aaa327ae508"
+    },
+    "AH_previous_runner": {
+      "file": "preprod1_r5ah_before_no_WA_diagnostic_20261023.py",
+      "sha256": "3c644dadbf76e6b50471393ba3d5295748a917dafb32dd35193b259e4ec1c84e"
+    },
+    "AH_previous_native": {
+      "file": "preprod1_r5ah_before_no_WA_native_20261023.sh",
+      "sha256": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb"
+    },
+    "AH_previous_mode_tests": {
+      "file": "preprod1_r5ah_before_mode_baseline_test_20261023.py",
+      "sha256": "0fd23f8c4b90683c9c0b4fcf9b4cfb35152d05d46ae54536b2c8aed86f686171"
+    },
+    "AK_0": {
+      "file": "preprod1_r5ak_prospective_compat_plan_20261023.json",
+      "sha256": "89443886cf988533661068cb412da7487802ca5333db471d39851d72ced22863"
+    },
+    "AK_1": {
+      "file": "preprod1_r5ak_prospective_RF_hypothesis_20261023.json",
+      "sha256": "19c7aeafae38e9241872221355c05e93a888e07445ac64ff44bdaf37b1334dd7"
+    },
+    "AK_2": {
+      "file": "preprod1_r5aj_owner_offline_decode_20261023.json",
+      "sha256": "cc92b8311ef5b82910b6d2b5999089631b5ddb9f4158a4e6107b256aff63410c"
+    },
+    "AK_3": {
+      "file": "preprod1_r5ak_offline_r2_20261023/receipt.json",
+      "sha256": "b61f45ccfa531154fb4e3a1a31e2d21938a964af815d881cc22a46673050fc73"
+    },
+    "AK_4": {
+      "file": "preprod1_r5ak_owner_native_wire_validation_20261023.json",
+      "sha256": "00057f5973b823251024f35f76cb7aece368cc6c4215245b65b71de1bc7e592c"
+    },
+    "AK_5": {
+      "file": "preprod1_r5ak_clean_build_metadata_20261023.json",
+      "sha256": "de23f7cd320813afd1ae3c4989c7ec71adf1de0919ab0ae55be3fde01cb0c920"
+    },
+    "AK_6": {
+      "file": "preprod1_r5ak_clean_build_receipt_20261023.json",
+      "sha256": "e3331a24ff4d245915b2d72afee0eefce27e51e27563ff08274e31c00c81a5be"
+    },
+    "AK_7": {
+      "file": "preprod1_r5ak_AP_stock_provenance_20261023.json",
+      "sha256": "a4583a94aae73f4628ffb3eff2f92e64a9c1934d9507a2c7870896bfe49ef3a8"
+    },
+    "AK_8": {
+      "file": "preprod1_r5ak_guard_live_offline_20261023/receipt.json",
+      "sha256": "fd118f00b2dfe491e2c573cd084ed5c568f675b59f2fdae4e22ea1c2cf51a1d0"
+    },
+    "AK_9": {
+      "file": "preprod1_r5ak_RAM_lifecycle_plan_20261023.json",
+      "sha256": "8dec3ee4eb748bc771a0b31ff80d432bc80b85fdfdf561e8268c5992ee18bc89"
+    },
+    "AK_10": {
+      "file": "preprod1_r5ak_RAM_lifecycle_review_20261023.json",
+      "sha256": "3fbb79062c425c5615dd089b6360062f435748f7df443fc9e2b27fa793a0d602"
+    },
+    "AK_11": {
+      "file": "preprod1_r5ak_RAM_lifecycle_20261023/receipt.json",
+      "sha256": "1ae6dd57eb73280e29aed74173cceb00336bed5961e4fef3b2df57c48097ed91"
+    },
+    "AK_12": {
+      "file": "preprod1_r5ak_RAM_lifecycle_independent_acceptance_20261023.json",
+      "sha256": "1aab6427e5c87a880b911954da4ba7a01a36907f2d6bcd5ec3147364413e4e81"
+    },
+    "AK_13": {
+      "file": "preprod1_20261022_run5ah/receipt.json",
+      "sha256": "a475a02977d5f4faf00157a5f14f5d83d601f39f6a2f10dc36ed42179dbc8b8c"
+    },
+    "AK_14": {
+      "file": "preprod1_run5ah_independent_acceptance_20261022.json",
+      "sha256": "61bc62fdfc91ab6b6aba27581423bea7e458260440a35c68d4a736ec8c1dae24"
+    },
+    "AK_15": {
+      "file": "preprod1_20261022_run5ai/receipt.json",
+      "sha256": "1f3bfe7a3b51a012d27d4da40d764d7e0a181e79f8004b88b25ee08ddc44dba9"
+    },
+    "AK_16": {
+      "file": "preprod1_run5ai_independent_acceptance_20261022.json",
+      "sha256": "13c5999e558cf13cca93b2dc0cf3da8313a065ba4183ed8cd1796a46e8cc28ab"
+    },
+    "AK_17": {
+      "file": "preprod1_r5ak_final_lifecycle_offline_20261023/receipt.json",
+      "sha256": "445d3faab221f4eb2588c2195bb9f12760aeed6d1efac0d774a26db8c4284653"
+    },
+    "AK_18": {
+      "file": "preprod1_r5ak_final_lifecycle_offline_r2_20261023/receipt.json",
+      "sha256": "2ef16d5f6b6d5aa8b7037b6f53a3a0dc1e06b68882090626cda465830b45c66d"
+    }
+  },
+  "bridge_isolation": {
+    "owner_scope": "table namefmx_preprod_+exactexistingAPguard32hexTOKEN, tablecommentTOKEN; absentbeforearm",
+    "rules": "two bridgeFORWARD-300 rules eth0to phy0-ap0* and reverse counterdrop; policyaccept, noINPUT/OUTPUT",
+    "lifetime": "existingAP1200sHUPsafeguard; installedonlyafterarm; no newwatchdog",
+    "restore": "insideexistinglock after networkreload+FINALwifi down; requireubusradio0.up=false and iwdevnoInterface; onlyexactownercommenttablemaydelete; absentnormal; wrongowner/offfailure retainsisolationandfails",
+    "verify": "tableidentityduringhostobservation, finalowncounterssnapshot; exactoriginalnfttablenamesafterrestore",
+    "control_boundary": "Linuxbridgeforwardfiltering; noath10k/firmware/RF/regulatorychange"
+  },
+  "recovery_retirement_barrier": {
+    "targets": "WA/XC exactstockWDS targets only; legacytargets unchanged",
+    "pre_drop_binding": "hostapdpositiveaid->exactchild; iwdevchild stationgetexacttargetMAC required; readpositiveoldkernelifindex, logOLD_WDS_BIND",
+    "barrier": "oldchildifindexsame => noIEpulse andnoRECOVERED; missingordifferent =>OLD_WDS_RETIRED thenexistingrecipe",
+    "deadline": "Original60sfromDROP_OBSERVED includesallwaiting; noextension",
+    "scope": "AP Linux/hostapd/WDS lifecycle only; noCPEexec or targetfirmwarechange",
+    "read_failure": "Readsuccessmustcanonicalpositiveinteger; failedreadwithexistingifindexorchildpath exits88. Onlyfailedread+bothpathsabsent countsabsent; changedvalidifindex countsretired. No silentcat||true."
+  },
+  "daemon_transport": {
+    "source_bytes": 13461,
+    "staging_commands": 29,
+    "max_actual_staging_command_bytes": 943,
+    "hard_command_bound_bytes": 4096,
+    "source_transfer_bound_bytes": 16384,
+    "chunk_characters": 512,
+    "integrity": "ownedpathfreshdirectory/nosymlinks; exactbyteoffseteachappend; finalfullSHA thenagainSHAbeforeshortexec",
+    "failure": "stop withoutlaunch onwrongoffset/hash; retainpartialfailureevidence andexistingwatchdogs; no retryuntilgreen",
+    "old_dispatch_failure_bytes": 10312,
+    "old_native_program_never_started": true
+  },
+  "offline_contracts": {
+    "file": "preprod1_r5ah_offline_final_20261023/receipt.json",
+    "sha256": "2d96c81ce9650738bca2b51155c1e56fe1f329eb1fac11d516295aaa327ae508",
+    "passed": 237,
+    "exit_code": 0,
+    "acceptance_role": "Enabling softwarecontractsonly;diagnosticnotRFacceptance"
+  },
+  "parser_poll_policy": {
+    "complete_event": "Always collect currentfourstationstate before decisions",
+    "partial_event": "Skip redundantcollect onlywhile native t<next_state_poll; aftercollect next_state_poll=t+1. Readtimeout remains1s; noexact1sRF/peer samplingguarantee.",
+    "deadlines": "ADMIT120/WAIT_LOSS5/RECOVER60 and global780 checked beforepartialskip AND immediatelypostcollectbeforeIE/transitions; noextension.",
+    "instrumentation": "PARSER_COUNTERS atcleanup: inputlines,decodedobjects,partialskips,statepolls",
+    "limits": "Processed event is not RFtimestamp; noeventlatencyclaim. Completeeventstatepolls still cost subprocess time; actual result remainsunknown."
+  },
+  "AP_debug": false,
+  "source_binding_roles": {
+    "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py": "Offlinecontractdependency only; AP_debug=False, no runtimeDEBUG inY.",
+    "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py": "Only generic wall-deadline readonly_command reused AFTERnativewindowended forXCdiagnostics; moduleimporthasdefinitionsonly/no main execution. SeparatemanualXC_command_audit entriesFalse for directownedquerychannels.",
+    "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py": "Active initial180s and recovery90s RX-only traces, explicit cross-phase reset0 provenance; exact sameheldCLI/stager, no newRF/control/firmware feature.",
+    "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py": "Reused existing pinned CLI staging/identity/control/private RAM cleanup only. DebugWindow.attach/restore_level NOT called; no DEBUG or logger changes.",
+    "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin": "Held identical open-source CLI,59016B/pinnedSHA; no firmware binary/build/download.",
+    "tests/test_preprod1_remote_deadline.py": "Offline regression fixtures only; no device contact.",
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_recovery_window_20261022.py": "AST-pure local guard hash fixture dependency only; its main is never executed by PREPROD1.",
+    "artifacts/canary_panel1_guarida/preprod1_r5ac_legacy_intake_20261022.json": "New immutable M5 boot/identity from actual pinned AB open-RF snapshot with five unchanged config/protected hashes. SXT/pins/config/tool entries unchanged. Setup BOOT and exact per-trial restoration remain strict; no historical negative rescored.",
+    "tests/test_preprod1_station_snapshot.py": "Offline reproduction/safety regressions only for old WDS enumeration/retirement race; no device contact.",
+    "tests/test_preprod1_scan_policy.py": "Archivednegative scan_ssid1 helperfixtures and proof it is parked outsideactualmain; no hardware.",
+    "tests/test_preprod1_ap_scan_mode.py": "Originalmode1baselinecannotapplyrejectedmode2;priorstockmode2ACK/rollback/windowcontractsretained;nohardware.",
+    "tests/test_preprod1_no_WA_diagnostic.py": "Pureevidencefailclosedcases+actualnativeSTABLEshellfixturecasesforqualifyanddiagnostic;ensuresdiagnosticcannotsetfullPASS;nohardware.",
+    "artifacts/canary_panel1_guarida/preprod1_AP_compat_20261023.py": "Bench-only newAP RAM mount/service lifecycle under original ownedAPguard; physical RFoff independently accepted; originalstock restoredbeforefullmarker.",
+    "artifacts/canary_panel1_guarida/preprod_guarida_20261022/history/preprod1_r5ak_AP_compat/wpad.compat": "Held privateMIPS32BE PIE open-sourcecompatiblewpad99122/864312; onlybenchAP+XC normalization; never firmware flash or production.",
+    "tools/bench/hostapd_preprod1_xc_ssid.h": "Independent strict wire parser; absentIE0only; explicittransmittedSSID forwarded to originalcheck_ssid.",
+    "tools/bench/hostapd_preprod1_xc_ssid.patch": "Small compiletimeguarded integration leaving normal WPA2/RSN/PSK/4way unchanged.",
+    "tools/bench/build_preprod1_xc_ssid.py": "Offline isolated build recipe with originalsource unchanged; never invoked by RFtrial.",
+    "tests/test_preprod1_xc_ssid_compat.py": "Offline ASAN/UBSAN native parser/check_ssid fixtures; not PSK or RF proof.",
+    "tests/test_preprod1_AP_compat.py": "Offline lifecycle/transport/guard-liveness negative fixtures.",
+    "tests/test_preprod1_AP_compat_integration.py": "Offline plan/defaultdaemonpin/partialcleanup/RFoffdriver acceptance fixtures."
+  },
+  "AP_path_capture": false,
+  "AP_path_observer": {
+    "epoch": 0,
+    "interface": "any",
+    "protocol": "exactXCIPv6ICMPecho128or129",
+    "max_packets": 256,
+    "max_stdout_bytes": 65536,
+    "max_stderr_bytes": 8192,
+    "snaplen_bytes": 128,
+    "native_guard_s": 45,
+    "controller_guard_s": 48,
+    "listening_deadline": "samefirstprimarycapturelaunch+5s;strictready_mono<deadline",
+    "extra_load": false,
+    "qualification_substitution_permitted": false,
+    "cleanup": "Ownedguardended andstartupworkerjoined; archiveoutput BEFORE validate; anyfailurecleanup_errorpreventsPASS andneverblocksoriginalrestoration",
+    "runtime_enabled": false,
+    "park_reason": "VunsupportedSLL2hexdumpoverflow/extraoverhead; no new anycapture. Oldfunctions retained asinactiveofflinecontractdependency."
+  },
+  "capture_delivery": {
+    "mode": "--immediate-mode",
+    "requested_buffer_KiB": 64,
+    "primary_observers_each_epoch": 4,
+    "extra_observer": false,
+    "existing_filter_count_and_interface_unchanged": true,
+    "causality": "Source-supportedcapturehypothesis; runtimeactiveTPACKET/RSS/timeoutcauseUNKNOWN, no performanceclaim."
+  },
+  "stream_quality_failure_policy": {
+    "packet_deficit": "Validboundedcompletedstream32count/timing/pairdeficit=>actualmetricsqualifyingFalseandfailureentry; continuenextplannedobservationsONLYwhileoriginalstation/session/otherpeer/safetygateshold. No streamrepeat/rescore.",
+    "invalid_acquisition": "Malformed/exit/output/readiness/capturetimeout/identity/guard/peer/session/deadline errorsstillabortandrestore.",
+    "final_acceptance": "Exactfiveepochs?fourlabels; eachactual32tx32rx32finite/nonnegative timings>=32radiochildpairs/qualifyingTrue/no reasons. All4loss+freshsession/60s/other3/zeroXCexec/exactrestoration originalgates; anyrecordedfailurepreventsPASS.",
+    "no_extra_load": true,
+    "stabilization_delay_added": false
+  },
+  "XC_postwindow_readonly": true,
+  "drop_trigger_candidate_change": "UNCHANGED FROM Y: reason3 onlyXC, reason2 WA/SXT/LBM5, true deauth/ban0. AP diagnostic is sole added active instrumentation.",
+  "XC_postwindow_diagnostic": {
+    "private_directory": "preprod_guarida_20261022/history/preprod1_20261022_run5ah_XC_postwindow",
+    "raw_git_ignored": true,
+    "queries": [
+      "status",
+      "uptime",
+      "messages-tail120",
+      "dmesg-tail60"
+    ],
+    "only_after": "control_windowFalse AND exactdaemonendedproof; beforeoriginalprofile/AP/Rocketrestoration",
+    "bounds": {
+      "channel_open_seconds": 5,
+      "exec_read_seconds": 5,
+      "stdout_bytes_each": 32768,
+      "stderr_bytes_each": 8192,
+      "max_queries": 4
+    },
+    "guard_budget": "Require45shostbudgetbeforequeries (eachopen5+read5 <=40total); otherwiseSKIPdiagnosticandrestore.",
+    "privacy": "Rawexclusivefilesinnewownedignoreddir; publiconlyhash/size/querynames/exitmetadata+canonicalwpa_state; no rawlog/secret/source/locals.",
+    "acceptance_role": "Optionalpostwindowreasonobservation only, never recovery/qualityproof or rescue. Any diagnosticerrorreportedbutneverinterruptsoriginalrestoration. No logger/configchanges andnoCPEtaskduringwindow."
+  },
+  "AP_mgmt": true,
+  "AP_mgmt_diagnostic": {
+    "target_epoch": "Exact XC drop2 only",
+    "private_directory": "preprod_guarida_20261022/history/preprod1_20261022_run5ak_AP_mgmt",
+    "raw_git_ignored": true,
+    "control": "IFNAME=phy0-ap0 SET notify_mgmt_frames1 -> known baseline0; control not GET_CONFIG",
+    "bounds": {
+      "native_seconds": 90,
+      "listener_ready_from_launch_seconds": 5,
+      "host_stdout_bytes": 262144,
+      "stderr_bytes": 8192,
+      "accepted_frame_bytes": 2000
+    },
+    "guard": "Started in same native launch wrapper BEFORE exec/ATTACH. Same-wpadPID/start/exeSHA reset and exact-listenerPID/start/exepath TERM independently at90s. PID/start header before CLI. No new VAP or radio lifecycle.",
+    "readiness": "Open owned SSH channel bounded5, publish its files, arm absolute firstlaunch+5 Timer BEFORE exec-ACK. Timer closes ONLYownedchannel. Native90 guard starts before execCLI. Interactive ATTACH + PING/PONG with stdin retained; no process-per-event. Require exactguardPID/start/nonZ/argv/SHA and no done-marker before enable. No runtime proof until this trial.",
+    "normal_restore": "Reset0 ACK independent of listener TERM/end/private archive. Disarm/delete guard only after host reset confirmed and exact listener ended; prove exactguardended BEFORE removing RAM source files. On uncertainty retain source/live guard while original AP restore always proceeds.",
+    "privacy": "Raw management/private stdout/stderr/guard logs never public. Public only sizes/SHA and XC frame structures/IE IDs+lengths+hashes/rates/WMMheader/RSNversion/labSSIDmatch. Foreign payloads never exported. Malformed received IE preserved as data. Capped/invalidcontrolhex is acquisition failure.",
+    "no_acceptance_substitution": true,
+    "archive": "Rawsentinel max262145 memory only to detectoverflow; private artifact prefix<=262144 with raw_capture_truncated/observed_atleast and fatal TRACEfailure; stderr prefix<=8192. Received malformedIE is data; acquisition truncation remains failure. Preserve generated nativeguard source privately, sourcehash/metadata public.",
+    "reproducibility": "Exact29sources113preconditions and independentreview beforedevice; current291localcontracts. Archive originalsource/CLI/sixoriginaltests+threecompat tests and header/patch/buildrecipe; privatebinary/payload never copiedto public.",
+    "baseline_zero_after_initial": "start(ap,previous_trace=initial) requires initialfinished TRACE_COMPLETE/reset0ACK/listenerended/guardended/RAMcleanup and bound64hex receiptSHA. No mutableRAM default assumption after previoussetter.",
+    "expected_wpad_sha256": "99122e15246efc0006c82fc23a8667f7ccdcdf9d15bd2f46edc7e95c0f7b6923"
+  },
+  "AP_mgmt_initial": true,
+  "AP_mgmt_initial_diagnostic": {
+    "private_directory": "preprod_guarida_20261022/history/preprod1_20261022_run5ak_initial_AP_mgmt",
+    "two_owned_stagers": "SameheldCLI two independentlyowned RAM paths, bothstaged beforeRF, exactpinneddaemon/source; no process-per-event.",
+    "start": "AfterfreshsecureBSSscan/IEclear BEFOREwait2/finalXCenable/reassociate/status; retainfinalwaitingstatecheckadjacenttocontrolwindowTrue. No target-window execution.",
+    "finish": "FirstFOUR_ADMITTED in prioractions, beforeepoch0qualificationload; requireTRACE_COMPLETE and reset0ACK/ended/RAM.",
+    "native_guard_seconds": 180,
+    "native_admission_deadline_unchanged": 120,
+    "firstlaunch_ready_seconds": 5,
+    "raw_bounds_and_parser": "Same as recoverydiagnostic; public safe structures and fullSeqCtrl only, never rawSSID/unknownIEs/foreignpayload.",
+    "final_restoration": "Independenttry before recoverytrace and originalhelperrestore; nofailurecanblockoriginalradiooff/profile/protected/networkrestoration.",
+    "comparison": "Received initial request classifiedsuccess using same run FOUR_ADMITTED/authorizedWDS and originalquality/session observations. CompareIE0/subtype/header/SeqCtrl to laterrequest. Controlrecords notOTAcount/time.",
+    "expected_wpad_sha256": "99122e15246efc0006c82fc23a8667f7ccdcdf9d15bd2f46edc7e95c0f7b6923"
+  },
+  "stage": "FROZEN_ACTUAL_AK_DIAGNOSTIC_ONLY_EXPLICIT_AP_WIRE_SSID_COMPAT_SAME_AH_RECIPE_PENDING_EXACT_PREFLIGHT",
+  "legacy_epoch": {
+    "M5_boot": "b29439b5-86ac-4f9d-a5b0-82e3a2f65f01",
+    "M5_reboot_cause": "UNKNOWN; operator confirms power was maintained; no known PoE power cut proved.",
+    "historical_negative_acceptance_unchanged": true,
+    "guard_RAM": "No new legacy guard installed in AB; exact prior paths ALREADY_ABSENT",
+    "new_trial_baseline": "Freshly measured at setup; strict equality at restoration. No injected old routes or link-local state."
+  },
+  "physical_setup": {
+    "operator_confirmation": "preprod1_r5ab_operator_RF_placement_20261022.json",
+    "sha256": "30e425b7481f3348873d41b4353e34348b6aadf4f3b8dd1588077bf5a7d49617",
+    "independent_physical_measurement": false
+  },
+  "draft_ancestry": {
+    "file": "preprod1_plan_20261022_run5ab_DRAFT_NOT_EXECUTABLE.json",
+    "sha256": "874d45870f1b2f213c43057da68276ee8b229871d2329dc6e110621a832782ab"
+  },
+  "plan_ancestry": {
+    "file": "preprod1_plan_20261022_run5ah.json",
+    "sha256": "ec1d1861db586c52e58c8f71f232eaf65bd954a0d78aa807854270a1e9d49516"
+  },
+  "station_snapshot_retirement_policy": {
+    "scope": "Host AP station acquisition only; native wireless recipe unchanged",
+    "admissible_failure": "Exact iw exit237 and exact No such device(-19) stderr on enumerated WDS child only",
+    "owner_proof": "Latest still-unrecovered native WA/XC DROP_REQUEST, exactly one matching OLD_WDS_BIND child and positive old_ifindex",
+    "kernel_proof": "One bounded native sysfs probe: canonical ABSENT with no path/symlink, or canonical different positive ifindex. Sameold/invalid/failedread/malformed proof aborts.",
+    "counter_semantics": "Skip only retired old child; preserve old target counters until new session appears. Other peer/session/reset and native60s gates unchanged.",
+    "evidence": "station_retirement_observations with drop/target/child/old/newifindex/exit; no raw logs exported",
+    "max_extra_RPCs_per_race": 2,
+    "each_RPC_timeout_s": 5,
+    "retry_loop": false,
+    "deadline_extension": false,
+    "successful_RPC_stderr": "Must be empty, preserving original remote(check=True) semantics. Only canonical237/-19 in the proof-bound retirement branch is excepted."
+  },
+  "previous_rejected_XC_pre_window_scan_policy": {
+    "original_scan_ssid": 0,
+    "treatment_scan_ssid": 1,
+    "ap_scan": 1,
+    "actor": "StockXCwpa_supplicant; externalcontroller pre-window only",
+    "setup": "After APmodeTrue/nativeRocketguardready, before originalbss_flush/singlefreshscan/enable/reassociate/controlwindow",
+    "proof": "Freshoriginalgetter0, setterOK, getter1, originalcheckpoint saved before setter",
+    "rollback": "Existing independentnativeRocketguard RECONFIGURE reloads unchanged originalAUTO.conf(scan_ssid0); actualGET_NETWORK0scan_ssid0 afterguardrequired beforeRocketrestorationPASS",
+    "no_save_config": true,
+    "no_background_CPE_task": true,
+    "window_commands": 0,
+    "meaning": "Softwareconfigurationstate checked; true RF/association effect is experimental",
+    "default_profile_untouched_cold_start_claimed": false
+  },
+  "XC_pre_window_ap_scan_policy": {
+    "original_ap_scan": 1,
+    "treatment_ap_scan": 1,
+    "scan_ssid": 0,
+    "actual_driver": "wext",
+    "autoassoc": 0,
+    "actor": "ExistingstockXC;prewindoworiginalpolicybaselineonly",
+    "setup": "SamefreshsecureBSS/IEclear thenGETscan0/AP_SCAN1baselineACK; NOAP_SCAN2setter; beforeexistingenable/reassociate/window",
+    "rollback": "UnchangedindependentnativeRocketguardRECONFIGURE originalAUTO.conf;AP_SCAN1ACK/getscan0afterguard;noindependentglobalmodegetterclaim",
+    "no_save_config": true,
+    "no_background_CPE_task": true,
+    "window_commands": 0,
+    "default_profile_untouched_cold_start_claimed": false
+  },
+  "diagnostic_variant": "XC_RECOVERY_WITHOUT_PRIOR_WA_AGE_MATCHED",
+  "diagnostic_acceptance": {
+    "diagnostic_marker": "DIAGNOSTIC_ONLY_COMPLETE",
+    "epochs": [
+      0,
+      1,
+      2
+    ],
+    "resets": [
+      "2"
+    ],
+    "only_drop": "XC",
+    "XC_age_seconds": [
+      174,
+      184
+    ],
+    "holds_min_seconds": [
+      115,
+      60,
+      60
+    ],
+    "all_twelve_streams": {
+      "echoes": 32,
+      "RFpairs": 32
+    },
+    "zero_XC_window_commands": true,
+    "exact_all_restoration": true,
+    "full_PREPROD1_PASS": false
+  },
+  "original_full_acceptance_unchanged": true,
+  "diagnostic_cannot_authorize_commit_push": true,
+  "previous_rejected_XC_pre_window_ap_scan_policy": {
+    "original_ap_scan": 1,
+    "treatment_ap_scan": 2,
+    "scan_ssid": 0,
+    "actual_driver": "wext",
+    "autoassoc": 0,
+    "actor": "StockXCwpa_supplicant; externalcontroller pre-window only",
+    "setup": "AfterexistingexactfreshsecureBSS and APclearIE ACK beforeenable/reassociate/window; originalsecuritysingleWPA-PSK/RSN/CCMP",
+    "proof": "Freshscan_ssid0getter; originalAUTO.conf1provenance andexplicitAP_SCAN1ACK; checkpointbeforeAP_SCAN2 thenACK2",
+    "rollback": "IndependentnativeguardRECONFIGURE originalunchangedAUTO.confap_scan1 plusAP_SCAN1ACK afterguard andactualscan_ssid0getter; globalinternalmodegetterunsupported, noindependentmode1readbackclaim",
+    "selection_caveat": "Mode2doesnotselectBSSID; actualAP120MAC/labSSID link/sessionproofrequired",
+    "no_save_config": true,
+    "no_background_CPE_task": true,
+    "window_commands": 0,
+    "default_profile_untouched_cold_start_claimed": false
+  },
+  "AG_preflight_revision_history": {
+    "utc": "2026-10-23T03:43:38.132299+00:00",
+    "unexecuted_previous_plan": "preprod1_r5ag_before_unique_private_paths_20261023.json",
+    "previous_plan_sha256": "512e7528a418008559cd72b5314bcdff3d78a9b7aa85db4e1aa87edfd9a980d0",
+    "previous_review": "preprod1_source_review_20261022_run5ag.json",
+    "previous_review_sha256": "c68e63f8e01246a59629602fbb31ecfa53cd5f467ea6dfd6dbde11bb2dcc277d",
+    "reason": "Rootfreshpre-execution check found three copied AF private diagnostic output directories already exist. Fixed only unique AG output labels and descriptive source/test count; no source/device/RF/acceptance changes. Prior plan/PF preserved, no hardware executed against them."
+  },
+  "preflight_metadata_revision": "AK actual29source/current291contracts/nativeAA-AIunchanged_AHmode/newexplicitAP99122",
+  "AP_XC_SSID_compat": {
+    "enabled": true,
+    "binary_file": "preprod_guarida_20261022/history/preprod1_r5ak_AP_compat/wpad.compat",
+    "binary_sha256": "99122e15246efc0006c82fc23a8667f7ccdcdf9d15bd2f46edc7e95c0f7b6923",
+    "treatment_label": "EXPLICIT_AP_USERSPACE_WIRE_SSID_COMPAT_NOT_VANILLA",
+    "radio_off_activation_before_any_trace_or_RF": true,
+    "original_AP_guard_seconds": 1200,
+    "no_new_guardian": true,
+    "original_named_procd_service_jail_user_caps_required": true,
+    "stock_restoration_before_full_restore_marker": true,
+    "independent_RF_off_lifecycle": {
+      "file": "preprod1_r5ak_RAM_lifecycle_independent_acceptance_20261023.json",
+      "sha256": "1aab6427e5c87a880b911954da4ba7a01a36907f2d6bcd5ec3147364413e4e81"
+    }
+  }
+}

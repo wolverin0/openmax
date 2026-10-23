@@ -1,0 +1,18 @@
+{
+  "status": "EXPECTED_RED_BEFORE_REPAIR",
+  "utc": "2026-10-23T08:16:31.867530+00:00",
+  "source_sha256": "75ace9a49ba4ca0a6cac4905e8ecc227e0ba4e0dac6c774efb0c4897241ccd37",
+  "test_sha256": "322b052082a0e041f91c46d660588b12455b8a845794239a9aa409be1c708790",
+  "exit_code": 1,
+  "command": [
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_preprod1_native_retirement_race.py",
+    "-k",
+    "transient_attribute_read_failure"
+  ],
+  "stdout_sha256": "700db179b351fd028dbcd375a73b5c5d626a63b048f3413676365b3a8b6723c2",
+  "stderr_sha256": "3a3c41df8a6da6485a5dc49bc5c7e4b76dca3747c2aefbf1de288befe2c3c9a7",
+  "devices": false
+}

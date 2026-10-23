@@ -1,0 +1,107 @@
+{
+  "status": "PASS_CLEAN_ISOLATED_USERSPACE_BUILD_METADATA_NOT_RUNTIME",
+  "checks": {
+    "ELF_type": true,
+    "machine": true,
+    "class_bits": true,
+    "big_endian": true,
+    "flags": true,
+    "interpreter": true,
+    "needed": true,
+    "dynamic_flags": true,
+    "NX_stack": true,
+    "RELRO": true,
+    "no_WX": true
+  },
+  "stock": {
+    "sha256": "f48e4ffa30b382b1526c7d8b32889b19dbc498a362443f41142646db60fb3a12",
+    "bytes": 864296,
+    "ELF_type": "ET_DYN",
+    "machine": "EM_MIPS",
+    "class_bits": 32,
+    "big_endian": true,
+    "flags": 1946161157,
+    "interpreter": "/lib/ld-musl-mips-sf.so.1",
+    "needed": [
+      "libmbedcrypto.so.16",
+      "libmbedx509.so.7",
+      "libmbedtls.so.21",
+      "libubox.so.20240329",
+      "libubus.so.20250102",
+      "libblobmsg_json.so.20240329",
+      "libucode.so.20230711",
+      "libnl-tiny.so.1",
+      "libudebug.so",
+      "libgcc_s.so.1",
+      "libc.so"
+    ],
+    "dynamic_flags": {
+      "DT_FLAGS_1": 134217729
+    },
+    "NX_stack": true,
+    "RELRO": true,
+    "no_WX": true,
+    "loads": [
+      {
+        "offset": 0,
+        "filesz": 801532,
+        "memsz": 801532,
+        "flags": 5
+      },
+      {
+        "offset": 843128,
+        "filesz": 21168,
+        "memsz": 27516,
+        "flags": 6
+      }
+    ]
+  },
+  "compat": {
+    "sha256": "e86a3aafe2ac427e01ee402d1da0df5b7f37e1dbe113bd2d90109ff5ac72ea09",
+    "bytes": 864320,
+    "ELF_type": "ET_DYN",
+    "machine": "EM_MIPS",
+    "class_bits": 32,
+    "big_endian": true,
+    "flags": 1946161157,
+    "interpreter": "/lib/ld-musl-mips-sf.so.1",
+    "needed": [
+      "libmbedcrypto.so.16",
+      "libmbedx509.so.7",
+      "libmbedtls.so.21",
+      "libubox.so.20240329",
+      "libubus.so.20250102",
+      "libblobmsg_json.so.20240329",
+      "libucode.so.20230711",
+      "libnl-tiny.so.1",
+      "libudebug.so",
+      "libgcc_s.so.1",
+      "libc.so"
+    ],
+    "dynamic_flags": {
+      "DT_FLAGS_1": 134217729
+    },
+    "NX_stack": true,
+    "RELRO": true,
+    "no_WX": true,
+    "loads": [
+      {
+        "offset": 0,
+        "filesz": 803772,
+        "memsz": 803772,
+        "flags": 5
+      },
+      {
+        "offset": 843128,
+        "filesz": 21192,
+        "memsz": 27532,
+        "flags": 6
+      }
+    ]
+  },
+  "build_receipt_sha256": "c471d83135dc9714e4c17cf05ac5da1b3358a2a1b036a97dfa5416b9b36bad4c",
+  "recipe_sha256": "605a43a3138c0b7f2e9b3b98175bb925b5afd01a051ef46a6c69e2620af770af",
+  "target_execution": false,
+  "device_access": false,
+  "limits": "Sameheldsourceversion, notbytematchedstockrebuild; exactruntimeidentityisthecompatSHA, stockrestorationisbyteexact."
+}

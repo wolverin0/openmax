@@ -1,0 +1,266 @@
+{
+  "status": "NOT_ACCEPTED_PREWINDOW_HOST_ABORT_RESTORATION_PARTIAL",
+  "reviewer": "flash_review independent local-public audit",
+  "reviewed_utc": "2026-10-23T00:10:48.666260+00:00",
+  "PREPROD1_accepted": false,
+  "wireless_accepted": false,
+  "initial_trace_comparator_acquired": false,
+  "restoration_verified": false,
+  "parent_objective": "ACTIVE_INCOMPLETE",
+  "original_receipt_unmodified": true,
+  "original_receipt_has_ended_utc": false,
+  "evidence_bindings": {
+    "artifacts/canary_panel1_guarida/preprod1_20261022_run5aa/receipt.json": {
+      "sha256": "67e612cef3b67b72b4ee831d7ccfdf21666b084f7f7c895a403ae808f0a1e672",
+      "bytes": 15920
+    },
+    "artifacts/canary_panel1_guarida/preprod1_plan_20261022_run5aa.json": {
+      "sha256": "79a3560455bd7d2620cac2411cf010432200348125c92a0da3c64b481caa3c7e",
+      "bytes": 24561
+    },
+    "artifacts/canary_panel1_guarida/preprod1_source_review_20261022_run5aa.json": {
+      "sha256": "11ff12aa336fd6b96c71ec6a248e78d5e3977a3efad5ea017505eb0900559520",
+      "bytes": 6376
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.json": {
+      "sha256": "21d91c0cb583421147992d2be6d45d99d6cafaad1b1160446d81e6e8668cc46a",
+      "bytes": 4033
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_final_closure_20261022.json": {
+      "sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742",
+      "bytes": 3373
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.py": {
+      "sha256": "90bbc70a4dd345edaa30e1b857ae35b0ffa2dc1347764235f44d30a88addcd8d",
+      "bytes": 16668
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_finish_20261022.py": {
+      "sha256": "4b7740a7dac17bbf7700bd369d28f82afba69758ae794ed68148278c3d1d8468",
+      "bytes": 3769
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_known_cleanup_source_20261022.py": {
+      "sha256": "d3ad799568bd69be19612540ae1126f2b5a39848106590f3556b8124dc2862ce",
+      "bytes": 2894
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.failed1.json": {
+      "sha256": "8f2fe2a5d9317f4dfd08da1e61d1d72ddbaaf0081437600b5b70d389317e8f13",
+      "bytes": 768
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_restore_20261022.failed2.json": {
+      "sha256": "bf0184996589bd26b6a3296e8c9201de70d7102c462e046ab3793919a0508521",
+      "bytes": 813
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_AP_observation_20261022.json": {
+      "sha256": "2936d4d08615d540263358b83ef018f75a2bbf481875c0e088f78075de048fc9",
+      "bytes": 2670
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_abort_M5_secure_observation_20261022.json": {
+      "sha256": "dcae5f738726a4a00eca5b899796b0057ba0a93c379818bb37d7ad0e134da513",
+      "bytes": 1122
+    },
+    "artifacts/canary_panel1_guarida/preprod1_r5aa_M5_APoff_access_20261022.json": {
+      "sha256": "884d46a1fba4d5fd47873b406576f401a7e203e17e2e8d6ca591ada3d58269fd",
+      "bytes": 287
+    }
+  },
+  "frozen_binding_verification": {
+    "plan_sha256": "79a3560455bd7d2620cac2411cf010432200348125c92a0da3c64b481caa3c7e",
+    "review_sha256": "11ff12aa336fd6b96c71ec6a248e78d5e3977a3efad5ea017505eb0900559520",
+    "source_count": 14,
+    "sources": [
+      {
+        "file": "tools/bench/preprod1_admitter.sh",
+        "sha256": "33f23cf07a2960ebf31d54491874b5fa9c071bda412565e5fdb49171b7d600cb",
+        "evidence": "executed-source"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/preprod1_trial_20261022.py",
+        "sha256": "706ce66c6dd53316e9e1ae3f83b7f7c4b1345fe0a53fd20e4711845064f5e013",
+        "evidence": "executed-source"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_four_cpe_access_20261022.py",
+        "sha256": "5af64a351d6d5cb1bca363e7ea30a9a6d2dba2a4f554c9e5d5699884a24fd554",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_four_cpe_ap_window_20261022.py",
+        "sha256": "80aac77caaa802f9d83ec8cd2aed2680cb859b825ee543b6ed8c9ee94d943bea",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_multi_cpe_trial_20261022.py",
+        "sha256": "4515183a1808d8019763a770503438d95a587930160c665caa760c7bda1e4046",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_goal_direct_link_connection_20261022.py",
+        "sha256": "32ce634d38ce47feeab968b94bbbaae830e8f212069b94e706bc1ba59adaf9ce",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_step1c_rocket_observer_20261021.py",
+        "sha256": "386ab02421eff3c19dc7df78c297bf02d4f0c260480baa8884d202b35e81ca8b",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/fmx0017_trial_20261022.py",
+        "sha256": "f7e9cdb2153cddfa57fea23c685b876383493008e34562de82ea66fb4bdb92ab",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "tests/test_preprod1_audit.py",
+        "sha256": "812a9fbd620e8d9679704236a71a9e530e88f3c0262f12344c92cb3495b2ff46",
+        "evidence": "executed-source"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/preprod1_AP_debug_20261022.py",
+        "sha256": "178ae431d4f1d0580b43cf103459d995f486e0ff8d2f6fa00e2705661bbfabed",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/preprod1_r5m_WA_readonly_20261022.py",
+        "sha256": "1d4bb9e0db604384beca67dd90831f5611f9520b5121edc6f47b1d7d0b95f7ed",
+        "evidence": "unchanged local dependency"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/preprod1_AP_mgmt_20261022.py",
+        "sha256": "70e1e411e070bd73797b2c08c5770a48f0903d5e1812a46459014c0a3e7e8211",
+        "evidence": "executed-source"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_goal_ap_assoc_debug_20261022.py",
+        "sha256": "b8dc2cf401c4c929c8f43eb60c1a52c6979c1d33008e9cf97bcdd21b6c538bc5",
+        "evidence": "executed-source"
+      },
+      {
+        "file": "artifacts/canary_panel1_guarida/root_goal_hostapd_cli_20261022.bin",
+        "sha256": "b168f06e135a598e2a61b4c170fd4cd77e58072bf0e5d149c182a177ccb39e52",
+        "evidence": "executed-source"
+      }
+    ],
+    "precondition_count": 31,
+    "preconditions_verified": [
+      "S_noDEBUG_baseline",
+      "S_independent",
+      "T_negative_restored",
+      "T_independent",
+      "T_diagnostic_interpretation",
+      "U_negative_restored",
+      "U_independent",
+      "V_readonly_capability",
+      "V_negative",
+      "V_independent",
+      "V_postrestore_cleanup",
+      "V_postrestore_independent",
+      "capture_source_boundary",
+      "W_negative_restored",
+      "W_independent",
+      "X_quiet_negative_restored",
+      "X_independent",
+      "X_quiet_interpretation",
+      "S_native_baseline",
+      "prospective_Y_hypothesis",
+      "Y_negative_restored",
+      "Y_independent",
+      "Y_client_interpretation",
+      "Y_client_postrestore",
+      "AP_mgmt_source",
+      "prospective_Z",
+      "Z_failed_preflight_regressions",
+      "Z_negative_restored",
+      "Z_independent",
+      "Z_owner_verified_missing_SSID",
+      "prospective_AA"
+    ],
+    "source_review_map_exact": true
+  },
+  "acquisition": {
+    "samples": 0,
+    "events": 0,
+    "admission_daemon_recorded": false,
+    "capture_or_epoch_measurements": 0,
+    "target_recoveries_measured": 0,
+    "holds_measured": 0,
+    "qualified_streams_measured": 0,
+    "XC_exec_during_control_window": 0,
+    "control_window_started": false,
+    "initial_or_recovery_mgmt_trace_started": false,
+    "preflight_CLI_stage_is_not_trace_execution": true,
+    "failure": "Host interrupted during legacy LBM5 arm/readiness EXEC-ACK before admission/control window. Root-reported stack diagnosis; no private stack bytes inspected."
+  },
+  "restoration": {
+    "SXT": {
+      "verified": true,
+      "same_boot": true,
+      "protected_and_config_hashes_equal": 8,
+      "IPv4_addresses_routes_equal": true,
+      "guard_ended_verified": true,
+      "owned_RAM_removed": true,
+      "evidence_sha256": "21d91c0cb583421147992d2be6d45d99d6cafaad1b1160446d81e6e8668cc46a"
+    },
+    "Rocket": {
+      "verified": true,
+      "baseline_hashes_bridge_ordered_addresses_routes_rules_exact": true,
+      "no_exact_owned_inline_guard_cmdline_found": true,
+      "guard_absence_is_not_forced_expiry_proof": true,
+      "evidence_sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742"
+    },
+    "AP": {
+      "verified": true,
+      "radio_off": true,
+      "config_sha256": "f8e679e4639fc5c26b6c96d646e1e56b57fb58064a75eb215c34ad0462285a6a",
+      "deltas_empty": true,
+      "guard_ended_verified": true,
+      "owned_guard_RAM_removed": true,
+      "original_nft_table_names_equal": "Successful frozen selected cleanup contains exact nft list comparison before RAM cleanup and final success; raw list is not embedded in this closure receipt.",
+      "evidence_sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742"
+    },
+    "unstarted_mgmt_stagers": {
+      "verified_removed": 2,
+      "exact_inventory_owner_inode_mode_CLI_SHA_nonsymlink_allowlist_rechecked": true,
+      "evidence_sha256": "786ba966e21871b594b16fd5f27f598a0613b620a67a9a07b1f679ed5dce7742"
+    },
+    "LBM5": {
+      "verified": false,
+      "status": "UNKNOWN",
+      "guard_ready_PID_start_not_recorded_in_original_receipt": true,
+      "guard_intent_and_source_hash_recorded": true,
+      "final_driver_gate": "LEGACY_RESTORATION_NOT_CONFIRMED",
+      "last_observation": {
+        "error_type": "SSHException",
+        "gate": "No existing session"
+      },
+      "late_AP_ping_success_inferred_from_driver_branch_only": true,
+      "ICMP_or_elapsed_900_seconds_is_not_restore_proof": true,
+      "AP_off_pinned_access": "ChannelException Connect failed",
+      "required_closure": "Pinned LBM5 identity plus original boot/config/protected/network/profile equality, exact owned guard ended and owned RAM closure. Operator bench Ethernet access is the reported external dependency."
+    }
+  },
+  "restoration_source_review": {
+    "owned_RPC_deadline": "open_session bounded; Timer armed before exec ACK using remaining absolute budget; closes only owned channel; bounded stdout/stderr and finally cancel/close.",
+    "legacy_signal": "Own directory/source SHA, guard.id PID/start, live non-Z process and exact guard argv required before USR1; no broad signal.",
+    "Rocket_signal": "Only unique exact archived inline command matches; signal if found, then verify same PID/start ended. Final recorded scan found none and exact baseline comparison passed.",
+    "RAM_cleanup": "Only recorded two staged directories and ended guard directories, exact owner/inode/mode/hash and nonsymlink fixed filenames; no recursive deletion.",
+    "selected_cleanup_body_matches_reviewed_driver_AST": true,
+    "limits": [
+      "The initial driver checks daemon_dir rather than daemon_directory. Actual AA receipt has neither and has no samples/events; this review is restricted to that verified case, not generic admission of this guard.",
+      "The first driver requires both legacy restorations before Rocket/AP closure; LBM5 failure therefore skipped those operations. Separate frozen selected cleanup closed only known Rocket/stagers/AP and explicitly retained M5 UNKNOWN.",
+      "First two restoration attempts failed before useful cleanup; their receipts remain separately bound.",
+      "No execution of native restoration is inferred solely from a deadline."
+    ]
+  },
+  "missing_acceptance": [
+    "No initial <=120 second four-client admission measurement.",
+    "No successful initial-management-frame comparator.",
+    "No five >=60 second holds, twenty complete 32/32 echo plus >=32 radio-pair streams, or four <=60 second fresh-target-session recoveries with peer continuity.",
+    "Full restoration remains unverified for LBM5."
+  ],
+  "limits": [
+    "Local public artifacts and static source inspection only; no tests, hardware, network, credentials, Git or private logs accessed by reviewer.",
+    "Diagnostic raw/private bytes were not read or independently verified.",
+    "Setup and restoration changed RAM/RF state; absence of admission measurements does not mean no RF setup occurred.",
+    "AA original interrupted receipt has no finally/end marker and remains unchanged; additive restoration evidence does not rescue the experiment.",
+    "No PREPROD1, performance, universal zero-touch, production or OTA claim."
+  ]
+}

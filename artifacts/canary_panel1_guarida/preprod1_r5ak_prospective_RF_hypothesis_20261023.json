@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-23T05:37:28.257764+00:00",
+  "parent": "FMX0017/original forward-plan PhaseB-C/PREPROD1",
+  "question": "Does strict normalization of the explicit XC wire SSID allow the same age/load-matched AP-only XC recovery to finish normally?",
+  "evidence": {
+    "AH_negative": {
+      "file": "preprod1_run5ah_independent_acceptance_20261022.json",
+      "sha256": "61bc62fdfc91ab6b6aba27581423bea7e458260440a35c68d4a736ec8c1dae24"
+    },
+    "AJ_owned_wire_decode": {
+      "file": "preprod1_r5aj_owner_offline_decode_20261023.json",
+      "sha256": "cc92b8311ef5b82910b6d2b5999089631b5ddb9f4158a4e6107b256aff63410c"
+    },
+    "RAM_lifecycle_owner_result": {
+      "file": "preprod1_r5ak_RAM_lifecycle_20261023/receipt.json",
+      "sha256": "1ae6dd57eb73280e29aed74173cceb00336bed5961e4fef3b2df57c48097ed91",
+      "independent_acceptance_required_before_RF": true
+    }
+  },
+  "treatment": "Only new AP userspace wire-SSID compatibility99122; normal check_ssid/RSN/PSK/4way unchanged. All vanilla negatives remain valid.",
+  "fixed_recipe": "Same AH original ap_scan1/scan_ssid0/autoassoc0, initialhold116 thenhold61, no priorWA drop/pulse, onlyXCdrop2 at associatedage174..184 using reason3,60s and existing retirement/other-three gates; finalhold61 and twelve32echo/32RFpair streams. 5180MHz/VHT20/0dBm/AR.",
+  "minimum_missing": "Qualified new XC authorized WDS session, unchanged otherthree, all strict traffic/hold criteria, native trace closure and exact allfour/APoff/protected/config/boot/network/nft/guards/RAM restoration.",
+  "gates": [
+    "Independent acceptance of real RFoff lifecycle",
+    "Exact new plan/source/metadata independent preflight",
+    "All original source/identity/security/RF/deadline/guard gates"
+  ],
+  "stop_or_advance": "Preserve actual failure and choose next minimum causal repair; no unchanged retry or criterion reduction. If diagnostic positive and independently accepted, execute ORIGINAL fullfourrecoveries/fiveholds/twentystream qualifier. Diagnostic never fullP1/commit/push authority.",
+  "archive_limit": "Generated scripts are staged and hash-verified as LF directly from source bodies; legacy local write_text archives may be CRLF. Keep raw and normalized hashes explicitly; do not claim raw byte equality for those text copies.",
+  "production_access_permitted": false
+}
