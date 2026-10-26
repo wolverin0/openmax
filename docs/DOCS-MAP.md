@@ -1,208 +1,79 @@
-<!-- doc-head: Documentation authority and approved firmware-first pilot -->
-AGENTS.md governs boundaries; BENCH_PLAN's authoritative active course governs execution.
-Read CURRENT_STATE's top checkpoint first; older ACTIVE/addenda are historical.
-Oct10 native MCP/RE1.6 host and four-blob evidence; latest CURRENT_STATE governs; E2 stays parked.
+<!-- doc-head: openMAX Master Documentation & Reading Map (Stages 1–99D, < 215 lines, public-safe) -->
+Master reading order, stage report directory, and artifact map for the openMAX repository through Stage 99D.
+Covers PtMP Champion v22, PtP Champion v9, Dynamic 20/40 MHz auto-following, AF-LTU 12x 80-symbol SMP, Rocket 2AC Prism IRQ 2 fast-path, and MikroTik 802.1Q co-design.
 <!-- /doc-head -->
 
-# FuturaMAX documentation map
+# openMAX Master Documentation & Reading Map (`docs/DOCS-MAP.md`)
 
-Summary: entry point for any agent joining FuturaMAX — classifies every document (CURRENT /
-SUPERSEDED / ABANDONED / GENERATED) and gives the reading order. Keywords: docs map, navigation,
-AGENTS.md constitution, decisions, experiments, control boundary, real-hardware literature,
-recovery runbook, research prompt, evidence pipeline.
-Read when: you are starting work on FuturaMAX. Read this, then AGENTS.md, then DECISIONS.md.
-Current verdict: OpenWrt 24.10.4 runs on the lab LAP-120 with proven recovery; Stage 3 is an
-autonomous research loop (D-0009); custom-MAC go/no-go is UNKNOWN by design (NO-GO retracted, D-0003). Status: CURRENT (2026-09-26).
+## 1. Recommended Reading Order for Engineers & Researchers
 
-## Read in this order
+1. **[`README.md`](../README.md)** — Executive summary, physical testbed manifesto, and confirmed benchmark progression (`Stages 1–99D`).
+2. **[`AGENTS.md`](../AGENTS.md)** — Project constitution, source-of-truth hierarchy (`CONFIRMED` / `INFERRED` / `UNKNOWN` / `REFUTED`), safety boundaries (`mtd0/1/5`), and the 5-Pillar research framework.
+3. **[`docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md`](MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md)** — Master Research & Autoresearch Index (`v29.0`): hardware champions, `571`-knob catalog, and cross-platform tuning matrices (`WA`, `XC`, `2XC`, `XW`, `AF-LTU`, `MikroTik`).
+4. **[`docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md`](CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md)** — Complete ledger of `32` hardware discoveries (`FMX-DISC-01` through `FMX-DISC-32`).
+5. **[`docs/CURRENT_STATE.md`](CURRENT_STATE.md)** — Living operational state log and active bench configurations.
+6. **[`docs/DECISIONS.md`](DECISIONS.md)** & **[`docs/EXPERIMENTS.md`](EXPERIMENTS.md)** — Architectural Decision Records (`D-0001..D-0018`) and experiment register (`FMX-0001..0016`, Campaigns `C1–C8`).
+7. **[`docs/QCA988X_CONTROL_BOUNDARY.md`](QCA988X_CONTROL_BOUNDARY.md)** & **[`docs/HARDWARE_MATRIX.md`](HARDWARE_MATRIX.md)** — Source-verified `ath10k-ct` control boundaries and Grade-A hardware identity matrix.
+8. **[`safety/recovery/FMX-0002_recovery_runbook.md`](../safety/recovery/FMX-0002_recovery_runbook.md)** — Mandatory partition backup and TFTP `urescue` recovery runbook.
 
-1. `docs/DOCS-MAP.md` — you are here.
-2. `AGENTS.md` — **the constitution.** Goal, non-goals, safety boundaries, stages, methodology.
-   A previous session lost the project's goal by skipping this; do not.
-3. `docs/DECISIONS.md` — D-0001…D-0009, newest first. Retractions are listed by name so a wrong
-   conclusion cannot be re-cited from a confident-sounding older file.
-4. `docs/CURRENT_STATE.md` — **read the top current checkpoint first.**
-   Then `docs/BENCH_PLAN.md`'s authoritative active course, mapped to
-   `artifacts/2026-09-20-forward-plan.html`; older ACTIVE entries are history.
-5. `docs/EXPERIMENTS.md` — FMX register, the resolved install/recovery record, campaign plan C1–C8.
-6. `docs/QCA988X_CONTROL_BOUNDARY.md` — what the host can actually control on QCA988x (source-verified; §4 is the CT debugfs truth table).
-7. `knowledge/REAL_HARDWARE_LITERATURE.md` — every paper we lean on, tiered, with what transfers.
-8. `docs/HARDWARE_MATRIX.md` — Grade-A identity of all six live units (LAP-GPS included).
-9. `safety/recovery/FMX-0002_recovery_runbook.md` — before touching the lab unit.
-10. `prompt.md` — the standing research prompt; update BASELINE before each wave.
+---
 
-Background only after the above: `knowledge/AIRMAX_ARCHITECTURE.md`, `RADIO_FIRMWARE_ANALYSIS.md`,
-`AIROS_CONTROL_SURFACE.md` (airOS is out of scope as a deliverable, D-0004), and
-`research/audits/CONTRADICTION_AUDIT.md` before trusting any wave-1 claim.
+## 2. Highlighted Engineering & Hardware Breakthrough Reports (`Stages 7–99D`)
 
-Do not read the raw reports under `research/raw/` unless you are verifying a specific claim.
-They total ~355k characters and six of them answer the same eleven questions.
+| Stage / Domain | Primary Report | Key Verified Hardware / Simulation Result (`CONFIRMED`) |
+| :--- | :--- | :--- |
+| **Stage 7 — Multi-Vendor PtMP** | [`STAGE7_MULTIVENDOR_PTMP_REPORT.md`](STAGE7_MULTIVENDOR_PTMP_REPORT.md) | 3-station (`802.11ac` + `MikroTik ath9k` + `airOS 6 M5`) `WMM AC_VO` Deficit Bypass (**`21.0x` RTT cut**) & `RTS/CTS 256B` (**`+18.5%` UL**). |
+| **Stage 8 — Adaptive Controller** | [`STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md`](STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md) | Zero-fork `fmx_adaptive_controller.sh` (**`47.6x` `p95` tail-latency cut**), `VHT40` vs `VHT80` (**`2.26x` spectral efficiency**), and 6-flow BiDir stress (**`39.1x` RTT cut**). |
+| **Stage 9 — `20 MHz` & `CoTSQ`** | [`STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md`](STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md) | `VHT20` (**`0.9531` Jain fairness**, **`3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL**), `CoTSQ 128 KB` (**`181.90 Mbps` UL**), and `procd` supervision. |
+| **Stage 10 — Stock `airOS 8` Interop** | [`STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md`](STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md) | Cracked all 4 stock `airOS 8` locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1`, `ETH_P_TEB` `0x6558`), achieving **`78.7 Mbps` UL / `63.6 Mbps` DL in `20 MHz`**. |
+| **Stage 11A — `XC` AirPrism RE** | [`STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md`](STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md) | Decompiled 34 `XC` board structs (`ubnthal.ko`), 2-stage AirPrism (`GPIO 13..16` + SPI `hsr` at `0xbf000000`), and `SPECTRAL-XMIT-FILTER`. |
+| **Stage 11B — `LTU` `4096-QAM` RE** | [`STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md`](STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md) | Mapped `amesoc3` Cortex-A9 + `AD9361` SDR + `Arria 10` FPGA, `4096-QAM` (`12X`, `0x1f`) rate tables, and `2/4/8`-subband `OFDMA`. |
+| **Stage 12 — Live Sector Cutover** | [`STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md`](STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md) | Live outdoor `20 MHz` sector cutover (`Live-Sector-1` + `CPE-A` + `CPE-B`) to OpenWrt 24.10.4 (**~10x lower wireless RTT `1.93–2.42 ms`**, **`69.80 Mbps` TCP DL**) + native `udapi-bridge`. |
+| **Stage 72A — `PtMP Champion v22`** | [`STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md`](STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md) | 3-CPE sector kernel `.ko` fast-path (`rmmod ath_pktlog` + `vow_extstats=0` + `set_multiq=3`): **`+23.35%` sector goodput (`46.53 -> 57.39 Mbps`)**, **`-20.81%` `p99` RTT**, **`-22.58%` IPTV jitter**, **`0.00%` VoIP loss**. |
+| **Stage 85A — `PtP Champion v9` & `CSA`** | [`STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md`](STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md) | `PowerBeam 5AC-500` (`XC.v8.7.19`) fast-path: **`+41.01%` total goodput**, **`+70.60%` Bulk TCP**, **`-64.80%` `p95` RTT**, **`0.000%` VoIP loss**, and **`0.000s` hitless `802.11h` `CSA` channel hop (`0/80` missed probes)**. |
+| **Stage 89B — Dynamic `20/40 MHz`** | [`STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md`](STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md) | Zero-Touch `VHT Operation IE` (`0xc0`) auto-following across unmodified stock `airOS 8` CPEs in **`8.78s–12.10s` (`< 15s`)** with **`-31.28%` IPTV jitter (`0.438 -> 0.301 ms`)**. |
+| **Stage 92B — `AF-LTU` & `2AC Prism`** | [`STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md`](STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md) | `AF-LTU` `LTU-Lite` Master AP (`ap-ptmp`) unlock at **`4096-QAM 12x`** (`+8.5%` SoC TCP `187.48 Mbps`) & `Rocket 2AC Prism` (`2.4 GHz`, `2XC.v8.7.11`) `IRQ 2` elimination (`100%` of `15,480` IRQs removed, **`+13.0%` peak TCP to `34.38 Mbps`**, **`-54.3%` `p50` RTT**). |
+| **Stage 95B — `MikroTik 802.1Q/DSCP`** | [`STAGE95B_MIKROTIK_OPENWRT_VLAN_QOS_BENCH.md`](STAGE95B_MIKROTIK_OPENWRT_VLAN_QOS_BENCH.md) | End-to-end `MikroTik + OpenWrt 802.1Q VLAN PCP + DSCP` co-design (`DSCP EF -> PCP 6 -> AC_VO`), cutting E2E `p50` RTT by **`-54.84%` (`4.39 -> 1.98 ms`)** and `p95` RTT by **`-46.18%` (`7.60 -> 4.09 ms`)**. |
+| **Stage 96B — `AF-LTU` Dual-Core SMP** | [`STAGE96B_LTU_SMP_IRQ_PINNING_AND_NETIF_FASTPATH_BENCH.md`](STAGE96B_LTU_SMP_IRQ_PINNING_AND_NETIF_FASTPATH_BENCH.md) | `AF-LTU` dual-core Cortex-A9 interrupt isolation (`IRQ 52/53` `ame_b2h`/`ame_timer` on `CPU0`, `IRQ 63/92` `eth0`/`SPI` on `CPU1`), achieving **`189.81 Mbps` SoC TCP (`+9.9%`)** and **`0.42 ms` `p50` RTT (`-12.5%`)**. |
+| **Stage 98A — `MikroTik BTest/MNDP`** | [`STAGE98A_MKT_BOCA7_BTEST_AND_MNDP_PROTOCOL_AUDIT.md`](STAGE98A_MKT_BOCA7_BTEST_AND_MNDP_PROTOCOL_AUDIT.md) | Clean-room wire-protocol decoders for MikroTik `MNDP` (`UDP/5678`), `CDP`, and Bandwidth Test (`TCP/2000`) with non-intrusive bench admission rules. |
+| **Stage 99B — `LTU` `80`-Symbol SimPy** | [`STAGE99B_LTU_80SYMBOL_SUPERFRAME_SIMPY_PARETO.md`](STAGE99B_LTU_80SYMBOL_SUPERFRAME_SIMPY_PARETO.md) | `SimPy` + `pymoo` (`NSGA-II`) Pareto optimization (`13` non-dominated points) proving the `80`-symbol (`61 DL + 19 UL` at `22.4 MS/s`, `2.0 ms` / `500 Hz`) superframe + SMP pinning dominates legacy `4.0–8.0 ms` frames. |
 
-## Document register
+---
 
-### `docs/` — navigation and state
+## 3. Repository Directory & Component Register
 
-| File | Class | Notes |
-|---|---|---|
-| `DOCS-MAP.md` | CURRENT | This file. |
-| `DECISIONS.md` | **CURRENT** | Architectural decisions D-0001…D-0013 incl. D-0009 (autoresearch), D-0010 (testbed RF), D-0011 (multi-LLM debate consensus: split-plane shaping, CPU boundaries, uplink gate), D-0012 (CoTSQ 6ms, target SRAM rate-cache lock, Bianchi PtMP hidden-node proof), D-0013 (Complete P0/P1 production engines). |
-| `CURRENT_STATE.md` | CURRENT | Top current checkpoint governs; older verdicts may be retracted. |
-| `BENCH_PLAN.md` | CURRENT | One authoritative active course; original D1/E2/E3 outcomes, explicit parked support work. |
-| `EXPERIMENTS.md` | **CURRENT** | FMX-0001..0016 status (incl. FMX-0012 multi-LLM debate, FMX-0013..0016 analytical queue recipes), install/recovery record, Stage-3 campaigns C1–C8, INFERRED success thresholds. |
-| `QCA988X_CONTROL_BOUNDARY.md` | **CURRENT** | Source-verified host control surface on QCA988x under ath10k-CT; §4 = spectral/set_rates/set_rate_override/ratemask-CT truths. |
-| `HARDWARE_MATRIX.md` | **CURRENT** | Grade A, all six models read live 2026-08-08 (LAP-GPS `0xe7fd`, LAP-120 `0xe8e5`, Prism `0xe7e9`). |
-| `TESTBED_ENVIRONMENT_GUIDE.md` | **CURRENT** | 2 AP + 20 CPE physical testbed specs, RF attenuation calculations, Fraunhofer distance, unattended urescue recovery. |
-| `COMMUNITY_CALL_FOR_COLLABORATION.md` | **CURRENT** | Community manifesto, call for WISP/kernel hacker participation, methodology disclosure. |
+### `docs/` — Navigation, Architecture & Multi-Lane Audits
+| File | Status | Purpose |
+| :--- | :--- | :--- |
+| `DOCS-MAP.md` | **CURRENT** | Master reading map and repository directory (this file). |
+| `MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md` | **CURRENT (`v29.0`)** | Master index of all 5 research pillars, hardware champions, and `571` cataloged knobs. |
+| `CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md` | **CURRENT** | Curated registry of `32` confirmed discoveries (`FMX-DISC-01..32`) and closed hardware gaps. |
+| `CURATED_MULTILANE_CODEX_AGY_RECONCILIATION.md` | **CURRENT** | Multi-lane (`Codex` + `AGY`) reconciliation and `571`-knob taxonomy (`365` `CONFIRMED_LIVE_TESTED`). |
+| `STAGE12_UBNT_POLL_TDMA_INTERNALS_AND_LTU_12X_RE.md` | **CURRENT** | Deep binary reverse engineering of `ubnt_poll_host.ko`, `umac.ko`, `ame_core.ko`, and `eab_driver.ko`. |
+| `STAGE59A_ZERO_FALSE_POSITIVE_WISP_RF_OBSERVABILITY_AND_GUARIDA_PLAN.md` | **CURRENT** | Zero-false-positive RF observability architecture and 3-panel sector telemetry plan. |
+| `TESTBED_ENVIRONMENT_GUIDE.md` | **CURRENT** | Physical 2-tier coaxial + rooftop testbed guide, Fraunhofer distance, and automated recovery. |
+| `COMMUNITY_CALL_FOR_COLLABORATION.md` | **CURRENT** | Open call for WISP operators, kernel developers, and academic wireless researchers. |
 
-### `debates/` — Multi-LLM Cross-Model Architecture Reviews
+### `knowledge/` & `debates/` — Foundational Theory, Firmware Internals & Literature
+| File | Status | Purpose |
+| :--- | :--- | :--- |
+| `knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md` | **CURRENT** | Mathematical models for `CoTSQ 6ms` A-MPDU efficiency $\eta(K)$, Bianchi PtMP hidden-node Markov chains, and WMI/HTT hooks. |
+| `knowledge/ATH10K_CT_FIRMWARE_DEEP_DIVE.md` | **CURRENT** | Deep dive into `QCA9880`/`QCA9882` `ath10k-ct` internals: HTT credit rings, peer stats, and retry amplification. |
+| `knowledge/PACED_AGGREGATION_AND_COTSQ.md` | **CURRENT** | Empirical and analytical proof of why `TSQ=1ms` starves 802.11ac aggregation and `CoTSQ` restores throughput. |
+| `knowledge/PTMP_OUTDOOR_TDMA_VS_CSMA.md` | **CURRENT** | Physics of outdoor PtMP contention vs hybrid `mac80211` `AQL` + `ATF` + `RTS/CTS NAV`. |
+| `knowledge/AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md` | **CURRENT** | Karpathy/IteRate-style closed-loop optimization engine, reward function $J(\theta)$, and counterbalanced `A1 -> B1 -> A2 -> B2` gate. |
+| `knowledge/SPECTRAL_AND_CSI_ANALYSIS.md` | **CURRENT** | Baseband FFT spectral scanning via RelayFS (`fft_sample_ath10k`) vs structural absence of CSI on `QCA988x`. |
+| `knowledge/REAL_HARDWARE_LITERATURE.md` | **CURRENT** | Tiered catalogue of peer-reviewed real-hardware wireless systems papers (`IteRate`, `PNOFA`, `Ending the Anomaly`, `AirSlice`). |
+| `debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md` | **CURRENT** | Multi-LLM architectural consensus on MIPS 74Kc CPU ceilings, split-plane shaping, and uplink gates. |
 
-| File | Class | Notes |
-|---|---|---|
-| `debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md` | **CURRENT** | Authoritative consensus synthesis (Claude Fable 5.1, OpenAI Codex GPT-6 Astra, Google Gemini 3.8 Flash): MIPS 74Kc CPU limits, external gateway CAKE offload, CPE TBF, and uplink go/no-go gate. |
-| `debates/001-openmax-qca9880-ptmp-optimizat/transcript.md` | CURRENT | Full verbatim 3-round cross-examination transcript across all 3 models. |
-| `debates/viewer.html` | CURRENT | Interactive multi-round debate viewer UI. |
-
-
-### `knowledge/` — verified evidence, source-backed
-
-| File | Class | Notes |
-|---|---|---|
-| `ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md` | **CURRENT** | Canonical mathematical models ($\mathcal{H}_1 \dots \mathcal{H}_5$): CoTSQ 6ms A-MPDU efficiency $\eta(K)$, Bianchi Markov PtMP hidden-node collision derivations, and exact `ath10k-ct`/`mac80211` source hooks (`htt_max_amsdu_ampdu`, `num_rate_ctrl_objs_ct=24`, `num_msdu_desc_ct`). |
-| `PRAISONAI_AQL_RESEARCH_REPORT.md` | **CURRENT** | Autonomous research report on AQL, CoTSQ, ath10k-ct internals, and PtMP queue optimization from PraisonAI multi-agent run. |
-| `REAL_HARDWARE_LITERATURE.md` | **CURRENT** | Verified, tiered catalogue: IteRate, WiFiSpectralJam, ComMag 2024, ORCA, WiFi-CUTS, PNOFA, Quick & Plenty, Ending the Anomaly, hMAC, SmartLA, SRT-WiFi. Says what transfers (technique) vs what does not (numbers). |
-| `ATH10K_CT_FIRMWARE_DEEP_DIVE.md` | **CURRENT** | Deep dive into QCA9880 / ath10k-ct internals: 30 vs 4 retries, HTT credit rings, bufferbloat, peer stats, and last_tx_bitrate airtime cliff. |
-| `PACED_AGGREGATION_AND_COTSQ.md` | **CURRENT** | Mathematical and empirical analysis of A-MPDU aggregation in paced 802.11ac: why TSQ=1ms starves throughput and CoTSQ=6ms restores 10x goodput. |
-| `PTMP_OUTDOOR_TDMA_VS_CSMA.md` | **CURRENT** | Physics of outdoor PtMP: hidden node collapse, airMAX AC proprietary Xtensa/ASIC architecture, and OpenWrt hybrid (AQL+RTS/CTS+DRR). |
-| `AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md` | **CURRENT** | Specification of Karpathy/IteRate-style closed-loop AI optimization engine: parameter search space, multi-objective reward function, A/B/A/B gate. |
-| `SPECTRAL_AND_CSI_ANALYSIS.md` | **CURRENT** | Baseband FFT scan architecture via RelayFS (PACKAGE_ATH_SPECTRAL) vs structural absence of CSI on QCA988x. |
-| `AIRMAX_ARCHITECTURE.md` | CURRENT | Measured on 6 live radios. Per-mode/per-role radio firmware, `ubnt_poll_host` is control-plane only. |
-| `RADIO_FIRMWARE_ANALYSIS.md` | CURRENT | Radio firmware carved from public images; Ubiquiti polling code inside it; frozen since ~2017. |
-| `AIROS_CONTROL_SURFACE.md` | CURRENT, demoted (D-0004) | airOS config is reachable via `cfgmtd -w` + reboot incl. 62 hidden `radio.*` keys — real, but tuning airOS is **out of scope**. |
-| `CUSTOM_MAC_GO_NO_GO.md` | CURRENT — verdict **UNKNOWN** | The earlier NO-GO was **RETRACTED (D-0003)**: it answered the wrong question, on the wrong stack. Stage-4 criteria must be *measured* on OpenWrt; radio-firmware work is deferred until a measured ceiling (D-0009). |
-
-(`HARDWARE_MATRIX.md` and `QCA988X_CONTROL_BOUNDARY.md` live under `docs/` since the 2026-08-08
-restructure; see the table above.)
-
-Not yet written (each needs R3 verification first, and several need C01–C03 settled):
-`INDEX.md`, `PROJECT_CHARTER.md`, `OPENWRT_ATH10K.md`, `TDMA_AND_SCHEDULED_MAC.md`, `RATE_CONTROL.md`,
-`AGGREGATION_AND_BLOCK_ACK.md`, `QUEUEING_AIRTIME_AND_QOE.md`,
-`HIDDEN_NODES_AND_CONTENTION.md`, `SPECTRUM_AND_RF_OPTIMIZATION.md`,
-`LONG_DISTANCE_AND_GPS_TIMING.md`, `TECHNIQUE_CATALOG.md`, `NEGATIVE_EVIDENCE.md`,
-`SOURCE_LEDGER.md`, `EXPERIMENT_BACKLOG.md`, `OPEN_QUESTIONS.md`.
-
-Writing these from wave-1 material alone would launder model prose into canon. That is the
-failure this pipeline exists to prevent.
-
-### `research/` — the evidence pipeline
-
-| Path | Class | Notes |
-|---|---|---|
-| `intake/manifest.yaml` | GENERATED | Provenance for all six runs. Regenerate: `tools/research/intake.py`. |
-| `intake/manifest.json` | GENERATED | Machine-readable twin of the above. |
-| `raw/<provider>/<run_id>/` | CURRENT | Byte-exact primary documents + asset-bundle hash index. **Never edit.** |
-| `raw/hardware/*.txt` | CURRENT | Live-unit inventory 2026-08-08. MAC-sanitised. Grade-A evidence. |
-| `extracted/<provider>/<run_id>/report.md` | GENERATED | Readable text. Not evidence. |
-| `extracted/<provider>/<run_id>/links.jsonl` | GENERATED | Per-run citation ledger. |
-| `normalized/sources.jsonl` | GENERATED | 535 deduped sources, typed, with cross-run counts. |
-| `normalized/link_check.jsonl` | GENERATED | Reachability per URL, timestamped. |
-| `audits/CITATION_AUDIT.md` | GENERATED | Per-run citation quality. |
-| `audits/CONTRADICTION_AUDIT.md` | **CURRENT** | Hand-written. 17 conflicts, 5 resolved. The most important file here. |
-| `gaps/GAP_LEDGER.md` | CURRENT | Open questions with owners and methods. |
-
-Not yet produced: `normalized/claims.jsonl`, `measurements.jsonl`, `candidates.jsonl`,
-`conflicts.jsonl`, and the `workstreams/W01–W14` packets. See CURRENT_STATE for why.
-
-### `inputs/`
-
-| File | Class | Notes |
-|---|---|---|
-| `prompts/external-deep-research-prompt.md` | CURRENT | Wave-1 prompt, recovered verbatim from the saved Grok page. **Do not re-run it** — see the audit's closing note. |
-
-### Root, `safety/`, `inventory/` — operational
-
-| Path | Class | Notes |
-|---|---|---|
-| `AGENTS.md` | **CURRENT — constitution** | Authoritative including sections12.1-12.3; do not assume the companion project guide is synchronized. |
-| `prompt.md` | CURRENT | Standing deep-research prompt with guardrails; the BASELINE and "already in hand" list must be refreshed per wave. |
-| `safety/recovery/FMX-0002_recovery_runbook.md` | **CURRENT (rev 2)** | Install + recovery on the LAP-120. Route A (dd-unlock) is the install; Route C (urescue install) is REFUTED; urescue is recovery-only and refuses OpenWrt images. |
-| `safety/recovery/urescue_push.py` | CURRENT | TFTP push to a unit in urescue. Probe with a READ request only; a write-request probe consumes the single session. |
-| `safety/recovery/install_openwrt_ddunlock.py` | CURRENT | Scripted dd-unlock: interrupt at the ROOTFS write, stage the image as a file, verify the whole image across the mtd2/mtd3 boundary before reboot. |
-| `inventory/board_probe/preflash_probe.py` | CURRENT | Read-only pre-flash evidence collector with an enforced write-primitive guard and a 0-stations abort. |
-| `firmware/openwrt/`, `firmware/WA.v8.5.12*.bin` | CURRENT | SHA-256-verified OpenWrt 24.10.4 images and the stock airOS rollback image. |
-| `firmware/openwrt/futuramax-r28959-spectral/` | **CURRENT (2026-09-26, PROVISIONAL)** | FMX-0011 output: spectral-enabled 24.10.4 (r28959) images for LAP-120, LiteBeam AC Gen2, NanoStation 5AC, Loco 5AC + sha256sums, manifest, dot.config, build log. Not yet flashed. |
-| `tools/openwrt-build/` | **CURRENT** | Reproducible build system: `MANIFEST.md` (what/how/hashes/caveats), seed config + diffconfig, `run-attached.sh`/`build.sh` (WSL runner with gcc-12 shim and retry), `exit-checks.sh`, `copy-artifacts.sh`, `diag-hang.sh`. |
-| `research/raw/chatgpt/2026-09-20/` | CURRENT | Research waves 2 and 2b, verbatim, hashed, registered in the manifest with verification records. |
-
-### `tools/research/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `intake.py` | CURRENT | R0 registration + hashing. Idempotent. |
-| `extract.py` | CURRENT | HTML/PDF/MD → markdown + link ledger. |
-| `normalize_sources.py` | CURRENT | R2 cross-run source dedupe. |
-| `check_links.py` | CURRENT | R3 reachability probe. Resumable; `--refresh` to redo. |
-| `make_citation_audit.py` | CURRENT | Renders the citation audit. |
-| `unpack_airos.py` | CURRENT | Unpacks a published airOS `.bin` into u-boot/kernel/rootfs parts. |
-| `praison_researcher.py` | CURRENT | PraisonAI autonomous research loop driver for queue and ath10k deep-dives. |
-| `praison_grounded_investigator.py` | CURRENT | Grounded multi-agent research team with C-source grep and silicon feasibility gatekeeper. |
-| `srccache/` | GENERATED | Shallow ath10k-ct clone + fetched mainline sources. Reproducible; safe to delete. |
-
-### `tools/sim/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `ptmp_contention_sim.py` | CURRENT | Discrete-event PtMP CSMA/CA simulator with hidden-node geometry, validating Bianchi models. |
-
-### `telemetry/spectral_fft/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `parser.py` | CURRENT | High-performance binary RelayFS parser (`fft_sample_ath10k`) and sub-millisecond interference classifier (23.4 µs/sample). |
-| `test_parser.py` | CURRENT | Unit test suite and CPU benchmark for the spectral parser. |
-
-### `controller/optimizer/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `rate_bandit.py` | CURRENT | ADR-bandit (Adaptive Resetting Multi-Armed Bandit) rate-mask controller with Page-Hinkley drift detector. |
-| `test_rate_bandit.py` | CURRENT | Dynamic fading benchmark verifying rapid convergence and rain fade adaptation. |
-
-### `tools/observability/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `dashboard.py` | CURRENT | Real-time CLI/Markdown observability dashboard for multi-agent telemetry and experiment tracking. |
-| `ledger.py` | CURRENT | SQLite ledger abstraction (`telemetry.db`) recording experiment metrics, queue states, and hypotheses. |
-
-### `tools/inventory/`
-
-| File | Class | Purpose |
-|---|---|---|
-| `AIROS_INVENTORY.md` | CURRENT | Read-only command sheet. G04 closed with it. |
-| `collect.py` | CURRENT | Automated read-only SSH collector. `UBNT_PASS` from env, never on disk. |
-
-### Pre-existing, operator-owned
-
-| Path | Class | Notes |
-|---|---|---|
-| `obsidian-vault/log.md` | CURRENT | Operator's append-only log. **Inspected only; never edited.** |
-| `futuramaxresearch/` | CURRENT | Operator drop zone. Read-only to this pipeline; originals untouched. |
-| `researchplan.md` | CURRENT | The multi-agent research program spec (W01–W14). |
-| `handoffs/handoff-2026-08-08T12-57-03-a63934.md` | CURRENT | The R0–R9 / E0–E5 contract this work follows. |
-
-## Regenerating everything
-
-```bash
-python tools/research/intake.py            # idempotent, content-derived run_ids
-python tools/research/extract.py
-python tools/research/normalize_sources.py
-python tools/research/check_links.py       # resumable; ~6 min for 535 URLs
-python tools/research/make_citation_audit.py
-```
-
-## Rules that outlive this file
-
-- Generated indexes never override current source evidence.
-- Preserve `UNKNOWN`; do not omit uncertainty to make a document read cleanly.
-- Time-sensitive statements carry an accessed/verified date.
-- A completed JSON directory is not proof that research is ready.
+### `orchestration/`, `controller/`, `telemetry/` & `tools/` — Executable Engines & Verification
+| Path | Status | Purpose |
+| :--- | :--- | :--- |
+| `orchestration/autoresearch/fmx_autoresearch_harness.py` | **CURRENT** | Counterbalanced `A1 -> B1 -> A2 -> B2` hardware autoresearch harness with `45s` Non-DFS / `120s` DFS rollback watchdog. |
+| `orchestration/autoresearch/firmware_knob_candidates.json` | **CURRENT** | Machine-readable `571`-knob catalog across `WA`, `XC`, `2XC`, `XW`, `AF-LTU`, `OpenWrt`, and `MikroTik` (`365` `CONFIRMED_LIVE_TESTED`). |
+| `controller/fmx_adaptive_controller.sh` | **CURRENT** | Zero-fork POSIX closed-loop adaptive `AQL`/`ATF` sector daemon (`< 0.1%` MIPS CPU) supervised by `procd`. |
+| `controller/optimizer/rate_bandit.py` | **CURRENT** | Adaptive Resetting Multi-Armed Bandit (`ADR-bandit`) rate-mask controller with Page-Hinkley drift detection. |
+| `telemetry/spectral_fft/parser.py` | **CURRENT** | Binary RelayFS spectral FFT parser (`fft_sample_ath10k`, `23.4 µs/sample`) and interference classifier. |
+| `tools/research/closed_loop_research_reactor.py` | **CURRENT** | Closed-loop `HYPERRESEARCH V8` + `scholar-mcp` research reactor and receipt synchronizer. |
+| `tools/verify/enforce_5pillar_research_gate.py` | **CURRENT** | Deterministic 5-Pillar repository gate (`< 220`-line doc budget, `1` `<!-- doc-head -->`, receipt freshness). |
+| `safety/recovery/urescue_push.py` & `install_openwrt_ddunlock.py` | **CURRENT** | Verified TFTP `urescue` recovery pusher and `mtd2/mtd3` boundary-checked OpenWrt installer. |

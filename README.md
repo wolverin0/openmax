@@ -1,10 +1,10 @@
-# openMAX: Squeezing the Physical Limit from airMAX AC Hardware
+# openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
 
-> **An open research knowledge hub and autonomous experimental testbed driven by a real-world WISP and AI agents to extract maximum real-world PtMP capacity, latency stability, and spectral efficiency from ubiquitously deployed Ubiquiti airMAX AC hardware.**
+> **An open research knowledge hub and autonomous experimental testbed driven by a real-world WISP and AI agents to extract maximum real-world PtMP/PtP capacity, latency stability, Triple-Play QoE, and spectral efficiency from ubiquitously deployed Ubiquiti airMAX AC, M5, and LTU hardware.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Status: Active R&D](https://img.shields.io/badge/Status-Active%20R%26D-success.svg)](docs/CURRENT_STATE.md)
-[![Hardware: QCA988x / AR934x](https://img.shields.io/badge/Hardware-QCA988x%20%7C%20AR934x-orange.svg)](docs/HARDWARE_MATRIX.md)
+[![Status: Active R&D (Stage 99D)](https://img.shields.io/badge/Status-Active%20R%26D%20(Stage%2099D)-success.svg)](docs/CURRENT_STATE.md)
+[![Hardware: QCA988x / AR934x / QCA9558 / LTU](https://img.shields.io/badge/Hardware-QCA988x%20%7C%20AR934x%20%7C%20QCA9558%20%7C%20LTU-orange.svg)](docs/HARDWARE_MATRIX.md)
 [![Method: Autonomous Loop](https://img.shields.io/badge/Method-Autonomous%20Loop%20(Karpathy%20%2F%20IteRate)-purple.svg)](docs/DECISIONS.md#d-0009)
 
 ---
@@ -12,100 +12,84 @@
 ## 1. The Manifesto: Why openMAX Exists
 
 ### The Reality of Modern Fixed Wireless
-Millions of **Ubiquiti airMAX AC** radios—LiteAP GPS, LiteBeam 5AC Gen2, NanoStation 5AC, and Loco 5AC—are deployed on rooftops, towers, and customer premises worldwide. They represent billions of dollars in sunk capital and provide lifeline broadband to rural, suburban, and developing communities.
+Millions of **Ubiquiti airMAX AC, M5, and LTU** radios—LiteAP GPS, LiteBeam 5AC Gen2, NanoStation 5AC, PowerBeam 5AC, Rocket Prism 5AC/2AC, and LTU-Lite/LR/Pro—are deployed on rooftops, towers, and customer premises worldwide. They represent billions of dollars in sunk capital and provide lifeline broadband to rural, suburban, and developing communities.
 
-However, vendor R&D on the airMAX AC line has effectively stalled as manufacturers shifted focus to proprietary 60 GHz, LTU, and Wi-Fi 6/7 gear. The software running on these millions of deployed radios is largely frozen on vendor kernels and driver architectures dating back to 2017–2019.
+However, vendor R&D on the airMAX AC line has effectively stalled as manufacturers shifted focus to newer product tiers. The software running on these millions of deployed radios is largely frozen on legacy vendor kernels (`Linux 3.3.8` / `4.14.0`) and driver architectures dating back to 2017–2019.
 
 ### The Opportunity Ubiquiti Left Behind
 Meanwhile, over the past decade, the open-source Linux kernel and academic wireless research communities have made revolutionary breakthroughs in wireless performance:
 * **Airtime-Based Queue Limits (AQL)**: Restricting hardware driver ring buffers to microseconds of pending airtime rather than megabytes of packets, dropping loaded latency by up to two orders of magnitude (>4,000 ms to <60 ms).
 * **Controlled TCP Small Queues (CoTSQ)**: Preventing TCP socket buffers from starving 802.11ac frame aggregation engines, unlocking 2× to 10× throughput gains on wireless links.
 * **Supervisory Frame Aggregation (PNOFA)**: Outer-loop processes on closed Qualcomm silicon outperforming native chipset aggregation heuristics by +17% UDP / +13% TCP.
-* **Contextual Rate-Mask Bounding**: Reclaiming 15% to 25% of wasted sector airtime on fixed links by banning doomed high-order MCS probing.
-* **Airtime Fairness (DRR)**: Eliminating the 802.11 "performance anomaly" where a single degraded customer destroys aggregate sector throughput (5.4× aggregate capacity restoration in real testbeds).
+* **Kernel `.ko` Fast-Path Datapath Pruning**: Stripping unconsumed per-PPDU packet-logging (`ath_pktlog.ko`), VoW extended statistics (`vow_extstats=0`), and co-processor SPI interrupt storms (`IRQ 2`) from resource-constrained MIPS 74Kc (`535–720 MHz`) and dual-core Cortex-A9 SoCs.
+* **Airtime Fairness (DRR)**: Eliminating the 802.11 "performance anomaly" where a single degraded station destroys aggregate sector throughput (5.4× aggregate capacity restoration in real testbeds).
 
 ### Our Approach: WISP Infrastructure + AI Research Agents
-We are not a venture-backed hardware vendor or a university lab with dozens of Ph.D. students. **We are an active Wireless Internet Service Provider (WISP) with physical towers, roofs, and hardware.** 
+We are not a venture-backed hardware vendor or a university lab with dozens of Ph.D. students. **We are an active Wireless Internet Service Provider (WISP) with physical towers, roofs, and hardware.**
 
-We have teamed up with autonomous AI research agents (Codex, Claude, Gemini/Antigravity) operating under a strict scientific constitution to research, document, instrument, and autonomously test how much performance can be extracted from this silicon.
-
-We are building this project in the open as a **public knowledge hub** for the entire WISP and wireless engineering community.
+We have teamed up with autonomous AI research agents (Codex, Claude, Gemini/Antigravity) operating under a strict scientific constitution to research, document, instrument, and autonomously test how much performance can be extracted from this silicon. We are building this project in the open as a **public knowledge hub** for the entire WISP and wireless engineering community.
 
 ---
 
 ## 2. The Core Mission
 
-> **What is the best fixed-wireless system existing Ubiquiti airMAX AC hardware can physically execute when optimized specifically for stationary outdoor PtMP links, known geometry, known distances, known service tiers, and autonomous closed-loop experimentation?**
+> **What is the best fixed-wireless system existing Ubiquiti airMAX AC, M5, and LTU hardware can physically execute when optimized specifically for stationary outdoor PtMP/PtP links, known geometry, known distances, known service tiers, and autonomous closed-loop experimentation?**
 
-We do **NOT** attempt to turn 802.11ac hardware into Wi-Fi 6/7 or fabricate PHY capabilities the silicon does not possess. We optimize for the properties of **stationary outdoor PtMP**:
+We do **NOT** attempt to turn 802.11ac hardware into Wi-Fi 6/7 or fabricate PHY capabilities the silicon does not possess. We optimize for the properties of **stationary outdoor PtMP/PtP**:
 * Radios do not walk behind couches like smartphones. CPEs are bolted to poles with static line-of-sight and measurable link histories.
-* We control or observe **both ends of the link** (AP and CPE).
-* We can use multi-armed bandits and outer-loop controllers to supervise the closed firmware.
+* We control or observe **both ends of the link** (AP and CPE) as well as upstream **MikroTik RouterOS** gateways (`802.1Q VLAN PCP + DSCP` co-design).
+* We use counterbalanced `A1 -> B1 -> A2 -> B2` autoresearch loops, discrete-event `SimPy` + `pymoo` (`NSGA-II`) multi-objective optimization, and outer-loop controllers to supervise the closed radio firmware.
 
 ---
 
 ## 3. Engineering Principles & Scientific Honesty
 
 Every claim in this repository follows the strict source-of-truth hierarchy defined in our **[Project Constitution (AGENTS.md)](AGENTS.md)**:
-
 1. **Measurements from our exact hardware revision** (Grade-A hardware evidence).
-2. **Source code for the exact build** (verified in OpenWrt / Linux / ath10k).
+2. **Source code & binary verification for the exact build** (verified in OpenWrt / Linux / `ath10k` / `umac.ko` / `ame_core.ko`).
 3. **Official hardware and vendor documentation**.
 4. **Peer-reviewed real-hardware research** (IEEE, USENIX, ACM).
 5. **Preprints with reproducible code and data**.
 6. **Simulations and community reports**.
 
 ### Mandatory Claim Labeling
-* **CONFIRMED**: Proven experimentally on our hardware or verified directly in source code.
+* **CONFIRMED**: Proven experimentally on our hardware or verified directly in source/binary code.
 * **INFERRED**: Statistically plausible based on real-hardware literature, awaiting direct testbed measurement.
 * **UNKNOWN**: Unmeasured or untested on target hardware.
 * **REFUTED**: Disproven by experimental measurement or source code analysis.
-
-> **We do not sell snake oil, and we do not add percentages from unrelated papers together.** The goal is not to prove openMAX beats airMAX; the goal is to discover the physical truth.
 
 ---
 
 ## 4. The Knowledge Hub: Document Directory
 
-To explore our technical findings, architectural decisions, and experiment logs, follow this reading order:
-
 | Document | Purpose |
 |:---|:---|
+| **[docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md](docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md)** | **Master Research & Autoresearch Index (`v29.0`)**: Complete index of verified hardware champions (`PtMP v22`, `PtP v9`, `LTU 12x SMP`), 571-knob catalog, and 5-Pillar research architecture. |
+| **[docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md](docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md)** | **32 Confirmed Hardware Discoveries (`FMX-DISC-01..32`)**: Consolidated ledger of physical testbed breakthroughs from Stages 1–99D. |
 | **[docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md](docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md)** | **Stage 7 Multi-Vendor PtMP Report**: 3-station (`802.11ac` + `MikroTik ath9k` + `airOS 6 M5`) Near-Far, ATF, `WMM AC_VO` Deficit Bypass (`21x` RTT cut), and `RTS/CTS 256B` (`+18.5%` UL). |
 | **[docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md](docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md)** | **Stage 8 Adaptive Controller & Sector Sim**: Zero-fork closed-loop daemon (`fmx_adaptive_controller.sh`), `618 KB` Spectral FFT, `VHT40` vs `VHT80` (`2.26x` spectral efficiency), and 6-flow BiDir stress test (`39.1x` RTT cut). |
-| **[docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md](docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md)** | **Stage 9 `20 MHz` WISP Sector, Rate-Mask Boundary, `CoTSQ` & `procd` Watchdog**: `VHT20` (`3.05x` faster obstructed `SXT`, `0.9531` Jain fairness, `3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL), `FMX-0009` `ATH10K_DBG_BUFFER` verification, `CoTSQ 128 KB` (`181.90 Mbps` UL), and `/etc/init.d/futuramax`. |
-| **[docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md](docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md)** | **Stage 10 Stock `airOS 8` (`v8.5.12`–`v8.7.25`) Interoperability & Zero-Truck-Roll Migration**: Cracked the 4 locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1` WPA2 filter, `ETH_P_TEB` `0x6558` decapsulation) + `/sbin/uav`-proof `system.cfg` `cron` persistence (`78.7 Mbps` UL / `63.6 Mbps` DL in `20 MHz` `WPA2-PSK` at `3.94 bit/s/Hz`). |
-| **[docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md](docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md)** | **Stage 11A `XC` (`Rocket Prism 5AC Gen2` / `PS-5AC`) & AirPrism Architecture**: Full decompilation of all 34 `XC` board structs, 2-stage AirPrism (`GPIO 13..16` `prism` bank + SPI `hsr` active filter at `0xbf000000`), `wifi1` `SPECTRAL-XMIT-FILTER` TX-blanking GPIO, and 100% `ubnt_poll_host.ko` offset parity with `WA`. |
-| **[docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md](docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md)** | **Stage 11B `LTU` (`LTU-Rocket` / `LTU-Lite` `v2.4.2`) `4096-QAM` (`12X`) Unlock & Hidden OFDMA**: `amesoc3` + `AD9361` SDR + `Intel Arria 10 SoC FPGA` architecture; proof that `4096-QAM` (`0x1f`) is 100% implemented in `ame_core.ko`/RFIC/PtMP scheduler and unlocked via `ubntconf` (`wireless.1.rate.mcs=5`), plus hidden `2/4/8`-subband OFDMA (`ofdma_mode=0..3`) and `/lib/ame-debug/www/sched.html`. |
-| **[docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md](docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md)** | **Stage 12 Live Production Sector Cutover (`Panel1-Guarida` + `MONZON` + `GAMBOA`) & UISP Bridge**: First live outdoor WISP sector (`LiteAP 120` AP + `NanoStation 5AC loco` + `LiteBeam 5AC Gen2` CPEs) migrated 100% to OpenWrt 24.10.4 (`Linux 6.6.110`), delivering **~10x lower wireless RTT (`22.58 ms` -> `1.93–2.42 ms`)**, **-80% to -94% lower loaded latency (bufferbloat)**, **`69.80 Mbps` TCP DL in `20 MHz`**, Zero-Touch Stock `airOS 8` CPE admission, and native `udapi-bridge` UISP telemetry architecture. |
-| **[docs/DOCS-MAP.md](docs/DOCS-MAP.md)** | **Master Reading Map**: Status and classification of all project files. |
-| **[debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md](debates/001-openmax-qca9880-ptmp-optimizat/synthesis.md)** | **Multi-LLM Debate Synthesis**: 3-way frontier AI consensus (Fable 5.1, GPT-6 Astra, Gemini 3.8 Flash) on CPU boundaries, shaping, and uplink gates. |
-| **[knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md](knowledge/ANALYTICAL_QUEUE_MODEL_AND_HOOKS.md)** | **Analytical Queue Model & Driver Hooks**: Mathematical models for CoTSQ 6ms, Bianchi PtMP hidden-node derivations, and exact WMI/HTT driver hooks. |
-| **[docs/COMMUNITY_CALL_FOR_COLLABORATION.md](docs/COMMUNITY_CALL_FOR_COLLABORATION.md)** | **Community Manifesto**: How WISPs, kernel devs, and researchers can collaborate with our AI loop. |
-| **[knowledge/ATH10K_CT_FIRMWARE_DEEP_DIVE.md](knowledge/ATH10K_CT_FIRMWARE_DEEP_DIVE.md)** | **ath10k-ct Firmware Internals**: 30 vs 4 retries, HTT credit rings, bufferbloat, peer stats, and the 6 Mbps airtime cliff. |
-| **[knowledge/PACED_AGGREGATION_AND_COTSQ.md](knowledge/PACED_AGGREGATION_AND_COTSQ.md)** | **Paced Aggregation & CoTSQ**: Mathematical model of A-MPDUs; why TSQ=1ms starves throughput and CoTSQ=6ms restores 10× goodput. |
-| **[knowledge/PTMP_OUTDOOR_TDMA_VS_CSMA.md](knowledge/PTMP_OUTDOOR_TDMA_VS_CSMA.md)** | **Outdoor PtMP Physics**: Hidden node collapse, airMAX AC proprietary Xtensa/ASIC architecture, and OpenWrt hybrid solutions. |
-| **[knowledge/AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md](knowledge/AUTONOMOUS_WIRELESS_RESEARCH_ENGINE.md)** | **Autoresearch Engine Architecture**: Karpathy-style closed-loop AI optimization, multi-objective reward function $J(\theta)$, and A/B/A/B gate. |
-| **[knowledge/SPECTRAL_AND_CSI_ANALYSIS.md](knowledge/SPECTRAL_AND_CSI_ANALYSIS.md)** | **Spectral & CSI Analysis**: Baseband FFT scanning via RelayFS vs structural absence of CSI on QCA988x. |
-| **[docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)** | **Living State Log**: Chronological development log (read latest addendum first). |
+| **[docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md](docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md)** | **Stage 9 `20 MHz` WISP Sector, Rate-Mask Boundary, `CoTSQ` & `procd` Watchdog**: `VHT20` (`3.05x` faster obstructed `SXT`, `0.9531` Jain fairness, `3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL), `FMX-0009` `ATH10K_DBG_BUFFER` verification, and `CoTSQ 128 KB`. |
+| **[docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md](docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md)** | **Stage 10 Stock `airOS 8` (`v8.5.12`–`v8.7.25`) Interoperability & Zero-Truck-Roll Migration**: Cracked the 4 locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1` WPA2 filter, `ETH_P_TEB` `0x6558` decapsulation) + `/sbin/uav`-proof `system.cfg` persistence (`78.7 Mbps` UL / `63.6 Mbps` DL in `20 MHz`). |
+| **[docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md](docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md)** | **Stage 11A `XC` (`Rocket Prism 5AC Gen2` / `PS-5AC`) & AirPrism Architecture**: Full decompilation of all 34 `XC` board structs, 2-stage AirPrism (`GPIO 13..16` `prism` bank + SPI `hsr` active filter at `0xbf000000`), and `wifi1` `SPECTRAL-XMIT-FILTER`. |
+| **[docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md](docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md)** | **Stage 11B `LTU` (`LTU-Rocket` / `LTU-Lite` `v2.4.2`) `4096-QAM` (`12X`) Unlock & Hidden OFDMA**: `amesoc3` + `AD9361` SDR + `Intel Arria 10 SoC FPGA` architecture; proof that `4096-QAM` (`0x1f`) is implemented in `ame_core.ko`/RFIC/PtMP scheduler (`wireless.1.rate.mcs=5`). |
+| **[docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md](docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md)** | **Stage 12 Live Production Sector Cutover (`Live-Sector-1` + `CPE-A` + `CPE-B`) & UISP Bridge**: First live outdoor WISP sector (`LiteAP 120` AP + `NanoStation 5AC loco` + `LiteBeam 5AC Gen2` CPEs) migrated 100% to OpenWrt 24.10.4 (`Linux 6.6.110`), delivering **~10x lower wireless RTT (`22.58 ms` -> `1.93–2.42 ms`)** and **`69.80 Mbps` TCP DL in `20 MHz`**. |
+| **[docs/STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md](docs/STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md)** | **Stage 72A PtMP Champion `v22`**: Live 3-CPE sector kernel `.ko` fast-path (`rmmod ath_pktlog` + `vow_extstats=0` + `set_multiq=3`) yielding **`+23.35%` sector goodput (`46.53 -> 57.39 Mbps`)**, **`-20.81%` `p99` RTT**, **`-22.58%` IPTV jitter**, and **`0.00%` VoIP loss**. |
+| **[docs/STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md](docs/STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md)** | **Stage 85A PtP Champion `v9` & Hitless `802.11h` `CSA`**: **`+41.01%` total goodput**, **`+70.60%` Bulk TCP**, **`-64.80%` `p95` RTT**, **`0.000%` VoIP loss**, and **`0.000s` hitless channel hop (`0/80` missed probes)**. |
+| **[docs/STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md](docs/STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md)** | **Stage 89B Zero-Touch Dynamic `20 MHz <-> 40 MHz` Auto-Following**: Stock `airOS 8` CPEs follow OpenWrt AP `VHT Operation IE` bandwidth transitions in **`8.78s–12.10s` (`< 15s`)** with **`-31.28%` IPTV jitter**. |
+| **[docs/STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md](docs/STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md)** | **Stages 92B–99B `AF-LTU` Master AP Unlock, `80`-Symbol Superframe & `Rocket 2AC Prism` Fast-Path**: `LTU-Lite` `4096-QAM 12x` + `80`-symbol (`61 DL + 19 UL`) superframe + Cortex-A9 SMP IRQ pinning (`189.81 Mbps` SoC TCP, `-12.5%` `p50` RTT) & `Rocket 2AC Prism` `IRQ 2` elimination (`+13.0%` TCP, `-54.3%` `p50` RTT). |
+| **[docs/DOCS-MAP.md](docs/DOCS-MAP.md)** | **Master Reading Map**: Status and classification of all project files across Stages 1–99D. |
+| **[docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)** | **Living State Log**: Chronological development log and active hardware baselines. |
 | **[docs/DECISIONS.md](docs/DECISIONS.md)** | **Architectural Decision Records**: D-0001 through D-0018. |
 | **[docs/EXPERIMENTS.md](docs/EXPERIMENTS.md)** | **Experiment Register**: FMX-0001 through FMX-0016 and Stage-3 Campaigns C1–C8. |
-| **[docs/TESTBED_ENVIRONMENT_GUIDE.md](docs/TESTBED_ENVIRONMENT_GUIDE.md)** | **2 AP + 20 CPE Testbed Guide**: RF attenuation, Fraunhofer distance, unattended recovery. |
-| **[knowledge/REAL_HARDWARE_LITERATURE.md](knowledge/REAL_HARDWARE_LITERATURE.md)** | **Literature Catalogue**: Verified analysis of IteRate, WiFiSpectralJam, PNOFA, and Quick & Plenty. |
-| **[docs/QCA988X_CONTROL_BOUNDARY.md](docs/QCA988X_CONTROL_BOUNDARY.md)** | **Hardware Control Boundary**: What the host can and cannot control under ath10k-CT. |
 | **[safety/recovery/FMX-0002_recovery_runbook.md](safety/recovery/FMX-0002_recovery_runbook.md)** | **Recovery Runbook**: Proven TFTP urescue and return-to-stock procedures. |
 
 ---
 
-## 5. Current Research Baseline & Breakthroughs
+## 5. Confirmed Research Baselines & Breakthroughs (Stages 1–99D)
 
-### What We Have Confirmed
 1. **OpenWrt 24.10.4 (Kernel 6.6.110) Running at Physical Silicon Ceiling**: Flashed and verified on a physical lab testbed (**Ubiquiti LiteAP 120 `LAP-120` AP ↔ NanoStation 5AC Loco CPE**, both `WA` boards with `AR9342 @ 535 MHz` + `64 MB DDR2` + `QCA9882`).
-2. **64 MB RAM OOM Root-Cause Solved (`+14 MB` Usable Headroom, `0 OOMs`)**: Discovered that OpenWrt's default `/etc/init.d/sysctl` sets `vm.min_free_kbytes=8192` + `vm.watermark_boost_factor=15000` on 64 MB (`56,120 kB` managed) boards, reserving `12.3 MB` (`high=3072 pages`) and triggering the kernel OOM killer (`wpa_supplicant`/`hostapd`) under 200 Mbps load even when ~9 MB of RAM is free. Tuning `vm.min_free_kbytes=2048` and `vm.watermark_boost_factor=0` increased `MemAvailable` from `6.5 MB` → **`22.4 MB` on AP** and **`23.8 MB` on CPE**, achieving **100% survival (`0 OOMs`)** under sustained 200+ Mbps saturation.
-3. **Clean-Room Interoperability Analysis of `airMAX AC` (`RE1` — `docs/UMAC_DATAPATH.md`)**: Using static binary analysis (IDA Pro 9.3 + REA MCP) for interoperability and hardware boundary verification, we mapped the exact boundary between `umac.ko` and `ubnt_poll_host.ko`:
-   - `ubnt_poll_host.ko` attaches to `umac.ko` via a 62-pointer dispatch table (`ath_Airmax_Ops_t`, 248 bytes).
-   - Host-to-target TDMA commands serialize over **Copy Engine 4 (`CE4`, 2048 descriptors)** using vendor WMI opcodes **`0x9064`** (`ol_ath_Airmax_wmi_poll_cmd`) and **`0x9044`**, with subtype **`0x17`** (16-byte per-node TXQ pause/unpause record) and subtype **`0x1e`** (36-byte per-node rate/retry override), returning telemetry via WMI events `0x9022`, `0x9023`, and `0x9025`.
-   - Because opcodes `0x9064`/`0x9044` exist only inside the proprietary airOS radio firmware blob, **openMAX replaces proprietary polling with open Linux 6.6 `mac80211` primitives** (`AQL` microsecond airtime limits + `Airtime Fairness` weights + `htt_max_amsdu_ampdu` + Adaptive `RTS/CTS NAV` reservation + upstream `CAKE`), unlocking **100% multi-vendor compatibility (`Ubiquiti AC + Legacy M5 802.11n + MikroTik + Cambium + TP-Link`)**.
+2. **64 MB RAM OOM Root-Cause Solved (`+14 MB` Usable Headroom, `0 OOMs`)**: Tuning `vm.min_free_kbytes=2048` and `vm.watermark_boost_factor=0` increased `MemAvailable` from `6.5 MB` → **`22.4 MB` on AP** and **`23.8 MB` on CPE**, achieving **100% survival (`0 OOMs`)** under sustained 200+ Mbps saturation.
+3. **Clean-Room Interoperability Analysis of `airMAX AC` (`RE1` — `docs/UMAC_DATAPATH.md`)**: Mapped the exact boundary between `umac.ko` and `ubnt_poll_host.ko` (`ath_Airmax_Ops_t` 62-pointer table, `CE4` opcodes `0x9064`/`0x9044`), replacing proprietary polling with open Linux 6.6 `mac80211` primitives (`AQL` + `ATF` + `htt_max_amsdu_ampdu` + Adaptive `RTS/CTS NAV` + upstream `CAKE`) for **100% multi-vendor compatibility (`Ubiquiti AC + Legacy M5 802.11n + MikroTik + Cambium + TP-Link`)**.
 4. **Confirmed Physical Bench Progression (80 MHz Indoor NLOS Bench — `research/raw/bench/2026-10-16/`)**:
 
 | Stage / Configuration | UDP Downlink Goodput | UDP Uplink Goodput | TCP Downlink (1S) | Loaded RF RTT (`p50 / p95`) | `MemAvailable` (AP / CPE) |
@@ -117,77 +101,30 @@ To explore our technical findings, architectural decisions, and experiment logs,
 | **4.3 / 6. + `15 dBm`, `A-MPDU 64`, `debug_mask=0` (Winner)** | 🏆 **`223.53 Mbps`** (`199.11M` @200M, `0.21% loss`) | 🏆 **`98.53 Mbps`** (`1.90 ms p95`) | 🏆 **`154.58 Mbps`** (`0 retrans`) | 🏆 **`1.35 ms p50 / 1.83 ms p95`** | **`20.8 MB / 21.4 MB` (0 OOMs)** |
 
 5. **The `WA` vs. `XC` Silicon Boundary Across the airMAX AC Lineup**:
-   - **Why `223.5 Mbps` is the physical ceiling on `LAP-120` / `LAP-GPS` / `Loco 5AC` / `LiteBeam 5AC Gen2`**: All four models share the **`WA` platform (`Atheros AR9342 MIPS 74Kc @ 535 MHz` + `64 MB DDR2`)**. At `223.5 Mbps` (~19,000 pps), `AP CPU` hits **`95.8%` (`88.7% ksoftirqd`)**.
-   - **Why `223.5 Mbps` is MORE than enough for real WISP 20/40 MHz PtMP sectors**: Real-world WISP sectors operating at `20 MHz` (10–25 CPEs) have a physical RF capacity of `100–140 Mbps`, well below the `223.5 Mbps` CPU ceiling. In production `20 MHz` sectors, the bottleneck is **not CPU**, but **Airtime Starvation (*Near-Far* bad apples at `-75 to -82 dBm`)** and **Hidden-Node Uplink Collisions**—precisely what our Adaptive `AQL` + `ATF` + `RTS/CTS NAV` + `CAKE` stack solves.
-   - Higher-capacity `40/80 MHz` sectors (300–450 Mbps) require the **`XC` platform (`QCA9558 @ 720 MHz` + `128 MB DDR2`)** found in the **`Rocket 5AC Lite`**, **`PrismStation 5AC (`PS-5AC`)`**, and **`Rocket Prism 5AC Gen2 (`RP-5AC-Gen2`)`**.
-6. **Stages 7, 8 & 9 — 3-Station Multi-Vendor & Mixed-Generation PtMP Sector Verification (`docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md`, `docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md`, `docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md`)**:
-   - **Testbed**: `Ubiquiti LAP-120` AP (`OpenWrt 24.10.4` `ath10k-ct`) serving 3 simultaneous wireless stations: **[1] `Ubiquiti NanoStation 5AC Loco`** (`802.11ac` `2x2` in room), **[2] `MikroTik SXT Lite5`** (`OpenWrt` `ath9k` `802.11n` `2x2` behind wall/door), and **[3] `Ubiquiti LiteBeam M5`** (**unmodified stock `airOS 6.1.4`** `802.11n` `1x1` behind wall/door).
-   - **Stage 7 Highlights**:
-     * **`WMM AC_VO DiffServ Deficit Bypass`**: Discovered that rate fallback on a wall-obstructed station drives `mac80211` `Deficit: BE` down to `-67.1 ms` while `Deficit: VO` stays at `+256 µs`. Promoting interactive traffic (`ICMP`, `DNS`, `NTP`, `SIP/VoIP`) to `DSCP EF` (`AC_VO`) cut loaded median RTT on the wall-obstructed `MikroTik SXT` by **`21.0x` (`143.0 ms -> 6.80 ms`)** and on the stock `airOS 6` `LiteBeam M5` by **`8.0x` (`36.15 ms -> 4.53 ms`)**.
-     * **3-Station Uplink `RTS/CTS = 256B`**: Boosted total sector Uplink goodput by **`+18.5%` (`150.40 -> 178.17 Mbps`, peaking at `182.82 Mbps`)** and recovered the wall-starved `MikroTik SXT` by **`3.07x` (`1.97 -> 6.03 Mbps`)**.
-   - **Stage 8 Highlights**:
-     * **Zero-Fork Closed-Loop Adaptive Sector Controller (`controller/fmx_adaptive_controller.sh`)**: Reads `/sys/kernel/debug/ieee80211/phy0/netdev:phy0-ap0/stations/<mac>/airtime` via POSIX shell built-ins (`<0.1%` CPU), delivering **`109.35–118.67 Mbps`** during single-station bursts (`SINGLE_STA_TURBO`) and automatically clamping to `MULTI_STA_ADAPTIVE` during 3-station contention (`90.12 Mbps` total goodput, **`5.33–7.27 ms` median RTT** across all 3 stations, **`47.6x` `p95` tail-latency cut** vs Static Unbounded).
-     * **`VHT40` (40 MHz) Beats `VHT80` (80 MHz) on Downlink in Mixed `802.11ac + 802.11n` Sectors**: Narrowing the AP from `80 MHz` to `40 MHz` increased 3-station simultaneous Downlink goodput by **`+13.1%` (`92.98 -> 105.18 Mbps`, peaking at `110.68 Mbps`)**, boosted `LiteBeam M5` DL by **`+56.7%` (`25.57 -> 40.06 Mbps`)**, cut TCP retransmissions by **`21.2x` (`700 -> 33`)**, and raised **Downlink spectral efficiency by `2.26x` (`1.162 -> 2.630 bit/s/Hz`)**.
-     * **Peak-Hour Bidirectional 6-Flow WISP Sector Stress Test (`3 DL + 3 UL + 3 Interactive`)**: Full Stage 8 stack boosted sector Downlink goodput by **`+49.4%` (`30.26 -> 45.22 Mbps`)**, raised total bidirectional throughput to **`153.01 Mbps` (`+13.7%`)**, and cut `MikroTik SXT` loaded median RTT by **`39.1x` (`251.25 ms -> 6.43 ms`)**.
-   - **Stage 9 Highlights**:
-     * **`VHT20` (`20 MHz` Real-WISP Production Sector Width)**: Narrowing to `20 MHz` (`+6 dB` PSD, `-6 dB` thermal noise, zero secondary-channel selective fading) boosted the wall-obstructed `MikroTik SXT Lite5`'s standalone Downlink by **`3.05x` (`20.15 -> 61.44 Mbps` at `MCS 14`)** and cut its loaded median RTT by **`18.9x` (`72.10 -> 3.81 ms`)**. Under 3-station simultaneous Downlink saturation, `20 MHz` achieved **`66.85 Mbps` peak (`62.98 Mbps` mean)**, raised **Jain's Fairness Index to `0.9531`** (`0.9273` mean vs `0.6867` on `80 MHz`), reached **`3.342 bit/s/Hz` DL** (`2.88x` higher than `VHT80`) and **`3.656 bit/s/Hz` UL** (`73.13 Mbps` 3-station UL) spectral efficiency, and held loaded median RTT to **`3.36–6.12 ms`** across all 3 stations.
-     * **`FMX-0009` Rate-Mask Control Boundary (`ATH10K_DBG_BUFFER`)**: Verified via kernel PCIe WMI buffer hex dumps (`0x2002`) that `iw set bitrates` dispatches `WMI_PEER_ASSOC_CMDID` (`reassoc=true`) with modified rate masks (`0x0F0F`/`0x000F`/`0xFFF0`), but `10.1-ct-8x-__fW-022` target firmware ignores rate-set narrowing on already-associated stations (`REFUTED` as a live runtime fast-loop clamp).
-     * **`FMX-0013` `CoTSQ 128 KB` + CPE `fq_codel quantum 300` & Stage 9D `procd` Watchdog**: Increased 3-station simultaneous Uplink goodput to **`181.90 Mbps`** (`Loco 5AC = 141.93 Mbps`, `0` retransmits) and packaged `fmx_adaptive_controller.sh` + `fmx_watchdog.sh` under OpenWrt `procd` supervision (`/etc/init.d/futuramax`).
-7. **Stage 10 — Stock `airOS 8` (`WA.v8.5.12`–`WA.v8.7.25`) $\leftrightarrow$ OpenWrt AP Bench Interoperability & Relocation-Safe Remediation (`docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md`, `docs/ADVERSARIAL_REVIEW_STAGE10_11.md`)**:
-   - **Mapped All 4 Interoperability Locks**: (1) `ubnt_poll_host_is_ap_valid` vendor-IE check, (2) 30-second missing-TDMA-poll panic branch in `ubnt_poll_host.ko`, (3) `/bin/wpa_supplicant` `allow_80211=1` WPA2 scan filter, and (4) QCA988x target firmware `ETH_P_TEB` (`0x6558`) 14-byte outer Ethernet header encapsulation (decapsulated via a 21-instruction hook in our OpenWrt AP's `mac80211.ko`).
-   - **Bench Throughput & `F01` Relocation-Safe Patch**: Achieved **`147.0 Mbps` TCP UL (`80 MHz`, `WA.v8.5.12`)**, **`134.0 Mbps` plain / `120.0 Mbps` WPA2-CCMP TCP UL (`80 MHz`, `WA.v8.7.25`)**, and **`78.7 Mbps` TCP UL (`93.2 Mbps` peak, `0` retransmits, `3.94 bit/s/Hz`) / `63.6 Mbps` TCP DL (`74.2 Mbps` peak, `3.18 bit/s/Hz`) in `20 MHz` `VHT20` `WPA2-PSK` (`WA.v8.7.25`)**. Our adversarial audit (`F01`) identified and fixed a surviving `R_MIPS_26` ELF relocation entry at `.rel.text` (`file offset 168536` on `8.7.25`) alongside MD5-allowlisted atomic staging (`F02`).
-8. **Stage 11 — Static Reverse Engineering of `XC` (`Rocket Prism 5AC Gen2`) AirPrism & `LTU` (`v2.4.2`) `4096-QAM` (`12X`) + `OFDMA` Code Paths (`docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md`, `docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md`, `docs/ADVERSARIAL_REVIEW_STAGE10_11.md`)**:
-   - **`XC` (`Rocket Prism 5AC Gen2` `0xe7e7`/`0xe7e9`, `PrismStation 5AC` `0xe7e6`/`0xe7e8`)**: Confirmed 100% instruction parity in `ubnt_poll_host.ko` (`189,880 B` on `8.7.25`) with `WA`, decoded the 34-entry `12,000`-byte `ubnthal.ko` board table (`prism` bit 30 + `hsr` bit 28 with `hsr_param=31` queried at `umac.ko:.text+0xbbf64`), extracted the 6-entry (44 bytes/entry) channel-edge `ubnt_prism_hook` selector (`GPIO 15/16` Stage 1, `GPIO 13/14` Stage 2), and mapped `ath_spectral_filter_init` (`GPIO 21` / `IRQ 64`).
-   - **`LTU` (`aflturocket-2.4.2` & `afltu-2.4.2`)**: Mapped the dual-SoC SDR architecture (`amesoc3` Cortex-A9 + Analog Devices `AD9361` 2x2 agile SDR + companion `Intel Arria 10 SoC FPGA` running `Linux 4.14.0 SMP` on `LTU-Rocket`), verified the exact DTB NAND layout (`EEPROM` at `0x00240000`, `cfg` at `0x00300000`), and confirmed that `v2.4.2` contains `4096-QAM` (`12X`, internal LDPC code `31` / `0x1f`) rate tables (`[7, 11, 15, 19, 23, 31]` in `ubntbox` `VA 0xd4b28`), `AME_Scheduler_AutoMCS_GetPtmpDLCeiling`, and `bbp_rf_set_super4096` (alongside hardware guard `ame_check_hw_NoLDPC` in `ame_bbp_set_Param_mcs`), plus `OFDMA` hooks (`sched_ofdma_available`, `ame_check_hw_NoOFDMA`, and numeric byte mask `ofdma_subbands` `0..255`).
-9. **Stage 12 — Live Production WISP Sector Cutover (`Panel1-Guarida` + `MONZON` + `GAMBOA`) & Native UISP Bridge (`docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md`)**:
-   - Migrated our first live production WISP sector (`Panel1-Guarida` `LiteAP 120` AP + active customer CPEs `MONZON` `NanoStation 5AC loco` and `GAMBOA` `LiteBeam 5AC Gen2`) to **OpenWrt 24.10.4 (`Linux 6.6.110`)** while keeping Zero-Touch Stock `airOS 8` admission (`panel1_admitter.sh`) active for any offline or newly connected stock CPEs.
-   - **Measured Live Production Gains (`20 MHz`, Channel 48)**: Unloaded wireless sector RTT dropped **~10x** (from `22.58 ms` `p50` / `98.77 ms` `p95` on Stock `airOS 8` down to **`1.93 ms` `p50` / `4.47 ms` `p95`** on `MONZON` and **`2.42 ms` `p50` / `14.90 ms` `p95`** on `GAMBOA`), loaded download latency dropped **3.5x–5x** (`8.43–9.86 ms` `p50` at up to **`69.80 Mbps` TCP goodput**), and wireless upload bufferbloat dropped **12x–18x** (`~200 ms` -> **`10.37–16.64 ms` `p50`**).
-   - Mapped `/bin/udapi-bridge` (`606,816 B`) and its 7 narrow file/script interfaces (`/etc/board.info`, `/tmp/system.cfg`, `/usr/www/status.cgi`, `/bin/wstalist`, `/bin/backupcfg`, and `uClibc` runtime libraries) so OpenWrt 24.10.4 radios can continue reporting natively to UISP (`wss://...`).
+   - `LAP-120` / `LAP-GPS` / `Loco 5AC` / `LiteBeam 5AC Gen2` share the **`WA` platform (`AR9342 MIPS 74Kc @ 535 MHz` + `64 MB DDR2`)**, hitting `95.8%` CPU (`88.7% ksoftirqd`) at `223.5 Mbps` (~19,000 pps)—well above real-world `20 MHz` PtMP sector RF capacity (`100–140 Mbps`).
+   - Higher-capacity `40/80 MHz` sectors require the **`XC` platform (`QCA9558 @ 720 MHz` + `128 MB DDR2`)** (`Rocket 5AC Lite`, `PrismStation 5AC`, `Rocket Prism 5AC Gen2`, `PowerBeam 5AC-500`).
+6. **Stages 7, 8 & 9 — 3-Station Multi-Vendor & Mixed-Generation PtMP Sector Verification**:
+   - **`WMM AC_VO DiffServ Deficit Bypass`**: Promoting interactive traffic to `DSCP EF` (`AC_VO`) cut loaded median RTT on a wall-obstructed `MikroTik SXT` by **`21.0x` (`143.0 -> 6.80 ms`)** and on stock `airOS 6` `LiteBeam M5` by **`8.0x` (`36.15 -> 4.53 ms`)**, while `RTS/CTS = 256B` boosted sector UL by **`+18.5%` (`150.40 -> 178.17 Mbps`)**.
+   - **Zero-Fork Adaptive Controller (`fmx_adaptive_controller.sh`) & `VHT20`/`VHT40`**: Delivered **`47.6x` `p95` tail-latency reduction** under 3-station contention; `VHT20` (`20 MHz`) raised **Jain's Fairness Index to `0.9531`**, reached **`3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL**, and boosted `CoTSQ 128 KB` 3-station UL to **`181.90 Mbps`**.
+7. **Stage 10 — Stock `airOS 8` (`WA.v8.5.12`–`WA.v8.7.25`) $\leftrightarrow$ OpenWrt AP Interoperability**:
+   - Solved all 4 interoperability locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1` WPA2 filter, and `ETH_P_TEB` `0x6558` decapsulation in `mac80211.ko`), achieving **`78.7 Mbps` TCP UL (`3.94 bit/s/Hz`) / `63.6 Mbps` TCP DL (`3.18 bit/s/Hz`) in `20 MHz` `VHT20` `WPA2-PSK`** with relocation-safe `.rel.text` patching (`F01`).
+8. **Stage 11 — Static Reverse Engineering of `XC` AirPrism & `LTU` (`v2.4.2`) `4096-QAM` (`12X`) + `OFDMA`**:
+   - Mapped the 34-entry `XC` `ubnthal.ko` board table (`prism` GPIO 13..16 + SPI `hsr` active filter at `0xbf000000`) and confirmed `LTU` (`amesoc3` Cortex-A9 + `AD9361` SDR + `Arria 10` FPGA) implements `4096-QAM` (`12X`, LDPC code `0x1f`) and `2/4/8`-subband `OFDMA` (`ofdma_mode=0..3`).
+9. **Stage 12 — Live Production WISP Sector Cutover (`Live-Sector-1` + `CPE-A` + `CPE-B`) & Native UISP Bridge**:
+   - Migrated a live outdoor WISP sector (`LiteAP 120` AP + `CPE-A` `NanoStation 5AC loco` + `CPE-B` `LiteBeam 5AC Gen2`) to **OpenWrt 24.10.4 (`Linux 6.6.110`)**, cutting unloaded wireless RTT **~10x** (`22.58 ms` → **`1.93–2.42 ms` `p50`**), loaded download latency **3.5x–5x** (`8.43–9.86 ms` `p50` at **`69.80 Mbps` TCP**), and upload bufferbloat **12x–18x** (`~200 ms` → **`10.37–16.64 ms` `p50`**), while preserving native `/bin/udapi-bridge` UISP reporting.
+10. **Stages 13–99D — Kernel `.ko` Fast-Path Champions (`PtMP v22` & `PtP v9`), Zero-Touch `20/40 MHz`, `AF-LTU` `80`-Symbol SMP & `MikroTik 802.1Q` Co-Design**:
+    - **`PtMP Champion v22` (`Stage 72A`)**: Stripping `ath_pktlog.ko` (`rmmod ath_pktlog`), disabling VoW extended stats (`vow_extstats=0`), and enabling `set_multiq=3` across the 3-CPE outdoor sector boosted aggregate goodput by **`+23.35%` (`46.53 -> 57.39 Mbps`)**, cut `p99` RTT by **`-20.81%` (`7.40 -> 5.86 ms`)**, cut IPTV jitter by **`-22.58%` (`0.62 -> 0.48 ms`)**, and held VoIP loss at **`0.00%`**.
+    - **`PtP Champion v9` & Hitless `802.11h` `CSA` (`Stage 85A`)**: On `PowerBeam 5AC-500` (`XC.v8.7.19`), combining `rmmod ath_pktlog`, `vow_extstats=0`, `tx_chainmask=3`, `rx_chainmask=3`, and `set_multiq=1` delivered **`+41.01%` total goodput**, **`+70.60%` Bulk TCP**, **`-64.80%` `p95` RTT**, **`0.000%` VoIP loss**, and **`0.000s` hitless `802.11h` `CSA` channel switch (`0/80` missed probes)**.
+    - **Zero-Touch Dynamic `20 MHz <-> 40 MHz` Auto-Following (`Stage 89B`)**: Unmodified stock `airOS 8` CPEs (`autochanwidth=enabled`) track OpenWrt AP `VHT Operation IE` (`0xc0`) channel-width transitions in **`8.78s–12.10s` (`< 15s`)**, cutting narrowband `20 MHz` IPTV jitter by **`-31.28%` (`0.438 -> 0.301 ms`)** (`0.00%` loss).
+    - **`AF-LTU` `LTU-Lite` Master AP Unlock, `80`-Symbol Superframe & Dual-Core Cortex-A9 SMP (`Stages 92B, 96B & 99B`)**: Unlocked `LTU-Lite` (`v2.3.1`) as an `ap-ptmp` Master AP at **`4096-QAM 12x`** with an **`80`-symbol (`61 DL + 19 UL` at `22.4 MS/s`, `2.0 ms` / `500 Hz`) superframe** (`13` non-dominated `SimPy`/`pymoo` NSGA-II Pareto points) and dual-core SMP interrupt isolation (`IRQ 52/53` `ame_b2h`/`ame_timer` on `CPU0`, `IRQ 63/92` `eth0`/`SPI` on `CPU1`), raising SoC TCP throughput by **`+8.5%` to `+9.9%` (`189.81 Mbps`)** and cutting loaded `p50` RTT by **`-12.5%` (`0.42 ms`)**.
+    - **`Rocket 2AC Prism` (`2.4 GHz`, `2XC.v8.7.11`) `IRQ 2` Fast-Path (`Stage 92B`)**: Unbinding the `ath_hsr` SPI bit-banging storm (`100%` elimination of `15,480` `IRQ 2` interrupts) + `rmmod ath_pktlog` + `vow_extstats=0` boosted peak TCP by **`+13.0%` (`34.38 Mbps`)** and cut `p50` RTT by **`-54.3%` (`1.63 -> 0.745 ms`)**.
+    - **`MikroTik + OpenWrt 802.1Q VLAN/DSCP` E2E Co-Design (`Stage 95B`)**: Mapping `DSCP EF (46) -> VLAN PCP 6 -> WMM AC_VO` and `DSCP AF41 (34) -> VLAN PCP 5 -> WMM AC_VI` cut E2E `p50` RTT by **`-54.84%` (`4.39 -> 1.98 ms`)** and `p95` RTT by **`-46.18%` (`7.60 -> 4.09 ms`)** under saturated Triple-Play load.
 
 ---
 
-## 6. Physical Testbed Architecture: 2 APs + 20 CPEs
+## 6. Physical Testbed Architecture, Collaboration & Safety Boundaries
 
-We do not use an indoor room or a leased warehouse:
-* **The Warehouse Fallacy**: Steel walls and metal roofs turn 5 GHz into an echo chamber of Rayleigh multipath, corrupting line-of-sight propagation and preventing genuine hidden nodes.
-* **Our 2-Tier Testbed**:
-  1. **Tier 1 (Benchtop Coaxial Matrix)**: AP and CPEs connected via SMA coax into fixed 30–40 dB attenuators and Wilkinson power dividers. 100% deterministic, zero interference, simulating 100m to 10km links.
-  2. **Tier 2 (Outdoor Cross-Building Rooftop Sector)**: 2 APs mounted on a commercial WISP building pointing across a 21-meter street canyon to 10–12 CPEs distributed over a 162 m² residential roof. Provides real outdoor atmosphere, true Line-of-Sight, and natural far-field antenna formation ($R > 5–8\text{ meters}$).
-* **Unattended Recovery**: All radios are automated via managed 24V passive PoE switches and relay-controlled remote-reset circuits (injecting DC offset on Ethernet data pairs during boot) to enter TFTP `urescue` without human hands touching a reset button.
-
----
-
-## 7. How You Can Help / Open Call for Collaboration
-
-We are opening this repository to the global networking, WISP, and academic communities. We welcome your expertise:
-
-### 1. Peer Review & Sanity Checks
-* Are our control boundary assumptions on QCA988x correct?
-* Did we miss a race condition in ath10k-CT or OpenWrt 24.10.4?
-* Review our ADRs in **[docs/DECISIONS.md](docs/DECISIONS.md)** and our independent adversarial review in **[docs/ADVERSARIAL_REVIEW_STAGE10_11.md](docs/ADVERSARIAL_REVIEW_STAGE10_11.md)**.
-
-### 2. For WISP Operators
-* Do you have decommissioned or spare LiteBeam 5AC Gen2, NanoStation 5AC, or LiteAP units sitting on shelves?
-* Run our read-only inventory scripts (`tools/inventory/collect.py`) to contribute hardware signatures and board profiles to our matrix.
-* Share anonymized airView spectral captures or loaded sector latency traces.
-
-### 3. For Wireless & Kernel Hackers
-* Help optimize outer-loop aggregation algorithms (`PNOFA`) on ath10k.
-* Assist with mac80211 airtime scheduler patch verification (`last_tx_bitrate`).
-* Contribute eBPF or telemetry harnesses for the autonomous research runner.
-
----
-
-## 8. Safety & Regulatory Boundaries
-
-openMAX operates under strict, uncompromised safety rules:
-* **Regulatory Compliance**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, or disable DFS radar detection.
-* **Protected Flash Partitions**: We **NEVER** write or corrupt bootloaders (`mtd0`), bootloader environments (`mtd1`), calibration/ART tables (`mtd5`), or factory MAC storage.
-* **Production Protection**: All active RF/driver experiments are conducted on isolated lab and testbed hardware; any pre-staged canary configurations are verified with full partition backups and restored (`NO_CRON_LINES`) when parked.
-
----
-
-## 9. License
-
-Project-authored code, analysis scripts, and documentation in this repository are open-sourced under the [MIT License](LICENSE) (excluding third-party or vendor firmware images, which remain the property of their respective copyright holders).
-Hardware designs, experiment logs, and research findings are provided free for the benefit of the global wireless networking community.
+* **2-Tier Physical Testbed**: (1) **Benchtop Coaxial Matrix** (SMA coax + 30–40 dB attenuators + Wilkinson dividers) and (2) **Outdoor Cross-Building Rooftop Sector** (`LiteAP 120`, `PowerBeam 5AC-500`, `Rocket 2AC Prism`, `LTU-Lite`, `MikroTik RB2011`, and multi-generation CPEs) with automated PoE/TFTP `urescue` recovery.
+* **Open Collaboration**: We welcome peer review of our ADRs (**[docs/DECISIONS.md](docs/DECISIONS.md)**), adversarial audits (**[docs/ADVERSARIAL_REVIEW_STAGE10_11.md](docs/ADVERSARIAL_REVIEW_STAGE10_11.md)**), and outer-loop `ath10k`/`mac80211` contributions.
+* **Strict Safety & Regulatory Boundaries**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, disable DFS radar detection, or write protected flash partitions (`mtd0` `u-boot`, `mtd1` `u-boot-env`, `mtd5` `ART` calibration).
+* **License**: Project-authored code, analysis scripts, and documentation are open-sourced under the [MIT License](LICENSE).

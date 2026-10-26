@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reddit Rich-Text Copy Helper — openMAX</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; max-width: 900px; margin: 24px auto; padding: 0 20px; }
+  .toolbar { display: flex; gap: 12px; margin-bottom: 18px; position: sticky; top: 10px; background: #1e293b; padding: 14px 18px; border-radius: 10px; border: 1px solid #334155; align-items: center; z-index: 10; }
+  button { background: #2563eb; color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
+  button:hover { background: #1d4ed8; }
+  button.secondary { background: #059669; }
+  button.secondary:hover { background: #047857; }
+  .status { font-size: 14px; color: #38bdf8; font-weight: 600; margin-left: auto; }
+  .card { background: #ffffff; color: #111827; padding: 28px 32px; border-radius: 12px; margin-bottom: 28px; line-height: 1.55; box-shadow: 0 10px 25px rgba(0,0,0,0.35); }
+  .card h2, .card h3 { margin-top: 18px; margin-bottom: 10px; color: #0f172a; }
+  .card table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14px; }
+  .card th, .card td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
+  .card th { background: #f1f5f9; font-weight: 700; }
+  .card blockquote { border-left: 4px solid #2563eb; margin: 14px 0; padding: 8px 14px; background: #f8fafc; }
+  .title-box { background: #f1f5f9; padding: 10px 14px; border-radius: 6px; font-weight: 700; margin-bottom: 16px; border: 1px solid #cbd5e1; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="copyRich('post-en', 'Copied English Rich Text! Just press Ctrl+V in Reddit')">📋 Copy English Post (Rich Text + Table)</button>
+  <button class="secondary" onclick="copyRich('post-es', '¡Copiado en Español con formato! Pegá con Ctrl+V en Reddit')">📋 Copiar Post en Español (Con Formato + Tabla)</button>
+  <span id="status" class="status">Click a button above, then press Ctrl+V in Reddit!</span>
+</div>
+
+<div class="title-box" style="color:#0f172a;">
+  <strong>Suggested Title (EN):</strong> openMAX Update: Live production sector results on Ubiquiti airMAX AC (~10x lower wireless ping, -80% to -94% bufferbloat, 0-touch stock airOS 8 interop &amp; multi-vendor PtMP)
+</div>
+
+<div id="post-en" class="card">
+  <p>Hey <strong>r/wisp</strong>,</p>
+  <p>Quick, no-fluff update on <strong>openMAX</strong> (<a href="https://github.com/wolverin0/openmax">https://github.com/wolverin0/openmax</a>) — our open-source project squeezing maximum real-world performance out of existing Ubiquiti <strong>airMAX AC</strong> hardware (<strong>LiteAP 120</strong>, <strong>Rocket Prism 5AC Gen2</strong>, <strong>LiteBeam 5AC Gen2</strong>, <strong>NanoStation 5AC Loco</strong>).</p>
+  <p>All deep kernel docs, scripts, and raw benchmark JSONs are in the repo. Here is what we have working on real hardware and in live production:</p>
+  <ul>
+    <li><strong>Switch tower APs to OpenWrt while stock airOS 8 CPEs keep connecting out of the box:</strong> We migrated our live sector AP (<strong>LiteAP 120</strong>) to OpenWrt 24.10.4 (Linux 6.6.110) and customer CPEs running <strong>100% unmodified stock airOS 8.7.25</strong> connected automatically. Even if a customer's radio is powered off during cutover and turned back on days later, it associates with zero touch.</li>
+    <li><strong>Run multi-vendor &amp; mixed-generation clients on the same Ubiquiti AP:</strong> We simultaneously connect <strong>Ubiquiti 5AC</strong> (LiteBeam Gen2, Loco 5AC, Rocket Prism), legacy <strong>Ubiquiti M5</strong> (airOS 6), and <strong>MikroTik</strong> (SXT Lite5) CPEs on the same sector without a single weak or obstructed client dragging everyone else down.</li>
+    <li><strong>Full channel-width flexibility (20, 40, 80 MHz, plus 5/10 MHz between OpenWrt radios):</strong> On a 20 MHz channel, our airtime scheduler hits <strong>0.95 Jain fairness</strong> and nearly <strong>4 bit/s/Hz</strong> spectral efficiency.</li>
+    <li><strong>Full OpenWrt AP + OpenWrt CPE in live production:</strong> Once the AP is running OpenWrt, we remotely upgrade CPEs over the air in ~4 minutes while preserving their management IP, WebUI, hardware-accelerated NAT (<code>flow_offloading=1</code>), and the exact DHCP lease of the customer's indoor Wi-Fi router.</li>
+    <li><strong>Uncovered inside Rocket Prism &amp; LTU (v2.4.2) firmware:</strong> We mapped the hardware control table for <strong>AirPrism</strong> active RF filtering on Rocket Prism 5AC Gen2, and confirmed that LTU's greyed-out <strong>4096-QAM (12X)</strong> and <strong>OFDMA</strong> modes have real driver and rate-table routines compiled inside v2.4.2 (being tested on our physical bench right now).</li>
+  </ul>
+
+  <h3>Live Production Numbers (Same tower, same rooftop radios, 20 MHz channel — Before vs. After)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Live Sector Metric (20 MHz)</th>
+        <th>Stock airOS 8.7.25 (Before)</th>
+        <th>openMAX / OpenWrt 24.10.4 (Now)</th>
+        <th>Multiplier (x)</th>
+        <th>Improvement (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unloaded Wireless Ping (p50)</strong></td>
+        <td>22.58 ms</td>
+        <td><strong>1.93 ms – 2.42 ms</strong></td>
+        <td><strong>~10x faster</strong></td>
+        <td><strong>-90% base latency</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Wireless Ping Jitter (p95)</strong></td>
+        <td>98.77 ms</td>
+        <td><strong>4.47 ms – 14.90 ms</strong></td>
+        <td><strong>6.6x – 22x more stable</strong></td>
+        <td><strong>-85% to -95% jitter</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ping Under Heavy Download</strong></td>
+        <td>31.49 ms (p50) / 54.40 ms (p95)</td>
+        <td><strong>8.43 ms – 9.86 ms (p50)</strong></td>
+        <td><strong>3.5x – 5x lower lag</strong></td>
+        <td><strong>-73% to -80% loaded ping</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ping Under Heavy Upload</strong></td>
+        <td>195 ms – 224 ms</td>
+        <td><strong>10.37 ms – 16.64 ms (p50)</strong></td>
+        <td><strong>12x – 18x lower lag</strong></td>
+        <td><strong>-91% to -94% upload lag</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Usable 20 MHz Capacity (TCP)</strong></td>
+        <td>~35 – 45 Mbps typical</td>
+        <td><strong>69.80 Mbps DL / 30.74 Mbps UL</strong></td>
+        <td><strong>1.5x – 1.8x more capacity</strong></td>
+        <td><strong>+50% to +80% more Mbps/MHz</strong></td>
+      </tr>
+      <tr>
+        <td><strong>CPE CPU Headroom (Routing+NAT)</strong></td>
+        <td>Kernel 2.6.32 (software NAT)</td>
+        <td><strong>Kernel 6.6.110 (flow_offloading=1)</strong></td>
+        <td><strong>~2.5x more CPU headroom</strong></td>
+        <td><strong>+150% packet/s headroom</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <p><strong>Summary:</strong> On the exact same rooftop hardware and 20 MHz channel, wireless ping is <strong>~10x faster (~2 ms vs ~22 ms)</strong>, lag under saturation drops by <strong>80%–94%</strong>, and usable sector capacity increases by <strong>+50% to +80%</strong>.</p>
+  </blockquote>
+
+  <h3>Next up: Native UISP Reporting (udapi-bridge) on OpenWrt</h3>
+  <p>Moving a radio to pure OpenWrt stops Ubiquiti's <code>/bin/udapi-bridge</code> agent, so UISP marks it offline. We already unpacked <code>/bin/udapi-bridge</code> from <code>WA.v8.7.25</code> (it is a standalone userspace WebSocket + AES-GCM client reading <code>/etc/board.info</code>, <code>/tmp/system.cfg</code>, <code>/usr/www/status.cgi</code>, and <code>/bin/wstalist</code>) and are building the lightweight OpenWrt wrapper so migrated radios stay <strong>Online and green inside UISP</strong> with their original device ID and live telemetry.</p>
+
+  <h3>Latest Bench Autoresearch Wins (320+ Paired A/B/A/B Rounds Across 12 Physical Radios)</h3>
+  <ul>
+    <li><strong>PtMP Champion v22 &amp; PtP Champion v9 (Stages 79..95C — Kernel .ko Fast-Path Dissection):</strong> Disassembling <code>umac.ko</code>, <code>ath_dev.ko</code>, <code>ath_pktlog.ko</code>, and <code>ubnt_poll_host.ko</code> across <code>WA</code> (8.7.25), <code>XC</code> (8.7.11/8.7.25), and <code>XW</code> (6.1.4/6.3.6) uncovered per-PPDU packet-log overhead (<code>rmmod ath_pktlog</code> on XC: <strong>+23.35% 3-CPE sector goodput 46.53 &rarr; 57.39 Mbps, -20.81% p99 RTT, -22.58% IPTV jitter, 0.00% VoIP loss</strong>), safe VoW telemetry bypass (<code>iwpriv wifi0 vow_extstats 0</code>), hardware WMM multi-queue dispatch (<code>set_multiq=3</code> + <code>AC_VO/VI/BE/BK Minfree = 0/4/8/16</code>), and XW <code>rcRateFind_11nViVo</code> video/voice rate protection. On dedicated PowerBeam 5AC Gen2 PtP (Stage 94A/95B), <strong>PtP Champion v9</strong> delivered <strong>+41.01% total goodput (+70.60% Bulk TCP), -64.80% p95 RTT, 0.000% VoIP loss</strong>, and <strong>hitless 802.11h CSA frequency hopping (0.000s outage / 0/80 missed probes)</strong>.</li>
+    <li><strong>Zero-Touch Dynamic Channel-Width (20 MHz &harr; 40 MHz, Stage 95C) &amp; MikroTik 802.1Q Trunk Co-Design (Stage 97A):</strong> Proved on live hardware that even when a stock airOS 8 CPE has <code>cwmenable=0</code> in <code>/etc/sysinit/radio.conf</code>, its <code>umac.ko</code> state machine in <code>mode=auto</code> automatically follows the OpenWrt AP's <code>VHT Operation IE</code> between 20 MHz and 40 MHz and rejoins in <strong>8.78s–12.10s (&lt; 15s)</strong> with zero customer touch (<strong>-31.28% IPTV jitter in 40 MHz</strong>). Pairing the OpenWrt AP with a MikroTik RouterBOARD (<code>RB951G-2HnD</code>, RouterOS 6.47) over an <code>802.1Q</code> VLAN trunk (<code>PCP 0..7</code> + <code>DSCP EF/CS4</code>) cut end-to-end <code>CPE &rarr; Air &rarr; Switch &rarr; MikroTik</code> p50 RTT by <strong>-54.84% (4.39 &rarr; 1.98 ms)</strong> and p95 RTT by <strong>-46.18%</strong>.</li>
+    <li><strong>AF-LTU Dual-Core ARM Cortex-A9 SMP Isolation &amp; 80-Symbol 2.0 ms Superframe (Stages 80A, 96A, 97C, 99B):</strong> On <code>LTU-Lite</code> (Beetle SoC + <code>ame_ASIC0</code>, unlocked as <code>AP-PTMP(Run)</code> at <code>4096-QAM 12x</code>), isolating 500 Hz TDMA <code>AME.mrx</code>/<code>AME.mtx</code> (<code>IRQ 52/53</code>) on <code>CPU0</code> while offloading <code>GMAC0</code> (<code>IRQ 63</code>) and <code>AME.l2p</code> (<code>IRQ 92</code>) 100% to <code>CPU1</code> alongside our 5-offset <code>ame_dev.ko</code> fast-path boosted SoC TCP goodput by <strong>+8.5% to +9.9% (189.81 Mbps, peak 210.28 Mbps)</strong> and cut loaded p50 RTT by <strong>-12.5%</strong> with <strong>0 500 Hz superframe deadline misses</strong> across the 80-symbol (<code>61 DL + 19 UL</code> at <code>22.4 MS/s</code>) superframe.</li>
+    <li><strong>Cross-Platform Multi-Radio Gains (Rocket Prism 5AC Gen2, Rocket 2AC Prism, airFiber 4X):</strong> On <code>Rocket 2AC Prism</code> (2.4 GHz, Stage 98D), <code>ani_enable=1</code> + <code>shpreamble=1</code> + <code>vow_extstats 0</code> + <code>IRQ 2</code> AirView governance eliminated 100% of 15,480 parasitic interrupts (<strong>+13.0% peak TCP to 34.38 Mbps, -54.3% p50 RTT</strong>).</li>
+  </ul>
+
+  <p>Full documentation, scripts, and benchmark receipts:<br>
+  👉 <a href="https://github.com/wolverin0/openmax"><strong>https://github.com/wolverin0/openmax</strong></a></p>
+</div>
+
+<div class="title-box" style="color:#0f172a;">
+  <strong>Título sugerido (ES):</strong> Actualización openMAX: Qué logramos en producción real sobre equipos Ubiquiti airMAX AC (~10x menos ping en el aire, -80% a -94% de lag bajo carga, multimarca y migración sin tocar al cliente)
+</div>
+
+<div id="post-es" class="card">
+  <p>Hola a todos,</p>
+  <p>Les comparto un resumen corto y al grano de lo que ya tenemos funcionando en producción real en nuestro WISP con <strong>openMAX</strong> (<a href="https://github.com/wolverin0/openmax">https://github.com/wolverin0/openmax</a>). Toda la evidencia cruda y los scripts están en el repo; acá va lo concreto que logramos en la cancha:</p>
+  <ul>
+    <li><strong>Cambiar los AP a OpenWrt y que los CPEs con airOS 8 original sigan conectando solos:</strong> Podés migrar un panel (<strong>LiteAP 120</strong> / <strong>Rocket</strong>) a OpenWrt 24.10.4 y los clientes que tienen <strong>su firmware original airOS 8.7.25 de fábrica</strong> se conectan solos sin tocarles nada. Si un cliente estaba apagado el día del cambio y enchufa la antena una semana después, conecta derecho.</li>
+    <li><strong>Hacer funcionar equipos de todas las marcas y generaciones contra el mismo AP Ubiquiti:</strong> En un mismo panel conectamos en simultáneo equipos <strong>Ubiquiti 5AC</strong> (LiteBeam Gen2, Loco 5AC, Rocket Prism), equipos viejos <strong>Ubiquiti M5</strong> (airOS 6) y equipos <strong>MikroTik</strong> (SXT Lite5), sin que un cliente con mala señal o tapado por árboles tire abajo al resto del sector.</li>
+    <li><strong>Conectar en distintos anchos de canal (20, 40, 80 MHz, y hasta 5/10 MHz entre equipos OpenWrt):</strong> En canales de 20 MHz logramos repartir el aire de forma pareja (<strong>0.95 de equidad Jain</strong>) sacándole casi <strong>4 Mbps por cada MHz de espectro</strong>.</li>
+    <li><strong>Migrar el sector completo (AP + CPEs) a OpenWrt en vivo sin cortar al cliente:</strong> Una vez migrado el AP, actualizamos los CPEs por aire en ~4 minutos manteniendo su IP, su interfaz web, su NAT acelerado y la misma IP del router Wi-Fi adentro de la casa del cliente.</li>
+    <li><strong>Destapar lo que traen oculto los firmwares de Rocket Prism y LTU (v2.4.2):</strong> Mapeamos cómo manejar el filtro activo <strong>AirPrism</strong> en los Rocket Prism 5AC Gen2, y confirmamos que la modulación <strong>4096-QAM (12X)</strong> y el <strong>OFDMA</strong> que Ubiquiti dejó deshabilitados en LTU tienen las tablas y funciones reales adentro del firmware (probándose ahora mismo en el banco).</li>
+  </ul>
+
+  <h3>Los números reales en producción (Mismo panel, mismas antenas en el techo, canal de 20 MHz — Antes vs. Ahora)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Qué medimos en el sector (20 MHz)</th>
+        <th>Con Stock airOS 8.7.25 (Antes)</th>
+        <th>Con openMAX / OpenWrt 24.10.4 (Ahora)</th>
+        <th>Multiplicador (x)</th>
+        <th>Mejora (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ping base en el aire (p50)</strong></td>
+        <td>22.58 ms</td>
+        <td><strong>1.93 ms – 2.42 ms</strong></td>
+        <td><strong>~10x más rápido</strong></td>
+        <td><strong>-90% de latencia base</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Estabilidad / Picos de ping (p95)</strong></td>
+        <td>98.77 ms</td>
+        <td><strong>4.47 ms – 14.90 ms</strong></td>
+        <td><strong>6.6x a 22x más estable</strong></td>
+        <td><strong>-85% a -95% de jitter</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ping descargando a tope (Bufferbloat DL)</strong></td>
+        <td>31.49 ms (p50) / 54.40 ms (p95)</td>
+        <td><strong>8.43 ms – 9.86 ms (p50)</strong></td>
+        <td><strong>3.5x a 5x menos lag</strong></td>
+        <td><strong>-73% a -80% de lag en pico</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ping subiendo a tope (Bufferbloat UL)</strong></td>
+        <td>195 ms – 224 ms</td>
+        <td><strong>10.37 ms – 16.64 ms (p50)</strong></td>
+        <td><strong>12x a 18x menos lag</strong></td>
+        <td><strong>-91% a -94% de lag al subir</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Capacidad útil en 20 MHz (TCP real)</strong></td>
+        <td>~35 – 45 Mbps típicos</td>
+        <td><strong>69.80 Mbps DL / 30.74 Mbps UL</strong></td>
+        <td><strong>1.5x a 1.8x más capacidad</strong></td>
+        <td><strong>+50% a +80% más megas útiles</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Margen de CPU del CPE (Ruteo + NAT)</strong></td>
+        <td>Kernel 2.6.32 (NAT clásico)</td>
+        <td><strong>Kernel 6.6.110 (flow_offloading=1)</strong></td>
+        <td><strong>~2.5x más margen de CPU</strong></td>
+        <td><strong>+150% margen de paquetes/s</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <blockquote>
+    <p><strong>En resumen:</strong> Con exactamente los mismos equipos en el techo y el mismo canal de 20 MHz, el enlace responde <strong>~10 veces más rápido (~2 ms en vez de ~22 ms)</strong>, el lag cuando el cliente satura la línea baja entre un <strong>80% y un 94%</strong>, y al panel se le saca entre <strong>+50% y +80% más capacidad útil</strong>.</p>
+  </blockquote>
+
+  <h3>Próximo paso en marcha: Puente nativo a UISP en OpenWrt</h3>
+  <p>Al pasar un equipo a OpenWrt puro, deja de correr el agente de Ubiquiti (<code>udapi-bridge</code>) y UISP lo deja de ver. Ya desarmamos cómo habla <code>udapi-bridge</code> con UISP y estamos armando el puente liviano para que los equipos con OpenWrt sigan reportando <strong>Online y en verde adentro de UISP</strong> con su mismo ID, señal, tráfico y clientes.</p>
+
+  <h3>Últimos Wins del Banco Físico (320+ Rondas Pareadas A/B/A/B en 12 Radios Reales)</h3>
+  <ul>
+    <li><strong>PtMP Champion v22 y PtP Champion v9 (Stages 79..95C — Disección de Módulos .ko en Kernel):</strong> Desensamblando <code>umac.ko</code>, <code>ath_dev.ko</code>, <code>ath_pktlog.ko</code> y <code>ubnt_poll_host.ko</code> en <code>WA</code>, <code>XC</code> y <code>XW</code>, eliminamos el overhead por paquete de <code>ath_pktlog</code> en XC (<strong>+23,35% más de goodput en el sector de 3 CPEs: 46,53 &rarr; 57,39 Mbps, -20,81% p99 RTT, -22,58% jitter IPTV y 0,00% pérdida VoIP</strong>), apagamos la telemetría pesada <code>vow_extstats 0</code>, activamos despacho multi-cola WMM en hardware (<code>set_multiq=3</code> + reservas <code>Minfree 0/4/8/16</code>) y protección de voz/video en M5 XW (<code>rcRateFind_11nViVo</code>). En el enlace dedicado PowerBeam 5AC Gen2 PtP (Stage 94A/95B), <strong>PtP Champion v9</strong> logró <strong>+41,01% más de capacidad total (+70,60% en Bulk TCP), -64,80% menos p95 RTT, 0,000% pérdida VoIP</strong> y <strong>salto de frecuencia 802.11h CSA en vivo con 0,000 s de corte (0/80 probes perdidos)</strong>.</li>
+    <li><strong>Cambio Dinámico 20 MHz &harr; 40 MHz Zero-Touch (Stage 95C) y Co-Diseño con MikroTik (Stage 97A):</strong> Comprobamos en el banco real que aunque un CPE airOS 8 tenga <code>cwmenable=0</code> en su configuración, su driver <code>umac.ko</code> en <code>mode=auto</code> sigue automáticamente el <code>VHT Operation IE</code> del AP OpenWrt entre 20 MHz y 40 MHz y reconecta solo en <strong>8,78 s a 12,10 s (&lt; 15 s)</strong> (<strong>-31,28% de jitter IPTV en 40 MHz</strong>). Y conectando un <code>MikroTik RB951G-2HnD</code> (RouterOS 6.47) por un trunk <code>802.1Q VLAN</code> (<code>PCP 0..7</code> + <code>DSCP EF/CS4</code>) contra el AP OpenWrt, bajamos la latencia extremo a extremo <code>CPE &rarr; Aire &rarr; Switch &rarr; MikroTik</code> un <strong>-54,84% en p50 (4,39 &rarr; 1,98 ms)</strong> y <strong>-46,18% en p95</strong>.</li>
+    <li><strong>AF-LTU Aislamiento Dual-Core ARM SMP y Superframe de 80 Símbolos (Stages 80A, 96A, 97C, 99B):</strong> En el <code>LTU-Lite</code> (destrabado en RAM como <code>AP-PTMP(Run)</code> a <code>4096-QAM 12X</code>), aislando las interrupciones TDMA de 500 Hz (<code>IRQ 52/53</code>) en <code>CPU0</code> y descargando el 100% de Ethernet <code>GMAC0</code> (<code>IRQ 63</code>) + <code>AME.l2p</code> (<code>IRQ 92</code>) en <code>CPU1</code> junto al fast-path de <code>ame_dev.ko</code>, subimos el throughput TCP del SoC un <strong>+8,5% a +9,9% (189,81 Mbps, pico 210,28 Mbps)</strong> y bajamos <strong>-12,5% la latencia p50 bajo carga</strong> con <strong>0 pérdidas de superframe</strong> sobre el superframe de 80 símbolos (<code>61 DL + 19 UL</code> a <code>22.4 MS/s</code>).</li>
+    <li><strong>Mejoras Multi-Plataforma (Rocket Prism 5AC Gen2, Rocket 2AC Prism, airFiber 4X):</strong> En <code>Rocket 2AC Prism</code> (2.4 GHz, Stage 98D), <code>ani_enable=1</code> + <code>shpreamble=1</code> + <code>vow_extstats 0</code> + control de <code>IRQ 2</code> eliminó el 100% de las 15.480 interrupciones parásitas de AirView (<strong>+13,0% pico TCP a 34,38 Mbps, -54,3% p50 RTT</strong>).</li>
+  </ul>
+
+  <p>Todo el código, las pruebas y la documentación están abiertos acá:<br>
+  👉 <a href="https://github.com/wolverin0/openmax"><strong>https://github.com/wolverin0/openmax</strong></a></p>
+</div>
+
+<script>
+function copyRich(id, msg) {
+  const el = document.getElementById(id);
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+  document.execCommand('copy');
+  sel.removeAllRanges();
+  document.getElementById('status').innerText = '✅ ' + msg;
+}
+</script>
+</body>
+</html>
