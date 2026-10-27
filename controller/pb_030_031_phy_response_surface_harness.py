@@ -41,6 +41,43 @@ PB030_SUPPORTED_WIDTHS_MHZ: Tuple[int, ...] = (5, 10, 20, 40)
 PB030_ATTENUATION_STEPS_DB: Tuple[float, ...] = (50.0, 60.0, 70.0, 78.0, 84.0)
 
 ALLOWLISTED_CCA_THRESHOLDS_DBM: Tuple[int, ...] = (-78, -72, -68, -62)
+PHYSICAL_EXPERIMENT_ROLE = "PB_030_031_PHY_RESPONSE_SURFACE"
+
+
+def freeze_pb_030_031_physical_retest_plan(
+    *, campaign_id: str, baseline_config: dict, candidate_config: dict,
+    station_hosts: list[str], server_host: str = "benchmark-server",
+    duration_seconds: float = 10.0, pairs_per_phase: int = 8,
+    gate_options: dict | None = None, execution_kind: str = "SYNTHETIC",
+    created_at_s: float | None = None, family_fingerprints: list[str] | None = None,
+    acquirer_source_path: str | None = None,
+) -> dict:
+    """Freeze a family-bound acquisition plan; this function never acquires a window."""
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as runner
+    return runner.freeze_plan(
+        campaign_id=campaign_id, baseline_config=baseline_config,
+        candidate_config=candidate_config, station_hosts=station_hosts,
+        server_host=server_host, duration_seconds=duration_seconds,
+        pairs_per_phase=pairs_per_phase, gate_options=gate_options,
+        execution_kind=execution_kind, created_at_s=created_at_s,
+        experiment_role=PHYSICAL_EXPERIMENT_ROLE,
+        family_fingerprints=family_fingerprints, acquirer_source_path=acquirer_source_path,
+    )
+
+
+def run_pb_030_031_physical_retest(
+    plan: dict, *, acquire_window, evidence_root: Path, execute: bool = False,
+) -> dict:
+    """Delegate physical acquisition and inference to the unified fail-closed runner.
+
+    The legacy response surface remains synthetic diagnostics. No metric array,
+    holdout boolean or fixture verdict can authorize this acquisition path.
+    """
+    if not isinstance(plan, dict) or plan.get("experiment_role") != PHYSICAL_EXPERIMENT_ROLE:
+        raise ValueError("PB030/031 frozen experiment-role binding required")
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as runner
+    return runner.run_campaign(plan, acquire_window=acquire_window,
+                               evidence_root=evidence_root, execute=execute)
 
 
 @dataclass(frozen=True)
@@ -101,7 +138,7 @@ def evaluate_pb030_width_comparison_block(
     paired_samples_mbps: Sequence[Tuple[float, float]],
     paired_p95_ms: Sequence[Tuple[float, float]],
     paired_p99_ms: Sequence[Tuple[float, float]],
-    holdout_replicated: bool = True,
+    holdout_replicated: bool = False,
 ) -> Dict[str, Any]:
     """Evaluates a paired A/B/A/B block at a single validated channel width using ExperimentResultRecord & Gatekeeper."""
     validate_channel_width_mhz(channel_width_mhz)
@@ -324,6 +361,11 @@ def build_pb_030_031_experiment_matrix() -> Dict[str, Any]:
     return {
         "gates_covered": ["PB-030", "PB-031"],
         "automatic_execution_allowed": False,
+        "physical_execution_entrypoint": "run_pb_030_031_physical_retest",
+        "physical_plan_entrypoint": "freeze_pb_030_031_physical_retest_plan",
+        "physical_retest_runner": "stage959a_unified_physical_retest_runner",
+        "physical_campaign_required_phases": ["AA_CONTROL", "AB_DISCOVERY", "AB_HOLDOUT"],
+        "fixture_scope": "SYNTHETIC_DIAGNOSTICS_ONLY",
         "prerequisite_readiness": {
             "PB-030": pb030_ready,
             "PB-031": pb031_ready,

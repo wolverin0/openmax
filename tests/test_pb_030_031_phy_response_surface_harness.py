@@ -61,3 +61,5 @@ def test_saved_pb_030_031_matrix_json_exists() -> None:
                for t in data["pb031_phy_response_surface_treatments"])
     assert data["gates_covered"] == ["PB-030", "PB-031"]
     assert data["automatic_execution_allowed"] is False
+    assert data["physical_execution_entrypoint"] == "run_pb_030_031_physical_retest"
+    assert data["fixture_scope"] == "SYNTHETIC_DIAGNOSTICS_ONLY"

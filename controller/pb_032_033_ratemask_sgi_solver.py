@@ -34,6 +34,39 @@ DEFAULT_OUTPUT_PATH = (
 
 MAC_CLOCK_MHZ = 88.0
 SIFS_CYCLES_88MHZ = 1232  # 14.000 us verified on LAP-120 register 0x21030 = 0x000004d0
+PHYSICAL_EXPERIMENT_ROLE = "PB_032_033_RATEMASK_SGI"
+
+
+def freeze_pb_032_033_physical_retest_plan(
+    *, campaign_id: str, baseline_config: dict, candidate_config: dict,
+    station_hosts: list[str], server_host: str = "benchmark-server",
+    duration_seconds: float = 10.0, pairs_per_phase: int = 8,
+    gate_options: dict | None = None, execution_kind: str = "SYNTHETIC",
+    created_at_s: float | None = None, family_fingerprints: list[str] | None = None,
+    acquirer_source_path: str | None = None,
+) -> dict:
+    """Freeze a rate-mask/SGI plan independently of imported silicon diagnostics."""
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as runner
+    return runner.freeze_plan(
+        campaign_id=campaign_id, baseline_config=baseline_config,
+        candidate_config=candidate_config, station_hosts=station_hosts,
+        server_host=server_host, duration_seconds=duration_seconds,
+        pairs_per_phase=pairs_per_phase, gate_options=gate_options,
+        execution_kind=execution_kind, created_at_s=created_at_s,
+        experiment_role=PHYSICAL_EXPERIMENT_ROLE,
+        family_fingerprints=family_fingerprints, acquirer_source_path=acquirer_source_path,
+    )
+
+
+def run_pb_032_033_physical_retest(
+    plan: dict, *, acquire_window, evidence_root: Path, execute: bool = False,
+) -> dict:
+    """Use the shared A/A, discovery and disjoint-holdout runner for measured input."""
+    if not isinstance(plan, dict) or plan.get("experiment_role") != PHYSICAL_EXPERIMENT_ROLE:
+        raise ValueError("PB032/033 frozen experiment-role binding required")
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as runner
+    return runner.run_campaign(plan, acquire_window=acquire_window,
+                               evidence_root=evidence_root, execute=execute)
 
 
 @dataclass(frozen=True)
@@ -244,6 +277,10 @@ def build_pb_032_033_qualification_report(silicon_receipt_path: Path = LIVE_SILI
     return {
         "gates_covered": ["PB-032", "PB-033"],
         "automatic_execution_allowed": False,
+        "physical_execution_entrypoint": "run_pb_032_033_physical_retest",
+        "physical_plan_entrypoint": "freeze_pb_032_033_physical_retest_plan",
+        "physical_retest_runner": "stage959a_unified_physical_retest_runner",
+        "physical_campaign_required_phases": ["AA_CONTROL", "AB_DISCOVERY", "AB_HOLDOUT"],
         "paired_evidence_state": "SYNTHETIC",
         "physical_promotion_accepted": False,
         "live_silicon_provenance": {

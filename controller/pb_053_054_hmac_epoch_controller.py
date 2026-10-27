@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """PB-053 & PB-054 Qualification: Hybrid hMAC Host-Enforced Airtime Epoch Controller + Missed-Slot Recovery FSM.
 
-Integrates the 6 live physical bench receipts `R135..R140` (16-block AB/BA crossover, N=160 RTT samples/arm
+Reads the 6 historically reported bench receipts `R135..R140` (16-block AB/BA crossover, N=160 RTT samples/arm
 across 1 km, 3 km, 6 km, 9 km, 12 km, and 14 km) to qualify:
 1. Gate PB-053: Hybrid hMAC Per-Peer/TID Host Queue-Gating & Airtime Epoch Controller (`VO=500/1100 us`
    TOS `0xb8` DSCP EF VoIP slice, AP `BE=1550/3100 us`, CPE `BE=2100/4200 us`, `fq_quantum=1514 B`,
    `force_tx_status=1`, `tx_aggr_factor=1`, and distance-adaptive CoDel target `8..16 ms` / interval `40..80 ms`).
 2. Gate PB-054: Deterministic Missed-Slot & Credit-Stall Recovery Finite-State Machine (`NOMINAL_EPOCH_ACTIVE`
    -> `PROBING_SINGLE_QUANTUM_RECOVERY` -> `SAFE_CSMA_FALLBACK_DRAIN` -> `NOMINAL_EPOCH_ACTIVE`) ensuring
-   zero TXQ deadlock and 100% beacon/VoIP survival under deep RF fades.
+   recovery intent under RF fades; native deadlock freedom and survival remain unverified here.
 
+Saved summaries are imported/nonpromotable. Fresh QoE acquisition must use the
+source-bound Stage959A A/A, discovery and disjoint holdout runner.
 Enforces `automatic_execution_allowed = False`.
 """
 
@@ -17,6 +19,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import math
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
@@ -26,6 +29,24 @@ from analysis.regression_gate.gatekeeper import RegressionGatekeeper, RunMetrics
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT_PATH = REPO_ROOT / "artifacts/qca988x/pb_053_054_hmac_epoch_qualification_20261024.json"
+PHYSICAL_EXPERIMENT_ROLE = 'PB053_054_HMAC_EPOCH'
+
+
+def freeze_physical_retest_plan(**kwargs) -> Dict[str, Any]:
+    """Freeze explicit source/configuration inputs under this controller role."""
+    if 'experiment_role' in kwargs:
+        raise ValueError('controller experiment role is fixed')
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as unified
+    return unified.freeze_plan(experiment_role=PHYSICAL_EXPERIMENT_ROLE, **kwargs)
+
+
+def run_physical_retest(plan, *, acquire_window, evidence_root, execute=False) -> Dict[str, Any]:
+    """Retest QoE; this does not certify hMAC actuation or six-distance acceptance."""
+    if not isinstance(plan, dict) or plan.get('experiment_role') != PHYSICAL_EXPERIMENT_ROLE:
+        raise ValueError('wrong controller experiment role')
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as unified
+    return unified.run_campaign(plan, acquire_window=acquire_window,
+                                evidence_root=evidence_root, execute=execute)
 
 R135_TO_R140_RECEIPT_FILES: Tuple[Tuple[str, str], ...] = (
     ("R135", "artifacts/autoresearch/lap120_loco195_r135_hmac_per_peer_tid_bidir_8flow_voip_covclass2_1000m_be1550_2100_q1514_codel8_rc24_af1_retry64_abba16_dyadic_zero_loss_wds_20261024.json"),
@@ -75,9 +96,10 @@ def compute_hmac_epoch_allocation(
     distance_km: float,
     channel_width_mhz: int = 20,
 ) -> HmacEpochConfig:
-    """Computes the R135..R140 hardware-verified hMAC per-peer/TID epoch parameters for 1..14 km."""
+    """Compute parameters from historical R135..R140 tables, without new acceptance."""
     validate_channel_width_mhz(channel_width_mhz)
-    if distance_km <= 0.0 or distance_km > 25.0:
+    if (type(distance_km) not in (int, float) or not math.isfinite(distance_km)
+            or distance_km <= 0.0 or distance_km > 25.0):
         raise ValueError(f"distance_km={distance_km} must be in (0, 25]")
 
     if distance_km <= 1.5:
@@ -139,6 +161,11 @@ class HmacMissedSlotRecoveryFsm:
         slot_missed_or_credit_stalled: bool,
         mac_retry_rate_pct: float,
     ) -> HmacRecoveryStepResult:
+        if type(slot_missed_or_credit_stalled) is not bool:
+            raise ValueError('explicit slot observation required')
+        if (type(mac_retry_rate_pct) not in (int, float) or not math.isfinite(mac_retry_rate_pct)
+                or not 0 <= mac_retry_rate_pct <= 100):
+            raise ValueError('finite retry observation in0..100 required')
         prev = self.state
         if slot_missed_or_credit_stalled or mac_retry_rate_pct >= 12.0:
             self.consecutive_missed_epochs += 1
@@ -192,7 +219,7 @@ class HmacMissedSlotRecoveryFsm:
 
 def evaluate_live_r135_to_r140_receipts(*, evidence_root: Path = REPO_ROOT,
                                        receipt_files=None) -> List[Dict[str, Any]]:
-    """Loads R135..R140 physical bench receipts and evaluates each 16-block AB/BA trial via RegressionGatekeeper."""
+    """Read legacy summaries as diagnostics, never as a fresh physical campaign."""
     gk = RegressionGatekeeper(
         min_blocks_for_keep=4,
         min_blocks_for_promote=6,
@@ -263,7 +290,7 @@ def evaluate_live_r135_to_r140_receipts(*, evidence_root: Path = REPO_ROOT,
                 )
             )
 
-        decision = gk.evaluate_paired(paired_runs, holdout_replicated=True)
+        decision = gk.evaluate_paired(paired_runs)
         obs0 = iter_stock["observation"]
         obs1 = iter_hmac["observation"]
 
@@ -297,7 +324,8 @@ def evaluate_live_r135_to_r140_receipts(*, evidence_root: Path = REPO_ROOT,
                 "hmac_tid6_vo_drops_delta": iter_hmac.get("tid6_vo_drops_delta"),
                 "restoration_verified": obs1.get("restoration_verified") if type(obs1.get("restoration_verified")) is bool else None,
                 "historical_latency_criterion_met": historical_latency_criterion,
-                "latency_floor_promoted": decision.verdict == 'PROMOTE',
+                "latency_floor_promoted": False,
+                "requires_unified_physical_retest": True,
                 "gate_decision": asdict(decision),
             }
         )
@@ -333,6 +361,8 @@ def build_pb_053_054_qualification_report(*, evidence_root: Path = REPO_ROOT,
         "gates_covered": ["PB-053", "PB-054"],
         "automatic_execution_allowed": False,
         "source_scope": "Read-only saved evidence; synthesized tests are explicitly typed; no fresh acquisition",
+        "physical_acceptance": "UNKNOWN",
+        "physical_retest_entrypoint": "run_physical_retest",
         "all_6_distances_promoted": all_promoted,
         "zero_tid6_voip_drops_across_all_distances": zero_voip_drops,
         "pb053_live_r135_to_r140_evaluations": live_r135_r140,

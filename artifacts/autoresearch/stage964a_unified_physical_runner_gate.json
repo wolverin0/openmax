@@ -1,0 +1,793 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "964A",
+  "title": "Unified physical-retest runner offline source gate",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "analysis/metrics/schema.py",
+      "available": true,
+      "bytes": 10281,
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "available": true,
+      "bytes": 41618,
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "path": "artifacts/autoresearch/stage959a_unified_physical_retest_runner.json",
+      "available": true,
+      "bytes": 4801,
+      "sha256": "441084166c3ac463984daec10c0683104b437f1bd005a3e1d33fdc9ca13cfb45"
+    },
+    {
+      "path": "artifacts/autoresearch/stage960a_pb030_031_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6986,
+      "sha256": "a42e9e5860e938e43054ce014a0c3643bb9a2b643ac64637b80576a156030f71"
+    },
+    {
+      "path": "artifacts/autoresearch/stage961a_pb032_033_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6933,
+      "sha256": "f536c0b026dc5a20de5375d39bf0fdb5468632c557efcb8e7a89ffb5daa4650a"
+    },
+    {
+      "path": "artifacts/autoresearch/stage962a_pb050_051_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6350,
+      "sha256": "7d4a9a6fb57e8f8d00563efec04b216c6dee9253eebda1015bb5ed387f532938"
+    },
+    {
+      "path": "artifacts/autoresearch/stage963a_pb053_054_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6335,
+      "sha256": "ae4ba1c31f68448fe996ed75285c9063b613bfe8dd75b0419e41465e4a1c9f00"
+    },
+    {
+      "path": "controller/pb_030_031_phy_response_surface_harness.py",
+      "available": true,
+      "bytes": 17775,
+      "sha256": "79f56b4979221afbafa96b094b273471299a1c71cbf140c168d04308e85382ea"
+    },
+    {
+      "path": "controller/pb_032_033_ratemask_sgi_solver.py",
+      "available": true,
+      "bytes": 14199,
+      "sha256": "4a5a9ca27080200a625f805ec3de3973df4a95d21cc0f23b8b67ca498caa8d7e"
+    },
+    {
+      "path": "controller/pb_050_051_scheduler_timing_harness.py",
+      "available": true,
+      "bytes": 14688,
+      "sha256": "c6ee5678718b1e2bb19a2a2aae3696c27eb367d67dc034e45cf62901c5fab988"
+    },
+    {
+      "path": "controller/pb_053_054_hmac_epoch_controller.py",
+      "available": true,
+      "bytes": 18252,
+      "sha256": "87d0ad455229f01d6a0428e55d22f6d620cc1eaa5f81c9b0e36a89f29c0fb7fb"
+    },
+    {
+      "path": "docs/STAGE959A_UNIFIED_PHYSICAL_RETEST_RUNNER.md",
+      "available": true,
+      "bytes": 1991,
+      "sha256": "ed4ce23c99329d9c3abf89d3f31a9705afcd5097fd08724585766ac0bfeab37c"
+    },
+    {
+      "path": "docs/STAGE960A_PB030_031_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1179,
+      "sha256": "e46f5eb4cfaa095bbfacfcde967706e917434439961a6dcacd932ec173e25cf5"
+    },
+    {
+      "path": "docs/STAGE961A_PB032_033_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1171,
+      "sha256": "8d0d8142b4adf982377fd90eab40bb05b20ec1e4da3d5c5b79c908e7aace037c"
+    },
+    {
+      "path": "docs/STAGE962A_PB050_051_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1073,
+      "sha256": "2dc72d4f28db08ac7b27462f6cf984bd1933dcd44521ae875ebbaa9bed8f598f"
+    },
+    {
+      "path": "docs/STAGE963A_PB053_054_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1073,
+      "sha256": "36affb96cf835c7d333dfe6c274acaed4a1bd9f53766b760ab99e347fa191c31"
+    },
+    {
+      "path": "tests/test_pb_030_031_phy_response_surface_harness.py",
+      "available": true,
+      "bytes": 2916,
+      "sha256": "e5400246e2dbdee5f7681bd6772b05519889615d4b3b0a941070b6373eac42a7"
+    },
+    {
+      "path": "tests/test_pb_032_033_ratemask_sgi_solver.py",
+      "available": true,
+      "bytes": 3590,
+      "sha256": "06df111efb8b5e63859b85179e5e0e7ec8a0f8903e95787ca3437401ea6d175f"
+    },
+    {
+      "path": "tests/test_pb_050_051_scheduler_timing_harness.py",
+      "available": true,
+      "bytes": 3914,
+      "sha256": "c4605e020def01bc9b378d903a905d93e6a6bbf81f4d14bbf1b9b05082952b79"
+    },
+    {
+      "path": "tests/test_pb_053_054_hmac_epoch_controller.py",
+      "available": true,
+      "bytes": 4710,
+      "sha256": "9b42dde66d402492f9b596584d3a42369e5820824bb170b09a738f8eebea1b19"
+    },
+    {
+      "path": "tests/test_stage959a_to_964a_suite.py",
+      "available": true,
+      "bytes": 11161,
+      "sha256": "6565ff0b83220a704676700f6417f5f1371cbdbbc0e505ebb83451afe9bbc3c7"
+    },
+    {
+      "path": "tests/test_stage959a_unified_physical_runner.py",
+      "available": true,
+      "bytes": 13506,
+      "sha256": "a584685055088020087bc850a5c4dc22ca70d11abe450bbe7624b71fe3940ba7"
+    },
+    {
+      "path": "tests/test_stage960a_961a_unified_runner.py",
+      "available": true,
+      "bytes": 5816,
+      "sha256": "7b7b9f842b03a63b344c704c3fd631f09c83ad80319abe7ac99e7164cd1c22dc"
+    },
+    {
+      "path": "tests/test_stage962a_963a_unified_runner.py",
+      "available": true,
+      "bytes": 6200,
+      "sha256": "55e6ec3a4dd5daabdb013954c9af38920c45328b806bda699870f04b40cb7c31"
+    },
+    {
+      "path": "tools/autoresearch/run_stage959a_unified_physical_retest_runner.py",
+      "available": true,
+      "bytes": 36028,
+      "sha256": "bba9c77ee9c9a06cc442092b3ea22725fd0607bf2c69d23640db8bd4a4fe5f06"
+    },
+    {
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "available": true,
+      "bytes": 19637,
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    },
+    {
+      "path": "tools/verify/build_stage960a_961a_unified_controller_migration.py",
+      "available": true,
+      "bytes": 4158,
+      "sha256": "1973c698270f4dfeddcba2ab08241dcc9bae7bb6910caa15ce72a7af27ef2805"
+    },
+    {
+      "path": "tools/verify/build_stage962a_963a_unified_controller_migration.py",
+      "available": true,
+      "bytes": 3618,
+      "sha256": "4ae3dadb3a631061923d12b9d30f8fb07c5f6c1cab1ac821749d9a831f00de19"
+    },
+    {
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "available": true,
+      "bytes": 8770,
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+      "available": true,
+      "bytes": 15457,
+      "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+    },
+    {
+      "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+      "available": true,
+      "bytes": 25554,
+      "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+    },
+    {
+      "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+      "available": true,
+      "bytes": 16921,
+      "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+    },
+    {
+      "path": "workloads/flent_orchestrator.py",
+      "available": true,
+      "bytes": 13068,
+      "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "analysis/metrics/schema.py",
+          "available": true,
+          "bytes": 10281,
+          "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+        },
+        {
+          "path": "analysis/regression_gate/gatekeeper.py",
+          "available": true,
+          "bytes": 41618,
+          "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+        },
+        {
+          "path": "artifacts/autoresearch/stage959a_unified_physical_retest_runner.json",
+          "available": true,
+          "bytes": 4801,
+          "sha256": "441084166c3ac463984daec10c0683104b437f1bd005a3e1d33fdc9ca13cfb45"
+        },
+        {
+          "path": "artifacts/autoresearch/stage960a_pb030_031_unified_runner_migration.json",
+          "available": true,
+          "bytes": 6986,
+          "sha256": "a42e9e5860e938e43054ce014a0c3643bb9a2b643ac64637b80576a156030f71"
+        },
+        {
+          "path": "artifacts/autoresearch/stage961a_pb032_033_unified_runner_migration.json",
+          "available": true,
+          "bytes": 6933,
+          "sha256": "f536c0b026dc5a20de5375d39bf0fdb5468632c557efcb8e7a89ffb5daa4650a"
+        },
+        {
+          "path": "artifacts/autoresearch/stage962a_pb050_051_unified_runner_migration.json",
+          "available": true,
+          "bytes": 6350,
+          "sha256": "7d4a9a6fb57e8f8d00563efec04b216c6dee9253eebda1015bb5ed387f532938"
+        },
+        {
+          "path": "artifacts/autoresearch/stage963a_pb053_054_unified_runner_migration.json",
+          "available": true,
+          "bytes": 6335,
+          "sha256": "ae4ba1c31f68448fe996ed75285c9063b613bfe8dd75b0419e41465e4a1c9f00"
+        },
+        {
+          "path": "controller/pb_030_031_phy_response_surface_harness.py",
+          "available": true,
+          "bytes": 17775,
+          "sha256": "79f56b4979221afbafa96b094b273471299a1c71cbf140c168d04308e85382ea"
+        },
+        {
+          "path": "controller/pb_032_033_ratemask_sgi_solver.py",
+          "available": true,
+          "bytes": 14199,
+          "sha256": "4a5a9ca27080200a625f805ec3de3973df4a95d21cc0f23b8b67ca498caa8d7e"
+        },
+        {
+          "path": "controller/pb_050_051_scheduler_timing_harness.py",
+          "available": true,
+          "bytes": 14688,
+          "sha256": "c6ee5678718b1e2bb19a2a2aae3696c27eb367d67dc034e45cf62901c5fab988"
+        },
+        {
+          "path": "controller/pb_053_054_hmac_epoch_controller.py",
+          "available": true,
+          "bytes": 18252,
+          "sha256": "87d0ad455229f01d6a0428e55d22f6d620cc1eaa5f81c9b0e36a89f29c0fb7fb"
+        },
+        {
+          "path": "docs/STAGE959A_UNIFIED_PHYSICAL_RETEST_RUNNER.md",
+          "available": true,
+          "bytes": 1991,
+          "sha256": "ed4ce23c99329d9c3abf89d3f31a9705afcd5097fd08724585766ac0bfeab37c"
+        },
+        {
+          "path": "docs/STAGE960A_PB030_031_UNIFIED_RUNNER_MIGRATION.md",
+          "available": true,
+          "bytes": 1179,
+          "sha256": "e46f5eb4cfaa095bbfacfcde967706e917434439961a6dcacd932ec173e25cf5"
+        },
+        {
+          "path": "docs/STAGE961A_PB032_033_UNIFIED_RUNNER_MIGRATION.md",
+          "available": true,
+          "bytes": 1171,
+          "sha256": "8d0d8142b4adf982377fd90eab40bb05b20ec1e4da3d5c5b79c908e7aace037c"
+        },
+        {
+          "path": "docs/STAGE962A_PB050_051_UNIFIED_RUNNER_MIGRATION.md",
+          "available": true,
+          "bytes": 1073,
+          "sha256": "2dc72d4f28db08ac7b27462f6cf984bd1933dcd44521ae875ebbaa9bed8f598f"
+        },
+        {
+          "path": "docs/STAGE963A_PB053_054_UNIFIED_RUNNER_MIGRATION.md",
+          "available": true,
+          "bytes": 1073,
+          "sha256": "36affb96cf835c7d333dfe6c274acaed4a1bd9f53766b760ab99e347fa191c31"
+        },
+        {
+          "path": "tests/test_pb_030_031_phy_response_surface_harness.py",
+          "available": true,
+          "bytes": 2916,
+          "sha256": "e5400246e2dbdee5f7681bd6772b05519889615d4b3b0a941070b6373eac42a7"
+        },
+        {
+          "path": "tests/test_pb_032_033_ratemask_sgi_solver.py",
+          "available": true,
+          "bytes": 3590,
+          "sha256": "06df111efb8b5e63859b85179e5e0e7ec8a0f8903e95787ca3437401ea6d175f"
+        },
+        {
+          "path": "tests/test_pb_050_051_scheduler_timing_harness.py",
+          "available": true,
+          "bytes": 3914,
+          "sha256": "c4605e020def01bc9b378d903a905d93e6a6bbf81f4d14bbf1b9b05082952b79"
+        },
+        {
+          "path": "tests/test_pb_053_054_hmac_epoch_controller.py",
+          "available": true,
+          "bytes": 4710,
+          "sha256": "9b42dde66d402492f9b596584d3a42369e5820824bb170b09a738f8eebea1b19"
+        },
+        {
+          "path": "tests/test_stage959a_to_964a_suite.py",
+          "available": true,
+          "bytes": 11161,
+          "sha256": "6565ff0b83220a704676700f6417f5f1371cbdbbc0e505ebb83451afe9bbc3c7"
+        },
+        {
+          "path": "tests/test_stage959a_unified_physical_runner.py",
+          "available": true,
+          "bytes": 13506,
+          "sha256": "a584685055088020087bc850a5c4dc22ca70d11abe450bbe7624b71fe3940ba7"
+        },
+        {
+          "path": "tests/test_stage960a_961a_unified_runner.py",
+          "available": true,
+          "bytes": 5816,
+          "sha256": "7b7b9f842b03a63b344c704c3fd631f09c83ad80319abe7ac99e7164cd1c22dc"
+        },
+        {
+          "path": "tests/test_stage962a_963a_unified_runner.py",
+          "available": true,
+          "bytes": 6200,
+          "sha256": "55e6ec3a4dd5daabdb013954c9af38920c45328b806bda699870f04b40cb7c31"
+        },
+        {
+          "path": "tools/autoresearch/run_stage959a_unified_physical_retest_runner.py",
+          "available": true,
+          "bytes": 36028,
+          "sha256": "bba9c77ee9c9a06cc442092b3ea22725fd0607bf2c69d23640db8bd4a4fe5f06"
+        },
+        {
+          "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+          "available": true,
+          "bytes": 19637,
+          "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+        },
+        {
+          "path": "tools/verify/build_stage960a_961a_unified_controller_migration.py",
+          "available": true,
+          "bytes": 4158,
+          "sha256": "1973c698270f4dfeddcba2ab08241dcc9bae7bb6910caa15ce72a7af27ef2805"
+        },
+        {
+          "path": "tools/verify/build_stage962a_963a_unified_controller_migration.py",
+          "available": true,
+          "bytes": 3618,
+          "sha256": "4ae3dadb3a631061923d12b9d30f8fb07c5f6c1cab1ac821749d9a831f00de19"
+        },
+        {
+          "path": "tools/verify/enforce_5pillar_research_gate.py",
+          "available": true,
+          "bytes": 8770,
+          "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        },
+        {
+          "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+          "available": true,
+          "bytes": 15457,
+          "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+        },
+        {
+          "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+          "available": true,
+          "bytes": 25554,
+          "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+        },
+        {
+          "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+          "available": true,
+          "bytes": 16921,
+          "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+        },
+        {
+          "path": "workloads/flent_orchestrator.py",
+          "available": true,
+          "bytes": 13068,
+          "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage964a-offline"
+    }
+  },
+  "all_gates_passed": true,
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "local synthetic/fault fixtures and source-byte validation only",
+  "local_release_audit": {
+    "compliant": true,
+    "stage_audits": [
+      {
+        "stage": "959A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "960A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "961A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "962A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "963A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      }
+    ],
+    "physical_acceptance": "UNKNOWN",
+    "fresh_live_windows": 0
+  },
+  "public_release_audit": {
+    "compliant": true,
+    "stage_audits": [
+      {
+        "stage": "959A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "960A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "961A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "962A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      },
+      {
+        "stage": "963A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source and software contracts only"
+      }
+    ],
+    "physical_acceptance": "UNKNOWN",
+    "fresh_live_windows": 0
+  },
+  "repository_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "index_hygiene": {
+    "compliant": true,
+    "findings": {}
+  },
+  "local_tests": {
+    "returncode": 0,
+    "tests": 138,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "public_tests": {
+    "returncode": 0,
+    "tests": 138,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "public_export": {
+    "compliant": true,
+    "clean_git_checkout": true,
+    "exact_index_membership_modes_and_objects": true,
+    "actual_index_blobs_match": true,
+    "mismatch_count": 0,
+    "extra_file_count": 0
+  },
+  "tested_revision_unchanged": true,
+  "publication_index_unchanged": true,
+  "indexed_tested_sources": {
+    "compliant": true,
+    "mismatching_source_count": 0,
+    "mismatching_paths": []
+  },
+  "verification_sources": [
+    {
+      "path": "analysis/metrics/schema.py",
+      "available": true,
+      "bytes": 10281,
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "available": true,
+      "bytes": 41618,
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "path": "artifacts/autoresearch/stage959a_unified_physical_retest_runner.json",
+      "available": true,
+      "bytes": 4801,
+      "sha256": "441084166c3ac463984daec10c0683104b437f1bd005a3e1d33fdc9ca13cfb45"
+    },
+    {
+      "path": "artifacts/autoresearch/stage960a_pb030_031_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6986,
+      "sha256": "a42e9e5860e938e43054ce014a0c3643bb9a2b643ac64637b80576a156030f71"
+    },
+    {
+      "path": "artifacts/autoresearch/stage961a_pb032_033_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6933,
+      "sha256": "f536c0b026dc5a20de5375d39bf0fdb5468632c557efcb8e7a89ffb5daa4650a"
+    },
+    {
+      "path": "artifacts/autoresearch/stage962a_pb050_051_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6350,
+      "sha256": "7d4a9a6fb57e8f8d00563efec04b216c6dee9253eebda1015bb5ed387f532938"
+    },
+    {
+      "path": "artifacts/autoresearch/stage963a_pb053_054_unified_runner_migration.json",
+      "available": true,
+      "bytes": 6335,
+      "sha256": "ae4ba1c31f68448fe996ed75285c9063b613bfe8dd75b0419e41465e4a1c9f00"
+    },
+    {
+      "path": "controller/pb_030_031_phy_response_surface_harness.py",
+      "available": true,
+      "bytes": 17775,
+      "sha256": "79f56b4979221afbafa96b094b273471299a1c71cbf140c168d04308e85382ea"
+    },
+    {
+      "path": "controller/pb_032_033_ratemask_sgi_solver.py",
+      "available": true,
+      "bytes": 14199,
+      "sha256": "4a5a9ca27080200a625f805ec3de3973df4a95d21cc0f23b8b67ca498caa8d7e"
+    },
+    {
+      "path": "controller/pb_050_051_scheduler_timing_harness.py",
+      "available": true,
+      "bytes": 14688,
+      "sha256": "c6ee5678718b1e2bb19a2a2aae3696c27eb367d67dc034e45cf62901c5fab988"
+    },
+    {
+      "path": "controller/pb_053_054_hmac_epoch_controller.py",
+      "available": true,
+      "bytes": 18252,
+      "sha256": "87d0ad455229f01d6a0428e55d22f6d620cc1eaa5f81c9b0e36a89f29c0fb7fb"
+    },
+    {
+      "path": "docs/STAGE959A_UNIFIED_PHYSICAL_RETEST_RUNNER.md",
+      "available": true,
+      "bytes": 1991,
+      "sha256": "ed4ce23c99329d9c3abf89d3f31a9705afcd5097fd08724585766ac0bfeab37c"
+    },
+    {
+      "path": "docs/STAGE960A_PB030_031_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1179,
+      "sha256": "e46f5eb4cfaa095bbfacfcde967706e917434439961a6dcacd932ec173e25cf5"
+    },
+    {
+      "path": "docs/STAGE961A_PB032_033_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1171,
+      "sha256": "8d0d8142b4adf982377fd90eab40bb05b20ec1e4da3d5c5b79c908e7aace037c"
+    },
+    {
+      "path": "docs/STAGE962A_PB050_051_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1073,
+      "sha256": "2dc72d4f28db08ac7b27462f6cf984bd1933dcd44521ae875ebbaa9bed8f598f"
+    },
+    {
+      "path": "docs/STAGE963A_PB053_054_UNIFIED_RUNNER_MIGRATION.md",
+      "available": true,
+      "bytes": 1073,
+      "sha256": "36affb96cf835c7d333dfe6c274acaed4a1bd9f53766b760ab99e347fa191c31"
+    },
+    {
+      "path": "tests/test_pb_030_031_phy_response_surface_harness.py",
+      "available": true,
+      "bytes": 2916,
+      "sha256": "e5400246e2dbdee5f7681bd6772b05519889615d4b3b0a941070b6373eac42a7"
+    },
+    {
+      "path": "tests/test_pb_032_033_ratemask_sgi_solver.py",
+      "available": true,
+      "bytes": 3590,
+      "sha256": "06df111efb8b5e63859b85179e5e0e7ec8a0f8903e95787ca3437401ea6d175f"
+    },
+    {
+      "path": "tests/test_pb_050_051_scheduler_timing_harness.py",
+      "available": true,
+      "bytes": 3914,
+      "sha256": "c4605e020def01bc9b378d903a905d93e6a6bbf81f4d14bbf1b9b05082952b79"
+    },
+    {
+      "path": "tests/test_pb_053_054_hmac_epoch_controller.py",
+      "available": true,
+      "bytes": 4710,
+      "sha256": "9b42dde66d402492f9b596584d3a42369e5820824bb170b09a738f8eebea1b19"
+    },
+    {
+      "path": "tests/test_stage959a_to_964a_suite.py",
+      "available": true,
+      "bytes": 11161,
+      "sha256": "6565ff0b83220a704676700f6417f5f1371cbdbbc0e505ebb83451afe9bbc3c7"
+    },
+    {
+      "path": "tests/test_stage959a_unified_physical_runner.py",
+      "available": true,
+      "bytes": 13506,
+      "sha256": "a584685055088020087bc850a5c4dc22ca70d11abe450bbe7624b71fe3940ba7"
+    },
+    {
+      "path": "tests/test_stage960a_961a_unified_runner.py",
+      "available": true,
+      "bytes": 5816,
+      "sha256": "7b7b9f842b03a63b344c704c3fd631f09c83ad80319abe7ac99e7164cd1c22dc"
+    },
+    {
+      "path": "tests/test_stage962a_963a_unified_runner.py",
+      "available": true,
+      "bytes": 6200,
+      "sha256": "55e6ec3a4dd5daabdb013954c9af38920c45328b806bda699870f04b40cb7c31"
+    },
+    {
+      "path": "tools/autoresearch/run_stage959a_unified_physical_retest_runner.py",
+      "available": true,
+      "bytes": 36028,
+      "sha256": "bba9c77ee9c9a06cc442092b3ea22725fd0607bf2c69d23640db8bd4a4fe5f06"
+    },
+    {
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "available": true,
+      "bytes": 19637,
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    },
+    {
+      "path": "tools/verify/build_stage960a_961a_unified_controller_migration.py",
+      "available": true,
+      "bytes": 4158,
+      "sha256": "1973c698270f4dfeddcba2ab08241dcc9bae7bb6910caa15ce72a7af27ef2805"
+    },
+    {
+      "path": "tools/verify/build_stage962a_963a_unified_controller_migration.py",
+      "available": true,
+      "bytes": 3618,
+      "sha256": "4ae3dadb3a631061923d12b9d30f8fb07c5f6c1cab1ac821749d9a831f00de19"
+    },
+    {
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "available": true,
+      "bytes": 8770,
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+      "available": true,
+      "bytes": 15457,
+      "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+    },
+    {
+      "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+      "available": true,
+      "bytes": 25554,
+      "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+    },
+    {
+      "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+      "available": true,
+      "bytes": 16921,
+      "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+    },
+    {
+      "path": "workloads/flent_orchestrator.py",
+      "available": true,
+      "bytes": 13068,
+      "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+    }
+  ],
+  "physical_acceptance": "UNKNOWN",
+  "fresh_live_windows": 0,
+  "deployment_authorized": false,
+  "publication_executed": false,
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import json
+import pytest
 
 from controller.pb_053_054_hmac_epoch_controller import (
     HmacMissedSlotRecoveryFsm,
@@ -88,3 +89,18 @@ def test_missing_saved_receipts_and_empty_inputs_never_pass(tmp_path):
                for row in report['pb053_live_r135_to_r140_evaluations'])
     empty = build_pb_053_054_qualification_report(evidence_root=tmp_path, receipt_files=())
     assert not empty['all_6_distances_promoted']
+
+
+@pytest.mark.parametrize('distance', [float('nan'), float('inf'), True])
+def test_invalid_distance_cannot_create_hmac_config(distance):
+    with pytest.raises(ValueError):
+        compute_hmac_epoch_allocation(distance)
+
+
+@pytest.mark.parametrize('retry', [None, float('nan'), float('inf'), -1, 101, True])
+def test_missing_or_invalid_retry_is_not_a_clean_recovery_epoch(retry):
+    fsm = HmacMissedSlotRecoveryFsm()
+    fsm.step(True, 20)
+    with pytest.raises(ValueError):
+        fsm.step(False, retry)
+    assert fsm.clean_recovery_epochs == 0

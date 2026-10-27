@@ -79,5 +79,7 @@ def test_pb_032_033_saved_qualification_artifact(tmp_path) -> None:
     assert saved["paired_evidence_state"] == "SYNTHETIC"
     assert saved["physical_promotion_accepted"] is False
     assert saved["automatic_execution_allowed"] is False
+    assert saved["physical_execution_entrypoint"] == "run_pb_032_033_physical_retest"
+    assert saved["physical_campaign_required_phases"] == ["AA_CONTROL", "AB_DISCOVERY", "AB_HOLDOUT"]
     assert saved["live_silicon_provenance"]["PHY_BB_LDPC_CNTL1_0x29c04"] == "0xffffff55"
     assert saved["paired_ab_evaluation"]["verdict"] == "SYNTHETIC_PASS"

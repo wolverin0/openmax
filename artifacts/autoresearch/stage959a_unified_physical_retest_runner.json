@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "959A",
+  "title": "Unified raw physical-retest runner software contract",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/autoresearch/run_stage959a_unified_physical_retest_runner.py",
+      "available": true,
+      "bytes": 36028,
+      "sha256": "bba9c77ee9c9a06cc442092b3ea22725fd0607bf2c69d23640db8bd4a4fe5f06"
+    },
+    {
+      "path": "workloads/flent_orchestrator.py",
+      "available": true,
+      "bytes": 13068,
+      "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+    },
+    {
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "available": true,
+      "bytes": 41618,
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "path": "analysis/metrics/schema.py",
+      "available": true,
+      "bytes": 10281,
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "available": true,
+      "bytes": 19637,
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    },
+    {
+      "path": "tests/test_stage959a_unified_physical_runner.py",
+      "available": true,
+      "bytes": 13506,
+      "sha256": "a584685055088020087bc850a5c4dc22ca70d11abe450bbe7624b71fe3940ba7"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/autoresearch/run_stage959a_unified_physical_retest_runner.py",
+          "available": true,
+          "bytes": 36028,
+          "sha256": "bba9c77ee9c9a06cc442092b3ea22725fd0607bf2c69d23640db8bd4a4fe5f06"
+        },
+        {
+          "path": "workloads/flent_orchestrator.py",
+          "available": true,
+          "bytes": 13068,
+          "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+        },
+        {
+          "path": "analysis/regression_gate/gatekeeper.py",
+          "available": true,
+          "bytes": 41618,
+          "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+        },
+        {
+          "path": "analysis/metrics/schema.py",
+          "available": true,
+          "bytes": 10281,
+          "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+        },
+        {
+          "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+          "available": true,
+          "bytes": 19637,
+          "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+        },
+        {
+          "path": "tests/test_stage959a_unified_physical_runner.py",
+          "available": true,
+          "bytes": 13506,
+          "sha256": "a584685055088020087bc850a5c4dc22ca70d11abe450bbe7624b71fe3940ba7"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage959a-offline"
+    }
+  },
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "source inspection and local synthetic/fault fixtures; not a physical campaign",
+  "physical_acceptance": "UNKNOWN",
+  "live_campaign_executed": false,
+  "deployment_authorized": false,
+  "required_phases": [
+    "AA_CONTROL",
+    "AB_DISCOVERY",
+    "AB_HOLDOUT"
+  ],
+  "raw_window_sha256": true,
+  "gatekeeper_direct": true,
+  "acquisition_default": "INSPECT_ONLY",
+  "physical_adapter_source_bound": true,
+  "software_instrument_authentication": false,
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

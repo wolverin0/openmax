@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import json
+import pytest
+from analysis.regression_gate.gatekeeper import RunMetrics
 
 from controller.pb_050_051_scheduler_timing_harness import (
     DEFAULT_FIXTURE_OUTPUT_PATH,
@@ -69,3 +71,21 @@ def test_pb_051_feasibility_gate_promotion_and_saved_artifact() -> None:
     assert pb051["diagnostic_passed"] is True
     assert pb051["physical_promotion_accepted"] is False
     assert pb051["paired_qoe_decision"]["verdict"] == "SYNTHETIC_PASS"
+
+
+def test_imported_metrics_and_holdout_boolean_cannot_promote():
+    observations = [SdrBurstObservation(0, 'fixture-peer', 0, 2000, 250, 10, 1500)]
+    runs = [RunMetrics(run_id='imported-' + arm, arm=arm, goodput_mbps=100,
+        p95_lat_ms=1, p99_lat_ms=2, loss_pct=0, jain_fairness=1,
+        channel_width_mhz=20, block_index=0, evidence_state='BENCH_REPLICATED')
+        for arm in ('A','B')]
+    result = evaluate_pb051_target_slot_feasibility(observations, runs, holdout_replicated=True)
+    assert result['overall_feasibility_verdict'] == 'RETEST_REQUIRED'
+    assert not result['physical_promotion_accepted']
+    assert result['requires_unified_physical_retest']
+
+
+@pytest.mark.parametrize('distance', [float('nan'), float('inf'), True])
+def test_nonfinite_or_boolean_sdr_distance_is_invalid(distance):
+    with pytest.raises(ValueError):
+        compute_burst_edge_jitter_cdf([SdrBurstObservation(0,'fixture-peer',0,2000,250,10,1500)],distance)

@@ -11,6 +11,8 @@ leakage verifier, and paired A/B/A/B evaluator for:
    - slot_boundary_jitter_p99_us < 250.0 us
    - paired A/B/A/B hidden-node goodput_per_mhz and p99 latency promotion via RegressionGatekeeper.
 
+Array-based timing/feasibility reports are diagnostics only. Fresh QoE campaigns
+must use the source-bound Stage959A A/A, discovery and disjoint holdout runner.
 Enforces `automatic_execution_allowed = False` during Phase 0.
 """
 
@@ -28,6 +30,24 @@ from research.physical_boundary.ladder_schema import check_gate_readiness, load_
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FIXTURE_OUTPUT_PATH = REPO_ROOT / "artifacts/qca988x/pb_050_051_timing_jitter_fixture.json"
+PHYSICAL_EXPERIMENT_ROLE = 'PB050_051_SCHEDULER_TIMING'
+
+
+def freeze_physical_retest_plan(**kwargs) -> Dict[str, Any]:
+    """Freeze the explicit acquisition/configuration contract for this controller."""
+    if 'experiment_role' in kwargs:
+        raise ValueError('controller experiment role is fixed')
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as unified
+    return unified.freeze_plan(experiment_role=PHYSICAL_EXPERIMENT_ROLE, **kwargs)
+
+
+def run_physical_retest(plan, *, acquire_window, evidence_root, execute=False) -> Dict[str, Any]:
+    """Run source-bound QoE retesting; external SDR timing acceptance is separate."""
+    if not isinstance(plan, dict) or plan.get('experiment_role') != PHYSICAL_EXPERIMENT_ROLE:
+        raise ValueError('wrong controller experiment role')
+    from tools.autoresearch import run_stage959a_unified_physical_retest_runner as unified
+    return unified.run_campaign(plan, acquire_window=acquire_window,
+                                evidence_root=evidence_root, execute=execute)
 
 SPEED_OF_LIGHT_US_PER_KM_ROUNDTRIP = 6.67128  # 2 * 1000m / (2.99792458e8 m/s) in microseconds
 SIFS_PLUS_RXTX_TURNAROUND_US = 32.0           # 16us SIFS + 16us BB/RF switch margin
@@ -65,13 +85,26 @@ def compute_burst_edge_jitter_cdf(
     """Computes TX start-edge jitter CDF (p50/p95/p99), safe guard floor, and out-of-slot CSMA leakage."""
     if not observations:
         raise ValueError("observations must be non-empty.")
-    if distance_km < 0.0:
+    if type(distance_km) not in (int, float) or not math.isfinite(distance_km) or distance_km < 0.0:
         raise ValueError("distance_km must be >= 0.0")
 
     jitters_us: List[float] = []
     out_of_slot_count = 0
 
+    seen_bursts = set()
     for obs in observations:
+        if obs.burst_id in seen_bursts:
+            raise ValueError('duplicate SDR burst identity')
+        seen_bursts.add(obs.burst_id)
+        for field in ('scheduled_slot_start_us', 'scheduled_slot_duration_us', 'assigned_guard_us',
+                      'observed_rf_start_us', 'observed_rf_end_us'):
+            value = getattr(obs, field)
+            if type(value) not in (int, float) or not math.isfinite(value):
+                raise ValueError('finite SDR timing observations required')
+        if (obs.scheduled_slot_duration_us <= 0 or obs.assigned_guard_us < 0
+                or obs.assigned_guard_us > obs.scheduled_slot_duration_us
+                or obs.observed_rf_end_us < obs.observed_rf_start_us):
+            raise ValueError('invalid SDR interval or guard')
         jitter = abs(obs.observed_rf_start_us - obs.scheduled_slot_start_us)
         jitters_us.append(jitter)
         usable_end = obs.scheduled_slot_start_us + obs.scheduled_slot_duration_us - obs.assigned_guard_us
@@ -119,14 +152,22 @@ def evaluate_pb051_target_slot_feasibility(
     max_allowed_p99_jitter_us: float = 250.0,
     max_allowed_leakage_pct: float = 0.5,
 ) -> Dict[str, Any]:
-    """Evaluates Gate PB-051 acceptance criteria combining SDR timing truth and paired A/B/A/B QoE."""
+    """Legacy array diagnostics only; a holdout boolean never grants promotion."""
     timing = compute_burst_edge_jitter_cdf(sdr_observations, distance_km=distance_km)
+    if any(run.evidence_state != 'SYNTHETIC' for run in paired_csma_vs_target_runs):
+        return {
+            'gate_id': 'PB-051', 'overall_feasibility_verdict': 'RETEST_REQUIRED',
+            'diagnostic_passed': False, 'physical_promotion_accepted': False,
+            'evidence_state': 'IMPORTED_UNCLASSIFIED', 'timing_metrics': timing,
+            'requires_unified_physical_retest': True,
+            'reason': 'Array summaries and holdout_replicated do not prove a fresh physical campaign',
+        }
     gk = RegressionGatekeeper(min_blocks_for_keep=4, min_blocks_for_promote=6)
-    gate_decision = gk.evaluate_paired(list(paired_csma_vs_target_runs), holdout_replicated=holdout_replicated)
+    gate_decision = gk.evaluate_paired(list(paired_csma_vs_target_runs))
 
     passes_jitter = timing["jitter_p99_us"] <= max_allowed_p99_jitter_us
     passes_leakage = timing["out_of_slot_violation_rate_pct"] < max_allowed_leakage_pct
-    passes_qoe = gate_decision.verdict == "PROMOTE"
+    passes_qoe = False  # This legacy array API is never a physical promotion route.
     diagnostic_pass = passes_jitter and passes_leakage and gate_decision.verdict == 'SYNTHETIC_PASS'
 
     overall_verdict = "PASSED_FEASIBILITY_GATE" if (passes_jitter and passes_leakage and passes_qoe) else "FAILED_FEASIBILITY_GATE"
@@ -136,6 +177,7 @@ def evaluate_pb051_target_slot_feasibility(
         "overall_feasibility_verdict": 'SYNTHETIC_PASS' if diagnostic_pass else overall_verdict,
         "diagnostic_passed": diagnostic_pass,
         "physical_promotion_accepted": passes_jitter and passes_leakage and passes_qoe,
+        "requires_unified_physical_retest": True,
         "evidence_state": gate_decision.evidence_state,
         "criteria_checks": {
             "p99_jitter_le_250us": passes_jitter,
@@ -263,6 +305,9 @@ def build_pb_050_051_fixture_report() -> Dict[str, Any]:
     return {
         "gates_covered": ["PB-050", "PB-051"],
         "automatic_execution_allowed": False,
+        "evidence_state": "SYNTHETIC",
+        "physical_acceptance": "UNKNOWN",
+        "physical_retest_entrypoint": "run_physical_retest",
         "prerequisite_readiness": {
             "PB-050": pb050_ready,
             "PB-051": pb051_ready,
