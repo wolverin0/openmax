@@ -1,0 +1,2179 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S40B-CODEX-STAGE42A-AIROS6-UNPOLLED-AND-NETDEV-TXQ-STARVATION-VERIFIER",
+  "recorded_at": "2026-10-25T21:52:23.132593+00:00",
+  "implementation_state": "SOFTWARE_KEEP_INDEPENDENT_REVIEW_PASS_WITH_LIMITS",
+  "parent_deliverable": "Original forward-plan control-authority and reproducible experiment evidence; fixed Stage40B BENCH_PLAN contract",
+  "owned_files_sha256": {
+    "controller/stage42a_netdev_txq_and_airos6_verifier.py": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70",
+    "tests/test_stage40b_stage42a_verifier.py": "1f98f36bc0e566f49488a87509fcc70f025ad67ec1a8c28addc35e40f4ef6153",
+    "docs/STAGE40B_STAGE42A_NETDEV_TXQ_AND_AIROS6_VERIFIER.md": "5a9e6c38d1f96c110b283f04731db8ac29f1d6115766f898806d8bf07006160f"
+  },
+  "supporting_file_observation_sha256": {
+    "artifacts/autoresearch/stage42a_m24_m25_airos6_mcast_and_txq_bench_20261025.json": "73dbcd4ac6a68875d9d3ebeb14cf040218d82e34e1434717ad89d4e569011d25",
+    "artifacts/autoresearch/stage40a_ltu_persistent_poststart_and_24ghz_bench_20261025.json": "3d24a3dbd28999b2f4dcdc5d3fdb78b3d1125755a6c9184a0fd1f98420a0a2f0",
+    "tools/bench/deploy_stage40a_ltu_poststart.py": "05982b9f49d40f8632222086c30273a2287a75b08d4dadbe4d5aa6cfec9bffb4",
+    "tools/bench/run_stage40a_ltu_poststart_and_24ghz_bench.py": "e37db5a82f1b1222afa175a2a5319eb2f6f9e5dd3291a50876507034718b1246",
+    "tools/bench/run_stage42a_m24_m25_airos6_mcast_and_txq_bench.py": "4ff5fb8d20a34522c86901864091e7b5625805a48f439cbe4fb596fb2bd0002a",
+    "docs/STAGE40A_LTU_PERSISTENT_POSTSTART_AND_24GHZ_TRIPLE_PLAY_BENCHMARK.md": "bd190e3a5ecd8e3f1fd0303a35f757794356e7fbc507e4c3cda94801b0a573e0"
+  },
+  "supporting_hash_scope": "Whole-file observations at this cutoff; canonical requested rounds and poststart receipt are the immutable acceptance bindings; future unrelated appends are outside scope",
+  "source_contract": {
+    "source_authenticated": true,
+    "round_bindings": {
+      "S42A-R1": "da99a5b8628e7fad9e618d47ef94756a76a25c8870c56cd64f0ecd4416d70219",
+      "S42A-R2": "4c89ada4233c263d3d1fc44c2f57b9822e333106ad0d63042cea27bf89807590",
+      "S42A-R3": "0799cbff9721622be85e5d612781af32d6b08eca332833962e7373361aa59ecd",
+      "S42A-R4": "564b9897e94e71b7332bf984551a3fff375c038131ad6f6b3e8b77095dbe7e31",
+      "S40A-R1": "8d6855696548480d8f57b4a320ab40e907ecd262c98937e94888b113e1f33056",
+      "S40A-R2": "6931a050ad2be91bfea49d3b62215bb7bea31de1971bc61384dda1589f6aa829"
+    },
+    "windows": 24,
+    "poststart_receipt_sha256": "64e8aef82258c50134d122e51cbb990be06ccf61038e8bb01796b9b1b293ca4f",
+    "authentication_scope": "CANONICAL_SAVED_OBJECTS_NOT_NATIVE_ACQUISITION"
+  },
+  "audit": {
+    "task_id": "T-S40B-CODEX-STAGE42A-AIROS6-UNPOLLED-AND-NETDEV-TXQ-STARVATION-VERIFIER",
+    "source_contract": {
+      "source_authenticated": true,
+      "round_bindings": {
+        "S42A-R1": "da99a5b8628e7fad9e618d47ef94756a76a25c8870c56cd64f0ecd4416d70219",
+        "S42A-R2": "4c89ada4233c263d3d1fc44c2f57b9822e333106ad0d63042cea27bf89807590",
+        "S42A-R3": "0799cbff9721622be85e5d612781af32d6b08eca332833962e7373361aa59ecd",
+        "S42A-R4": "564b9897e94e71b7332bf984551a3fff375c038131ad6f6b3e8b77095dbe7e31",
+        "S40A-R1": "8d6855696548480d8f57b4a320ab40e907ecd262c98937e94888b113e1f33056",
+        "S40A-R2": "6931a050ad2be91bfea49d3b62215bb7bea31de1971bc61384dda1589f6aa829"
+      },
+      "windows": 24,
+      "poststart_receipt_sha256": "64e8aef82258c50134d122e51cbb990be06ccf61038e8bb01796b9b1b293ca4f",
+      "authentication_scope": "CANONICAL_SAVED_OBJECTS_NOT_NATIVE_ACQUISITION"
+    },
+    "stage42a": {
+      "stage": "42A",
+      "windows": 16,
+      "rounds": {
+        "S42A-R1": {
+          "metrics": {
+            "arm_a_goodput_mbps": 44.523,
+            "arm_b_goodput_mbps": 40.807,
+            "arm_a_mean_phase_p95_ms": 103.173,
+            "arm_b_mean_phase_p95_ms": 91.118,
+            "goodput_delta_pct": -8.346,
+            "p95_rtt_delta_pct": -11.684,
+            "iptv_mean_loss_pct": {
+              "A": 0.1052,
+              "B": 0.2285
+            },
+            "iptv_aggregate_loss": {
+              "A": {
+                "lost": 6,
+                "total": 5691
+              },
+              "B": {
+                "lost": 13,
+                "total": 5690
+              }
+            },
+            "voip_mean_loss_pct": {
+              "A": 0.0,
+              "B": 0.0
+            },
+            "voip_aggregate_loss": {
+              "A": {
+                "lost": 0,
+                "total": 1200
+              },
+              "B": {
+                "lost": 0,
+                "total": 1198
+              }
+            }
+          },
+          "phases": {
+            "A1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 6,
+                  "total": 2850,
+                  "reported_pct": 0.2105,
+                  "jitter_ms": 2.895,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 600,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 2.683,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": false,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": false,
+                "status": "OUTSIDE_CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    15,
+                    5
+                  ],
+                  "no_ack_rate": [
+                    1,
+                    -1
+                  ],
+                  "no_auto_prio": 1
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 9,
+                  "total": 2844,
+                  "reported_pct": 0.3165,
+                  "jitter_ms": 2.258,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 598,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 2.383,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            },
+            "A2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2841,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 2.082,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 600,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 3.191,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": false,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": false,
+                "status": "OUTSIDE_CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    15,
+                    5
+                  ],
+                  "no_ack_rate": [
+                    1,
+                    -1
+                  ],
+                  "no_auto_prio": 1
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 4,
+                  "total": 2846,
+                  "reported_pct": 0.1405,
+                  "jitter_ms": 1.657,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 600,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 2.501,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            }
+          },
+          "queue_intent_observed": false,
+          "three_peer_window_complete": true,
+          "issues": [
+            "COMPOUND_TREATMENT_NO_ISOLATED_CAUSE",
+            "NETDEV_INTENT_NOT_OBSERVED",
+            "UNPOLLED_GUARD_VECTOR_CHANGED"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "queue_starvation_causally_proven": false
+        },
+        "S42A-R2": {
+          "metrics": {
+            "arm_a_goodput_mbps": 45.703,
+            "arm_b_goodput_mbps": 45.062,
+            "arm_a_mean_phase_p95_ms": 71.539,
+            "arm_b_mean_phase_p95_ms": 66.872,
+            "goodput_delta_pct": -1.403,
+            "p95_rtt_delta_pct": -6.524,
+            "iptv_mean_loss_pct": {
+              "A": 0.2815,
+              "B": 0.0
+            },
+            "iptv_aggregate_loss": {
+              "A": {
+                "lost": 16,
+                "total": 5691
+              },
+              "B": {
+                "lost": 0,
+                "total": 5677
+              }
+            },
+            "voip_mean_loss_pct": {
+              "A": 2.0025,
+              "B": 1.2519
+            },
+            "voip_aggregate_loss": {
+              "A": {
+                "lost": 24,
+                "total": 1198
+              },
+              "B": {
+                "lost": 15,
+                "total": 1198
+              }
+            }
+          },
+          "phases": {
+            "A1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": false,
+              "airos6": {
+                "unpolled_compatible": null,
+                "status": "UNKNOWN_MISSING_READBACK"
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 16,
+                  "total": 2842,
+                  "reported_pct": 0.563,
+                  "jitter_ms": 2.12,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 15,
+                  "total": 600,
+                  "reported_pct": 2.5,
+                  "jitter_ms": 1.426,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": false,
+              "three_peer_window_complete": false,
+              "airos6": {
+                "unpolled_compatible": null,
+                "status": "UNKNOWN_MISSING_READBACK"
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2842,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.68,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 7,
+                  "total": 598,
+                  "reported_pct": 1.1706,
+                  "jitter_ms": 2.449,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            },
+            "A2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": false,
+              "airos6": {
+                "unpolled_compatible": null,
+                "status": "UNKNOWN_MISSING_READBACK"
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2849,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.03,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 9,
+                  "total": 598,
+                  "reported_pct": 1.505,
+                  "jitter_ms": 3.002,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": false,
+              "three_peer_window_complete": false,
+              "airos6": {
+                "unpolled_compatible": null,
+                "status": "UNKNOWN_MISSING_READBACK"
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2835,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.443,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 8,
+                  "total": 600,
+                  "reported_pct": 1.3333,
+                  "jitter_ms": 1.928,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            }
+          },
+          "queue_intent_observed": false,
+          "three_peer_window_complete": false,
+          "issues": [
+            "COMPOUND_TREATMENT_NO_ISOLATED_CAUSE",
+            "M5_EFFECTIVE_WEIGHT_MISSING",
+            "M5_READBACK_MISSING",
+            "NETDEV_INTENT_NOT_OBSERVED",
+            "THREE_PEER_WINDOW_INCOMPLETE"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "queue_starvation_causally_proven": false
+        },
+        "S42A-R3": {
+          "metrics": {
+            "arm_a_goodput_mbps": 43.682,
+            "arm_b_goodput_mbps": 43.835,
+            "arm_a_mean_phase_p95_ms": 96.613,
+            "arm_b_mean_phase_p95_ms": 98.91,
+            "goodput_delta_pct": 0.35,
+            "p95_rtt_delta_pct": 2.378,
+            "iptv_mean_loss_pct": {
+              "A": 0.0,
+              "B": 0.0877
+            },
+            "iptv_aggregate_loss": {
+              "A": {
+                "lost": 0,
+                "total": 5684
+              },
+              "B": {
+                "lost": 5,
+                "total": 5694
+              }
+            },
+            "voip_mean_loss_pct": {
+              "A": 2.1685,
+              "B": 2.1666
+            },
+            "voip_aggregate_loss": {
+              "A": {
+                "lost": 26,
+                "total": 1199
+              },
+              "B": {
+                "lost": 26,
+                "total": 1200
+              }
+            }
+          },
+          "phases": {
+            "A1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2845,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.452,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 13,
+                  "total": 599,
+                  "reported_pct": 2.1703,
+                  "jitter_ms": 1.331,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 128,
+                  "phy0-ap0.sta1": 128,
+                  "phy0-ap0.sta2": 128,
+                  "phy0-ap0": 128
+                },
+                "loco": {
+                  "br-lan": 128,
+                  "phy0-sta0": 128
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2845,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 0.974,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 14,
+                  "total": 600,
+                  "reported_pct": 2.3333,
+                  "jitter_ms": 0.614,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            },
+            "A2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2839,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 0.862,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 13,
+                  "total": 600,
+                  "reported_pct": 2.1667,
+                  "jitter_ms": 0.667,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 128,
+                  "phy0-ap0.sta1": 128,
+                  "phy0-ap0.sta2": 128,
+                  "phy0-ap0": 128
+                },
+                "loco": {
+                  "br-lan": 128,
+                  "phy0-sta0": 128
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 5,
+                  "total": 2849,
+                  "reported_pct": 0.1755,
+                  "jitter_ms": 2.284,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 12,
+                  "total": 600,
+                  "reported_pct": 2.0,
+                  "jitter_ms": 3.375,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 4,
+                "loco": 4
+              }
+            }
+          },
+          "queue_intent_observed": true,
+          "three_peer_window_complete": true,
+          "issues": [
+            "COMPOUND_TREATMENT_NO_ISOLATED_CAUSE"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "queue_starvation_causally_proven": false
+        },
+        "S42A-R4": {
+          "metrics": {
+            "arm_a_goodput_mbps": 45.254,
+            "arm_b_goodput_mbps": 43.895,
+            "arm_a_mean_phase_p95_ms": 93.497,
+            "arm_b_mean_phase_p95_ms": 121.052,
+            "goodput_delta_pct": -3.003,
+            "p95_rtt_delta_pct": 29.472,
+            "iptv_mean_loss_pct": {
+              "A": 0.0,
+              "B": 0.0
+            },
+            "iptv_aggregate_loss": {
+              "A": {
+                "lost": 0,
+                "total": 5680
+              },
+              "B": {
+                "lost": 0,
+                "total": 5685
+              }
+            },
+            "voip_mean_loss_pct": {
+              "A": 1.0006,
+              "B": 0.5839
+            },
+            "voip_aggregate_loss": {
+              "A": {
+                "lost": 12,
+                "total": 1199
+              },
+              "B": {
+                "lost": 7,
+                "total": 1199
+              }
+            }
+          },
+          "phases": {
+            "A1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2843,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.976,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 8,
+                  "total": 600,
+                  "reported_pct": 1.3333,
+                  "jitter_ms": 2.127,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B1": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 256,
+                  "phy0-ap0.sta1": 256,
+                  "phy0-ap0.sta2": 256,
+                  "phy0-ap0": 256
+                },
+                "loco": {
+                  "br-lan": 256,
+                  "phy0-sta0": 256
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2844,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 1.535,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 4,
+                  "total": 599,
+                  "reported_pct": 0.6678,
+                  "jitter_ms": 3.883,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "A2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 1000,
+                  "phy0-ap0.sta1": 1000,
+                  "phy0-ap0.sta2": 1000,
+                  "phy0-ap0": 1000
+                },
+                "loco": {
+                  "br-lan": 1000,
+                  "phy0-sta0": 1000
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2837,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 0.995,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 4,
+                  "total": 599,
+                  "reported_pct": 0.6678,
+                  "jitter_ms": 1.493,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 1000,
+                "loco": 1000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            },
+            "B2": {
+              "tx_queue_len": {
+                "ap": {
+                  "br-lan": 256,
+                  "phy0-ap0.sta1": 256,
+                  "phy0-ap0.sta2": 256,
+                  "phy0-ap0": 256
+                },
+                "loco": {
+                  "br-lan": 256,
+                  "phy0-sta0": 256
+                }
+              },
+              "queue_values_match_intent": true,
+              "three_peer_window_complete": true,
+              "airos6": {
+                "unpolled_compatible": true,
+                "status": "CLEAN_UNPOLLED_VECTOR",
+                "readbacks": {
+                  "txop_params": [
+                    0,
+                    0
+                  ],
+                  "no_ack_rate": [
+                    0,
+                    -1
+                  ],
+                  "no_auto_prio": 0
+                },
+                "polling_mode_independently_proven": false
+              },
+              "available_v13": {
+                "available_fields_match": true,
+                "checks": {
+                  "ap_aqm": true,
+                  "ap_tcp": true,
+                  "loco_aqm": true,
+                  "loco_tcp": true,
+                  "ap_aql": true,
+                  "ap_aql_threshold": true
+                },
+                "missing_fields": [
+                  "loco_aql_txq_limit",
+                  "loco_aql_threshold"
+                ],
+                "full_champion_verified": false,
+                "child_weight_getters_saved": false
+              },
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 2841,
+                  "reported_pct": 0.0,
+                  "jitter_ms": 2.028,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 3,
+                  "total": 600,
+                  "reported_pct": 0.5,
+                  "jitter_ms": 2.447,
+                  "percentage_consistent": true
+                }
+              },
+              "netdev_max_backlog": {
+                "ap": 2000,
+                "loco": 2000
+              },
+              "tcp_early_retrans": {
+                "ap": 3,
+                "loco": 3
+              }
+            }
+          },
+          "queue_intent_observed": true,
+          "three_peer_window_complete": true,
+          "issues": [
+            "COMPOUND_TREATMENT_NO_ISOLATED_CAUSE"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "queue_starvation_causally_proven": false
+        }
+      },
+      "historical_champion_retained": true,
+      "global_optimum_proven": false,
+      "physical_acceptance": false,
+      "source_authentication": "NOT_CHECKED_BY_THIS_FUNCTION",
+      "bridge_snooping": {
+        "config_state": "UNKNOWN",
+        "sysfs_state": "UNKNOWN",
+        "version_or_empty_getter_proves_config": false,
+        "native_build_authenticated": false
+      },
+      "config_disabled_claim_qualified": false,
+      "unassessed_round_ids": [
+        "S42A-R5"
+      ]
+    },
+    "stage40a": {
+      "stage": "40A",
+      "windows": 8,
+      "rounds": {
+        "S40A-R1": {
+          "metrics": {
+            "qoe_goodput_delta_pct": -4.265,
+            "bulk_tcp_delta_pct": -4.526,
+            "loaded_ping_p95_delta_pct": -23.183,
+            "composite_p95_delta_pct": -20.751
+          },
+          "arm_means": {
+            "A": {
+              "goodput_mbps": 94.437,
+              "physical_aggregate_goodput_mbps": 97.357,
+              "bulk_tcp_goodput_mbps": 95.084,
+              "loaded_ping_p95_ms": 9.9125,
+              "p95_rtt_ms": 11.5415,
+              "iptv_loss_pct": 0.0,
+              "voip_loss_pct": 0.0
+            },
+            "B": {
+              "goodput_mbps": 90.409,
+              "physical_aggregate_goodput_mbps": 93.0535,
+              "bulk_tcp_goodput_mbps": 90.7805,
+              "loaded_ping_p95_ms": 7.6145,
+              "p95_rtt_ms": 9.1465,
+              "iptv_loss_pct": 0.0,
+              "voip_loss_pct": 0.0
+            }
+          },
+          "phases": {
+            "A1": {
+              "uph_views": {
+                "FF_MCAST": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "CMS_BIAS": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "VOIP_BIAS": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "FIXED_FRAME": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "alias_views_equal": true,
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 816,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 11.761,
+                "qoe_goodput_mbps": 90.598,
+                "aggregate_goodput_mbps": 95.391,
+                "matches_saved": true
+              }
+            },
+            "B1": {
+              "uph_views": {
+                "FF_MCAST": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "CMS_BIAS": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "VOIP_BIAS": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "FIXED_FRAME": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "alias_views_equal": true,
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 816,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 8.601,
+                "qoe_goodput_mbps": 86.461,
+                "aggregate_goodput_mbps": 88.588,
+                "matches_saved": true
+              }
+            },
+            "A2": {
+              "uph_views": {
+                "FF_MCAST": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "CMS_BIAS": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "VOIP_BIAS": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "FIXED_FRAME": [
+                  10,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "alias_views_equal": true,
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 816,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 11.322,
+                "qoe_goodput_mbps": 98.276,
+                "aggregate_goodput_mbps": 99.323,
+                "matches_saved": true
+              }
+            },
+            "B2": {
+              "uph_views": {
+                "FF_MCAST": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "CMS_BIAS": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "VOIP_BIAS": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "FIXED_FRAME": [
+                  5,
+                  50,
+                  3,
+                  12,
+                  12,
+                  10,
+                  10,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "alias_views_equal": true,
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 816,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 9.692,
+                "qoe_goodput_mbps": 94.357,
+                "aggregate_goodput_mbps": 97.519,
+                "matches_saved": true
+              }
+            }
+          },
+          "route_qualification": "UNQUALIFIED_24GHZ_PATH",
+          "issues": [
+            "LOADED_PING_RAW_SAMPLES_NOT_SAVED",
+            "RAW_PATH_AND_TID_NOT_QUALIFIED"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "composite_p95_is_raw_percentile": false,
+          "loaded_ping_samples_authenticated": false,
+          "native_alias_addresses_proven": false
+        },
+        "S40A-R2": {
+          "metrics": {
+            "qoe_goodput_delta_pct": -13.109,
+            "bulk_tcp_delta_pct": -16.144,
+            "loaded_ping_p95_delta_pct": -50.398,
+            "composite_p95_delta_pct": 14.336
+          },
+          "arm_means": {
+            "A": {
+              "goodput_mbps": 34.6065,
+              "physical_aggregate_goodput_mbps": 35.859,
+              "bulk_tcp_goodput_mbps": 33.5785,
+              "loaded_ping_p95_ms": 15.572,
+              "p95_rtt_ms": 32.7325,
+              "iptv_loss_pct": 0.0,
+              "voip_loss_pct": 0.0
+            },
+            "B": {
+              "goodput_mbps": 30.07,
+              "physical_aggregate_goodput_mbps": 30.434,
+              "bulk_tcp_goodput_mbps": 28.1575,
+              "loaded_ping_p95_ms": 7.724,
+              "p95_rtt_ms": 37.425,
+              "iptv_loss_pct": 0.0,
+              "voip_loss_pct": 0.0
+            }
+          },
+          "phases": {
+            "A1": {
+              "notsent_lowat_raw": "-1",
+              "default_unbounded_sentinel_reported": true,
+              "ath0_qdisc_saved": "qdisc fq_codel 0: root refcnt 2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+              "eth0_1_qdisc_saved": "",
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 817,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 31.524,
+                "qoe_goodput_mbps": 34.019,
+                "aggregate_goodput_mbps": 34.9,
+                "matches_saved": true
+              }
+            },
+            "B1": {
+              "notsent_lowat_raw": "-1",
+              "default_unbounded_sentinel_reported": true,
+              "ath0_qdisc_saved": "qdisc fq_codel 8002: root refcnt 2 limit 1024p flows 1024 quantum 1514 target 2.5ms interval 50.0ms ecn",
+              "eth0_1_qdisc_saved": "qdisc fq_codel 8003: root refcnt 2 limit 1024p flows 1024 quantum 1514 target 2.5ms interval 50.0ms ecn",
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 817,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 35.626,
+                "qoe_goodput_mbps": 28.048,
+                "aggregate_goodput_mbps": 28.081,
+                "matches_saved": true
+              }
+            },
+            "A2": {
+              "notsent_lowat_raw": "-1",
+              "default_unbounded_sentinel_reported": true,
+              "ath0_qdisc_saved": "qdisc fq_codel 0: root refcnt 2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+              "eth0_1_qdisc_saved": "",
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 821,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 33.941,
+                "qoe_goodput_mbps": 35.194,
+                "aggregate_goodput_mbps": 36.818,
+                "matches_saved": true
+              }
+            },
+            "B2": {
+              "notsent_lowat_raw": "-1",
+              "default_unbounded_sentinel_reported": true,
+              "ath0_qdisc_saved": "qdisc fq_codel 8004: root refcnt 2 limit 1024p flows 1024 quantum 1514 target 2.5ms interval 50.0ms ecn",
+              "eth0_1_qdisc_saved": "qdisc fq_codel 8005: root refcnt 2 limit 1024p flows 1024 quantum 1514 target 2.5ms interval 50.0ms ecn",
+              "receiver_observations": {
+                "iptv": {
+                  "lost": 0,
+                  "total": 818,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                },
+                "voip": {
+                  "lost": 0,
+                  "total": 391,
+                  "reported_loss_pct": 0.0,
+                  "percentage_consistent": true
+                }
+              },
+              "formula_recomputation": {
+                "composite_p95_ms": 39.224,
+                "qoe_goodput_mbps": 32.092,
+                "aggregate_goodput_mbps": 32.787,
+                "matches_saved": true
+              }
+            }
+          },
+          "route_qualification": "LTU_5500MHZ",
+          "issues": [
+            "EMPTY_QDISC_READBACK_IS_UNKNOWN",
+            "LOADED_PING_RAW_SAMPLES_NOT_SAVED",
+            "RAW_PATH_AND_TID_NOT_QUALIFIED"
+          ],
+          "summary_discrepancies": [],
+          "source_decision": "RETAIN_CURRENT_CHAMPION",
+          "candidate_promoted": false,
+          "composite_p95_is_raw_percentile": false,
+          "loaded_ping_samples_authenticated": false,
+          "native_alias_addresses_proven": false
+        }
+      },
+      "physical_acceptance": false,
+      "source_authentication": "NOT_CHECKED_BY_THIS_FUNCTION",
+      "new_persistence_action": false,
+      "historical_ltu_persistence_reported": true,
+      "entire_historical_stage_ram_only": false
+    },
+    "poststart": {
+      "ltu1": {
+        "current_bytes": 5609,
+        "current_lines": 101,
+        "current_script_sha256": "70570dfb7e2b2b3bf1396c9ff113b9dea1d06029d9ba51756b192ea2a9eeacbf",
+        "size_matches": false,
+        "line_count_matches": false,
+        "commands_checked": 3,
+        "layout_arithmetic_only": true,
+        "emitter_sequence_matches_intent": true,
+        "literal_emission_tokens_match_intent": true,
+        "uses_echo_ne": true,
+        "uses_printf": false,
+        "ignored_failure_count": 40,
+        "existing_tmp_skips_preparation": true,
+        "exact_deployed_script_verified": false,
+        "patch_binary_verified": false,
+        "busybox_build_options_qualified": false,
+        "firmware_build_identity_qualified": false,
+        "native_emission": {
+          "state": "UNKNOWN",
+          "observed_length": null,
+          "native_emitter_qualified": false
+        }
+      },
+      "ltu2": {
+        "current_bytes": 4249,
+        "current_lines": 78,
+        "current_script_sha256": "809579583b2c6f20110ab18af515b2307f46c98d44eec373c2899381c824584a",
+        "size_matches": true,
+        "line_count_matches": true,
+        "commands_checked": 0,
+        "layout_arithmetic_only": false,
+        "emitter_sequence_matches_intent": false,
+        "literal_emission_tokens_match_intent": false,
+        "uses_echo_ne": false,
+        "uses_printf": false,
+        "ignored_failure_count": 34,
+        "existing_tmp_skips_preparation": false,
+        "exact_deployed_script_verified": false,
+        "patch_binary_verified": false,
+        "busybox_build_options_qualified": false,
+        "firmware_build_identity_qualified": false,
+        "native_emission": {
+          "state": "UNKNOWN",
+          "observed_length": null,
+          "native_emitter_qualified": false
+        }
+      }
+    },
+    "device_access_executed": false,
+    "script_or_patch_executed": false,
+    "runtime_dispatch_allowed": false,
+    "physical_acceptance": false,
+    "native_patch_qualification": "UNKNOWN",
+    "e2": "NOT_ACCEPTED"
+  },
+  "source_discrepancies": [
+    {
+      "round": "S42A-R1",
+      "requested_goodput_delta_pct": -8.352,
+      "saved_goodput_delta_pct": -8.346
+    },
+    {
+      "round": "S42A-R2",
+      "requested_queue": "sysfs64",
+      "requested_goodput_delta_pct": -4.535,
+      "saved_intent": "ip-link256",
+      "saved_queue": 1000,
+      "saved_goodput_delta_pct": -1.403,
+      "all_m5_windows_incomplete": true
+    },
+    {
+      "claim": "Exact missing vendor CONFIG_BRIDGE_IGMP_SNOOPING",
+      "qualification": "UNKNOWN; no vendor config or qualified error capture in requested JSON"
+    },
+    {
+      "claim": "Both S40A rounds measure 2.4GHz Rocket2AC Triple-Play",
+      "qualification": "R1 intended route unqualified; current runner loads LTU IP and mixes pings; R2 LTU5500MHz"
+    },
+    {
+      "claim": "Binary dd/printf semantics qualify deployed patch",
+      "qualification": "Current script uses echo-ne, notprintf; one-byte/full-read/build/pre-postimage/deployedscript proof unavailable"
+    },
+    {
+      "claim": "Stage40A loaded p95 is a raw percentile",
+      "qualification": "p95 is composite; loaded-ping parser itself has synthetic fallback and raw ping samples are absent"
+    }
+  ],
+  "source_envelope_history": [
+    {
+      "path": "artifacts/autoresearch/stage42a_m24_m25_airos6_mcast_and_txq_bench_20261025.json",
+      "sha256": "1bcf67852c67c90e971c1d274f17a169edd7ac7321f98e5160ba5205d5803c3e",
+      "observation": "Initial four-round read"
+    },
+    {
+      "path": "artifacts/autoresearch/stage42a_m24_m25_airos6_mcast_and_txq_bench_20261025.json",
+      "sha256": "73dbcd4ac6a68875d9d3ebeb14cf040218d82e34e1434717ad89d4e569011d25",
+      "observation": "R5 appended concurrently; first four canonical hashes unchanged"
+    }
+  ],
+  "test_history": [
+    {
+      "command": "python -m pytest tests/test_stage40b_stage42a_verifier.py -q",
+      "passed": 64,
+      "failed": 2,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 1,
+      "pytest_elapsed_s": 0.45,
+      "tool_wall_time_s": 2.1348943,
+      "console_receipt": "7ce03e",
+      "module_sha256": "cb6e61bd2eb2d68ddc608f393678b09c0e3b32431b7899f770fc9ca8eac478a4",
+      "test_sha256": "fc8f73b64e91c210306fa237a073b658bf2da3ccf9443f3196555b5fd5ffb3ad",
+      "failure": "Fixture popped newly appended R5 rather than required R4; extra-round fixture assumed no existing R5",
+      "repair": "Use explicit R4 identity and include preexisting unassessed IDs; preserve requested four-round contract"
+    },
+    {
+      "command": "python -m pytest tests/test_stage40b_stage42a_verifier.py -q",
+      "passed": 66,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "pytest_elapsed_s": 0.36,
+      "tool_wall_time_s": 1.8961001,
+      "console_receipt": "489d0e",
+      "module_sha256": "cb6e61bd2eb2d68ddc608f393678b09c0e3b32431b7899f770fc9ca8eac478a4",
+      "test_sha256": "f865f7c15c60af10b22b7abdb6242a804caa0c607334596be0945dbb03e01786",
+      "superseded_by": "Independent changes-required findings; local I/O boundary, typed supplied AQL and ordered splice checks repaired"
+    },
+    {
+      "command": "python -m pytest tests/test_stage40b_stage42a_verifier.py -q",
+      "passed": 78,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "pytest_elapsed_s": 0.35,
+      "tool_wall_time_s": 1.5905424,
+      "console_receipt": "20d671",
+      "module_sha256": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70",
+      "test_sha256": "1f98f36bc0e566f49488a87509fcc70f025ad67ec1a8c28addc35e40f4ef6153"
+    }
+  ],
+  "test_warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation",
+  "initial_independent_review": {
+    "state": "CHANGES_REQUIRED",
+    "receipt_path": "artifacts/autoresearch/stage40b_pre_final_review_findings_20261025.json",
+    "receipt_sha256": "452cf10f2b2d41e53aec6531e2becb49445bc6f2c1e61cd03d9a1ce0716c7c1a",
+    "findings_resolved": [
+      "F1: reject network/reparse paths before content reads and bound JSON size",
+      "F2: typed AP and all present CPE AQL/threshold fields; missing stays UNKNOWN",
+      "F3: complete ordered dd/emitter sequence plus reordering regression"
+    ]
+  },
+  "independent_review": {
+    "state": "PASS_WITH_LIMITS",
+    "receipt_path": "artifacts/autoresearch/stage40b_stage42a_independent_review_20261025.json",
+    "pytest_execution": "OWNER_CONSOLE_EVIDENCE_REUSED_NOT_INDEPENDENTLY_EXECUTED",
+    "closure_pointer_note": "Reviewer binds this preseal receipt; afterward root only fills final review metadata and software state, then completes its own task-board card",
+    "receipt_sha256": "699040c661ebe753e723181d9f87324103fc7b6226040ac0577ca69eebab7308",
+    "open_material_blockers": 0,
+    "fresh_static_and_arithmetic_checks": 249,
+    "reviewed_preseal_validation_sha256": "5e923bd8a3f486c58ce5f55ac1192b898b6d50aa26680102668170ac47842000",
+    "closure_binding_scope": "Preseal validation explicitly reviewed; only implementation state and final independent-review metadata changed afterward"
+  },
+  "closure_document_sha256": {
+    "docs/BENCH_PLAN.md": "d3ba1fe8bef7c2c96f0a64f13e0955d28ef79f24d29cb20dba6e469bcfe9d623",
+    "docs/CURRENT_STATE.md": "e99da5d55ec01be657ebda1a18029c27422d4a97396965d59446faaba0e1d764",
+    "docs/RESEARCH_LEDGER.md": "3c80781aa55224bdb0dd303412eca4c7bb2e84aeca1ecab492d65063a945809b",
+    "docs/DECISIONS.md": "2cb3c85ff745eb6d4216f2192f430b8c7ad4a744179421420c66c5ecdd0ebe47"
+  },
+  "runtime_dispatch_allowed": false,
+  "device_access_executed": false,
+  "hardware_ssh_executed": false,
+  "script_or_patch_executed": false,
+  "flash_or_persistence_executed": false,
+  "new_rf_measurement": false,
+  "native_patch_and_build_qualification": "UNKNOWN",
+  "current_radio_health": "UNKNOWN",
+  "physical_acceptance": false,
+  "global_v13_optimum_proven": false,
+  "e2": "NOT_ACCEPTED",
+  "no_background_runner": true,
+  "completion_scope": "Requested offline Stage40B module/tests/report/global-docs plus independent review; no native acquisition or new task",
+  "owner_static_checks": [
+    {
+      "scope": "AST/whitespace/newline/zero-width/report links/header/scoped append markers",
+      "checks": 16,
+      "exit_code": 0,
+      "console_receipt": "ce1fc7"
+    },
+    {
+      "scope": "git diff --check on four updated global documents",
+      "exit_code": 0,
+      "console_receipt": "c15566",
+      "warnings": "Existing CRLF-to-LF advisories, no whitespace error"
+    }
+  ]
+}

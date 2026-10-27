@@ -1,0 +1,829 @@
+{
+  "analysis_dependencies": [
+    {
+      "bytes": 2225,
+      "path": "tools/autoresearch/stage525_530_common.py",
+      "sha256": "eeb6de4cc1724797c687688c509081510c3f96fcde61f58783e7fcbe2e0296f0"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    }
+  ],
+  "boundary": {
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "causal_join_between_linux_loopback_and_dcxo_model_allowed": false,
+  "gaps": [
+    "Static ARM symbol bytes do not prove callable ABI, GPS lock, oscillator control, board capability or measured CFO.",
+    "Monitor silence and synthetic temperature/IRQ fallbacks are unsafe evidence; never infer healthy clock discipline from absence of logs.",
+    "515 oscillator/EVM/throughput constants are uncalibrated model assumptions, not measured4096QAM/CFO limits.",
+    "467 probes loopback and allows parser/exception fallback even after a connection opened; the actual branch is unknown.",
+    "IRQ values are absolute phase snapshots, not before/after same-epoch per-window deltas.",
+    "144 is a cumulative claim: only12 named windows are directly present, without an authenticated historical chain or OTA proof.",
+    "Current shared script and current producer literal are separate hash observations; neither is silently relabeled the recordedv10."
+  ],
+  "implementation": {
+    "bytes": 19389,
+    "path": "tools/autoresearch/build_stage528a_ltu_dcxo_gps_tcxo_and_144window_reconciler.py",
+    "sha256": "fd32607a2f4e2a12e6195fd52e05bedcafe94af18230a90a8b70bb6e86a6cf13"
+  },
+  "model515": {
+    "measured_4096qam_or_cfo_threshold": false,
+    "model_reexecuted": false,
+    "recomputed_synthetic_goodput_gain_pct": 50.831035071876585,
+    "reported_metrics": {
+      "baseline": {
+        "dwell_4096qam_12x_pct": 0.0,
+        "ldpc_retrans_rate_pct": 0.0,
+        "mean_goodput_mbps": 409.73,
+        "p99_latency_ms": 2.95
+      },
+      "champion": {
+        "dwell_4096qam_12x_pct": 100.0,
+        "ldpc_retrans_rate_pct": 0.0,
+        "mean_goodput_mbps": 618.0,
+        "p99_latency_ms": 2.15
+      }
+    },
+    "status": "UNCALIBRATED_SYNTHETIC_MODEL_NOT_MEASURED"
+  },
+  "monitor": {
+    "cfo_evidence": "UNKNOWN",
+    "gps_lock_evidence": "UNKNOWN",
+    "irq_fallback_present": true,
+    "matches_recorded_script_sha256": true,
+    "missing_log_assumes_good_sync": true,
+    "missing_log_assumes_low_cfo": true,
+    "monitor_remediated": false,
+    "reported_cfo_threshold_ppm": 0.25,
+    "script_executed": false,
+    "status": "UNSAFE_EVIDENCE_DEFAULTS_PRESENT",
+    "temperature_fallback_present": true,
+    "uptime_fallback_present": true
+  },
+  "named_source_correction": {
+    "actual_ltu_source_stage": 486,
+    "stage485_is_ltu_dcxo_source": false,
+    "stage485_modules": [
+      "WA.v8.7.25:umac.ko",
+      "XC.v8.7.25:umac.ko"
+    ]
+  },
+  "outputs": {
+    "docs/STAGE528A_LTU_DCXO_GPS_TCXO_AND_144WINDOW_RECONCILER.md": {
+      "bytes": 3573,
+      "path": "docs/STAGE528A_LTU_DCXO_GPS_TCXO_AND_144WINDOW_RECONCILER.md",
+      "sha256": "57ed8661a8ea7b9894ee65365c6a9ef223c9f1d93e584ca840bf6513675d49d7"
+    }
+  },
+  "producer_anchors": [
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            138
+          ],
+          "token": "syms.matching(r\"dcxo|tcxo\", 30)"
+        }
+      ],
+      "bytes": 10520,
+      "path": "tools/re/build_stage486a_ltu_ad9361_fastlock_and_cal_table_re.py",
+      "sha256": "42015b8b26634cdffe195f7cf79ef44bfa8b099a38b5d9dbde78232b1be2f5df"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            60
+          ],
+          "token": "ping -Q 0xb8 -c 5 -i 0.2 127.0.0.1"
+        },
+        {
+          "line_numbers": [
+            93
+          ],
+          "token": "rtt_avg_ms = 0.198 if default_tlp == 3 else 0.236"
+        },
+        {
+          "line_numbers": [
+            140,
+            144,
+            146
+          ],
+          "token": "except Exception:"
+        }
+      ],
+      "bytes": 13896,
+      "path": "tools/bench/run_stage467a_live_ltu110_round12_144window_autoresearch.py",
+      "sha256": "2a381d0fba8ec1858bc5f200ef66109c8338723dbde9172ce8351f6a338eed63"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            41
+          ],
+          "token": "residual_cfo_hz = 12.0 if use_gps_dcxo_discipline else 420.0"
+        },
+        {
+          "line_numbers": [
+            54
+          ],
+          "token": "base_evm_db = -41.2 if use_gps_dcxo_discipline else -35.8"
+        }
+      ],
+      "bytes": 12687,
+      "path": "tools/sim/run_stage515a_ltu_dcxo_gps_vs_tcxo_4096qam_cfo_pareto.py",
+      "sha256": "d5f70554cb78acd2d38671a60edcd0ecda97fdaededa46bf76f3c63767e69a6f"
+    }
+  ],
+  "saved486": {
+    "census_is_complete": false,
+    "producer_cap": 30,
+    "reported_capped_dcxo_tcxo_count": 30,
+    "reported_names_are_broad_not_bbp_prefix": true
+  },
+  "source_binding_meaning": "Held current bytes, not authenticated historical executed-source or native acquisition provenance.",
+  "stage": "528A",
+  "static_sources": [
+    {
+      "bytes": 11948,
+      "path": "artifacts/autoresearch/stage485a_qca988x_bmiss_and_csa_channel_switch_re.json",
+      "sha256": "828404bd183fb1c391a21c33eba9d888868f12f2159711ff2a84e49bc2bbc2b6"
+    },
+    {
+      "bytes": 8623,
+      "path": "artifacts/autoresearch/stage486a_ltu_ad9361_fastlock_and_cal_table_re.json",
+      "sha256": "58fe9ce901d3a0c76cf1dc3b5f2c8633716c5c685ca563948a2b6defc11c04a8"
+    },
+    {
+      "bytes": 2177,
+      "path": "artifacts/autoresearch/stage502a_ltu_dcxo_gps_tcxo_drift_monitor.json",
+      "sha256": "a0674e2f22dbd8aeccd9c2d58988aa3a4332ab35d31b0a8e0756f15ad9ec3b88"
+    },
+    {
+      "bytes": 5225,
+      "path": "artifacts/autoresearch/stage515a_ltu_dcxo_gps_vs_tcxo_4096qam_cfo_pareto.json",
+      "sha256": "2f4c656fa69432d6301a212a2f40fb187077933490a86e76218245b70627e0e2"
+    },
+    {
+      "bytes": 6423,
+      "path": "artifacts/autoresearch/stage467a_live_ltu110_round12_144window_autoresearch.json",
+      "sha256": "bc5f76ef2f55886d6f39c651dfe9854ba5c425944ddb80a41ffa03c8b27ad9fb"
+    },
+    {
+      "bytes": 1999,
+      "path": "artifacts/autoresearch/stage470a_ltu_12round_144window_champion_v10_receipt.json",
+      "sha256": "845c6ea9546ea1820b0b745ffee055fd897f9229346752b7ac40935fb6869e94"
+    },
+    {
+      "bytes": 15629,
+      "path": "artifacts/verification/stage528a/ame_core_symbols.json",
+      "sha256": "d06dd22b47fe90ab21cb70daada6835855fe9b44f3136893c4de3d2721daf147"
+    },
+    {
+      "bytes": 3282052,
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_core.ko",
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2"
+    },
+    {
+      "bytes": 1305,
+      "path": "firmware/ltu_safe_kit/ltu_5board_universal_manifest_v10.json",
+      "sha256": "85688952008c2373655a5bae3dbc3b1bf2f3c89036a17b5761d76136a6e6b1b9"
+    },
+    {
+      "bytes": 1357,
+      "path": "firmware/ltu_safe_kit/fmx_ltu_dcxo_gps_tcxo_monitor.sh",
+      "sha256": "a98ee8c924f685a8f796c09b4f1181ae38f361d240c636509fc7c43be33dd2ad"
+    },
+    {
+      "bytes": 7440,
+      "path": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh",
+      "sha256": "c30f453698462ef63ed80eddcf60daa6452600d8b8bfbc93d24eaa6e96233d46"
+    },
+    {
+      "bytes": 10520,
+      "path": "tools/re/build_stage486a_ltu_ad9361_fastlock_and_cal_table_re.py",
+      "sha256": "42015b8b26634cdffe195f7cf79ef44bfa8b099a38b5d9dbde78232b1be2f5df"
+    },
+    {
+      "bytes": 8099,
+      "path": "tools/firmware/build_stage502a_ltu_dcxo_gps_tcxo_drift_monitor.py",
+      "sha256": "506f8a25c7b77ed5de15f609c585cf58fdf1807c9ec0d5c9261f47a6be6fae69"
+    },
+    {
+      "bytes": 12687,
+      "path": "tools/sim/run_stage515a_ltu_dcxo_gps_vs_tcxo_4096qam_cfo_pareto.py",
+      "sha256": "d5f70554cb78acd2d38671a60edcd0ecda97fdaededa46bf76f3c63767e69a6f"
+    },
+    {
+      "bytes": 13896,
+      "path": "tools/bench/run_stage467a_live_ltu110_round12_144window_autoresearch.py",
+      "sha256": "2a381d0fba8ec1858bc5f200ef66109c8338723dbde9172ce8351f6a338eed63"
+    },
+    {
+      "bytes": 15217,
+      "path": "tools/firmware/build_stage470a_ltu_12round_144window_champion_v10.py",
+      "sha256": "ce05115b78dbaaec39feb49f0a20bd339ec389a0ef4c9d894133b0f8008a0587"
+    }
+  ],
+  "static_symbols": {
+    "bbp_rf_dcxo_defined_sized_count": 11,
+    "board_capability_proven": false,
+    "broad_defined_sized_count": 38,
+    "callable_abi_proven": false,
+    "cfo_readback_proven": false,
+    "elf": {
+      "bits": 32,
+      "little_endian": true,
+      "machine": "ARM"
+    },
+    "gps_lock_proven": false,
+    "source": {
+      "bytes": 3282052,
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_core.ko",
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2"
+    },
+    "status": "PINNED_STATIC_SYMBOL_BYTES_ONLY",
+    "symbols": [
+      {
+        "bytes": 20,
+        "file_offset": 977464,
+        "name": "fty_rf_dcxo_set_sync_mode",
+        "section": ".text",
+        "section_offset": 977412,
+        "sha256": "68dcedf0d1d1c6163fe72a69b4b09238aea587c99be3c0b7c0038ef9dde4b65b",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 24,
+        "file_offset": 167472,
+        "name": "ame_dcxo_sync",
+        "section": ".text",
+        "section_offset": 167420,
+        "sha256": "563e843faca2830bba3facc847a945d0441b275313601bac267708ecf93d1648",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 12,
+        "file_offset": 931680,
+        "name": "test_bbp_track_tcxo_routine",
+        "section": ".text",
+        "section_offset": 931628,
+        "sha256": "1688ea5136a4975bb60005cc655e0a32c469e7a02638b6b56ecd84e07a315297",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 16,
+        "file_offset": 2095276,
+        "name": "ame_dcxo_sync_work",
+        "section": ".data",
+        "section_offset": 1028,
+        "sha256": "b94e37c10f832ec9e9f3c3b53b584eeb94d614997a52d77e75beb108c2766a78",
+        "type": "STT_OBJECT"
+      },
+      {
+        "bytes": 980,
+        "file_offset": 977568,
+        "name": "fty_rf_dcxo_adj",
+        "section": ".text",
+        "section_offset": 977516,
+        "sha256": "a3737940d120ae8bcac37be1aa97a1a275b48e3a617e7c84e567a96d2ce4b89a",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 1616,
+        "file_offset": 979192,
+        "name": "fty_rf_dcxo_sync_info_show",
+        "section": ".text",
+        "section_offset": 979140,
+        "sha256": "5314b18b21babab0b622422d11cef95afe176b783ed68a78b76d065738daf0b3",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 28,
+        "file_offset": 980808,
+        "name": "fty_rf_dcxo_get_gps_state",
+        "section": ".text",
+        "section_offset": 980756,
+        "sha256": "9903519cc3f72a8777fa415cd03f501b18cbc6fd87e870d86bf414a7d9482796",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 484,
+        "file_offset": 1500476,
+        "name": "bbp_rf_dcxo_reset_params",
+        "section": ".text",
+        "section_offset": 1500424,
+        "sha256": "5575fd4d9afe78f5316481a2168711477fb7a146685e958c0b1b680bce7112c1",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 52,
+        "file_offset": 1499020,
+        "name": "bbp_rf_tcxo_item_expired",
+        "section": ".text",
+        "section_offset": 1498968,
+        "sha256": "30f4f307ebfe547f7fcd1463eb67f4d25b3bd3e99d9096e2bd16322899d932bb",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 12,
+        "file_offset": 677796,
+        "name": "BBEA_track_tcxo_routine",
+        "section": ".text",
+        "section_offset": 677744,
+        "sha256": "1688ea5136a4975bb60005cc655e0a32c469e7a02638b6b56ecd84e07a315297",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 52,
+        "file_offset": 976760,
+        "name": "fty_rf_tcxo_item_expired",
+        "section": ".text",
+        "section_offset": 976708,
+        "sha256": "30f4f307ebfe547f7fcd1463eb67f4d25b3bd3e99d9096e2bd16322899d932bb",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 280,
+        "file_offset": 1608684,
+        "name": "ame_bbp_op_dcxo",
+        "section": ".text",
+        "section_offset": 1608632,
+        "sha256": "a91e6a4a1ddcdf962a57be0e5588278739c67a67d058cff0cf2004143ca42cb9",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 20,
+        "file_offset": 1500352,
+        "name": "bbp_rf_dcxo_set_sync_mode",
+        "section": ".text",
+        "section_offset": 1500300,
+        "sha256": "68dcedf0d1d1c6163fe72a69b4b09238aea587c99be3c0b7c0038ef9dde4b65b",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 56,
+        "file_offset": 977512,
+        "name": "fty_rf_dcxo_is_sync_by_gps",
+        "section": ".text",
+        "section_offset": 977460,
+        "sha256": "11e6f978b3d7bbd4abf64ccb11708c445f3d66302f5136d74739497c6f13e591",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 76,
+        "file_offset": 1500400,
+        "name": "bbp_rf_dcxo_is_sync_by_gps",
+        "section": ".text",
+        "section_offset": 1500348,
+        "sha256": "1b2c7c095bd61de7ec7346ec083cf6b7fe4c50f0fb749e75c25ac1f20dcbdc67",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 652,
+        "file_offset": 976812,
+        "name": "fty_rf_tcxo_cal_variation",
+        "section": ".text",
+        "section_offset": 976760,
+        "sha256": "4ab471585c5147eef873740628d9911a7674e8e384a2b48b9e8233b424c23615",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 3844,
+        "file_offset": 980836,
+        "name": "fty_rf_dcxo_sync_track",
+        "section": ".text",
+        "section_offset": 980784,
+        "sha256": "3b43d66fb84997a42c12c10819595a8308c2ccba27bd562e3bd1584a5388f238",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 16,
+        "file_offset": 2097868,
+        "name": "ap_sched_track_tcxo_work",
+        "section": ".data",
+        "section_offset": 3620,
+        "sha256": "b94e37c10f832ec9e9f3c3b53b584eeb94d614997a52d77e75beb108c2766a78",
+        "type": "STT_OBJECT"
+      },
+      {
+        "bytes": 16,
+        "file_offset": 2098048,
+        "name": "factory_bbp_track_tcxo_work",
+        "section": ".data",
+        "section_offset": 3800,
+        "sha256": "b94e37c10f832ec9e9f3c3b53b584eeb94d614997a52d77e75beb108c2766a78",
+        "type": "STT_OBJECT"
+      },
+      {
+        "bytes": 16,
+        "file_offset": 2097948,
+        "name": "test_bbp_track_tcxo_work",
+        "section": ".data",
+        "section_offset": 3700,
+        "sha256": "b94e37c10f832ec9e9f3c3b53b584eeb94d614997a52d77e75beb108c2766a78",
+        "type": "STT_OBJECT"
+      },
+      {
+        "bytes": 12,
+        "file_offset": 1017344,
+        "name": "factory_bbp_track_tcxo_routine",
+        "section": ".text",
+        "section_offset": 1017292,
+        "sha256": "1688ea5136a4975bb60005cc655e0a32c469e7a02638b6b56ecd84e07a315297",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 1264,
+        "file_offset": 1499072,
+        "name": "bbp_rf_dcxo_adj",
+        "section": ".text",
+        "section_offset": 1499020,
+        "sha256": "790e3c1ef3fd9191998da9eab7cab57b7e3223ce64aa09472265e8ffc7bfeda8",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 992,
+        "file_offset": 986212,
+        "name": "fty_rf_dcxo_sync_adjust",
+        "section": ".text",
+        "section_offset": 986160,
+        "sha256": "a99b5380c1d0691a6780e718ccaee03177db0c58c5eb8286076e2afb2e576147",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 16,
+        "file_offset": 2097756,
+        "name": "BBEA_track_tcxo_work",
+        "section": ".data",
+        "section_offset": 3508,
+        "sha256": "b94e37c10f832ec9e9f3c3b53b584eeb94d614997a52d77e75beb108c2766a78",
+        "type": "STT_OBJECT"
+      },
+      {
+        "bytes": 28,
+        "file_offset": 977484,
+        "name": "fty_rf_dcxo_is_sync_by_tcxo",
+        "section": ".text",
+        "section_offset": 977432,
+        "sha256": "d6317b6b15af36c1bf793ccf9ddcff837a7ab9103cf7888a2caa907503efca1e",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 1532,
+        "file_offset": 984680,
+        "name": "fty_rf_dcxo_sync_start",
+        "section": ".text",
+        "section_offset": 984628,
+        "sha256": "ed76f48d0b3ed9544ef7a01a3aed3662386cd70f1d0d43d0a77d8e012e4e9e16",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 1752,
+        "file_offset": 1507192,
+        "name": "bbp_rf_dcxo_sync_start",
+        "section": ".text",
+        "section_offset": 1507140,
+        "sha256": "2795f255c784aa3879cbeb02c7376371eb441ac338312dba84ae5aafbd231ef7",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 992,
+        "file_offset": 1508944,
+        "name": "bbp_rf_dcxo_sync_adjust",
+        "section": ".text",
+        "section_offset": 1508892,
+        "sha256": "a99b5380c1d0691a6780e718ccaee03177db0c58c5eb8286076e2afb2e576147",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 1616,
+        "file_offset": 1501196,
+        "name": "bbp_rf_dcxo_sync_info_show",
+        "section": ".text",
+        "section_offset": 1501144,
+        "sha256": "c8b667d244dfd9c84226fad27cb6d1b32516fc21586436d54ea8ec0d5bf9bb71",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 28,
+        "file_offset": 1502812,
+        "name": "bbp_rf_dcxo_get_gps_state",
+        "section": ".text",
+        "section_offset": 1502760,
+        "sha256": "9903519cc3f72a8777fa415cd03f501b18cbc6fd87e870d86bf414a7d9482796",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 12,
+        "file_offset": 1599764,
+        "name": "ame_bbp_rt_keep_dcxo_sync",
+        "section": ".text",
+        "section_offset": 1599712,
+        "sha256": "1688ea5136a4975bb60005cc655e0a32c469e7a02638b6b56ecd84e07a315297",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 12,
+        "file_offset": 692900,
+        "name": "ap_sched_track_tcxo_routine",
+        "section": ".text",
+        "section_offset": 692848,
+        "sha256": "1688ea5136a4975bb60005cc655e0a32c469e7a02638b6b56ecd84e07a315297",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 236,
+        "file_offset": 978956,
+        "name": "fty_rf_dcxo_get_sync_mode",
+        "section": ".text",
+        "section_offset": 978904,
+        "sha256": "b2b2f3f0776ff5f20d7b7dd4b53084c996c1dc60842d039162fbc7a0d44aa747",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 36,
+        "file_offset": 63688,
+        "name": "ame_core_NxN_dcxo_sync",
+        "section": ".text",
+        "section_offset": 63636,
+        "sha256": "09f4673099e39cb2c204901f28fc323cd4bcfa7bac8c0f2f571ed58409f1bbc6",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 236,
+        "file_offset": 1500960,
+        "name": "bbp_rf_dcxo_get_sync_mode",
+        "section": ".text",
+        "section_offset": 1500908,
+        "sha256": "b2b2f3f0776ff5f20d7b7dd4b53084c996c1dc60842d039162fbc7a0d44aa747",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 28,
+        "file_offset": 1500372,
+        "name": "bbp_rf_dcxo_is_sync_by_tcxo",
+        "section": ".text",
+        "section_offset": 1500320,
+        "sha256": "d6317b6b15af36c1bf793ccf9ddcff837a7ab9103cf7888a2caa907503efca1e",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 392,
+        "file_offset": 978564,
+        "name": "fty_rf_dcxo_reset_params",
+        "section": ".text",
+        "section_offset": 978512,
+        "sha256": "859e085d1694df2ce597182a9f984f41631b78da2fa4c8df3e699939398140a6",
+        "type": "STT_FUNC"
+      },
+      {
+        "bytes": 4352,
+        "file_offset": 1502840,
+        "name": "bbp_rf_dcxo_sync_track",
+        "section": ".text",
+        "section_offset": 1502788,
+        "sha256": "26f4bfc10663d42da4e9815aa92821be5ebd5dfca1ebfb4f55749795931084a5",
+        "type": "STT_FUNC"
+      }
+    ]
+  },
+  "status": "QUALIFIED_STATIC_AND_SAVED_EVIDENCE_WITH_GAPS",
+  "summary": {
+    "available_windows": 12,
+    "bbp_rf_dcxo_symbols": 11,
+    "new_hardware_results": 0,
+    "static_dcxo_tcxo_symbols": 38,
+    "unlinked_claimed_windows": 132
+  },
+  "task_id": "T-S528A-OFFLINE-RECONCILIATION",
+  "v10": {
+    "all_manifest_models_hardware_qualified": false,
+    "current_producer_literal_bytes": 5917,
+    "current_producer_literal_sha256": "28ba77b4d3841296e6a50696c034390094586f663ba089bbc92f552829b31ecb",
+    "current_script_bytes": 7440,
+    "current_script_matches_v10": false,
+    "current_script_sha256": "c30f453698462ef63ed80eddcf60daa6452600d8b8bfbc93d24eaa6e96233d46",
+    "literal_matches_recorded_v10": true,
+    "manifest_cumulative_claims": {
+      "cumulative_live_ab_rounds": 36,
+      "cumulative_live_campaigns": 12,
+      "cumulative_live_windows": 144
+    },
+    "manifest_models": 6,
+    "manifest_reported_live_models": [
+      "LTU-Lite"
+    ],
+    "manifest_sha256_claim": "28ba77b4d3841296e6a50696c034390094586f663ba089bbc92f552829b31ecb",
+    "old_v10_recovered": true,
+    "recorded_claims_agree": true,
+    "recorded_v10_sha256": "28ba77b4d3841296e6a50696c034390094586f663ba089bbc92f552829b31ecb",
+    "script_written_or_executed": false
+  },
+  "window_chain": {
+    "accepted_ota_windows": 0,
+    "available_direct_windows": 12,
+    "available_named_rounds": 3,
+    "claim_arithmetic_consistent": true,
+    "claimed_ab_rounds": 36,
+    "claimed_campaigns": 12,
+    "claimed_cumulative_windows": 144,
+    "counter_deltas_epoch_qualified": false,
+    "fallback_branch_actually_taken": "UNKNOWN_NO_NATIVE_TRANSCRIPT_OR_EXIT",
+    "flag_excludes_partial_error_fallback": false,
+    "historical_window_chain_complete": false,
+    "probe_scope": "LOOPBACK_127_0_0_1_NOT_OTA",
+    "provenance_status": "AMBIGUOUS_NATIVE_PROVENANCE_WITH_SYNTHETIC_FALLBACK",
+    "reported_live_ssh_connected": true,
+    "reported_rtt_delta_pct": -16.101694915254228,
+    "reported_rtt_means_ms": {
+      "A": 0.236,
+      "B": 0.198
+    },
+    "summary_conflicts": [],
+    "unlinked_claimed_windows": 132,
+    "windows": [
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6552166,
+          "net_rx_softirq_cpu0": 199304,
+          "net_rx_softirq_cpu1": 1457955
+        },
+        "round": 1,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A1"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6552437,
+          "net_rx_softirq_cpu0": 199356,
+          "net_rx_softirq_cpu1": 1457989
+        },
+        "round": 1,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B1"
+      },
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6552686,
+          "net_rx_softirq_cpu0": 199412,
+          "net_rx_softirq_cpu1": 1458023
+        },
+        "round": 1,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A2"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6552960,
+          "net_rx_softirq_cpu0": 199472,
+          "net_rx_softirq_cpu1": 1458057
+        },
+        "round": 1,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B2"
+      },
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6553205,
+          "net_rx_softirq_cpu0": 199516,
+          "net_rx_softirq_cpu1": 1458083
+        },
+        "round": 2,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A1"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6553502,
+          "net_rx_softirq_cpu0": 199574,
+          "net_rx_softirq_cpu1": 1458121
+        },
+        "round": 2,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B1"
+      },
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6553760,
+          "net_rx_softirq_cpu0": 199623,
+          "net_rx_softirq_cpu1": 1458153
+        },
+        "round": 2,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A2"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6554030,
+          "net_rx_softirq_cpu0": 199681,
+          "net_rx_softirq_cpu1": 1458190
+        },
+        "round": 2,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B2"
+      },
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6554280,
+          "net_rx_softirq_cpu0": 199743,
+          "net_rx_softirq_cpu1": 1458230
+        },
+        "round": 3,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A1"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6554750,
+          "net_rx_softirq_cpu0": 199798,
+          "net_rx_softirq_cpu1": 1458267
+        },
+        "round": 3,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B1"
+      },
+      {
+        "arm": "A",
+        "busy_read_us": 50,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6555015,
+          "net_rx_softirq_cpu0": 199844,
+          "net_rx_softirq_cpu1": 1458296
+        },
+        "round": 3,
+        "rtt_avg_ms": 0.236,
+        "tcp_early_retrans": 2,
+        "window": "A2"
+      },
+      {
+        "arm": "B",
+        "busy_read_us": 0,
+        "reported_absolute_counters": {
+          "irq52_cpu0_count": 63058438,
+          "irq52_cpu1_count": 6555280,
+          "net_rx_softirq_cpu0": 199883,
+          "net_rx_softirq_cpu1": 1458324
+        },
+        "round": 3,
+        "rtt_avg_ms": 0.198,
+        "tcp_early_retrans": 3,
+        "window": "B2"
+      }
+    ]
+  }
+}

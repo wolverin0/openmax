@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "stage": "810A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/verify/verify_stage810a_xtensa_pb070_and_ltu_split_freq_suite.py",
+    "tool_sha256": "4ca4f4334588665c2dcdb9cd5de850e3a9c87e875163fadcf256fc4271320b48",
+    "output": "artifacts/autoresearch/stage810a_xtensa_pb070_and_ltu_split_freq_suite.json",
+    "scope": "offline static verification; reads five JSON receipts only",
+    "method": "per-stage invariant checks plus cross-stage agreement; a verifier that cannot fail is useless, so failures is a list and compliant is its empty",
+    "radio_safety": "static only"
+  },
+  "receipts": {
+    "805A": {
+      "path": "artifacts/autoresearch/stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.json",
+      "sha256": "6551dfa8d8bd2b2ca8a42aebb07aa7eb6eb5d86147fc37f89d643e2bd0562157"
+    },
+    "806A": {
+      "path": "artifacts/autoresearch/stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+      "sha256": "e362268eae05537fd24c9c30efae3fa53a3c16725733077fffd711bf4698fbb1"
+    },
+    "807A": {
+      "path": "artifacts/autoresearch/stage807a_ltu_split_freq_and_ofdma_subchannel_re.json",
+      "sha256": "7a0aa0d1632d40f953913f074fa873593a6a4a44667417f618c0f32b932099ad"
+    },
+    "808A": {
+      "path": "artifacts/autoresearch/stage808a_xc_qca9558_pcie_dma_and_airview_coexistence_re.json",
+      "sha256": "48ff38b9bf789932513a67fd275eaad3752f9cab79176d7ef46648b67ebace6f"
+    },
+    "809A": {
+      "path": "artifacts/autoresearch/stage809a_pb040_to_pb070_quad_patch_pareto.json",
+      "sha256": "138fb4ab7abb2351adc3b412aaa9750bf2c8799741985b6e9a71f87dcf388403"
+    }
+  },
+  "checks": [
+    {
+      "stage": "805A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "static_scope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "static_scope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "static_scope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "static_scope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "static_scope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "cross",
+      "check": "sgmt_segment_count_agrees",
+      "ok": true,
+      "detail": "805A=2 806A=2"
+    },
+    {
+      "stage": "805A",
+      "check": "firmware_names_absent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "ratefind_host_side",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "ratefind_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "sounding_absent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "805A",
+      "check": "no_firmware_table_claimed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "patch_not_emitted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "zero_viable_segments",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "806A",
+      "check": "blocking_reason_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "subchannel_absent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "ulmap_named",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "split_freq_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "807A",
+      "check": "no_subchannel_map_claimed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "airview_not_in_kernel",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "airview_is_userspace",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "808A",
+      "check": "no_arbitration_claimed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "nothing_authorised",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "all_roles_blocked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "labelled_projection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "809A",
+      "check": "front_within_roles",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failures": [],
+  "summary": {
+    "stages_expected": 5,
+    "stages_present": 5,
+    "checks_run": 40,
+    "checks_passed": 40,
+    "failures": 0,
+    "compliant": 1
+  },
+  "gaps": [
+    "the verifier checks receipt self-consistency, not binary truth: a wrong value recorded consistently in a receipt would pass",
+    "no stage in this suite re-dissects a binary; 805A..809A remain the source of record",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "stage": "421A",
+  "task_id": "T-S421A-FMX-DISC-45-46-CURATION",
+  "generated_at": "2026-10-26T21:38:30-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "hardware"
+  ],
+  "writes_performed": 0,
+  "curated_doc_verification": {
+    "doc_path": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+    "line_count": 156,
+    "line_budget_max": 220,
+    "doc_head_count": 1,
+    "has_fmx_disc_45": true,
+    "has_fmx_disc_46": true
+  },
+  "formalized_discoveries": {
+    "FMX-DISC-45": {
+      "title": "ubnt_poll_host.ko cbp_dur=180 us Contention Window Compression, AssocReq Vendor IE 00:27:22 sta_hash_table Gate (0x009594 -> 0x009c8c), & 20,000 ms (0x4e20) deferred_list Lockout",
+      "claim_status": "CONFIRMED",
+      "attribution": [
+        "proprietary airMAX/LTU module",
+        "QCA firmware"
+      ],
+      "key_offsets": [
+        "0x00910c (ubnt_poll_host_on_probe_req_rx)",
+        "0x009594 (ubnt_poll_host_on_assoc_req_rx -> 0x009c8c ubnt_poll_host_sta_add)",
+        "0x008134 (ubnt_poll_host_on_sta_connect -> 0x0082b4 flags & 0x2000)",
+        "0x014894 (ubnt_poll_ht_comm_parse -> 0x0208 cbp_dur, 0x0220 defer_timeout_ms)"
+      ]
+    },
+    "FMX-DISC-46": {
+      "title": "Panel3 (.83) 674,501,176 wal_dbg_stats.tx.local_enqued (ast_tx_mgmt 78.44% at MCS 2) Hybrid Poll/Mgmt Storm & 3,072-Sample 64-Subcarrier EVM Notch/Tilt Radiography",
+      "claim_status": "CONFIRMED",
+      "attribution": [
+        "QCA firmware",
+        "proprietary airMAX/LTU module",
+        "hardware"
+      ],
+      "key_offsets_and_metrics": [
+        "umac.ko:ol_get_radio_stats (0x000bcd40) & bin/athbox (0x00401930)",
+        "Panel3 (.83): local_enqued = 674,501,176 (78.44%), Tx MCS 2 = 669,086,302 (99.20%)",
+        "Almafuerte (.60) <-> Guarida-BH (.61): 6.66 dB Chain 0 multipath notch at subcarrier 51 vs flat 38.39 dB Chain 1",
+        "TABORDA_Ada (.83): 9.81 dB multipath notch; RODRIGUEZ_Marina (.82): 2.48 dB spectral tilt"
+      ]
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Curates exact binary offsets from ubnt_poll_host.ko (0x00910c, 0x009594, 0x014894) and umac.ko (0x000bcd40).",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Preserves FMX-DISC-45 and FMX-DISC-46 in the canonical anti-amnesia ledger.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only Guarida verification (0 writes).",
+    "pillar_d_scientific_pareto_validation": "Links FMX-DISC-45/46 to the Stage 420A NSGA-II Pareto knee (+46.36 Mbps, -70.14 ms p99).",
+    "pillar_e_memory_master_claim_id": "mm-stage421a-fmx-disc-45-46-curation-v1"
+  }
+}

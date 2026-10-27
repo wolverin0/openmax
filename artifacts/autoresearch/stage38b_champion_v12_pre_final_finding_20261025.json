@@ -1,0 +1,19 @@
+{
+  "generated_at_utc": "2026-10-25T20:40:20.038536+00:00",
+  "status": "CHANGES_REQUIRED",
+  "open_material_blockers": 1,
+  "reviewed_source_sha256": "50702bfe81f4d871662d9d497d02c5bf164b44a8cb98e9d65847a2ec2adf104a",
+  "current_source_observation_sha256": "ca4187cc79620524d5948e766482f3303bc33802a36d9e2b8ec1350b9d2c4bb3",
+  "finding": {
+    "function": "verify_canary/_same_devices",
+    "counterexample": "Keep planned AP eth0 bridge-port identity/capabilities fixed. Set multicast_fast_leave=0 in before and1 in after; both satisfy profile because AP Ethernet is deliberately not forced. Existing epoch/UPH checks do not compare this parameter, so complete active-window parameter stability is unverified. Optional CPE/Rocket DMS has same gap.",
+    "minimum_repair": "Compare restoration_writes(first,role) to restoration_writes(last,role) for allroles, retaining baseline-to-first changes with journal coverage. These exclude read-only counters."
+  },
+  "evidence_method": "Fresh static path analysis; no product import/execution or pytest. Owner50PASS is pre-repair evidence, not independent acceptance.",
+  "other_resolved_findings": [
+    "Full UPH non-target tail preservation baseline->first and full vector first->last",
+    "Typed journal setters and changed-coordinate coverage",
+    "Bounded IGMP DSCP/TID/AC/length and mapping"
+  ],
+  "writes": "Private TEMP only"
+}

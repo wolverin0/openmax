@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "stage": "564A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re.py",
+    "tool_sha256": "3369223c6db77afae132c683c7b6e8bf735915426ed5f732830407c0cad7b771",
+    "output": "artifacts/autoresearch/stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the frame-geometry vocabulary; get/set accessor pair detection; sysfs show/store pair detection; context classification of the split and TDD tokens",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so ame_core.ko and ame_dev.ko are the only readable targets",
+      "`split` is not the split-frequency token: its hit is c_string_smart_split; the split frequency appears as the rx/tx freq pair in the frame log"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "eab_driver": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "tdma": 0,
+        "TDMA": 0,
+        "tdd": 0,
+        "TDD": 1,
+        "frame_len": 15,
+        "frame_period": 0,
+        "duty_cycle": 10,
+        "dl_symbols": 7,
+        "ul_symbols": 8,
+        "gap0": 10,
+        "split": 1,
+        "sub_frame": 8,
+        "frame_pulse_offset": 2
+      },
+      "pairs": {
+        "frame_len": {
+          "get": 1,
+          "set": 1
+        },
+        "duty_cycle": {
+          "get": 3,
+          "set": 1
+        },
+        "bc_dl_symbols": {
+          "get": 1,
+          "set": 2
+        }
+      },
+      "sysfs": {
+        "duty_cycle": {
+          "show": 0,
+          "store": 0
+        },
+        "frame_len": {
+          "show": 0,
+          "store": 0
+        },
+        "bc_dl_symbols": {
+          "show": 0,
+          "store": 0
+        },
+        "frame_pulse_offset": {
+          "show": 0,
+          "store": 0
+        }
+      },
+      "subframe": {
+        "bbp_get_tx_sub_frame_length": 1,
+        "bbp_get_rx_sub_frame_length": 1,
+        "bbp_get_ul_subframe_length_forDFS": 3
+      },
+      "frame_symbols": [
+        "__ksymtab_ame_bbp_get_duty_cycle",
+        "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+        "ame_bbp_get_duty_cycle",
+        "ame_bbp_get_frame_len",
+        "ame_bbp_set_duty_cycle",
+        "ame_bbp_set_frame_len",
+        "ame_core_get_bc_dl_symbols",
+        "ame_core_set_bc_dl_symbols",
+        "bbp_get_rx_sub_frame_length",
+        "bbp_get_tx_sub_frame_length",
+        "bbp_get_ul_subframe_length_forDFS"
+      ],
+      "uldl_symbols": [
+        "ame_core_dump_ul_sym_asgmt",
+        "ame_core_fill_ul_sym_asgmt_record",
+        "ame_core_get_bc_dl_symbols",
+        "ame_core_print_ul_sym_asgmt_record",
+        "ame_core_set_bc_dl_symbols",
+        "bbp_get_rx_sub_frame_length",
+        "bbp_get_tx_sub_frame_length",
+        "ptmp_cpe_autopwr_inc_dl_sym_pwrlvl_cnt",
+        "ptmp_cpe_autopwr_record_dl_sym_pwrlvl",
+        "ul_sym_asgmt_dump"
+      ],
+      "ratio_contexts": [
+        "...%d[ %ld.%.9ld] [%s/%d] %s(%d): Replaced channel info, [%3d:%s] duty_cycle:%d framelen:%d, rx/tx freq: %d/%d.....%d[%s/%d] %s(%d): Replaced channel info"
+      ],
+      "split_context": [
+        "e_core_setL3QoS.smallTrafficTimer.frame_timer_init.c_string_smart_split.ame_bbp_is_remote_SFN_synchronized.sched_ulmap_dump.bbp_rf_dcxo_s"
+      ],
+      "tdd_context": [
+        "_set_eth_limit.bbp_mrx_util_deRot_setup.mc_table_free.bbp_mrx_foe_TDDeRotCFO.ame_core_locate_gmac.AME_HSM_GetQ_Status.g_AggFraCnt.ame_c"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "tdma": 0,
+        "TDMA": 0,
+        "tdd": 0,
+        "TDD": 0,
+        "frame_len": 4,
+        "frame_period": 1,
+        "duty_cycle": 5,
+        "dl_symbols": 5,
+        "ul_symbols": 2,
+        "gap0": 2,
+        "split": 0,
+        "sub_frame": 0,
+        "frame_pulse_offset": 3
+      },
+      "pairs": {
+        "frame_len": {
+          "get": 0,
+          "set": 0
+        },
+        "duty_cycle": {
+          "get": 0,
+          "set": 0
+        },
+        "bc_dl_symbols": {
+          "get": 0,
+          "set": 0
+        }
+      },
+      "sysfs": {
+        "duty_cycle": {
+          "show": 1,
+          "store": 1
+        },
+        "frame_len": {
+          "show": 1,
+          "store": 1
+        },
+        "bc_dl_symbols": {
+          "show": 1,
+          "store": 1
+        },
+        "frame_pulse_offset": {
+          "show": 1,
+          "store": 1
+        }
+      },
+      "subframe": {
+        "bbp_get_tx_sub_frame_length": 0,
+        "bbp_get_rx_sub_frame_length": 0,
+        "bbp_get_ul_subframe_length_forDFS": 0
+      },
+      "frame_symbols": [
+        "bc_dl_symbols_show",
+        "bc_dl_symbols_store",
+        "duty_cycle_show",
+        "duty_cycle_store",
+        "frame_len_show",
+        "frame_len_store"
+      ],
+      "uldl_symbols": [
+        "ame_ul_sym_asgmt_dump",
+        "bc_dl_symbols_show",
+        "bc_dl_symbols_store",
+        "ul_sym_asgmt_open"
+      ],
+      "ratio_contexts": [],
+      "split_context": [],
+      "tdd_context": []
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "modules_ok": 2,
+    "frame_symbol_count": 25,
+    "get_set_pairs": [
+      "bc_dl_symbols",
+      "duty_cycle",
+      "frame_len"
+    ],
+    "get_set_pair_count": 3,
+    "sysfs_knobs": [
+      "bc_dl_symbols",
+      "duty_cycle",
+      "frame_len",
+      "frame_pulse_offset"
+    ],
+    "sysfs_knob_count": 4,
+    "subframe_getters": [
+      "bbp_get_rx_sub_frame_length",
+      "bbp_get_tx_sub_frame_length",
+      "bbp_get_ul_subframe_length_forDFS"
+    ],
+    "subframe_getter_count": 3,
+    "rx_tx_freq_pair": 1,
+    "split_is_coincidence": 1,
+    "tdma_literal_hits": 0,
+    "tdd_literal_hits": 1,
+    "duty_ratio_values_recovered": 0,
+    "ul_symbol_schedule_decoded": 0,
+    "synthesizer_programming_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the stage's second module has no bytes",
+    "tdma does not exist as a token; the single TDD hit is inside the mangled symbol bbp_mrx_foe_TDDeRotCFO, not a frame control",
+    "`split` is c_string_smart_split, a string helper: the split frequency is the rx/tx freq pair in the frame log, not this token",
+    "no named ratio (75/25, 67/33, 50/50) exists; the duty ratio is derived at runtime from dl_symbols and ul_symbols, and that derivation was not decoded",
+    "the UL symbol assignment is a record subsystem (fill/dump/print), not a scheduler; the allocation rule was not recovered",
+    "the synthesizer programming for the rx/tx frequency split was not located; only the log line that prints the pair was found",
+    "no dynamic validation"
+  ]
+}

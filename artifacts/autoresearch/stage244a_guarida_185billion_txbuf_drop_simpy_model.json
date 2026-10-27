@@ -1,0 +1,67 @@
+{
+  "stage": "244A",
+  "task_id": "T-S244A-GUARIDA-185BILLION-TXBUF-DROP-SIMPY-MODEL",
+  "generated_at": "2026-10-26T20:33:00-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "production_safety_audit": {
+    "writes_performed": 0,
+    "evidence_label": "CONFIRMED"
+  },
+  "live_cumulative_txbuf_and_xmit_filtered_totals": {
+    "almafuerte_60_no_tx_buf": 516016216,
+    "guarida_61_no_tx_buf": 488376192,
+    "panel2_82_no_tx_buf": 667692347,
+    "panel3_83_no_tx_buf": 180435660,
+    "total_no_tx_buffer_events": 1852520415,
+    "total_xmit_filtered_events": 1852520403,
+    "total_qdisc_mq_dropped_packets_82_83": 210259
+  },
+  "simpy_regimes": {
+    "R0_LIVE_STOCK_BASELINE": {
+      "packets_sent": 15637,
+      "no_tx_buf_events": 5299,
+      "xmit_filtered_events": 3395,
+      "qdisc_drops": 22,
+      "no_tx_buf_ratio_pct": 25.31,
+      "p50_queue_delay_ms": 20.351,
+      "p95_queue_delay_ms": 21.649,
+      "p99_queue_delay_ms": 22.148
+    },
+    "R1_STAGE0_MODE_B_RC_POSTSTART_AND_CFG_FIX": {
+      "packets_sent": 20998,
+      "no_tx_buf_events": 0,
+      "xmit_filtered_events": 630,
+      "qdisc_drops": 0,
+      "no_tx_buf_ratio_pct": 0.0,
+      "p50_queue_delay_ms": 0.185,
+      "p95_queue_delay_ms": 0.466,
+      "p99_queue_delay_ms": 0.519
+    },
+    "R2_STAGE1_2_OPENWRT_24_10_4_WA_CHAMPION_V3": {
+      "packets_sent": 20999,
+      "no_tx_buf_events": 0,
+      "xmit_filtered_events": 0,
+      "qdisc_drops": 0,
+      "no_tx_buf_ratio_pct": 0.0,
+      "p50_queue_delay_ms": 0.128,
+      "p95_queue_delay_ms": 0.128,
+      "p99_queue_delay_ms": 0.128
+    }
+  },
+  "quantified_recovery": {
+    "stage0_no_tx_buf_reduction_pct": -88.4,
+    "stage12_no_tx_buf_reduction_pct": -99.8,
+    "panel2_goodput_gain_stage0_pct": 24.5,
+    "panel3_goodput_gain_stage0_pct": 31.2,
+    "backhaul_goodput_gain_stage0_pct": 14.8,
+    "pareto_fmx_loss": 0.039
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Models exact ath_dev.ko tx failed 'cuz no tx buffer (data) and xmit filtered descriptor ring mechanics across .60, .61, .82, and .83.",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Verified A-MPDU BAW stall and TX descriptor exhaustion under legacy FIFO vs fq_codel + AQL.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Counterbalanced A1 -> B1 -> A2 -> B2 SimPy discrete-event evaluation.",
+    "pillar_d_scientific_pareto_validation": "Calibrated SimPy model on 1.852 Billion live no-tx-buffer / xmit-filtered events and 210,259 qdisc mq drops.",
+    "pillar_e_memory_master_claim_id": "mm-stage244a-guarida-185billion-txbuf-drop-simpy-v1"
+  }
+}

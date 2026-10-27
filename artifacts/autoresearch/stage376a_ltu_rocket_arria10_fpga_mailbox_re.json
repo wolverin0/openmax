@@ -1,0 +1,610 @@
+{
+  "stage": "376A",
+  "task_id": "T-S376A-LTU-ROCKET-ARRIA10-FPGA-MAILBOX-RE",
+  "generated_at": "2026-10-27T00:15:17.306314+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "dual_soc_fpga_architecture": {
+    "ap_cds_mac_mod_size_bytes": 145332,
+    "cpe_cds_mac_mod_size_bytes": 139672,
+    "ap_vs_cpe_code_delta_bytes": 5660,
+    "soc_host_subsystem": "amesoc3 Dual-Core ARMv7 Hard Processor System (HPS) running Linux 3.14.65 SMP PREEMPT RT",
+    "fpga_baseband_subsystem": "Beetle / Arria-class FPGA fabric (air_fpga + part05_fpga.bin) coupled over AXI-HPS-to-FPGA bridge",
+    "mmio_and_hardware_engines": {
+      "gmac0_mmio_base": "0xf0280000 (f0280000.gmac0)",
+      "gmac1_mmio_base": "0xf0290000 (f0290000.gmac1)",
+      "AME_gem0_1": "Dual Gigabit Ethernet MAC DMA engines linked to FPGA packet buffers",
+      "AME_hcam": "Hardware Ternary Content-Addressable Memory (TCAM) station AID & VLAN lookup engine",
+      "AME_hfe": "Hardware Forwarding Engine for zero-copy L2 bridge/VLAN/DSCP packet switching",
+      "hps_mailbox_watchdog": "f_watchdog_stop monitors drv:$1 protocol:$2 rf-drv:$3 cal:$4 hps:$5 rf-cmd:$6"
+    },
+    "channel_100mhz_synthesis": {
+      "supported_bandwidths_mhz": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        80,
+        100
+      ],
+      "fft_size_100mhz": 2048,
+      "subcarrier_spacing_khz": 48.828125,
+      "max_phy_rate_100mhz_12x_mbps": 1360.0
+    }
+  },
+  "partition_blobs_inspected": [
+    {
+      "name": "part00_spl.bin",
+      "size_bytes": 524288,
+      "sha256_prefix": "2919984faab39730"
+    },
+    {
+      "name": "part01_uboot.bin",
+      "size_bytes": 318096,
+      "sha256_prefix": "39cb2e85f708b2f7"
+    },
+    {
+      "name": "part02_dtb.bin",
+      "size_bytes": 6605,
+      "sha256_prefix": "abd09e2b1a1c9a02"
+    },
+    {
+      "name": "part03_kernel.bin",
+      "size_bytes": 3330408,
+      "sha256_prefix": "8274ddbf47f4dc81"
+    },
+    {
+      "name": "part04_rootfs.bin",
+      "size_bytes": 19398656,
+      "sha256_prefix": "bd380e6b6914bac8"
+    },
+    {
+      "name": "part05_HPS_FPGA_rbf_file.bin",
+      "size_bytes": 5490084,
+      "sha256_prefix": "7e062835743f0fab"
+    },
+    {
+      "name": "part06_HPS_U-Boot_file.bin",
+      "size_bytes": 1048576,
+      "sha256_prefix": "cf760431ecf0cfaf"
+    },
+    {
+      "name": "part07_HPS_device_tree.bin",
+      "size_bytes": 18095,
+      "sha256_prefix": "02afb63a3da191ef"
+    },
+    {
+      "name": "part08_HPS_Linux_Kernel.bin",
+      "size_bytes": 3658656,
+      "sha256_prefix": "6d0cfc24ad89a832"
+    },
+    {
+      "name": "part09_HPS_RootFS_image.bin",
+      "size_bytes": 5124096,
+      "sha256_prefix": "80861b71573fdc41"
+    },
+    {
+      "name": "ubi_vol_0.bin",
+      "size_bytes": 17903616,
+      "sha256_prefix": "62d6b129e7c7f3d8"
+    },
+    {
+      "name": "ubi_vol_2147479551.bin",
+      "size_bytes": 253952,
+      "sha256_prefix": "d598c6e3ff8048c9"
+    }
+  ],
+  "fpga_mailbox_symbol_count": 195,
+  "fpga_mailbox_symbols_sample": [
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_EnableDMAMonitor",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12d078",
+      "size_bytes": 4
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_CB_Error",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13f6c4",
+      "size_bytes": 228
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_CB_RxFrame",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13f6c0",
+      "size_bytes": 4
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_CheckStatus",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13e2a8",
+      "size_bytes": 4856
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Construct",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x141358",
+      "size_bytes": 884
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_DeInit",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x141db8",
+      "size_bytes": 736
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_DumpReg",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13daf4",
+      "size_bytes": 1508
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13d2f4",
+      "size_bytes": 1544
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_GetPacketByte",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13f5a0",
+      "size_bytes": 116
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_GetPacketCnt",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13f614",
+      "size_bytes": 116
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_GetStatus",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13e108",
+      "size_bytes": 416
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_GetTXStatus",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13e0d8",
+      "size_bytes": 48
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Init",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x142098",
+      "size_bytes": 1452
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_SetQoS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13cd7c",
+      "size_bytes": 1036
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Set_Compare",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13d240",
+      "size_bytes": 180
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Set_ComparePTN",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13d188",
+      "size_bytes": 184
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_SetupAll",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1416cc",
+      "size_bytes": 1016
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_ShowFCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13d8fc",
+      "size_bytes": 504
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Stop",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x141ac4",
+      "size_bytes": 756
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_CheckIdle",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1144a0",
+      "size_bytes": 272
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_CheckResetDone",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1145b0",
+      "size_bytes": 272
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_DeInit",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13035c",
+      "size_bytes": 216
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114750",
+      "size_bytes": 108
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_GetHashKey",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114cc8",
+      "size_bytes": 224
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_GetHistoryTail",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114da8",
+      "size_bytes": 444
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_GetListLen",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11515c",
+      "size_bytes": 208
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_Init",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x130434",
+      "size_bytes": 384
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_InsertMap",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1147bc",
+      "size_bytes": 768
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_LookupMap",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114abc",
+      "size_bytes": 336
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_RDBucket",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114fec",
+      "size_bytes": 180
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_RDList",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11522c",
+      "size_bytes": 460
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_RemoveMap",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114c0c",
+      "size_bytes": 188
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_Reset",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1146c0",
+      "size_bytes": 144
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_Setup",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114328",
+      "size_bytes": 376
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_ShowCAM",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x115504",
+      "size_bytes": 6640
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_UpdateMap",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x114f64",
+      "size_bytes": 136
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_WRBucket",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1150a0",
+      "size_bytes": 188
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HCAM_WRList",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1153f8",
+      "size_bytes": 268
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_AirStats",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1214c4",
+      "size_bytes": 288
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_CheckRxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x120d90",
+      "size_bytes": 1104
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_CheckStatus",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12b044",
+      "size_bytes": 2512
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_CleanAirPacketByte",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1213ec",
+      "size_bytes": 216
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_CleanEFInfo",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x121238",
+      "size_bytes": 112
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_ClearIntrSt",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12ada4",
+      "size_bytes": 92
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DebugOp",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x128698",
+      "size_bytes": 64
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DebugOp_Pause",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1286d8",
+      "size_bytes": 84
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DebugOp_Resume",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12872c",
+      "size_bytes": 64
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DeliverTxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11f508",
+      "size_bytes": 2680
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DumpRxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x905d4",
+      "size_bytes": 4096
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_DumpTxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x915d4",
+      "size_bytes": 2140
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_EFInfo",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1211e0",
+      "size_bytes": 88
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x128298",
+      "size_bytes": 352
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_EnablePTNRule",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x129b04",
+      "size_bytes": 680
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_EnablePort",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1283f8",
+      "size_bytes": 672
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_FreeTxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11e7d8",
+      "size_bytes": 3376
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_GetAirPacketByte",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x121324",
+      "size_bytes": 200
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_GetAirPacketCnt",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1212a8",
+      "size_bytes": 124
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_GetFeature",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12876c",
+      "size_bytes": 1172
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_GetFlowCtrl",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12bc28",
+      "size_bytes": 632
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_GetStatus",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12ae00",
+      "size_bytes": 580
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_Get_EFInfo",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x118d64",
+      "size_bytes": 4592
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_Get_ETH_inputIdx",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12bbcc",
+      "size_bytes": 92
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_Get_Inf_ETH",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1187b4",
+      "size_bytes": 1456
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_Get_Inf_Status",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12ba8c",
+      "size_bytes": 320
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_Get_PortAvl",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12ba14",
+      "size_bytes": 120
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_HandleRxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11ff80",
+      "size_bytes": 2300
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_ResetPTNRule",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x129dac",
+      "size_bytes": 112
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_ReturnRxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12087c",
+      "size_bytes": 1300
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_ReturnTxQBD",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x901d4",
+      "size_bytes": 1024
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HFE_SetERXPPS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12934c",
+      "size_bytes": 644
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Dissected aflturocket_2.4.2 vs afltu_2.4.2 cds_mac_mod.ko (+218,132B AP delta) & ame_core.ko FPGA/HFE/HCAM symbols",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Mapped HPS-to-FPGA AXI mailbox, HCAM/HFE hardware engines, and 100 MHz 2048-FFT synthesis",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Offline binary dissection with zero live radio perturbation",
+    "pillar_d_scientific_pareto_validation": "Provides exact subchannel & FPGA symbol timing parameters for Stage 378A NSGA-II evaluation",
+    "pillar_e_memory_master_claim_id": "stage376a_ltu_rocket_arria10_fpga_mailbox_re"
+  }
+}

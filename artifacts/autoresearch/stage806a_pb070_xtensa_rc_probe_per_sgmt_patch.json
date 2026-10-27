@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "stage": "806A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "gate": "PB-070",
+    "tool": "tools/firmware/build_stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.py",
+    "tool_sha256": "328b83ccc62b2ab9957b73c5e095ba0fac5ec96d5df04e99eb5cb1705c303aeb",
+    "output": "artifacts/autoresearch/stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+    "scope": "offline static; no firmware written, no flash touched, no radio contacted",
+    "method": "container SGMT enumeration with dual-endian load bases; long ASCII-run census per segment; anchor viability test against rate-control vocabulary; patch withheld when no anchor is viable",
+    "precedent": "PB-040 mutated a named ASCII anchor (UBNT_POLL_MEM_ALLOC -> OMAX_POLL_MEM_ALLOC, 4 bytes); the same method needs an RC anchor per segment",
+    "radio_safety": "static only"
+  },
+  "container": {
+    "path": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+    "bytes": 204796,
+    "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "version": "10.1-ct-8x-__fW-022-ecad3248",
+    "tail_pad": 3
+  },
+  "probe_plan": [
+    {
+      "segment": 4,
+      "file_offset": "0x00006c",
+      "bytes": 7140,
+      "load_base_le": "0x00980000",
+      "load_base_be": "0x00009800",
+      "ascii_runs": 42,
+      "anchor": "otp main...",
+      "anchor_found": true,
+      "anchor_looks_like_rc": false,
+      "viable": false,
+      "reason": "anchor is not rate-control vocabulary"
+    },
+    {
+      "segment": 3,
+      "file_offset": "0x001c58",
+      "bytes": 197537,
+      "load_base_le": "0x00980000",
+      "load_base_be": "0x00009800",
+      "ascii_runs": 69,
+      "anchor": "SM: %d:%p : invalid event %d",
+      "anchor_found": true,
+      "anchor_looks_like_rc": false,
+      "viable": false,
+      "reason": "anchor is not rate-control vocabulary"
+    }
+  ],
+  "summary": {
+    "parsed": true,
+    "segments": 2,
+    "total_ascii_runs": 111,
+    "segments_with_anchor": 2,
+    "segments_viable": 0,
+    "patch_emitted": 0,
+    "blocking_reason": "no SGMT segment carries a rate-control ASCII anchor, so a rename-style probe has no target",
+    "patch_bytes_would_be": 4
+  },
+  "gaps": [
+    "no segment has a rate-control anchor, so no per-segment probe can be built",
+    "the only long ASCII in the container is the version string, which is metadata and not code",
+    "the dual-endian load bases agree at 0x00980000, so the mapping is ambiguous and no address-based patch is defensible either",
+    "without an anchor or a proven base, any mutation offset would be fabricated",
+    "no dynamic validation"
+  ]
+}

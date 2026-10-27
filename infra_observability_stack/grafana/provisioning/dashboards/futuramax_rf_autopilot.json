@@ -1,0 +1,89 @@
+{
+  "title": "FuturaMAX Stage 57A — RF Spectrum, Signal/Chain Health & Champion v19 Queue Autopilot",
+  "uid": "futuramax-stage57a-rf-autopilot",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "15s",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "1. Channel Noise Floor (dBm) & Channel Busy (%)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "targets": [
+        {
+          "expr": "futuramax_ap_noise_floor_dbm",
+          "legendFormat": "{{ap}} Noise Floor ({{freq_mhz}} MHz)"
+        },
+        {
+          "expr": "futuramax_ap_channel_busy_pct",
+          "legendFormat": "{{ap}} Channel Busy %"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Per-CPE Signal Drop vs Baseline (dB) & Chain Imbalance |Ch0 - Ch1| (dB)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "targets": [
+        {
+          "expr": "futuramax_cpe_signal_drop_from_baseline_db",
+          "legendFormat": "{{cpe}} Signal Drop vs Baseline (dB)"
+        },
+        {
+          "expr": "futuramax_cpe_chain_imbalance_db",
+          "legendFormat": "{{cpe}} Chain0/1 Imbalance (dB)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Per-CPE Bad-Apple Score, Retry Rate (%) & Airtime Weight",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "targets": [
+        {
+          "expr": "futuramax_cpe_bad_apple_score",
+          "legendFormat": "{{cpe}} Bad-Apple Score (0-100)"
+        },
+        {
+          "expr": "futuramax_cpe_tx_retry_pct",
+          "legendFormat": "{{cpe}} TX Retry %"
+        },
+        {
+          "expr": "futuramax_cpe_airtime_weight",
+          "legendFormat": "{{cpe}} mac80211 Airtime Weight"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "4. Stage 55A Champion v19 Hardware Queue Governance (eth0 BQL & NAPI)",
+      "type": "stat",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "targets": [
+        {
+          "expr": "futuramax_ap_champion_v19_compliant",
+          "legendFormat": "{{ap}} Champion v19 Compliant"
+        },
+        {
+          "expr": "futuramax_ap_bql_limit_min_bytes",
+          "legendFormat": "{{ap}} eth0 BQL limit_min (4542B)"
+        },
+        {
+          "expr": "futuramax_ap_bql_hold_time_ms",
+          "legendFormat": "{{ap}} eth0 BQL hold_time (800ms)"
+        },
+        {
+          "expr": "futuramax_ap_netdev_budget_usecs",
+          "legendFormat": "{{ap}} NAPI budget_usecs (6000us)"
+        }
+      ]
+    }
+  ]
+}

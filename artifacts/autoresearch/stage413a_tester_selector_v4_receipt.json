@@ -1,0 +1,106 @@
+{
+  "stage": "413A",
+  "task_id": "T-S413A-ONE-COMMAND-PUBLIC-TESTER-SELECTOR-V4",
+  "generated_at": "2026-10-27T00:37:29.658891+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "selector_version": "v4",
+  "dry_run_default": true,
+  "mandatory_mtd_backup_gate": {
+    "wa_xc_xw_protected_partitions": [
+      "mtd0 (u-boot)",
+      "mtd1 (u-boot-env)",
+      "mtd4",
+      "mtd5 (ART EEPROM 0x1000/0x5000)"
+    ],
+    "ltu_protected_partitions": [
+      "mtd0 (spl)",
+      "mtd1 (uboot)",
+      "mtd2/3 (uboot_env0/1)",
+      "mtd11 (eeprom)"
+    ],
+    "backup_hash_verified_before_write": true
+  },
+  "supported_bundles_v4": {
+    "WA_v9_SquashFS": {
+      "sysids": [
+        "0xe3d6",
+        "0xe7f9",
+        "0xe8e5",
+        "0xe7fa",
+        "all_17_wa_sysids"
+      ],
+      "champion_script_sha256": "6d68db11ce203ad425a78f1f10d4c718fc48824ceae6eb533025e1954488b493",
+      "wmi_retry_loader_sha256": "71854ad62dcf252c0c9e80dbf8c31aaf50fe713b3bac532b9316585ccf2f4fcd",
+      "sub20mhz_profile_sha256": "56a73b9d33c6aef21f5a66ba5d635fb75ab465a624995b6169f74e4f2616cd1f"
+    },
+    "XC_Active_AirPrism_v2_and_Passive_v1": {
+      "passive_sysids_count": 6,
+      "active_airprism_sysids_count": 7
+    },
+    "XW_64MB_v2_SquashFS": {
+      "sysids_count": 29,
+      "xm_32mb_fail_closed_gate": true
+    },
+    "LTU_Safe_Kit_v8_120Window": {
+      "boards": {
+        "0xae02": {
+          "model": "LTU-Pro",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        },
+        "0xae06": {
+          "model": "LTU-Rocket",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        },
+        "0xae07": {
+          "model": "LTU-LR",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        },
+        "0xae08": {
+          "model": "LTU-Lite",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        },
+        "0xae09": {
+          "model": "LTU-XR",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        },
+        "0xae0b": {
+          "model": "LTU-Instant",
+          "bundle": "LTU_Safe_Kit_v8",
+          "target_script": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh"
+        }
+      },
+      "champion_v8_sha256": "2a7361c5a5014dba2d47fa0c39fed3f6eee1f92ec7f4e6ef87c5d870ba29e8e6",
+      "zero_dev_ame_touches": true
+    },
+    "Edge_Micro_Worker_C_Classifier": {
+      "c_source_path": "controller/fmx_micro_worker.c",
+      "c_source_sha256": "87cbc4275bbc0919c9a94a80c1b76aabdb6dee1618472c7bdc6f7c5d43c043e6"
+    }
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Unifies 95 WA/XC/XW ubnthal.ko records + 6 LTU AMEIMG board IDs (101 total models) in Selector v4",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Fail-closed mtd0/1/4/5 & 32MB XM OOM gates + zero-/dev/ame* LTU v8 gate",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Supports --dry-run simulation and embeds 45s/120s rollback watchdogs",
+    "pillar_d_scientific_pareto_validation": "Backed by 172 live WA windows + 120 live LTU windows = 292 cumulative live windows",
+    "pillar_e_memory_master_claim_id": "stage413a_tester_selector_v4"
+  }
+}

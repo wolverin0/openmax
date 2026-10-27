@@ -1,228 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Reddit Rich-Text Copy Helper — openMAX</title>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark"><title>openMAX Reddit copy helper - DISC42 / Stage163</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; max-width: 900px; margin: 24px auto; padding: 0 20px; }
-  .toolbar { display: flex; gap: 12px; margin-bottom: 18px; position: sticky; top: 10px; background: #1e293b; padding: 14px 18px; border-radius: 10px; border: 1px solid #334155; align-items: center; z-index: 10; }
-  button { background: #2563eb; color: #fff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
-  button:hover { background: #1d4ed8; }
-  button.secondary { background: #059669; }
-  button.secondary:hover { background: #047857; }
-  .status { font-size: 14px; color: #38bdf8; font-weight: 600; margin-left: auto; }
-  .card { background: #ffffff; color: #111827; padding: 28px 32px; border-radius: 12px; margin-bottom: 28px; line-height: 1.55; box-shadow: 0 10px 25px rgba(0,0,0,0.35); }
-  .card h2, .card h3 { margin-top: 18px; margin-bottom: 10px; color: #0f172a; }
-  .card table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14px; }
-  .card th, .card td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
-  .card th { background: #f1f5f9; font-weight: 700; }
-  .card blockquote { border-left: 4px solid #2563eb; margin: 14px 0; padding: 8px 14px; background: #f8fafc; }
-  .title-box { background: #f1f5f9; padding: 10px 14px; border-radius: 6px; font-weight: 700; margin-bottom: 16px; border: 1px solid #cbd5e1; }
-</style>
-</head>
-<body>
-
-<div class="toolbar">
-  <button onclick="copyRich('post-en', 'Copied English Rich Text! Just press Ctrl+V in Reddit')">📋 Copy English Post (Rich Text + Table)</button>
-  <button class="secondary" onclick="copyRich('post-es', '¡Copiado en Español con formato! Pegá con Ctrl+V en Reddit')">📋 Copiar Post en Español (Con Formato + Tabla)</button>
-  <span id="status" class="status">Click a button above, then press Ctrl+V in Reddit!</span>
-</div>
-
-<div class="title-box" style="color:#0f172a;">
-  <strong>Suggested Title (EN):</strong> openMAX Update: Live production sector results on Ubiquiti airMAX AC (~10x lower wireless ping, -80% to -94% bufferbloat, 0-touch stock airOS 8 interop &amp; multi-vendor PtMP)
-</div>
-
-<div id="post-en" class="card">
-  <p>Hey <strong>r/wisp</strong>,</p>
-  <p>Quick, no-fluff update on <strong>openMAX</strong> (<a href="https://github.com/wolverin0/openmax">https://github.com/wolverin0/openmax</a>) — our open-source project squeezing maximum real-world performance out of existing Ubiquiti <strong>airMAX AC</strong> hardware (<strong>LiteAP 120</strong>, <strong>Rocket Prism 5AC Gen2</strong>, <strong>LiteBeam 5AC Gen2</strong>, <strong>NanoStation 5AC Loco</strong>).</p>
-  <p>All deep kernel docs, scripts, and raw benchmark JSONs are in the repo. Here is what we have working on real hardware and in live production:</p>
-  <ul>
-    <li><strong>Switch tower APs to OpenWrt while stock airOS 8 CPEs keep connecting out of the box:</strong> We migrated our live sector AP (<strong>LiteAP 120</strong>) to OpenWrt 24.10.4 (Linux 6.6.110) and customer CPEs running <strong>100% unmodified stock airOS 8.7.25</strong> connected automatically. Even if a customer's radio is powered off during cutover and turned back on days later, it associates with zero touch.</li>
-    <li><strong>Run multi-vendor &amp; mixed-generation clients on the same Ubiquiti AP:</strong> We simultaneously connect <strong>Ubiquiti 5AC</strong> (LiteBeam Gen2, Loco 5AC, Rocket Prism), legacy <strong>Ubiquiti M5</strong> (airOS 6), and <strong>MikroTik</strong> (SXT Lite5) CPEs on the same sector without a single weak or obstructed client dragging everyone else down.</li>
-    <li><strong>Full channel-width flexibility (20, 40, 80 MHz, plus 5/10 MHz between OpenWrt radios):</strong> On a 20 MHz channel, our airtime scheduler hits <strong>0.95 Jain fairness</strong> and nearly <strong>4 bit/s/Hz</strong> spectral efficiency.</li>
-    <li><strong>Full OpenWrt AP + OpenWrt CPE in live production:</strong> Once the AP is running OpenWrt, we remotely upgrade CPEs over the air in ~4 minutes while preserving their management IP, WebUI, hardware-accelerated NAT (<code>flow_offloading=1</code>), and the exact DHCP lease of the customer's indoor Wi-Fi router.</li>
-    <li><strong>Uncovered inside Rocket Prism &amp; LTU (v2.4.2) firmware:</strong> We mapped the hardware control table for <strong>AirPrism</strong> active RF filtering on Rocket Prism 5AC Gen2, and confirmed that LTU's greyed-out <strong>4096-QAM (12X)</strong> and <strong>OFDMA</strong> modes have real driver and rate-table routines compiled inside v2.4.2 (being tested on our physical bench right now).</li>
-  </ul>
-
-  <h3>Live Production Numbers (Same tower, same rooftop radios, 20 MHz channel — Before vs. After)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Live Sector Metric (20 MHz)</th>
-        <th>Stock airOS 8.7.25 (Before)</th>
-        <th>openMAX / OpenWrt 24.10.4 (Now)</th>
-        <th>Multiplier (x)</th>
-        <th>Improvement (%)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Unloaded Wireless Ping (p50)</strong></td>
-        <td>22.58 ms</td>
-        <td><strong>1.93 ms – 2.42 ms</strong></td>
-        <td><strong>~10x faster</strong></td>
-        <td><strong>-90% base latency</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Wireless Ping Jitter (p95)</strong></td>
-        <td>98.77 ms</td>
-        <td><strong>4.47 ms – 14.90 ms</strong></td>
-        <td><strong>6.6x – 22x more stable</strong></td>
-        <td><strong>-85% to -95% jitter</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Ping Under Heavy Download</strong></td>
-        <td>31.49 ms (p50) / 54.40 ms (p95)</td>
-        <td><strong>8.43 ms – 9.86 ms (p50)</strong></td>
-        <td><strong>3.5x – 5x lower lag</strong></td>
-        <td><strong>-73% to -80% loaded ping</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Ping Under Heavy Upload</strong></td>
-        <td>195 ms – 224 ms</td>
-        <td><strong>10.37 ms – 16.64 ms (p50)</strong></td>
-        <td><strong>12x – 18x lower lag</strong></td>
-        <td><strong>-91% to -94% upload lag</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Usable 20 MHz Capacity (TCP)</strong></td>
-        <td>~35 – 45 Mbps typical</td>
-        <td><strong>69.80 Mbps DL / 30.74 Mbps UL</strong></td>
-        <td><strong>1.5x – 1.8x more capacity</strong></td>
-        <td><strong>+50% to +80% more Mbps/MHz</strong></td>
-      </tr>
-      <tr>
-        <td><strong>CPE CPU Headroom (Routing+NAT)</strong></td>
-        <td>Kernel 2.6.32 (software NAT)</td>
-        <td><strong>Kernel 6.6.110 (flow_offloading=1)</strong></td>
-        <td><strong>~2.5x more CPU headroom</strong></td>
-        <td><strong>+150% packet/s headroom</strong></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <blockquote>
-    <p><strong>Summary:</strong> On the exact same rooftop hardware and 20 MHz channel, wireless ping is <strong>~10x faster (~2 ms vs ~22 ms)</strong>, lag under saturation drops by <strong>80%–94%</strong>, and usable sector capacity increases by <strong>+50% to +80%</strong>.</p>
-  </blockquote>
-
-  <h3>Next up: Native UISP Reporting (udapi-bridge) on OpenWrt</h3>
-  <p>Moving a radio to pure OpenWrt stops Ubiquiti's <code>/bin/udapi-bridge</code> agent, so UISP marks it offline. We already unpacked <code>/bin/udapi-bridge</code> from <code>WA.v8.7.25</code> (it is a standalone userspace WebSocket + AES-GCM client reading <code>/etc/board.info</code>, <code>/tmp/system.cfg</code>, <code>/usr/www/status.cgi</code>, and <code>/bin/wstalist</code>) and are building the lightweight OpenWrt wrapper so migrated radios stay <strong>Online and green inside UISP</strong> with their original device ID and live telemetry.</p>
-
-  <h3>Latest Bench Autoresearch Wins (320+ Paired A/B/A/B Rounds Across 12 Physical Radios)</h3>
-  <ul>
-    <li><strong>PtMP Champion v22 &amp; PtP Champion v9 (Stages 79..95C — Kernel .ko Fast-Path Dissection):</strong> Disassembling <code>umac.ko</code>, <code>ath_dev.ko</code>, <code>ath_pktlog.ko</code>, and <code>ubnt_poll_host.ko</code> across <code>WA</code> (8.7.25), <code>XC</code> (8.7.11/8.7.25), and <code>XW</code> (6.1.4/6.3.6) uncovered per-PPDU packet-log overhead (<code>rmmod ath_pktlog</code> on XC: <strong>+23.35% 3-CPE sector goodput 46.53 &rarr; 57.39 Mbps, -20.81% p99 RTT, -22.58% IPTV jitter, 0.00% VoIP loss</strong>), safe VoW telemetry bypass (<code>iwpriv wifi0 vow_extstats 0</code>), hardware WMM multi-queue dispatch (<code>set_multiq=3</code> + <code>AC_VO/VI/BE/BK Minfree = 0/4/8/16</code>), and XW <code>rcRateFind_11nViVo</code> video/voice rate protection. On dedicated PowerBeam 5AC Gen2 PtP (Stage 94A/95B), <strong>PtP Champion v9</strong> delivered <strong>+41.01% total goodput (+70.60% Bulk TCP), -64.80% p95 RTT, 0.000% VoIP loss</strong>, and <strong>hitless 802.11h CSA frequency hopping (0.000s outage / 0/80 missed probes)</strong>.</li>
-    <li><strong>Zero-Touch Dynamic Channel-Width (20 MHz &harr; 40 MHz, Stage 95C) &amp; MikroTik 802.1Q Trunk Co-Design (Stage 97A):</strong> Proved on live hardware that even when a stock airOS 8 CPE has <code>cwmenable=0</code> in <code>/etc/sysinit/radio.conf</code>, its <code>umac.ko</code> state machine in <code>mode=auto</code> automatically follows the OpenWrt AP's <code>VHT Operation IE</code> between 20 MHz and 40 MHz and rejoins in <strong>8.78s–12.10s (&lt; 15s)</strong> with zero customer touch (<strong>-31.28% IPTV jitter in 40 MHz</strong>). Pairing the OpenWrt AP with a MikroTik RouterBOARD (<code>RB951G-2HnD</code>, RouterOS 6.47) over an <code>802.1Q</code> VLAN trunk (<code>PCP 0..7</code> + <code>DSCP EF/CS4</code>) cut end-to-end <code>CPE &rarr; Air &rarr; Switch &rarr; MikroTik</code> p50 RTT by <strong>-54.84% (4.39 &rarr; 1.98 ms)</strong> and p95 RTT by <strong>-46.18%</strong>.</li>
-    <li><strong>AF-LTU Dual-Core ARM Cortex-A9 SMP Isolation &amp; 80-Symbol 2.0 ms Superframe (Stages 80A, 96A, 97C, 99B):</strong> On <code>LTU-Lite</code> (Beetle SoC + <code>ame_ASIC0</code>, unlocked as <code>AP-PTMP(Run)</code> at <code>4096-QAM 12x</code>), isolating 500 Hz TDMA <code>AME.mrx</code>/<code>AME.mtx</code> (<code>IRQ 52/53</code>) on <code>CPU0</code> while offloading <code>GMAC0</code> (<code>IRQ 63</code>) and <code>AME.l2p</code> (<code>IRQ 92</code>) 100% to <code>CPU1</code> alongside our 5-offset <code>ame_dev.ko</code> fast-path boosted SoC TCP goodput by <strong>+8.5% to +9.9% (189.81 Mbps, peak 210.28 Mbps)</strong> and cut loaded p50 RTT by <strong>-12.5%</strong> with <strong>0 500 Hz superframe deadline misses</strong> across the 80-symbol (<code>61 DL + 19 UL</code> at <code>22.4 MS/s</code>) superframe.</li>
-    <li><strong>Cross-Platform Multi-Radio Gains (Rocket Prism 5AC Gen2, Rocket 2AC Prism, airFiber 4X):</strong> On <code>Rocket 2AC Prism</code> (2.4 GHz, Stage 98D), <code>ani_enable=1</code> + <code>shpreamble=1</code> + <code>vow_extstats 0</code> + <code>IRQ 2</code> AirView governance eliminated 100% of 15,480 parasitic interrupts (<strong>+13.0% peak TCP to 34.38 Mbps, -54.3% p50 RTT</strong>).</li>
-  </ul>
-
-  <p>Full documentation, scripts, and benchmark receipts:<br>
-  👉 <a href="https://github.com/wolverin0/openmax"><strong>https://github.com/wolverin0/openmax</strong></a></p>
-</div>
-
-<div class="title-box" style="color:#0f172a;">
-  <strong>Título sugerido (ES):</strong> Actualización openMAX: Qué logramos en producción real sobre equipos Ubiquiti airMAX AC (~10x menos ping en el aire, -80% a -94% de lag bajo carga, multimarca y migración sin tocar al cliente)
-</div>
-
-<div id="post-es" class="card">
-  <p>Hola a todos,</p>
-  <p>Les comparto un resumen corto y al grano de lo que ya tenemos funcionando en producción real en nuestro WISP con <strong>openMAX</strong> (<a href="https://github.com/wolverin0/openmax">https://github.com/wolverin0/openmax</a>). Toda la evidencia cruda y los scripts están en el repo; acá va lo concreto que logramos en la cancha:</p>
-  <ul>
-    <li><strong>Cambiar los AP a OpenWrt y que los CPEs con airOS 8 original sigan conectando solos:</strong> Podés migrar un panel (<strong>LiteAP 120</strong> / <strong>Rocket</strong>) a OpenWrt 24.10.4 y los clientes que tienen <strong>su firmware original airOS 8.7.25 de fábrica</strong> se conectan solos sin tocarles nada. Si un cliente estaba apagado el día del cambio y enchufa la antena una semana después, conecta derecho.</li>
-    <li><strong>Hacer funcionar equipos de todas las marcas y generaciones contra el mismo AP Ubiquiti:</strong> En un mismo panel conectamos en simultáneo equipos <strong>Ubiquiti 5AC</strong> (LiteBeam Gen2, Loco 5AC, Rocket Prism), equipos viejos <strong>Ubiquiti M5</strong> (airOS 6) y equipos <strong>MikroTik</strong> (SXT Lite5), sin que un cliente con mala señal o tapado por árboles tire abajo al resto del sector.</li>
-    <li><strong>Conectar en distintos anchos de canal (20, 40, 80 MHz, y hasta 5/10 MHz entre equipos OpenWrt):</strong> En canales de 20 MHz logramos repartir el aire de forma pareja (<strong>0.95 de equidad Jain</strong>) sacándole casi <strong>4 Mbps por cada MHz de espectro</strong>.</li>
-    <li><strong>Migrar el sector completo (AP + CPEs) a OpenWrt en vivo sin cortar al cliente:</strong> Una vez migrado el AP, actualizamos los CPEs por aire en ~4 minutos manteniendo su IP, su interfaz web, su NAT acelerado y la misma IP del router Wi-Fi adentro de la casa del cliente.</li>
-    <li><strong>Destapar lo que traen oculto los firmwares de Rocket Prism y LTU (v2.4.2):</strong> Mapeamos cómo manejar el filtro activo <strong>AirPrism</strong> en los Rocket Prism 5AC Gen2, y confirmamos que la modulación <strong>4096-QAM (12X)</strong> y el <strong>OFDMA</strong> que Ubiquiti dejó deshabilitados en LTU tienen las tablas y funciones reales adentro del firmware (probándose ahora mismo en el banco).</li>
-  </ul>
-
-  <h3>Los números reales en producción (Mismo panel, mismas antenas en el techo, canal de 20 MHz — Antes vs. Ahora)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Qué medimos en el sector (20 MHz)</th>
-        <th>Con Stock airOS 8.7.25 (Antes)</th>
-        <th>Con openMAX / OpenWrt 24.10.4 (Ahora)</th>
-        <th>Multiplicador (x)</th>
-        <th>Mejora (%)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Ping base en el aire (p50)</strong></td>
-        <td>22.58 ms</td>
-        <td><strong>1.93 ms – 2.42 ms</strong></td>
-        <td><strong>~10x más rápido</strong></td>
-        <td><strong>-90% de latencia base</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Estabilidad / Picos de ping (p95)</strong></td>
-        <td>98.77 ms</td>
-        <td><strong>4.47 ms – 14.90 ms</strong></td>
-        <td><strong>6.6x a 22x más estable</strong></td>
-        <td><strong>-85% a -95% de jitter</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Ping descargando a tope (Bufferbloat DL)</strong></td>
-        <td>31.49 ms (p50) / 54.40 ms (p95)</td>
-        <td><strong>8.43 ms – 9.86 ms (p50)</strong></td>
-        <td><strong>3.5x a 5x menos lag</strong></td>
-        <td><strong>-73% a -80% de lag en pico</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Ping subiendo a tope (Bufferbloat UL)</strong></td>
-        <td>195 ms – 224 ms</td>
-        <td><strong>10.37 ms – 16.64 ms (p50)</strong></td>
-        <td><strong>12x a 18x menos lag</strong></td>
-        <td><strong>-91% a -94% de lag al subir</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Capacidad útil en 20 MHz (TCP real)</strong></td>
-        <td>~35 – 45 Mbps típicos</td>
-        <td><strong>69.80 Mbps DL / 30.74 Mbps UL</strong></td>
-        <td><strong>1.5x a 1.8x más capacidad</strong></td>
-        <td><strong>+50% a +80% más megas útiles</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Margen de CPU del CPE (Ruteo + NAT)</strong></td>
-        <td>Kernel 2.6.32 (NAT clásico)</td>
-        <td><strong>Kernel 6.6.110 (flow_offloading=1)</strong></td>
-        <td><strong>~2.5x más margen de CPU</strong></td>
-        <td><strong>+150% margen de paquetes/s</strong></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <blockquote>
-    <p><strong>En resumen:</strong> Con exactamente los mismos equipos en el techo y el mismo canal de 20 MHz, el enlace responde <strong>~10 veces más rápido (~2 ms en vez de ~22 ms)</strong>, el lag cuando el cliente satura la línea baja entre un <strong>80% y un 94%</strong>, y al panel se le saca entre <strong>+50% y +80% más capacidad útil</strong>.</p>
-  </blockquote>
-
-  <h3>Próximo paso en marcha: Puente nativo a UISP en OpenWrt</h3>
-  <p>Al pasar un equipo a OpenWrt puro, deja de correr el agente de Ubiquiti (<code>udapi-bridge</code>) y UISP lo deja de ver. Ya desarmamos cómo habla <code>udapi-bridge</code> con UISP y estamos armando el puente liviano para que los equipos con OpenWrt sigan reportando <strong>Online y en verde adentro de UISP</strong> con su mismo ID, señal, tráfico y clientes.</p>
-
-  <h3>Últimos Wins del Banco Físico (320+ Rondas Pareadas A/B/A/B en 12 Radios Reales)</h3>
-  <ul>
-    <li><strong>PtMP Champion v22 y PtP Champion v9 (Stages 79..95C — Disección de Módulos .ko en Kernel):</strong> Desensamblando <code>umac.ko</code>, <code>ath_dev.ko</code>, <code>ath_pktlog.ko</code> y <code>ubnt_poll_host.ko</code> en <code>WA</code>, <code>XC</code> y <code>XW</code>, eliminamos el overhead por paquete de <code>ath_pktlog</code> en XC (<strong>+23,35% más de goodput en el sector de 3 CPEs: 46,53 &rarr; 57,39 Mbps, -20,81% p99 RTT, -22,58% jitter IPTV y 0,00% pérdida VoIP</strong>), apagamos la telemetría pesada <code>vow_extstats 0</code>, activamos despacho multi-cola WMM en hardware (<code>set_multiq=3</code> + reservas <code>Minfree 0/4/8/16</code>) y protección de voz/video en M5 XW (<code>rcRateFind_11nViVo</code>). En el enlace dedicado PowerBeam 5AC Gen2 PtP (Stage 94A/95B), <strong>PtP Champion v9</strong> logró <strong>+41,01% más de capacidad total (+70,60% en Bulk TCP), -64,80% menos p95 RTT, 0,000% pérdida VoIP</strong> y <strong>salto de frecuencia 802.11h CSA en vivo con 0,000 s de corte (0/80 probes perdidos)</strong>.</li>
-    <li><strong>Cambio Dinámico 20 MHz &harr; 40 MHz Zero-Touch (Stage 95C) y Co-Diseño con MikroTik (Stage 97A):</strong> Comprobamos en el banco real que aunque un CPE airOS 8 tenga <code>cwmenable=0</code> en su configuración, su driver <code>umac.ko</code> en <code>mode=auto</code> sigue automáticamente el <code>VHT Operation IE</code> del AP OpenWrt entre 20 MHz y 40 MHz y reconecta solo en <strong>8,78 s a 12,10 s (&lt; 15 s)</strong> (<strong>-31,28% de jitter IPTV en 40 MHz</strong>). Y conectando un <code>MikroTik RB951G-2HnD</code> (RouterOS 6.47) por un trunk <code>802.1Q VLAN</code> (<code>PCP 0..7</code> + <code>DSCP EF/CS4</code>) contra el AP OpenWrt, bajamos la latencia extremo a extremo <code>CPE &rarr; Aire &rarr; Switch &rarr; MikroTik</code> un <strong>-54,84% en p50 (4,39 &rarr; 1,98 ms)</strong> y <strong>-46,18% en p95</strong>.</li>
-    <li><strong>AF-LTU Aislamiento Dual-Core ARM SMP y Superframe de 80 Símbolos (Stages 80A, 96A, 97C, 99B):</strong> En el <code>LTU-Lite</code> (destrabado en RAM como <code>AP-PTMP(Run)</code> a <code>4096-QAM 12X</code>), aislando las interrupciones TDMA de 500 Hz (<code>IRQ 52/53</code>) en <code>CPU0</code> y descargando el 100% de Ethernet <code>GMAC0</code> (<code>IRQ 63</code>) + <code>AME.l2p</code> (<code>IRQ 92</code>) en <code>CPU1</code> junto al fast-path de <code>ame_dev.ko</code>, subimos el throughput TCP del SoC un <strong>+8,5% a +9,9% (189,81 Mbps, pico 210,28 Mbps)</strong> y bajamos <strong>-12,5% la latencia p50 bajo carga</strong> con <strong>0 pérdidas de superframe</strong> sobre el superframe de 80 símbolos (<code>61 DL + 19 UL</code> a <code>22.4 MS/s</code>).</li>
-    <li><strong>Mejoras Multi-Plataforma (Rocket Prism 5AC Gen2, Rocket 2AC Prism, airFiber 4X):</strong> En <code>Rocket 2AC Prism</code> (2.4 GHz, Stage 98D), <code>ani_enable=1</code> + <code>shpreamble=1</code> + <code>vow_extstats 0</code> + control de <code>IRQ 2</code> eliminó el 100% de las 15.480 interrupciones parásitas de AirView (<strong>+13,0% pico TCP a 34,38 Mbps, -54,3% p50 RTT</strong>).</li>
-  </ul>
-
-  <p>Todo el código, las pruebas y la documentación están abiertos acá:<br>
-  👉 <a href="https://github.com/wolverin0/openmax"><strong>https://github.com/wolverin0/openmax</strong></a></p>
-</div>
-
+:root{color-scheme:light;--page:#f3f6fb;--card:#fff;--ink:#182b44;--muted:#465870;--line:#a6b7ca;--header:#173b62;--header-ink:#fff;--button:#174c85}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--page:#0b1422;--card:#132237;--ink:#e6eefb;--muted:#b2c4db;--line:#516b8c;--header:#b7d7ff;--header-ink:#102640;--button:#2b61a2}}
+:root[data-theme=light]{color-scheme:light;--page:#f3f6fb;--card:#fff;--ink:#182b44;--muted:#465870;--line:#a6b7ca;--header:#173b62;--header-ink:#fff;--button:#174c85}
+:root[data-theme=dark]{color-scheme:dark;--page:#0b1422;--card:#132237;--ink:#e6eefb;--muted:#b2c4db;--line:#516b8c;--header:#b7d7ff;--header-ink:#102640;--button:#2b61a2}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{max-width:1160px;margin:auto;padding:24px}header{margin-bottom:28px}h1{font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.12}h2{line-height:1.2}.meta{color:var(--muted)}.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0}button,select{font:inherit;padding:10px 14px;border:1px solid var(--line);border-radius:8px}button{background:var(--button);color:#fff;cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #df8a05;outline-offset:3px}article,section.catalogue{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin:24px 0}.summary p{white-space:normal}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}caption{text-align:left;font-weight:600;margin:0 0 12px}th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}thead th{background:var(--header);color:var(--header-ink);font-weight:750}td:first-child{white-space:nowrap}#status{min-height:1.5em;color:var(--muted)}a{color:var(--ink)}@media(max-width:600px){main{padding:14px}article,section.catalogue{padding:16px}th,td{padding:8px}}
+</style></head><body><main>
+<header><p class="meta">LOCAL DRAFT / NOTHING POSTED</p><h1>openMAX research update</h1><p>Public tester v4, 42 discoveries, and explicit evidence limits.</p>
+<label for="theme">Preview theme</label> <select id="theme"><option value="auto">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+<p id="status" role="status" aria-live="polite">Choose a language summary. Full catalogue is below.</p></header>
+<article lang="en"><h2>openMAX update: WA public tester v4, 42 findings, and benchmark evidence</h2><div class="toolbar"><button data-copy="post-en">Copy EN summary</button><span class="meta" id="count-en"></span></div><div id="post-en" class="summary"><p>openMAX is our open-source research project for existing Ubiquiti airMAX hardware: https://github.com/wolverin0/openmax</p>
+<p>We have prepared local public tester v4 candidates for PowerBeam 5AC Gen2, LiteBeam 5AC Gen2, LAP-120 and NanoStation 5AC Loco. Each model retains its own kernel/DTB. The package includes the exact mac80211 v3 WDS/ETH_P_TEB patch and an opt-in champion-v2 profile; it is not official/vendor-signed firmware, a deployment, or a universal compatibility claim.</p>
+<p>The saved WA programme covers 18 RF comparisons (72 windows) plus one separate forwarding comparison (4 windows): 76 saved windows, not 76 repeats of one treatment.</p>
+<p>- Stage161 R16 reports +13.68% goodput with distance=300 on that bench. This is not a distance recommendation for every link.<br>- The reported eight-flow comparison rises from 22.611 Mbps in Stage145 R15 to 38.055 Mbps average and 43.108 Mbps peak in Stage161 R17 (+68% to +90%). It combines changes across runs, including vm.min_free_kbytes=4096; it does not isolate that VM setting as the cause.<br>- Stage162/163 reports -25.78% E2E p95 RTT under packet_steering=1/flow_offloading=1 labels. Audit qualification: auxiliary ping data contain 999 sentinels with samples=1, and the runner does not demonstrate a real activated flowtable. The claimed E2E benefit remains UNPROVEN.</p>
+<p>The v2 requested profile includes AQL threshold=4000, TCP pacing CA/SS=110/150, fq initial_quantum=3028 and conntrack_max=16384. fq initial_quantum is not a fq_codel parameter; its application and dependencies are explicitly qualified. Saved tail-latency regressions and getter conflicts remain visible.</p>
+<p>FMX-DISC-42 / Stage138 explains a conditional stock-PtP data gate: keep a compatible airOS AP while converting the remote STA first, or clear radio.1.ptpmode=0 with applied configuration, reassociation and data-path checks before considering an OpenWrt AP. This is an offline finding, not permission or proof of a safe flash. Vendor IEs or successful EAPOL alone do not prove bridged data.</p>
+<p>Public candidates start wired-only at 192.168.1.20/24 with Wi-Fi/DHCP disabled, no supplied key and no remote migration watchdog. They are NOT an unattended OTA migration profile. Do not flash a remote unit with them expecting it to reconnect automatically. Use a recoverable spare, exact-board images, checksums, your own credentials and a supported installation path.</p>
+<p>The full local catalogue now lists FMX-DISC-01 through FMX-DISC-42. Static analysis, simulations, saved physical results and local software tests are labelled separately. XC/XW/XM diagnostic starters are separate from WA firmware; unsupported identities and active AirPrism remain qualified. No radios were touched and nothing was posted or published by this documentation update.</p></div></article>
+<article lang="es"><h2>openMAX: tester publico WA v4, 42 hallazgos y evidencia de benchmarks</h2><div class="toolbar"><button data-copy="post-es">Copy ES summary</button><span class="meta" id="count-es"></span></div><div id="post-es" class="summary"><p>openMAX investiga mejoras sobre hardware Ubiquiti airMAX existente: https://github.com/wolverin0/openmax</p>
+<p>Preparamos candidatos locales del tester publico WA v4 para PowerBeam 5AC Gen2, LiteBeam 5AC Gen2, LAP-120 y NanoStation 5AC Loco. Cada modelo conserva su kernel/DTB. Incluyen mac80211 v3 para WDS/ETH_P_TEB y el perfil champion-v2 optativo. No son firmware oficial firmado, un despliegue ni una promesa de compatibilidad universal.</p>
+<p>El programa guardado contiene 18 comparaciones RF (72 ventanas) mas una comparacion de forwarding separada (4 ventanas): 76 ventanas, no 76 repeticiones del mismo tratamiento.</p>
+<p>- Stage161 R16 reporta +13.68% de goodput con distance=300 en ese banco; no recomienda esa distancia para cualquier enlace.<br>- La comparacion reportada de ocho flujos pasa de 22.611 Mbps en Stage145 R15 a 38.055 Mbps promedio y 43.108 Mbps pico en Stage161 R17 (+68% a +90%). Cambiaron varios factores entre corridas, incluido vm.min_free_kbytes=4096: no demuestra causalidad aislada del ajuste VM.<br>- Stage162/163 reporta -25.78% de p95 RTT E2E bajo las etiquetas packet_steering=1/flow_offloading=1. La auditoria encuentra sentinelas 999 con samples=1 y no demuestra una flowtable activa. El beneficio E2E sigue SIN PROBAR / UNPROVEN.</p>
+<p>El perfil solicitado incluye AQL threshold=4000, pacing TCP CA/SS=110/150, fq initial_quantum=3028 y conntrack_max=16384. initial_quantum no pertenece a fq_codel: su aplicacion y dependencias se califican por separado. Se conservan regresiones de latencia y conflictos entre configuracion y getters.</p>
+<p>FMX-DISC-42 / Stage138 describe una condicion de datos de la STA stock PtP: mantener un AP airOS compatible mientras se convierte primero la STA remota, o cambiar radio.1.ptpmode=0 y verificar aplicacion, reasociacion y datos antes de considerar un AP OpenWrt. Es evidencia offline; no autoriza un flash ni demuestra que sea seguro. Asociacion/EAPOL o vendor IEs no prueban forwarding.</p>
+<p>Los candidatos publicos arrancan por cable en 192.168.1.20/24, Wi-Fi/DHCP apagados, sin clave compartida y sin watchdog de migracion remota. NO sirven para una migracion OTA desatendida: no flashear una unidad remota esperando reconexion automatica. Usar un repuesto recuperable, imagen exacta, checksums, credenciales propias y un metodo soportado.</p>
+<p>El catalogo completo incluye FMX-DISC-01..FMX-DISC-42 y distingue analisis estatico, simulaciones, resultados fisicos guardados y tests locales. Los kits diagnosticos XC/XW/XM son independientes del firmware WA; identidades sin soporte exacto y AirPrism activo siguen sin calificar. Esta actualizacion no toco radios ni publico mensajes o paquetes.</p></div></article>
+<section class="catalogue"><h2>Full historical discovery catalogue</h2><p>Source index, not universal hardware acceptance. The summary buttons do not copy this table.</p><div class="table-scroll"><table id="discovery-table"><caption>FMX-DISC-01 through FMX-DISC-42</caption><thead><tr><th scope="col">ID</th><th scope="col">Finding</th><th scope="col">Layer</th><th scope="col">Evidence limit</th></tr></thead><tbody><tr data-discovery="FMX-DISC-01"><td>FMX-DISC-01</td><td>Protect authentication daemons from OOM on 64 MiB boards</td><td>Linux</td><td>Memory guard; not unlimited load capacity</td></tr>
+<tr data-discovery="FMX-DISC-02"><td>FMX-DISC-02</td><td>Bound mac80211 FQ memory</td><td>mac80211</td><td>Use limits suitable for the exact RAM class</td></tr>
+<tr data-discovery="FMX-DISC-03"><td>FMX-DISC-03</td><td>ETH_P_TEB 0x6558 WDS decapsulation</td><td>mac80211</td><td>Exact ABI and image required</td></tr>
+<tr data-discovery="FMX-DISC-04"><td>FMX-DISC-04</td><td>Two-stage vendor-IE withdrawal interoperability hypothesis</td><td>airMAX</td><td>Public kit does not prove stock-CPE zero-touch acceptance</td></tr>
+<tr data-discovery="FMX-DISC-05"><td>FMX-DISC-05</td><td>Big-endian MIPS iperf3 JSON crash</td><td>userspace</td><td>Use plain-text output; no iperf3 JSON mode</td></tr>
+<tr data-discovery="FMX-DISC-06"><td>FMX-DISC-06</td><td>Separate AirPrism GPIO filters, HSR and passive ISO hardware</td><td>hardware</td><td>Active-filter support needs exact hardware qualification</td></tr>
+<tr data-discovery="FMX-DISC-07"><td>FMX-DISC-07</td><td>airOS rc.poststart versus cron persistence</td><td>airOS</td><td>Saved configuration is not cold-boot proof</td></tr>
+<tr data-discovery="FMX-DISC-08"><td>FMX-DISC-08</td><td>LTU FPGA architecture and 4096-QAM rate-table analysis</td><td>LTU</td><td>Binary presence does not establish RF operation</td></tr>
+<tr data-discovery="FMX-DISC-09"><td>FMX-DISC-09</td><td>32-CPE sector topology and backhaul fault isolation</td><td>network</td><td>Topology-specific evidence; no migration approval</td></tr>
+<tr data-discovery="FMX-DISC-10"><td>FMX-DISC-10</td><td>AP ACK pacing and relay/capacity crossover models</td><td>controller</td><td>Models are not measured subscriber capacity</td></tr>
+<tr data-discovery="FMX-DISC-11"><td>FMX-DISC-11</td><td>ubnt_poll_host 16-integer control vector</td><td>airMAX</td><td>Validate the exact handler and bounds</td></tr>
+<tr data-discovery="FMX-DISC-12"><td>FMX-DISC-12</td><td>ZeroClaw external-controller architecture</td><td>controller</td><td>Architecture proposal, not firmware feature acceptance</td></tr>
+<tr data-discovery="FMX-DISC-13"><td>FMX-DISC-13</td><td>Multi-VDEV cooperative CPE relay</td><td>controller</td><td>Feasibility depends on the control boundary</td></tr>
+<tr data-discovery="FMX-DISC-14"><td>FMX-DISC-14</td><td>PowerBeam M5 XW diversity behavior</td><td>ath9k</td><td>Board-specific, not an AC feature</td></tr>
+<tr data-discovery="FMX-DISC-15"><td>FMX-DISC-15</td><td>2.4 GHz Rocket 2AC Prism and Loco M2 experiments</td><td>hardware</td><td>Separate band and driver populations</td></tr>
+<tr data-discovery="FMX-DISC-16"><td>FMX-DISC-16</td><td>OpenWrt BusyBox ip-link tool behavior</td><td>userspace</td><td>Tool capability must be checked on the installed build</td></tr>
+<tr data-discovery="FMX-DISC-17"><td>FMX-DISC-17</td><td>LTU AME/EAB bug catalogue 01-08</td><td>LTU</td><td>Static/runtime evidence and memory impact remain distinct</td></tr>
+<tr data-discovery="FMX-DISC-18"><td>FMX-DISC-18</td><td>XW rate-control cold-start MCS0 airtime cost</td><td>ath9k</td><td>Warm-up changes must not hide failed windows</td></tr>
+<tr data-discovery="FMX-DISC-19"><td>FMX-DISC-19</td><td>AQL threshold/high-limit interaction and CoDel drops</td><td>mac80211</td><td>A configured knob is not a measured actuator</td></tr>
+<tr data-discovery="FMX-DISC-20"><td>FMX-DISC-20</td><td>XC daprot symbol mapping and AirPrism stage-one bank</td><td>airMAX</td><td>Symbol identity is build-specific</td></tr>
+<tr data-discovery="FMX-DISC-21"><td>FMX-DISC-21</td><td>ATPC/timing vector layout and CPU-class budgets</td><td>Linux/airMAX</td><td>Do not transfer budgets between CPU classes</td></tr>
+<tr data-discovery="FMX-DISC-22"><td>FMX-DISC-22</td><td>BusyBox fractional ping timing and per-window warm-up</td><td>userspace</td><td>Retain sample counts and tool failures</td></tr>
+<tr data-discovery="FMX-DISC-23"><td>FMX-DISC-23</td><td>UMAC/ATHDEV defects, multiq and VLAN/PPPoE DSCP</td><td>airMAX</td><td>Saved benchmark and static security findings differ</td></tr>
+<tr data-discovery="FMX-DISC-24"><td>FMX-DISC-24</td><td>DFS-aware watchdog and migration safety gates</td><td>operations</td><td>Preserve CAC, recovery and zero-touch acceptance gates</td></tr>
+<tr data-discovery="FMX-DISC-25"><td>FMX-DISC-25</td><td>airOS scan whitelist and host_80211 behavior</td><td>airMAX</td><td>No regulatory or channel bypass in public kits</td></tr>
+<tr data-discovery="FMX-DISC-26"><td>FMX-DISC-26</td><td>Three-argument CSA channel-switch interface</td><td>airMAX</td><td>CSA success is not unrestricted channel support</td></tr>
+<tr data-discovery="FMX-DISC-27"><td>FMX-DISC-27</td><td>XC packet-log removal and dual-radio failure mode</td><td>airMAX</td><td>Do not apply module-removal recipes across boards</td></tr>
+<tr data-discovery="FMX-DISC-28"><td>FMX-DISC-28</td><td>Statistics-unsubscribe pointer handling</td><td>airMAX</td><td>Safe telemetry flags differ from unsafe unload paths</td></tr>
+<tr data-discovery="FMX-DISC-29"><td>FMX-DISC-29</td><td>LTU privileged tools and embedded-key review</td><td>LTU</td><td>Access prerequisites and disclosure impact are qualified</td></tr>
+<tr data-discovery="FMX-DISC-30"><td>FMX-DISC-30</td><td>LTU gain-table gate and early poststart exit</td><td>LTU</td><td>Persistence still requires independent cold-boot evidence</td></tr>
+<tr data-discovery="FMX-DISC-31"><td>FMX-DISC-31</td><td>Dynamic 20/40 MHz VHT width following</td><td>mac80211</td><td>Peer/driver-specific interoperability</td></tr>
+<tr data-discovery="FMX-DISC-32"><td>FMX-DISC-32</td><td>BNG shaping, LTU frame geometry and 2XC interrupt load</td><td>network/LTU</td><td>Keep the independent experiments separate</td></tr>
+<tr data-discovery="FMX-DISC-33"><td>FMX-DISC-33</td><td>Module control-boundary audit and WDS churn healing</td><td>controller</td><td>Static defects and live healing require separate proof</td></tr>
+<tr data-discovery="FMX-DISC-34"><td>FMX-DISC-34</td><td>LTU superframe tail bounds and constrained Pareto ranking</td><td>LTU/controller</td><td>Offline ranking is not runtime authorization</td></tr>
+<tr data-discovery="FMX-DISC-35"><td>FMX-DISC-35</td><td>Flash-unlock and firmware-signature gate analysis</td><td>firmware</td><td>No signature bypass or flash instructions supplied</td></tr>
+<tr data-discovery="FMX-DISC-36"><td>FMX-DISC-36</td><td>Linux 6.6.110 module layout and skb data offsets</td><td>mac80211</td><td>A matching version string alone is insufficient</td></tr>
+<tr data-discovery="FMX-DISC-37"><td>FMX-DISC-37</td><td>Dynamic AP-interface admitter rebinding</td><td>controller</td><td>Public helper has no fixed peer or captured vendor IE</td></tr>
+<tr data-discovery="FMX-DISC-38"><td>FMX-DISC-38</td><td>Four-address EAPOL delivery and AP_VLAN event ordering</td><td>mac80211</td><td>Association alone does not prove bridged data</td></tr>
+<tr data-discovery="FMX-DISC-39"><td>FMX-DISC-39</td><td>Different mac80211 ABIs within the same kernel version</td><td>mac80211</td><td>Use exact module hash, layout and original build</td></tr>
+<tr data-discovery="FMX-DISC-40"><td>FMX-DISC-40</td><td>Board-specific WA image packaging and control mapping</td><td>firmware</td><td>Shared WA family does not make DTBs interchangeable</td></tr>
+<tr data-discovery="FMX-DISC-41"><td>FMX-DISC-41</td><td>Authorized-gated four-address event patch, mac80211 v3</td><td>mac80211</td><td>Event gating is not general RX-security acceptance</td></tr>
+<tr data-discovery="FMX-DISC-42"><td>FMX-DISC-42</td><td>Stock PtP STA data gate and remote-first migration order</td><td>airMAX</td><td>Stage138 is offline static analysis/simulation; not a flash receipt</td></tr></tbody></table></div></section>
+<footer><p>Sources: <a href="CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md">historical catalogue</a>, <a href="../artifacts/autoresearch/stage138a_ptp_sta_data_gate_verdict.json">Stage138</a>, <a href="STAGE163A_CUMULATIVE_18ROUND_WA_CHAMPION_V2.md">Stage163 reported consolidation</a>, <a href="OPENMAX_WA_PUBLIC_V4_TESTER_GUIDE.md">public tester v4 qualifications</a>. No upload or posting function exists.</p></footer>
 <script>
-function copyRich(id, msg) {
-  const el = document.getElementById(id);
-  const range = document.createRange();
-  range.selectNodeContents(el);
-  const sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-  document.execCommand('copy');
-  sel.removeAllRanges();
-  document.getElementById('status').innerText = '✅ ' + msg;
-}
-</script>
-</body>
-</html>
+function summaryText(node){return Array.from(node.querySelectorAll('p')).map(p=>p.innerText).join(String.fromCharCode(10,10));}
+async function copySummary(id){const node=document.getElementById(id),text=summaryText(node),markup=node.innerHTML;
+if(text.length>=10000||markup.length>=10000){document.getElementById('status').textContent='Summary exceeds the 10000-character limit.';return;}
+try{if(window.ClipboardItem&&navigator.clipboard.write){await navigator.clipboard.write([new ClipboardItem({'text/plain':new Blob([text],{type:'text/plain'}),'text/html':new Blob([markup],{type:'text/html'})})]);}else{await navigator.clipboard.writeText(text);}document.getElementById('status').textContent='Summary copied. Nothing posted.';}
+catch(error){const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(node);selection.removeAllRanges();selection.addRange(range);document.getElementById('status').textContent='Clipboard unavailable. Summary selected; copy it manually.';}}
+document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',()=>copySummary(button.dataset.copy)));
+document.getElementById('theme').addEventListener('change',event=>{if(event.target.value==='auto'){delete document.documentElement.dataset.theme;}else{document.documentElement.dataset.theme=event.target.value;}});
+for(const language of ['en','es']){const node=document.getElementById('post-'+language);document.getElementById('count-'+language).textContent=summaryText(node).length+' text / '+node.innerHTML.length+' HTML characters; both below 10000.';}
+</script></main></body></html>

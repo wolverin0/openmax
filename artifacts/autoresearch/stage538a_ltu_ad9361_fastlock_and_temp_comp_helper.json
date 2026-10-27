@@ -1,0 +1,57 @@
+{
+  "stage": "538A",
+  "task_id": "T-S538A-LTU-AD9361-FASTLOCK-AND-TEMP-COMP-HELPER",
+  "title": "Pillar 4 AD9361 8-Slot Fastlock Profile & Temperature Calibration Table Helper for AF-LTU (Beetle)",
+  "memory_master_claim": {
+    "code": "mm-9a47",
+    "id": 155437
+  },
+  "generated_at": "2026-10-27T01:14:27.599589+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "helper_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_ad9361_fastlock_temp_helper.sh",
+    "sha256": "6f09c00d9d9820cc8d1a444c5e05363f1231c7080452dddd981da55256ee4acd",
+    "size_bytes": 1190,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "stage486a_re_linked": {
+    "artifact_exists": true,
+    "stage486a_status": "CONFIRMED",
+    "fastlock_register_block": "0x25A..0x29F (8 TX/RX synthesizer profiles, 16 bytes/slot)",
+    "supported_boards": [
+      "0xae02",
+      "0xae06",
+      "0xae07",
+      "0xae08",
+      "0xae09",
+      "0xae0b"
+    ]
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "references_8slot_fastlock_and_temp_lut": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 486A AD9361 8-slot fastlock (0x25A..0x29F) and thermal calibration tables in ame_core.ko",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models sub-50us synthesizer profile recall across 8 pre-calibrated DFS/Split-Frequency channels",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Maps thermal zones (COLD/NOMINAL/HOT LUT bands) to prevent TX quadrature/LO leakage degradation at 4096-QAM",
+    "pillar_e_memory_master_claim_id": "mm-9a47 (id=155437)"
+  }
+}

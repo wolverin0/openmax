@@ -1,0 +1,106 @@
+{
+  "excluded_overlay_members": {
+    "etc/hotplug.d/net/99-fmx-xc-universal-champion": {
+      "bytes": 6286,
+      "redistributed": false,
+      "sha256": "2014ede26087b48932010fd6f53c45b6c3754d53283cd6cf4895ee7e4aa334aa"
+    },
+    "lib/modules/6.6.110/mac80211.ko": {
+      "bytes": 815640,
+      "redistributed": false,
+      "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6"
+    },
+    "usr/sbin/fmx_pbe5ac_admitter.sh": {
+      "bytes": 6195,
+      "redistributed": false,
+      "sha256": "f8c7b054b241b0e6b901abcf96e8a777d62bf30a732e6eb05082ff47339285eb"
+    },
+    "usr/sbin/fmx_ptp_rollback_watchdog.sh": {
+      "bytes": 2383,
+      "redistributed": false,
+      "sha256": "0b07d7aa88de0ddb98839336c58a547e949cd86598786ecedb0ca69e2695ca09"
+    }
+  },
+  "historical_memory_claims_only": [
+    "mm-37fa",
+    "mm-1375"
+  ],
+  "inputs": {
+    "artifacts/autoresearch/stage158a_xw_xm_30board_openwrt_matrix.json": {
+      "bytes": 27342,
+      "redistributed_raw": false,
+      "sha256": "c496ff8e71e9d24c29f8b1ab39339c5ddcd90b63127aabd6330b1f9c8991f117"
+    },
+    "artifacts/autoresearch/stage159a_xc_airprism_hsr_and_passive_openwrt_kit.json": {
+      "bytes": 11138,
+      "redistributed_raw": false,
+      "sha256": "3842b6e0969623aa29384f2688f4fe3e9d7ee871081164c70d4ad7a37b198e24"
+    },
+    "artifacts/autoresearch/stage165a_xc_family_universal_kit.json": {
+      "bytes": 4717,
+      "redistributed_raw": false,
+      "sha256": "32eb982953a62168a14ad93998f60ad2879ea1d574bdec15280950dfce149d48"
+    },
+    "artifacts/autoresearch/stage166a_xw_xm_ath9k_universal_kit.json": {
+      "bytes": 3631,
+      "redistributed_raw": false,
+      "sha256": "b97c71cdd74c57125b5659734aa18b9797e653fcee833b0f3681c86ff51620b5"
+    },
+    "artifacts/verification/stage170_to_172_sources/profiles.json": {
+      "bytes": 382631,
+      "redistributed_raw": false,
+      "sha256": "996f4dc8ef25477ec3a9a006b6eb1755918d4180f20da5073d5554185982f9b5"
+    },
+    "artifacts/verification/stage170_to_172_sources/sha256sums": {
+      "bytes": 318454,
+      "redistributed_raw": false,
+      "sha256": "0128f80d20e19a4b59bc30832e73e2a718f0e5121981cf1538b919822bf9ffed"
+    },
+    "firmware/openwrt/xc_family_universal_kit/99-fmx-xc-universal-champion": {
+      "bytes": 7524,
+      "redistributed_raw": false,
+      "sha256": "a66c7d0664fe7ea87989b4adaee14df1367fbb6714f97c306d4e667fbb7ed08e"
+    },
+    "firmware/openwrt/xc_family_universal_kit/sysupgrade-overlay-xc-universal-v1.tar.gz": {
+      "bytes": 390048,
+      "redistributed_raw": false,
+      "sha256": "e07fd4d7ffb57f5707d12f3c95b00afd6cdde28462628713edbaf4c7fff20e3c"
+    },
+    "firmware/openwrt/xc_family_universal_kit/xc_board_manifest.json": {
+      "bytes": 2016,
+      "redistributed_raw": false,
+      "sha256": "78c81c504618a4ec6ba40ffcdcf83985550693607530a452de62c34a0ab34ff6"
+    },
+    "firmware/openwrt/xw_xm_family_universal_kit/99-fmx-xw-xm-ath9k-champion": {
+      "bytes": 4872,
+      "redistributed_raw": false,
+      "sha256": "f1331274eab7e79b09a51d0407badc3343b09f3ef0b8294d0a1d82a315086e0c"
+    },
+    "firmware/openwrt/xw_xm_family_universal_kit/xw_xm_board_manifest.json": {
+      "bytes": 1230,
+      "redistributed_raw": false,
+      "sha256": "055fbe7ea8ddb3c1f9380332c6486561290a6abf2b00f02b7747534385ebe07a"
+    }
+  },
+  "new_hardware_claim": null,
+  "proprietary_binaries_redistributed": false,
+  "source_artifact_mismatches": [
+    {
+      "current_script_executed_or_shipped": false,
+      "declared_sha256": "2014ede26087b48932010fd6f53c45b6c3754d53283cd6cf4895ee7e4aa334aa",
+      "observed_sha256": "a66c7d0664fe7ea87989b4adaee14df1367fbb6714f97c306d4e667fbb7ed08e",
+      "path": "firmware/openwrt/xc_family_universal_kit/99-fmx-xc-universal-champion",
+      "source_stage": 165,
+      "status": "MUTABLE_SCRIPT_DIFFERS_FROM_HISTORICAL_RECEIPT"
+    },
+    {
+      "current_script_executed_or_shipped": false,
+      "declared_sha256": "057874cf0658dd3594c272babc7a24ef296fce693beca5f154acf42a333e57b2",
+      "observed_sha256": "f1331274eab7e79b09a51d0407badc3343b09f3ef0b8294d0a1d82a315086e0c",
+      "path": "firmware/openwrt/xw_xm_family_universal_kit/99-fmx-xw-xm-ath9k-champion",
+      "source_stage": 166,
+      "status": "MUTABLE_SCRIPT_DIFFERS_FROM_HISTORICAL_RECEIPT"
+    }
+  ],
+  "task_id": "T-S171A-PUBLIC-XC-XW-XM-TESTER-KITS"
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S37B-CODEX-CHAMPION-V10-MAC80211-AQM-AND-TRIPLE-PLAY-CANARY-VERIFIER",
+  "generated_at_utc": "2026-10-25T20:16:26.941486+00:00",
+  "state": "SOFTWARE_VERIFIED",
+  "disposition": "KEEP",
+  "ownership": "external_controller_for_Linux_mac80211_aqm",
+  "file_sha256": {
+    "controller/mac80211_aqm_per_tid_canary_verifier.py": "f4d45f534d1da61a78ad0cb6d2c6331f639fcb7f33c8df818597337683a0621f",
+    "tests/test_stage37b_mac80211_aqm_canary.py": "e0621ab5605c6c154173a7418d3482b6de427c6af32105a6f6b2220b048c0a9e",
+    "docs/STAGE37B_MAC80211_AQM_PER_TID_CANARY_VERIFIER.md": "680eee28addd411b1c8b9916843442e25ff1db2148a62a523dadbf7faa4db0cb",
+    "controller/iptv_dms_ac_vi_canary_gate.py": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1",
+    "artifacts/autoresearch/stage36a_live_iptv_ac_vi_ptmp_bench_20261025.json": "90cf485d24bcf77584f5ce2d2e4fe142c15e4ebdd70dffb631fbf8789d9a0f4d",
+    "docs/STAGE36A_LIVE_IPTV_AC_VI_AND_DMS_PTMP_BENCHMARK.md": "ac2dbe5bc1a5098c8a276898f2e619926f5df312640af00ef2a20c7b45b1a934"
+  },
+  "source_binding": {
+    "round_id": "S36A-R2",
+    "canonical_round_sha256": "b51d0e5e932bc403250e4e3c066451e0b717c04c4fadeadea22a8869d94c1310",
+    "whole_json_hash_is_observation_only": true
+  },
+  "tests": {
+    "command": "python -m pytest tests/test_stage37b_mac80211_aqm_canary.py -q",
+    "direct_without_heavy_slot": true,
+    "exit_code": 0,
+    "passed": 86,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pytest_elapsed_s": 0.45,
+    "tool_wall_time_s": 1.7403524,
+    "console_receipt": "97937c",
+    "stdout_summary": "86 passed in 0.45s",
+    "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+    "scope": "disposable_fixture_only"
+  },
+  "review_repairs": [
+    {
+      "finding": "Pre-apply traffic could satisfy treatment evidence",
+      "repair": "Both proof endpoints match v10; runtime probe binds post-apply snapshot, cached pre-apply witness rejected"
+    },
+    {
+      "finding": "Per-flow counts could exceed dequeue evidence or duplicate class trace",
+      "repair": "Sum flow packet/byte counts per station/TID <= measured TXQ deltas; reject reused class evidence digest"
+    },
+    {
+      "finding": "Valid last numeric token could hide partial read",
+      "repair": "Live global/station parsers require terminating newline; known stripped historical capture normalization explicit"
+    },
+    {
+      "finding": "Final readback and guard commit had a TOCTOU gap",
+      "repair": "Require atomic commit gate qualification before arming; guard validates plan/proof-bound identities, membership, zero-events, AQL/RW targets and live lease under fence; rejection restores exact saved RW"
+    }
+  ],
+  "independent_review": {
+    "state": "PASS_WITH_LIMITS",
+    "fresh_static_checks": 89,
+    "open_material_blockers": 0,
+    "receipt_path": "artifacts/autoresearch/stage37b_mac80211_aqm_independent_review_20261025.json",
+    "receipt_sha256": "e33bf5b99110f72df18701875f1ce13aed433ae8f350cd7e8bf773daebbcd91b",
+    "original_receipt_path": "C:\\_tmp\\systemp\\fmx_s37b_independent_review_nn2li_z0\\independent_review.json",
+    "pytest_execution": "OWNER_EVIDENCE_REUSED_NOT_INDEPENDENTLY_EXECUTED",
+    "reviewed_preseal_validation_sha256": "4b63788cedbcf379286a8a80c73e2d761d2e9d11c1e029e9c69805c04e7845c0",
+    "closure_metadata_review": "PASS_WITH_LIMITS",
+    "findings_resolved": 4,
+    "review_checker_failure_preserved": true,
+    "closure_static_checks": 40,
+    "closure_receipt_path": "artifacts/autoresearch/stage37b_mac80211_aqm_documentation_addendum_20261025.json",
+    "closure_receipt_sha256": "af366da61cad70ed356e3ab24318182026e21960b6d4994c5606c77c70c7bb4d",
+    "closure_binding_scope": "Pre-addendum metadata observation; only this final receipt pointer changes afterward"
+  },
+  "physical_acceptance": false,
+  "device_runtime_qualification": "UNKNOWN_NOT_EXECUTED",
+  "receiver_delivery_proven": false,
+  "wireless_gain_claimed": false,
+  "e2": "NOT_ACCEPTED",
+  "device_access_executed": false,
+  "ssh_wsl_service_nms_executed": false,
+  "persistent_or_flash_writes_executed": false,
+  "restore_scope": "ONLY_THREE_CAPTURED_GLOBAL_AQM_RW_PARAMETERS",
+  "no_background_runner": true,
+  "test_history": [
+    {
+      "tests": {
+        "command": "python -m pytest tests/test_stage37b_mac80211_aqm_canary.py -q",
+        "direct_without_heavy_slot": true,
+        "exit_code": 0,
+        "passed": 81,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "pytest_elapsed_s": 0.46,
+        "tool_wall_time_s": 2.6057362,
+        "console_receipt": "9a624c",
+        "stdout_summary": "81 passed in 0.46s",
+        "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+        "scope": "disposable_fixture_only"
+      },
+      "module_sha256": "03eea3cba558bce44e18710c7844ea1dbaef7284e91b7e713efb3a648d1e151e",
+      "test_sha256": "e7c35f3ef5be88dd9062e442ca9b46abd1053c634b28aab50d27b2c72861f322",
+      "superseded_by": "Atomic commit guard qualification and proof-binding regressions"
+    }
+  ],
+  "completion_scope": "Requested Stage37B software, focused tests, report and independent static review; stop without claiming another task"
+}

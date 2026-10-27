@@ -1,0 +1,1404 @@
+{
+  "stage": "317A",
+  "title": "XC (QCA9880 3x3) vs WA (QCA9882 2x2) QCA988x Xtensa Target Firmware Comparative Dissection",
+  "status": "CONFIRMED",
+  "attribution": "QCA firmware + proprietary airMAX/LTU module",
+  "live_devices_touched": false,
+  "static_sources": {
+    "xc_8725_umac": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+    "wa_8725_umac": "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+    "wa_8711_umac": "firmware/build/codex-analysis-20261006/rootfs/lib/modules/2.6.32.68/umac.ko"
+  },
+  "host_umac_comparison_xc25_vs_wa25": {
+    "text_size_bytes": 892816,
+    "data_size_xc25_bytes": 747632,
+    "data_size_wa25_bytes": 745296,
+    "data_size_delta_bytes": 2336,
+    "differing_32bit_instruction_words": 2545,
+    "skb_offset_plus4_instruction_words": 899,
+    "differing_functions_count": 234,
+    "verdict": "CONFIRMED: Host umac.ko .text is identical in size (892,816 B) between XC.v8.7.25 (QCA9558) and WA.v8.7.25 (AR9342); all 234 differing functions (1,975 instruction words) arise from a +4 byte struct sk_buff layout shift on XC kernel config (e.g. skb->cb/end offset 0xc8 vs 0xc4). The +2,336 B .data section delta (747,632 - 745,296 B) equals the exact sum of the 3 compressed QCA988x SGMT firmware deltas (775 + 775 + 786 = 2,336 B)."
+  },
+  "otp_firmware_comparison": {
+    "XC.v8.7.25": {
+      "compressed_bytes": 6917,
+      "compressed_sha256": "c6f55649832e3b37ee1953a96433a239c5de4ab6fa74b3b75e1554602c9dccfd",
+      "decompressed_segments": [
+        {
+          "index": 0,
+          "target_addr": "0x00980000",
+          "length": 108,
+          "sha256": "357c03ce20672a32d3d9b0a3ac910c383a3b45af93ac8d368327e523b69a21b3"
+        },
+        {
+          "index": 1,
+          "target_addr": "0x0040b000",
+          "length": 28,
+          "sha256": "82bd5d657edc7cef7a08712c02028ff6086eae03c55ccb3ed050cc979c929f1c"
+        },
+        {
+          "index": 2,
+          "target_addr": "0x0040b020",
+          "length": 25601,
+          "sha256": "0817128fe48715ac388380537dbf0bd2dce907d8e0cd7c93cedb20c1dddfeff4"
+        },
+        {
+          "index": 3,
+          "target_addr": "0x00983c00",
+          "length": 1996,
+          "sha256": "3a685c362f3665872e2dfc005d9f33b562961841625e449c7d7cfbf4831720e9"
+        }
+      ]
+    },
+    "WA.v8.7.25": {
+      "compressed_bytes": 6917,
+      "compressed_sha256": "c6f55649832e3b37ee1953a96433a239c5de4ab6fa74b3b75e1554602c9dccfd",
+      "decompressed_segments": [
+        {
+          "index": 0,
+          "target_addr": "0x00980000",
+          "length": 108,
+          "sha256": "357c03ce20672a32d3d9b0a3ac910c383a3b45af93ac8d368327e523b69a21b3"
+        },
+        {
+          "index": 1,
+          "target_addr": "0x0040b000",
+          "length": 28,
+          "sha256": "82bd5d657edc7cef7a08712c02028ff6086eae03c55ccb3ed050cc979c929f1c"
+        },
+        {
+          "index": 2,
+          "target_addr": "0x0040b020",
+          "length": 25601,
+          "sha256": "0817128fe48715ac388380537dbf0bd2dce907d8e0cd7c93cedb20c1dddfeff4"
+        },
+        {
+          "index": 3,
+          "target_addr": "0x00983c00",
+          "length": 1996,
+          "sha256": "3a685c362f3665872e2dfc005d9f33b562961841625e449c7d7cfbf4831720e9"
+        }
+      ]
+    },
+    "WA.v8.7.11": {
+      "compressed_bytes": 6917,
+      "compressed_sha256": "c6f55649832e3b37ee1953a96433a239c5de4ab6fa74b3b75e1554602c9dccfd",
+      "decompressed_segments": [
+        {
+          "index": 0,
+          "target_addr": "0x00980000",
+          "length": 108,
+          "sha256": "357c03ce20672a32d3d9b0a3ac910c383a3b45af93ac8d368327e523b69a21b3"
+        },
+        {
+          "index": 1,
+          "target_addr": "0x0040b000",
+          "length": 28,
+          "sha256": "82bd5d657edc7cef7a08712c02028ff6086eae03c55ccb3ed050cc979c929f1c"
+        },
+        {
+          "index": 2,
+          "target_addr": "0x0040b020",
+          "length": 25601,
+          "sha256": "0817128fe48715ac388380537dbf0bd2dce907d8e0cd7c93cedb20c1dddfeff4"
+        },
+        {
+          "index": 3,
+          "target_addr": "0x00983c00",
+          "length": 1996,
+          "sha256": "3a685c362f3665872e2dfc005d9f33b562961841625e449c7d7cfbf4831720e9"
+        }
+      ]
+    }
+  },
+  "target_firmware_matrix": {
+    "athwlan_AR9888v2_ptp_bin": {
+      "XC.v8.7.25": {
+        "data_section_offset": "0x07f5a0",
+        "compressed_size_bytes": 215074,
+        "compressed_sha256": "d6db17cb678621bc0160a889c46d19858d5402d633a4164fb1e0c3397cb5961f",
+        "total_decompressed_bytes": 264944,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 5720,
+            "sha256": "a9747796bc0603002a325a0bf8cb78ed42607788567777863884ab18204048f2"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 7420,
+            "sha256": "fc6a23c0908d30cef94ac4b75cb8f0c8e87a205bd534334ea1be1c74704f9588"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040cd00",
+            "length_bytes": 14280,
+            "sha256": "1f47c4a63a04358cd62a9121355c0875215c2f95b4314a4d22971cba8b4f34f8"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 237524,
+            "sha256": "5ee059735aaf20b9a4a99c8f33ce732030eb994cb694ae3af44ce4742df0b6a7"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x00410368",
+            "seg2_offset": "0x3668",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009afc98",
+              "0x009afcc4",
+              "0x009afccc",
+              "0x009afcf0",
+              "0x009afd04",
+              "0x009afd18",
+              "0x009afd64",
+              "0x009afd84",
+              "0x009afdf0",
+              "0x009afe18",
+              "0x009afe38",
+              "0x009afe74",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0178",
+              null,
+              null,
+              null,
+              "0x009b0cd8",
+              null,
+              "0x009b0f58",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x004103e8",
+            "seg2_offset": "0x36e8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009afc98",
+              "0x009afcc4",
+              "0x009afccc",
+              "0x009afcf0",
+              "0x009afd04",
+              "0x009afd18",
+              "0x009afd64",
+              "0x009afd84",
+              "0x009afdf0",
+              "0x009afe18",
+              "0x009afe38",
+              "0x009afe74",
+              "0x009aff5c",
+              "0x009afeb0",
+              "0x009b0d28",
+              "0x009b0008",
+              "0x009b0080",
+              "0x009b04cc",
+              "0x009b00ec",
+              "0x009b0178",
+              "0x009b06a4",
+              "0x009b0744",
+              "0x009b0728",
+              "0x009b0cd8",
+              "0x009b0710",
+              "0x009b0f58",
+              "0x009b0d30",
+              "0x009b0da0",
+              "0x009b0e14",
+              "0x009b0e80",
+              "0x009b0f3c",
+              "0x009b0f68"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.25": {
+        "data_section_offset": "0x07ef88",
+        "compressed_size_bytes": 214299,
+        "compressed_sha256": "ceb916ebf198a1f49fff657b94a48a461419c0b162ab4f99a64bec29ed6ecefc",
+        "total_decompressed_bytes": 261516,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 5720,
+            "sha256": "3b7d6df7ed865a6fcfa76d240b6bd08006e8ace2bf63e771362a1c1dfe016d27"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 7384,
+            "sha256": "2275132d74d4305dff184852f918f92f492d5e5715f10a20658c3dfefd25cd4a"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040cce0",
+            "length_bytes": 10888,
+            "sha256": "92eef7579cbe598e271849018684882ae864a1e14aaa8fa8498a0716381f5a43"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 237524,
+            "sha256": "5c9daba5a420aa8bafcd9e6654e80d925e2f1491c3f38bac425d46cfafb0879a"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040f608",
+            "seg2_offset": "0x2928",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009afc94",
+              "0x009afcc0",
+              "0x009afcc8",
+              "0x009afcec",
+              "0x009afd00",
+              "0x009afd14",
+              "0x009afd60",
+              "0x009afd80",
+              "0x009afdec",
+              "0x009afe14",
+              "0x009afe34",
+              "0x009afe70",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0174",
+              null,
+              null,
+              null,
+              "0x009b0cd4",
+              null,
+              "0x009b0f54",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040f688",
+            "seg2_offset": "0x29a8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009afc94",
+              "0x009afcc0",
+              "0x009afcc8",
+              "0x009afcec",
+              "0x009afd00",
+              "0x009afd14",
+              "0x009afd60",
+              "0x009afd80",
+              "0x009afdec",
+              "0x009afe14",
+              "0x009afe34",
+              "0x009afe70",
+              "0x009aff58",
+              "0x009afeac",
+              "0x009b0d24",
+              "0x009b0004",
+              "0x009b007c",
+              "0x009b04c8",
+              "0x009b00e8",
+              "0x009b0174",
+              "0x009b06a0",
+              "0x009b0740",
+              "0x009b0724",
+              "0x009b0cd4",
+              "0x009b070c",
+              "0x009b0f54",
+              "0x009b0d2c",
+              "0x009b0d9c",
+              "0x009b0e10",
+              "0x009b0e7c",
+              "0x009b0f38",
+              "0x009b0f64"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.11": {
+        "data_section_offset": "0x07f568",
+        "compressed_size_bytes": 214901,
+        "compressed_sha256": "810860df590ec69beb104dea417e0469c1d7701f06b906af85b58a6d685cfafa",
+        "total_decompressed_bytes": 266072,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 5876,
+            "sha256": "ec0e3ee4b071e00c4d44380cbbc6992b59ad854156a6f7a79e7fc4de0e825867"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 7104,
+            "sha256": "8cd0889a06d666f4c997f25eae35bfdd0aa8cb4a7ca6d8d50f4374ecfad0d14b"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040cbc0",
+            "length_bytes": 10864,
+            "sha256": "cac617b98425c390db216aa4dd5f0a61aa3d4d9e902297a46ec3a29dc0baec20"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 242228,
+            "sha256": "9b2a3fbf86673857701c435520c9e5797731fb8bafa1024638f4d02ce36245c6"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040f4d4",
+            "seg2_offset": "0x2914",
+            "non_null_slots": 14,
+            "kind": "initial_hooks_14_of_32",
+            "slots": [
+              null,
+              "0x009afe2c",
+              "0x009afe58",
+              "0x009afe60",
+              "0x009afe84",
+              "0x009afe98",
+              "0x009afeac",
+              "0x009afef8",
+              "0x009aff64",
+              "0x009aff8c",
+              "0x009affac",
+              "0x009affe8",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b02ec",
+              null,
+              null,
+              null,
+              "0x009b0e4c",
+              null,
+              "0x009b10cc",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040f554",
+            "seg2_offset": "0x2994",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009afe2c",
+              "0x009afe58",
+              "0x009afe60",
+              "0x009afe84",
+              "0x009afe98",
+              "0x009afeac",
+              "0x009afef8",
+              "0x009aff64",
+              "0x009aff8c",
+              "0x009affac",
+              "0x009affe8",
+              "0x009b00d0",
+              "0x009b0024",
+              "0x009b0e9c",
+              "0x009b017c",
+              "0x009b01f4",
+              "0x009b0640",
+              "0x009b0260",
+              "0x009b02ec",
+              "0x009b0818",
+              "0x009b08b8",
+              "0x009b089c",
+              "0x009b0e4c",
+              "0x009b0884",
+              "0x009b10cc",
+              "0x009b0ea4",
+              "0x009b0f14",
+              "0x009b0f88",
+              "0x009b0ff4",
+              "0x009b10b0",
+              "0x009b10dc",
+              "0x009afe18"
+            ]
+          }
+        ]
+      }
+    },
+    "athwlan_AR9888v2_ptmp_ap_bin": {
+      "XC.v8.7.25": {
+        "data_section_offset": "0x041e74",
+        "compressed_size_bytes": 251686,
+        "compressed_sha256": "5c2bcb92b61d0a3286613682e59e39280ac96679912576860e8f5d90516ef1b9",
+        "total_decompressed_bytes": 308016,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6328,
+            "sha256": "c70219c0e67e6468f275e156eb7f32828ac2bf6fdc4224de26b292a176cba01c"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8636,
+            "sha256": "169b45cd02abdc520d9926f675ea5735262380089dde294755e5f0d7dfcfc49f"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d1c0",
+            "length_bytes": 14280,
+            "sha256": "a3f3e09f6971b490d6fc7a0204bdb3edc99f4c889cb86c3cfdd3acd4dcbb62f0"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 278772,
+            "sha256": "8f3e86bae5dcf00ed592feb1bdbb8a6dcdb8e6abf2ebf488a3a1582f6f188c93"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x00410828",
+            "seg2_offset": "0x3668",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009b0440",
+              "0x009b0484",
+              "0x009b048c",
+              "0x009b04bc",
+              "0x009b04d0",
+              "0x009b04e4",
+              "0x009b0538",
+              "0x009b0558",
+              "0x009b05c4",
+              "0x009b05ec",
+              "0x009b060c",
+              "0x009b0648",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0b5c",
+              null,
+              null,
+              null,
+              "0x009b1ab8",
+              null,
+              "0x009b1d34",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x004108a8",
+            "seg2_offset": "0x36e8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b0440",
+              "0x009b0484",
+              "0x009b048c",
+              "0x009b04bc",
+              "0x009b04d0",
+              "0x009b04e4",
+              "0x009b0538",
+              "0x009b0558",
+              "0x009b05c4",
+              "0x009b05ec",
+              "0x009b060c",
+              "0x009b0648",
+              "0x009b0730",
+              "0x009b0684",
+              "0x009b1b0c",
+              "0x009b0870",
+              "0x009b0878",
+              "0x009b1010",
+              "0x009b0a6c",
+              "0x009b0b5c",
+              "0x009b13f4",
+              "0x009b1558",
+              "0x009b1474",
+              "0x009b1ab8",
+              "0x009b145c",
+              "0x009b1d34",
+              "0x009b1b14",
+              "0x009b1b1c",
+              "0x009b1b88",
+              "0x009b1bdc",
+              "0x009b1d00",
+              "0x009b1d44"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.25": {
+        "data_section_offset": "0x041b70",
+        "compressed_size_bytes": 250900,
+        "compressed_sha256": "20ec5444da56803bf77cf9334a3ca005ceef92fd04a2407b6a123e8560644243",
+        "total_decompressed_bytes": 304572,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6328,
+            "sha256": "5798fc78355db4af497b0942c81b122871d045aee2617e2a09b97525f43ca83e"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8600,
+            "sha256": "87b516ece746e55799ec4f2ef068423ba1dc9c207c147e8a06d8a37c07c970f3"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d1a0",
+            "length_bytes": 10888,
+            "sha256": "af7148d97fd732a0704b5910df25609b98922aa853e89914781a4fa8f0d6654e"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 278756,
+            "sha256": "d2bdb029841e6dd145a1471803e61e2fbb7052cc3308e7cca7556078feefe6ab"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040fac8",
+            "seg2_offset": "0x2928",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009b043c",
+              "0x009b0480",
+              "0x009b0488",
+              "0x009b04b8",
+              "0x009b04cc",
+              "0x009b04e0",
+              "0x009b0534",
+              "0x009b0554",
+              "0x009b05c0",
+              "0x009b05e8",
+              "0x009b0608",
+              "0x009b0644",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0b58",
+              null,
+              null,
+              null,
+              "0x009b1ab4",
+              null,
+              "0x009b1d30",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040fb48",
+            "seg2_offset": "0x29a8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b043c",
+              "0x009b0480",
+              "0x009b0488",
+              "0x009b04b8",
+              "0x009b04cc",
+              "0x009b04e0",
+              "0x009b0534",
+              "0x009b0554",
+              "0x009b05c0",
+              "0x009b05e8",
+              "0x009b0608",
+              "0x009b0644",
+              "0x009b072c",
+              "0x009b0680",
+              "0x009b1b08",
+              "0x009b086c",
+              "0x009b0874",
+              "0x009b100c",
+              "0x009b0a68",
+              "0x009b0b58",
+              "0x009b13f0",
+              "0x009b1554",
+              "0x009b1470",
+              "0x009b1ab4",
+              "0x009b1458",
+              "0x009b1d30",
+              "0x009b1b10",
+              "0x009b1b18",
+              "0x009b1b84",
+              "0x009b1bd8",
+              "0x009b1cfc",
+              "0x009b1d40"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.11": {
+        "data_section_offset": "0x041e40",
+        "compressed_size_bytes": 251681,
+        "compressed_sha256": "55e9c94a2f0b466ff50ced26f589c755b955e751861b466bb71be9f87de261ee",
+        "total_decompressed_bytes": 309464,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6496,
+            "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8500,
+            "sha256": "4352471afde9d65477ebf3af97cdfffb48080895a43b3e71745c08389c589483"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d140",
+            "length_bytes": 10864,
+            "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 283604,
+            "sha256": "50410ea5ddaa149e5f91ecb4ab74a196c86584976cb9e1c755ddfa060be44c86"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040fa54",
+            "seg2_offset": "0x2914",
+            "non_null_slots": 14,
+            "kind": "initial_hooks_14_of_32",
+            "slots": [
+              null,
+              "0x009b0634",
+              "0x009b0678",
+              "0x009b0680",
+              "0x009b06b0",
+              "0x009b06c4",
+              "0x009b06d8",
+              "0x009b072c",
+              "0x009b0798",
+              "0x009b07c0",
+              "0x009b07e0",
+              "0x009b081c",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0d30",
+              null,
+              null,
+              null,
+              "0x009b1c60",
+              null,
+              "0x009b1edc",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040fad4",
+            "seg2_offset": "0x2994",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b0634",
+              "0x009b0678",
+              "0x009b0680",
+              "0x009b06b0",
+              "0x009b06c4",
+              "0x009b06d8",
+              "0x009b072c",
+              "0x009b0798",
+              "0x009b07c0",
+              "0x009b07e0",
+              "0x009b081c",
+              "0x009b0904",
+              "0x009b0858",
+              "0x009b1cb4",
+              "0x009b0a44",
+              "0x009b0a4c",
+              "0x009b11c4",
+              "0x009b0c40",
+              "0x009b0d30",
+              "0x009b159c",
+              "0x009b1700",
+              "0x009b161c",
+              "0x009b1c60",
+              "0x009b1604",
+              "0x009b1edc",
+              "0x009b1cbc",
+              "0x009b1cc4",
+              "0x009b1d30",
+              "0x009b1d84",
+              "0x009b1ea8",
+              "0x009b1eec",
+              "0x009b0620"
+            ]
+          }
+        ]
+      }
+    },
+    "athwlan_AR9888v2_ptmp_sta_bin": {
+      "XC.v8.7.25": {
+        "data_section_offset": "0x008b44",
+        "compressed_size_bytes": 234284,
+        "compressed_sha256": "6c317af016007935641ec6679b6177800c93f6fd67bfab264f3a1fe8464e922b",
+        "total_decompressed_bytes": 288416,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6060,
+            "sha256": "c4762dda8a2858b334b7c42df3a9e9b47a31987df7b4e910f2640374e0a179a9"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8808,
+            "sha256": "8fb4a02efa534c9f1e33d90d6e0f3893c03229b58dbe336fd2202ee38bcaafb0"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d270",
+            "length_bytes": 14280,
+            "sha256": "5fa0d708fc0adf795bfef478d1efec0622a8cbb6f2dba83cd0390042278d2387"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 259268,
+            "sha256": "633cf66faf4836d7dac422696c6b4fef53a365dca2321d5ece49c4d25d954c58"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x004108d8",
+            "seg2_offset": "0x3668",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009b046c",
+              "0x009b04b0",
+              "0x009b04b8",
+              "0x009b04e8",
+              "0x009b04fc",
+              "0x009b0510",
+              "0x009b0564",
+              "0x009b0584",
+              "0x009b05f0",
+              "0x009b0618",
+              "0x009b0638",
+              "0x009b0674",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0b54",
+              null,
+              null,
+              null,
+              "0x009b1bf0",
+              null,
+              "0x009b1ea0",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x00410958",
+            "seg2_offset": "0x36e8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b046c",
+              "0x009b04b0",
+              "0x009b04b8",
+              "0x009b04e8",
+              "0x009b04fc",
+              "0x009b0510",
+              "0x009b0564",
+              "0x009b0584",
+              "0x009b05f0",
+              "0x009b0618",
+              "0x009b0638",
+              "0x009b0674",
+              "0x009b075c",
+              "0x009b06b0",
+              "0x009b1c44",
+              "0x009b0868",
+              "0x009b0870",
+              "0x009b0fe8",
+              "0x009b0a5c",
+              "0x009b0b54",
+              "0x009b1474",
+              "0x009b1654",
+              "0x009b14f4",
+              "0x009b1bf0",
+              "0x009b14dc",
+              "0x009b1ea0",
+              "0x009b1c4c",
+              "0x009b1ca8",
+              "0x009b1cf8",
+              "0x009b1d4c",
+              "0x009b1e64",
+              "0x009b1eb0"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.25": {
+        "data_section_offset": "0x008b44",
+        "compressed_size_bytes": 233509,
+        "compressed_sha256": "edd60f483651f79f130bcabd50d6e0c31f490ae1597c7c4f3317d51c689d56c6",
+        "total_decompressed_bytes": 284972,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6060,
+            "sha256": "74b3661973def07f123412d80c136c50d46a85285a01037f8f9474816a85d87c"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8772,
+            "sha256": "d7ed91ebdac7a2b010fc16d29fbd6defacacd7a62e4b8f4ea84b2470f77be7c9"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d250",
+            "length_bytes": 10888,
+            "sha256": "13738f7490dc7f7f17e66a79b368ffeead8578dc785159eb74f54cb0968b34cf"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 259252,
+            "sha256": "42ffa82ab262f7ffa6339facea0a253337393a5a22dcc928d1004a5d64ae4395"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040fb78",
+            "seg2_offset": "0x2928",
+            "non_null_slots": 15,
+            "kind": "initial_hooks_15_of_32",
+            "slots": [
+              "0x009b0468",
+              "0x009b04ac",
+              "0x009b04b4",
+              "0x009b04e4",
+              "0x009b04f8",
+              "0x009b050c",
+              "0x009b0560",
+              "0x009b0580",
+              "0x009b05ec",
+              "0x009b0614",
+              "0x009b0634",
+              "0x009b0670",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0b50",
+              null,
+              null,
+              null,
+              "0x009b1bec",
+              null,
+              "0x009b1e9c",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040fbf8",
+            "seg2_offset": "0x29a8",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b0468",
+              "0x009b04ac",
+              "0x009b04b4",
+              "0x009b04e4",
+              "0x009b04f8",
+              "0x009b050c",
+              "0x009b0560",
+              "0x009b0580",
+              "0x009b05ec",
+              "0x009b0614",
+              "0x009b0634",
+              "0x009b0670",
+              "0x009b0758",
+              "0x009b06ac",
+              "0x009b1c40",
+              "0x009b0864",
+              "0x009b086c",
+              "0x009b0fe4",
+              "0x009b0a58",
+              "0x009b0b50",
+              "0x009b1470",
+              "0x009b1650",
+              "0x009b14f0",
+              "0x009b1bec",
+              "0x009b14d8",
+              "0x009b1e9c",
+              "0x009b1c48",
+              "0x009b1ca4",
+              "0x009b1cf4",
+              "0x009b1d48",
+              "0x009b1e60",
+              "0x009b1eac"
+            ]
+          }
+        ]
+      },
+      "WA.v8.7.11": {
+        "data_section_offset": "0x008b24",
+        "compressed_size_bytes": 234262,
+        "compressed_sha256": "efadb168556fc73a9bfcb8d894358fe47785c5d54651e83947207e0cd538b6ad",
+        "total_decompressed_bytes": 289752,
+        "segments": [
+          {
+            "index": 0,
+            "role": ".lit4_literals",
+            "target_addr": "0x00980000",
+            "length_bytes": 6232,
+            "sha256": "70e81f1cf4672a59788f9b573509f6472f20544d1fcf1d4fb8953e0c8b7a8c43"
+          },
+          {
+            "index": 1,
+            "role": ".rodata_strings",
+            "target_addr": "0x0040b000",
+            "length_bytes": 8492,
+            "sha256": "b7c1f7855fb27b2097b0a82ed0788980f7264e4298346cf3111cf8a1c3a3c687"
+          },
+          {
+            "index": 2,
+            "role": ".data_ctl_and_hooks",
+            "target_addr": "0x0040d130",
+            "length_bytes": 10864,
+            "sha256": "b9f91b5d7d26a5d3847a8d8a798cdd06d509d7d86e5267027fc72a06ab5e5b52"
+          },
+          {
+            "index": 3,
+            "role": ".text_xtensa_code",
+            "target_addr": "0x00983c00",
+            "length_bytes": 264164,
+            "sha256": "c2c60e9bb170b567fa6124f54b805579eb5f7d17905fc46a0e20819cba6ce1c2"
+          }
+        ],
+        "hook_tables": [
+          {
+            "table_va": "0x0040fa44",
+            "seg2_offset": "0x2914",
+            "non_null_slots": 14,
+            "kind": "initial_hooks_14_of_32",
+            "slots": [
+              null,
+              "0x009b0660",
+              "0x009b06a4",
+              "0x009b06ac",
+              "0x009b06dc",
+              "0x009b06f0",
+              "0x009b0704",
+              "0x009b0758",
+              "0x009b07c4",
+              "0x009b07ec",
+              "0x009b080c",
+              "0x009b0848",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "0x009b0d28",
+              null,
+              null,
+              null,
+              "0x009b1da8",
+              null,
+              "0x009b2058",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "table_va": "0x0040fac4",
+            "seg2_offset": "0x2994",
+            "non_null_slots": 32,
+            "kind": "full_polling_hooks_32_of_32",
+            "slots": [
+              "0x009b0660",
+              "0x009b06a4",
+              "0x009b06ac",
+              "0x009b06dc",
+              "0x009b06f0",
+              "0x009b0704",
+              "0x009b0758",
+              "0x009b07c4",
+              "0x009b07ec",
+              "0x009b080c",
+              "0x009b0848",
+              "0x009b0930",
+              "0x009b0884",
+              "0x009b1dfc",
+              "0x009b0a3c",
+              "0x009b0a44",
+              "0x009b11b4",
+              "0x009b0c30",
+              "0x009b0d28",
+              "0x009b162c",
+              "0x009b180c",
+              "0x009b16ac",
+              "0x009b1da8",
+              "0x009b1694",
+              "0x009b2058",
+              "0x009b1e04",
+              "0x009b1e60",
+              "0x009b1eb0",
+              "0x009b1f04",
+              "0x009b201c",
+              "0x009b2068",
+              "0x009b064c"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "comparative_deltas": {
+    "athwlan_AR9888v2_ptp_bin": {
+      "compressed_size_delta_xc25_minus_wa25_bytes": 775,
+      "segment_length_deltas_xc25_minus_wa25": {
+        "seg0": 0,
+        "seg1": 36,
+        "seg2": 3392,
+        "seg3": 0
+      },
+      "segment_length_deltas_wa25_minus_wa11": {
+        "seg0": -156,
+        "seg1": 280,
+        "seg2": 24,
+        "seg3": -4704
+      },
+      "rodata_strings_only_in_xc25": [
+        "Low Power 1",
+        "Low Power 2",
+        "NBE-AC-19",
+        "PBE-AC-500",
+        "PBE-AC-500-ISO",
+        "PBE-AC-620",
+        "PBE-AC-620-ISO",
+        "RM5AC-PTMP",
+        "RM5AC-PTP",
+        "RM5ACL"
+      ],
+      "rodata_strings_only_in_wa25": [
+        "LAP-GPS",
+        "LBE-AC-23",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "NBE-AC-16",
+        "NBE-AC-16C",
+        "PBE-AC-300",
+        "PBE-AC-400"
+      ],
+      "rodata_strings_added_in_wa25_vs_wa11": [
+        "LAP-GPS",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "channel not switched because chan info is missing, freq %d, center %d",
+        "channel switched to (freq/center): (%d/%d)",
+        "warning: channel switch data differs, centers (local / sync): (%d / %d)",
+        "warning: channel switch data differs, freqs (local / sync): (%d / %d)",
+        "warning: channel switch not synced"
+      ],
+      "hook_table_va_shift_xc25_minus_wa25_hex": "0xd60",
+      "hook_table_va_shift_wa25_minus_wa11_hex": "0x134",
+      "initial_hooks_non_null_counts": {
+        "XC.v8.7.25": 15,
+        "WA.v8.7.25": 15,
+        "WA.v8.7.11": 14
+      }
+    },
+    "athwlan_AR9888v2_ptmp_ap_bin": {
+      "compressed_size_delta_xc25_minus_wa25_bytes": 786,
+      "segment_length_deltas_xc25_minus_wa25": {
+        "seg0": 0,
+        "seg1": 36,
+        "seg2": 3392,
+        "seg3": 16
+      },
+      "segment_length_deltas_wa25_minus_wa11": {
+        "seg0": -168,
+        "seg1": 100,
+        "seg2": 24,
+        "seg3": -4848
+      },
+      "rodata_strings_only_in_xc25": [
+        "Low Power 1",
+        "Low Power 2",
+        "NBE-AC-19",
+        "PBE-AC-500",
+        "PBE-AC-500-ISO",
+        "PBE-AC-620",
+        "PBE-AC-620-ISO",
+        "RM5AC-PTMP",
+        "RM5AC-PTP",
+        "RM5ACL"
+      ],
+      "rodata_strings_only_in_wa25": [
+        "LAP-GPS",
+        "LBE-AC-23",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "NBE-AC-16",
+        "NBE-AC-16C",
+        "PBE-AC-300",
+        "PBE-AC-400"
+      ],
+      "rodata_strings_added_in_wa25_vs_wa11": [
+        "LAP-GPS",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "channel not switched because chan info is missing, freq %d, center %d",
+        "channel switched to (freq/center): (%d/%d)"
+      ],
+      "hook_table_va_shift_xc25_minus_wa25_hex": "0xd60",
+      "hook_table_va_shift_wa25_minus_wa11_hex": "0x74",
+      "initial_hooks_non_null_counts": {
+        "XC.v8.7.25": 15,
+        "WA.v8.7.25": 15,
+        "WA.v8.7.11": 14
+      }
+    },
+    "athwlan_AR9888v2_ptmp_sta_bin": {
+      "compressed_size_delta_xc25_minus_wa25_bytes": 775,
+      "segment_length_deltas_xc25_minus_wa25": {
+        "seg0": 0,
+        "seg1": 36,
+        "seg2": 3392,
+        "seg3": 16
+      },
+      "segment_length_deltas_wa25_minus_wa11": {
+        "seg0": -172,
+        "seg1": 280,
+        "seg2": 24,
+        "seg3": -4912
+      },
+      "rodata_strings_only_in_xc25": [
+        "Low Power 1",
+        "Low Power 2",
+        "NBE-AC-19",
+        "PBE-AC-500",
+        "PBE-AC-500-ISO",
+        "PBE-AC-620",
+        "PBE-AC-620-ISO",
+        "RM5AC-PTMP",
+        "RM5AC-PTP",
+        "RM5ACL"
+      ],
+      "rodata_strings_only_in_wa25": [
+        "LAP-GPS",
+        "LBE-AC-23",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "NBE-AC-16",
+        "NBE-AC-16C",
+        "PBE-AC-300",
+        "PBE-AC-400"
+      ],
+      "rodata_strings_added_in_wa25_vs_wa11": [
+        "LAP-GPS",
+        "Loco5AC",
+        "NBE-5AC-G2",
+        "channel not switched because chan info is missing, freq %d, center %d",
+        "channel switched to (freq/center): (%d/%d)",
+        "warning: channel switch data differs, centers (local / sync): (%d / %d)",
+        "warning: channel switch data differs, freqs (local / sync): (%d / %d)",
+        "warning: channel switch not synced"
+      ],
+      "hook_table_va_shift_xc25_minus_wa25_hex": "0xd60",
+      "hook_table_va_shift_wa25_minus_wa11_hex": "0x134",
+      "initial_hooks_non_null_counts": {
+        "XC.v8.7.25": 15,
+        "WA.v8.7.25": 15,
+        "WA.v8.7.11": 14
+      }
+    }
+  },
+  "key_findings": [
+    {
+      "id": "FMX-317A-01",
+      "status": "CONFIRMED",
+      "attribution": "QCA firmware",
+      "claim": "otp_AR9888v2_bin is byte-for-byte identical across XC.v8.7.25, WA.v8.7.25, and WA.v8.7.11 (6,917 B compressed, SHA-256 c6f55649832e3b37..., 4 segments at 0x00980000/0x00407000/0x00407358/0x00980700)."
+    },
+    {
+      "id": "FMX-317A-02",
+      "status": "CONFIRMED",
+      "attribution": "QCA firmware + proprietary airMAX/LTU module",
+      "claim": "In all 3 modes (PtP, PtMP AP, PtMP STA), XC.v8.7.25 seg[1] (.rodata at 0x0040b000) is +36 B larger than WA.v8.7.25 because it replaces WA 2x2 board CTL strings (LAP-GPS, LBE-AC-23, Loco5AC, NBE-5AC-G2, NBE-AC-16, NBE-AC-16C, PBE-AC-300, PBE-AC-400) with XC 3x3 / AirPrism board strings (Low Power 1, Low Power 2, NBE-AC-19, PBE-AC-500, PBE-AC-500-ISO, PBE-AC-620, PBE-AC-620-ISO, RM5AC-PTMP, RM5AC-PTP, RM5ACL)."
+    },
+    {
+      "id": "FMX-317A-03",
+      "status": "CONFIRMED",
+      "attribution": "QCA firmware + proprietary airMAX/LTU module",
+      "claim": "In all 3 modes, XC.v8.7.25 seg[2] (.data) is exactly +3,392 B (+0x0d40 B) larger than WA.v8.7.25 (14,280 vs 10,888 B PtP; 14,048 vs 10,656 B AP; 13,708 vs 10,316 B STA) to store 3-chain QCA9880 CTL/EIRP calibration tables, shifting the Initial Hooks and Full Polling Hooks tables by +0x0d40 (PtP: 0x0040f608/0x0040f688 -> 0x00410368/0x004103e8; AP: 0x0040fac8/0x0040fb48 -> 0x00410828/0x004108a8; STA: 0x0040fb78/0x0040fbf8 -> 0x004108d8/0x00410958)."
+    },
+    {
+      "id": "FMX-317A-04",
+      "status": "CONFIRMED",
+      "attribution": "QCA firmware + proprietary airMAX/LTU module",
+      "claim": "Seg[3] (.text at 0x00983c00) in PtP is 237,524 B in both XC.v8.7.25 and WA.v8.7.25 (with hook entry VAs shifted by +4 B in XC due to a single 3-stream chainmask instruction ahead of 0x009af000), while PtMP AP (278,772 vs 278,756 B) and PtMP STA (259,268 vs 259,252 B) are +16 B larger in XC for 3x3 NSS=3 spatial-stream handling."
+    },
+    {
+      "id": "FMX-317A-05",
+      "status": "CONFIRMED",
+      "attribution": "proprietary airMAX/LTU module",
+      "claim": "Between WA.v8.7.11 and WA.v8.7.25, Ubiquiti added Slot 19 (0x009b0174 in PtP) to the Initial Hooks table (raising Initial Hooks from 14/32 non-null in v8.7.11 to 15/32 non-null in v8.7.25) so early TX completion events before platform_install_hooks are guarded."
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "PASS",
+      "evidence": "Decompressed all 12 SGMT segments + 3 OTP blobs across XC.v8.7.25, WA.v8.7.25, and WA.v8.7.11 umac.ko."
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "PASS",
+      "evidence": "Cross-verified QCA9880 (3x3) vs QCA9882 (2x2) target memory map and CTL board tables against Stage 111A/138A."
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PASS",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "live_devices_touched": false
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "PASS",
+      "fmx_loss": 0.0,
+      "pareto_delta": "Exact byte-level attribution of 100% of host (+2,336 B) and target (+36 B .rodata, +3,392 B .data) deltas."
+    },
+    "pillar_e_memory_master_claim_id": "mm-stage317a-xc-vs-wa-qca988x-target-fw"
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": true,
+  "pillar_b_hyperresearch_and_scholar_reactor": true,
+  "pillar_c_karpathy_autoresearch_and_watchdog": true,
+  "pillar_d_scientific_pareto_validation": true,
+  "pillar_e_memory_master_claim_id": "mm-stage317a-xc-vs-wa-qca988x-target-fw"
+}

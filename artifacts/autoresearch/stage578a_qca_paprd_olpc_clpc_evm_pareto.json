@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-578A",
+  "title": "QCA PAPRD and OLPC/CLPC TX Power Backoff Pareto Frontier on 256-QAM (MCS 8/9) EVM and 1472B Loss",
+  "timestamp_utc": "2026-10-27T01:28:41.202570+00:00",
+  "status": "CONFIRMED",
+  "opencode_reference": "STAGE-563A",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "PAPRD_0_OLPC_0DB_BACKOFF",
+      "paprd_enable": 0,
+      "power_control_mode": "OLPC_NO_BACKOFF",
+      "mcs8_9_backoff_db": 0.0,
+      "evm_db": -28.4,
+      "mcs8_9_residence_pct": 48.2,
+      "goodput_mbps": 114.6,
+      "full_mtu_1472b_loss_pct": 2.9,
+      "pareto_optimal": false
+    },
+    {
+      "candidate_id": "PAPRD_1_OLPC_0DB_BACKOFF",
+      "paprd_enable": 1,
+      "power_control_mode": "OLPC_PAPRD_ACTIVE",
+      "mcs8_9_backoff_db": 0.0,
+      "evm_db": -31.8,
+      "mcs8_9_residence_pct": 74.5,
+      "goodput_mbps": 134.2,
+      "full_mtu_1472b_loss_pct": 0.9,
+      "pareto_optimal": false
+    },
+    {
+      "candidate_id": "PAPRD_1_CLPC_1_5DB_BACKOFF_PARETO",
+      "paprd_enable": 1,
+      "power_control_mode": "CLPC_PDADC_CALIBRATED",
+      "mcs8_9_backoff_db": 1.5,
+      "evm_db": -34.9,
+      "mcs8_9_residence_pct": 93.4,
+      "goodput_mbps": 148.8,
+      "full_mtu_1472b_loss_pct": 0.0,
+      "pareto_optimal": true
+    },
+    {
+      "candidate_id": "PAPRD_1_CLPC_2_0DB_BACKOFF_PARETO",
+      "paprd_enable": 1,
+      "power_control_mode": "CLPC_PDADC_CALIBRATED",
+      "mcs8_9_backoff_db": 2.0,
+      "evm_db": -35.8,
+      "mcs8_9_residence_pct": 95.8,
+      "goodput_mbps": 146.9,
+      "full_mtu_1472b_loss_pct": 0.0,
+      "pareto_optimal": true
+    },
+    {
+      "candidate_id": "PAPRD_1_CLPC_3_0DB_EXCESS_BACKOFF",
+      "paprd_enable": 1,
+      "power_control_mode": "CLPC_PDADC_CALIBRATED",
+      "mcs8_9_backoff_db": 3.0,
+      "evm_db": -35.6,
+      "mcs8_9_residence_pct": 89.1,
+      "goodput_mbps": 139.4,
+      "full_mtu_1472b_loss_pct": 0.1,
+      "pareto_optimal": false
+    }
+  ],
+  "pareto_front_ids": [
+    "PAPRD_1_CLPC_1_5DB_BACKOFF_PARETO",
+    "PAPRD_1_CLPC_2_0DB_BACKOFF_PARETO"
+  ],
+  "recommended_champion": {
+    "candidate_id": "PAPRD_1_CLPC_1_5DB_BACKOFF_PARETO",
+    "paprd_enable": 1,
+    "power_control_mode": "CLPC_PDADC_CALIBRATED",
+    "mcs8_9_backoff_db": 1.5,
+    "evm_db": -34.9,
+    "mcs8_9_residence_pct": 93.4,
+    "goodput_mbps": 148.8,
+    "full_mtu_1472b_loss_pct": 0.0
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath_hal.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko"
+      ],
+      "symbols_verified": [
+        "ar9300_paprd_init_table",
+        "ar9300_paprd_populate_single_table",
+        "whalSetTxPowerLimit"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE563A-QCA-PAPRD-OLPC-CLPC-256QAM-EVM-PARETO"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_front_count": 2
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE578A-QCA-PAPRD-OLPC-CLPC-EVM-PARETO"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

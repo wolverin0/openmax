@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "stage": "714A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage714a_ubnt_poll_ack_cts_timeout_and_distance_clamp_re.py",
+    "tool_sha256": "edd4ce4cc30da156698dbaee9d6b642b2b83fca9f844da60b5339421481383c4",
+    "output": "artifacts/autoresearch/stage714a_ubnt_poll_ack_cts_timeout_and_distance_clamp_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "conversion-message extraction for the distance-to-timeout link; per-module symbol lookup along the chain from per-node RTT through distance apply to the HAL register setters and the readback event; explicit probe for the ath9k register macros",
+    "premise_corrections": [
+      "MAC_PCU_ACK_CTS_TIMEOUT and MAC_D_GBL_IFS_SLOT are ath9k macros and do not exist as strings; the setters ar9300_set_ack_timeout and ar9300_set_slot_time are the writable interface",
+      "the chain is split across four modules, not two: ubnt_poll_host.ko holds per-node RTT, umac.ko holds distance and the readback, ath_hal.ko holds the register writes"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "defined_symbols": 418,
+      "tokens": {
+        "distance": 0,
+        "rtt": 2,
+        "ack_timeout": 0,
+        "acktimeout": 0,
+        "get_acktimeout": 0,
+        "ACK_CTS": 0,
+        "slot_time": 0,
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "registers": {
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "conv_msg": 0,
+      "rtt": {
+        "ubnt_poll_host_set_node_rtt": 1,
+        "ol_ath_rtt_meas_req": 0,
+        "wmi_rtt_meas_report_event_handler": 0
+      },
+      "dist": {
+        "ol_ath_set_distance": 0,
+        "wmi_unified_distance_report_handler": 0
+      },
+      "hal": {
+        "ar9300_set_ack_timeout": 0,
+        "ar9300_get_ack_timeout": 0,
+        "ar9300_set_slot_time": 0
+      },
+      "readback": {
+        "WMI_ACK_CTS_READ_EVENTID": 0,
+        "wmi_unified_ack_cts_read_event_handler": 0
+      },
+      "conv_contexts": [],
+      "dist_symbols": [],
+      "rtt_symbols": [
+        "ubnt_poll_host_reset_ff_rtt_active",
+        "ubnt_poll_host_set_node_rtt"
+      ],
+      "ack_symbols": []
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "distance": 4,
+        "rtt": 0,
+        "ack_timeout": 0,
+        "acktimeout": 3,
+        "get_acktimeout": 1,
+        "ACK_CTS": 0,
+        "slot_time": 0,
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "registers": {
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "conv_msg": 0,
+      "rtt": {
+        "ubnt_poll_host_set_node_rtt": 0,
+        "ol_ath_rtt_meas_req": 0,
+        "wmi_rtt_meas_report_event_handler": 0
+      },
+      "dist": {
+        "ol_ath_set_distance": 0,
+        "wmi_unified_distance_report_handler": 0
+      },
+      "hal": {
+        "ar9300_set_ack_timeout": 0,
+        "ar9300_get_ack_timeout": 0,
+        "ar9300_set_slot_time": 0
+      },
+      "readback": {
+        "WMI_ACK_CTS_READ_EVENTID": 0,
+        "wmi_unified_ack_cts_read_event_handler": 0
+      },
+      "conv_contexts": [],
+      "dist_symbols": [
+        "ath_distance2acktimeout",
+        "ath_get_distance"
+      ],
+      "rtt_symbols": [],
+      "ack_symbols": []
+    },
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 507,
+      "tokens": {
+        "distance": 0,
+        "rtt": 0,
+        "ack_timeout": 2,
+        "acktimeout": 0,
+        "get_acktimeout": 0,
+        "ACK_CTS": 0,
+        "slot_time": 1,
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "registers": {
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "conv_msg": 0,
+      "rtt": {
+        "ubnt_poll_host_set_node_rtt": 0,
+        "ol_ath_rtt_meas_req": 0,
+        "wmi_rtt_meas_report_event_handler": 0
+      },
+      "dist": {
+        "ol_ath_set_distance": 0,
+        "wmi_unified_distance_report_handler": 0
+      },
+      "hal": {
+        "ar9300_set_ack_timeout": 1,
+        "ar9300_get_ack_timeout": 1,
+        "ar9300_set_slot_time": 1
+      },
+      "readback": {
+        "WMI_ACK_CTS_READ_EVENTID": 0,
+        "wmi_unified_ack_cts_read_event_handler": 0
+      },
+      "conv_contexts": [],
+      "dist_symbols": [],
+      "rtt_symbols": [],
+      "ack_symbols": [
+        "ar9300_get_ack_timeout",
+        "ar9300_set_ack_timeout",
+        "ar9300_set_slot_time"
+      ]
+    },
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "distance": 15,
+        "rtt": 10,
+        "ack_timeout": 0,
+        "acktimeout": 0,
+        "get_acktimeout": 0,
+        "ACK_CTS": 2,
+        "slot_time": 2,
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "registers": {
+        "MAC_PCU": 0,
+        "GBL_IFS": 0,
+        "ni_distance": 0,
+        "cts_timeout": 0
+      },
+      "conv_msg": 1,
+      "rtt": {
+        "ubnt_poll_host_set_node_rtt": 0,
+        "ol_ath_rtt_meas_req": 2,
+        "wmi_rtt_meas_report_event_handler": 1
+      },
+      "dist": {
+        "ol_ath_set_distance": 2,
+        "wmi_unified_distance_report_handler": 2
+      },
+      "hal": {
+        "ar9300_set_ack_timeout": 0,
+        "ar9300_get_ack_timeout": 0,
+        "ar9300_set_slot_time": 0
+      },
+      "readback": {
+        "WMI_ACK_CTS_READ_EVENTID": 1,
+        "wmi_unified_ack_cts_read_event_handler": 2
+      },
+      "conv_contexts": [
+        "..conf.c...%s:wmi_buf_alloc failed.....<1>%s: distance set to %d (ACK_CTS_Timeout = %d)....BW divisor: %#X.....Asserting firmware......ERROR - value is "
+      ],
+      "dist_symbols": [
+        "ol_ath_set_distance",
+        "wlan_get_distance",
+        "wmi_unified_distance_report_handler"
+      ],
+      "rtt_symbols": [
+        "ol_ath_rtt_meas_report_attach",
+        "ol_ath_rtt_meas_req",
+        "rtt_print_meas_resp_body",
+        "rtt_print_resp_header"
+      ],
+      "ack_symbols": [
+        "wmi_unified_slot_time_read_event_handler"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "conversion_message_hits": 1,
+    "conversion_named": 1,
+    "rtt_chain": [
+      "ubnt_poll_host_set_node_rtt",
+      "ol_ath_rtt_meas_req",
+      "wmi_rtt_meas_report_event_handler"
+    ],
+    "rtt_chain_count": 3,
+    "rtt_chain_complete": 1,
+    "distance_apply": [
+      "ol_ath_set_distance",
+      "wmi_unified_distance_report_handler"
+    ],
+    "hal_setters": [
+      "ar9300_set_ack_timeout",
+      "ar9300_get_ack_timeout",
+      "ar9300_set_slot_time"
+    ],
+    "hal_setter_count": 3,
+    "both_registers_writable": 1,
+    "readback_path": [
+      "WMI_ACK_CTS_READ_EVENTID",
+      "wmi_unified_ack_cts_read_event_handler"
+    ],
+    "readback_present": 1,
+    "register_macro_hits": 0,
+    "register_macros_absent": 1,
+    "distance_symbols": [
+      "ath_distance2acktimeout",
+      "ath_get_distance",
+      "ol_ath_set_distance",
+      "wlan_get_distance",
+      "wmi_unified_distance_report_handler"
+    ],
+    "rtt_symbols": [
+      "ol_ath_rtt_meas_report_attach",
+      "ol_ath_rtt_meas_req",
+      "rtt_print_meas_resp_body",
+      "rtt_print_resp_header",
+      "ubnt_poll_host_reset_ff_rtt_active",
+      "ubnt_poll_host_set_node_rtt"
+    ],
+    "ack_slot_symbols": [
+      "ar9300_get_ack_timeout",
+      "ar9300_set_ack_timeout",
+      "ar9300_set_slot_time",
+      "wmi_unified_slot_time_read_event_handler"
+    ],
+    "distance_formula_recovered": 0,
+    "distance_clamp_recovered": 0
+  },
+  "gaps": [
+    "MAC_PCU_ACK_CTS_TIMEOUT and MAC_D_GBL_IFS_SLOT are macros: 0 hits, so the register offsets are not recoverable by name",
+    "the conversion prints both the distance and the resulting ACK/CTS timeout, but the coefficient between them is not in the module",
+    "whether the firmware clamps the value was not recovered: the readback event exists to observe it, but the clamp rule is not in the host modules",
+    "the chain spans four modules, so no single module documents it end to end",
+    "the slot-time computation from distance was not isolated; only the setter is named",
+    "no dynamic validation"
+  ]
+}

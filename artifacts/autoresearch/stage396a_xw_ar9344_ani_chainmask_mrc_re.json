@@ -1,0 +1,489 @@
+{
+  "meta": {
+    "stage": "396A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/xw_ar9344_ath9k_ani_and_chainmask_mrc_re.py",
+    "tool_sha256": "9f4faaac476c74463bfc1e09c22bcf8dc31faa2abfae848b8b9bce10c63e457e",
+    "output": "artifacts/autoresearch/stage396a_xw_ar9344_ani_chainmask_mrc_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "premise_corrections": [
+      "there is no XM rootfs: the M5 corpus holds xw_614_rootfs and xw_636_rootfs, so the two data points are XW 6.1.4 and XW 6.3.6",
+      "AR_PHY_MULTICHAIN_GAIN_CTL and AR_PHY_TIMING2 are compile-time macros on the ath9k side and are not strings in any compiled module; their absence from a string search is expected and is not evidence of disuse"
+    ],
+    "radio_safety": "static only"
+  },
+  "xm_roots_found": [],
+  "modules": [
+    {
+      "module": "XW.v6.1.4:ath_hal.ko",
+      "status": "ok",
+      "bytes": 562576,
+      "sha256": "880183f0a520d085154f2caf9ff50acf66f1e0264460cf19e5a8a09307e5d19b",
+      "defined_symbols": 580,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 2
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 5,
+        "ani_": 2,
+        "firstep": 2,
+        "cycpwr": 2,
+        "MRC": 1,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {
+        "chainmask": [
+          "an %d chanctl 0x%x.....    MATCH-EE_IDX %d: ch %d is2 %d 2xMinEdge %d chainmask %d chains %d...    SEL-Min ctlMode %d pCtlMode %d 2xMaxEdge %d sP %d ",
+          "n %uus....AWAKE...FULL-SLEEP..NETWORK SLEEP...UNDEFINED...%s: invalid chainmask 0x%x..%s: invalid mode 0x%x.... TPC Register method in use.....===TAR"
+        ]
+      },
+      "ewma_symbols": [],
+      "chainmask_symbols": [],
+      "ani_symbols": [
+        "ar9300_is_ani_noise_spur",
+        "ath_hal_log_ani_callback_register"
+      ]
+    },
+    {
+      "module": "XW.v6.1.4:ath_dev.ko",
+      "status": "ok",
+      "bytes": 436552,
+      "sha256": "ece709ec07d78ddfd479f0c7d813807edd3ba85ac983b272f66dd47aa73f572b",
+      "defined_symbols": 572,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 4,
+        "rxchainmask": 3,
+        "chainmask": 23
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 6,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {
+        "txchainmask": [
+          "t_keycache.......%H...printBBDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxcha",
+          "BDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg..",
+          "al ACK: dynack %d, set maxack %d..... invalid....%s[%d] sc->sc_config.txchainmask %d mask %d.....%s[%d] sc->sc_config.rxchainmask %d mask %d.....[DFS|%"
+        ],
+        "rxchainmask": [
+          "t_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg...........H.get_txchm",
+          "nmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg...........H.get_txchmaskleg.....H...rxchmaskleg..",
+          ".%s[%d] sc->sc_config.txchainmask %d mask %d.....%s[%d] sc->sc_config.rxchainmask %d mask %d.....[DFS|%d] %s:%d..%s: ERROR - sc_dfs is NULL!.....[DFS|%"
+        ],
+        "chainmask": [
+          "......<.......<............................................ath_set_tx_chainmask....ath_set_rx_chainmask....ath_do_pwrworkaround....ath_start_all_vaps",
+          "...................................ath_set_tx_chainmask....ath_set_rx_chainmask....ath_do_pwrworkaround....ath_start_all_vaps..ath_node_set_fixedrate",
+          "keycache.......%H...printBBDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxcha"
+        ]
+      },
+      "ewma_symbols": [],
+      "chainmask_symbols": [
+        "ath_chainmask_sel_down_rssi_thres",
+        "ath_chainmask_sel_logic",
+        "ath_chainmask_sel_period",
+        "ath_chainmask_sel_up_rssi_thres",
+        "ath_set_rx_chainmask",
+        "ath_set_rx_chainmasklegacy",
+        "ath_set_tx_chainmask",
+        "ath_set_tx_chainmasklegacy",
+        "ath_txchainmask_reduction"
+      ],
+      "ani_symbols": []
+    },
+    {
+      "module": "XW.v6.1.4:ath_rate_atheros.ko",
+      "status": "ok",
+      "bytes": 152816,
+      "sha256": "725e744547756d9318c89596992209270bc0c4e6af2eb49e1f9c7e4f32d4314c",
+      "defined_symbols": 73,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 0
+      },
+      "ewma": {
+        "ewma_delegate": 10,
+        "delegate_on": 9,
+        "ubnt_ewma_delegate_on": 9
+      },
+      "ani": {
+        "ANI": 0,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {},
+      "ewma_symbols": [
+        "__mod_ubnt_ewma_delegate_on44",
+        "__mod_ubnt_ewma_delegate_ontype43",
+        "__param_str_ubnt_ewma_delegate_on",
+        "__param_ubnt_ewma_delegate_on",
+        "ubnt_ewma_delegate_in_use",
+        "ubnt_ewma_delegate_on"
+      ],
+      "chainmask_symbols": [],
+      "ani_symbols": []
+    },
+    {
+      "module": "XW.v6.1.4:ubnt_ewma_ht.ko",
+      "status": "ok",
+      "bytes": 22652,
+      "sha256": "64bde751256fedae462720a224f3981f87c00d66473ae6d75a3993519f7ec9d4",
+      "defined_symbols": 61,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 0
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 0,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {},
+      "ewma_symbols": [
+        "ewma_alloc",
+        "ewma_alloc_sta",
+        "ewma_frame_duration",
+        "ewma_free",
+        "ewma_free_sta",
+        "ewma_get_fixed_rate",
+        "ewma_get_rate",
+        "ewma_ht_alloc",
+        "ewma_ht_free",
+        "ewma_ht_get_fixed_rate",
+        "ewma_ht_get_rate",
+        "ewma_ht_query_tx_rate",
+        "ewma_ht_rate_init",
+        "ewma_ht_tx_status",
+        "ewma_mcs_groups",
+        "ewma_query_tx_rate",
+        "ewma_rate_init",
+        "ewma_tx_status",
+        "ubnt_ewma_ath_rate_attach",
+        "ubnt_ewma_ath_rate_create_vap",
+        "ubnt_ewma_ath_rate_detach",
+        "ubnt_ewma_ath_rate_findrate",
+        "ubnt_ewma_ath_rate_findrateix",
+        "ubnt_ewma_ath_rate_free_vap"
+      ],
+      "chainmask_symbols": [],
+      "ani_symbols": []
+    },
+    {
+      "module": "XW.v6.3.6:ath_hal.ko",
+      "status": "ok",
+      "bytes": 503892,
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "defined_symbols": 583,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 2
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 5,
+        "ani_": 2,
+        "firstep": 2,
+        "cycpwr": 2,
+        "MRC": 1,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {
+        "chainmask": [
+          "an %d chanctl 0x%x.....    MATCH-EE_IDX %d: ch %d is2 %d 2xMinEdge %d chainmask %d chains %d...    SEL-Min ctlMode %d pCtlMode %d 2xMaxEdge %d sP %d ",
+          " 0x%x.....AWAKE...FULL-SLEEP..NETWORK SLEEP...UNDEFINED...%s: invalid chainmask 0x%x..%s: invalid mode 0x%x.... TPC Register method in use.....===TAR"
+        ]
+      },
+      "ewma_symbols": [],
+      "chainmask_symbols": [],
+      "ani_symbols": [
+        "ar9300_is_ani_noise_spur",
+        "ath_hal_log_ani_callback_register"
+      ]
+    },
+    {
+      "module": "XW.v6.3.6:ath_dev.ko",
+      "status": "ok",
+      "bytes": 414408,
+      "sha256": "c95d10fec7b5480c53ffa63329657e8638dcdca1420267a84ab61766b04ce855",
+      "defined_symbols": 568,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 4,
+        "rxchainmask": 3,
+        "chainmask": 23
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 6,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {
+        "txchainmask": [
+          "t_keycache.......%H...printBBDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxcha",
+          "BDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg..",
+          ".%s[%d] sc->sc_config.rxchainmask %d mask %d.....%s[%d] sc->sc_config.txchainmask %d mask %d.....%s:%d: DFSH still active [forced]...[DFS|%d] %s:%d] %s"
+        ],
+        "rxchainmask": [
+          "t_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg...........H.get_txchm",
+          "nmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxchainmask.....H...txchmaskleg...........H.get_txchmaskleg.....H...rxchmaskleg..",
+          "d, an_fixedrix = %d, an_fixedratecode = 0x%x.....%s[%d] sc->sc_config.rxchainmask %d mask %d.....%s[%d] sc->sc_config.txchainmask %d mask %d.....%s:%d:"
+        ],
+        "chainmask": [
+          "..........$...0...<...H..1...1...................1 ......10ath_set_tx_chainmask....ath_set_rx_chainmask....ath_do_pwrworkaround....ath_start_all_vaps",
+          ".1...1...................1 ......10ath_set_tx_chainmask....ath_set_rx_chainmask....ath_do_pwrworkaround....ath_start_all_vaps..ath_node_set_fixedrate",
+          "keycache.......%H...printBBDebug.......%..H.get_printBBDebug....H...txchainmask...........H.get_txchainmask.....H...rxchainmask...........H.get_rxcha"
+        ]
+      },
+      "ewma_symbols": [],
+      "chainmask_symbols": [
+        "ath_chainmask_sel_down_rssi_thres",
+        "ath_chainmask_sel_logic",
+        "ath_chainmask_sel_period",
+        "ath_chainmask_sel_up_rssi_thres",
+        "ath_set_rx_chainmask",
+        "ath_set_rx_chainmasklegacy",
+        "ath_set_tx_chainmask",
+        "ath_set_tx_chainmasklegacy",
+        "ath_txchainmask_reduction"
+      ],
+      "ani_symbols": []
+    },
+    {
+      "module": "XW.v6.3.6:ath_rate_atheros.ko",
+      "status": "ok",
+      "bytes": 139128,
+      "sha256": "325e9f7437307ae68ca0e08d9d4b82c8a2b0548955db663636226a4f013c1580",
+      "defined_symbols": 75,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 0
+      },
+      "ewma": {
+        "ewma_delegate": 10,
+        "delegate_on": 9,
+        "ubnt_ewma_delegate_on": 9
+      },
+      "ani": {
+        "ANI": 0,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {},
+      "ewma_symbols": [
+        "__mod_ubnt_ewma_delegate_on44",
+        "__mod_ubnt_ewma_delegate_ontype43",
+        "__param_str_ubnt_ewma_delegate_on",
+        "__param_ubnt_ewma_delegate_on",
+        "ubnt_ewma_delegate_in_use",
+        "ubnt_ewma_delegate_on"
+      ],
+      "chainmask_symbols": [],
+      "ani_symbols": []
+    },
+    {
+      "module": "XW.v6.3.6:ubnt_ewma_ht.ko",
+      "status": "ok",
+      "bytes": 21784,
+      "sha256": "a967dd7af88da8f2e5ce30fbd44c225e7ff49ba7910db075abae2fcf50321843",
+      "defined_symbols": 62,
+      "register_names": {
+        "AR_PHY_MULTICHAIN_GAIN_CTL": 0,
+        "MULTICHAIN_GAIN": 0,
+        "AR_PHY_TIMING2": 0,
+        "TIMING2": 0
+      },
+      "chainmask": {
+        "txchainmask": 0,
+        "rxchainmask": 0,
+        "chainmask": 0
+      },
+      "ewma": {
+        "ewma_delegate": 0,
+        "delegate_on": 0,
+        "ubnt_ewma_delegate_on": 0
+      },
+      "ani": {
+        "ANI": 0,
+        "ani_": 0,
+        "firstep": 0,
+        "cycpwr": 0,
+        "MRC": 0,
+        "SIMO": 0
+      },
+      "chainmask_contexts": {},
+      "ewma_symbols": [
+        "ewma_alloc",
+        "ewma_alloc_sta",
+        "ewma_frame_duration",
+        "ewma_free",
+        "ewma_free_sta",
+        "ewma_get_fixed_rate",
+        "ewma_get_rate",
+        "ewma_ht_alloc",
+        "ewma_ht_free",
+        "ewma_ht_get_fixed_rate",
+        "ewma_ht_get_rate",
+        "ewma_ht_query_tx_rate",
+        "ewma_ht_rate_init",
+        "ewma_ht_tx_status",
+        "ewma_mcs_groups",
+        "ewma_query_tx_rate",
+        "ewma_rate_init",
+        "ewma_tx_status",
+        "ubnt_ewma_ath_rate_attach",
+        "ubnt_ewma_ath_rate_create_vap",
+        "ubnt_ewma_ath_rate_detach",
+        "ubnt_ewma_ath_rate_findrate",
+        "ubnt_ewma_ath_rate_findrateix",
+        "ubnt_ewma_ath_rate_free_vap"
+      ],
+      "chainmask_symbols": [],
+      "ani_symbols": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 8,
+    "versions": 2,
+    "xm_root_present": false,
+    "register_name_hits": 0,
+    "chainmask_hits": 64,
+    "ewma_hits": 56,
+    "modules_with_txchainmask": 2,
+    "modules_with_rxchainmask": 2,
+    "modules_with_ewma_symbols": 4,
+    "exact_ubnt_ewma_delegate_on": 1,
+    "delegate_symbols": [
+      "__mod_ubnt_ewma_delegate_on44",
+      "__mod_ubnt_ewma_delegate_ontype43",
+      "__param_str_ubnt_ewma_delegate_on",
+      "__param_ubnt_ewma_delegate_on",
+      "ewma_alloc",
+      "ewma_alloc_sta",
+      "ewma_frame_duration",
+      "ewma_free",
+      "ewma_free_sta",
+      "ewma_get_fixed_rate",
+      "ewma_get_rate",
+      "ewma_ht_alloc",
+      "ewma_ht_free",
+      "ewma_ht_get_fixed_rate",
+      "ewma_ht_get_rate",
+      "ewma_ht_query_tx_rate",
+      "ewma_ht_rate_init",
+      "ewma_ht_tx_status",
+      "ewma_mcs_groups",
+      "ewma_query_tx_rate",
+      "ewma_rate_init",
+      "ewma_tx_status",
+      "ubnt_ewma_ath_rate_attach",
+      "ubnt_ewma_ath_rate_create_vap",
+      "ubnt_ewma_ath_rate_detach",
+      "ubnt_ewma_ath_rate_findrate",
+      "ubnt_ewma_ath_rate_findrateix",
+      "ubnt_ewma_ath_rate_free_vap",
+      "ubnt_ewma_delegate_in_use",
+      "ubnt_ewma_delegate_on"
+    ],
+    "ani_symbols": [
+      "ar9300_is_ani_noise_spur",
+      "ath_hal_log_ani_callback_register"
+    ],
+    "register_names_recovered": 0,
+    "mrc_path_recovered": 0
+  },
+  "gaps": [
+    "AR_PHY_MULTICHAIN_GAIN_CTL and AR_PHY_TIMING2 do not exist as strings, so neither register offset nor bit layout was recovered",
+    "no XM rootfs exists, so the XM half of the stage has no data",
+    "txchainmask/rxchainmask are recovered as names; the 2x2-MRC-RX and 1x2 STBC/CDD behaviour they select was not traced",
+    "the ewma delegate hook is recovered as a symbol family; the delegation condition was not decoded",
+    "no register write site was bound to any ANI or chainmask parameter",
+    "no dynamic validation"
+  ]
+}

@@ -90,7 +90,7 @@ artifacts/canary_panel1_guarida/root_goal_*
 artifacts/canary_panel1_guarida/lap120_*/
 artifacts/canary_panel1_guarida/panel1_return_*/
 artifacts/canary_panel1_guarida/panel1_native_cutover_*/
-artifacts/canary_panel1_guarida/tecnico-gamboa-*/
+artifacts/canary_panel1_guarida/tecnico-*-*/
 artifacts/canary_panel1_guarida/stock_restore_preparation_*/
 artifacts/canary_panel1_guarida/bench_lap120_*/
 artifacts/canary_panel1_guarida/bench195_*/
@@ -179,5 +179,27 @@ artifacts/*.bin
 artifacts/**/*.bin
 artifacts/**/*.ko
 artifacts/**/*.sqfs
+
+# Apply the existing firmware-dump/cache boundary to offline verification outputs.
+/artifacts/firmware_re_xw_m5/*_rootfs/
+/artifacts/verification/**/*.tar
+/artifacts/verification/**/*.squashfs
+
+# Stage826A: public source tree; local vendor images and disclosure evidence stay private.
+*.[bB][iI][nN]
+*.[kK][oO]
+*.[sS][qQ][fF][sS]
+*.squashfs
+*[hH][aA][cC][kK][eE][rR][oO][nN][eE]*
+**/*[sS][tT][aA][gG][eE]8[1-9][a-cA-C]_*
+**/*[sS][tT][aA][gG][eE]9[0-8][a-cA-C]_*
+/AGENTS.md
+/artifacts/documentation/
+/artifacts/verification/
+*.original.txt
+*.zip
+*.tar
+*.tar.gz
+*.sqfs
 
 

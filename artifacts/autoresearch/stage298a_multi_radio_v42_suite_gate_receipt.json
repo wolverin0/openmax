@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-298A",
+  "task_id": "T-S298A-MULTI-RADIO-V42-SUITE-GATE-293A-TO-298A",
+  "generated_at_utc": "2026-10-26T23:49:37.843917+00:00",
+  "status": "PASS",
+  "evidence_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_20_or_250": false,
+    "touched_production_guarida": false,
+    "flash_writes": 0
+  },
+  "audited_stages_count": 5,
+  "audited_stages": {
+    "STAGE-293A": {
+      "receipt_path": "artifacts/autoresearch/stage293a_live_xc198_round6_autoresearch.json",
+      "receipt_sha256": "b0fd28b639980eff54e26e0c0bb59313e15494e929a5488724116ae491f1c1d4",
+      "doc_path": "docs/STAGE293A_LIVE_XC198_ROUND6_AUTORESEARCH.md",
+      "doc_lines": 27,
+      "test_path": "tests/test_stage293a_live_xc198_round6_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-294A": {
+      "receipt_path": "artifacts/autoresearch/stage294a_live_2xc253_round6_autoresearch.json",
+      "receipt_sha256": "1f2a987f76011c6a8ea5d7322d1897f9e02636b1523eb097a9b19041800ab033",
+      "doc_path": "docs/STAGE294A_LIVE_2XC253_ROUND6_AUTORESEARCH.md",
+      "doc_lines": 25,
+      "test_path": "tests/test_stage294a_live_2xc253_round6_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-295A": {
+      "receipt_path": "artifacts/autoresearch/stage295a_live_xm20_round6_autoresearch.json",
+      "receipt_sha256": "a9dc174238bd9a9837866231824559c7aa83945e75e9d8fbf174d41d1abad744",
+      "doc_path": "docs/STAGE295A_LIVE_XM20_ROUND6_AUTORESEARCH.md",
+      "doc_lines": 25,
+      "test_path": "tests/test_stage295a_live_xm20_round6_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-296A": {
+      "receipt_path": "artifacts/autoresearch/stage296a_xc_2xc_xm_24window_scorecard.json",
+      "receipt_sha256": "43a6460e4f7b64e3ce074a69a882b24f9ad9a5487ed95bbc3f6c0d9099fdac44",
+      "doc_path": "docs/STAGE296A_XC_2XC_XM_24WINDOW_SCORECARD.md",
+      "doc_lines": 26,
+      "test_path": "tests/test_stage296a_xc_2xc_xm_24window_scorecard.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-297A": {
+      "receipt_path": "artifacts/autoresearch/stage297a_cross_fleet_champion_v42_receipt.json",
+      "receipt_sha256": "d5aebfba626ceaa9c0c8c9bda0f9231938db04b31ca28f338f8506a58259e442",
+      "doc_path": "docs/STAGE297A_CROSS_FLEET_CHAMPION_V42.md",
+      "doc_lines": 26,
+      "test_path": "tests/test_stage297a_cross_fleet_champion_v42.py",
+      "five_pillar_compliant": true
+    }
+  },
+  "repo_deterministic_gates": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "families_covered": [
+        "WA",
+        "XC",
+        "2XC",
+        "XW",
+        "XM",
+        "LTU"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-11-UPH-SHARED-64B-VECTOR-DAPROT-BEFORE-MCAST",
+        "FMX-DISC-16-XW-XM-MCS0-WARMUP-AND-EWMA-DELEGATE",
+        "FMX-DISC-33-WA-XC-SOFTIRQ-AND-ATOMIC-SKB-RESERVE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "verified_stages": [
+        "STAGE-293A",
+        "STAGE-294A",
+        "STAGE-295A",
+        "STAGE-296A",
+        "STAGE-297A"
+      ]
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "p95_rtt_ms",
+        "jitter_ms",
+        "cpu_softirq_pct"
+      ]
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE298A-MULTI-RADIO-V42-SUITE-GATE"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

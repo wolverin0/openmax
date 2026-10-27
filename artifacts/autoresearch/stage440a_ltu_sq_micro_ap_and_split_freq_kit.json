@@ -1,0 +1,129 @@
+{
+  "stage": "440A",
+  "task_id": "T-S440A-LTU-SQ-MICRO-AP-AND-SPLIT-FREQ-KIT",
+  "title": "Pillar 4 Ground-Up LTU Short-Queue (SQ/NQ) Micro-AP, AD9361 Split-Frequency (TX_LO != RX_LO) & Arria 10 8-Subband Kit",
+  "generated_at": "2026-10-27T01:02:01.335844+00:00",
+  "status": "CONFIRMED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "memory_master_claim_id": "mm-fef1",
+  "helper_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_ground_up_sq_splitfreq_helper.sh",
+    "sha256": "749ba247fa93beb03035e83038afb938d36dfb63cc084b601df76565bd07c046",
+    "size_bytes": 2772,
+    "default_mode": "--inspect-only",
+    "lf_only": true,
+    "zero_dev_ame_touches": true
+  },
+  "prior_stage_receipts_verified": {
+    "342A": {
+      "path": "artifacts/autoresearch/stage342a_ltu_short_queue_micro_ap_re.json",
+      "sha256": "76f97d3ce73b836f66c47b8f0e61b1dba49bdb8c26d6dbe86c4cdbf9f324ba13",
+      "stage_verified": "342A"
+    },
+    "343A": {
+      "path": "artifacts/autoresearch/stage343a_ltu_ad9361_sdr_spi_registers_re.json",
+      "sha256": "d3d0f00392c9b4b44c0acb8d7fdccd78675c2a3f5d68ff9d4bf6b6a81c3a2a47",
+      "stage_verified": "343A"
+    },
+    "376A": {
+      "path": "artifacts/autoresearch/stage376a_ltu_rocket_arria10_fpga_mailbox_re.json",
+      "sha256": "f6f7ea86f466ec9f11f4d98b576ce720f7ada3fb2b5efd9a73a87e9ad617f71e",
+      "stage_verified": "376A"
+    },
+    "424A": {
+      "path": "artifacts/autoresearch/stage424a_ltu_arria10_fpga_subband_mask_re.json",
+      "sha256": "198066c4f70711c5c6bc55359aa567e3969c22f29822a474dcd1cdff5dcc87f7",
+      "stage_verified": "424A"
+    },
+    "438A": {
+      "path": "artifacts/autoresearch/stage438a_ltu_ame_core_poll_scheduler_and_slot_alloc_re.json",
+      "sha256": "a2cf645f74a149018daa2ecfb8968ca52e3b2612ea78295125998580f28a3362",
+      "stage_verified": "438A"
+    }
+  },
+  "validated_offsets_and_symbols": {
+    "stage342a_ame_drv_sh_sha256": "ff6bcde884d234154f12bc83a3dd460bab39fc74929a11a108c37691116bdee0",
+    "stage342a_rt_fifo_priorities": {
+      "ame.core.Hi": {
+        "policy": "SCHED_FIFO",
+        "prio": 90,
+        "cpumask": 1
+      },
+      "ame.core.Frm": {
+        "policy": "SCHED_FIFO",
+        "prio": 85,
+        "cpumask": 1
+      },
+      "ktimersoftd/0_1": {
+        "policy": "SCHED_FIFO",
+        "prio": 56,
+        "cpumask": 3
+      },
+      "rcuc/0_1_rcub/0": {
+        "policy": "SCHED_FIFO",
+        "prio": 57,
+        "cpumask": 3
+      },
+      "modemer": {
+        "policy": "SCHED_FIFO",
+        "prio": 55,
+        "cpumask": 3
+      },
+      "ame.core.L2Q": {
+        "policy": "SCHED_FIFO",
+        "prio": 54,
+        "cpumask": 3
+      },
+      "ame.hiwq": {
+        "policy": "SCHED_FIFO",
+        "prio": 1,
+        "cpumask": 3
+      },
+      "ksoftirqd/0_1": {
+        "policy": "SCHED_FIFO",
+        "prio": 1,
+        "cpumask": 3
+      }
+    },
+    "stage343a_spi_master_node": "/sys/class/spi_master/spi32766/spi32766.0",
+    "stage343a_ad9361_tx_lo_regs": "0x271..0x275",
+    "stage343a_ad9361_rx_lo_regs": "0x231..0x235",
+    "stage376a_arria10_fpga_mailbox_symbols_count": 0,
+    "stage424a_ame_core_eab_token_hits": 359,
+    "stage424a_ofdma_subband_format_hits": 6,
+    "stage438a_sq_nq_scheduler_hits": {
+      "SQ_hits": 6,
+      "NQ_hits": 1,
+      "NtoS_hits": 1,
+      "StoN_hits": 1,
+      "sched_hits": 297
+    },
+    "stage438a_sq_log_addresses": [
+      "0x1b16b0",
+      "0x1b16d4",
+      "0x1cdf57",
+      "0x1cdfc2",
+      "0x1cf110",
+      "0x1cf14b"
+    ]
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Cross-validates Stages 342A, 343A, 376A, 424A, and 438A binary offsets in ame_core.ko, ame_radio_mod.ko & cds_mac_mod.ko",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Synthesizes SQ/NQ dynamic poll list (NtoS/StoN), AD9361 split-LO (0x271 vs 0x231), and OFDMA subband controls",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Enforces --inspect-only / --dry-run default on production units with zero /dev/ame* character device writes",
+    "pillar_d_scientific_pareto_validation": "Feeds Pillar 4 parameters into Stage 442A 5-Pillar combined SimPy + pymoo NSGA-II Pareto optimization",
+    "pillar_e_memory_master_claim_id": "mm-fef1"
+  }
+}

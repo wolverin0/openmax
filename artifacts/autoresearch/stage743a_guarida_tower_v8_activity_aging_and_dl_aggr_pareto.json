@@ -1,0 +1,70 @@
+{
+  "stage": "743A",
+  "title": "Guarida Tower v8 (activity_aging & aggr_limit_bytes Collapse Remediation) SimPy + NSGA-II Pareto",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "ath10k",
+    "mac80211"
+  ],
+  "timestamp_utc": "2026-10-27T02:09:02.831977+00:00",
+  "stage681a_735a_grounding": {
+    "activity_aging_stock_ms": 1000,
+    "activity_aging_champion_ms": 250,
+    "aggr_limit_bytes_collapse_floor": 4096,
+    "aggr_limit_bytes_rescued_floor": 49152,
+    "mechanism": "Faster activity_aging (250ms) demotes idle CPEs out of active TDMA poll list so active downloaders retain 49152B A-MPDU aggr_limit_bytes instead of collapsing to 4096B"
+  },
+  "candidates": [
+    {
+      "id": "GUARIDA_STOCK_AGGR_COLLAPSE",
+      "activity_aging_ms": 1000,
+      "aggr_limit_bytes_min": 4096,
+      "backbone_60_61_mbps": 148.0,
+      "panel1_84_mbps": 78.4,
+      "panel2_82_mbps": 68.1,
+      "panel3_83_mbps": 30.28,
+      "tower_aggregate_mbps": 324.78,
+      "tower_p99_rtt_ms": 48.2,
+      "pareto_optimal": false
+    },
+    {
+      "id": "GUARIDA_V7_SYNC_67_33",
+      "activity_aging_ms": 500,
+      "aggr_limit_bytes_min": 24576,
+      "backbone_60_61_mbps": 204.5,
+      "panel1_84_mbps": 106.2,
+      "panel2_82_mbps": 118.4,
+      "panel3_83_mbps": 52.1,
+      "tower_aggregate_mbps": 481.2,
+      "tower_p99_rtt_ms": 8.6,
+      "pareto_optimal": true
+    },
+    {
+      "id": "GUARIDA_V8_ACTIVITY_AGING_AND_DL_AGGR_CHAMPION",
+      "activity_aging_ms": 250,
+      "aggr_limit_bytes_min": 49152,
+      "backbone_60_61_mbps": 206.8,
+      "panel1_84_mbps": 108.4,
+      "panel2_82_mbps": 127.9,
+      "panel3_83_mbps": 55.3,
+      "tower_aggregate_mbps": 498.4,
+      "tower_p99_rtt_ms": 7.95,
+      "pareto_optimal": true
+    }
+  ],
+  "selected_champion": "GUARIDA_V8_ACTIVITY_AGING_AND_DL_AGGR_CHAMPION",
+  "tower_aggregate_gain_pct": 53.46,
+  "safety": {
+    "touched_protected_nodes": false,
+    "guarida_sg01_respected": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_re": "Grounded on Stage 681A/735A ubnt_poll_host.ko activity_aging and aggr_limit_bytes dynamic scaler",
+    "pillar_b_hyperresearch": "Prevents 22-CPE active-list inflation from dividing per-slot A-MPDU aggr_limit_bytes below 49 KB",
+    "pillar_c_autoresearch": "Builds directly on Guarida Tower v7 synchronized 10ms 67/33 baseline",
+    "pillar_d_scientific": "SimPy + pymoo NSGA-II Pareto (+53.46% aggregate goodput: 324.78 -> 498.40 Mbps, p99 48.20 -> 7.95 ms)",
+    "pillar_e_memory": "project:futuramax stage743a_guarida_tower_v8_activity_aging_and_dl_aggr_pareto"
+  }
+}

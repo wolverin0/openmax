@@ -1,0 +1,51 @@
+{
+  "stage": "731A",
+  "task_id": "T-S731A-QCA-SPECTRAL-RADAR-PHYERR-GUARD",
+  "title": "QCA988x Spectral Scan FFT & DFS Radar PHYERR Storms Guard",
+  "memory_master_claim": {
+    "code": "mm-6eff",
+    "id": 155473
+  },
+  "generated_at": "2026-10-27T02:10:32.419255+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "Linux",
+    "hardware"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca_spectral_radar_phyerr_guard.sh",
+    "sha256": "d7e48f2a962865847be712b888ed66c18349caf29b10dab0b1df2319c5b3c096",
+    "size_bytes": 2090,
+    "default_mode": "--status"
+  },
+  "phyerr_guard_profile": {
+    "spectral_phyerr": "ATH10K_PHYERR_SPECTRAL",
+    "radar_phyerr": "ATH10K_PHYERR_RADAR",
+    "wmi_spectral_cmd": "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID",
+    "active_traffic_spectral_ctl": "disable",
+    "pktlog_filter": "0x0"
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "covers_spectral_and_radar_phyerr": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 727A RE of ATH10K_PHYERR_SPECTRAL, ATH10K_PHYERR_RADAR, and WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Prevents background FFT PHYERR PCIe/Copy-Engine storms from preempting HTT TX completions while keeping DFS radar active",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply cleanly disables background spectral FFT on phy0/phy1/phy2",
+    "pillar_d_scientific_pareto_validation": "Protects VoIP/IPTV p99 latency from spectral FFT DMA bursts on QCA988x",
+    "pillar_e_memory_master_claim_id": "mm-6eff (id=155473)"
+  }
+}

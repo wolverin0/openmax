@@ -1,0 +1,586 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "782A",
+  "title": "Guarida 32-CPE ANI and NAPI Pareto",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/sim/run_stage780a_nsga3_pareto_ani_immunity_and_irq52_napi.py",
+      "available": true,
+      "bytes": 13575,
+      "sha256": "3e5d191f5a8c0199fea73d0b0be661bd27a299836b4cb63e01e755a6de3cb49b"
+    },
+    {
+      "path": "artifacts/guarida_32cpe_radiography_20261024.json",
+      "available": true,
+      "bytes": 103877,
+      "sha256": "2088c83eb66dfa5d0ad42be13a73c002715d3f9ea5467e4e931597f68aa4a5ce"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/sim/run_stage780a_nsga3_pareto_ani_immunity_and_irq52_napi.py",
+          "available": true,
+          "bytes": 13575,
+          "sha256": "3e5d191f5a8c0199fea73d0b0be661bd27a299836b4cb63e01e755a6de3cb49b"
+        },
+        {
+          "path": "artifacts/guarida_32cpe_radiography_20261024.json",
+          "available": true,
+          "bytes": 103877,
+          "sha256": "2088c83eb66dfa5d0ad42be13a73c002715d3f9ea5467e4e931597f68aa4a5ce"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage782a-offline"
+    }
+  },
+  "claim_classification": "INFERRED",
+  "execution_mode": "OFFLINE_SIMULATION",
+  "topology": [
+    {
+      "panel": 1,
+      "provisioned": 4,
+      "active": 3,
+      "pending": 1
+    },
+    {
+      "panel": 2,
+      "provisioned": 22,
+      "active": 22,
+      "pending": 0
+    },
+    {
+      "panel": 3,
+      "provisioned": 6,
+      "active": 6,
+      "pending": 0
+    }
+  ],
+  "provisioned_cpes": 32,
+  "active_cpes": 31,
+  "candidate_count": 135,
+  "pareto_by_offered_load": {
+    "40": [
+      {
+        "ani": 0,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 40,
+        "negative_goodput": -40.0,
+        "p95_ms": 7.697139753801593,
+        "loss_pct": 0.0,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 3.870967741935484,
+            "modeled_p95_ms": 6.15547005853966,
+            "modeled_loss_pct": 0.0
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 28.387096774193548,
+            "modeled_p95_ms": 7.697139753801593,
+            "modeled_loss_pct": 0.0
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 6.3279347978172655,
+            "modeled_loss_pct": 0.0
+          }
+        ]
+      },
+      {
+        "ani": 1,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 40,
+        "negative_goodput": -40.0,
+        "p95_ms": 5.965986179451043,
+        "loss_pct": 0.1,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 3.870967741935484,
+            "modeled_p95_ms": 4.547188778175574,
+            "modeled_loss_pct": 0.1
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 28.387096774193548,
+            "modeled_p95_ms": 5.965986179451043,
+            "modeled_loss_pct": 0.1
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 4.709565758258854,
+            "modeled_loss_pct": 0.1
+          }
+        ]
+      },
+      {
+        "ani": 2,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 40,
+        "negative_goodput": -40.0,
+        "p95_ms": 4.469445836761691,
+        "loss_pct": 0.3,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 3.870967741935484,
+            "modeled_p95_ms": 3.1408122554816305,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 28.387096774193548,
+            "modeled_p95_ms": 4.469445836761691,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 3.295494248151271,
+            "modeled_loss_pct": 0.3
+          }
+        ]
+      },
+      {
+        "ani": 3,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 40,
+        "negative_goodput": -40.0,
+        "p95_ms": 4.266955465732819,
+        "loss_pct": 0.8,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 3.870967741935484,
+            "modeled_p95_ms": 2.940644468569917,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 28.387096774193548,
+            "modeled_p95_ms": 4.266955465732819,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 3.0951248287048276,
+            "modeled_loss_pct": 0.8
+          }
+        ]
+      },
+      {
+        "ani": 4,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 40,
+        "negative_goodput": -40.0,
+        "p95_ms": 4.126764096892351,
+        "loss_pct": 4.0,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 3.870967741935484,
+            "modeled_p95_ms": 2.7446278416324055,
+            "modeled_loss_pct": 4.0
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 28.387096774193548,
+            "modeled_p95_ms": 4.126764096892351,
+            "modeled_loss_pct": 4.0
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 2.903906812024998,
+            "modeled_loss_pct": 4.0
+          }
+        ]
+      }
+    ],
+    "80": [
+      {
+        "ani": 0,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 80,
+        "negative_goodput": -80.0,
+        "p95_ms": 13.81575656523551,
+        "loss_pct": 0.0,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 6.3279347978172655,
+            "modeled_loss_pct": 0.0
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 56.774193548387096,
+            "modeled_p95_ms": 13.81575656523551,
+            "modeled_loss_pct": 0.0
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 15.483870967741936,
+            "modeled_p95_ms": 6.736362565290814,
+            "modeled_loss_pct": 0.0
+          }
+        ]
+      },
+      {
+        "ani": 1,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 80,
+        "negative_goodput": -80.0,
+        "p95_ms": 10.95218028031933,
+        "loss_pct": 0.1,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 4.709565758258854,
+            "modeled_loss_pct": 0.1
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 56.774193548387096,
+            "modeled_p95_ms": 10.95218028031933,
+            "modeled_loss_pct": 0.1
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 15.483870967741936,
+            "modeled_p95_ms": 5.090369800062867,
+            "modeled_loss_pct": 0.1
+          }
+        ]
+      },
+      {
+        "ani": 2,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 80,
+        "negative_goodput": -80.0,
+        "p95_ms": 8.760446269941895,
+        "loss_pct": 0.3,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 3.295494248151271,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 56.774193548387096,
+            "modeled_p95_ms": 8.760446269941895,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 15.483870967741936,
+            "modeled_p95_ms": 3.655559888417938,
+            "modeled_loss_pct": 0.3
+          }
+        ]
+      },
+      {
+        "ani": 3,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 80,
+        "negative_goodput": -80.0,
+        "p95_ms": 8.541341883850937,
+        "loss_pct": 0.8,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 7.741935483870968,
+            "modeled_p95_ms": 3.0951248287048276,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 56.774193548387096,
+            "modeled_p95_ms": 8.541341883850937,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 15.483870967741936,
+            "modeled_p95_ms": 3.454650902570516,
+            "modeled_loss_pct": 0.8
+          }
+        ]
+      }
+    ],
+    "120": [
+      {
+        "ani": 2,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 120,
+        "negative_goodput": -120.0,
+        "p95_ms": 219.41915747628624,
+        "loss_pct": 0.3,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 11.612903225806452,
+            "modeled_p95_ms": 3.466201341369418,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 85.16129032258064,
+            "modeled_p95_ms": 219.41915747628624,
+            "modeled_loss_pct": 0.3
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 23.225806451612904,
+            "modeled_p95_ms": 4.103958295458364,
+            "modeled_loss_pct": 0.3
+          }
+        ]
+      },
+      {
+        "ani": 3,
+        "budget": 600,
+        "weight": 48,
+        "offered_mbps": 120,
+        "negative_goodput": -120.0,
+        "p95_ms": 202.56978771808474,
+        "loss_pct": 0.8,
+        "cpu_cost": 8.0,
+        "panels": [
+          {
+            "panel": 1,
+            "active": 3,
+            "modeled_goodput_mbps": 11.612903225806452,
+            "modeled_p95_ms": 3.2655883570788857,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 2,
+            "active": 22,
+            "modeled_goodput_mbps": 85.16129032258064,
+            "modeled_p95_ms": 202.56978771808474,
+            "modeled_loss_pct": 0.8
+          },
+          {
+            "panel": 3,
+            "active": 6,
+            "modeled_goodput_mbps": 23.225806451612904,
+            "modeled_p95_ms": 3.9022400998969315,
+            "modeled_loss_pct": 0.8
+          }
+        ]
+      }
+    ]
+  },
+  "baseline_by_offered_load": {
+    "40": {
+      "ani": 0,
+      "budget": 300,
+      "weight": 64,
+      "offered_mbps": 40,
+      "negative_goodput": -40.0,
+      "p95_ms": 7.733623041005964,
+      "loss_pct": 0.0,
+      "cpu_cost": 21.333333333333332,
+      "panels": [
+        {
+          "panel": 1,
+          "active": 3,
+          "modeled_goodput_mbps": 3.870967741935484,
+          "modeled_p95_ms": 6.15769952143452,
+          "modeled_loss_pct": 0.0
+        },
+        {
+          "panel": 2,
+          "active": 22,
+          "modeled_goodput_mbps": 28.387096774193548,
+          "modeled_p95_ms": 7.733623041005964,
+          "modeled_loss_pct": 0.0
+        },
+        {
+          "panel": 3,
+          "active": 6,
+          "modeled_goodput_mbps": 7.741935483870968,
+          "modeled_p95_ms": 6.332898346161016,
+          "modeled_loss_pct": 0.0
+        }
+      ]
+    },
+    "80": {
+      "ani": 0,
+      "budget": 300,
+      "weight": 64,
+      "offered_mbps": 80,
+      "negative_goodput": -80.0,
+      "p95_ms": 14.213777242361187,
+      "loss_pct": 0.0,
+      "cpu_cost": 21.333333333333332,
+      "panels": [
+        {
+          "panel": 1,
+          "active": 3,
+          "modeled_goodput_mbps": 7.741935483870968,
+          "modeled_p95_ms": 6.332898346161016,
+          "modeled_loss_pct": 0.0
+        },
+        {
+          "panel": 2,
+          "active": 22,
+          "modeled_goodput_mbps": 56.774193548387096,
+          "modeled_p95_ms": 14.213777242361187,
+          "modeled_loss_pct": 0.0
+        },
+        {
+          "panel": 3,
+          "active": 6,
+          "modeled_goodput_mbps": 15.483870967741936,
+          "modeled_p95_ms": 6.748899118296105,
+          "modeled_loss_pct": 0.0
+        }
+      ]
+    },
+    "120": {
+      "ani": 0,
+      "budget": 300,
+      "weight": 64,
+      "offered_mbps": 120,
+      "negative_goodput": -112.34910967741936,
+      "p95_ms": 302.9999999999997,
+      "loss_pct": 8.98399999999999,
+      "cpu_cost": 21.333333333333332,
+      "panels": [
+        {
+          "panel": 1,
+          "active": 3,
+          "modeled_goodput_mbps": 11.612903225806452,
+          "modeled_p95_ms": 6.528680319933833,
+          "modeled_loss_pct": 0.0
+        },
+        {
+          "panel": 2,
+          "active": 22,
+          "modeled_goodput_mbps": 77.5104,
+          "modeled_p95_ms": 302.9999999999997,
+          "modeled_loss_pct": 8.98399999999999
+        },
+        {
+          "panel": 3,
+          "active": 6,
+          "modeled_goodput_mbps": 23.225806451612904,
+          "modeled_p95_ms": 7.283557908428127,
+          "modeled_loss_pct": 0.0
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    "Uncalibrated 90 Mbps per-panel capacity",
+    "Equal active-CPE demand; no measured interference or queue trace",
+    "CPU weight/budget cost proxy; no LTU IRQ setting is applied to QCA988x"
+  ],
+  "measured_gain": "UNKNOWN",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

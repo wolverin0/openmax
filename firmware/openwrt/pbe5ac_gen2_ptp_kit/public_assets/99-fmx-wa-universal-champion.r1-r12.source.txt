@@ -1,0 +1,186 @@
+#!/bin/sh
+# FuturaMAX Stage 140A Universal WA Champion Profile (99-fmx-wa-universal-champion)
+# Verified across 48 live counterbalanced A1->B1->A2->B2 windows (R1..R12) on WA QCA9882 + AR9342.
+# 100% compatible with:
+#   - Ubiquiti PowerBeam 5AC Gen2 (board.sysid=0xe3d6, ubnt,powerbeam-5ac-gen2)
+#   - Ubiquiti LiteBeam 5AC Gen2  (board.sysid=0xe3d8 / 0xe7f9, ubnt,litebeam-5ac-gen2)
+#   - Ubiquiti LiteAP AC LAP-120 & NanoStation 5AC Loco (WA AR9342 + QCA9882)
+# Supports both OpenWrt 24.10.4 (mac80211/ath10k + dynamic phy0..phy3) and Stock airOS 8 (WA rc.poststart).
+
+FMX_AQL_VO_LOW="${FMX_AQL_VO_LOW:-300}"
+FMX_AQL_VO_HIGH="${FMX_AQL_VO_HIGH:-600}"
+FMX_AQL_VI_LOW="${FMX_AQL_VI_LOW:-1000}"
+FMX_AQL_VI_HIGH="${FMX_AQL_VI_HIGH:-2000}"
+FMX_AP_AQL_BE_LOW="${FMX_AP_AQL_BE_LOW:-1500}"
+FMX_AP_AQL_BE_HIGH="${FMX_AP_AQL_BE_HIGH:-3000}"
+FMX_STA_AQL_BE_LOW="${FMX_STA_AQL_BE_LOW:-1500}"
+FMX_STA_AQL_BE_HIGH="${FMX_STA_AQL_BE_HIGH:-3000}"
+FMX_AQL_BE_LOW="${FMX_AQL_BE_LOW:-1500}"
+FMX_AQL_BE_HIGH="${FMX_AQL_BE_HIGH:-3000}"
+FMX_AQL_BK_LOW="${FMX_AQL_BK_LOW:-500}"
+FMX_AQL_BK_HIGH="${FMX_AQL_BK_HIGH:-1000}"
+FMX_AQL_THRESHOLD="${FMX_AQL_THRESHOLD:-4500}"
+FMX_AP_FQ_QUANTUM="${FMX_AP_FQ_QUANTUM:-3028}"
+FMX_STA_FQ_QUANTUM="${FMX_STA_FQ_QUANTUM:-1514}"
+FMX_FQ_QUANTUM="${FMX_FQ_QUANTUM:-1514}"
+FMX_FQ_LIMIT="${FMX_FQ_LIMIT:-1024}"
+FMX_FQ_MEM_LIMIT="${FMX_FQ_MEM_LIMIT:-3145728}"
+FMX_BQL_MIN="${FMX_BQL_MIN:-4542}"
+FMX_BQL_MAX="${FMX_BQL_MAX:-36288}"
+FMX_BQL_HOLD="${FMX_BQL_HOLD:-600}"
+FMX_TX_QUEUE_LEN="${FMX_TX_QUEUE_LEN:-256}"
+FMX_DEV_WEIGHT_TX_BIAS="${FMX_DEV_WEIGHT_TX_BIAS:-2}"
+FMX_DEV_WEIGHT="${FMX_DEV_WEIGHT:-48}"
+FMX_NETDEV_BUDGET="${FMX_NETDEV_BUDGET:-480}"
+FMX_NETDEV_BUDGET_USECS="${FMX_NETDEV_BUDGET_USECS:-6000}"
+FMX_NETDEV_MAX_BACKLOG="${FMX_NETDEV_MAX_BACKLOG:-1500}"
+FMX_TCP_NOTSENT_LOWAT="${FMX_TCP_NOTSENT_LOWAT:-8192}"
+FMX_TCP_LIMIT_OUTPUT_BYTES="${FMX_TCP_LIMIT_OUTPUT_BYTES:-65536}"
+FMX_COVERAGE_CLASS="${FMX_COVERAGE_CLASS:-0}"
+FMX_BEACON_INT="${FMX_BEACON_INT:-30}"
+FMX_RTS="${FMX_RTS:-off}"
+FMX_HTMODE="${FMX_HTMODE:-VHT20}"
+FMX_AIROS_AGG_SW_LIMIT="${FMX_AIROS_AGG_SW_LIMIT:-50000}"
+FMX_AIROS_BURST="${FMX_AIROS_BURST:-1}"
+FMX_AIROS_CWMIN_BE="${FMX_AIROS_CWMIN_BE:-3}"
+FMX_AIROS_CWMAX_BE="${FMX_AIROS_CWMAX_BE:-7}"
+FMX_AIROS_TCP_LIMIT_OUTPUT="${FMX_AIROS_TCP_LIMIT_OUTPUT:-65536}"
+
+detect_wa_board() {
+	if [ -f /tmp/sysinfo/board_name ]; then
+		cat /tmp/sysinfo/board_name
+	elif [ -f /etc/board.info ]; then
+		grep -E '^board\.(name|sysid)=' /etc/board.info | tr '\n' ' '
+	else
+		echo "ubnt,wa-universal"
+	fi
+}
+
+apply_openwrt_wa_champion() {
+	if ls /sys/class/net/phy*-ap0 >/dev/null 2>&1; then
+		FMX_FQ_QUANTUM="$FMX_AP_FQ_QUANTUM"
+		FMX_AQL_BE_LOW="$FMX_AP_AQL_BE_LOW"
+		FMX_AQL_BE_HIGH="$FMX_AP_AQL_BE_HIGH"
+	else
+		FMX_FQ_QUANTUM="$FMX_STA_FQ_QUANTUM"
+		FMX_AQL_BE_LOW="$FMX_STA_AQL_BE_LOW"
+		FMX_AQL_BE_HIGH="$FMX_STA_AQL_BE_HIGH"
+	fi
+
+	echo "$FMX_BQL_MIN" > /sys/class/net/eth0/queues/tx-0/byte_queue_limits/limit_min 2>/dev/null || true
+	echo "$FMX_BQL_MAX" > /sys/class/net/eth0/queues/tx-0/byte_queue_limits/limit_max 2>/dev/null || true
+	echo "$FMX_BQL_HOLD" > /sys/class/net/eth0/queues/tx-0/byte_queue_limits/hold_time 2>/dev/null || true
+
+	for phy_dir in /sys/kernel/debug/ieee80211/phy*; do
+		[ -d "$phy_dir" ] || continue
+		echo "fq_quantum $FMX_FQ_QUANTUM" > "$phy_dir/aqm" 2>/dev/null || true
+		echo "$FMX_FQ_QUANTUM" > "$phy_dir/aqm/fq_quantum" 2>/dev/null || true
+		echo "fq_limit $FMX_FQ_LIMIT" > "$phy_dir/aqm" 2>/dev/null || true
+		echo "$FMX_FQ_LIMIT" > "$phy_dir/aqm/fq_limit" 2>/dev/null || true
+		echo "fq_memory_limit $FMX_FQ_MEM_LIMIT" > "$phy_dir/aqm" 2>/dev/null || true
+		echo "$FMX_FQ_MEM_LIMIT" > "$phy_dir/aqm/fq_memory_limit" 2>/dev/null || true
+		echo "$FMX_AQL_THRESHOLD" > "$phy_dir/aql_threshold" 2>/dev/null || true
+		echo "0 $FMX_AQL_VO_LOW $FMX_AQL_VO_HIGH" > "$phy_dir/aql_txq_limit" 2>/dev/null || true
+		echo "1 $FMX_AQL_VI_LOW $FMX_AQL_VI_HIGH" > "$phy_dir/aql_txq_limit" 2>/dev/null || true
+		echo "2 $FMX_AQL_BE_LOW $FMX_AQL_BE_HIGH" > "$phy_dir/aql_txq_limit" 2>/dev/null || true
+		echo "3 $FMX_AQL_BK_LOW $FMX_AQL_BK_HIGH" > "$phy_dir/aql_txq_limit" 2>/dev/null || true
+	done
+
+	for q in /sys/class/net/br-lan/tx_queue_len /sys/class/net/eth0/tx_queue_len /sys/class/net/phy*-*/tx_queue_len; do
+		[ -e "$q" ] && echo "$FMX_TX_QUEUE_LEN" > "$q" 2>/dev/null || true
+	done
+
+	for net_if in /sys/class/net/phy*-ap0 /sys/class/net/phy*-sta0; do
+		[ -e "$net_if" ] || continue
+		ifname=$(basename "$net_if")
+		phy_name=$(basename "$(readlink -f "$net_if/phy80211" 2>/dev/null || echo phy0)")
+		iw phy "$phy_name" set rts "$FMX_RTS" 2>/dev/null || true
+		iw phy "$phy_name" set coverage "$FMX_COVERAGE_CLASS" 2>/dev/null || true
+		ip link set "$ifname" txqueuelen "$FMX_TX_QUEUE_LEN" 2>/dev/null || true
+	done
+
+	for qdisc_if in eth0 br-lan; do
+		tc qdisc replace dev "$qdisc_if" root fq_codel quantum "$FMX_FQ_QUANTUM" limit "$FMX_FQ_LIMIT" memory_limit "$FMX_FQ_MEM_LIMIT" 2>/dev/null || true
+	done
+
+	for p in $(pidof hostapd wpa_supplicant 2>/dev/null); do
+		[ -e "/proc/$p/oom_score_adj" ] && echo -900 > "/proc/$p/oom_score_adj" 2>/dev/null || true
+	done
+
+	if command -v uci >/dev/null 2>&1; then
+		uci set wireless.radio0.beacon_int="$FMX_BEACON_INT" 2>/dev/null || true
+		uci set wireless.radio0.htmode="$FMX_HTMODE" 2>/dev/null || true
+		uci commit wireless 2>/dev/null || true
+	fi
+
+	sysctl -w \
+		net.core.dev_weight_tx_bias="$FMX_DEV_WEIGHT_TX_BIAS" \
+		net.core.netdev_budget="$FMX_NETDEV_BUDGET" \
+		net.core.netdev_budget_usecs="$FMX_NETDEV_BUDGET_USECS" \
+		net.core.dev_weight="$FMX_DEV_WEIGHT" \
+		net.core.netdev_max_backlog="$FMX_NETDEV_MAX_BACKLOG" \
+		net.ipv4.tcp_notsent_lowat="$FMX_TCP_NOTSENT_LOWAT" \
+		net.ipv4.tcp_limit_output_bytes="$FMX_TCP_LIMIT_OUTPUT_BYTES" >/dev/null 2>&1 || true
+}
+
+apply_airos8_rc_poststart_wa_champion() {
+	# 1. Hybrid 802.11ac WDS & uph.ko retry/fast-frame bounds
+	for d in /proc/sys/dev/uph_wifi0 /proc/sys/dev/uph/wifi0 /proc/sys/dev/ubnt_poll; do
+		if [ -d "$d" ]; then
+			echo 1 > "$d/allow_80211" 2>/dev/null || true
+			echo 2 > "$d/swr_limit" 2>/dev/null || true
+			echo 1 > "$d/ptp_xmit" 2>/dev/null || true
+			echo 2 > "$d/ff_cap_rep" 2>/dev/null || true
+		fi
+	done
+	echo 1 > /sys/module/umac/parameters/host_80211_enable 2>/dev/null || true
+	echo 32 > /sys/module/umac/parameters/max_peers 2>/dev/null || true
+	echo 1 > /sys/module/umac/parameters/vow_config 2>/dev/null || true
+
+	# 2. agg_SW_limit, Burst, WMM / cwmin / cwmax & AC*Minfree
+	iwpriv wifi0 amsdu 2 2>/dev/null || true
+	iwpriv ath0 ampdu 1 2>/dev/null || true
+	iwpriv ath0 ampdulimit "$FMX_AIROS_AGG_SW_LIMIT" 2>/dev/null || true
+	iwpriv ath0 ampdudensity 0 2>/dev/null || true
+	iwpriv wifi0 Burst "$FMX_AIROS_BURST" 2>/dev/null || true
+	iwpriv ath0 burst "$FMX_AIROS_BURST" 2>/dev/null || true
+	iwpriv ath0 wmm 1 2>/dev/null || true
+	iwpriv ath0 cwmin 0 0 "$FMX_AIROS_CWMIN_BE" 2>/dev/null || true
+	iwpriv ath0 cwmax 0 0 "$FMX_AIROS_CWMAX_BE" 2>/dev/null || true
+	iwpriv ath0 set_multiq 3 2>/dev/null || true
+	iwpriv ath0 set_cabq_maxdur 20 2>/dev/null || true
+	iwpriv wifi0 set_be_minfree 48 2>/dev/null || true
+	iwpriv wifi0 set_bk_minfree 64 2>/dev/null || true
+	iwpriv wifi0 set_vi_minfree 16 2>/dev/null || true
+	iwpriv wifi0 set_vo_minfree 0 2>/dev/null || true
+
+	# 3. eth0 coalescing, checksum offload, ebtables/pktlog strip & 2.4 GHz wifi1 silence
+	iwpriv wifi0 vow_extstats 0 2>/dev/null || true
+	iwpriv wifi0 enable_tx_tcp_cksum 1 2>/dev/null || true
+	rmmod ath_pktlog 2>/dev/null || true
+	ifconfig ath1 down 2>/dev/null || true
+	ifconfig wifi1 down 2>/dev/null || true
+	killall -STOP ubntspecd ubnt-gps-reader 2>/dev/null || true
+	ebtables -F 2>/dev/null || true
+	ebtables -t nat -F 2>/dev/null || true
+	ebtables -t broute -F 2>/dev/null || true
+	rmmod ebtable_broute ebtable_nat ebtable_filter ebt_ip ebt_ip6 ebt_mark ebt_mark_m ebt_arpnat ebtables iptable_mangle 2>/dev/null || true
+	ethtool -C eth0 rx-usecs 32 tx-usecs 64 2>/dev/null || true
+
+	# 4. txqueuelen & tcp_limit_output_bytes
+	for dev in ath0 eth0 br0; do
+		ifconfig "$dev" txqueuelen "$FMX_TX_QUEUE_LEN" 2>/dev/null || true
+	done
+	sysctl -w \
+		net.core.netdev_budget="$FMX_NETDEV_BUDGET" \
+		net.core.dev_weight=96 \
+		net.ipv4.tcp_limit_output_bytes="$FMX_AIROS_TCP_LIMIT_OUTPUT" >/dev/null 2>&1 || true
+}
+
+BOARD_ID=$(detect_wa_board)
+if [ -d /sys/kernel/debug/ieee80211 ]; then
+	apply_openwrt_wa_champion
+else
+	apply_airos8_rc_poststart_wa_champion
+fi
+exit 0

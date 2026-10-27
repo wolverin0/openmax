@@ -1,0 +1,134 @@
+{
+  "stage": "290A",
+  "task_id": "T-S290A-LTU-DYNAMIC-VS-FIXED-DUTY-32CPE-PARETO",
+  "generated_at": "2026-10-26T23:39:50.934799+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "benchmarks_32cpe": {
+    "ltu_auto_duty_50_67_75": {
+      "scheduler_mode": "ltu_auto_duty",
+      "dl_goodput_mbps": 314.06,
+      "ul_goodput_mbps": 142.39,
+      "total_sector_goodput_mbps": 456.45,
+      "ul_burst_p99_latency_ms": 3.693,
+      "dl_p99_latency_ms": 2.48,
+      "duty_switches_count": 3
+    },
+    "ltu_fixed_67_33_gps_sync": {
+      "scheduler_mode": "ltu_fixed_duty",
+      "dl_goodput_mbps": 326.84,
+      "ul_goodput_mbps": 125.56,
+      "total_sector_goodput_mbps": 452.4,
+      "ul_burst_p99_latency_ms": 5.128,
+      "dl_p99_latency_ms": 2.192,
+      "duty_switches_count": 0
+    },
+    "openmax_csma_aql4000": {
+      "scheduler_mode": "openmax_aql4000",
+      "dl_goodput_mbps": 225.08,
+      "ul_goodput_mbps": 86.72,
+      "total_sector_goodput_mbps": 311.8,
+      "ul_burst_p99_latency_ms": 4.478,
+      "dl_p99_latency_ms": 3.192,
+      "duty_switches_count": 0
+    },
+    "auto_vs_fixed_ul_p99_reduction_ms": 1.435
+  },
+  "nsga2_pareto_front": {
+    "solutions_count": 24,
+    "top_10_solutions": [
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 23,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 9,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 23,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 12,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 12,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 12,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 27,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 12,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 12,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      },
+      {
+        "scheduler_mode": "ltu_fixed_duty",
+        "fixed_duty_permille": 750,
+        "upshift_hysteresis_frames": 26,
+        "total_sector_goodput_mbps": 457.42,
+        "ul_burst_p99_latency_ms": 5.128,
+        "dl_p99_latency_ms": 2.181
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s290a-ltu-dynamic-duty-cycle-pareto"
+  }
+}

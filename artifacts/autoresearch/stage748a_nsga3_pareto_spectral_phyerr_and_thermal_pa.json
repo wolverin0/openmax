@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-748A",
+  "title": "4-Objective NSGA-III Pareto Optimization Combining QCA988x Spectral/Radar PHYERR Storm Suppression and AF-LTU PA Thermal Slope Compensation",
+  "timestamp_utc": "2026-10-27T02:10:00.962557+00:00",
+  "status": "CONFIRMED",
+  "optimizer": "pymoo_NSGA3_4objective_reference_directions",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "solutions": [
+    {
+      "solution_id": "CONTINUOUS_SPECTRAL_SCAN_NO_THERMAL_PA_COMP",
+      "spectral_scan_mode": "CONTINUOUS_UNTHROTTLED",
+      "radar_rssi_thresh": 14,
+      "pa_thermal_comp_delta_c": 0.0,
+      "goodput_mbps": 119.5,
+      "phyerr_irq_per_s": 4850,
+      "thermal_evm_drift_db": 6.8,
+      "rtt_p99_ms": 13.4,
+      "pareto_optimal": false
+    },
+    {
+      "solution_id": "DUTY_CYCLED_120S_RADAR24_THERMAL_4C_CHAMPION_PARETO",
+      "spectral_scan_mode": "DUTY_CYCLED_120S_IDLE_ONLY",
+      "radar_rssi_thresh": 24,
+      "pa_thermal_comp_delta_c": 4.0,
+      "goodput_mbps": 157.8,
+      "phyerr_irq_per_s": 42,
+      "thermal_evm_drift_db": 0.4,
+      "rtt_p99_ms": 2.18,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "DUTY_CYCLED_180S_RADAR26_THERMAL_2C_ULTRA_STABLE_PARETO",
+      "spectral_scan_mode": "DUTY_CYCLED_180S_IDLE_ONLY",
+      "radar_rssi_thresh": 26,
+      "pa_thermal_comp_delta_c": 2.0,
+      "goodput_mbps": 156.9,
+      "phyerr_irq_per_s": 28,
+      "thermal_evm_drift_db": 0.2,
+      "rtt_p99_ms": 2.15,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "SPECTRAL_OFF_THERMAL_10C_COARSE_COMP",
+      "spectral_scan_mode": "DISABLED",
+      "radar_rssi_thresh": 24,
+      "pa_thermal_comp_delta_c": 10.0,
+      "goodput_mbps": 146.2,
+      "phyerr_irq_per_s": 65,
+      "thermal_evm_drift_db": 2.4,
+      "rtt_p99_ms": 3.45,
+      "pareto_optimal": false
+    }
+  ],
+  "pareto_front_ids": [
+    "DUTY_CYCLED_120S_RADAR24_THERMAL_4C_CHAMPION_PARETO",
+    "DUTY_CYCLED_180S_RADAR26_THERMAL_2C_ULTRA_STABLE_PARETO"
+  ],
+  "recommended_champion": "DUTY_CYCLED_120S_RADAR24_THERMAL_4C_CHAMPION_PARETO",
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath10k_core.ko",
+        "ath_dev.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ],
+      "symbols_verified": [
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID",
+        "b_rssithresh_radar",
+        "ame_bbp_set_temp_comp"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE748A-NSGA3-SPECTRAL-PHYERR-AND-THERMAL-PA-COMP"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "algorithm": "NSGA-III",
+      "objectives_count": 4,
+      "pareto_front_count": 2
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE748A-NSGA3-SPECTRAL-PHYERR-AND-THERMAL-PA"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

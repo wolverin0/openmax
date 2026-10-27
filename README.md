@@ -1,9 +1,38 @@
+<!-- doc-head: Public milestones through824A with qualified historic WA PtP LTU results and offline825A evidence -->
+<!-- /doc-head -->
+
 # openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
+
+## Current milestones through Stage824A / Hitos hasta Stage824A
+
+This Stage825A update reconciles saved evidence; it adds no radio measurements or publication.
+Esta actualizacion documental separa resultados reportados, empaquetado, simulacion y aceptacion fisica.
+
+| Milestone | Source-qualified result and limit |
+| --- | --- |
+| WA v13 | Stage773A reported 78.51 Mbps peak TCP in VHT20 and -86.37% loaded p50 RTT; imported claims, not remeasured here. |
+| PtP v4/v5 | Stage741A/v5 reported 25.47 Mbps peak TCP in VHT40; PBE-5AC-Gen2 and LBE-5AC-Gen2 have distinct board-specific profiles. |
+| PB040 + PB050 + PB060 | Stage817A composed seven triple-patch SGMT payloads offline; byte/layout verification is CONFIRMED, target activation UNKNOWN. |
+| LTU v20 | Stage774A reported 264 windows. Stage818A packages guarded br1 DHCP filtering tested with local command stubs; zero-rogue-DHCP runtime UNKNOWN. |
+| Guarida v10 | Stage819A is an uncalibrated sensitivity/Pareto model, not measured tower capacity. The imported 514.80 Mbps claim belongs to Stage775A/v9. |
+| Stage823A | Static strings in ubntspecd expose per-bandwidth BPS / SCORE / RATING labels; the numeric formula, coefficients and CPE-histogram combination remain UNKNOWN. |
+| Stage824A | Static symbols locate the DFS classifier surface in ame_dfs.ko; numeric PW/PRI tables, detector criteria and LNA-saturation immunity remain UNKNOWN. |
+
+Both PBE-5AC-Gen2 and LBE-5AC-Gen2 have CONFIRMED profile metadata; every revision's runtime compatibility remains UNKNOWN.
+No universal compatibility, safe OTA conversion, zero-FP rate or production acceptance follows from these artifacts.
+Attribution: Linux/mac80211/ath10k and QCA firmware for WA/PtP; Linux and proprietary airMAX/LTU module for LTU;
+external controller for simulation, packaging and documentation. Static names alone do not establish algorithm behavior.
+Source links are local evidence pointers; a privacy-filtered public selection may omit historical targets.
+Sources: [WA v13](docs/STAGE773A_WA_CHAMPION_V13_344WINDOW_FIELD_ROLLOUT_KIT.md), [PtP v5](docs/STAGE741A_PBE5AC_LBE5AC_VHT40_PB050_PRODUCTION_BUNDLE_V5.md),
+[triple patch](docs/STAGE817A_UNIVERSAL_PB060_TRIPLE_PATCH_OPENWRT_AIROS_KIT.md), [LTU kit](docs/STAGE818A_LTU_4096QAM_12X_LDPC_AND_SUPER4096_SAFE_KIT.md),
+[model](docs/STAGE819A_GUARIDA_TOWER_V10_TRIPLE_PATCH_AND_XW_MIXED_TDMA_PARETO.md), [825A source ledger](docs/STAGE825A_PUBLIC_MILESTONES_THROUGH_824A.md).
+
+Historical sections below retain source-reported experiments and their original scope; they are not new Stage825A acceptance.
 
 > **An open research knowledge hub and autonomous experimental testbed driven by a real-world WISP and AI agents to extract maximum real-world PtMP/PtP capacity, latency stability, Triple-Play QoE, and spectral efficiency from ubiquitously deployed Ubiquiti airMAX AC, M5, and LTU hardware.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Status: Active R&D (Stage 99D)](https://img.shields.io/badge/Status-Active%20R%26D%20(Stage%2099D)-success.svg)](docs/CURRENT_STATE.md)
+[![Status: Active R&D (Stage824A)](https://img.shields.io/badge/Status-Active%20R%26D%20(Stage824A)-success.svg)](docs/CURRENT_STATE.md)
 [![Hardware: QCA988x / AR934x / QCA9558 / LTU](https://img.shields.io/badge/Hardware-QCA988x%20%7C%20AR934x%20%7C%20QCA9558%20%7C%20LTU-orange.svg)](docs/HARDWARE_MATRIX.md)
 [![Method: Autonomous Loop](https://img.shields.io/badge/Method-Autonomous%20Loop%20(Karpathy%20%2F%20IteRate)-purple.svg)](docs/DECISIONS.md#d-0009)
 
@@ -44,7 +73,7 @@ We do **NOT** attempt to turn 802.11ac hardware into Wi-Fi 6/7 or fabricate PHY 
 
 ## 3. Engineering Principles & Scientific Honesty
 
-Every claim in this repository follows the strict source-of-truth hierarchy defined in our **[Project Constitution (AGENTS.md)](AGENTS.md)**:
+Every claim in this repository follows the strict source-of-truth hierarchy defined in our **project claim-labeling rules**:
 1. **Measurements from our exact hardware revision** (Grade-A hardware evidence).
 2. **Source code & binary verification for the exact build** (verified in OpenWrt / Linux / `ath10k` / `umac.ko` / `ame_core.ko`).
 3. **Official hardware and vendor documentation**.
@@ -87,9 +116,9 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 
 ## 5. Confirmed Research Baselines & Breakthroughs (Stages 1–99D)
 
-1. **OpenWrt 24.10.4 (Kernel 6.6.110) Running at Physical Silicon Ceiling**: Flashed and verified on a physical lab testbed (**Ubiquiti LiteAP 120 `LAP-120` AP ↔ NanoStation 5AC Loco CPE**, both `WA` boards with `AR9342 @ 535 MHz` + `64 MB DDR2` + `QCA9882`).
+1. **OpenWrt 24.10.4 (Kernel 6.6.110) reported testbed baseline**: Flashed and verified on a physical lab testbed (**Ubiquiti LiteAP 120 `LAP-120` AP ↔ NanoStation 5AC Loco CPE**, both `WA` boards with `AR9342 @ 535 MHz` + `64 MB DDR2` + `QCA9882`).
 2. **64 MB RAM OOM Root-Cause Solved (`+14 MB` Usable Headroom, `0 OOMs`)**: Tuning `vm.min_free_kbytes=2048` and `vm.watermark_boost_factor=0` increased `MemAvailable` from `6.5 MB` → **`22.4 MB` on AP** and **`23.8 MB` on CPE**, achieving **100% survival (`0 OOMs`)** under sustained 200+ Mbps saturation.
-3. **Clean-Room Interoperability Analysis of `airMAX AC` (`RE1` — `docs/UMAC_DATAPATH.md`)**: Mapped the exact boundary between `umac.ko` and `ubnt_poll_host.ko` (`ath_Airmax_Ops_t` 62-pointer table, `CE4` opcodes `0x9064`/`0x9044`), replacing proprietary polling with open Linux 6.6 `mac80211` primitives (`AQL` + `ATF` + `htt_max_amsdu_ampdu` + Adaptive `RTS/CTS NAV` + upstream `CAKE`) for **100% multi-vendor compatibility (`Ubiquiti AC + Legacy M5 802.11n + MikroTik + Cambium + TP-Link`)**.
+3. **Clean-Room Interoperability Analysis of `airMAX AC` (`RE1` — `docs/UMAC_DATAPATH.md`)**: Mapped the exact boundary between `umac.ko` and `ubnt_poll_host.ko` (`ath_Airmax_Ops_t` 62-pointer table, `CE4` opcodes `0x9064`/`0x9044`), replacing proprietary polling with open Linux 6.6 `mac80211` primitives (`AQL` + `ATF` + `htt_max_amsdu_ampdu` + Adaptive `RTS/CTS NAV` + upstream `CAKE`) for **mixed-vendor observations on tested profiles; compatibility across all models is UNKNOWN**.
 4. **Confirmed Physical Bench Progression (80 MHz Indoor NLOS Bench — `research/raw/bench/2026-10-16/`)**:
 
 | Stage / Configuration | UDP Downlink Goodput | UDP Uplink Goodput | TCP Downlink (1S) | Loaded RF RTT (`p50 / p95`) | `MemAvailable` (AP / CPE) |

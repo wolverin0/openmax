@@ -1,0 +1,481 @@
+{
+  "meta": {
+    "stage": "753A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re.py",
+    "tool_sha256": "f452cad08e82f85951688ade852af64062e45efdddec32faf1253d7beb214203",
+    "output": "artifacts/autoresearch/stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "ANE UPDATE and CONTROL log-line extraction from the UMAC; proc-knob enumeration; HAL lifecycle and immunity symbol lookup",
+    "premise_corrections": [
+      "ath10k_core.ko is absent, so the ath10k ANI implementation cannot be read",
+      "the state machine is not only named: it is PRINTED, with distinct UPDATE and CONTROL lines plus a reset line carrying a flag and a cause"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules": 0,
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "mrc_cck": 3,
+        "mrc": 3,
+        "ANI": 22,
+        "ani_": 7,
+        "ofdm_level": 1,
+        "cck_level": 1,
+        "firstep": 7,
+        "spur_immunity": 0,
+        "immunity": 0
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 1,
+        "ANI UPDATE  cck level": 1
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 1,
+        "ANI ofdm_control firstep": 1,
+        "ANI cck_control mrc_cck": 1
+      },
+      "reset": 1,
+      "ofdm_actions": {
+        "firstep": 7,
+        "cycpwr": 2
+      },
+      "cck_actions": {
+        "mrc_cck": 3,
+        "barker_threshold": 1
+      },
+      "knobs": {
+        "ani_poll_len": 1,
+        "ani_listen_len": 1,
+        "ani_ofdm_level": 1,
+        "ani_cck_level": 1,
+        "dyntxchain": 2
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 0,
+        "ar9300_ani_detach": 0,
+        "ar9300_ani_init_defaults": 0,
+        "ar9300_ani_reset": 0,
+        "ar9300_ani_control": 0,
+        "ar9300_ani_ar_poll": 0
+      },
+      "immunity": {
+        "ar9300_set_immunity": 0,
+        "ar9300_is_ani_noise_spur": 0,
+        "ath_hal_enabledANI": 0
+      },
+      "ani_symbols": [
+        "dbglog_ani_print_handler",
+        "wlan_get_chaninfo"
+      ],
+      "cck_contexts": [
+        "ofdmlevel %d ccklevel %d....ANI ofdm_control firstep %d cycpwr %d...ANI cck_control mrc_cck %d barker_threshold %d..ANI resetting resetflag %d resetCau"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "mrc_cck": 3,
+        "mrc": 3,
+        "ANI": 22,
+        "ani_": 7,
+        "ofdm_level": 1,
+        "cck_level": 1,
+        "firstep": 7,
+        "spur_immunity": 0,
+        "immunity": 0
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 1,
+        "ANI UPDATE  cck level": 1
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 1,
+        "ANI ofdm_control firstep": 1,
+        "ANI cck_control mrc_cck": 1
+      },
+      "reset": 1,
+      "ofdm_actions": {
+        "firstep": 7,
+        "cycpwr": 2
+      },
+      "cck_actions": {
+        "mrc_cck": 3,
+        "barker_threshold": 1
+      },
+      "knobs": {
+        "ani_poll_len": 1,
+        "ani_listen_len": 1,
+        "ani_ofdm_level": 1,
+        "ani_cck_level": 1,
+        "dyntxchain": 2
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 0,
+        "ar9300_ani_detach": 0,
+        "ar9300_ani_init_defaults": 0,
+        "ar9300_ani_reset": 0,
+        "ar9300_ani_control": 0,
+        "ar9300_ani_ar_poll": 0
+      },
+      "immunity": {
+        "ar9300_set_immunity": 0,
+        "ar9300_is_ani_noise_spur": 0,
+        "ath_hal_enabledANI": 0
+      },
+      "ani_symbols": [
+        "dbglog_ani_print_handler",
+        "wlan_get_chaninfo"
+      ],
+      "cck_contexts": [
+        "ofdmlevel %d ccklevel %d....ANI ofdm_control firstep %d cycpwr %d...ANI cck_control mrc_cck %d barker_threshold %d..ANI resetting resetflag %d resetCau"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "mrc_cck": 0,
+        "mrc": 0,
+        "ANI": 7,
+        "ani_": 0,
+        "ofdm_level": 0,
+        "cck_level": 0,
+        "firstep": 0,
+        "spur_immunity": 0,
+        "immunity": 2
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 0,
+        "ANI UPDATE  cck level": 0
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 0,
+        "ANI ofdm_control firstep": 0,
+        "ANI cck_control mrc_cck": 0
+      },
+      "reset": 0,
+      "ofdm_actions": {
+        "firstep": 0,
+        "cycpwr": 0
+      },
+      "cck_actions": {
+        "mrc_cck": 0,
+        "barker_threshold": 0
+      },
+      "knobs": {
+        "ani_poll_len": 0,
+        "ani_listen_len": 0,
+        "ani_ofdm_level": 0,
+        "ani_cck_level": 0,
+        "dyntxchain": 0
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 0,
+        "ar9300_ani_detach": 0,
+        "ar9300_ani_init_defaults": 0,
+        "ar9300_ani_reset": 0,
+        "ar9300_ani_control": 0,
+        "ar9300_ani_ar_poll": 0
+      },
+      "immunity": {
+        "ar9300_set_immunity": 0,
+        "ar9300_is_ani_noise_spur": 0,
+        "ath_hal_enabledANI": 1
+      },
+      "ani_symbols": [],
+      "cck_contexts": []
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "mrc_cck": 0,
+        "mrc": 0,
+        "ANI": 7,
+        "ani_": 0,
+        "ofdm_level": 0,
+        "cck_level": 0,
+        "firstep": 0,
+        "spur_immunity": 0,
+        "immunity": 2
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 0,
+        "ANI UPDATE  cck level": 0
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 0,
+        "ANI ofdm_control firstep": 0,
+        "ANI cck_control mrc_cck": 0
+      },
+      "reset": 0,
+      "ofdm_actions": {
+        "firstep": 0,
+        "cycpwr": 0
+      },
+      "cck_actions": {
+        "mrc_cck": 0,
+        "barker_threshold": 0
+      },
+      "knobs": {
+        "ani_poll_len": 0,
+        "ani_listen_len": 0,
+        "ani_ofdm_level": 0,
+        "ani_cck_level": 0,
+        "dyntxchain": 0
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 0,
+        "ar9300_ani_detach": 0,
+        "ar9300_ani_init_defaults": 0,
+        "ar9300_ani_reset": 0,
+        "ar9300_ani_control": 0,
+        "ar9300_ani_ar_poll": 0
+      },
+      "immunity": {
+        "ar9300_set_immunity": 0,
+        "ar9300_is_ani_noise_spur": 0,
+        "ath_hal_enabledANI": 1
+      },
+      "ani_symbols": [],
+      "cck_contexts": []
+    },
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 507,
+      "tokens": {
+        "mrc_cck": 0,
+        "mrc": 0,
+        "ANI": 2,
+        "ani_": 11,
+        "ofdm_level": 0,
+        "cck_level": 0,
+        "firstep": 0,
+        "spur_immunity": 0,
+        "immunity": 1
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 0,
+        "ANI UPDATE  cck level": 0
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 0,
+        "ANI ofdm_control firstep": 0,
+        "ANI cck_control mrc_cck": 0
+      },
+      "reset": 0,
+      "ofdm_actions": {
+        "firstep": 0,
+        "cycpwr": 0
+      },
+      "cck_actions": {
+        "mrc_cck": 0,
+        "barker_threshold": 0
+      },
+      "knobs": {
+        "ani_poll_len": 0,
+        "ani_listen_len": 0,
+        "ani_ofdm_level": 0,
+        "ani_cck_level": 0,
+        "dyntxchain": 0
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 1,
+        "ar9300_ani_detach": 1,
+        "ar9300_ani_init_defaults": 1,
+        "ar9300_ani_reset": 1,
+        "ar9300_ani_control": 1,
+        "ar9300_ani_ar_poll": 1
+      },
+      "immunity": {
+        "ar9300_set_immunity": 1,
+        "ar9300_is_ani_noise_spur": 1,
+        "ath_hal_enabledANI": 2
+      },
+      "ani_symbols": [
+        "ar9300_ani_ar_poll",
+        "ar9300_ani_attach",
+        "ar9300_ani_control",
+        "ar9300_ani_detach",
+        "ar9300_ani_get_current_state",
+        "ar9300_ani_get_current_stats",
+        "ar9300_ani_init_defaults",
+        "ar9300_ani_reset",
+        "ar9300_config_bb_panic_watchdog",
+        "ar9300_get_bb_panic_info",
+        "ar9300_handle_bb_panic",
+        "ar9300_handle_radar_bb_panic",
+        "ar9300_is_ani_noise_spur",
+        "ar9300_set_immunity",
+        "ath_hal_enabledANI",
+        "ath_hal_log_ani",
+        "ath_hal_log_ani_callback_register"
+      ],
+      "cck_contexts": []
+    },
+    {
+      "module": "XC:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "defined_symbols": 507,
+      "tokens": {
+        "mrc_cck": 0,
+        "mrc": 0,
+        "ANI": 2,
+        "ani_": 11,
+        "ofdm_level": 0,
+        "cck_level": 0,
+        "firstep": 0,
+        "spur_immunity": 0,
+        "immunity": 1
+      },
+      "update": {
+        "ANI UPDATE ofdm level": 0,
+        "ANI UPDATE  cck level": 0
+      },
+      "control": {
+        "ANI CONTROL ofdmlevel": 0,
+        "ANI ofdm_control firstep": 0,
+        "ANI cck_control mrc_cck": 0
+      },
+      "reset": 0,
+      "ofdm_actions": {
+        "firstep": 0,
+        "cycpwr": 0
+      },
+      "cck_actions": {
+        "mrc_cck": 0,
+        "barker_threshold": 0
+      },
+      "knobs": {
+        "ani_poll_len": 0,
+        "ani_listen_len": 0,
+        "ani_ofdm_level": 0,
+        "ani_cck_level": 0,
+        "dyntxchain": 0
+      },
+      "lifecycle": {
+        "ar9300_ani_attach": 1,
+        "ar9300_ani_detach": 1,
+        "ar9300_ani_init_defaults": 1,
+        "ar9300_ani_reset": 1,
+        "ar9300_ani_control": 1,
+        "ar9300_ani_ar_poll": 1
+      },
+      "immunity": {
+        "ar9300_set_immunity": 1,
+        "ar9300_is_ani_noise_spur": 1,
+        "ath_hal_enabledANI": 2
+      },
+      "ani_symbols": [
+        "ar9300_ani_ar_poll",
+        "ar9300_ani_attach",
+        "ar9300_ani_control",
+        "ar9300_ani_detach",
+        "ar9300_ani_get_current_state",
+        "ar9300_ani_get_current_stats",
+        "ar9300_ani_init_defaults",
+        "ar9300_ani_reset",
+        "ar9300_config_bb_panic_watchdog",
+        "ar9300_get_bb_panic_info",
+        "ar9300_handle_bb_panic",
+        "ar9300_handle_radar_bb_panic",
+        "ar9300_is_ani_noise_spur",
+        "ar9300_set_immunity",
+        "ath_hal_enabledANI",
+        "ath_hal_log_ani",
+        "ath_hal_log_ani_callback_register"
+      ],
+      "cck_contexts": []
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 6,
+    "update_lines": [
+      "ANI UPDATE ofdm level",
+      "ANI UPDATE  cck level"
+    ],
+    "update_line_count": 2,
+    "control_lines": [
+      "ANI CONTROL ofdmlevel",
+      "ANI ofdm_control firstep",
+      "ANI cck_control mrc_cck"
+    ],
+    "control_line_count": 3,
+    "two_phase_loop": 1,
+    "reset_line_hits": 2,
+    "reset_is_diagnosed": 1,
+    "ofdm_actions": [
+      "firstep",
+      "cycpwr"
+    ],
+    "cck_actions": [
+      "mrc_cck",
+      "barker_threshold"
+    ],
+    "ofdm_action_set": 1,
+    "cck_action_set": 1,
+    "mrc_cck_hits": 6,
+    "mrc_cck_present": 1,
+    "barker_threshold_present": 1,
+    "proc_knobs": [
+      "ani_poll_len",
+      "ani_listen_len",
+      "ani_ofdm_level",
+      "ani_cck_level",
+      "dyntxchain"
+    ],
+    "proc_knob_count": 5,
+    "hal_lifecycle": [
+      "ar9300_ani_attach",
+      "ar9300_ani_detach",
+      "ar9300_ani_init_defaults",
+      "ar9300_ani_reset",
+      "ar9300_ani_control",
+      "ar9300_ani_ar_poll"
+    ],
+    "hal_lifecycle_count": 6,
+    "immunity_controls": [
+      "ar9300_set_immunity",
+      "ar9300_is_ani_noise_spur",
+      "ath_hal_enabledANI"
+    ],
+    "spur_immunity_present": 1,
+    "ani_symbol_count": 19,
+    "log_callback_present": 1,
+    "state_machine_named": 1,
+    "thresholds_recovered": 0,
+    "stepper_increments_recovered": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so the ath10k ANI implementation cannot be compared",
+    "the state machine is recovered from its log lines, not from its control flow: the exact transition conditions were not decoded",
+    "no numeric firstep, ofdm_level ceiling, cck_level ceiling, cycpwr or spur threshold was recovered",
+    "the stepper increments (how far a level moves per poll) were not found",
+    "self_corr_low and firstep_low are observed but never appear as CONTROL actions, so their role is measurement-only in the logged path",
+    "no dynamic validation"
+  ]
+}

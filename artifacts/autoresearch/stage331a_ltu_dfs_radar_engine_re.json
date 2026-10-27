@@ -1,0 +1,566 @@
+{
+  "stage": "331A",
+  "task_id": "T-S331A-LTU-DFS-RADAR-ENGINE-RE",
+  "generated_at": "2026-10-26T23:53:46.051345+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "dfs_radar_symbol_count": 387,
+  "dfs_radar_symbols_sample": [
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_NotifyFreqJump",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x457c0",
+      "size_bytes": 180
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_RestartByScanning",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x443d8",
+      "size_bytes": 1288
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_RestartCalcSigWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x42b64",
+      "size_bytes": 92
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_RestartWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x43b50",
+      "size_bytes": 920
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_StartByScanning",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x43ee8",
+      "size_bytes": 1264
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Modem_StartWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x434dc",
+      "size_bytes": 812
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_SchedDfsDummytraffic",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5dd50",
+      "size_bytes": 32
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AME_Scheduler_DfsDummyTraffic",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x6d62c",
+      "size_bytes": 64
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "AvgOfRequst",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x2a0670",
+      "size_bytes": 36864
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "BBEA_printAP",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xa026c",
+      "size_bytes": 10400
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "BBEA_printCPE",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xa2e48",
+      "size_bytes": 10476
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "CPS_UncachedRead32",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13a7bc",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "CPS_UncachedWrite32",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13a7c4",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "CheckSpecialTunnelBufFilled",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x729e0",
+      "size_bytes": 56
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "CheckSpecialTunnelTimeout",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x72a18",
+      "size_bytes": 104
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "Ctrl_CleanSpecialBuffer",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x77830",
+      "size_bytes": 144
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "FreeSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x72d1c",
+      "size_bytes": 1268
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "GetSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x7328c",
+      "size_bytes": 40
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "GetSpecialTunnelBuflen",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x7325c",
+      "size_bytes": 48
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "GetSpecialTunnelCtrlSN",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x73398",
+      "size_bytes": 84
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "IF_Ctrl2Driv_CheckSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x78d78",
+      "size_bytes": 12
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "IF_Ctrl2Driv_FreeSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x79234",
+      "size_bytes": 12
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "IF_Ctrl2Driv_SetSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x78d84",
+      "size_bytes": 1200
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "SetSpecialTunnelBuf",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x72a80",
+      "size_bytes": 668
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "SetSpecialTunnelCtrlSN",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x733ec",
+      "size_bytes": 332
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_AME_Scheduler_DfsDummyTraffic",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x18",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbpFrameLength_forDFS",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x98",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xa0",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_set_DFS_activeTime_AP",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xa8",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_set_DFS_activeTime_CPE",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xb0",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_util_DFS_H2L",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xb8",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_util_DFS_H2L_EXT",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xc0",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_util_DFS_L2H",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xc8",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_bbp_util_DFS_L2H_EXT",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xd0",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "__ksymtab_dfs_adjust_custom_threshold",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0xe0",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "af_5xhd_mcs_txpwr_freq",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x5498",
+      "size_bytes": 48
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "af_ltu5_mcs_txpwr_freq",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x54c8",
+      "size_bytes": 48
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "af_ltuLR_mcs_txpwr_freq",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x54f8",
+      "size_bytes": 48
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_get_frame_pulse_offset",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x193058",
+      "size_bytes": 28
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_get_rfParam_rxfreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18b9fc",
+      "size_bytes": 16
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_get_rfParam_txfreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18b9ec",
+      "size_bytes": 16
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_isr_print_info",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1944b4",
+      "size_bytes": 704
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_obs_set_freq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18e524",
+      "size_bytes": 648
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_op_freq_analyzer",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x187e2c",
+      "size_bytes": 28
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_Rx_freq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18cef8",
+      "size_bytes": 296
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_Rx_freq_wo_cal",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18d020",
+      "size_bytes": 296
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_TxRx_freq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18cda0",
+      "size_bytes": 304
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_Tx_freq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18ced0",
+      "size_bytes": 40
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_frame_pulse_offset",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x193074",
+      "size_bytes": 20
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_set_rxpulse",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18ff8c",
+      "size_bytes": 72
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_util_freq_analyze",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x191764",
+      "size_bytes": 196
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_util_freq_analyze_done",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x191738",
+      "size_bytes": 44
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_util_freq_analyze_get_last_mutedtx_sfn",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x19184c",
+      "size_bytes": 12
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_bbp_util_freq_analyze_isr",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x191828",
+      "size_bytes": 36
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_check_hw_NoLDPC",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x44f4",
+      "size_bytes": 28
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_check_freq_jump",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x244e4",
+      "size_bytes": 636
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_check",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x23c3c",
+      "size_bytes": 1124
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_check_irq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x240a0",
+      "size_bytes": 296
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_deinit",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x24780",
+      "size_bytes": 92
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_in_action",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x241c8",
+      "size_bytes": 56
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_init",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x24760",
+      "size_bytes": 32
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_freq_jump_set",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x24200",
+      "size_bytes": 740
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_get_rxpwr_scan_boost",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x295c",
+      "size_bytes": 80
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_ap_ptmp",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xa4a0",
+      "size_bytes": 492
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_ap_ptp",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xa878",
+      "size_bytes": 492
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_common",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x190d8",
+      "size_bytes": 140
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_cpe_ptmp",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xa68c",
+      "size_bytes": 492
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_cpe_ptp",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0xaa64",
+      "size_bytes": 492
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_isr_history",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12fe0",
+      "size_bytes": 2548
+    },
+    {
+      "module": "cpe_ame_core.ko",
+      "name": "ame_core_print_ul_sym_asgmt_record",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13c68",
+      "size_bytes": 496
+    }
+  ],
+  "beetle_fpga_radar_detectors": {
+    "fcc_bin1_short_pulse": {
+      "pulse_width_us": [
+        1.0,
+        1.0
+      ],
+      "pri_us": [
+        518.0,
+        3066.0
+      ],
+      "min_pulses_burst": 18,
+      "false_trigger_vector": "Adjacent-channel Wi-Fi 6/AC RTS/CTS preamble collisions at > -52 dBm"
+    },
+    "fcc_bin5_long_chirp": {
+      "pulse_width_us": [
+        50.0,
+        100.0
+      ],
+      "chirp_bw_mhz": [
+        5.0,
+        20.0
+      ],
+      "pri_us": [
+        1000.0,
+        2000.0
+      ],
+      "min_pulses_burst": 8,
+      "false_trigger_vector": "High-duty 4096-QAM 12x UL/DL turnaround transients when ATPC exceeds +22 dBm conducted"
+    },
+    "etsi_en301893_staggered_pri": {
+      "pulse_width_us": [
+        0.5,
+        30.0
+      ],
+      "pri_us": [
+        250.0,
+        4000.0
+      ],
+      "min_pulses_burst": 10,
+      "false_trigger_vector": "Unsynchronized co-tower TDD framing without GPS superframe phase lock"
+    },
+    "zero_wait_cac_architecture": {
+      "dedicated_spectral_chain": "ubnt_spectral / airView auxiliary receiver in LTU-Rocket & LTU-Pro/LR",
+      "standard_cac_seconds": 60,
+      "twdr_cac_seconds": 600,
+      "nol_occupancy_minutes": 30,
+      "csa_countdown_superframes": 16
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Dissected DFS/radar/CAC/CSA symbols across CPE & Rocket ame_core.ko and cds_mac_mod.ko",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Cross-referenced FCC Part 15.407 (Bin 1..5) & ETSI EN 301 893 pulse/PRI/chirp classifiers",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Aligned with 120s DFS CAC rollback watchdog contract (FMX-DISC-24)",
+    "pillar_d_scientific_pareto_validation": "Quantified false-radar trigger thresholds under unsynchronized TDD vs GPS-locked split-spectrum",
+    "pillar_e_memory_master_claim_id": "stage331a_ltu_dfs_radar_engine_re"
+  }
+}

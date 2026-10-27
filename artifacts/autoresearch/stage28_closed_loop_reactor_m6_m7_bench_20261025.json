@@ -1,0 +1,303 @@
+{
+  "experiment_id": "STAGE28-CLOSED-LOOP-REACTOR-M6-M7-BENCH-20261025",
+  "stage": "STAGE28",
+  "task_id": "T-S28-CLOSED-LOOP-DISCOVERY-TO-RESEARCH-REACTOR",
+  "started_utc": "2026-10-25T17:21:36Z",
+  "status": "COMPLETED_ON_PHYSICAL_BENCH",
+  "crucial_rule": "INCREMENTAL_CHAMPION_AS_BASELINE + CLOSED_LOOP_RESEARCH_REACTOR_AUTO_TRIGGER",
+  "reactor_ingestion_summary": {
+    "ingested_followup_papers_count": 2,
+    "ingested_followup_papers": [
+      {
+        "paper_id": "2211.03471v1",
+        "title": "Sittin'On the Dock of the (WiFi) Bay: On the Frame Aggregation under IEEE 802.11 DCF",
+        "note_id": "stage-28-closed-loop-reactor-arxiv-221103471v1-sittinon-the-dock-of-the-wifi-bay",
+        "triggered_by_rounds": [
+          "S25-R1",
+          "S25-R2"
+        ],
+        "verification_probability": 0.97,
+        "model_version": "jev-1.14.0",
+        "exact_span": {
+          "start_char": 381,
+          "end_char": 590,
+          "text": "To do so, we first describe the transmission time in IEEE 802.11 in a stochastic framework and then we calculate the optimal value of the frames that, when aggregated, saves transmission time in the long term."
+        },
+        "synthesized_mechanism_id": "M6 (`PB-024` 2-MTU DRR Frame-Aggregation Quantum `3028B` + Cross-Sector Bridge/DSACK Co-Design)"
+      },
+      {
+        "paper_id": "0806.4695v1",
+        "title": "On the Throughput Allocation for Proportional Fairness in Multirate IEEE 802.11 DCF",
+        "note_id": "stage-28-closed-loop-reactor-arxiv-08064695v1-on-the-throughput-allocation-for-p",
+        "triggered_by_rounds": [
+          "S24C-R2",
+          "S24E-R2",
+          "S27-R2AC-R1"
+        ],
+        "verification_probability": 0.77,
+        "model_version": "jev-1.14.0",
+        "exact_span": {
+          "start_char": 484,
+          "end_char": 734,
+          "text": "The throughput allocation resulting from the proposed algorithm is able to greatly increase the aggregate throughput of the DCF while ensuring fairness levels among the stations of the same order of the ones available with the classical PF criterion."
+        },
+        "synthesized_mechanism_id": "M7 (`PB-025` Arrival-Rate Normalized Airtime Weighting & Cross-Generation `cms_bias=6` / `br0` Queue Co-Design)"
+      }
+    ],
+    "vault_status": {
+      "vault_name": "FuturaMAX Deep Research Vault",
+      "vault_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\hyperresearch_vault",
+      "notes": {
+        "total": 28,
+        "by_status": {
+          "draft": 14,
+          "evergreen": 13,
+          "review": 1
+        },
+        "by_type": {
+          "index": 9,
+          "note": 19
+        }
+      },
+      "tags": {
+        "total_unique": 12,
+        "top": [
+          {
+            "tag": "closed-loop-reactor,scholar-mcp,jev-verified,stage28-closed-loop-reactor-20261025",
+            "count": 2
+          },
+          {
+            "tag": "scholar-mcp,jev-verified,arxiv,stage25-scholar-fusion-20261025",
+            "count": 2
+          },
+          {
+            "tag": "4096qam,1024qam,snr,evm,rate-control,ltu,af4x",
+            "count": 1
+          },
+          {
+            "tag": "ad9361,4096qam,1024qam,evm,phase-noise,ltu,tdd",
+            "count": 1
+          },
+          {
+            "tag": "airbbr,bbr,aql,airtime-fairness,80211ac,pacing",
+            "count": 1
+          },
+          {
+            "tag": "airtime,aql,codel,ptmp,fairness",
+            "count": 1
+          },
+          {
+            "tag": "fq_codel,bufferbloat,aqm,80211ac,quantum,ecn",
+            "count": 1
+          },
+          {
+            "tag": "hidden-node,rts-cts,ptmp,80211n,80211ac,collision",
+            "count": 1
+          },
+          {
+            "tag": "mimo,chain-imbalance,antenna-selection,stbc,mrc,80211n,80211ac",
+            "count": 1
+          },
+          {
+            "tag": "synthesis,stage24,airbbr,pb021,pb040,ltu,af4x,pbm5,qca988x",
+            "count": 1
+          }
+        ]
+      },
+      "graph": {
+        "total_links": 113,
+        "broken_links": 14,
+        "orphan_notes": 0
+      },
+      "total_words": 48759,
+      "last_sync": "2026-10-25T17:21:29.528553+00:00"
+    }
+  },
+  "rounds": {
+    "S28-R1": {
+      "round_id": "S28-R1",
+      "hypothesis": "M6 (PB-024 2-MTU DRR Frame-Aggregation Quantum quantum=3028 + br-lan txqueuelen=256 + tcp_dsack=1 synthesized from arXiv:2211.03471v1 prob=0.97 + S25-R1 + S27-R2AC-R2) vs Stage 25 Champion v6 (quantum=1514)",
+      "control_arm_a": "Stage 25 Champion v6 (quantum=1514, br-lan txqueuelen=1000)",
+      "treatment_arm_b": "Stage 25 Champion v6 + M6 (quantum=3028, br-lan txqueuelen=256, tcp_sack/dsack=1, tcp_fin_timeout=15)",
+      "arm_a_mean_goodput_mbps": 39.204,
+      "arm_b_mean_goodput_mbps": 39.435,
+      "goodput_delta_pct": 0.589,
+      "arm_a_mean_p95_rtt_ms": 42.725,
+      "arm_b_mean_p95_rtt_ms": 38.965,
+      "p95_rtt_delta_pct": -8.8,
+      "pareto_score_delta_pct": 3.6694,
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "promoted": true,
+      "research_reactor_triggered": true,
+      "followup_scholar_queries": [
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac"
+      ],
+      "phases": {
+        "A1": {
+          "goodput_mbps": 39.685,
+          "goodput_per_mhz": 1.984,
+          "p50_rtt_ms": 21.902,
+          "p95_rtt_ms": 44.092,
+          "p99_rtt_ms": 59.443,
+          "mean_rtt_ms": 23.11,
+          "loss_pct": 0.0,
+          "ping_samples": 78
+        },
+        "B1": {
+          "goodput_mbps": 39.605,
+          "goodput_per_mhz": 1.98,
+          "p50_rtt_ms": 21.273,
+          "p95_rtt_ms": 40.586,
+          "p99_rtt_ms": 56.892,
+          "mean_rtt_ms": 23.157,
+          "loss_pct": 0.0,
+          "ping_samples": 90
+        },
+        "A2": {
+          "goodput_mbps": 38.722,
+          "goodput_per_mhz": 1.936,
+          "p50_rtt_ms": 23.394,
+          "p95_rtt_ms": 41.358,
+          "p99_rtt_ms": 57.346,
+          "mean_rtt_ms": 24.253,
+          "loss_pct": 0.0,
+          "ping_samples": 87
+        },
+        "B2": {
+          "goodput_mbps": 39.265,
+          "goodput_per_mhz": 1.963,
+          "p50_rtt_ms": 19.542,
+          "p95_rtt_ms": 37.343,
+          "p99_rtt_ms": 52.132,
+          "mean_rtt_ms": 21.637,
+          "loss_pct": 0.0,
+          "ping_samples": 91
+        }
+      }
+    },
+    "S28-R2": {
+      "round_id": "S28-R2",
+      "hypothesis": "M7 (PB-025 Cross-Band Feature Port from S27-R2AC-R1/R2 to 5 GHz Rocket Prism 5AC Gen2: uph_wifi0/cms_bias=6, voip_bias=6, sta_rx_rssi_th=-82 + br0 txqueuelen=256 + tcp_sack/dsack=1 + tcp_fin_timeout=15) vs r5ac_prism_sta Champion",
+      "control_arm_a": "r5ac_prism_sta Champion (cms_bias=default 16-int table, br0 txqueuelen=1000)",
+      "treatment_arm_b": "r5ac_prism_sta Champion + M7 (scalar cms_bias=6, voip_bias=6, sta_rx_rssi_th=-82 + br0 txqueuelen=256 + tcp_sack/dsack=1 + tcp_fin_timeout=15)",
+      "arm_a_mean_goodput_mbps": 27.098,
+      "arm_b_mean_goodput_mbps": 24.988,
+      "goodput_delta_pct": -7.787,
+      "arm_a_mean_p95_rtt_ms": 187.038,
+      "arm_b_mean_p95_rtt_ms": 23.859,
+      "p95_rtt_delta_pct": -87.244,
+      "pareto_score_delta_pct": 22.7488,
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "promoted": false,
+      "research_reactor_triggered": true,
+      "followup_scholar_queries": [
+        "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+        "multirate IEEE 802.11 proportional fairness packet arrival rate normalization"
+      ],
+      "negative_finding_diagnosis": "On XC.v8.7.25 in Managed STA mode, uph_wifi0/cms_bias and voip_bias are 16-integer tables (-82 0 0 0 28 10 10 ...) and sta_rx_rssi_th is AP-only, causing -7.787% goodput drop -> RETAIN_CURRENT_CHAMPION under max_goodput_loss_pct=-2.0% guard.",
+      "phases": {
+        "A1": {
+          "samples": 18,
+          "p50_ms": 1.974,
+          "p95_ms": 347.96,
+          "p99_ms": 347.96,
+          "mean_ms": 27.619,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 28.485
+        },
+        "B1": {
+          "samples": 18,
+          "p50_ms": 1.738,
+          "p95_ms": 25.87,
+          "p99_ms": 25.87,
+          "mean_ms": 7.19,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 22.519
+        },
+        "A2": {
+          "samples": 18,
+          "p50_ms": 3.737,
+          "p95_ms": 26.116,
+          "p99_ms": 26.116,
+          "mean_ms": 9.675,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 25.71
+        },
+        "B2": {
+          "samples": 18,
+          "p50_ms": 2.034,
+          "p95_ms": 21.848,
+          "p99_ms": 21.848,
+          "mean_ms": 5.252,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 27.458
+        }
+      }
+    },
+    "S28-R3": {
+      "round_id": "S28-R3",
+      "hypothesis": "M7b (Changed Hypothesis synthesized from S28-R2 diagnosis: isolate Pure Bridge & Transport Co-Design br0 txqueuelen=256 + netdev_budget=600 + netdev_max_backlog=2500 + tcp_sack/dsack=1 + tcp_window_scaling=1 + tcp_fin_timeout=15 without touching 16-int uph_wifi0/cms_bias table on Managed STA r5ac_prism_sta)",
+      "control_arm_a": "r5ac_prism_sta Champion (br0 txqueuelen=1000, netdev_budget=300, tcp_dsack=0)",
+      "treatment_arm_b": "r5ac_prism_sta Champion + M7b (br0 txqueuelen=256, netdev_budget=600, netdev_max_backlog=2500, tcp_sack/dsack=1, tcp_fin_timeout=15)",
+      "arm_a_mean_goodput_mbps": 24.919,
+      "arm_b_mean_goodput_mbps": 26.712,
+      "goodput_delta_pct": 7.195,
+      "arm_a_mean_p95_rtt_ms": 21.562,
+      "arm_b_mean_p95_rtt_ms": 25.727,
+      "p95_rtt_delta_pct": 19.316,
+      "pareto_score_delta_pct": 0.4346,
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "promoted": false,
+      "research_reactor_triggered": true,
+      "followup_scholar_queries": [
+        "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+        "multirate IEEE 802.11 proportional fairness packet arrival rate normalization"
+      ],
+      "phases": {
+        "A1": {
+          "samples": 18,
+          "p50_ms": 2.081,
+          "p95_ms": 16.852,
+          "p99_ms": 16.852,
+          "mean_ms": 7.746,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 27.19
+        },
+        "B1": {
+          "samples": 18,
+          "p50_ms": 2.682,
+          "p95_ms": 27.549,
+          "p99_ms": 27.549,
+          "mean_ms": 10.403,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 24.934
+        },
+        "A2": {
+          "samples": 18,
+          "p50_ms": 2.25,
+          "p95_ms": 26.273,
+          "p99_ms": 26.273,
+          "mean_ms": 7.97,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 22.649
+        },
+        "B2": {
+          "samples": 18,
+          "p50_ms": 2.347,
+          "p95_ms": 23.905,
+          "p99_ms": 23.905,
+          "mean_ms": 8.346,
+          "loss_pct": 0.0,
+          "ssh_stream_mbps": 28.489
+        }
+      }
+    }
+  },
+  "final_ram_state": {
+    "persistent_flash_writes": false,
+    "lap120_verify": "AC\tAQL limit low\tAQL limit high\nVO\t900\t\t1500\nVI\t900\t\t1500\nBE\t900\t\t1500\nBK\t900\t\t1500\nBC/MC\t50000\n4000\nAIRTIME_TX\t(1)\nAIRTIME_RX\t(2)\n30\nnet.ipv4.tcp_limit_output_bytes = 131072\nnet.ipv4.tcp_notsent_lowat = 16384\nnet.core.netdev_budget = 600\nnet.ipv4.tcp_pacing_ca_ratio = 110\nnet.ipv4.tcp_pacing_ss_ratio = 150\nnet.ipv4.tcp_thin_linear_timeouts = 1\nnet.ipv4.tcp_early_retrans = 3\nnet.ipv4.tcp_autocorking = 0",
+    "loco5ac_verify": "AC\tAQL limit low\tAQL limit high\nVO\t900\t\t1500\nVI\t900\t\t1500\nBE\t900\t\t1500\nBK\t900\t\t1500\nBC/MC\t50000\n4000\nAIRTIME_TX\t(1)\nAIRTIME_RX\t(2)\n30\nnet.ipv4.tcp_limit_output_bytes = 131072\nnet.ipv4.tcp_notsent_lowat = 16384\nnet.core.netdev_budget = 600\nnet.ipv4.tcp_pacing_ca_ratio = 110\nnet.ipv4.tcp_pacing_ss_ratio = 150\nnet.ipv4.tcp_thin_linear_timeouts = 1\nnet.ipv4.tcp_early_retrans = 3\nnet.ipv4.tcp_autocorking = 0",
+    "r5ac_prism_sta_verify": "wifi0     get_ani_enable:0  \nath0      get_protmode:1  \n256\nnet.ipv4.tcp_low_latency = 1\n1000\nnet.core.netdev_budget = 300\nnet.ipv4.tcp_dsack = 0\nnet.ipv4.tcp_fin_timeout = 60"
+  }
+}

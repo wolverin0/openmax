@@ -1,0 +1,2843 @@
+{
+  "meta": {
+    "stage": "254A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage254a_knobs_1_85_hal_vtable.py",
+    "tool_sha256": "13f7879715b8091f898b319e7922bea21bae9a5f2f1ab0bb0eae0340fe1f5ed9",
+    "output": "artifacts/autoresearch/stage254a_knobs_1_85_hal_vtable.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "slice": {
+      "boundary": "airOS_UMAC_UPH",
+      "lo": 0,
+      "hi": 85,
+      "count": 85
+    },
+    "method": "knob literal -> .rodata hit -> lui/addiu materialisation site -> enclosing prologue -> lw+jalr slots inside that function",
+    "vtable_offsets_from_253a": [
+      4,
+      8,
+      156,
+      160,
+      164,
+      204,
+      208,
+      296,
+      300,
+      396,
+      520
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_acm_9f84",
+          "name": "acm",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f8c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "name": "acparams",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ad3c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "name": "addmac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009d94",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "name": "aifs",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "name": "ampdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa6c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "name": "amsdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0099e3",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "name": "ap_bridge",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a3ac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ar_a644",
+          "name": "ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x004807",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "name": "authmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a07c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "name": "autoassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b054",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "name": "basicrates",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00afc4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "name": "bcast_rate",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b714",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "name": "bintval",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a49c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "name": "blockdfschan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a88c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "name": "burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a5d4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "name": "ccmpSwSelEn",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b354",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "name": "chanbw",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a82c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "name": "chextoffset",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b144",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "name": "chscaninit",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1a4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "name": "chutil_enab",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b234",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_a9d4",
+          "name": "chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9dc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "name": "chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9dc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "name": "clrappoptie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b03c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "name": "compression",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a544",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "name": "countermeasures",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a25c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "name": "countryie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x005810",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "name": "csa2g",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b39c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "name": "cwmax",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009efc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "name": "cwmenable",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a97c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "name": "cwmin",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009ecc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "name": "cwmmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa0c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "name": "dbgLVL",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae74",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "name": "dbgLVL_high",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aea4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "name": "dbgreq",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009a68",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "name": "delkey",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x000ede",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "name": "delmac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009dac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "name": "disable_chan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b81c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "name": "disablecoext",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1d4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "name": "doth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0042fa",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "name": "doth_ch_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b66c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "name": "doth_chanswitch",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a604",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "name": "doth_pwrtgt",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a4fc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "name": "doth_reassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a52c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "name": "driver_caps",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a2ec",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "name": "dropunencrypted",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a28c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "name": "dtim_period",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a46c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "name": "enable_chan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b834",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "name": "enable_ol_stats",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b774",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "name": "enablertscts",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b6b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "name": "eospdrop",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a7cc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "name": "extbusythres",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9ac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "name": "extprotmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a91c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "name": "extprotspac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a94c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ff_a56c",
+          "name": "ff",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a574",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "name": "get11NRates",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "name": "get11NRetries",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae5c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "name": "get_acm",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009fa4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "name": "get_acs_state",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b78c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "name": "get_aifs",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f44",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "name": "get_ampdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa84",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "name": "get_amsdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ab2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "name": "get_ap_bridge",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a3c4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "name": "get_ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a664",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "name": "get_authmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a094",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "name": "get_autoassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b06c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "name": "get_bcast_rate",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b72c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "name": "get_bintval",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a4b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "name": "get_burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a5ec",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "name": "get_cac_state",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b7a4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "name": "get_cactimeout",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b69c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "name": "get_ccmpSwSelEn",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b36c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "name": "get_chanbw",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a844",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "name": "get_chextoffset",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b15c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "name": "get_chscaninit",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1bc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "name": "get_chutil",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b264",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "name": "get_chutil_enab",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b24c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_a9ec",
+          "name": "get_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9f4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "name": "get_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9f4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "name": "get_compression",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a55c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "name": "get_countermeas",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a274",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "name": "get_countrycode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ab44",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "name": "get_countryie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a724",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "name": "get_csa2g",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b3b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "name": "get_cwmax",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f14",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "name": "get_cwmenable",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a994",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        }
+      ],
+      "knobs_with_literal": 85,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "WA.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_acm_9f84",
+          "name": "acm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "name": "acparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "name": "addmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "name": "aifs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "name": "ampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "name": "amsdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "name": "ap_bridge",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ar_a644",
+          "name": "ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0027b6",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "name": "authmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "name": "autoassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "name": "basicrates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "name": "bcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "name": "bintval",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "name": "blockdfschan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "name": "burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x000d0d",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "name": "ccmpSwSelEn",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "name": "chanbw",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "name": "chextoffset",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "name": "chscaninit",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "name": "chutil_enab",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_a9d4",
+          "name": "chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "name": "chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "name": "clrappoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "name": "compression",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "name": "countermeasures",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "name": "countryie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "name": "csa2g",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "name": "cwmax",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "name": "cwmenable",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "name": "cwmin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "name": "cwmmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "name": "dbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "name": "dbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "name": "dbgreq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "name": "delkey",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "name": "delmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "name": "disable_chan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "name": "disablecoext",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "name": "doth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "name": "doth_ch_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "name": "doth_chanswitch",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "name": "doth_pwrtgt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "name": "doth_reassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "name": "driver_caps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "name": "dropunencrypted",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "name": "dtim_period",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "name": "enable_chan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "name": "enable_ol_stats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "name": "enablertscts",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "name": "eospdrop",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "name": "extbusythres",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "name": "extprotmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "name": "extprotspac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ff_a56c",
+          "name": "ff",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "name": "get11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "name": "get11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "name": "get_acm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "name": "get_acs_state",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "name": "get_aifs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "name": "get_ampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "name": "get_amsdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "name": "get_ap_bridge",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "name": "get_ar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "name": "get_authmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "name": "get_autoassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "name": "get_bcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "name": "get_bintval",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "name": "get_burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x002028",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "name": "get_cac_state",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "name": "get_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "name": "get_ccmpSwSelEn",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "name": "get_chanbw",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "name": "get_chextoffset",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "name": "get_chscaninit",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "name": "get_chutil",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "name": "get_chutil_enab",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_a9ec",
+          "name": "get_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "name": "get_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "name": "get_compression",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "name": "get_countermeas",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "name": "get_countrycode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "name": "get_countryie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "name": "get_csa2g",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "name": "get_cwmax",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "name": "get_cwmenable",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 3,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_acm_9f84",
+          "name": "acm",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f8c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "name": "acparams",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ad3c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "name": "addmac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009d94",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "name": "aifs",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "name": "ampdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa6c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "name": "amsdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0099e3",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "name": "ap_bridge",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a3ac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ar_a644",
+          "name": "ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x004807",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "name": "authmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a07c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "name": "autoassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b054",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "name": "basicrates",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00afc4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "name": "bcast_rate",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b714",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "name": "bintval",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a49c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "name": "blockdfschan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a88c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "name": "burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a5d4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "name": "ccmpSwSelEn",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b354",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "name": "chanbw",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a82c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "name": "chextoffset",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b144",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "name": "chscaninit",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1a4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "name": "chutil_enab",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b234",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_a9d4",
+          "name": "chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9dc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "name": "chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9dc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "name": "clrappoptie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b03c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "name": "compression",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a544",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "name": "countermeasures",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a25c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "name": "countryie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x005810",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "name": "csa2g",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b39c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "name": "cwmax",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009efc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "name": "cwmenable",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a97c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "name": "cwmin",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009ecc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "name": "cwmmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa0c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "name": "dbgLVL",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae74",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "name": "dbgLVL_high",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aea4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "name": "dbgreq",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009a68",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "name": "delkey",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x000ede",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "name": "delmac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009dac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "name": "disable_chan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b81c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "name": "disablecoext",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1d4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "name": "doth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0042fa",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "name": "doth_ch_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b66c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "name": "doth_chanswitch",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a604",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "name": "doth_pwrtgt",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a4fc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "name": "doth_reassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a52c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "name": "driver_caps",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a2ec",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "name": "dropunencrypted",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a28c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "name": "dtim_period",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a46c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "name": "enable_chan",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b834",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "name": "enable_ol_stats",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b774",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "name": "enablertscts",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b6b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "name": "eospdrop",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a7cc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "name": "extbusythres",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9ac",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "name": "extprotmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a91c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "name": "extprotspac",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a94c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ff_a56c",
+          "name": "ff",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a574",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "name": "get11NRates",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "name": "get11NRetries",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ae5c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "name": "get_acm",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009fa4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "name": "get_acs_state",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b78c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "name": "get_aifs",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f44",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "name": "get_ampdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00aa84",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "name": "get_amsdu",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ab2c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "name": "get_ap_bridge",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a3c4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "name": "get_ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a664",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "name": "get_authmode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a094",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "name": "get_autoassoc",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b06c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "name": "get_bcast_rate",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b72c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "name": "get_bintval",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a4b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "name": "get_burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a5ec",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "name": "get_cac_state",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b7a4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "name": "get_cactimeout",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b69c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "name": "get_ccmpSwSelEn",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b36c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "name": "get_chanbw",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a844",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "name": "get_chextoffset",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b15c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "name": "get_chscaninit",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b1bc",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "name": "get_chutil",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b264",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "name": "get_chutil_enab",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b24c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_a9ec",
+          "name": "get_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9f4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "name": "get_chwidth",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a9f4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "name": "get_compression",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a55c",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "name": "get_countermeas",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a274",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "name": "get_countrycode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00ab44",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "name": "get_countryie",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a724",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "name": "get_csa2g",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00b3b4",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "name": "get_cwmax",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x009f14",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "name": "get_cwmenable",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00a994",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        }
+      ],
+      "knobs_with_literal": 85,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "XC.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_acm_9f84",
+          "name": "acm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "name": "acparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "name": "addmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "name": "aifs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "name": "ampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "name": "amsdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "name": "ap_bridge",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ar_a644",
+          "name": "ar",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x0027b6",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "name": "authmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "name": "autoassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "name": "basicrates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "name": "bcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "name": "bintval",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "name": "blockdfschan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "name": "burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x000d0d",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "name": "ccmpSwSelEn",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "name": "chanbw",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "name": "chextoffset",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "name": "chscaninit",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "name": "chutil_enab",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_a9d4",
+          "name": "chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "name": "chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "name": "clrappoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "name": "compression",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "name": "countermeasures",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "name": "countryie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "name": "csa2g",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "name": "cwmax",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "name": "cwmenable",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "name": "cwmin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "name": "cwmmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "name": "dbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "name": "dbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "name": "dbgreq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "name": "delkey",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "name": "delmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "name": "disable_chan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "name": "disablecoext",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "name": "doth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "name": "doth_ch_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "name": "doth_chanswitch",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "name": "doth_pwrtgt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "name": "doth_reassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "name": "driver_caps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "name": "dropunencrypted",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "name": "dtim_period",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "name": "enable_chan",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "name": "enable_ol_stats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "name": "enablertscts",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "name": "eospdrop",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "name": "extbusythres",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "name": "extprotmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "name": "extprotspac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ff_a56c",
+          "name": "ff",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "name": "get11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "name": "get11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "name": "get_acm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "name": "get_acs_state",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "name": "get_aifs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "name": "get_ampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "name": "get_amsdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "name": "get_ap_bridge",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "name": "get_ar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "name": "get_authmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "name": "get_autoassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "name": "get_bcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "name": "get_bintval",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "name": "get_burst",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x002028",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "name": "get_cac_state",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "name": "get_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "name": "get_ccmpSwSelEn",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "name": "get_chanbw",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "name": "get_chextoffset",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "name": "get_chscaninit",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "name": "get_chutil",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "name": "get_chutil_enab",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_a9ec",
+          "name": "get_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "name": "get_chwidth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "name": "get_compression",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "name": "get_countermeas",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "name": "get_countrycode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "name": "get_countryie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "name": "get_csa2g",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "name": "get_cwmax",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "name": "get_cwmenable",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 3,
+      "knobs_reaching_vtable": 0
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "knobs": 85,
+    "knobs_with_literal": 85,
+    "knobs_reaching_vtable": 0,
+    "slot_histogram": {}
+  },
+  "gaps": [
+    "a knob whose literal was not found in .rodata is reported absent, not guessed",
+    "the function is attributed from the first lui/addiu match; a knob referenced from several functions is represented by one",
+    "reaching a 253A slot means the enclosing function dispatches through the HAL vtable, not that this knob is the argument",
+    "no dynamic validation"
+  ]
+}

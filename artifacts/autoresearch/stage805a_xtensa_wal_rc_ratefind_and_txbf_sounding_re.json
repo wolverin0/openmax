@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "stage": "805A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.py",
+    "tool_sha256": "f7b00f72c8c603d05723726df69ea2c9b6a23bf6aabcca0a9e225fdeb5f4effb",
+    "output": "artifacts/autoresearch/stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "method": "container SGMT parse and name sweep; host UMAC rate-control symbol and token lookup; ASCII-run census of the firmware payloads",
+    "premise_corrections": [
+      "the Xtensa payload carries no rate-control names: wal, ratefind, txbf, sounding, rc_ and rate all return 0 in the container",
+      "there is no sounding sequence by name anywhere: TXBF exists only as capability text and per-rate-group power"
+    ],
+    "radio_safety": "static only"
+  },
+  "container": {
+    "bytes": 204796,
+    "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "segments": 2,
+    "segment_bytes": 204677,
+    "ascii_runs_per_segment": [
+      42,
+      69
+    ]
+  },
+  "firmware_tokens": {
+    "wal": 0,
+    "WAL": 0,
+    "ratefind": 0,
+    "txbf": 0,
+    "txbf_": 0,
+    "sounding": 0,
+    "rc_": 0,
+    "rate": 0
+  },
+  "host_tokens": {
+    "wal_": 6,
+    "ratefind": 0,
+    "sounding": 0,
+    "TXBF": 7,
+    "rcGet": 4,
+    "rcUpdate": 1,
+    "_RATE_GetTxRetrySchedule": 1,
+    "_RATE_GetSGIFlag": 1,
+    "_RATE_SetSGIMasks": 1,
+    "g_default_sgi_per_thresh": 1,
+    "g_default_xretry_per_penalty": 1
+  },
+  "host_ratecontrol_symbols": [
+    "_RATE_GetPeerPhy",
+    "_RATE_GetPeerRateInfo",
+    "_RATE_GetRCFlags",
+    "_RATE_GetRTS_CTS_Profile",
+    "_RATE_GetRtsCtsRate",
+    "_RATE_GetSGIFlag",
+    "_RATE_GetTxChainMask",
+    "_RATE_GetTxRetrySchedule",
+    "_RATE_IsRTS_CTS_Enabled",
+    "_RATE_SetCurmode",
+    "_RATE_SetHTConnCap",
+    "_RATE_SetSGIMasks",
+    "_RATE_SetVHTConnCap",
+    "dbglog_wal_print_handler",
+    "ol_get_wal_dbg_stats",
+    "rcGetFirstValidTxRate"
+  ],
+  "summary": {
+    "segments": 2,
+    "firmware_named_token_hits": 0,
+    "firmware_names_absent": 1,
+    "host_wal_dbg_ids": [
+      "wal_rcquery",
+      "wal_rcupdate"
+    ],
+    "host_wal_dbg_count": 2,
+    "ratefind_walk": [
+      "rcGetFirstValidTxRate",
+      "rcGetNextValidTxRate"
+    ],
+    "ratefind_walk_complete": 1,
+    "ratefind_is_host_side": 1,
+    "txbf_capability_hits": 7,
+    "sounding_token_hits": 0,
+    "sounding_absent": 1,
+    "sgi_mask_setter": 1,
+    "xretry_penalty_present": 1,
+    "host_ratecontrol_symbol_count": 16,
+    "firmware_rate_table_recovered": 0,
+    "txbf_sounding_sequence_recovered": 0
+  },
+  "gaps": [
+    "the firmware payload carries no identifiers, so the rate table and the ratefind input cannot be read by name",
+    "no sounding sequence exists: TXBF is capability text and per-rate-group power, and SU-BF returns 0",
+    "the ratefind walk is host-side (rcGetFirstValidTxRate then rcGetNextValidTxRate); its inputs come from firmware statistics that were not decoded",
+    "the rate table itself is numeric data inside the SGMT payloads and no structure was recovered",
+    "no dynamic validation"
+  ]
+}

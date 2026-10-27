@@ -1,0 +1,138 @@
+{
+  "stage": "302A",
+  "task_id": "T-S302A-LTU-THERMAL-RAINFADE-HYSTERESIS-NSGA2-PARETO",
+  "generated_at": "2026-10-26T23:47:18.225592+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "benchmarks": {
+    "unbacked_2db_aggressive_4096qam": {
+      "start_thrd_4096_pct": 93.0,
+      "stay_thrd_4096_pct": 82.0,
+      "pa_backoff_4096_db": 2.0,
+      "downshift_timer_frames": 6,
+      "goodput_mbps": 482.82,
+      "p99_latency_ms": 7.973,
+      "mean_bler_pct": 6.535,
+      "modulation_transitions_count": 2
+    },
+    "calibrated_6db_backoff_97_90_hysteresis_champion": {
+      "start_thrd_4096_pct": 97.0,
+      "stay_thrd_4096_pct": 90.0,
+      "pa_backoff_4096_db": 6.0,
+      "downshift_timer_frames": 2,
+      "goodput_mbps": 601.69,
+      "p99_latency_ms": 4.04,
+      "mean_bler_pct": 1.902,
+      "modulation_transitions_count": 2
+    },
+    "goodput_gain_mbps": 118.87,
+    "p99_latency_reduction_ms": 3.933
+  },
+  "nsga2_pareto_front": {
+    "solutions_count": 24,
+    "top_10_solutions": [
+      {
+        "start_thrd_4096_pct": 95.79,
+        "stay_thrd_4096_pct": 88.85,
+        "pa_backoff_4096_db": 6.31,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.95,
+        "p99_latency_ms": 4.138,
+        "mean_bler_pct": 1.815
+      },
+      {
+        "start_thrd_4096_pct": 96.67,
+        "stay_thrd_4096_pct": 88.91,
+        "pa_backoff_4096_db": 6.25,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.95,
+        "p99_latency_ms": 4.138,
+        "mean_bler_pct": 1.815
+      },
+      {
+        "start_thrd_4096_pct": 95.6,
+        "stay_thrd_4096_pct": 88.85,
+        "pa_backoff_4096_db": 6.28,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.95,
+        "p99_latency_ms": 4.138,
+        "mean_bler_pct": 1.815
+      },
+      {
+        "start_thrd_4096_pct": 95.79,
+        "stay_thrd_4096_pct": 88.85,
+        "pa_backoff_4096_db": 6.28,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.95,
+        "p99_latency_ms": 4.138,
+        "mean_bler_pct": 1.815
+      },
+      {
+        "start_thrd_4096_pct": 96.67,
+        "stay_thrd_4096_pct": 88.94,
+        "pa_backoff_4096_db": 6.24,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.95,
+        "p99_latency_ms": 4.138,
+        "mean_bler_pct": 1.815
+      },
+      {
+        "start_thrd_4096_pct": 95.2,
+        "stay_thrd_4096_pct": 90.51,
+        "pa_backoff_4096_db": 6.28,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.76,
+        "p99_latency_ms": 3.145,
+        "mean_bler_pct": 1.646
+      },
+      {
+        "start_thrd_4096_pct": 96.69,
+        "stay_thrd_4096_pct": 91.05,
+        "pa_backoff_4096_db": 7.13,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.76,
+        "p99_latency_ms": 3.145,
+        "mean_bler_pct": 1.646
+      },
+      {
+        "start_thrd_4096_pct": 94.7,
+        "stay_thrd_4096_pct": 91.34,
+        "pa_backoff_4096_db": 6.25,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.76,
+        "p99_latency_ms": 3.145,
+        "mean_bler_pct": 1.646
+      },
+      {
+        "start_thrd_4096_pct": 98.03,
+        "stay_thrd_4096_pct": 91.59,
+        "pa_backoff_4096_db": 5.68,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.76,
+        "p99_latency_ms": 3.145,
+        "mean_bler_pct": 1.646
+      },
+      {
+        "start_thrd_4096_pct": 95.53,
+        "stay_thrd_4096_pct": 90.66,
+        "pa_backoff_4096_db": 6.28,
+        "downshift_timer_frames": 1,
+        "goodput_mbps": 587.76,
+        "p99_latency_ms": 3.145,
+        "mean_bler_pct": 1.646
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s302a-ltu-thermal-rainfade-hysteresis-pareto"
+  }
+}

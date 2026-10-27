@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "stage": "823A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage823a_airos_ubnt_poll_airmagic_spectral_channel_scoring_re.py",
+    "tool_sha256": "fdcb906e78fc40674b34f4bfa2aba4145b1dd3fd2f730cdbfca2e79b04985222",
+    "output": "artifacts/autoresearch/stage823a_airos_ubnt_poll_airmagic_spectral_channel_scoring_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, no channel changed",
+    "method": "token census across two kernel modules and two daemon copies; scoring line extraction from ubntspecd; tone-geometry and channel-descriptor format extraction; explicit probe for the bps/Hz expression",
+    "premise_corrections": [
+      "airMagic is a product name, not a kernel symbol: airmagic/airMagic return 0 in ubnt_poll_host.ko, and the mechanism lives in the ubntspecd daemon",
+      "the scoring is a three-tier BPS->SCORE->RATING output per channel per bandwidth, but the arithmetic between the tiers is not in the strings"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "tokens": {
+        "airmagic": 0,
+        "Airmagic": 0,
+        "AIRMAGIC": 0,
+        "magic": 1,
+        "BPS": 2,
+        "bps": 0,
+        "SCORE": 0,
+        "RATING": 0,
+        "efficien": 0,
+        "hist": 0,
+        "interference": 0,
+        "tones_per_chan": 0,
+        "AMG_": 0
+      },
+      "scoring": 0,
+      "best_marker": 0,
+      "bw_select": 0,
+      "chan_list": 0,
+      "limits": 0,
+      "caps": {
+        "AMG_MAX_CHANS": 0,
+        "AMG_NUM_CONTROL": 0
+      },
+      "tone": 0,
+      "desc": 0,
+      "scoring_contexts": [],
+      "tone_contexts": []
+    },
+    {
+      "module": "XC:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "tokens": {
+        "airmagic": 0,
+        "Airmagic": 0,
+        "AIRMAGIC": 0,
+        "magic": 1,
+        "BPS": 2,
+        "bps": 0,
+        "SCORE": 0,
+        "RATING": 0,
+        "efficien": 0,
+        "hist": 0,
+        "interference": 0,
+        "tones_per_chan": 0,
+        "AMG_": 0
+      },
+      "scoring": 0,
+      "best_marker": 0,
+      "bw_select": 0,
+      "chan_list": 0,
+      "limits": 0,
+      "caps": {
+        "AMG_MAX_CHANS": 0,
+        "AMG_NUM_CONTROL": 0
+      },
+      "tone": 0,
+      "desc": 0,
+      "scoring_contexts": [],
+      "tone_contexts": []
+    },
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "tokens": {
+        "airmagic": 0,
+        "Airmagic": 0,
+        "AIRMAGIC": 0,
+        "magic": 1,
+        "BPS": 0,
+        "bps": 4,
+        "SCORE": 0,
+        "RATING": 0,
+        "efficien": 0,
+        "hist": 4,
+        "interference": 5,
+        "tones_per_chan": 0,
+        "AMG_": 0
+      },
+      "scoring": 0,
+      "best_marker": 0,
+      "bw_select": 0,
+      "chan_list": 0,
+      "limits": 0,
+      "caps": {
+        "AMG_MAX_CHANS": 0,
+        "AMG_NUM_CONTROL": 0
+      },
+      "tone": 0,
+      "desc": 0,
+      "scoring_contexts": [],
+      "tone_contexts": []
+    },
+    {
+      "module": "WA:ubntspecd",
+      "status": "ok",
+      "bytes": 47192,
+      "sha256": "6cb6ed280272ecee51e9460b6b7df0eda7780c9c8bb3c39d647969f9f553fea2",
+      "tokens": {
+        "airmagic": 0,
+        "Airmagic": 1,
+        "AIRMAGIC": 0,
+        "magic": 1,
+        "BPS": 2,
+        "bps": 0,
+        "SCORE": 2,
+        "RATING": 2,
+        "efficien": 0,
+        "hist": 1,
+        "interference": 0,
+        "tones_per_chan": 1,
+        "AMG_": 3
+      },
+      "scoring": 2,
+      "best_marker": 1,
+      "bw_select": 1,
+      "chan_list": 1,
+      "limits": 1,
+      "caps": {
+        "AMG_MAX_CHANS": 1,
+        "AMG_NUM_CONTROL": 1
+      },
+      "tone": 1,
+      "desc": 1,
+      "scoring_contexts": [
+        "ry.Find best channel for BW %d:....%d%[^.]......Checking %d : . %d [%d] BPS=%d SCORE=%d RATING=%d...*** BEST : %d BPS=%d SCORE=%d RATING=%d*...Recei",
+        "......Checking %d : . %d [%d] BPS=%d SCORE=%d RATING=%d...*** BEST : %d BPS=%d SCORE=%d RATING=%d*...Receiving STA list: FAILURE.Receiving STA list:"
+      ],
+      "tone_contexts": [
+        " Idx = %d . Left Idx = %d . Right Idx = %d . Freq = %u Hz start_tone=%u tones_per_chan=%u..SNG: Short-term freq idx = %d . start_tone_idx = %d scan_idx = %d freq"
+      ]
+    },
+    {
+      "module": "XC:ubntspecd",
+      "status": "ok",
+      "bytes": 47192,
+      "sha256": "ee5f0b944430cbbd592e4f96066398cc19d3f064ed0414a8ab18ace51ba8c58b",
+      "tokens": {
+        "airmagic": 0,
+        "Airmagic": 1,
+        "AIRMAGIC": 0,
+        "magic": 1,
+        "BPS": 2,
+        "bps": 0,
+        "SCORE": 2,
+        "RATING": 2,
+        "efficien": 0,
+        "hist": 1,
+        "interference": 0,
+        "tones_per_chan": 1,
+        "AMG_": 3
+      },
+      "scoring": 2,
+      "best_marker": 1,
+      "bw_select": 1,
+      "chan_list": 1,
+      "limits": 1,
+      "caps": {
+        "AMG_MAX_CHANS": 1,
+        "AMG_NUM_CONTROL": 1
+      },
+      "tone": 1,
+      "desc": 1,
+      "scoring_contexts": [
+        "ry.Find best channel for BW %d:....%d%[^.]......Checking %d : . %d [%d] BPS=%d SCORE=%d RATING=%d...*** BEST : %d BPS=%d SCORE=%d RATING=%d*...Recei",
+        "......Checking %d : . %d [%d] BPS=%d SCORE=%d RATING=%d...*** BEST : %d BPS=%d SCORE=%d RATING=%d*...Receiving STA list: FAILURE.Receiving STA list:"
+      ],
+      "tone_contexts": [
+        " Idx = %d . Left Idx = %d . Right Idx = %d . Freq = %u Hz start_tone=%u tones_per_chan=%u..SNG: Short-term freq idx = %d . start_tone_idx = %d scan_idx = %d freq"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 5,
+    "daemon_bytes": 47192,
+    "daemon_is_real_binary": 1,
+    "kernel_airmagic_token_hits": 20,
+    "kernel_magic_hits": 3,
+    "efficiency_token_hits": 0,
+    "scoring_line_hits": 4,
+    "best_marker_hits": 2,
+    "per_bandwidth_selection": 2,
+    "scoring_tiers": [
+      "BPS",
+      "SCORE",
+      "RATING"
+    ],
+    "scoring_tier_count": 3,
+    "channel_list_hits": 2,
+    "channel_limits_hits": 2,
+    "capacity_guards": [
+      "AMG_MAX_CHANS",
+      "AMG_NUM_CONTROL"
+    ],
+    "capacity_guard_count": 2,
+    "tone_geometry_hits": 2,
+    "channel_descriptor_hits": 2,
+    "tone_to_freq_mapping": 1,
+    "formula_interface_recovered": 1,
+    "formula_coefficients_recovered": 0,
+    "bps_per_hz_expression_recovered": 0
+  },
+  "gaps": [
+    "airMagic is a product name: the kernel modules carry none of the airMagic vocabulary, so the scoring is not a kernel function",
+    "the three tiers BPS, SCORE and RATING are printed but the arithmetic between them is not: there is no efficiency, score = or bps/Hz expression anywhere",
+    "the interference histogram combination across associated CPEs was not located; the daemon receives a STA list and reports limits, but the aggregation code is not named",
+    "the 5 MHz portioning is implied by CHZ/CNTR/EDGE plus tones_per_chan, but no explicit 5 MHz constant exists in the daemon",
+    "the two capacity guards (AMG_MAX_CHANS, AMG_NUM_CONTROL) bound the candidate set without revealing how candidates are ranked",
+    "no dynamic validation"
+  ]
+}

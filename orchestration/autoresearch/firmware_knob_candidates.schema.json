@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FuturaMAX offline firmware knob evidence catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "audit_id", "mode", "automatic_execution_allowed", "actuation", "scope", "sources", "firmware_identities", "knobs"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "audit_id": {"const": "FMX-KNOB-AUDIT-20261024"},
+    "mode": {"const": "static_offline_disabled"},
+    "automatic_execution_allowed": {"const": false},
+    "actuation": {"const": "none"},
+    "scope": {"$ref": "#/$defs/text"},
+    "sources": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/source"}},
+    "firmware_identities": {"type": "array", "minItems": 4, "items": {"$ref": "#/$defs/identity"}},
+    "knobs": {"type": "array", "minItems": 14, "items": {"$ref": "#/$defs/knob"}}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "texts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "path", "sha256", "kind", "scope"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "path": {"type": "string", "minLength": 1, "pattern": "^(?![/\\\\])(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*://)[^\\\\:]+$"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "kind": {"enum": ["source", "firmware", "module", "retained_receipt", "snapshot", "local_analysis"]},
+        "scope": {"$ref": "#/$defs/text"}
+      }
+    },
+    "reference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "locator"],
+      "properties": {"source_id": {"$ref": "#/$defs/text"}, "locator": {"$ref": "#/$defs/text"}}
+    },
+    "references": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/reference"}},
+    "identity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "version", "identity_status", "source_refs", "limitation"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "version": {"$ref": "#/$defs/text"},
+        "identity_status": {"enum": ["CONFIRMED", "INFERRED", "UNKNOWN", "REFUTED"]},
+        "source_refs": {"$ref": "#/$defs/references"}, "limitation": {"$ref": "#/$defs/text"}
+      }
+    },
+    "domain": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "unit", "minimum", "maximum", "values", "note"],
+      "properties": {
+        "kind": {"enum": ["integer", "number", "boolean", "tuple", "bitfield", "string", "unknown"]},
+        "unit": {"$ref": "#/$defs/text"},
+        "minimum": {"type": ["number", "null"]}, "maximum": {"type": ["number", "null"]},
+        "values": {"type": "array", "uniqueItems": true, "items": {"type": ["number", "string", "array"], "items": {"type": "number"}}},
+        "note": {"$ref": "#/$defs/text"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"enum": ["integer", "number", "boolean", "bitfield"]}}}, "then": {"properties": {"minimum": {"type": "number"}, "maximum": {"type": "number"}, "values": {"items": {"type": "number"}}}}},
+        {"if": {"properties": {"kind": {"enum": ["integer", "boolean", "bitfield"]}}}, "then": {"properties": {"values": {"items": {"type": "integer"}}}}},
+        {"if": {"properties": {"kind": {"const": "tuple"}}}, "then": {"properties": {"values": {"items": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 0}}}}}},
+        {"if": {"properties": {"kind": {"const": "unknown"}}}, "then": {"properties": {"minimum": {"const": null}, "maximum": {"const": null}, "values": {"maxItems": 0}}}},
+        {"if": {"properties": {"kind": {"enum": ["tuple", "string"]}}}, "then": {"properties": {"minimum": {"const": null}, "maximum": {"const": null}}}},
+        {"if": {"properties": {"kind": {"const": "boolean"}}}, "then": {"properties": {"minimum": {"const": 0}, "maximum": {"const": 1}, "values": {"const": [0, 1]}}}}
+      ]
+    },
+    "knob": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "family", "boundary", "platform_scope", "confidence", "classification", "enabled", "interface", "encoding_domain", "ram_safety", "physical_hypothesis", "rollback", "source_refs", "limitations"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9_]+$"}, "name": {"$ref": "#/$defs/text"},
+        "family": {"enum": ["ct_special", "wmi_pdev", "wmi_vdev", "mac80211", "htt", "ath10k", "airos_sysctl", "airos_ioctl", "airos_module", "ltu_sysfs", "policy_only", "hardware"]},
+        "boundary": {"enum": ["mac80211", "ath10k-ct", "QCA_10_1_FW", "airOS_UMAC_UPH", "LTU_AME_FW", "hardware", "Linux_qdisc", "UNKNOWN"]},
+        "platform_scope": {"$ref": "#/$defs/texts"},
+        "confidence": {"enum": ["CONFIRMED", "INFERRED", "UNKNOWN", "REFUTED"]},
+        "classification": {"enum": ["research_candidate", "characterization_only", "observation_only", "excluded"]},
+        "enabled": {"const": false},
+        "interface": {
+          "type": "object", "additionalProperties": false,
+          "required": ["surface", "selector", "access", "state_readback"],
+          "properties": {
+            "surface": {"$ref": "#/$defs/text"}, "selector": {"$ref": "#/$defs/text"},
+            "access": {"enum": ["host_ram", "firmware_message", "sysctl_handler", "ioctl_handler", "sysfs_handler", "module_load", "policy_metadata", "hardware_control"]},
+            "state_readback": {"enum": ["host_value", "host_shadow", "help_only", "cached_receipt_only", "unknown", "not_applicable"]}
+          }
+        },
+        "encoding_domain": {"$ref": "#/$defs/domain"},
+        "ram_safety": {
+          "type": "object", "additionalProperties": false,
+          "required": ["qualification", "approved_range", "proposal", "observed_values", "basis"],
+          "properties": {
+            "qualification": {"const": "UNQUALIFIED"}, "approved_range": {"const": null},
+            "proposal": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/domain"}]},
+            "observed_values": {"type": "array", "uniqueItems": true, "items": {"type": ["number", "string", "array"], "items": {"type": "number"}}},
+            "basis": {"$ref": "#/$defs/text"}
+          }
+        },
+        "physical_hypothesis": {"$ref": "#/$defs/text"},
+        "rollback": {
+          "type": "object", "additionalProperties": false,
+          "required": ["condition", "method", "verification", "verified"],
+          "properties": {"condition": {"$ref": "#/$defs/text"}, "method": {"$ref": "#/$defs/text"}, "verification": {"$ref": "#/$defs/text"}, "verified": {"const": false}}
+        },
+        "source_refs": {"$ref": "#/$defs/references"}, "limitations": {"$ref": "#/$defs/texts"}
+      },
+      "allOf": [
+        {"if": {"properties": {"classification": {"enum": ["excluded", "observation_only"]}}}, "then": {"properties": {"ram_safety": {"properties": {"proposal": {"const": null}}}}}}
+      ]
+    }
+  }
+}

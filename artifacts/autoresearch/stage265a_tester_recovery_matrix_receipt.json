@@ -1,0 +1,41 @@
+{
+  "stage": "265A",
+  "task_id": "T-S265A-TESTER-RECOVERY-MATRIX",
+  "static_sources": [
+    {
+      "path": "artifacts/autoresearch/stage138a_ptp_sta_data_gate_verdict.json",
+      "sha256": "94a9e4264fd7f2b3d644654b4cc4c0183b32d99454c4b7f08634a42d16ce643a"
+    },
+    {
+      "path": "artifacts/autoresearch/stage157a_canonical_step1_stock_mtd_builder_receipt.json",
+      "sha256": "1ac2a9a2875da91edb8683018b5a693b87c96b79b32afd07fee526242539b172"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/stock_airos8_wa_8711_for_mtd_firmware.bin",
+      "sha256": "2d4838ff638d6726dbbd0587bc538856c777d592b4b7593f88a96d0300801c49",
+      "bytes": 10092544
+    }
+  ],
+  "outputs": {
+    "docs/GUIA_UNIVERSAL_POWERBEAM_LITEBEAM_OPENMAX.md": {
+      "sha256": "90b39f659634653b1553573008326b2ebd69fb1f3b5d89f71a927b75f479cb28",
+      "lines": 173
+    },
+    "docs/REDDIT_REPLY_FIRMWARE_TESTERS_WA_FAMILY.md": {
+      "sha256": "261fb47a19a1c3fc92efafefc4c4041e6bbcf6a9ff0045d0e6a1f22e7cce2ff7",
+      "lines": 159
+    }
+  },
+  "summary": {
+    "matrix_rows": 8,
+    "guides": 2,
+    "raw_version_filename_mismatch_disclosed": true
+  },
+  "boundary": {
+    "hardware_access": false,
+    "flash_executed": false,
+    "recovery_tested": false,
+    "board_match_required": true,
+    "mtd_number_not_portable": true
+  }
+}

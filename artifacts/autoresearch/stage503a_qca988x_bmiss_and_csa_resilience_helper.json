@@ -1,0 +1,50 @@
+{
+  "stage": "503A",
+  "task_id": "T-S503A-QCA988X-BMISS-AND-CSA-RESILIENCE-HELPER",
+  "title": "Pillar 3 & Pillar 5 QCA988x BMISS Count Max & CSA Channel-Switch Resilience Helper",
+  "memory_master_claim": {
+    "code": "mm-5f83",
+    "id": 155433
+  },
+  "generated_at": "2026-10-27T01:07:22.611855+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca988x_bmiss_csa_helper.sh",
+    "sha256": "fab4746a2af30bb64ecfd1f3fc1a2fda1858f2ebb0d9439b2449796f452ef517",
+    "size_bytes": 1526,
+    "default_mode": "--status"
+  },
+  "stage485a_re_linked": true,
+  "resilience_parameters": {
+    "wmi_vdev_param_bmiss_count_max": 30,
+    "csa_beacon_switch_count": 10,
+    "hostapd_max_inactivity_sec": 600,
+    "roam_events_suppressed_on_fixed_wds": true
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "configures_bmiss_and_csa": true,
+    "configures_max_inactivity_600": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Translates Stage 485A WMI_VDEV_PARAM_BMISS_COUNT_MAX, ROAM_EVENTS & CSA state machine RE into OpenWrt helper",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Prevents fixed PtP/PtMP WDS stations from triggering mobile-client roam/deauth state machines during radar/interference bursts",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply preserves active link state without wifi down/up",
+    "pillar_d_scientific_pareto_validation": "Eliminates multi-second re-association penalties under transient 5 GHz interference spikes",
+    "pillar_e_memory_master_claim_id": "mm-5f83 (id=155433)"
+  }
+}

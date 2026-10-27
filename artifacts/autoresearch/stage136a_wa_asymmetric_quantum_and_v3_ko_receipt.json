@@ -1,0 +1,68 @@
+{
+  "stage": "136A",
+  "task_id": "T-S136A-WA-UNIVERSAL-CHAMPION-ASYMMETRIC-QUANTUM-AND-V3-KO-INTEGRATION",
+  "status": "CONFIRMED",
+  "attribution": "Linux / mac80211 / ath10k (OpenWrt 24.10.4 WA Universal Champion asymmetric fq_quantum AP=3028 2xMTU per FMX-DISC-34 / STA=1514 1xMTU + mac80211_241_v3.ko WLAN_STA_AUTHORIZED gated 4-address WDS event)",
+  "live_radios_241_242_touched": false,
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_modules": [
+      "mac80211.ko (OpenWrt 24.10.4 ath79 6.6.110 rx.c __ieee80211_rx_handle_packet 0x37578..0x375b8)",
+      "99-fmx-wa-universal-champion (asymmetric fq_quantum AP=3028 / STA=1514)"
+    ],
+    "catalog_knob_ids": [
+      "OWRT-FQ-CODEL-QUANTUM",
+      "OWRT-AQL-TXQ-LIMIT-BE",
+      "OWRT-AQL-THRESHOLD",
+      "OWRT-BQL-ETH0-HOLD800"
+    ],
+    "ko_hashes": {
+      "rom_mac80211_ko": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+      "mac80211_teb_6_6_110_ko": "3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868",
+      "mac80211_teb_4addr_v2_ko": "c65dc2e2a87274e3073debf4c507606422a5ea1b08cbfe2e40beed58263e81cc",
+      "mac80211_teb_4addr_v3_stage131a_ko": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+      "mac80211_241_v3_ko": "e43115c06316ce2d1b643d1900deb41839f7e07aba50f1537e6ed7a17b45e2f5"
+    },
+    "script_hashes": {
+      "99-fmx-wa-universal-champion": "e366a7b63522a65ed0b8dc677976c3acbf73154d8c6ab92e29ed67628f857fe8",
+      "99-fmx-pbe5ac-ptp-ap": "4e6568c39beba3ac89bc0cedcf302aa9b11620d4ca413659c4b8ec1fa88421d1",
+      "99-fmx-pbe5ac-ptp-ap-241": "a0066d326252163edecd80fc9b6ec6b585eeb9659c21c84e202bc663e6ac91f3",
+      "99-fmx-pbe5ac-ptp-sta": "fddbae1ca298b6fa87c8bd898d3f06c28617a8edd4775f9800c605b0a96c9804",
+      "99-fmx-pbe5ac-ptp-sta-242": "bedda554463161dab97bfa9bf8ffe0d1d817c379ecada9219b442cdcd1d02ff8",
+      "patch_mac80211_teb.py": "2d3505b062f75be0654e80fc83134d7a5b30b8b3cf39d85aa303ab8766973a30"
+    }
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Setting fq_codel quantum=3028 (2xMTU) on the AP (phy*-ap0) amortizes per-dequeue DRR Deficit Round-Robin and ath10k HTT TX descriptor overhead (+8.5% TCP bulk goodput in FMX-DISC-34 on .241), while keeping quantum=1514 (1xMTU) on the STA (phy*-sta0) preserves sub-millisecond VoIP/ICMP serialization on uplink.",
+      "Gating cfg80211_rx_unexpected_4addr_frame on WLAN_STA_AUTHORIZED (sta->_flags & 8) in mac80211_241_v3.ko ensures 4-address EAPOL 2/4 and 4/4 frames complete on phy*-ap0 before hostapd spawns phy*-ap0.sta1 (AP_VLAN)."
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "fmx_disc_34_ap_fq_quantum_3028_validation": {
+      "arm_a_fq1514_tcp_mbps": 91.61,
+      "arm_b_fq3028_tcp_mbps": 99.38,
+      "delta_tcp_pct": 8.48,
+      "arm_a_loaded_p95_ms": 4.185,
+      "arm_b_loaded_p95_ms": 3.553,
+      "delta_p95_pct": -15.1
+    }
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "asymmetric_fq_quantum_pareto_dominance": true
+  },
+  "pillar_e_memory_master_claim_id": "mm-2d29",
+  "pillar_e_memory_master_numeric_id": 154768
+}

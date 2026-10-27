@@ -1,0 +1,59 @@
+{
+  "stage": "502A",
+  "task_id": "T-S502A-LTU-DCXO-GPS-TCXO-DRIFT-MONITOR",
+  "title": "Pillar 4 LTU DCXO GPS vs TCXO Clock Discipline & CFO Drift Detector for 4096-QAM (12x) Protection",
+  "memory_master_claim": {
+    "code": "mm-5c28",
+    "id": 155432
+  },
+  "generated_at": "2026-10-27T01:07:22.540932+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "monitor_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_dcxo_gps_tcxo_monitor.sh",
+    "sha256": "a98ee8c924f685a8f796c09b4f1181ae38f361d240c636509fc7c43be33dd2ad",
+    "size_bytes": 1357,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "stage486a_re_linked": {
+    "artifact_exists": true,
+    "stage486a_status": "CONFIRMED",
+    "monitored_symbols": [
+      "bbp_rf_dcxo_is_sync_by_gps",
+      "bbp_rf_dcxo_is_sync_by_tcxo",
+      "bbp_rf_dcxo_get_gps_state",
+      "bbp_rf_tcxo_cal_variation"
+    ]
+  },
+  "cfo_4096qam_thresholds": {
+    "max_cfo_ppm_for_4096qam_12x": 0.25,
+    "max_cfo_ppm_for_1024qam_10x": 0.6,
+    "thermal_drift_alert_mc": 75000
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "references_stage486a_dcxo_symbols": true,
+    "emits_json_telemetry": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Translates Stage 486A 30 bbp_rf_dcxo_* / bbp_rf_tcxo_* symbols into a safe read-only LTU clock-discipline monitor",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models Carrier Frequency Offset (CFO) sensitivity of 4096-QAM (12x, <=0.25 ppm) under GPS vs TCXO holdover",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device access",
+    "pillar_d_scientific_pareto_validation": "Prevents false-positive RF interference attribution when 12x->10x drop is caused by thermal TCXO drift",
+    "pillar_e_memory_master_claim_id": "mm-5c28 (id=155432)"
+  }
+}

@@ -1,0 +1,5341 @@
+{
+  "core_funcs": [
+    {
+      "symbol": "ame_bbp_set_autoMcsCeiling",
+      "text_offset": "0x1919b8",
+      "size": 36,
+      "instructions": [
+        {
+          "func_offset": 4,
+          "text_offset": "0x1919bc",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644988,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 8,
+          "text_offset": "0x1919c0",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644992,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 12,
+          "text_offset": "0x1919c4",
+          "decoded": "strb r0, [r3, #372 (0x174)]",
+          "rel": null
+        },
+        {
+          "func_offset": 16,
+          "text_offset": "0x1919c8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1645000,
+            "sym_idx": 7962,
+            "type": 28,
+            "symbol": "mcs_ceiling_toggle_txpwr",
+            "symbol_value": 225056,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 20,
+          "text_offset": "0x1919cc",
+          "decoded": "mov r0, #32 (0x20)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x1919d0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1645008,
+            "sym_idx": 8543,
+            "type": 28,
+            "symbol": "ame_bbp_set_Param_mcs",
+            "symbol_value": 1635600,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x1919d4",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "mcs_ceiling_toggle_txpwr",
+      "text_offset": "0x36f20",
+      "size": 412,
+      "instructions": [
+        {
+          "func_offset": 0,
+          "text_offset": "0x36f20",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 225056,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 4,
+          "text_offset": "0x36f24",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 225060,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 8,
+          "text_offset": "0x36f28",
+          "decoded": "ldr r3, [r3, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 16,
+          "text_offset": "0x36f30",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x36f40",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 225088,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x36f44",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 225092,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 40,
+          "text_offset": "0x36f48",
+          "decoded": "ldr r3, [r3, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x36f50",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 52,
+          "text_offset": "0x36f54",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 56,
+          "text_offset": "0x36f58",
+          "decoded": "mov r3, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 60,
+          "text_offset": "0x36f5c",
+          "decoded": "str r3, [r13, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 64,
+          "text_offset": "0x36f60",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 76,
+          "text_offset": "0x36f6c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225132,
+            "sym_idx": 9675,
+            "type": 28,
+            "symbol": "ame_bbp_get_desired_txpower",
+            "symbol_value": 1638232,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 84,
+          "text_offset": "0x36f74",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225140,
+            "sym_idx": 9554,
+            "type": 28,
+            "symbol": "get_mcs_max_pwr",
+            "symbol_value": 224980,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 92,
+          "text_offset": "0x36f7c",
+          "decoded": "ldr r2, [r13, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 100,
+          "text_offset": "0x36f84",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 104,
+          "text_offset": "0x36f88",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 112,
+          "text_offset": "0x36f90",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 116,
+          "text_offset": "0x36f94",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 225172,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 120,
+          "text_offset": "0x36f98",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 225176,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 124,
+          "text_offset": "0x36f9c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 132,
+          "text_offset": "0x36fa4",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 136,
+          "text_offset": "0x36fa8",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 225192,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 140,
+          "text_offset": "0x36fac",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 225196,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 144,
+          "text_offset": "0x36fb0",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 152,
+          "text_offset": "0x36fb8",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 156,
+          "text_offset": "0x36fbc",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 225212,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 160,
+          "text_offset": "0x36fc0",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 225216,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 164,
+          "text_offset": "0x36fc4",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 172,
+          "text_offset": "0x36fcc",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 176,
+          "text_offset": "0x36fd0",
+          "decoded": "movw r5, #0 (0x0)",
+          "rel": {
+            "offset": 225232,
+            "sym_idx": 1150,
+            "type": 43,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 132528,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 180,
+          "text_offset": "0x36fd4",
+          "decoded": "movt r5, #0 (0x0)",
+          "rel": {
+            "offset": 225236,
+            "sym_idx": 1150,
+            "type": 44,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 132528,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 188,
+          "text_offset": "0x36fdc",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225244,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 192,
+          "text_offset": "0x36fe0",
+          "decoded": "ldr r2, [r5, #24 (0x18)]",
+          "rel": null
+        },
+        {
+          "func_offset": 196,
+          "text_offset": "0x36fe4",
+          "decoded": "ldr r3, [r5, #28 (0x1c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 200,
+          "text_offset": "0x36fe8",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 225256,
+            "sym_idx": 1152,
+            "type": 43,
+            "symbol": ".LC1",
+            "symbol_value": 57148,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 204,
+          "text_offset": "0x36fec",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 225260,
+            "sym_idx": 1152,
+            "type": 44,
+            "symbol": ".LC1",
+            "symbol_value": 57148,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 208,
+          "text_offset": "0x36ff0",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 212,
+          "text_offset": "0x36ff4",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 216,
+          "text_offset": "0x36ff8",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 220,
+          "text_offset": "0x36ffc",
+          "decoded": "ldr r0, [r15, #180 (0xb4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 224,
+          "text_offset": "0x37000",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 228,
+          "text_offset": "0x37004",
+          "decoded": "movw r0, #713 (0x2c9)",
+          "rel": null
+        },
+        {
+          "func_offset": 232,
+          "text_offset": "0x37008",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 236,
+          "text_offset": "0x3700c",
+          "decoded": "str r4, [r13, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 240,
+          "text_offset": "0x37010",
+          "decoded": "ldr r0, [r13, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 244,
+          "text_offset": "0x37014",
+          "decoded": "str r0, [r13, #20 (0x14)]",
+          "rel": null
+        },
+        {
+          "func_offset": 248,
+          "text_offset": "0x37018",
+          "decoded": "ldr r0, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 252,
+          "text_offset": "0x3701c",
+          "decoded": "str r0, [r13, #24 (0x18)]",
+          "rel": null
+        },
+        {
+          "func_offset": 256,
+          "text_offset": "0x37020",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 225312,
+            "sym_idx": 1157,
+            "type": 43,
+            "symbol": ".LC5",
+            "symbol_value": 57356,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 260,
+          "text_offset": "0x37024",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 225316,
+            "sym_idx": 1157,
+            "type": 44,
+            "symbol": ".LC5",
+            "symbol_value": 57356,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 264,
+          "text_offset": "0x37028",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225320,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 268,
+          "text_offset": "0x3702c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 272,
+          "text_offset": "0x37030",
+          "decoded": "ldr r3, [r15, #128 (0x80)]",
+          "rel": null
+        },
+        {
+          "func_offset": 276,
+          "text_offset": "0x37034",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 280,
+          "text_offset": "0x37038",
+          "decoded": "movw r3, #713 (0x2c9)",
+          "rel": null
+        },
+        {
+          "func_offset": 284,
+          "text_offset": "0x3703c",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 288,
+          "text_offset": "0x37040",
+          "decoded": "str r4, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 292,
+          "text_offset": "0x37044",
+          "decoded": "str r2, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 296,
+          "text_offset": "0x37048",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 300,
+          "text_offset": "0x3704c",
+          "decoded": "str r3, [r13, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 304,
+          "text_offset": "0x37050",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 225360,
+            "sym_idx": 1158,
+            "type": 43,
+            "symbol": ".LC6",
+            "symbol_value": 57464,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 308,
+          "text_offset": "0x37054",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 225364,
+            "sym_idx": 1158,
+            "type": 44,
+            "symbol": ".LC6",
+            "symbol_value": 57464,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 312,
+          "text_offset": "0x37058",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 316,
+          "text_offset": "0x3705c",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 225372,
+            "sym_idx": 1152,
+            "type": 43,
+            "symbol": ".LC1",
+            "symbol_value": 57148,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 320,
+          "text_offset": "0x37060",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 225376,
+            "sym_idx": 1152,
+            "type": 44,
+            "symbol": ".LC1",
+            "symbol_value": 57148,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 328,
+          "text_offset": "0x37068",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225384,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 332,
+          "text_offset": "0x3706c",
+          "decoded": "ldr r0, [r13, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 344,
+          "text_offset": "0x37078",
+          "decoded": "str r0, [r13, #32 (0x20)]",
+          "rel": null
+        },
+        {
+          "func_offset": 348,
+          "text_offset": "0x3707c",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 360,
+          "text_offset": "0x37088",
+          "decoded": "str r4, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 364,
+          "text_offset": "0x3708c",
+          "decoded": "mov r1, #1000 (0x3e8)",
+          "rel": null
+        },
+        {
+          "func_offset": 376,
+          "text_offset": "0x37098",
+          "decoded": "mov r2, #1 (0x1)",
+          "rel": null
+        },
+        {
+          "func_offset": 380,
+          "text_offset": "0x3709c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 225436,
+            "sym_idx": 8086,
+            "type": 28,
+            "symbol": "ame_bbp_txpower_changed_handler",
+            "symbol_value": 1589328,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 384,
+          "text_offset": "0x370a0",
+          "decoded": "mov r0, #1 (0x1)",
+          "rel": null
+        },
+        {
+          "func_offset": 388,
+          "text_offset": "0x370a4",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 392,
+          "text_offset": "0x370a8",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 408,
+          "text_offset": "0x370b8",
+          "decoded": "",
+          "rel": {
+            "offset": 225464,
+            "sym_idx": 4,
+            "type": 2,
+            "symbol": "",
+            "symbol_value": 0,
+            "symbol_section": ".rodata"
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "ame_bbp_set_Param_mcs",
+      "text_offset": "0x18f510",
+      "size": 804,
+      "instructions": [
+        {
+          "func_offset": 20,
+          "text_offset": "0x18f524",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x18f528",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635624,
+            "sym_idx": 7909,
+            "type": 28,
+            "symbol": "ame_check_hw_NoLDPC",
+            "symbol_value": 17652,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x18f530",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x18f534",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635636,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 40,
+          "text_offset": "0x18f538",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635640,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x18f53c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 52,
+          "text_offset": "0x18f544",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 56,
+          "text_offset": "0x18f548",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635656,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 60,
+          "text_offset": "0x18f54c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635660,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 64,
+          "text_offset": "0x18f550",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 72,
+          "text_offset": "0x18f558",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 76,
+          "text_offset": "0x18f55c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635676,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 80,
+          "text_offset": "0x18f560",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635680,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 84,
+          "text_offset": "0x18f564",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 92,
+          "text_offset": "0x18f56c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 96,
+          "text_offset": "0x18f570",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 1635696,
+            "sym_idx": 6602,
+            "type": 43,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 100,
+          "text_offset": "0x18f574",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 1635700,
+            "sym_idx": 6602,
+            "type": 44,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 108,
+          "text_offset": "0x18f57c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635708,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 112,
+          "text_offset": "0x18f580",
+          "decoded": "ldr r2, [r4, #440 (0x1b8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 116,
+          "text_offset": "0x18f584",
+          "decoded": "ldr r3, [r4, #444 (0x1bc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 120,
+          "text_offset": "0x18f588",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 1635720,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 124,
+          "text_offset": "0x18f58c",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 1635724,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 128,
+          "text_offset": "0x18f590",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 132,
+          "text_offset": "0x18f594",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 136,
+          "text_offset": "0x18f598",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 140,
+          "text_offset": "0x18f59c",
+          "decoded": "ldr r0, [r15, #652 (0x28c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 144,
+          "text_offset": "0x18f5a0",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 148,
+          "text_offset": "0x18f5a4",
+          "decoded": "mov r0, #568 (0x238)",
+          "rel": null
+        },
+        {
+          "func_offset": 152,
+          "text_offset": "0x18f5a8",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 156,
+          "text_offset": "0x18f5ac",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635756,
+            "sym_idx": 6692,
+            "type": 43,
+            "symbol": ".LC99",
+            "symbol_value": 351372,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 160,
+          "text_offset": "0x18f5b0",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635760,
+            "sym_idx": 6692,
+            "type": 44,
+            "symbol": ".LC99",
+            "symbol_value": 351372,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 164,
+          "text_offset": "0x18f5b4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635764,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 168,
+          "text_offset": "0x18f5b8",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 172,
+          "text_offset": "0x18f5bc",
+          "decoded": "ldr r3, [r15, #620 (0x26c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 176,
+          "text_offset": "0x18f5c0",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 180,
+          "text_offset": "0x18f5c4",
+          "decoded": "mov r3, #568 (0x238)",
+          "rel": null
+        },
+        {
+          "func_offset": 184,
+          "text_offset": "0x18f5c8",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 188,
+          "text_offset": "0x18f5cc",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635788,
+            "sym_idx": 6693,
+            "type": 43,
+            "symbol": ".LC100",
+            "symbol_value": 351424,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 192,
+          "text_offset": "0x18f5d0",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635792,
+            "sym_idx": 6693,
+            "type": 44,
+            "symbol": ".LC100",
+            "symbol_value": 351424,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 196,
+          "text_offset": "0x18f5d4",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 200,
+          "text_offset": "0x18f5d8",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 1635800,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 204,
+          "text_offset": "0x18f5dc",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 1635804,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 212,
+          "text_offset": "0x18f5e4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635812,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 216,
+          "text_offset": "0x18f5e8",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 228,
+          "text_offset": "0x18f5f4",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 232,
+          "text_offset": "0x18f5f8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635832,
+            "sym_idx": 7422,
+            "type": 28,
+            "symbol": "ame_check_hw_NoRS",
+            "symbol_value": 17680,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 240,
+          "text_offset": "0x18f600",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 244,
+          "text_offset": "0x18f604",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635844,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 248,
+          "text_offset": "0x18f608",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635848,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 252,
+          "text_offset": "0x18f60c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 260,
+          "text_offset": "0x18f614",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 264,
+          "text_offset": "0x18f618",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635864,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 268,
+          "text_offset": "0x18f61c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635868,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 272,
+          "text_offset": "0x18f620",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 280,
+          "text_offset": "0x18f628",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 284,
+          "text_offset": "0x18f62c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635884,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 288,
+          "text_offset": "0x18f630",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1635888,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 292,
+          "text_offset": "0x18f634",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 300,
+          "text_offset": "0x18f63c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 304,
+          "text_offset": "0x18f640",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 1635904,
+            "sym_idx": 6602,
+            "type": 43,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 308,
+          "text_offset": "0x18f644",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 1635908,
+            "sym_idx": 6602,
+            "type": 44,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 316,
+          "text_offset": "0x18f64c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635916,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 320,
+          "text_offset": "0x18f650",
+          "decoded": "ldr r2, [r4, #448 (0x1c0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 324,
+          "text_offset": "0x18f654",
+          "decoded": "ldr r3, [r4, #452 (0x1c4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 328,
+          "text_offset": "0x18f658",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 1635928,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 332,
+          "text_offset": "0x18f65c",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 1635932,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 336,
+          "text_offset": "0x18f660",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 340,
+          "text_offset": "0x18f664",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 344,
+          "text_offset": "0x18f668",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 348,
+          "text_offset": "0x18f66c",
+          "decoded": "ldr r0, [r15, #444 (0x1bc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 352,
+          "text_offset": "0x18f670",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 356,
+          "text_offset": "0x18f674",
+          "decoded": "movw r0, #573 (0x23d)",
+          "rel": null
+        },
+        {
+          "func_offset": 360,
+          "text_offset": "0x18f678",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 364,
+          "text_offset": "0x18f67c",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635964,
+            "sym_idx": 6694,
+            "type": 43,
+            "symbol": ".LC101",
+            "symbol_value": 351464,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 368,
+          "text_offset": "0x18f680",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635968,
+            "sym_idx": 6694,
+            "type": 44,
+            "symbol": ".LC101",
+            "symbol_value": 351464,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 372,
+          "text_offset": "0x18f684",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1635972,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 376,
+          "text_offset": "0x18f688",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 380,
+          "text_offset": "0x18f68c",
+          "decoded": "ldr r3, [r15, #412 (0x19c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 384,
+          "text_offset": "0x18f690",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 388,
+          "text_offset": "0x18f694",
+          "decoded": "movw r3, #573 (0x23d)",
+          "rel": null
+        },
+        {
+          "func_offset": 392,
+          "text_offset": "0x18f698",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 396,
+          "text_offset": "0x18f69c",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1635996,
+            "sym_idx": 6695,
+            "type": 43,
+            "symbol": ".LC102",
+            "symbol_value": 351516,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 400,
+          "text_offset": "0x18f6a0",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1636000,
+            "sym_idx": 6695,
+            "type": 44,
+            "symbol": ".LC102",
+            "symbol_value": 351516,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 404,
+          "text_offset": "0x18f6a4",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 408,
+          "text_offset": "0x18f6a8",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 1636008,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 412,
+          "text_offset": "0x18f6ac",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 1636012,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 420,
+          "text_offset": "0x18f6b4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636020,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 424,
+          "text_offset": "0x18f6b8",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 432,
+          "text_offset": "0x18f6c0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 436,
+          "text_offset": "0x18f6c4",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 440,
+          "text_offset": "0x18f6c8",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 444,
+          "text_offset": "0x18f6cc",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636044,
+            "sym_idx": 8832,
+            "type": 28,
+            "symbol": "bbp_rf_set_super4096",
+            "symbol_value": 1512836,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 448,
+          "text_offset": "0x18f6d0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636048,
+            "sym_idx": 6890,
+            "type": 28,
+            "symbol": "autoMCS_start",
+            "symbol_value": 1417008,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 452,
+          "text_offset": "0x18f6d4",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636052,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 456,
+          "text_offset": "0x18f6d8",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636056,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 460,
+          "text_offset": "0x18f6dc",
+          "decoded": "ldrb r0, [r3, #290 (0x122)]",
+          "rel": null
+        },
+        {
+          "func_offset": 464,
+          "text_offset": "0x18f6e0",
+          "decoded": "mov r1, #32 (0x20)",
+          "rel": null
+        },
+        {
+          "func_offset": 468,
+          "text_offset": "0x18f6e4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636068,
+            "sym_idx": 8167,
+            "type": 28,
+            "symbol": "AME_Scheduler_UpdateModulation_SYS",
+            "symbol_value": 451720,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 472,
+          "text_offset": "0x18f6e8",
+          "decoded": "mov r5, #32 (0x20)",
+          "rel": null
+        },
+        {
+          "func_offset": 476,
+          "text_offset": "0x18f6ec",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 480,
+          "text_offset": "0x18f6f0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636080,
+            "sym_idx": 9606,
+            "type": 28,
+            "symbol": "autoMCS_stop",
+            "symbol_value": 1416816,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 496,
+          "text_offset": "0x18f700",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 504,
+          "text_offset": "0x18f708",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 516,
+          "text_offset": "0x18f714",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 520,
+          "text_offset": "0x18f718",
+          "decoded": "mov r0, #1 (0x1)",
+          "rel": null
+        },
+        {
+          "func_offset": 524,
+          "text_offset": "0x18f71c",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 528,
+          "text_offset": "0x18f720",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636128,
+            "sym_idx": 8832,
+            "type": 28,
+            "symbol": "bbp_rf_set_super4096",
+            "symbol_value": 1512836,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 532,
+          "text_offset": "0x18f724",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 536,
+          "text_offset": "0x18f728",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 540,
+          "text_offset": "0x18f72c",
+          "decoded": "mov r1, #3 (0x3)",
+          "rel": null
+        },
+        {
+          "func_offset": 544,
+          "text_offset": "0x18f730",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636144,
+            "sym_idx": 8832,
+            "type": 28,
+            "symbol": "bbp_rf_set_super4096",
+            "symbol_value": 1512836,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 548,
+          "text_offset": "0x18f734",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 552,
+          "text_offset": "0x18f738",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636152,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 556,
+          "text_offset": "0x18f73c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636156,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 560,
+          "text_offset": "0x18f740",
+          "decoded": "strb r5, [r3, #289 (0x121)]",
+          "rel": null
+        },
+        {
+          "func_offset": 564,
+          "text_offset": "0x18f744",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636164,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 568,
+          "text_offset": "0x18f748",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636168,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 572,
+          "text_offset": "0x18f74c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 580,
+          "text_offset": "0x18f754",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 584,
+          "text_offset": "0x18f758",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636184,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 588,
+          "text_offset": "0x18f75c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636188,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 592,
+          "text_offset": "0x18f760",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 600,
+          "text_offset": "0x18f768",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 604,
+          "text_offset": "0x18f76c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636204,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 608,
+          "text_offset": "0x18f770",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636208,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 612,
+          "text_offset": "0x18f774",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 620,
+          "text_offset": "0x18f77c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 624,
+          "text_offset": "0x18f780",
+          "decoded": "movw r5, #0 (0x0)",
+          "rel": {
+            "offset": 1636224,
+            "sym_idx": 6602,
+            "type": 43,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 628,
+          "text_offset": "0x18f784",
+          "decoded": "movt r5, #0 (0x0)",
+          "rel": {
+            "offset": 1636228,
+            "sym_idx": 6602,
+            "type": 44,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 2847760,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 636,
+          "text_offset": "0x18f78c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636236,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 640,
+          "text_offset": "0x18f790",
+          "decoded": "ldr r2, [r5, #456 (0x1c8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 644,
+          "text_offset": "0x18f794",
+          "decoded": "ldr r3, [r5, #460 (0x1cc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 648,
+          "text_offset": "0x18f798",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 1636248,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 652,
+          "text_offset": "0x18f79c",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 1636252,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 656,
+          "text_offset": "0x18f7a0",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 660,
+          "text_offset": "0x18f7a4",
+          "decoded": "mov r1, #6 (0x6)",
+          "rel": null
+        },
+        {
+          "func_offset": 664,
+          "text_offset": "0x18f7a8",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 668,
+          "text_offset": "0x18f7ac",
+          "decoded": "ldr r0, [r15, #124 (0x7c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 672,
+          "text_offset": "0x18f7b0",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 676,
+          "text_offset": "0x18f7b4",
+          "decoded": "mov r0, #604 (0x25c)",
+          "rel": null
+        },
+        {
+          "func_offset": 680,
+          "text_offset": "0x18f7b8",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 684,
+          "text_offset": "0x18f7bc",
+          "decoded": "str r4, [r13, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 688,
+          "text_offset": "0x18f7c0",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1636288,
+            "sym_idx": 6696,
+            "type": 43,
+            "symbol": ".LC103",
+            "symbol_value": 351552,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 692,
+          "text_offset": "0x18f7c4",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1636292,
+            "sym_idx": 6696,
+            "type": 44,
+            "symbol": ".LC103",
+            "symbol_value": 351552,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 696,
+          "text_offset": "0x18f7c8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636296,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 700,
+          "text_offset": "0x18f7cc",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 704,
+          "text_offset": "0x18f7d0",
+          "decoded": "ldr r3, [r15, #88 (0x58)]",
+          "rel": null
+        },
+        {
+          "func_offset": 708,
+          "text_offset": "0x18f7d4",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 712,
+          "text_offset": "0x18f7d8",
+          "decoded": "mov r3, #604 (0x25c)",
+          "rel": null
+        },
+        {
+          "func_offset": 716,
+          "text_offset": "0x18f7dc",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 720,
+          "text_offset": "0x18f7e0",
+          "decoded": "str r4, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 724,
+          "text_offset": "0x18f7e4",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1636324,
+            "sym_idx": 6697,
+            "type": 43,
+            "symbol": ".LC104",
+            "symbol_value": 351608,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 728,
+          "text_offset": "0x18f7e8",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1636328,
+            "sym_idx": 6697,
+            "type": 44,
+            "symbol": ".LC104",
+            "symbol_value": 351608,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 732,
+          "text_offset": "0x18f7ec",
+          "decoded": "mov r1, #6 (0x6)",
+          "rel": null
+        },
+        {
+          "func_offset": 736,
+          "text_offset": "0x18f7f0",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 1636336,
+            "sym_idx": 6603,
+            "type": 43,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 740,
+          "text_offset": "0x18f7f4",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 1636340,
+            "sym_idx": 6603,
+            "type": 44,
+            "symbol": ".LC11",
+            "symbol_value": 346592,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 748,
+          "text_offset": "0x18f7fc",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636348,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 752,
+          "text_offset": "0x18f800",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 756,
+          "text_offset": "0x18f804",
+          "decoded": "strb r5, [r15, #116 (0x74)]",
+          "rel": null
+        },
+        {
+          "func_offset": 760,
+          "text_offset": "0x18f808",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636360,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 764,
+          "text_offset": "0x18f80c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1636364,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 768,
+          "text_offset": "0x18f810",
+          "decoded": "ldrb r0, [r3, #290 (0x122)]",
+          "rel": null
+        },
+        {
+          "func_offset": 776,
+          "text_offset": "0x18f818",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636376,
+            "sym_idx": 8167,
+            "type": 28,
+            "symbol": "AME_Scheduler_UpdateModulation_SYS",
+            "symbol_value": 451720,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 784,
+          "text_offset": "0x18f820",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1636384,
+            "sym_idx": 8947,
+            "type": 28,
+            "symbol": "ame_bbp_set_testmode_SymbolHdr_mcs",
+            "symbol_value": 1635488,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 788,
+          "text_offset": "0x18f824",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 800,
+          "text_offset": "0x18f830",
+          "decoded": "",
+          "rel": {
+            "offset": 1636400,
+            "sym_idx": 4,
+            "type": 2,
+            "symbol": "",
+            "symbol_value": 0,
+            "symbol_section": ".rodata"
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "ame_bbp_set_frame_len",
+      "text_offset": "0x1919a4",
+      "size": 20,
+      "instructions": [
+        {
+          "func_offset": 0,
+          "text_offset": "0x1919a4",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644964,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 4,
+          "text_offset": "0x1919a8",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644968,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 12,
+          "text_offset": "0x1919b0",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "ame_bbp_set_duty_cycle",
+      "text_offset": "0x191990",
+      "size": 20,
+      "instructions": [
+        {
+          "func_offset": 0,
+          "text_offset": "0x191990",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644944,
+            "sym_idx": 7218,
+            "type": 43,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 4,
+          "text_offset": "0x191994",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1644948,
+            "sym_idx": 7218,
+            "type": 44,
+            "symbol": "system_config",
+            "symbol_value": 2492844,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 12,
+          "text_offset": "0x19199c",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "ame_core_set_maxBD",
+      "text_offset": "0x2e80",
+      "size": 16,
+      "instructions": [
+        {
+          "func_offset": 0,
+          "text_offset": "0x2e80",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 11904,
+            "sym_idx": 67,
+            "type": 43,
+            "symbol": ".LANCHOR4",
+            "symbol_value": 0,
+            "symbol_section": ".data"
+          }
+        },
+        {
+          "func_offset": 4,
+          "text_offset": "0x2e84",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 11908,
+            "sym_idx": 67,
+            "type": 44,
+            "symbol": ".LANCHOR4",
+            "symbol_value": 0,
+            "symbol_section": ".data"
+          }
+        },
+        {
+          "func_offset": 8,
+          "text_offset": "0x2e88",
+          "decoded": "str r0, [r3, #0 (0x0)]",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "ame_core_get_maxBD",
+      "text_offset": "0x2e68",
+      "size": 24,
+      "instructions": [
+        {
+          "func_offset": 0,
+          "text_offset": "0x2e68",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 11880,
+            "sym_idx": 16,
+            "type": 43,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 81840,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 4,
+          "text_offset": "0x2e6c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 11884,
+            "sym_idx": 16,
+            "type": 44,
+            "symbol": ".LANCHOR1",
+            "symbol_value": 81840,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 8,
+          "text_offset": "0x2e70",
+          "decoded": "ldr r0, [r3, #892 (0x37c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 12,
+          "text_offset": "0x2e74",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 16,
+          "text_offset": "0x2e78",
+          "decoded": "str r2, [r3, #892 (0x37c)]",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "AME_EAB_SetupQueues",
+      "text_offset": "0x12305c",
+      "size": 512,
+      "instructions": [
+        {
+          "func_offset": 8,
+          "text_offset": "0x123064",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192036,
+            "sym_idx": 6941,
+            "type": 43,
+            "symbol": "pAMEeab_Cb",
+            "symbol_value": 2837932,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 12,
+          "text_offset": "0x123068",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192040,
+            "sym_idx": 6941,
+            "type": 44,
+            "symbol": "pAMEeab_Cb",
+            "symbol_value": 2837932,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 16,
+          "text_offset": "0x12306c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 20,
+          "text_offset": "0x123070",
+          "decoded": "ldr r4, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x123078",
+          "decoded": "ldr r3, [r4, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x12307c",
+          "decoded": "ldrb r15, [r15, #79 (0x4f)]",
+          "rel": null
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x123080",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x123088",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x12308c",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 52,
+          "text_offset": "0x123090",
+          "decoded": "strb r3, [r0, #31 (0x1f)]",
+          "rel": null
+        },
+        {
+          "func_offset": 56,
+          "text_offset": "0x123094",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 60,
+          "text_offset": "0x123098",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 64,
+          "text_offset": "0x12309c",
+          "decoded": "strb r3, [r9, #159 (0x9f)]",
+          "rel": null
+        },
+        {
+          "func_offset": 68,
+          "text_offset": "0x1230a0",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 72,
+          "text_offset": "0x1230a4",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 76,
+          "text_offset": "0x1230a8",
+          "decoded": "mov r2, #504 (0x1f8)",
+          "rel": null
+        },
+        {
+          "func_offset": 80,
+          "text_offset": "0x1230ac",
+          "decoded": "ldrb r3, [r3, #1298 (0x512)]",
+          "rel": null
+        },
+        {
+          "func_offset": 84,
+          "text_offset": "0x1230b0",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 88,
+          "text_offset": "0x1230b4",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 92,
+          "text_offset": "0x1230b8",
+          "decoded": "movw r2, #767 (0x2ff)",
+          "rel": null
+        },
+        {
+          "func_offset": 96,
+          "text_offset": "0x1230bc",
+          "decoded": "ldrb r3, [r13, #2578 (0xa12)]",
+          "rel": null
+        },
+        {
+          "func_offset": 100,
+          "text_offset": "0x1230c0",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 104,
+          "text_offset": "0x1230c4",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 112,
+          "text_offset": "0x1230cc",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 116,
+          "text_offset": "0x1230d0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 120,
+          "text_offset": "0x1230d4",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 128,
+          "text_offset": "0x1230dc",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 136,
+          "text_offset": "0x1230e4",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 140,
+          "text_offset": "0x1230e8",
+          "decoded": "strb r3, [r9, #146 (0x92)]",
+          "rel": null
+        },
+        {
+          "func_offset": 144,
+          "text_offset": "0x1230ec",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 160,
+          "text_offset": "0x1230fc",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 164,
+          "text_offset": "0x123100",
+          "decoded": "ldrb r3, [r3, #1298 (0x512)]",
+          "rel": null
+        },
+        {
+          "func_offset": 168,
+          "text_offset": "0x123104",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 180,
+          "text_offset": "0x123110",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 184,
+          "text_offset": "0x123114",
+          "decoded": "ldrb r3, [r13, #2578 (0xa12)]",
+          "rel": null
+        },
+        {
+          "func_offset": 188,
+          "text_offset": "0x123118",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 192,
+          "text_offset": "0x12311c",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 200,
+          "text_offset": "0x123124",
+          "decoded": "str r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 204,
+          "text_offset": "0x123128",
+          "decoded": "ldr r5, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 208,
+          "text_offset": "0x12312c",
+          "decoded": "ldrb r15, [r15, #78 (0x4e)]",
+          "rel": null
+        },
+        {
+          "func_offset": 212,
+          "text_offset": "0x123130",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192240,
+            "sym_idx": 9702,
+            "type": 43,
+            "symbol": "outer_cache",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 216,
+          "text_offset": "0x123134",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192244,
+            "sym_idx": 9702,
+            "type": 44,
+            "symbol": "outer_cache",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 220,
+          "text_offset": "0x123138",
+          "decoded": "ldr r3, [r3, #24 (0x18)]",
+          "rel": null
+        },
+        {
+          "func_offset": 228,
+          "text_offset": "0x123140",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 236,
+          "text_offset": "0x123148",
+          "decoded": "str r5, [r4, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 240,
+          "text_offset": "0x12314c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192268,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 244,
+          "text_offset": "0x123150",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192272,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 248,
+          "text_offset": "0x123154",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 256,
+          "text_offset": "0x12315c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 260,
+          "text_offset": "0x123160",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192288,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 264,
+          "text_offset": "0x123164",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192292,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 268,
+          "text_offset": "0x123168",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 276,
+          "text_offset": "0x123170",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 280,
+          "text_offset": "0x123174",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192308,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 284,
+          "text_offset": "0x123178",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 1192312,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 288,
+          "text_offset": "0x12317c",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 296,
+          "text_offset": "0x123184",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 300,
+          "text_offset": "0x123188",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 1192328,
+            "sym_idx": 4893,
+            "type": 43,
+            "symbol": ".LANCHOR3",
+            "symbol_value": 2836240,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 304,
+          "text_offset": "0x12318c",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 1192332,
+            "sym_idx": 4893,
+            "type": 44,
+            "symbol": ".LANCHOR3",
+            "symbol_value": 2836240,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 316,
+          "text_offset": "0x123198",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1192344,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 320,
+          "text_offset": "0x12319c",
+          "decoded": "ldr r14, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 324,
+          "text_offset": "0x1231a0",
+          "decoded": "strb r14, [r9, #2654 (0xa5e)]",
+          "rel": null
+        },
+        {
+          "func_offset": 328,
+          "text_offset": "0x1231a4",
+          "decoded": "ldr r12, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 332,
+          "text_offset": "0x1231a8",
+          "decoded": "strb r12, [r8, #220 (0xdc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 336,
+          "text_offset": "0x1231ac",
+          "decoded": "ldr r0, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 340,
+          "text_offset": "0x1231b0",
+          "decoded": "strb r0, [r9, #1360 (0x550)]",
+          "rel": null
+        },
+        {
+          "func_offset": 344,
+          "text_offset": "0x1231b4",
+          "decoded": "ldr r2, [r4, #1064 (0x428)]",
+          "rel": null
+        },
+        {
+          "func_offset": 348,
+          "text_offset": "0x1231b8",
+          "decoded": "ldr r3, [r4, #1068 (0x42c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 352,
+          "text_offset": "0x1231bc",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 1192380,
+            "sym_idx": 4870,
+            "type": 43,
+            "symbol": ".LC1",
+            "symbol_value": 252312,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 356,
+          "text_offset": "0x1231c0",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 1192384,
+            "sym_idx": 4870,
+            "type": 44,
+            "symbol": ".LC1",
+            "symbol_value": 252312,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 360,
+          "text_offset": "0x1231c4",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 364,
+          "text_offset": "0x1231c8",
+          "decoded": "mov r1, #7 (0x7)",
+          "rel": null
+        },
+        {
+          "func_offset": 368,
+          "text_offset": "0x1231cc",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 372,
+          "text_offset": "0x1231d0",
+          "decoded": "ldr r4, [r15, #128 (0x80)]",
+          "rel": null
+        },
+        {
+          "func_offset": 376,
+          "text_offset": "0x1231d4",
+          "decoded": "str r4, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 380,
+          "text_offset": "0x1231d8",
+          "decoded": "movw r4, #5933 (0x172d)",
+          "rel": null
+        },
+        {
+          "func_offset": 384,
+          "text_offset": "0x1231dc",
+          "decoded": "str r4, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 388,
+          "text_offset": "0x1231e0",
+          "decoded": "str r14, [r13, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 392,
+          "text_offset": "0x1231e4",
+          "decoded": "str r12, [r13, #20 (0x14)]",
+          "rel": null
+        },
+        {
+          "func_offset": 396,
+          "text_offset": "0x1231e8",
+          "decoded": "str r0, [r13, #24 (0x18)]",
+          "rel": null
+        },
+        {
+          "func_offset": 400,
+          "text_offset": "0x1231ec",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1192428,
+            "sym_idx": 5070,
+            "type": 43,
+            "symbol": ".LC197",
+            "symbol_value": 263008,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 404,
+          "text_offset": "0x1231f0",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1192432,
+            "sym_idx": 5070,
+            "type": 44,
+            "symbol": ".LC197",
+            "symbol_value": 263008,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 408,
+          "text_offset": "0x1231f4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1192436,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 412,
+          "text_offset": "0x1231f8",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 416,
+          "text_offset": "0x1231fc",
+          "decoded": "ldr r1, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 420,
+          "text_offset": "0x123200",
+          "decoded": "strb r1, [r9, #2641 (0xa51)]",
+          "rel": null
+        },
+        {
+          "func_offset": 424,
+          "text_offset": "0x123204",
+          "decoded": "ldr r2, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 428,
+          "text_offset": "0x123208",
+          "decoded": "strb r2, [r8, #210 (0xd2)]",
+          "rel": null
+        },
+        {
+          "func_offset": 432,
+          "text_offset": "0x12320c",
+          "decoded": "ldr r3, [r13, #36 (0x24)]",
+          "rel": null
+        },
+        {
+          "func_offset": 436,
+          "text_offset": "0x123210",
+          "decoded": "strb r3, [r9, #1363 (0x553)]",
+          "rel": null
+        },
+        {
+          "func_offset": 440,
+          "text_offset": "0x123214",
+          "decoded": "ldr r0, [r15, #60 (0x3c)]",
+          "rel": null
+        },
+        {
+          "func_offset": 444,
+          "text_offset": "0x123218",
+          "decoded": "str r0, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 448,
+          "text_offset": "0x12321c",
+          "decoded": "movw r0, #5933 (0x172d)",
+          "rel": null
+        },
+        {
+          "func_offset": 452,
+          "text_offset": "0x123220",
+          "decoded": "str r0, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 456,
+          "text_offset": "0x123224",
+          "decoded": "str r1, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 460,
+          "text_offset": "0x123228",
+          "decoded": "str r2, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 464,
+          "text_offset": "0x12322c",
+          "decoded": "str r3, [r13, #16 (0x10)]",
+          "rel": null
+        },
+        {
+          "func_offset": 468,
+          "text_offset": "0x123230",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 1192496,
+            "sym_idx": 5071,
+            "type": 43,
+            "symbol": ".LC198",
+            "symbol_value": 263084,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 472,
+          "text_offset": "0x123234",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 1192500,
+            "sym_idx": 5071,
+            "type": 44,
+            "symbol": ".LC198",
+            "symbol_value": 263084,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 476,
+          "text_offset": "0x123238",
+          "decoded": "mov r1, #7 (0x7)",
+          "rel": null
+        },
+        {
+          "func_offset": 480,
+          "text_offset": "0x12323c",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 1192508,
+            "sym_idx": 4870,
+            "type": 43,
+            "symbol": ".LC1",
+            "symbol_value": 252312,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 484,
+          "text_offset": "0x123240",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 1192512,
+            "sym_idx": 4870,
+            "type": 44,
+            "symbol": ".LC1",
+            "symbol_value": 252312,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 492,
+          "text_offset": "0x123248",
+          "decoded": "bl",
+          "rel": {
+            "offset": 1192520,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 496,
+          "text_offset": "0x12324c",
+          "decoded": "mov r0, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 508,
+          "text_offset": "0x123258",
+          "decoded": "",
+          "rel": {
+            "offset": 1192536,
+            "sym_idx": 4,
+            "type": 2,
+            "symbol": "",
+            "symbol_value": 0,
+            "symbol_section": ".rodata"
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "cpeFsmStop",
+      "text_offset": "0x4d870",
+      "size": 900,
+      "instructions": [
+        {
+          "func_offset": 16,
+          "text_offset": "0x4d880",
+          "decoded": "ldrb r5, [r1, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 20,
+          "text_offset": "0x4d884",
+          "decoded": "mov r5, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x4d888",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317576,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x4d88c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317580,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x4d890",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 40,
+          "text_offset": "0x4d898",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x4d89c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317596,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x4d8a0",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317600,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 52,
+          "text_offset": "0x4d8a4",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 60,
+          "text_offset": "0x4d8ac",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 64,
+          "text_offset": "0x4d8b0",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317616,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 68,
+          "text_offset": "0x4d8b4",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317620,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 72,
+          "text_offset": "0x4d8b8",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 80,
+          "text_offset": "0x4d8c0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 84,
+          "text_offset": "0x4d8c4",
+          "decoded": "movw r6, #0 (0x0)",
+          "rel": {
+            "offset": 317636,
+            "sym_idx": 1554,
+            "type": 43,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 88,
+          "text_offset": "0x4d8c8",
+          "decoded": "movt r6, #0 (0x0)",
+          "rel": {
+            "offset": 317640,
+            "sym_idx": 1554,
+            "type": 44,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 96,
+          "text_offset": "0x4d8d0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317648,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 100,
+          "text_offset": "0x4d8d4",
+          "decoded": "ldr r2, [r6, #468 (0x1d4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 104,
+          "text_offset": "0x4d8d8",
+          "decoded": "ldr r3, [r6, #472 (0x1d8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 108,
+          "text_offset": "0x4d8dc",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 317660,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 112,
+          "text_offset": "0x4d8e0",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 317664,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 116,
+          "text_offset": "0x4d8e4",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 120,
+          "text_offset": "0x4d8e8",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 124,
+          "text_offset": "0x4d8ec",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 128,
+          "text_offset": "0x4d8f0",
+          "decoded": "ldr r0, [r15, #760 (0x2f8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 132,
+          "text_offset": "0x4d8f4",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 136,
+          "text_offset": "0x4d8f8",
+          "decoded": "movw r0, #1180 (0x49c)",
+          "rel": null
+        },
+        {
+          "func_offset": 140,
+          "text_offset": "0x4d8fc",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 144,
+          "text_offset": "0x4d900",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 317696,
+            "sym_idx": 1682,
+            "type": 43,
+            "symbol": ".LC125",
+            "symbol_value": 81908,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 148,
+          "text_offset": "0x4d904",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 317700,
+            "sym_idx": 1682,
+            "type": 44,
+            "symbol": ".LC125",
+            "symbol_value": 81908,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 152,
+          "text_offset": "0x4d908",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317704,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 156,
+          "text_offset": "0x4d90c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 160,
+          "text_offset": "0x4d910",
+          "decoded": "ldr r3, [r15, #728 (0x2d8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 164,
+          "text_offset": "0x4d914",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 168,
+          "text_offset": "0x4d918",
+          "decoded": "movw r3, #1180 (0x49c)",
+          "rel": null
+        },
+        {
+          "func_offset": 172,
+          "text_offset": "0x4d91c",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 176,
+          "text_offset": "0x4d920",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 317728,
+            "sym_idx": 1683,
+            "type": 43,
+            "symbol": ".LC126",
+            "symbol_value": 81956,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 180,
+          "text_offset": "0x4d924",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 317732,
+            "sym_idx": 1683,
+            "type": 44,
+            "symbol": ".LC126",
+            "symbol_value": 81956,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 184,
+          "text_offset": "0x4d928",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 188,
+          "text_offset": "0x4d92c",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 317740,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 192,
+          "text_offset": "0x4d930",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 317744,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 200,
+          "text_offset": "0x4d938",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317752,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 204,
+          "text_offset": "0x4d93c",
+          "decoded": "mov r3, #1 (0x1)",
+          "rel": null
+        },
+        {
+          "func_offset": 208,
+          "text_offset": "0x4d940",
+          "decoded": "str r3, [r4, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 212,
+          "text_offset": "0x4d944",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317764,
+            "sym_idx": 9819,
+            "type": 43,
+            "symbol": "kmalloc_caches",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 216,
+          "text_offset": "0x4d948",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317768,
+            "sym_idx": 9819,
+            "type": 44,
+            "symbol": "kmalloc_caches",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 220,
+          "text_offset": "0x4d94c",
+          "decoded": "ldr r0, [r3, #24 (0x18)]",
+          "rel": null
+        },
+        {
+          "func_offset": 224,
+          "text_offset": "0x4d950",
+          "decoded": "mov r1, #208 (0xd0)",
+          "rel": null
+        },
+        {
+          "func_offset": 228,
+          "text_offset": "0x4d954",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317780,
+            "sym_idx": 9747,
+            "type": 28,
+            "symbol": "kmem_cache_alloc",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 236,
+          "text_offset": "0x4d95c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317788,
+            "sym_idx": 9681,
+            "type": 43,
+            "symbol": "Is_Still_in_the_loop",
+            "symbol_value": 317536,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 240,
+          "text_offset": "0x4d960",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317792,
+            "sym_idx": 9681,
+            "type": 44,
+            "symbol": "Is_Still_in_the_loop",
+            "symbol_value": 317536,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 244,
+          "text_offset": "0x4d964",
+          "decoded": "str r3, [r1, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 248,
+          "text_offset": "0x4d968",
+          "decoded": "mov r3, #50 (0x32)",
+          "rel": null
+        },
+        {
+          "func_offset": 252,
+          "text_offset": "0x4d96c",
+          "decoded": "str r3, [r1, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 260,
+          "text_offset": "0x4d974",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317812,
+            "sym_idx": 7065,
+            "type": 28,
+            "symbol": "CHECK_AND_SLEEP_Driver",
+            "symbol_value": 320052,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 264,
+          "text_offset": "0x4d978",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317816,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 268,
+          "text_offset": "0x4d97c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317820,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 272,
+          "text_offset": "0x4d980",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 280,
+          "text_offset": "0x4d988",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 284,
+          "text_offset": "0x4d98c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317836,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 288,
+          "text_offset": "0x4d990",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317840,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 292,
+          "text_offset": "0x4d994",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 300,
+          "text_offset": "0x4d99c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 304,
+          "text_offset": "0x4d9a0",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 317856,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 308,
+          "text_offset": "0x4d9a4",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 317860,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 312,
+          "text_offset": "0x4d9a8",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 320,
+          "text_offset": "0x4d9b0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 324,
+          "text_offset": "0x4d9b4",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 317876,
+            "sym_idx": 1554,
+            "type": 43,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 328,
+          "text_offset": "0x4d9b8",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 317880,
+            "sym_idx": 1554,
+            "type": 44,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 336,
+          "text_offset": "0x4d9c0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317888,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 340,
+          "text_offset": "0x4d9c4",
+          "decoded": "ldr r2, [r4, #476 (0x1dc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 344,
+          "text_offset": "0x4d9c8",
+          "decoded": "ldr r3, [r4, #480 (0x1e0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 348,
+          "text_offset": "0x4d9cc",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 317900,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 352,
+          "text_offset": "0x4d9d0",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 317904,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 356,
+          "text_offset": "0x4d9d4",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 360,
+          "text_offset": "0x4d9d8",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 364,
+          "text_offset": "0x4d9dc",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 368,
+          "text_offset": "0x4d9e0",
+          "decoded": "ldr r0, [r15, #520 (0x208)]",
+          "rel": null
+        },
+        {
+          "func_offset": 372,
+          "text_offset": "0x4d9e4",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 376,
+          "text_offset": "0x4d9e8",
+          "decoded": "movw r0, #1185 (0x4a1)",
+          "rel": null
+        },
+        {
+          "func_offset": 380,
+          "text_offset": "0x4d9ec",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 384,
+          "text_offset": "0x4d9f0",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 317936,
+            "sym_idx": 1684,
+            "type": 43,
+            "symbol": ".LC127",
+            "symbol_value": 81992,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 388,
+          "text_offset": "0x4d9f4",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 317940,
+            "sym_idx": 1684,
+            "type": 44,
+            "symbol": ".LC127",
+            "symbol_value": 81992,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 392,
+          "text_offset": "0x4d9f8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317944,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 396,
+          "text_offset": "0x4d9fc",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 400,
+          "text_offset": "0x4da00",
+          "decoded": "ldr r3, [r15, #488 (0x1e8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 404,
+          "text_offset": "0x4da04",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 408,
+          "text_offset": "0x4da08",
+          "decoded": "movw r3, #1185 (0x4a1)",
+          "rel": null
+        },
+        {
+          "func_offset": 412,
+          "text_offset": "0x4da0c",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 416,
+          "text_offset": "0x4da10",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 317968,
+            "sym_idx": 1685,
+            "type": 43,
+            "symbol": ".LC128",
+            "symbol_value": 82072,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 420,
+          "text_offset": "0x4da14",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 317972,
+            "sym_idx": 1685,
+            "type": 44,
+            "symbol": ".LC128",
+            "symbol_value": 82072,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 424,
+          "text_offset": "0x4da18",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 428,
+          "text_offset": "0x4da1c",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 317980,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 432,
+          "text_offset": "0x4da20",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 317984,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 440,
+          "text_offset": "0x4da28",
+          "decoded": "bl",
+          "rel": {
+            "offset": 317992,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 444,
+          "text_offset": "0x4da2c",
+          "decoded": "mov r0, #64 (0x40)",
+          "rel": null
+        },
+        {
+          "func_offset": 448,
+          "text_offset": "0x4da30",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318000,
+            "sym_idx": 7046,
+            "type": 28,
+            "symbol": "ame_core_check_reset_flag",
+            "symbol_value": 10352,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 456,
+          "text_offset": "0x4da38",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 460,
+          "text_offset": "0x4da3c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318012,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 464,
+          "text_offset": "0x4da40",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318016,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 468,
+          "text_offset": "0x4da44",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 476,
+          "text_offset": "0x4da4c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 480,
+          "text_offset": "0x4da50",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318032,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 484,
+          "text_offset": "0x4da54",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318036,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 488,
+          "text_offset": "0x4da58",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 496,
+          "text_offset": "0x4da60",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 500,
+          "text_offset": "0x4da64",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318052,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 504,
+          "text_offset": "0x4da68",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318056,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 508,
+          "text_offset": "0x4da6c",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 516,
+          "text_offset": "0x4da74",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 520,
+          "text_offset": "0x4da78",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 318072,
+            "sym_idx": 1554,
+            "type": 43,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 524,
+          "text_offset": "0x4da7c",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 318076,
+            "sym_idx": 1554,
+            "type": 44,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 532,
+          "text_offset": "0x4da84",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318084,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 536,
+          "text_offset": "0x4da88",
+          "decoded": "ldr r2, [r4, #484 (0x1e4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 540,
+          "text_offset": "0x4da8c",
+          "decoded": "ldr r3, [r4, #488 (0x1e8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 544,
+          "text_offset": "0x4da90",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 318096,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 548,
+          "text_offset": "0x4da94",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 318100,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 552,
+          "text_offset": "0x4da98",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 556,
+          "text_offset": "0x4da9c",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 560,
+          "text_offset": "0x4daa0",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 564,
+          "text_offset": "0x4daa4",
+          "decoded": "ldr r0, [r15, #324 (0x144)]",
+          "rel": null
+        },
+        {
+          "func_offset": 568,
+          "text_offset": "0x4daa8",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 572,
+          "text_offset": "0x4daac",
+          "decoded": "movw r0, #1188 (0x4a4)",
+          "rel": null
+        },
+        {
+          "func_offset": 576,
+          "text_offset": "0x4dab0",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 580,
+          "text_offset": "0x4dab4",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 318132,
+            "sym_idx": 1686,
+            "type": 43,
+            "symbol": ".LC129",
+            "symbol_value": 82136,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 584,
+          "text_offset": "0x4dab8",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 318136,
+            "sym_idx": 1686,
+            "type": 44,
+            "symbol": ".LC129",
+            "symbol_value": 82136,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 588,
+          "text_offset": "0x4dabc",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318140,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 592,
+          "text_offset": "0x4dac0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 596,
+          "text_offset": "0x4dac4",
+          "decoded": "ldr r3, [r15, #292 (0x124)]",
+          "rel": null
+        },
+        {
+          "func_offset": 600,
+          "text_offset": "0x4dac8",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 604,
+          "text_offset": "0x4dacc",
+          "decoded": "movw r3, #1188 (0x4a4)",
+          "rel": null
+        },
+        {
+          "func_offset": 608,
+          "text_offset": "0x4dad0",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 612,
+          "text_offset": "0x4dad4",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 318164,
+            "sym_idx": 1687,
+            "type": 43,
+            "symbol": ".LC130",
+            "symbol_value": 82200,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 616,
+          "text_offset": "0x4dad8",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 318168,
+            "sym_idx": 1687,
+            "type": 44,
+            "symbol": ".LC130",
+            "symbol_value": 82200,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 620,
+          "text_offset": "0x4dadc",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 624,
+          "text_offset": "0x4dae0",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 318176,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 628,
+          "text_offset": "0x4dae4",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 318180,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 636,
+          "text_offset": "0x4daec",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318188,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 640,
+          "text_offset": "0x4daf0",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 644,
+          "text_offset": "0x4daf4",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318196,
+            "sym_idx": 7675,
+            "type": 28,
+            "symbol": "ame_core_no_reset_end",
+            "symbol_value": 58460,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 652,
+          "text_offset": "0x4dafc",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 656,
+          "text_offset": "0x4db00",
+          "decoded": "mov r0, #1 (0x1)",
+          "rel": null
+        },
+        {
+          "func_offset": 660,
+          "text_offset": "0x4db04",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318212,
+            "sym_idx": 7842,
+            "type": 28,
+            "symbol": "ame_core_reset_w_setup",
+            "symbol_value": 98032,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 664,
+          "text_offset": "0x4db08",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 668,
+          "text_offset": "0x4db0c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318220,
+            "sym_idx": 9231,
+            "type": 28,
+            "symbol": "ame_bbp_op_reset",
+            "symbol_value": 1604008,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 672,
+          "text_offset": "0x4db10",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318224,
+            "sym_idx": 8067,
+            "type": 28,
+            "symbol": "ame_core_no_reset_begin",
+            "symbol_value": 58280,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 676,
+          "text_offset": "0x4db14",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318228,
+            "sym_idx": 9103,
+            "type": 43,
+            "symbol": "pAMEmodem_Cb",
+            "symbol_value": 2530544,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 680,
+          "text_offset": "0x4db18",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318232,
+            "sym_idx": 9103,
+            "type": 44,
+            "symbol": "pAMEmodem_Cb",
+            "symbol_value": 2530544,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 684,
+          "text_offset": "0x4db1c",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 688,
+          "text_offset": "0x4db20",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 692,
+          "text_offset": "0x4db24",
+          "decoded": "strb r2, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 696,
+          "text_offset": "0x4db28",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318248,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 700,
+          "text_offset": "0x4db2c",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318252,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 704,
+          "text_offset": "0x4db30",
+          "decoded": "ldr r3, [r3, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 712,
+          "text_offset": "0x4db38",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 716,
+          "text_offset": "0x4db3c",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318268,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 720,
+          "text_offset": "0x4db40",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318272,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 724,
+          "text_offset": "0x4db44",
+          "decoded": "ldr r3, [r3, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 732,
+          "text_offset": "0x4db4c",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 736,
+          "text_offset": "0x4db50",
+          "decoded": "movw r3, #0 (0x0)",
+          "rel": {
+            "offset": 318288,
+            "sym_idx": 9012,
+            "type": 43,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 740,
+          "text_offset": "0x4db54",
+          "decoded": "movt r3, #0 (0x0)",
+          "rel": {
+            "offset": 318292,
+            "sym_idx": 9012,
+            "type": 44,
+            "symbol": "ame_log",
+            "symbol_value": 132940,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 744,
+          "text_offset": "0x4db58",
+          "decoded": "ldrb r3, [r3, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 752,
+          "text_offset": "0x4db60",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 756,
+          "text_offset": "0x4db64",
+          "decoded": "movw r4, #0 (0x0)",
+          "rel": {
+            "offset": 318308,
+            "sym_idx": 1554,
+            "type": 43,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 760,
+          "text_offset": "0x4db68",
+          "decoded": "movt r4, #0 (0x0)",
+          "rel": {
+            "offset": 318312,
+            "sym_idx": 1554,
+            "type": 44,
+            "symbol": ".LANCHOR0",
+            "symbol_value": 2545072,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 768,
+          "text_offset": "0x4db70",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318320,
+            "sym_idx": 9727,
+            "type": 28,
+            "symbol": "getrawmonotonic",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 772,
+          "text_offset": "0x4db74",
+          "decoded": "ldr r2, [r4, #492 (0x1ec)]",
+          "rel": null
+        },
+        {
+          "func_offset": 776,
+          "text_offset": "0x4db78",
+          "decoded": "ldr r3, [r4, #496 (0x1f0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 780,
+          "text_offset": "0x4db7c",
+          "decoded": "movw r1, #0 (0x0)",
+          "rel": {
+            "offset": 318332,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 784,
+          "text_offset": "0x4db80",
+          "decoded": "movt r1, #0 (0x0)",
+          "rel": {
+            "offset": 318336,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 788,
+          "text_offset": "0x4db84",
+          "decoded": "str r1, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 792,
+          "text_offset": "0x4db88",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 796,
+          "text_offset": "0x4db8c",
+          "decoded": "str r1, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 800,
+          "text_offset": "0x4db90",
+          "decoded": "ldr r0, [r15, #88 (0x58)]",
+          "rel": null
+        },
+        {
+          "func_offset": 804,
+          "text_offset": "0x4db94",
+          "decoded": "str r0, [r13, #8 (0x8)]",
+          "rel": null
+        },
+        {
+          "func_offset": 808,
+          "text_offset": "0x4db98",
+          "decoded": "movw r0, #1201 (0x4b1)",
+          "rel": null
+        },
+        {
+          "func_offset": 812,
+          "text_offset": "0x4db9c",
+          "decoded": "str r0, [r13, #12 (0xc)]",
+          "rel": null
+        },
+        {
+          "func_offset": 816,
+          "text_offset": "0x4dba0",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 318368,
+            "sym_idx": 1688,
+            "type": 43,
+            "symbol": ".LC131",
+            "symbol_value": 82252,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 820,
+          "text_offset": "0x4dba4",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 318372,
+            "sym_idx": 1688,
+            "type": 44,
+            "symbol": ".LC131",
+            "symbol_value": 82252,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 824,
+          "text_offset": "0x4dba8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318376,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 828,
+          "text_offset": "0x4dbac",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 832,
+          "text_offset": "0x4dbb0",
+          "decoded": "ldr r3, [r15, #56 (0x38)]",
+          "rel": null
+        },
+        {
+          "func_offset": 836,
+          "text_offset": "0x4dbb4",
+          "decoded": "str r3, [r13, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 840,
+          "text_offset": "0x4dbb8",
+          "decoded": "movw r3, #1201 (0x4b1)",
+          "rel": null
+        },
+        {
+          "func_offset": 844,
+          "text_offset": "0x4dbbc",
+          "decoded": "str r3, [r13, #4 (0x4)]",
+          "rel": null
+        },
+        {
+          "func_offset": 848,
+          "text_offset": "0x4dbc0",
+          "decoded": "movw r0, #0 (0x0)",
+          "rel": {
+            "offset": 318400,
+            "sym_idx": 1689,
+            "type": 43,
+            "symbol": ".LC132",
+            "symbol_value": 82304,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 852,
+          "text_offset": "0x4dbc4",
+          "decoded": "movt r0, #0 (0x0)",
+          "rel": {
+            "offset": 318404,
+            "sym_idx": 1689,
+            "type": 44,
+            "symbol": ".LC132",
+            "symbol_value": 82304,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 856,
+          "text_offset": "0x4dbc8",
+          "decoded": "mov r1, #5 (0x5)",
+          "rel": null
+        },
+        {
+          "func_offset": 860,
+          "text_offset": "0x4dbcc",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 318412,
+            "sym_idx": 1555,
+            "type": 43,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 864,
+          "text_offset": "0x4dbd0",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 318416,
+            "sym_idx": 1555,
+            "type": 44,
+            "symbol": ".LC3",
+            "symbol_value": 74960,
+            "symbol_section": ".rodata.str1.4"
+          }
+        },
+        {
+          "func_offset": 872,
+          "text_offset": "0x4dbd8",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318424,
+            "sym_idx": 9771,
+            "type": 28,
+            "symbol": "printk",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 876,
+          "text_offset": "0x4dbdc",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 880,
+          "text_offset": "0x4dbe0",
+          "decoded": "bl",
+          "rel": {
+            "offset": 318432,
+            "sym_idx": 7675,
+            "type": 28,
+            "symbol": "ame_core_no_reset_end",
+            "symbol_value": 58460,
+            "symbol_section": ".text"
+          }
+        },
+        {
+          "func_offset": 884,
+          "text_offset": "0x4dbe4",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 896,
+          "text_offset": "0x4dbf0",
+          "decoded": "",
+          "rel": {
+            "offset": 318448,
+            "sym_idx": 4,
+            "type": 2,
+            "symbol": "",
+            "symbol_value": 0,
+            "symbol_section": ".rodata"
+          }
+        }
+      ]
+    }
+  ],
+  "dev_funcs": [
+    {
+      "symbol": "frame_len_store",
+      "text_offset": "0x1233c",
+      "size": 68,
+      "instructions": [
+        {
+          "func_offset": 20,
+          "text_offset": "0x12350",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x12354",
+          "decoded": "bl",
+          "rel": {
+            "offset": 74580,
+            "sym_idx": 1692,
+            "type": 28,
+            "symbol": "simple_strtol",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x12358",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 74584,
+            "sym_idx": 1511,
+            "type": 43,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x1235c",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 74588,
+            "sym_idx": 1511,
+            "type": 44,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x12360",
+          "decoded": "ldr r2, [r2, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x12368",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x1236c",
+          "decoded": "ldr r3, [r2, #84 (0x54)]",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "duty_cycle_store",
+      "text_offset": "0x12380",
+      "size": 68,
+      "instructions": [
+        {
+          "func_offset": 20,
+          "text_offset": "0x12394",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x12398",
+          "decoded": "bl",
+          "rel": {
+            "offset": 74648,
+            "sym_idx": 1692,
+            "type": 28,
+            "symbol": "simple_strtol",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x1239c",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 74652,
+            "sym_idx": 1511,
+            "type": 43,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x123a0",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 74656,
+            "sym_idx": 1511,
+            "type": 44,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x123a4",
+          "decoded": "ldr r2, [r2, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x123ac",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x123b0",
+          "decoded": "ldr r3, [r2, #84 (0x54)]",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "adj_maxBD_store",
+      "text_offset": "0x122f8",
+      "size": 68,
+      "instructions": [
+        {
+          "func_offset": 20,
+          "text_offset": "0x1230c",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x12310",
+          "decoded": "bl",
+          "rel": {
+            "offset": 74512,
+            "sym_idx": 1692,
+            "type": 28,
+            "symbol": "simple_strtol",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x12314",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 74516,
+            "sym_idx": 1511,
+            "type": 43,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x12318",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 74520,
+            "sym_idx": 1511,
+            "type": 44,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x1231c",
+          "decoded": "ldr r2, [r2, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 44,
+          "text_offset": "0x12324",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x12328",
+          "decoded": "ldr r3, [r2, #144 (0x90)]",
+          "rel": null
+        }
+      ]
+    },
+    {
+      "symbol": "autoMcsCeiling_store",
+      "text_offset": "0x11384",
+      "size": 72,
+      "instructions": [
+        {
+          "func_offset": 20,
+          "text_offset": "0x11398",
+          "decoded": "mov r2, #0 (0x0)",
+          "rel": null
+        },
+        {
+          "func_offset": 24,
+          "text_offset": "0x1139c",
+          "decoded": "bl",
+          "rel": {
+            "offset": 70556,
+            "sym_idx": 1692,
+            "type": 28,
+            "symbol": "simple_strtol",
+            "symbol_value": 0,
+            "symbol_section": ""
+          }
+        },
+        {
+          "func_offset": 28,
+          "text_offset": "0x113a0",
+          "decoded": "strb r0, [r15, #112 (0x70)]",
+          "rel": null
+        },
+        {
+          "func_offset": 32,
+          "text_offset": "0x113a4",
+          "decoded": "movw r2, #0 (0x0)",
+          "rel": {
+            "offset": 70564,
+            "sym_idx": 1511,
+            "type": 43,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 36,
+          "text_offset": "0x113a8",
+          "decoded": "movt r2, #0 (0x0)",
+          "rel": {
+            "offset": 70568,
+            "sym_idx": 1511,
+            "type": 44,
+            "symbol": "g_core_hooks",
+            "symbol_value": 28,
+            "symbol_section": ".bss"
+          }
+        },
+        {
+          "func_offset": 40,
+          "text_offset": "0x113ac",
+          "decoded": "ldr r2, [r2, #0 (0x0)]",
+          "rel": null
+        },
+        {
+          "func_offset": 48,
+          "text_offset": "0x113b4",
+          "decoded": "b",
+          "rel": null
+        },
+        {
+          "func_offset": 52,
+          "text_offset": "0x113b8",
+          "decoded": "ldr r3, [r2, #104 (0x68)]",
+          "rel": null
+        }
+      ]
+    }
+  ]
+}

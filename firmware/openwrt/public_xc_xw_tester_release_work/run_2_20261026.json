@@ -1,0 +1,32 @@
+﻿{
+    "command":  "python tools/firmware/package_public_xc_xw_tester_release.py",
+    "exit_code":  0,
+    "output":  "{\"stage\": \"171A\", \"status\": \"LOCAL_DIAGNOSTIC_STARTERS_BUILT_WITH_QUALIFICATIONS\", \"files\": 12, \"firmware_images\": 0, \"kernel_modules\": 0}\r\n",
+    "sha256_before":  {
+                          "tools/firmware/package_public_xc_xw_tester_release.py":  "9e33ae8dd2ffc5e8b981679397d6c0400a3be223a1894fd2ac5c1b995f584f31",
+                          "docs/STAGE171A_PUBLIC_XC_XW_TESTER_RELEASE.md":  "697517290c6eebaa77032537fd905543cd03f2b4a684b98da442485aa2fb29a3",
+                          "artifacts/verification/stage170_to_172_sources/profiles.json":  "996f4dc8ef25477ec3a9a006b6eb1755918d4180f20da5073d5554185982f9b5",
+                          "artifacts/autoresearch/stage158a_xw_xm_30board_openwrt_matrix.json":  "c496ff8e71e9d24c29f8b1ab39339c5ddcd90b63127aabd6330b1f9c8991f117",
+                          "artifacts/autoresearch/stage159a_xc_airprism_hsr_and_passive_openwrt_kit.json":  "3842b6e0969623aa29384f2688f4fe3e9d7ee871081164c70d4ad7a37b198e24",
+                          "artifacts/autoresearch/stage165a_xc_family_universal_kit.json":  "32eb982953a62168a14ad93998f60ad2879ea1d574bdec15280950dfce149d48",
+                          "artifacts/autoresearch/stage166a_xw_xm_ath9k_universal_kit.json":  "b97c71cdd74c57125b5659734aa18b9797e653fcee833b0f3681c86ff51620b5",
+                          "firmware/openwrt/xc_family_universal_kit/99-fmx-xc-universal-champion":  "a66c7d0664fe7ea87989b4adaee14df1367fbb6714f97c306d4e667fbb7ed08e",
+                          "firmware/openwrt/xw_xm_family_universal_kit/99-fmx-xw-xm-ath9k-champion":  "f1331274eab7e79b09a51d0407badc3343b09f3ef0b8294d0a1d82a315086e0c",
+                          "firmware/openwrt/xc_family_universal_kit/sysupgrade-overlay-xc-universal-v1.tar.gz":  "e07fd4d7ffb57f5707d12f3c95b00afd6cdde28462628713edbaf4c7fff20e3c"
+                      },
+    "sha256_after":  {
+                         "tools/firmware/package_public_xc_xw_tester_release.py":  "9e33ae8dd2ffc5e8b981679397d6c0400a3be223a1894fd2ac5c1b995f584f31",
+                         "docs/STAGE171A_PUBLIC_XC_XW_TESTER_RELEASE.md":  "697517290c6eebaa77032537fd905543cd03f2b4a684b98da442485aa2fb29a3",
+                         "artifacts/verification/stage170_to_172_sources/profiles.json":  "996f4dc8ef25477ec3a9a006b6eb1755918d4180f20da5073d5554185982f9b5",
+                         "artifacts/autoresearch/stage158a_xw_xm_30board_openwrt_matrix.json":  "c496ff8e71e9d24c29f8b1ab39339c5ddcd90b63127aabd6330b1f9c8991f117",
+                         "artifacts/autoresearch/stage159a_xc_airprism_hsr_and_passive_openwrt_kit.json":  "3842b6e0969623aa29384f2688f4fe3e9d7ee871081164c70d4ad7a37b198e24",
+                         "artifacts/autoresearch/stage165a_xc_family_universal_kit.json":  "32eb982953a62168a14ad93998f60ad2879ea1d574bdec15280950dfce149d48",
+                         "artifacts/autoresearch/stage166a_xw_xm_ath9k_universal_kit.json":  "b97c71cdd74c57125b5659734aa18b9797e653fcee833b0f3681c86ff51620b5",
+                         "firmware/openwrt/xc_family_universal_kit/99-fmx-xc-universal-champion":  "a66c7d0664fe7ea87989b4adaee14df1367fbb6714f97c306d4e667fbb7ed08e",
+                         "firmware/openwrt/xw_xm_family_universal_kit/99-fmx-xw-xm-ath9k-champion":  "f1331274eab7e79b09a51d0407badc3343b09f3ef0b8294d0a1d82a315086e0c",
+                         "firmware/openwrt/xc_family_universal_kit/sysupgrade-overlay-xc-universal-v1.tar.gz":  "e07fd4d7ffb57f5707d12f3c95b00afd6cdde28462628713edbaf4c7fff20e3c"
+                     },
+    "hypothesis":  "Reviewed source drift: pin current scripts with declared/observed conflicts; derive XC candidates only from original2014 source inside pinned e07 overlay; use166 JSON families for XW/XM; no old code/modules executed",
+    "started_utc":  "2026-10-26T23:14:17.9721590Z",
+    "finished_utc":  "2026-10-26T23:14:18.1145565Z"
+}

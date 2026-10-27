@@ -1,0 +1,52 @@
+{
+  "stage": "468A",
+  "task_id": "T-S468A-XTENSA-SPECTRAL-SCAN-AND-NF-CAL-HELPER",
+  "title": "Pillar 2 & Pillar 5 QCA988x Hitless Background FFT Spectral Scan (WMI 0x905b/0x905c) & Noise Floor Calibration Helper",
+  "memory_master_claim": {
+    "code": "mm-f9fe",
+    "id": 155427
+  },
+  "generated_at": "2026-10-27T00:57:23.182074+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "ath10k",
+    "QCA firmware",
+    "mac80211"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca988x_spectral_nf_helper.sh",
+    "sha256": "4a739ee4212d754e2effae8f10554dde57e47db89989e50dc4fb87a977120514",
+    "size_bytes": 1919,
+    "default_mode": "--status"
+  },
+  "stage451a_re_linked": false,
+  "wmi_spectral_parameters": {
+    "wmi_spectral_configure_cmdid": "0x905b",
+    "wmi_spectral_enable_cmdid": "0x905c",
+    "fft_bins": 64,
+    "burst_count": 64,
+    "scan_period_ms": 0,
+    "hitless_in_service_operation": true
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "supports_background_fft_trigger": true,
+    "configures_64_bins_and_count": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Translates Stage 451A WMI 0x905b/0x905c Spectral Scan & NF calibration RE into OpenWrt ath10k helper",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Provides hitless 64-bin FFT spectral energy vectors to disambiguate narrowband FM/radar vs wideband co-channel noise",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Bounded 64-sample burst auto-disables after 1s to guarantee zero airtime starvation",
+    "pillar_d_scientific_pareto_validation": "Feeds Pillar 5 zero-false-positive RF fault classifier with per-subcarrier spectral flatness",
+    "pillar_e_memory_master_claim_id": "mm-f9fe (id=155427)"
+  }
+}

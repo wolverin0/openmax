@@ -290,3 +290,26 @@ def test_snapshot_provenance_and_no_original_dirty_api_dependency(tmp_path):
     result = subprocess.run([sys.executable, '-B', '-m', 'safety.preprod.guarida_watchdog'], cwd=tmp_path,
                             env=environment, capture_output=True, text=True, timeout=3)
     assert result.returncode == 0 and json.loads(result.stdout)['status'] == 'PLAN_ONLY'
+
+
+def test_watchdog_epoch_established_before_owner_publication(tmp_path, monkeypatch):
+    """A health writer may run as soon as the owner file becomes visible."""
+    from safety.preprod import guarida_watchdog as watchdog
+
+    state, cfg, contract = watchdog_fixture(tmp_path, rollback_fixture='timeout')
+    original_publish = watchdog.exclusive_json
+    ticks = iter([10.0, 11.0, 12.0, 13.0, 14.0])
+    monkeypatch.setattr(watchdog.time, 'monotonic', lambda: next(ticks, 14.0))
+
+    def publish_with_concurrent_health(path, value):
+        original_publish(path, value)
+        if Path(path).name == 'watchdog.owner.json':
+            publish_health(state, cfg, healthy=False)
+
+    monkeypatch.setattr(watchdog, 'exclusive_json', publish_with_concurrent_health)
+    result, code = watchdog.run_recording(contract)
+    assert code == 2 and result['status'] == 'HOLD_ROLLBACK_UNCERTAIN'
+    assert result['reason'] == 'health_failure'
+    assert result['actions'] == ['SIMULATED_ROLLBACK_TRANSFER']
+    assert result['simulated_restore_verified'] is False
+    assert (state / 'rollback.intent.json').is_file()

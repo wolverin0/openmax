@@ -1,0 +1,313 @@
+{
+  "meta": {
+    "stage": "667A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage667a_ath10k_htt_tx_desc_and_comp_ring_re.py",
+    "tool_sha256": "c5511cd68490b2dd81ba5b3f1bcf567022274c616c10013c9d3406c79fde156f",
+    "output": "artifacts/autoresearch/stage667a_ath10k_htt_tx_desc_and_comp_ring_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census across four modules; defined-symbol lookup for the htt_tx descriptor lifecycle, the two descriptor flags and the T2H completion handlers; explicit probe for the ath10k-only concepts",
+    "premise_corrections": [
+      "ath10k_core.ko does not exist (0 files), so ath10k_htt_tx_32 and the ath10k descriptor layout are unavailable; the vendor htt_tx path is dissected instead",
+      "frag_desc and aql/bql do not exist: those are mainline ath10k and mac80211 concepts, and the vendor stack uses its own TDMA scheduler"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules": 0,
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "htt_tx": 9,
+        "htt_t2h": 5,
+        "tx_compl": 4,
+        "tx_complete": 2,
+        "frag_desc": 0,
+        "peer_id": 1,
+        "vdev_id": 1,
+        "aql": 0,
+        "AQL": 0,
+        "bql": 0,
+        "BQL": 0,
+        "T2H": 0
+      },
+      "desc": {
+        "htt_tx_attach": 1,
+        "htt_tx_detach": 1,
+        "htt_tx_desc_alloc": 1,
+        "htt_tx_desc_free": 1
+      },
+      "flags": {
+        "htt_tx_desc_flag_batch_more": 1,
+        "htt_tx_desc_flag_postponed": 1
+      },
+      "compl": {
+        "htt_tx_compl_desc_id": 1,
+        "htt_t2h_msg_handler": 1,
+        "htt_t2h_lp_msg_handler": 1,
+        "ol_tx_completion_handler": 1
+      },
+      "ath10k": {
+        "frag_desc": 0,
+        "aql": 0,
+        "bql": 0,
+        "TX_COMPL_IND": 0
+      },
+      "tx_symbols": [
+        "htt_tx_attach",
+        "htt_tx_compl_desc_id",
+        "htt_tx_desc_alloc",
+        "htt_tx_desc_flag_batch_more",
+        "htt_tx_desc_flag_postponed",
+        "htt_tx_desc_free",
+        "htt_tx_detach",
+        "htt_tx_sched",
+        "htt_tx_send_std"
+      ],
+      "t2h_symbols": [
+        "htt_t2h_dbg_stats_hdr_parse",
+        "htt_t2h_lp_msg_handler",
+        "htt_t2h_msg_handler",
+        "htt_t2h_stats_print",
+        "htt_t2h_tx_ppdu_log_print"
+      ],
+      "compl_symbols": [
+        "HTCRxCompletionHandler",
+        "HTCTxCompletionHandler",
+        "hif_completion_thread",
+        "hif_completion_thread_shutdown",
+        "hif_completion_thread_startup",
+        "ol_tx_completion_handler",
+        "wmi_htc_tx_complete"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "htt_tx": 9,
+        "htt_t2h": 5,
+        "tx_compl": 4,
+        "tx_complete": 2,
+        "frag_desc": 0,
+        "peer_id": 1,
+        "vdev_id": 1,
+        "aql": 0,
+        "AQL": 0,
+        "bql": 0,
+        "BQL": 0,
+        "T2H": 0
+      },
+      "desc": {
+        "htt_tx_attach": 1,
+        "htt_tx_detach": 1,
+        "htt_tx_desc_alloc": 1,
+        "htt_tx_desc_free": 1
+      },
+      "flags": {
+        "htt_tx_desc_flag_batch_more": 1,
+        "htt_tx_desc_flag_postponed": 1
+      },
+      "compl": {
+        "htt_tx_compl_desc_id": 1,
+        "htt_t2h_msg_handler": 1,
+        "htt_t2h_lp_msg_handler": 1,
+        "ol_tx_completion_handler": 1
+      },
+      "ath10k": {
+        "frag_desc": 0,
+        "aql": 0,
+        "bql": 0,
+        "TX_COMPL_IND": 0
+      },
+      "tx_symbols": [
+        "htt_tx_attach",
+        "htt_tx_compl_desc_id",
+        "htt_tx_desc_alloc",
+        "htt_tx_desc_flag_batch_more",
+        "htt_tx_desc_flag_postponed",
+        "htt_tx_desc_free",
+        "htt_tx_detach",
+        "htt_tx_sched",
+        "htt_tx_send_std"
+      ],
+      "t2h_symbols": [
+        "htt_t2h_dbg_stats_hdr_parse",
+        "htt_t2h_lp_msg_handler",
+        "htt_t2h_msg_handler",
+        "htt_t2h_stats_print",
+        "htt_t2h_tx_ppdu_log_print"
+      ],
+      "compl_symbols": [
+        "HTCRxCompletionHandler",
+        "HTCTxCompletionHandler",
+        "hif_completion_thread",
+        "hif_completion_thread_shutdown",
+        "hif_completion_thread_startup",
+        "ol_tx_completion_handler",
+        "wmi_htc_tx_complete"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "htt_tx": 0,
+        "htt_t2h": 0,
+        "tx_compl": 6,
+        "tx_complete": 6,
+        "frag_desc": 0,
+        "peer_id": 0,
+        "vdev_id": 0,
+        "aql": 0,
+        "AQL": 0,
+        "bql": 0,
+        "BQL": 0,
+        "T2H": 0
+      },
+      "desc": {
+        "htt_tx_attach": 0,
+        "htt_tx_detach": 0,
+        "htt_tx_desc_alloc": 0,
+        "htt_tx_desc_free": 0
+      },
+      "flags": {
+        "htt_tx_desc_flag_batch_more": 0,
+        "htt_tx_desc_flag_postponed": 0
+      },
+      "compl": {
+        "htt_tx_compl_desc_id": 0,
+        "htt_t2h_msg_handler": 0,
+        "htt_t2h_lp_msg_handler": 0,
+        "ol_tx_completion_handler": 0
+      },
+      "ath10k": {
+        "frag_desc": 0,
+        "aql": 0,
+        "bql": 0,
+        "TX_COMPL_IND": 0
+      },
+      "tx_symbols": [],
+      "t2h_symbols": [],
+      "compl_symbols": [
+        "_ath_tx_complete_buf",
+        "ath_tx_complete_aggr_rifs"
+      ]
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "htt_tx": 0,
+        "htt_t2h": 0,
+        "tx_compl": 6,
+        "tx_complete": 6,
+        "frag_desc": 0,
+        "peer_id": 0,
+        "vdev_id": 0,
+        "aql": 0,
+        "AQL": 0,
+        "bql": 0,
+        "BQL": 0,
+        "T2H": 0
+      },
+      "desc": {
+        "htt_tx_attach": 0,
+        "htt_tx_detach": 0,
+        "htt_tx_desc_alloc": 0,
+        "htt_tx_desc_free": 0
+      },
+      "flags": {
+        "htt_tx_desc_flag_batch_more": 0,
+        "htt_tx_desc_flag_postponed": 0
+      },
+      "compl": {
+        "htt_tx_compl_desc_id": 0,
+        "htt_t2h_msg_handler": 0,
+        "htt_t2h_lp_msg_handler": 0,
+        "ol_tx_completion_handler": 0
+      },
+      "ath10k": {
+        "frag_desc": 0,
+        "aql": 0,
+        "bql": 0,
+        "TX_COMPL_IND": 0
+      },
+      "tx_symbols": [],
+      "t2h_symbols": [],
+      "compl_symbols": [
+        "_ath_tx_complete_buf",
+        "ath_tx_complete_aggr_rifs"
+      ]
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 4,
+    "htt_tx_symbol_count": 9,
+    "htt_tx_symbols": [
+      "htt_tx_attach",
+      "htt_tx_compl_desc_id",
+      "htt_tx_desc_alloc",
+      "htt_tx_desc_flag_batch_more",
+      "htt_tx_desc_flag_postponed",
+      "htt_tx_desc_free",
+      "htt_tx_detach",
+      "htt_tx_sched",
+      "htt_tx_send_std"
+    ],
+    "desc_lifecycle": [
+      "htt_tx_attach",
+      "htt_tx_detach",
+      "htt_tx_desc_alloc",
+      "htt_tx_desc_free"
+    ],
+    "desc_lifecycle_count": 4,
+    "desc_lifecycle_complete": 1,
+    "desc_flags": [
+      "htt_tx_desc_flag_batch_more",
+      "htt_tx_desc_flag_postponed"
+    ],
+    "desc_flag_count": 2,
+    "completion_symbols": [
+      "htt_tx_compl_desc_id",
+      "htt_t2h_msg_handler",
+      "htt_t2h_lp_msg_handler",
+      "ol_tx_completion_handler"
+    ],
+    "completion_symbol_count": 4,
+    "compl_desc_id_present": 1,
+    "t2h_msg_handler_present": 1,
+    "t2h_lp_handler_present": 1,
+    "os_completion_present": 1,
+    "ath10k_only_token_hits": 0,
+    "frag_desc_absent": 1,
+    "aql_bql_absent": 1,
+    "peer_id_hits": 2,
+    "vdev_id_hits": 2,
+    "tx_desc_layout_recovered": 0,
+    "aql_bql_accounting_recovered": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so ath10k_htt_tx_32, frag_desc and the 32-bit HTT TX descriptor layout cannot be read",
+    "frag_desc and aql/bql return 0 across all four modules: those are mainline ath10k and mac80211 mechanisms, not vendor ones",
+    "the vendor descriptor lifecycle is named but its field layout is not: peer_id and vdev_id appear once each, which proves the fields exist without locating them",
+    "the T2H completion ring is named by its handler, not by the ring structure; no ring depth or descriptor stride was recovered",
+    "AQL/BQL accounting does not exist here, so the airtime-queue feedback loop the stage describes has no vendor equivalent in these modules",
+    "no dynamic validation"
+  ]
+}

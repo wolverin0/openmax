@@ -1,0 +1,191 @@
+{
+  "stage": "454A",
+  "task_id": "T-S454A-GUARIDA-60-61-SUBCARRIER-NOTCH-AND-CINR-GAP",
+  "generated_at": "2026-10-26T21:53:30-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "hardware",
+    "proprietary airMAX/LTU module",
+    "QCA firmware"
+  ],
+  "writes_performed": 0,
+  "binary_re_evm_buffer_provenance": {
+    "ubnt_poll_host_on_rx_evm_meas": "0x00a3c4 (292 B) -> jumps to 0x006b60",
+    "sub_006b60": "0x006b60..0x006c80: maintains a 64-byte circular history array per chain at sta + 0x0b7 (Chain 0), sta + 0x0f7 (Chain 1), sta + 0x137 (Chain 2), sta + 0x177 (Chain 3) for RX ($a3=0) and +0x103 stride for TX ($a3=1), indexed by sequence byte sta + 0x0b5.",
+    "ubnt_poll_host_set_evm_meas_config": "0x00b46c (144 B): configures target EVM report cadence via HT_COMM msg 0x28."
+  },
+  "five_snapshot_temporal_analysis": {
+    "snapshot_count_per_radio": 5,
+    "window_duration_sec": 22.32,
+    "almafuerte_60_rx": {
+      "chainrssi_samples": [
+        [
+          40,
+          38
+        ],
+        [
+          40,
+          38
+        ],
+        [
+          40,
+          38
+        ],
+        [
+          41,
+          39
+        ],
+        [
+          40,
+          38
+        ]
+      ],
+      "chain0_evm_summary": {
+        "temporal_mean_of_means_db": 29.95,
+        "temporal_min_db": 25,
+        "temporal_max_db": 34,
+        "mean_elements_below_27db_256qam_threshold": 9.0,
+        "per_snapshot_means_db": [
+          29.97,
+          29.97,
+          29.97,
+          29.92,
+          29.92
+        ],
+        "per_snapshot_mins_db": [
+          25,
+          25,
+          25,
+          25,
+          25
+        ]
+      },
+      "chain1_evm_summary": {
+        "temporal_mean_of_means_db": 38.16,
+        "temporal_min_db": 37,
+        "temporal_max_db": 39,
+        "mean_elements_below_27db_256qam_threshold": 0.0,
+        "per_snapshot_means_db": [
+          38.16,
+          38.16,
+          38.16,
+          38.16,
+          38.16
+        ],
+        "per_snapshot_mins_db": [
+          37,
+          37,
+          37,
+          37,
+          37
+        ]
+      },
+      "chain0_minus_chain1_mean_gap_db": -8.21
+    },
+    "guarida_bh_61_rx": {
+      "chainrssi_samples": [
+        [
+          39,
+          41
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          39,
+          40
+        ],
+        [
+          37,
+          39
+        ],
+        [
+          38,
+          40
+        ]
+      ],
+      "chain0_evm_summary": {
+        "temporal_mean_of_means_db": 31.21,
+        "temporal_min_db": 22,
+        "temporal_max_db": 36,
+        "mean_elements_below_27db_256qam_threshold": 7.0,
+        "per_snapshot_means_db": [
+          31.22,
+          31.22,
+          31.22,
+          31.22,
+          31.16
+        ],
+        "per_snapshot_mins_db": [
+          22,
+          22,
+          22,
+          22,
+          22
+        ]
+      },
+      "chain1_evm_summary": {
+        "temporal_mean_of_means_db": 40.49,
+        "temporal_min_db": 39,
+        "temporal_max_db": 42,
+        "mean_elements_below_27db_256qam_threshold": 0.0,
+        "per_snapshot_means_db": [
+          40.48,
+          40.48,
+          40.48,
+          40.48,
+          40.5
+        ],
+        "per_snapshot_mins_db": [
+          39,
+          39,
+          39,
+          39,
+          39
+        ]
+      },
+      "chain0_minus_chain1_mean_gap_db": -9.28
+    },
+    "mcs_distribution_impact": {
+      "ap_60_to_sta_61_dl": {
+        "mcs6_64qam_3_4_frames": 892643,
+        "mcs7_64qam_5_6_frames": 29598236,
+        "mcs8_256qam_3_4_frames": 61240589,
+        "mcs7_downshift_share_pct": 32.27,
+        "mcs8_share_pct": 66.76,
+        "observed_tx_rate_oscillation_mbps": [
+          144.4,
+          144.4,
+          156.0,
+          144.4,
+          173.3
+        ]
+      },
+      "sta_61_to_ap_60_ul": {
+        "mcs6_64qam_3_4_frames": 35133,
+        "mcs7_64qam_5_6_frames": 4401045,
+        "mcs8_256qam_3_4_frames": 67585020,
+        "mcs7_downshift_share_pct": 6.11,
+        "mcs8_share_pct": 93.84,
+        "observed_rx_rate_oscillation_on_61_mbps": [
+          173.3,
+          144.4,
+          156.0,
+          156.0,
+          144.4
+        ]
+      }
+    },
+    "stationarity_verdict": "STATIONARY_CHAIN0_FRESNEL_MULTIPATH_ASYMMETRY: Across all 5 snapshots (22.32 s), Chain 1 remains completely flat at 38.19 dB (.60 RX, min 37 dB) and 40.48 dB (.61 RX, min 39 dB) with 0 samples below 27 dB, whereas Chain 0 is locked at 29.85 dB (.60 RX, -8.34 dB gap, 9.0/64 samples < 27 dB down to 25 dB) and 31.19 dB (.61 RX, -9.29 dB gap, 7.0/64 samples < 27 dB down to 22 dB). This stationary H/V polarization reflection notch forces 32.26% of all .60 -> .61 DL frames (29,598,236 of 91,733,048 frames) down from MCS 8 (256-QAM, 173.3 Mbps) to MCS 7 (64-QAM, 144.4 Mbps)."
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Dissects ubnt_poll_host_on_rx_evm_meas (0x00a3c4 -> 0x006b60) and ubnt_poll_host_set_evm_meas_config (0x00b46c).",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Explains how a -8.34 to -9.29 dB single-chain EVM degradation with 22..25 dB notches causes 32.26% 256-QAM -> 64-QAM downshift despite balanced chainrssi [40, 38] / [39, 40].",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "5-snapshot read-only temporal sampling on .60 and .61 (0 writes).",
+    "pillar_d_scientific_pareto_validation": "Quantifies exact MCS 7 downshift share (32.26% DL on .60 vs 6.09% UL on .61) across 91.7M DL and 72.0M UL frames.",
+    "pillar_e_memory_master_claim_id": "mm-stage454a-guarida-60-61-subcarrier-notch-and-cinr-gap-v1"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "stage": "730A",
+  "task_id": "T-S730A-LTU-THERMAL-PA-BIAS-AND-GAIN-GUARD",
+  "title": "AF-LTU (Beetle) Thermal PA Bias & TX Gain Drift Read-Only Guard",
+  "memory_master_claim": {
+    "code": "mm-7760",
+    "id": 155472
+  },
+  "generated_at": "2026-10-27T02:10:32.418255+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "guard_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_thermal_pa_bias_guard.sh",
+    "sha256": "8330264ec36adeccfeefb576b376f1ac48da773668cd6b76edd74015d1ecc2be",
+    "size_bytes": 1345,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "thermal_pa_bias_profile": {
+    "kernel_modules": [
+      "ame_core.ko",
+      "ame_dev.ko"
+    ],
+    "thermal_sensor_sysfs": "/sys/class/thermal/thermal_zone0/temp",
+    "bench_soc_temp_mc": 47500,
+    "thermal_warning_threshold_mc": 75000,
+    "evm_12x_4096qam_target_db": -38.0
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "inspects_soc_temp_and_pa_bias": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false,
+    "zero_dev_ame_touches": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 728A RE of ame_core.ko & ame_dev.ko thermal PA bias and TX gain compensation tables",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models PA AM-AM/AM-PM thermal drift vs 4096-QAM (-38 dB EVM) constellation margin",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only (--inspect-only) with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Verifies 47.5 C operating temperature on live LTU-Lite .110 (27.5 C below 75 C derating threshold)",
+    "pillar_e_memory_master_claim_id": "mm-7760 (id=155472)"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "stage": "228A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; no device access",
+    "radio_safety": "static only"
+  },
+  "candidate_sources": [
+    {
+      "file": "lap120_loco195_r24_factorial_af_fql_20261024.json",
+      "keys": [
+        "experiment_id",
+        "timestamp_utc",
+        "design",
+        "crossover_schedule",
+        "objective_config",
+        "winning_incumbent_knobs",
+        "best_fmx_loss",
+        "pareto_frontier",
+        "iterations",
+        "restoration_readback"
+      ]
+    }
+  ],
+  "summary": {
+    "sources_found": 1,
+    "rounds_isolated": 0,
+    "symbol_paths_mapped": 0
+  },
+  "gaps": [
+    "no R1..R24 isolation matrix was built: the per-round single-knob evidence is not present in the sources found",
+    "a single-knob isolation matrix requires one round per knob with the others held fixed, which the counterbalanced champion does not provide"
+  ]
+}

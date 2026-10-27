@@ -1,0 +1,757 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S38B-CODEX-CHAMPION-V12-UPH-SYSCTL-CLOBBER-AND-IGMPV2-CANARY-VERIFIER",
+  "generated_at_utc": "2026-10-25T20:43:16.496842+00:00",
+  "status": "PASS_WITH_LIMITS",
+  "open_material_blockers": 0,
+  "material_findings": [],
+  "scope": "Independent AST/text/source JSON/hash review only. Product module not imported, generated scripts not executed; no pytest or device access.",
+  "source_bindings": [
+    {
+      "path": "controller/stage39a_champion_v12_triple_play_canary_verifier.py",
+      "bytes": 29092,
+      "sha256": "ca4187cc79620524d5948e766482f3303bc33802a36d9e2b8ec1350b9d2c4bb3"
+    },
+    {
+      "path": "tests/test_stage38b_champion_v12_canary_verifier.py",
+      "bytes": 20820,
+      "sha256": "84592d62b6700c56b7a948e5d6198f04c8e0ad3ed385638e6d3ffb536639c832"
+    },
+    {
+      "path": "docs/STAGE38B_CHAMPION_V12_TRIPLE_PLAY_AND_UPH_CLOBBER_VERIFIER.md",
+      "bytes": 15234,
+      "sha256": "81feaaf1ebf14a284e62901220c587cb5a0e9abd9413cf9e1e1e57c42a054814"
+    },
+    {
+      "path": "artifacts/autoresearch/stage38b_champion_v12_validation_20261025.json",
+      "bytes": 5487,
+      "sha256": "d0442bbd519f00a38ea48c852afe060e3ce210f8509daddaffcb55d6bf58b379"
+    },
+    {
+      "path": "controller/mac80211_aqm_per_tid_canary_verifier.py",
+      "bytes": 25544,
+      "sha256": "f4d45f534d1da61a78ad0cb6d2c6331f639fcb7f33c8df818597337683a0621f"
+    },
+    {
+      "path": "controller/iptv_dms_ac_vi_canary_gate.py",
+      "bytes": 26721,
+      "sha256": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1"
+    },
+    {
+      "path": "controller/openwisp_uisp_unified_canary_provisioner.py",
+      "bytes": 34017,
+      "sha256": "eacef354a5a657d049fa7b81a0aab761f6784cd34fe9039e0ff1838d333745e7"
+    },
+    {
+      "path": "artifacts/autoresearch/stage37a_triple_play_aqm_fq_limit_bench_20261025.json",
+      "bytes": 45448,
+      "sha256": "fa9e816079df2e01ac833b6e11b163cd137039a7c36a2c0d16f6479673ef093e"
+    },
+    {
+      "path": "docs/STAGE37A_TRIPLE_PLAY_IPTV_VOIP_AND_MAC80211_FQ_LIMIT_BENCHMARK.md",
+      "bytes": 10573,
+      "sha256": "d43f476ff0972738fcea495f1e28ec74d47e9cd5a042cd88607b00404fb3827a"
+    },
+    {
+      "path": "artifacts/autoresearch/stage39a_m19_m20_igmp_fast_leave_bench_20261025.json",
+      "bytes": 73012,
+      "sha256": "5b77a6930875a307def27af00e2e83b9dc311b882a7fcf7d50735461d69aafe4"
+    },
+    {
+      "path": "docs/STAGE39A_M19_M20_IGMP_FAST_LEAVE_AND_MCAST_STALL_BENCHMARK.md",
+      "bytes": 10186,
+      "sha256": "acd97a83bf8079e21fa8cba1af606184c104f9e36e8f526f4acefc9ef86f4acc"
+    },
+    {
+      "path": "docs/BENCH_PLAN.md",
+      "bytes": 763078,
+      "sha256": "d252bd3791a4dbba6817d26fd17e40f5b0a72486bbfcc6dfb0baf36bce800a8a"
+    }
+  ],
+  "checks": [
+    {
+      "name": "pin_module",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "pin_tests",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "pin_report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "pin_stage37b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "pin_stage36b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "pin_stage35b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "module_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "no_native_transport_import",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "exact_netdev_literal_names",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "separate_AP_CPE_core",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "v11_VO_not_v10",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "source_canonical_not_label",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "canonical_S37A-R2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw37_B1_ap",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw37_B1_cpe",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw37_B2_ap",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw37_B2_cpe",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "canonical_S39A-R3",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_Rocket_fastleave_already1_A1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_AP_DMS_already1_A1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_Rocket_fastleave_already1_B1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_AP_DMS_already1_B1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_Rocket_fastleave_already1_A2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_AP_DMS_already1_A2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_Rocket_fastleave_already1_B2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "raw_AP_DMS_already1_B2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "plan_distinct_roles_and_inventories",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "plan_allthree_services",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "canonical_typed_plan_rebuild",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "UPH_exact16_newline_signed32",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "UPH_native_qualification_required",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "UPH_whole_alias_equal",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "exact_bridge_membership_epochs",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "complete_bundle_exact3roles",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "fresh_synchronized_devices",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "uniform_allpeer_AQL",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "Rocket_identity_explicit",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "profile_core_AQL_zeroevents",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "singlequerier_IGMP2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "AP_ethernet_not_forced",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "bridge_capability_and_epoch_stable",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "UPH_tail_unchanged_frombaseline",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "three_distinct_profile_endpoints",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "postapply_and_bounded_elapsed",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "all_captured_RW_stable_window",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "UPH_fullvector_stable_window",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "AP_and_CPE_TID7_no_dequeue",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "trace_bound_exactwindow_plan_device_seq",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "query_bounds_mapping",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "IGMP3_CS6_rejected",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "flow_identity_class_source",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "flow_class_sum_and_duplicate",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "wholevector_only_one_restore",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "restore_captured_not_defaults",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_baseline_plan_final_bound",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_only_preapply_bound_devices",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_path_allowlist_no_qdisc",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_real_AQM_AQL_ABI",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_numeric_protocol_ranges",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_ff5_last",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "journal_changed_coordinates_and_final_values",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "restore_qualification_approved_baseline_plan",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "restore_native_qualification_not_assumed",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "guard_script_no_mutation_before_prearmed_check",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "guard_fixed_path_no_target_transport",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "native_wholepeer_restore_contract",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "no_runtime_or_physical_acceptance",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_every_captured_parameter_must_stay_stable_during_post_apply_window",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_exact_snapshot_restoration_manifests_use_one_full_uph_vector_last_not_alias_setters",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_no_native_guard_or_exact_independent_qualification_means_no_restoration_script",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_readbacks_fail_closed_on_uph_clobber_partial_inventory_or_multicast_mismatch",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_canary_rejects_preemption_counter_or_epoch_changes_and_unowned_initialization",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_rejected_old_quantum_voice_budget_and_unbounded_queue_cannot_pass_as_v11",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "test_present_test_ap_ethernet_fast_leave_is_captured_without_forcing_it_to_one",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "restore_nondeafult_fixtures",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "readback_drift_two_regressions",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "script_hash_and_tokenization_tests",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_head_atmost6",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_stage39a_champion_v12_triple_play_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_test_stage38b_champion_v12_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_original forward plan",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_BENCH_PLAN",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_Stage37A JSON",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_Stage37A report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_Stage39A JSON",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_Stage39A report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_Stage37B",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "report_link_stage38b_champion_v12_validation_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_not isolated causal proofs",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_first\ninteger",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_INFERRED from the report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_Rocket fast-leave is already1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_No version getter assumed",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_not a claim",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_not installed",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_not evidence of a",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_UNKNOWN",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "doc_limit_52PASS",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_controller/stage39a_champion_v12_triple_play_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_tests/test_stage38b_champion_v12_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_docs/STAGE38B_CHAMPION_V12_TRIPLE_PLAY_AND_UPH_CLOBBER_VERIFIER.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_controller/mac80211_aqm_per_tid_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_controller/iptv_dms_ac_vi_canary_gate.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_artifacts/autoresearch/stage37a_triple_play_aqm_fq_limit_bench_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_docs/STAGE37A_TRIPLE_PLAY_IPTV_VOIP_AND_MAC80211_FQ_LIMIT_BENCHMARK.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_artifacts/autoresearch/stage39a_m19_m20_igmp_fast_leave_bench_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_docs/STAGE39A_M19_M20_IGMP_FAST_LEAVE_AND_MCAST_STALL_BENCHMARK.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_52PASS_console_final",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "initial_fixture_failure_retained",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "50PASS_prior_source_retained",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "owner_native_limits",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    },
+    {
+      "name": "prefinal_finding_preserved",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_or_hash"
+    }
+  ],
+  "fresh_check_count": 113,
+  "test_functions_reviewed": [
+    "test_ap_ethernet_fast_leave_is_captured_without_forcing_it_to_one",
+    "test_canary_rejects_preemption_counter_or_epoch_changes_and_unowned_initialization",
+    "test_every_captured_parameter_must_stay_stable_during_post_apply_window",
+    "test_exact_snapshot_restoration_manifests_use_one_full_uph_vector_last_not_alias_setters",
+    "test_no_native_guard_or_exact_independent_qualification_means_no_restoration_script",
+    "test_pinned_two_round_contract_and_role_specific_v11_v12_targets",
+    "test_readbacks_fail_closed_on_uph_clobber_partial_inventory_or_multicast_mismatch",
+    "test_rejected_old_quantum_voice_budget_and_unbounded_queue_cannot_pass_as_v11",
+    "test_zero_events_include_tid7_even_when_no_dequeues_occur_on_it"
+  ],
+  "owner_test_evidence": {
+    "classification": "REUSED_OWNER_DIRECT_CONSOLE_NOT_INDEPENDENTLY_EXECUTED",
+    "tests": {
+      "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+      "direct_without_heavy_slot": true,
+      "exit_code": 0,
+      "passed": 52,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_elapsed_s": 0.67,
+      "tool_wall_time_s": 2.2742778,
+      "console_receipt": "41c84f",
+      "stdout_summary": "52 passed in 0.67s",
+      "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+      "scope": "disposable_fixture_and_generated_text_only"
+    },
+    "history": [
+      {
+        "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+        "exit_code": 1,
+        "passed": 43,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "pytest_elapsed_s": 0.67,
+        "tool_wall_time_s": 2.2583281,
+        "console_receipt": "9677f1",
+        "module_sha256": "50702bfe81f4d871662d9d497d02c5bf164b44a8cb98e9d65847a2ec2adf104a",
+        "test_sha256": "529120bab301af6e7001c69f4d851a5b56c1564766239469b1a4f6b505078616",
+        "failure": "TypeError: tuple object does not support item assignment in tid7 fixture before product call",
+        "resolution": "Use mutable list copy; retain negative TID7 assertion"
+      },
+      {
+        "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+        "exit_code": 0,
+        "passed": 50,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "pytest_elapsed_s": 0.73,
+        "tool_wall_time_s": 2.9066219,
+        "console_receipt": "5de7e5",
+        "module_sha256": "50702bfe81f4d871662d9d497d02c5bf164b44a8cb98e9d65847a2ec2adf104a",
+        "test_sha256": "a3e3346d5b8d06dc7a49de090267d219f5b87b5a30a8591bc555ef717ee38a69",
+        "superseded_by": "Independent review found non-target captured parameter drift; full stability guard and two regressions added"
+      }
+    ],
+    "xml_available": false
+  },
+  "review_findings_resolved": [
+    {
+      "finding": "Nonzero UPH components could change while ff scalar remained5",
+      "repair": "Non-target15 integers equal baseline; complete vector stable through measured window"
+    },
+    {
+      "finding": "Journal ABI/ranges and changed-coordinate coverage incomplete",
+      "repair": "Typed native setter payloads; final logged values match readbacks; all changed numeric coordinates covered; UPH5 last"
+    },
+    {
+      "finding": "Query fields could be outside protocol ranges",
+      "repair": "Bound DSCP/TID/AC/length and enforce TID-to-AC mapping"
+    },
+    {
+      "finding": "Captured parameters outside forced overlay could drift",
+      "repair": "All captured parameter writes equal first-to-last; APeth0 and optional CPE DMS regressions"
+    }
+  ],
+  "prior_material_finding": {
+    "path": "C:\\_tmp\\systemp\\fmx_s38b_independent_review_s6volkif\\pre_final_window_stability_finding.json",
+    "sha256": "40f42bb510695a3bb93e56fe179ed6ed64618aadb66e17340e159e445310f0d3",
+    "status": "RESOLVED_BY_FULL_CAPTURED_PARAMETER_STABILITY_AND_TWO_REGRESSIONS"
+  },
+  "source_limits": [
+    "Saved first-token UPH scalars do not prove full16-vector storage/address map; native alias/setter qualification is an independent required gate.",
+    "R3 Rocket fastleave and AP DMS already1 in both arms. Missing R3 getters are never promoted from inherited declarations to observations.",
+    "The complete native recovery journal must hold normalized baseline/identity/inventory and typed operation manifests before running any generated recipe. This task does not implement it.",
+    "Source-report performance and mechanistic narratives are historical compound observations; no new isolated causal gain or receiver/voice acceptance follows."
+  ],
+  "limits": [
+    "Static independent review; owner52PASS explicitly reused, not independently executed. Initial43PASS1fixtureFAIL and prior50PASS preserved.",
+    "Scripts are guarded generated text, not self-contained recovery runtimes. Exact parameter restoration depends on independently approved native adapter/guard/collector, quiescence and fencing.",
+    "No queues, counters, dropped packets or dynamic MDB history are claimed restored.",
+    "Per-flow evidence requires externally qualified disjoint same-FQ-dequeue packet attribution, not service labels.",
+    "Native execution, physical acceptance, receiver delivery, current-radio profile and E2 acceptance remain UNKNOWN/NOT_ACCEPTED.",
+    "Validation hash is pre-independent-closure metadata; later review-pointer/completion updates require separate addendum, avoiding self-hash recursion."
+  ],
+  "project_writes": false,
+  "checker_failures_preserved": [
+    {
+      "tool_chunk": "9bab73",
+      "exit_code": 1,
+      "assertion": "UPH_exact16_newline_signed32",
+      "checker_sha256": "30da293b9cff1220443243b26043089890f5c6646dbbaa1a6b265205c35f1c0f",
+      "cause": "Checker literal used interpreted newline instead of backslash-n in source text; product parse_uph_vector has the required endswith newline guard."
+    },
+    {
+      "tool_chunk": "50ecd9",
+      "exit_code": 1,
+      "failed_checks": [
+        "UPH_exact16_newline_signed32",
+        "doc_limit_not a claim"
+      ],
+      "cause": "Same checker newline escaping remained; document has Markdown emphasis **not** a claim. Neither is a product or document defect. Correct check uses AST literal and Markdown-insensitive phrase."
+    }
+  ],
+  "writes_stopped": true
+}

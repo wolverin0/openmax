@@ -1,0 +1,60 @@
+{
+  "stage": "409A",
+  "task_id": "T-S409A-WMI-RETRY-AND-HOOK-LOADER",
+  "generated_at": "2026-10-27T00:29:38.769762+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "ath10k",
+    "QCA firmware",
+    "mac80211",
+    "Linux"
+  ],
+  "script_path": "firmware/openwrt/common/fmx_wmi_retry_and_hook_loader.sh",
+  "script_sha256": "71854ad62dcf252c0c9e80dbf8c31aaf50fe713b3bac532b9316585ccf2f4fcd",
+  "wmi_commands_governed": {
+    "WMI_10_4_PEER_RATE_RETRY_SCHED_CMDID": "0x9044",
+    "WMI_10_4_FWHOOK_CMDID": "0x9064",
+    "four_series_retry_schedule": [
+      {
+        "series": "S0",
+        "mode": "2x2 VHT SGI (Primary high-MCS attempt)",
+        "max_tries": 2
+      },
+      {
+        "series": "S1",
+        "mode": "2x2 VHT LGI (-1 MCS step-down + 800ns guard interval)",
+        "max_tries": 2
+      },
+      {
+        "series": "S2",
+        "mode": "1x1 VHT CDD LGI (Single-stream Cyclic Delay Diversity fallback)",
+        "max_tries": 2
+      },
+      {
+        "series": "S3",
+        "mode": "1x1 HT20/VHT20 MCS0 CDD Rescue (Guaranteed delivery floor)",
+        "max_tries": 2
+      }
+    ]
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_only": true,
+    "has_htt_max_amsdu_ampdu": true,
+    "has_wmi_0x9044_and_0x9064": true,
+    "has_1x1_cdd_fallback": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Implements PB-010 WMI 0x9044 4-series retry schedule & WMI 0x9064 hook loader for OpenWrt 24.10.4",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Bridges QCA988x Xtensa Wal_rc 4-series descriptor schedule with host mac80211/iw rate masks",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Integrates with fmx_chain_imbalance_rescue_daemon.sh hysteresis & auto-restore",
+    "pillar_d_scientific_pareto_validation": "Bounds tail latency p99 during sudden polarity fade via S2 1x1 CDD fallback + A-MPDU=16 clamp",
+    "pillar_e_memory_master_claim_id": "stage409a_wmi_retry_and_hook_loader"
+  }
+}

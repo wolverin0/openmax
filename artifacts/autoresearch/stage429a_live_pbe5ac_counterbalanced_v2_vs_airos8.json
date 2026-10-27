@@ -1,0 +1,173 @@
+{
+  "stage": "Stage 429A",
+  "timestamp": "2026-10-26T21:50:37-0300",
+  "status": "CONFIRMED",
+  "attribution": "QCA firmware",
+  "champion_v2_params": {
+    "ap_nss": 1,
+    "ap_mcs": 3,
+    "sta_nss": 0,
+    "sta_mcs": 2,
+    "txpower_mbm": 2300,
+    "htt_max_amsdu_ampdu": "3 64",
+    "fq_quantum": 300,
+    "bql_limit_max": 32768,
+    "aql_threshold": 4000
+  },
+  "stock_airos8_baseline": {
+    "ping_64b_p50_ms": 1.96,
+    "ping_64b_p95_ms": 7.56,
+    "ping_64b_p99_ms": 10.68,
+    "dl_mbps": 19.2,
+    "ul_mbps": 3.6,
+    "aggregate_mbps": 22.8
+  },
+  "windows": [
+    {
+      "window": "A1",
+      "arm": "A",
+      "ping_64b": {
+        "count": 15,
+        "loss_pct": 0.0,
+        "min_ms": 1.39,
+        "p50_ms": 1.669,
+        "p95_ms": 3.178,
+        "p99_ms": 3.178,
+        "max_ms": 3.178
+      },
+      "ping_1472b": {
+        "count": 9,
+        "loss_pct": 10.0,
+        "min_ms": 2.141,
+        "p50_ms": 2.546,
+        "p95_ms": 5.241,
+        "p99_ms": 5.241,
+        "max_ms": 5.241
+      },
+      "ping_under_load": {
+        "count": 4,
+        "loss_pct": 20.0,
+        "min_ms": 1.742,
+        "p50_ms": 9.983,
+        "p95_ms": 27.132,
+        "p99_ms": 27.132,
+        "max_ms": 27.132
+      },
+      "dl_mbps": 12.54,
+      "ul_mbps": 1.46,
+      "aggregate_mbps": 14.0
+    },
+    {
+      "window": "B1",
+      "arm": "B",
+      "ping_64b": {
+        "count": 15,
+        "loss_pct": 0.0,
+        "min_ms": 1.442,
+        "p50_ms": 1.499,
+        "p95_ms": 3.082,
+        "p99_ms": 3.082,
+        "max_ms": 3.082
+      },
+      "ping_1472b": {
+        "count": 10,
+        "loss_pct": 0.0,
+        "min_ms": 2.417,
+        "p50_ms": 22.35,
+        "p95_ms": 23.156,
+        "p99_ms": 23.156,
+        "max_ms": 23.156
+      },
+      "ping_under_load": {
+        "count": 5,
+        "loss_pct": 0.0,
+        "min_ms": 1.727,
+        "p50_ms": 13.17,
+        "p95_ms": 26.762,
+        "p99_ms": 26.762,
+        "max_ms": 26.762
+      },
+      "dl_mbps": 15.23,
+      "ul_mbps": 7.23,
+      "aggregate_mbps": 22.46
+    },
+    {
+      "window": "A2",
+      "arm": "A",
+      "ping_64b": {
+        "count": 15,
+        "loss_pct": 0.0,
+        "min_ms": 1.408,
+        "p50_ms": 1.456,
+        "p95_ms": 8.099,
+        "p99_ms": 8.099,
+        "max_ms": 8.099
+      },
+      "ping_1472b": {
+        "count": 5,
+        "loss_pct": 50.0,
+        "min_ms": 2.773,
+        "p50_ms": 3.737,
+        "p95_ms": 15.807,
+        "p99_ms": 15.807,
+        "max_ms": 15.807
+      },
+      "ping_under_load": {
+        "count": 4,
+        "loss_pct": 20.0,
+        "min_ms": 1.612,
+        "p50_ms": 2.018,
+        "p95_ms": 31.835,
+        "p99_ms": 31.835,
+        "max_ms": 31.835
+      },
+      "dl_mbps": 6.81,
+      "ul_mbps": 0.48,
+      "aggregate_mbps": 7.29
+    },
+    {
+      "window": "B2",
+      "arm": "B",
+      "ping_64b": {
+        "count": 12,
+        "loss_pct": 20.0,
+        "min_ms": 1.464,
+        "p50_ms": 1.951,
+        "p95_ms": 4.482,
+        "p99_ms": 4.482,
+        "max_ms": 4.482
+      },
+      "ping_1472b": {
+        "count": 10,
+        "loss_pct": 0.0,
+        "min_ms": 2.441,
+        "p50_ms": 22.331,
+        "p95_ms": 22.919,
+        "p99_ms": 22.919,
+        "max_ms": 22.919
+      },
+      "ping_under_load": {
+        "count": 5,
+        "loss_pct": 0.0,
+        "min_ms": 9.956,
+        "p50_ms": 17.947,
+        "p95_ms": 64.366,
+        "p99_ms": 64.366,
+        "max_ms": 64.366
+      },
+      "dl_mbps": 14.85,
+      "ul_mbps": 3.84,
+      "aggregate_mbps": 18.69
+    }
+  ],
+  "summary": {
+    "arm_a_mean_dl_mbps": 9.67,
+    "arm_a_mean_ul_mbps": 0.97,
+    "arm_a_mean_aggregate_mbps": 10.64,
+    "arm_a_mean_1472b_loss_pct": 30.0,
+    "arm_b_mean_dl_mbps": 15.04,
+    "arm_b_mean_ul_mbps": 5.54,
+    "arm_b_mean_aggregate_mbps": 20.58,
+    "arm_b_mean_1472b_loss_pct": 0.0
+  }
+}

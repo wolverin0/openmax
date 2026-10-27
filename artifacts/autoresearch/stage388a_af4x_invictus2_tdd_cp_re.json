@@ -1,0 +1,415 @@
+{
+  "meta": {
+    "stage": "388A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/af4x_invictus2_fpga_tdd_cyclic_prefix_re.py",
+    "tool_sha256": "a2a4a3a96c69ba1ccd1dd779ae6007a4ed1845dfcb9c5d5ab9c65ab9b84d8612",
+    "output": "artifacts/autoresearch/stage388a_af4x_invictus2_tdd_cp_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "premise_corrections": [
+      "no AF4X / Invictus firmware or rootfs exists in the corpus: the name search returns PNG product images, one MIB and JSON receipts",
+      "the AirFIBER MIB carries no TDD, cyclic-prefix or strict-timing object, so the documented contract is not available either"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "params": {
+        "duty_cycle": 10,
+        "frame_len": 15,
+        "dl_symbols": 7,
+        "ul_symbols": 8,
+        "gap0": 10,
+        "sync_mode": 6
+      },
+      "param_contexts": {
+        "duty_cycle": [
+          "d_save.pAMEbbp_Cb.ame_bbp_obs_set_rxgain.ame_bbp_get_rxgain.ame_bbp_get_duty_cycle.ame_bbp_get_Param_bw.%10u  bps ..%10u kbps ..%10u mbps ...%d[ %ld.%.9ld",
+          "/%d......%d[ %ld.%.9ld] [%s/%d] %s(%d): Replaced channel info, [%3d:%s] duty_cycle:%d framelen:%d, rx/tx freq: %d/%d.....%d[%s/%d] %s(%d): Replaced channe"
+        ],
+        "frame_len": [
+          "Traffic.dfs_adjust_custom_threshold.bbpFrameLength_forDFS.bbp_get_ul_subframe_length_forDFS.bbp_set_DFS_activeTime_CPE.bbp_set_DFS_activeTime_AP.bbp_util",
+          " ....%s .Sched-Q ....Assigned:...%c .last txcmd submit time: %u..rx_sub_frame_length:%u (%u), tx_sub_frame_length:%u (%u)....2part_budget: %u, scheduler_"
+        ],
+        "dl_symbols": [
+          "ame_core_lbt_cfg_reset..ame_core_get_extra_pb_symidx....ame_core_set_bc_dl_symbols..ame_core_put_last_txcmd_result..ame_core_check_last_txcmd_result....am",
+          "p.dl_queues(%d) !!.....%d[ %ld.%.9ld] [%s/%d] %s(%d): result->ap.num_of_dl_symbols(%d) > result->ap.dl_symbols(%d) !!......%d[%s/%d] %s(%d): result->ap.nu"
+        ],
+        "ul_symbols": [
+          "PtMP_CPE_Range_Optimize..%d[ %ld.%.9ld] [%s/%d] %s(%d): czlen >= normal_ul_symbols, auto adjust (%d)->(%d)...%d[%s/%d] %s(%d): czlen >= normal_ul_symbols,",
+          "_ul_symbols, auto adjust (%d)->(%d)...%d[%s/%d] %s(%d): czlen >= normal_ul_symbols, auto adjust (%d)->(%d)....%d[ %ld.%.9ld] [%s/%d] %s(%d): default_cz au"
+        ],
+        "gap0": [
+          "ible!.....%d[ %ld.%.9ld] [%s/%d] %s(%d): wait for framedef adjust. (TA, gap0) = (%d, %d)......%d[%s/%d] %s(%d): wait for framedef adjust. (TA, gap0)",
+          " gap0) = (%d, %d)......%d[%s/%d] %s(%d): wait for framedef adjust. (TA, gap0) = (%d, %d)...%d[ %ld.%.9ld] [%s/%d] %s(%d): TA applied: %d...%d[%s/%d]"
+        ],
+        "sync_mode": [
+          "core_set_smart_cz_en.ame_bbp_get_rfParam_rxTargetPwrThr.fty_rf_dcxo_set_sync_mode.ame_bbp_op_deRot_set_activate.AME_EAB_GetQueueStatus.ame_bbp_op_get_rxT",
+          ".emacGetRxBadPreamble.ame_bbp_is_PerformanceMeasure_running.ame_bbp_get_sync_mode.testflow_checkL2INTR.eab_ofdma_cnt.ulpwr_set_param.GetAckInfo_snd.ame_c"
+        ]
+      },
+      "ratios": {
+        "75/25": 0,
+        "67/33": 0,
+        "50/50": 0,
+        "75:25": 0,
+        "67:33": 0,
+        "50:50": 0
+      },
+      "cp_literals": {
+        "cp=4": 0,
+        "cp=8": 0,
+        "cp=16": 0,
+        "cyclic prefix": 0,
+        "cp_len": 0,
+        "cp_prefix": 0,
+        "cyclic": 0
+      },
+      "strict": {
+        "stricttiming": 0,
+        "strict_timing": 0,
+        "strict timing": 0
+      },
+      "tdd": {
+        "TDD": 1,
+        "tdd": 0
+      },
+      "tdd_contexts": [
+        "e_core_set_eth_limit.bbp_mrx_util_deRot_setup.mc_table_free.bbp_mrx_foe_TDDeRotCFO.ame_core_locate_gmac.AME_HSM_GetQ_Status.g_AggFraCnt.ame_core_se"
+      ],
+      "duty_warn": {
+        "count": 0,
+        "contexts": []
+      }
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "params": {
+        "duty_cycle": 5,
+        "cpsample": 2,
+        "frame_len": 4,
+        "dl_symbols": 5,
+        "ul_symbols": 2,
+        "gap0": 2,
+        "sync_mode": 4,
+        "gps_sync_timeout": 1,
+        "frame_period": 1,
+        "sample_rate": 1
+      },
+      "param_contexts": {
+        "duty_cycle": [
+          "sync_mode...frame_offset....gps_sync_timeout....%s = %u.....cpsample....duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbols..gap0....ga",
+          "crambling code, seed0=%u seed1=%u...{..bandwidth:%u,..frame_period:%u,..duty_cycle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_symbols:%u,..gap"
+        ],
+        "cpsample": [
+          "McsCeiling..sync_mode...frame_offset....gps_sync_timeout....%s = %u.....cpsample....duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbo",
+          "...{..bandwidth:%u,..frame_period:%u,..duty_cycle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_symbols:%u,..gap0:%u,..gap1:%u,..cz_len:%u.}..E"
+        ],
+        "frame_len": [
+          "frame_offset....gps_sync_timeout....%s = %u.....cpsample....duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbols..gap0....gap1....scatt",
+          "....maxBD...distance_meter..ptmpCpeUseMimo..autoMcs4096.autoMcsCeiling..frame_len...duty_cycle..reset...obs_txgain..obs_rxgain..rxgain..tx_gain.tx_attenu"
+        ],
+        "dl_symbols": [
+          "%s = %u.....cpsample....duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbols..gap0....gap1....scatteredPilot..ofdma_start.ofdma_len...df",
+          "y create done with major num %d..queue_info..snr_offset..match_en....bc_dl_symbols...bcq_en..resreq_log_en...local_sched_pre_assign_ctrl_en..pgy_sched_en."
+        ],
+        "ul_symbols": [
+          "cpsample....duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbols..gap0....gap1....scatteredPilot..ofdma_start.ofdma_len...dfs_target_pwr",
+          "iod:%u,..duty_cycle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_symbols:%u,..gap0:%u,..gap1:%u,..cz_len:%u.}..Enabled.Disabled....0x%02x.Each b"
+        ],
+        "gap0": [
+          "duty_cycle..frame_len...dpd_param...pa_param....dl_symbols..ul_symbols..gap0....gap1....scatteredPilot..ofdma_start.ofdma_len...dfs_target_pwr..SECU",
+          "cle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_symbols:%u,..gap0:%u,..gap1:%u,..cz_len:%u.}..Enabled.Disabled....0x%02x.Each bit in mode"
+        ],
+        "sync_mode": [
+          "ofdma_en....ofdma_status....ofdma_subband_type..czlen...autoMcsCeiling..sync_mode...frame_offset....gps_sync_timeout....%s = %u.....cpsample....duty_cycl",
+          "ation...ent_type....pb_boost....pa..dpd.ini.hw_features.power_monitor...sync_mode...perf_up.aes_en..ofdma_subbands..ofdma_subband0_hdrIdx...ofdma_en....s"
+        ],
+        "gps_sync_timeout": [
+          "ofdma_subband_type..czlen...autoMcsCeiling..sync_mode...frame_offset....gps_sync_timeout....%s = %u.....cpsample....duty_cycle..frame_len...dpd_param...pa_param"
+        ],
+        "frame_period": [
+          "; Now is %d...CS scrambling code, seed0=%u seed1=%u...{..bandwidth:%u,..frame_period:%u,..duty_cycle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_"
+        ],
+        "sample_rate": [
+          "seed0=%u seed1=%u...{..bandwidth:%u,..frame_period:%u,..duty_cycle:%u,..sample_rate:%u,..cpsample:%u,..dl_symbols:%u,..ul_symbols:%u,..gap0:%u,..gap1:%u,.."
+        ]
+      },
+      "ratios": {
+        "75/25": 0,
+        "67/33": 0,
+        "50/50": 0,
+        "75:25": 0,
+        "67:33": 0,
+        "50:50": 0
+      },
+      "cp_literals": {
+        "cp=4": 0,
+        "cp=8": 0,
+        "cp=16": 0,
+        "cyclic prefix": 0,
+        "cp_len": 0,
+        "cp_prefix": 0,
+        "cyclic": 0
+      },
+      "strict": {
+        "stricttiming": 0,
+        "strict_timing": 0,
+        "strict timing": 0
+      },
+      "tdd": {
+        "TDD": 0,
+        "tdd": 0
+      },
+      "tdd_contexts": [],
+      "duty_warn": {
+        "count": 0,
+        "contexts": []
+      }
+    },
+    {
+      "module": "ame_dfs.ko",
+      "status": "ok",
+      "bytes": 141472,
+      "sha256": "16a860c6ef1c1b73171171977266f48967beaae8e7a4b6be26bf34275a85b287",
+      "params": {
+        "duty_cycle": 1
+      },
+      "param_contexts": {
+        "duty_cycle": [
+          "ait_msg.getrawmonotonic.do_gettimeofday.kthread_should_stop.ame_bbp_get_duty_cycle.ubus_subscribe.ubus_func_handle_get_priv.wake_up_process.ame_bbp_get_rx"
+        ]
+      },
+      "ratios": {
+        "75/25": 0,
+        "67/33": 0,
+        "50/50": 0,
+        "75:25": 0,
+        "67:33": 0,
+        "50:50": 0
+      },
+      "cp_literals": {
+        "cp=4": 0,
+        "cp=8": 0,
+        "cp=16": 0,
+        "cyclic prefix": 0,
+        "cp_len": 0,
+        "cp_prefix": 0,
+        "cyclic": 0
+      },
+      "strict": {
+        "stricttiming": 0,
+        "strict_timing": 0,
+        "strict timing": 0
+      },
+      "tdd": {
+        "TDD": 0,
+        "tdd": 0
+      },
+      "tdd_contexts": [],
+      "duty_warn": {
+        "count": 2,
+        "contexts": [
+          "x%X......%d[%s/%d] %s(%d): (%d)%d 0x%X...%d[ %ld.%.9ld] [%s/%d] %s(%d): duty cycle (%d%%) too low for %d%% traffic load......%d[%s/%d] %s(%d): duty cycle (%d%%) too low for %d%% traffic load.",
+          " duty cycle (%d%%) too low for %d%% traffic load......%d[%s/%d] %s(%d): duty cycle (%d%%) too low for %d%% traffic load...%d[ %ld.%.9ld] [%s/%d] %s(%d): ENV hits %d in ENV sum %d....%d[%s/%d]"
+        ]
+      }
+    },
+    {
+      "module": "cds_mac_mod.ko",
+      "status": "ok",
+      "bytes": 139672,
+      "sha256": "2e1562f0aceaf62df765120df5754ce1eb053ed37fea6e5b58ef5cd03827811b",
+      "params": {},
+      "param_contexts": {},
+      "ratios": {
+        "75/25": 0,
+        "67/33": 0,
+        "50/50": 0,
+        "75:25": 0,
+        "67:33": 0,
+        "50:50": 0
+      },
+      "cp_literals": {
+        "cp=4": 0,
+        "cp=8": 0,
+        "cp=16": 0,
+        "cyclic prefix": 0,
+        "cp_len": 0,
+        "cp_prefix": 0,
+        "cyclic": 0
+      },
+      "strict": {
+        "stricttiming": 0,
+        "strict_timing": 0,
+        "strict timing": 0
+      },
+      "tdd": {
+        "TDD": 0,
+        "tdd": 0
+      },
+      "tdd_contexts": [],
+      "duty_warn": {
+        "count": 0,
+        "contexts": []
+      }
+    },
+    {
+      "module": "ubnthal.ko",
+      "status": "ok",
+      "bytes": 152640,
+      "sha256": "efdda9af23e3af975c42c16f21e0c8fa2c79eb656763d962929d52e2dccd2ed7",
+      "params": {},
+      "param_contexts": {},
+      "ratios": {
+        "75/25": 0,
+        "67/33": 0,
+        "50/50": 0,
+        "75:25": 0,
+        "67:33": 0,
+        "50:50": 0
+      },
+      "cp_literals": {
+        "cp=4": 0,
+        "cp=8": 0,
+        "cp=16": 0,
+        "cyclic prefix": 0,
+        "cp_len": 0,
+        "cp_prefix": 0,
+        "cyclic": 0
+      },
+      "strict": {
+        "stricttiming": 0,
+        "strict_timing": 0,
+        "strict timing": 0
+      },
+      "tdd": {
+        "TDD": 0,
+        "tdd": 0
+      },
+      "tdd_contexts": [],
+      "duty_warn": {
+        "count": 0,
+        "contexts": []
+      }
+    }
+  ],
+  "mib": {
+    "path": "artifacts/firmware_re_xw_m5/xw_636_rootfs/usr/share/tinysnmp/mibs/UBNT-AirFIBER-MIB.txt",
+    "bytes": 43641,
+    "sha256": "bcd9c47d6d4cd8aaeab6e6ca2e977dc7a6978a1f2717ab33e11304f91b6fd4b4",
+    "object_types": 157,
+    "revision": "201405090000Z",
+    "tdd": 0,
+    "cyclic": 0,
+    "strict": 0,
+    "duty": 0
+  },
+  "inventory": [
+    {
+      "path": "artifacts/autoresearch/af4x_invictus_wave2_live_autoresearch_20261024.json",
+      "bytes": 15301,
+      "suffix": ".json"
+    },
+    {
+      "path": "artifacts/autoresearch/af4x_live_autoresearch_20261024.json",
+      "bytes": 17999,
+      "suffix": ".json"
+    },
+    {
+      "path": "artifacts/autoresearch/stage449a_af4x_af5x_invictus2_tdd_tuning_kit.json",
+      "bytes": 3244,
+      "suffix": ".json"
+    },
+    {
+      "path": "artifacts/documentation/stage822a/38a2fa4ff16bb304b6b65ffe9b905282b76c431fdf3ca8e2dbffdeca7f9e84bc/STAGE29B_AF4X_INVICTUS_AND_M5_AIRMAX_OPTIMIZATION_MODELS.md.original.txt",
+      "bytes": 5756,
+      "suffix": ".txt"
+    },
+    {
+      "path": "artifacts/documentation/stage822a/4f0a84106e532a243f1b7ac44b9a96b131e55ce30e610f950b635680bd775e5e/STAGE388A_AF4X_INVICTUS2_TDD_CP_RE.md.original.txt",
+      "bytes": 6590,
+      "suffix": ".txt"
+    },
+    {
+      "path": "artifacts/documentation/stage822a/57739502ada1f560dfc9d32f0a1b9f31e27dd038c807e28337de385dbfe01730/STAGE12_LIVE_AF4X_INVICTUS_WAVE2_AUTORESEARCH.md.original.txt",
+      "bytes": 5732,
+      "suffix": ".txt"
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/usr/www/images/af5xhd-e42db2c35a2f98b7b50a674eb6eb838a.png",
+      "bytes": 8705,
+      "suffix": ".png"
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/usr/www/images/products/af5xhd.png",
+      "bytes": 8705,
+      "suffix": ".png"
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/aflturocket_2.4.2/rootfs_extracted/usr/www/images/af5xhd-e42db2c35a2f98b7b50a674eb6eb838a.png",
+      "bytes": 8705,
+      "suffix": ".png"
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/aflturocket_2.4.2/rootfs_extracted/usr/www/images/products/af5xhd.png",
+      "bytes": 8705,
+      "suffix": ".png"
+    },
+    {
+      "path": "artifacts/firmware_re_xw_m5/xw_614_rootfs/usr/share/tinysnmp/mibs/UBNT-AirFIBER-MIB.txt",
+      "bytes": 43641,
+      "suffix": ".txt"
+    },
+    {
+      "path": "artifacts/firmware_re_xw_m5/xw_636_rootfs/usr/share/tinysnmp/mibs/UBNT-AirFIBER-MIB.txt",
+      "bytes": 43641,
+      "suffix": ".txt"
+    },
+    {
+      "path": "artifacts/hyperresearch_vault/research/notes/futuramax/STAGE12_LIVE_AF4X_INVICTUS_WAVE2_AUTORESEARCH.md",
+      "bytes": 5732,
+      "suffix": ".md"
+    },
+    {
+      "path": "artifacts/openwisp_templates/af4x_invictus.json",
+      "bytes": 3376,
+      "suffix": ".json"
+    }
+  ],
+  "summary": {
+    "modules_ok": 5,
+    "modules_with_duty_cycle": 3,
+    "modules_with_cpsample": 1,
+    "modules_with_frame_symbols": 2,
+    "param_names_found": 10,
+    "ratio_string_hits": 0,
+    "cp_literal_hits": 0,
+    "strict_timing_hits": 0,
+    "tdd_token_hits": 1,
+    "modules_with_duty_validation": 1,
+    "mib_object_types": 157,
+    "mib_tdd_objects": 0,
+    "airfiber_artifacts": 14,
+    "airfiber_firmware_binaries": 0,
+    "ratio_table_recovered": 0,
+    "cp_table_recovered": 0
+  },
+  "gaps": [
+    "no 75/25, 67/33 or 50/50 ratio appears anywhere in the LTU module set",
+    "the cyclic prefix exists as `cpsample` and nothing else: no cp=4/8/16 enumeration and no CP table was recovered",
+    "the single `TDD` token in ame_core.ko sits inside the mangled symbol fragment `bbp_mrx_foe_TDDeRotCFO`, not in any frame-control context",
+    "stricttiming appears in no artefact, so its default and its effect are unknown",
+    "the ratio and CP are runtime values: `duty_cycle` and `cpsample` are attribute names, and no numeric table was bound to them",
+    "no AF4X/Invictus image exists to read, so the airFiber side of the stage cannot be answered from this corpus at all",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-599A",
+  "title": "PBE-5AC-Gen2 and LBE-5AC-Gen2 VHT40 Triple-Play Field Certification (Stages 487A & 488A)",
+  "timestamp_utc": "2026-10-27T01:34:48.636183+00:00",
+  "status": "CONFIRMED",
+  "certified_models": [
+    "PBE-5AC-Gen2 (WA)",
+    "LBE-5AC-Gen2 (WA)"
+  ],
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_250": false,
+    "flash_writes_count": 0
+  },
+  "stage487a_vht40_certification": {
+    "stage_ref": "STAGE-487A",
+    "root_cause_resolved": "WMI_PEER_ASSOC_CMDID PEER_CHWIDTH_20MHZ stale descriptor on live HT20->VHT40 switch",
+    "vht40_bulk_tcp_mbps": 24.83,
+    "ht20_baseline_mbps": 16.3,
+    "goodput_gain_pct": 52.33,
+    "retransmit_reduction_pct": 85.4
+  },
+  "stage488a_triple_play_certification": {
+    "stage_ref": "STAGE-488A",
+    "iptv_payload_bytes": 1316,
+    "iptv_dscp": "CS4 (0x80)",
+    "iptv_loss_unmarked_pct": 43.4,
+    "iptv_loss_cs4_certified_pct": 0.0,
+    "iptv_jitter_ms": 1.622,
+    "concurrent_bulk_tcp_mbps": 6.05,
+    "voip_ef_rtt_p95_ms": 1.48
+  },
+  "field_deployment_verdict": "CERTIFIED_FOR_PBE5AC_AND_LBE5AC_FIELD_ROLLOUT",
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "mac80211.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko"
+      ],
+      "symbols_verified": [
+        "ath10k_peer_assoc_h_vht",
+        "WMI_PEER_ASSOC_CMDID",
+        "ieee80211_select_queue_80211"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE487A-VHT40-24M83-PEER-CHWIDTH-SYNC",
+        "FMX-STAGE488A-TRIPLE-PLAY-0PCT-IPTV-LOSS"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "vht40_bulk_tcp_mbps": 24.83,
+      "iptv_loss_pct": 0.0
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE599A-PBE5AC-LBE5AC-TRIPLE-PLAY-VHT40-CERTIFICATION"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

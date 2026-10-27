@@ -1,0 +1,356 @@
+{
+  "task_id": "T-S45B-CODEX-STAGE51A-CHAMPION-V17-BQL-42392-AND-STAGE49B-LTU-VERIFIER",
+  "validation_version": 1,
+  "status": "PASS_OFFLINE_SOFTWARE_WITH_PLATFORM_SKIP_AND_NATIVE_QUALIFICATIONS",
+  "timestamp_utc": "2026-10-26T01:59:26.001826+00:00",
+  "frozen_owned_sha256": {
+    "controller/stage51a_v17_and_stage49b_ltu_verifier.py": "ee42f0cce766abbf40d7ac00c5a67ecad240087933fb182946c8ff304c355c07",
+    "tools/verify_stage51a_v17_and_stage49b_ltu.py": "55fa6f78a7e6adce45df0b8c57ca0e837880a3e5ed87e508fe17d6b635afba8b",
+    "tests/test_stage51a_v17_and_stage49b_ltu_verifier.py": "8d7ffb7b1c128dd558df74496f2da1b58ae5ad0441a18b5c1e621495ca18bbbb",
+    "docs/CURRENT_STATE.md": "970bb8545ffe217ac7ffa2e6dd42532ab182fc150eba3f42ce9f30ad1198850c",
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": "0a64ec42ae162a8f2aecfe3f5cd0d9f0bed7e9f99190f698038b9a5624cbede3",
+    "docs/BENCH_PLAN.md": "7af22d45a79427fde43e91508a2f4bb75d7121b2a6cf93562eba6ee793588cb8",
+    "docs/DECISIONS.md": "83012e0e35fa3ddc6379e5a3c1d0a50eb0b5b80f75adf17e68e874ee3700be1b",
+    "docs/RESEARCH_LEDGER.md": "60e755256387c31462dbea66c5eef571d8a70edb25bb9acf9ad18d2aeac07012",
+    "artifacts/autoresearch/stage45b_v17_and_stage49b_audit_20261025.json": "726c7106d99021cc0183e0a622f24b362df5d2c67b9c85b2dd6f4832aee7b8f6"
+  },
+  "input_sha256": {
+    "artifacts/autoresearch/stage51a_m30_m31_bql_sweetspot_and_aql_bench_20261025.json": "835e1a9dd62fb6633efb5cfd1fa7b612921a4c54d54c4f99ecb6e37ea7f093a8",
+    "artifacts/autoresearch/stage49b_ltu_pb_boost_and_frame_len_ota_bench_20261025.json": "6fb78a3e1a430951ad1c99c3fbf9391d9e4ecafc3e07d9635b7b5d7a383a93be",
+    "docs/STAGE51A_M30_M31_BQL_SWEETSPOT_AND_AQL_BENCHMARK.md": "85988021fc99c8b2c3bfbc41fcb905332c303d08a20f0554621df11dc69ac2e8",
+    "docs/STAGE49B_LTU_PB_BOOST_AND_FRAME_LEN_OTA_BENCHMARK.md": "c6c9f7e19f0749839586c6034ea3923fa4cd7d23ed88c9a0410a2aa4eec11126",
+    "tools/bench/run_stage51a_m30_m31_bql_sweetspot_and_aql_bench.py": "3a0e847df88027164c3ee7682d5e60ef7f3ddf0f9eb495cb60688299c61dd9dc",
+    "tools/bench/run_stage49b_ltu_pb_boost_and_frame_len_ota_bench.py": "224369feb832b68d7de56422f05900f2b860621d8a064f6bf72761f8475eaf5e",
+    "tools/bench/run_stage37a_triple_play_aqm_fq_limit_bench.py": "41b5e852d020e44d0d9f7497de49244d942e3c3b6604e1b2a584d9c6d35231c7",
+    "controller/multiradio_golden_profile_applicator.py": "71e385ebe65ed2bdba414924d71615ec4c4326668ca92508bd935e1bde7c979b",
+    "controller/stage42a_netdev_txq_and_airos6_verifier.py": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70",
+    "controller/stage44a_champion_v15_and_ltu_beacon_verifier.py": "ebe768b1fe5775b0cae6e4823e51bd5a75db47a50c3bb822a096b74533ce87dd",
+    "controller/stage46a_champion_v16_tx_bias_and_bql_verifier.py": "7da1b41b7810199f3d7e9d202287ccc7a80c5ab39f7c9439c30863478676ae62",
+    "artifacts/autoresearch/stage43b_validation_20261025.json": "316df00fe14c591be2c4960d33bc57c3bf7da9575dd0170bee78cdcfde591ade"
+  },
+  "test_receipts": {
+    "artifacts/autoresearch/stage45b_test_run_1_20261025.json": {
+      "sha256": "e5e9328b7f2d0a79421a04488a4b8a4d424733267f8dcb33513de9998e8b4755",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage51a_v17_and_stage49b_ltu_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:7 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage51a_v17 ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 28%]\r\n........................................................................ [ 57%]\r\n........................................................................ [ 86%]\r\n.......................s..........                                       [100%]\r\n249 passed, 1 skipped in 1.36s\r\n",
+        "module_sha256": "22c86e61de29bd68859270baeeb3cd286f8ef2b1ab337c4897cddc94012c93f8",
+        "module_sha256_after": "22c86e61de29bd68859270baeeb3cd286f8ef2b1ab337c4897cddc94012c93f8",
+        "cli_sha256": "55fa6f78a7e6adce45df0b8c57ca0e837880a3e5ed87e508fe17d6b635afba8b",
+        "test_sha256": "8d7ffb7b1c128dd558df74496f2da1b58ae5ad0441a18b5c1e621495ca18bbbb",
+        "scope": "LOCAL_OFFLINE_TESTS_AND_DISPOSABLE_LOCAL_CLI_FIXTURES_ONLY",
+        "timestamp_utc": "2026-10-26T01:50:04.8296864Z"
+      }
+    },
+    "artifacts/autoresearch/stage45b_test_run_2_20261025.json": {
+      "sha256": "69b5a23f272fe7ed9f12fd68b1ee324876ccdf0c4a38d57bda682ba5fc1be998",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage51a_v17_and_stage49b_ltu_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:7 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage51a_v17 ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 28%]\r\n........................................................................ [ 57%]\r\n........................................................................ [ 86%]\r\n.......................s..........                                       [100%]\r\n249 passed, 1 skipped in 1.33s\r\n",
+        "module_sha256": "ee42f0cce766abbf40d7ac00c5a67ecad240087933fb182946c8ff304c355c07",
+        "module_sha256_after": "ee42f0cce766abbf40d7ac00c5a67ecad240087933fb182946c8ff304c355c07",
+        "cli_sha256": "55fa6f78a7e6adce45df0b8c57ca0e837880a3e5ed87e508fe17d6b635afba8b",
+        "test_sha256": "8d7ffb7b1c128dd558df74496f2da1b58ae5ad0441a18b5c1e621495ca18bbbb",
+        "changed_hypothesis": "Final independent-review workload interpretation: application flows on Loco, Rocket/M5 ICMP probes; representative sector capacity and fairness remain unproven",
+        "scope": "LOCAL_OFFLINE_TESTS_AND_DISPOSABLE_LOCAL_CLI_FIXTURES_ONLY",
+        "timestamp_utc": "2026-10-26T01:58:33.1028051Z"
+      }
+    }
+  },
+  "docs": {
+    "docs/CURRENT_STATE.md": {
+      "line_count": 242,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": {
+      "line_count": 239,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/BENCH_PLAN.md": {
+      "line_count": 244,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/DECISIONS.md": {
+      "line_count": 221,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/RESEARCH_LEDGER.md": {
+      "line_count": 229,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    }
+  },
+  "primary_linux_evidence_reused": {
+    "net/core/sysctl_net_core.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/core/sysctl_net_core.c",
+      "raw_sha256_reported_by_independent_researcher": "e728f0b5975cd92128dd362b0926d228dd006248771a46415a46354940832338",
+      "source_lines_and_scope": "276-287: dev_tx_weight product"
+    },
+    "net/sched/sch_generic.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/sched/sch_generic.c",
+      "raw_sha256_reported_by_independent_researcher": "42fc9f8fc04dc02636d1dc249308e10138a37fb6c8410072b13418dadca19fa0",
+      "source_lines_and_scope": "388-402: qdisc packet quota"
+    },
+    "net/core/dev.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/core/dev.c",
+      "raw_sha256_reported_by_independent_researcher": "7c92314eb17c6f107f17cfdc8b4c7fd1df401376538bc80bee54e8f74a8d48ab",
+      "source_lines_and_scope": "6197-6211 driver poll n->weight;6367-6411 perCPU RX budget;9451-9462 BQL hold default"
+    },
+    "include/linux/netdevice.h": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/include/linux/netdevice.h",
+      "raw_sha256_reported_by_independent_researcher": "7b83abf76e20f6fe66aa01b6740137dce6e69b745a7297e4ec2cb6eee56648ee",
+      "source_lines_and_scope": "2512,2524-2528: ordinary NAPI default64"
+    },
+    "drivers/net/wireless/ath/ath10k/pci.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/drivers/net/wireless/ath/ath10k/pci.c",
+      "raw_sha256_reported_by_independent_researcher": "32acc5998f1bd2bc43e891514890d7f0f72da7ce31d8e66ff4cf4774387971da",
+      "source_lines_and_scope": "2944-2958,3033-3035: driver NAPI/HTT budget"
+    },
+    "drivers/net/wireless/ath/ath10k/htt_rx.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/drivers/net/wireless/ath/ath10k/htt_rx.c",
+      "raw_sha256_reported_by_independent_researcher": "28dfdc7104d2f6df7dae11ef601f3d34bd17a6edfc831877269d0d91ac5acb50",
+      "source_lines_and_scope": "4070-4145: RX budget and TXdone FIFO accounting"
+    },
+    "drivers/net/ethernet/atheros/ag71xx.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/drivers/net/ethernet/atheros/ag71xx.c",
+      "raw_sha256_reported_by_independent_researcher": "d42640f24a5b0baf25a72559b93e99c68be17fe7e6a718bf19341d8c93d74e6e",
+      "source_lines_and_scope": "45,1831-1832 NAPI32;804,1474 completed/queued bytes"
+    },
+    "include/linux/dynamic_queue_limits.h": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/include/linux/dynamic_queue_limits.h",
+      "raw_sha256_reported_by_independent_researcher": "f92de78cf5356866eeb704c3ea04ee3026454314b4313be067a522841ef6c118",
+      "source_lines_and_scope": "64-65: DQL max limit"
+    },
+    "lib/dynamic_queue_limits.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/lib/dynamic_queue_limits.c",
+      "raw_sha256_reported_by_independent_researcher": "1a0d7c1366cde402b4f72e81a8312d855f2e1ea355faa9d220f671af8e78ec27",
+      "source_lines_and_scope": "16-106 algorithm/clamp;123-128 reset defaults"
+    },
+    "net/core/net-sysfs.c": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/core/net-sysfs.c",
+      "raw_sha256_reported_by_independent_researcher": "75848f8d7493813b29dbe9231dad3c20d676f99387a35b017d541f5916350312",
+      "source_lines_and_scope": "1272-1289,1329-1347 direct min/max writes;1292-1311 hold ms conversion"
+    },
+    "Documentation/admin-guide/sysctl/net.rst": {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/Documentation/admin-guide/sysctl/net.rst",
+      "raw_sha256_reported_by_independent_researcher": "be1cab9fe57c6f63b2ec0b5f3cdc66cf380e468c3b196faea727f0df5a7e1108",
+      "source_lines_and_scope": "252-263: generic RX-cycle packet/time budgets"
+    }
+  },
+  "primary_evidence_scope": "Reused revision-bound Stage43B independent official-source research, Linux6.6.110; not a running build identity or new fetch",
+  "audit_summary": {
+    "stage51a_rounds": 6,
+    "stage51a_windows": 24,
+    "stage51a_failed_ping_windows": 16,
+    "stage51a_udp_observations": 48,
+    "stage51a_findings": [
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R4",
+        "phase": "A2",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 1000,
+          "phy0-ap0": 1000
+        }
+      },
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R4",
+        "phase": "B2",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 256,
+          "phy0-ap0": 256
+        }
+      },
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R5",
+        "phase": "A1",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 256,
+          "phy0-ap0": 256
+        }
+      },
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R5",
+        "phase": "B1",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 256,
+          "phy0-ap0": 256
+        }
+      },
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R5",
+        "phase": "A2",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 256,
+          "phy0-ap0": 256
+        }
+      },
+      {
+        "code": "AP_QUEUE_INVENTORY_DIFFERS_FROM_FULL_BASELINE",
+        "round": "S51A-R5",
+        "phase": "B2",
+        "readback": {
+          "br-lan": 256,
+          "eth0": 1000,
+          "lo": 1000,
+          "phy0-ap0.sta1": 256,
+          "phy0-ap0": 256
+        }
+      },
+      {
+        "code": "SUMMARY_HEALTH_DOES_NOT_QUALIFY_FAILED_WINDOWS",
+        "failed_windows": 16
+      }
+    ],
+    "stage49b_trials": 9,
+    "stage49b_changes": {
+      "S49B-R1-PB-BOOST-ON-2MS": {
+        "mean_bulk_tcp_mbps": 1.4221,
+        "mean_iptv_udp_mbps": -5.2071,
+        "mean_iptv_jitter_ms": 17.7461,
+        "mean_iptv_loss_pct": -83.8935,
+        "mean_voip_jitter_ms": 3.229,
+        "mean_loaded_ping_p50_ms": -3.3353,
+        "mean_loaded_ping_p95_ms": -21.3205,
+        "mean_loaded_ping_p99_ms": -21.5186,
+        "mean_aggregate_dl_mbps": -1.2893,
+        "median_loaded_ping_p50_ms": -5.5784,
+        "median_loaded_ping_p95_ms": -38.4401
+      },
+      "S49B-R2-PB-BOOST-AND-EVM-MCS-CEILING": {
+        "mean_bulk_tcp_mbps": -2.0401,
+        "mean_iptv_udp_mbps": -8.284,
+        "mean_iptv_jitter_ms": 403.7565,
+        "mean_iptv_loss_pct": -44.7051,
+        "mean_voip_jitter_ms": 0.2935,
+        "mean_loaded_ping_p50_ms": 18.0439,
+        "mean_loaded_ping_p95_ms": -54.6605,
+        "mean_loaded_ping_p99_ms": -56.0474,
+        "mean_aggregate_dl_mbps": -4.5939,
+        "median_loaded_ping_p50_ms": 7.8391,
+        "median_loaded_ping_p95_ms": -90.7643
+      }
+    },
+    "native_acceptance": false
+  },
+  "test_disposition": {
+    "final": "249 passed,1 skipped,exit0; final code qualification rerun",
+    "platform_skip": "Local symlink creation unavailable; real-symlink branch not executed. Exact OSError not captured in quiet receipt.",
+    "warning": "Pre-existing pytest-asyncio default fixture-loop-scope deprecation retained; no shared service mutation.",
+    "earlier_run": "First249passed/1skipped/exit0 preserved; final rerun binds explicit Loco-only application workload qualification, no calculation changes"
+  },
+  "preparation_diagnostics": [
+    {
+      "operation": "Master index compaction preparation",
+      "first_exit_code": 1,
+      "first_tool_chunk_id": "b11254",
+      "effect": "Assertion failed before any write",
+      "diagnosis": "Literal Unicode heading did not survive PowerShell stdin encoding",
+      "changed_hypothesis": "Select exactly one existing ASCII-prefix heading, preserve its full original content and all nonduplicate lines",
+      "corrected_exit_code": 0,
+      "corrected_tool_chunk_id": "493bc7",
+      "result": "13 duplicate blank lines removed; all historical content retained; new index fits239 lines"
+    }
+  ],
+  "navigation": {
+    "git_head": "0cce9cf",
+    "gitnexus": "No futuramax index listed; no .gitnexus directory",
+    "serena": "No exposed overview/find_symbol tools after discovery",
+    "fallback": "Exact scoped rg and source reads",
+    "memorymaster": "Scoped project:futuramax query returned older unrelated catalog context; not used as current benchmark evidence"
+  },
+  "boundary": {
+    "offline_only": true,
+    "hardware_access": false,
+    "ssh": false,
+    "native_runner_executed": false,
+    "config_or_flash": false,
+    "new_rf_measurements": false,
+    "native_acceptance": false,
+    "physical_status": "UNKNOWN",
+    "e2": "NOT_ACCEPTED"
+  },
+  "next_tasks": [],
+  "physical_user_action_required": false,
+  "independent_review": {
+    "status": "PASS_SOFTWARE_CLOSURE_WITH_QUALIFIED_EVIDENCE",
+    "receipt": "artifacts/autoresearch/stage45b_independent_review_20261025.json",
+    "receipt_sha256": "53d083d11054f0642bc2c2a1a03f5e0a1d28ddf170c9e834623b5491f14d630f",
+    "reviewed_validation_sha256_before_metadata_only_update": "b5516b00371bdf58833b148e6233f2c90cdb79ffaae15b65d31b01871d4ef4b0",
+    "allowed_post_review_mutations": [
+      "This validation status/review pointer only",
+      "Separate independent review receipt",
+      "Own task card DONE/summary and derived local board view",
+      "Small authorized memory checkpoint note; no registry/database writes"
+    ],
+    "frozen_files_must_remain_unchanged": true
+  },
+  "earlier_cli_receipt": {
+    "command": "python tools/verify_stage51a_v17_and_stage49b_ltu.py",
+    "exit_code": 0,
+    "observed_tool_chunk_id": "2bd024",
+    "stdout": {
+      "status": "COMPLETE_WITH_QUALIFICATIONS",
+      "rounds": 6,
+      "windows": 24,
+      "ltu_trials": 9,
+      "native_acceptance": false,
+      "output": "artifacts/autoresearch/stage45b_v17_and_stage49b_audit_20261025.json"
+    },
+    "scope": "Actual repository export; no native runner or hardware"
+  },
+  "cli_receipt": {
+    "command": "python tools/verify_stage51a_v17_and_stage49b_ltu.py",
+    "chunk_id": "518bea",
+    "wall_time_seconds": 0.5676803,
+    "exit_code": 0,
+    "original_token_count": 64,
+    "output": "{\"status\": \"COMPLETE_WITH_QUALIFICATIONS\", \"output\": \"G:\\\\_OneDrive\\\\OneDrive\\\\Desktop\\\\Py Apps\\\\futuraMAX\\\\artifacts\\\\autoresearch\\\\stage45b_v17_and_stage49b_audit_20261025.json\", \"rounds\": 6, \"windows\": 24, \"ltu_trials\": 9, \"native_acceptance\": false}\r\n",
+    "scope": "Actual repository atomic export after final workload qualification; no native runner or hardware"
+  }
+}

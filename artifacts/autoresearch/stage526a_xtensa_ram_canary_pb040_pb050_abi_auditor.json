@@ -1,0 +1,462 @@
+{
+  "analysis_dependencies": [
+    {
+      "bytes": 2225,
+      "path": "tools/autoresearch/stage525_530_common.py",
+      "sha256": "eeb6de4cc1724797c687688c509081510c3f96fcde61f58783e7fcbe2e0296f0"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    }
+  ],
+  "boundary": {
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "gaps": [
+    "Readback strings have no independently retained command exit/boot/bind/reload acquisition chain.",
+    "Exact stock/patched CT payload bytes are not supplied by the pinned403/507 receipts; this is not a global absence claim.",
+    "Checksum/name agreement and staging SHA do not bind the currently executing payload or verify a RAM patch.",
+    "R43 explicitly configures a host register write, so a matching value cannot isolate SGMT causality.",
+    "R50 also changes NF calibration and stats polling; no patch-only counterfactual is retained.",
+    "Named g_rc globals and a hardcoded candidate grid are not native offsets, field types or ABI acceptance."
+  ],
+  "held_vendor_static_proof": {
+    "container_bytes": 251681,
+    "container_sha256": "55e9c94a2f0b466ff50ced26f589c755b955e751861b466bb71be9f87de261ee",
+    "ct_firmware_context_equivalent": false,
+    "decoder": {
+      "bytes": 6254,
+      "path": "tools/research/sgmt.py",
+      "sha256": "f6e8a73fa2277a26901469a825373dba512262464015e8772a4acf6a1f47dec8"
+    },
+    "decoding_reexecuted": false,
+    "payload_segments": [
+      {
+        "bytes": 6496,
+        "destination": "0x980000",
+        "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+      },
+      {
+        "bytes": 8500,
+        "destination": "0x40b000",
+        "sha256": "4352471afde9d65477ebf3af97cdfffb48080895a43b3e71745c08389c589483"
+      },
+      {
+        "bytes": 10864,
+        "destination": "0x40d140",
+        "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+      },
+      {
+        "bytes": 283604,
+        "destination": "0x983c00",
+        "sha256": "50410ea5ddaa149e5f91ecb4ab74a196c86584976cb9e1c755ddfa060be44c86"
+      }
+    ],
+    "source": {
+      "bytes": 2340372,
+      "path": "firmware/build/codex-analysis-20261006/rootfs/lib/modules/2.6.32.68/umac.ko",
+      "sha256": "46525dc6f8b789bf820f0713841a2a9ecdcba833300ddb1ab1ef06fc4ab6a9c5"
+    },
+    "status": "STATIC_ROOT_DECODING_NOT_CT_ABI",
+    "symbol_file_offset": 1329376,
+    "target_execution_proven": false
+  },
+  "implementation": {
+    "bytes": 18214,
+    "path": "tools/autoresearch/build_stage526a_xtensa_ram_canary_pb040_pb050_abi_auditor.py",
+    "sha256": "64ea06e3ce1f6938b2938a2f6fe145bf96350ec97a4f972dc8669ca0fd977490"
+  },
+  "native_abi_acceptance": false,
+  "outputs": {
+    "docs/STAGE526A_XTENSA_RAM_CANARY_PB040_PB050_ABI_AUDITOR.md": {
+      "bytes": 3749,
+      "path": "docs/STAGE526A_XTENSA_RAM_CANARY_PB040_PB050_ABI_AUDITOR.md",
+      "sha256": "5ee3f439492ca6068349880d0e1efd03e594e689afa55ea07b6cbfd493ab9d62"
+    }
+  },
+  "pb040": {
+    "both_endpoints_support_patched_target_text": false,
+    "canary_log_or_exact_patch_payload_proof": "NOT_RETAINED",
+    "cpe_stock_consistency": {
+      "bind_reload_execution_proven": false,
+      "checksums": {
+        "athwlan": "477a6960",
+        "board": "bebc7c08",
+        "board-N.bin": "bebc7c08",
+        "codeswap": "00000000",
+        "firmware-N.bin": "3e4cf97f",
+        "otp": "4c4fd0bc"
+      },
+      "expected_checksum_matches": {
+        "athwlan": true,
+        "firmware-N.bin": true,
+        "otp": true
+      },
+      "expected_sha256_matches": {
+        "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": true,
+        "/tmp/firmware-2-pb040.bin": true
+      },
+      "file_sha256": {
+        "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+        "/tmp/firmware-2-pb040.bin": "8d50c1ce5d9e3a97458fc44b19f3b31510ad2af4fcf3746e3252722dfa9b3d9c"
+      },
+      "ignored_line_count": 6,
+      "native_loaded_payload_bound": false,
+      "reason_codes": [],
+      "status": "CONSISTENT_SAVED_READBACK"
+    },
+    "direct_host_register_write_confounds_sgmt_effect": true,
+    "endpoints": {
+      "ap": {
+        "bind_reload_execution_proven": false,
+        "checksums": {
+          "athwlan": "278d2d76",
+          "board": "bebc7c08",
+          "board-N.bin": "bebc7c08",
+          "codeswap": "00000000",
+          "firmware-N.bin": "912bcb63",
+          "otp": "4c4fd0bc"
+        },
+        "expected_checksum_matches": {
+          "athwlan": true,
+          "firmware-N.bin": true,
+          "otp": true
+        },
+        "expected_sha256_matches": {
+          "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": true,
+          "/tmp/firmware-2-pb040.bin": true
+        },
+        "file_sha256": {
+          "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": "8d50c1ce5d9e3a97458fc44b19f3b31510ad2af4fcf3746e3252722dfa9b3d9c",
+          "/tmp/firmware-2-pb040.bin": "8d50c1ce5d9e3a97458fc44b19f3b31510ad2af4fcf3746e3252722dfa9b3d9c"
+        },
+        "ignored_line_count": 0,
+        "native_loaded_payload_bound": false,
+        "reason_codes": [],
+        "status": "CONSISTENT_SAVED_READBACK"
+      },
+      "cpe": {
+        "bind_reload_execution_proven": false,
+        "checksums": {
+          "athwlan": "477a6960",
+          "board": "bebc7c08",
+          "board-N.bin": "bebc7c08",
+          "codeswap": "00000000",
+          "firmware-N.bin": "3e4cf97f",
+          "otp": "4c4fd0bc"
+        },
+        "expected_checksum_matches": {
+          "athwlan": false,
+          "firmware-N.bin": false,
+          "otp": true
+        },
+        "expected_sha256_matches": {
+          "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": false,
+          "/tmp/firmware-2-pb040.bin": true
+        },
+        "file_sha256": {
+          "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-2.bin": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+          "/tmp/firmware-2-pb040.bin": "8d50c1ce5d9e3a97458fc44b19f3b31510ad2af4fcf3746e3252722dfa9b3d9c"
+        },
+        "ignored_line_count": 6,
+        "native_loaded_payload_bound": false,
+        "reason_codes": [
+          "MISSING_OR_MISMATCHED_EXPECTED_CHECKSUM",
+          "MISSING_OR_MISMATCHED_EXPECTED_SHA256"
+        ],
+        "status": "UNKNOWN"
+      }
+    },
+    "r43_configured_windows": [
+      {
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "A1"
+      },
+      {
+        "configured_register_value": "0x13761320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "B1"
+      },
+      {
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "A2"
+      },
+      {
+        "configured_register_value": "0x13761320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "B2"
+      }
+    ],
+    "register_getter_status": "UNKNOWN_NO_RETAINED_GETTER_TEXT"
+  },
+  "pb050": {
+    "address_claims": {
+      "address_domains_interchangeable": false,
+      "data_vaddr": "0x0040c140",
+      "file_offset": "0x3b1d",
+      "from_ms": 2000,
+      "lit4_vaddr": "0x00980754",
+      "to_ms": 4000
+    },
+    "endpoints": {
+      "ap": {
+        "bind_reload_execution_proven": false,
+        "checksums": {
+          "athwlan": "12b29d01",
+          "board": "bebc7c08",
+          "board-N.bin": "bebc7c08",
+          "codeswap": "00000000",
+          "firmware-N.bin": "92363606",
+          "otp": "4c4fd0bc"
+        },
+        "expected_checksum_matches": {
+          "athwlan": true,
+          "firmware-N.bin": true,
+          "otp": true
+        },
+        "expected_sha256_matches": {
+          "/tmp/firmware-2-pb050.bin": true
+        },
+        "file_sha256": {
+          "/tmp/firmware-2-pb050.bin": "a49160ff008390a34e43145bc56f6b8d047f8e02433aff20f965b6f2874ef52f"
+        },
+        "ignored_line_count": 0,
+        "native_loaded_payload_bound": false,
+        "reason_codes": [],
+        "status": "CONSISTENT_SAVED_READBACK"
+      },
+      "cpe": {
+        "bind_reload_execution_proven": false,
+        "checksums": {
+          "athwlan": "12b29d01",
+          "board": "bebc7c08",
+          "board-N.bin": "bebc7c08",
+          "codeswap": "00000000",
+          "firmware-N.bin": "92363606",
+          "otp": "4c4fd0bc"
+        },
+        "expected_checksum_matches": {
+          "athwlan": true,
+          "firmware-N.bin": true,
+          "otp": true
+        },
+        "expected_sha256_matches": {
+          "/tmp/firmware-2-pb050.bin": true
+        },
+        "file_sha256": {
+          "/tmp/firmware-2-pb050.bin": "a49160ff008390a34e43145bc56f6b8d047f8e02433aff20f965b6f2874ef52f"
+        },
+        "ignored_line_count": 0,
+        "native_loaded_payload_bound": false,
+        "reason_codes": [],
+        "status": "CONSISTENT_SAVED_READBACK"
+      }
+    },
+    "isolated_patch_effect_proven": false,
+    "other_changed_configured_fields": [
+      "nf_cal_period",
+      "active_fw_stats_poll"
+    ],
+    "patch_bind_reload_payload_proof": "NOT_RETAINED",
+    "r50_configured_windows": [
+      {
+        "active_fw_stats_poll": 0,
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "A1"
+      },
+      {
+        "active_fw_stats_poll": 1,
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 120,
+        "window": "B1"
+      },
+      {
+        "active_fw_stats_poll": 0,
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 30,
+        "window": "A2"
+      },
+      {
+        "active_fw_stats_poll": 1,
+        "configured_register_value": "0x13721320",
+        "getter_status": "NOT_RETAINED_CONFIGURED_DICT_ONLY",
+        "nf_cal_period": 120,
+        "window": "B2"
+      }
+    ],
+    "target_path_sha256_status": {
+      "ap": "MISSING",
+      "cpe": "MISSING"
+    }
+  },
+  "producer_anchors": [
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            56
+          ],
+          "token": "f\"echo {bb_timing_29e00_hex}"
+        },
+        {
+          "line_numbers": [
+            72
+          ],
+          "token": "rb[\"ap_extra_readback\"]"
+        },
+        {
+          "line_numbers": [
+            131
+          ],
+          "token": "ap_fw_chk = rpc"
+        }
+      ],
+      "bytes": 13508,
+      "path": "tools/benchmarks/run_stage403a_live_wa_pb040_ram_canary_and_nfcal_r43_45.py",
+      "sha256": "f13ccb00a254e01afcaf59dfe8863b79918ff4c48240ab369571960bd3c568e9"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            160
+          ],
+          "token": "r50_arm_a ="
+        },
+        {
+          "line_numbers": [
+            161
+          ],
+          "token": "r50_arm_b ="
+        },
+        {
+          "line_numbers": [
+            121
+          ],
+          "token": "ap_fw_chk = rpc"
+        }
+      ],
+      "bytes": 12638,
+      "path": "tools/benchmarks/run_stage507a_live_wa_pb050_rc_probe_dampen_and_slot_r50_52.py",
+      "sha256": "173473669e5716535466113b4ca2d290c1efbda2893a950b1f5378a9f2475e2c"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            285
+          ],
+          "token": "cfg = readback[\"configured\"]"
+        },
+        {
+          "line_numbers": [
+            437
+          ],
+          "token": "\"knob_readback\": cfg"
+        }
+      ],
+      "bytes": 50658,
+      "path": "tools/benchmarks/run_stage311a_to_316a_wa_megamission.py",
+      "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+    }
+  ],
+  "source_binding_meaning": "Held current bytes, not authenticated historical executed-source or native acquisition provenance.",
+  "stage": "526A",
+  "static_loader": {
+    "current_external_helper_reverified": false,
+    "helper_reexecuted": false,
+    "helper_sha256_reported": "b0b3c027c02e8b5d2595ea5a0eb634f1cc480c7d80037ed57dedf917dfbd6f9f",
+    "register_write_intrinsic_proven": false,
+    "status": "SAVED_HOST_STATIC_HELPER_OUTPUT_NOT_TARGET_EXECUTION"
+  },
+  "static_sources": [
+    {
+      "bytes": 58543,
+      "path": "artifacts/autoresearch/stage403a_live_wa_pb040_ram_canary_and_nfcal_r43_45.json",
+      "sha256": "28e0405e144942056dbaf15b79665aa6d099616b113c99ec78120f0e57f83a7d"
+    },
+    {
+      "bytes": 58903,
+      "path": "artifacts/autoresearch/stage507a_live_wa_pb050_rc_probe_dampen_and_slot_r50_52.json",
+      "sha256": "578b7db77b0da067a46c6c7c0df2cbc2ed690d913de7a8e8ceeae05aee9e8c6d"
+    },
+    {
+      "bytes": 15209,
+      "path": "artifacts/physical_boundary/pb040_sgmt_surgical_patch_spec_20261025.json",
+      "sha256": "ea397abb4f522425674a75ab03554baf02837c3737adf189cfe1a9dbadc07c64"
+    },
+    {
+      "bytes": 13551,
+      "path": "artifacts/verification/stage526a/held_vendor_sgmt.json",
+      "sha256": "70e36c72c189232391a933b7f225a560bc5265b3c6ce01d8f61315fa47d66e88"
+    },
+    {
+      "bytes": 2340372,
+      "path": "firmware/build/codex-analysis-20261006/rootfs/lib/modules/2.6.32.68/umac.ko",
+      "sha256": "46525dc6f8b789bf820f0713841a2a9ecdcba833300ddb1ab1ef06fc4ab6a9c5"
+    },
+    {
+      "bytes": 6254,
+      "path": "tools/research/sgmt.py",
+      "sha256": "f6e8a73fa2277a26901469a825373dba512262464015e8772a4acf6a1f47dec8"
+    },
+    {
+      "bytes": 13508,
+      "path": "tools/benchmarks/run_stage403a_live_wa_pb040_ram_canary_and_nfcal_r43_45.py",
+      "sha256": "f13ccb00a254e01afcaf59dfe8863b79918ff4c48240ab369571960bd3c568e9"
+    },
+    {
+      "bytes": 12638,
+      "path": "tools/benchmarks/run_stage507a_live_wa_pb050_rc_probe_dampen_and_slot_r50_52.py",
+      "sha256": "173473669e5716535466113b4ca2d290c1efbda2893a950b1f5378a9f2475e2c"
+    },
+    {
+      "bytes": 50658,
+      "path": "tools/benchmarks/run_stage311a_to_316a_wa_megamission.py",
+      "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+    },
+    {
+      "bytes": 916,
+      "path": "artifacts/verification/stage526a/fullrea_run.json",
+      "sha256": "50554b6c54cb5c30fb0f495f1cddb5ec7143219e6eaa695668ab21c57c8a36d4"
+    },
+    {
+      "bytes": 1893,
+      "path": "artifacts/verification/stage526a/fullrea_bmi_loader.txt",
+      "sha256": "3162ef889b746e647ef1ba6dafe5e55cb097b801280da7ebaf8b8a2175e8e672"
+    }
+  ],
+  "status": "QUALIFIED_STATIC_AND_SAVED_TEXT_WITH_GAPS",
+  "summary": {
+    "new_hardware_results": 0
+  },
+  "task_id": "T-S526A-OFFLINE-RECONCILIATION",
+  "vendor_context": {
+    "claimed_ct_data_minus_old_vendor_segment2": -4096,
+    "offset_transplant_allowed": false,
+    "old_vendor_ap_segment2_vaddr": "0x0040d140",
+    "same_binary_build_or_abi_proven": false,
+    "source_umac_sha256": "46525dc6f8b789bf820f0713841a2a9ecdcba833300ddb1ab1ef06fc4ab6a9c5"
+  }
+}

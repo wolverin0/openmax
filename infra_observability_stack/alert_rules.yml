@@ -1,0 +1,53 @@
+groups:
+  - name: futuramax_rf_and_queue_autopilot_alerts
+    interval: 15s
+    rules:
+      - alert: FuturaMAXChannelInterferenceSpike
+        expr: futuramax_ap_noise_floor_dbm > -85 or futuramax_ap_channel_busy_pct > 75
+        for: 2m
+        labels:
+          severity: warning
+          category: rf_spectrum
+        annotations:
+          summary: "AP {{ $labels.ap }} channel {{ $labels.freq_mhz }} MHz interference or high channel busy ({{ $value }})"
+          description: "Noise floor > -85 dBm or channel busy > 75% on AP {{ $labels.ap }} ({{ $labels.freq_mhz }} MHz). Triggering Spectral FFT scan and evaluating alternate DFS/UNII-3 channel."
+
+      - alert: FuturaMAXCPESignalDropDetected
+        expr: futuramax_cpe_signal_drop_from_baseline_db >= 4.0
+        for: 3m
+        labels:
+          severity: warning
+          category: rf_alignment
+        annotations:
+          summary: "CPE {{ $labels.cpe }} ({{ $labels.mac }}) signal dropped {{ $value }} dB below baseline"
+          description: "CPE {{ $labels.cpe }} on {{ $labels.ap }} lost {{ $value }} dB relative to baseline. Inspect for wind misalignment, water ingress, or vegetation growth."
+
+      - alert: FuturaMAXCPEChainImbalanceFresnel
+        expr: futuramax_cpe_chain_imbalance_db >= 4.0
+        for: 3m
+        labels:
+          severity: warning
+          category: rf_fresnel
+        annotations:
+          summary: "CPE {{ $labels.cpe }} MIMO chain imbalance {{ $value }} dB (|Chain0 - Chain1|)"
+          description: "MIMO chain delta >= 4.0 dB on {{ $labels.cpe }} ({{ $labels.role }}). Indicates partial Fresnel obstruction, single-polarity reflection, or pigtail/feedhorn degradation."
+
+      - alert: FuturaMAXBadAppleCPEStarvingSector
+        expr: futuramax_cpe_bad_apple_score >= 50
+        for: 1m
+        labels:
+          severity: critical
+          category: airtime_fairness
+        annotations:
+          summary: "Bad-Apple CPE {{ $labels.cpe }} score={{ $value }} starving PtMP sector {{ $labels.ap }}"
+          description: "Closed-loop autopilot recommends reducing mac80211 airtime_weight to 128 and clamping per-station AQL limit on {{ $labels.mac }} to protect sector p95 latency."
+
+      - alert: FuturaMAXChampionV19QueueDrift
+        expr: futuramax_ap_champion_v19_compliant < 1
+        for: 1m
+        labels:
+          severity: critical
+          category: queue_governance
+        annotations:
+          summary: "AP {{ $labels.ap }} drifted from Stage 55A Champion v19 BQL/AQL/NAPI parameters"
+          description: "Expected eth0 BQL limit_min=4542, limit_max=42392, hold_time=800ms, NAPI budget_usecs=6000us, AQL=5000/12000. Run multiradio_golden_profile_applicator.py to remediate in RAM."

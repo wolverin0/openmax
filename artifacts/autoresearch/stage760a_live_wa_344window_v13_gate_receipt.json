@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 760A",
+  "generated_at_utc": "2026-10-27T02:15:28.203598+00:00",
+  "status": "CONFIRMED",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "total_counterbalanced_rounds": 84,
+  "total_live_windows_including_stage162a_e2e": 340,
+  "total_live_windows_including_stage757a_e2e_r9": 344,
+  "total_live_windows_including_all_9_e2e_rounds": 372,
+  "milestone_84_rounds_344_windows_achieved": true,
+  "watchdog_seconds": 45,
+  "attribution": "QCA firmware + ath10k + mac80211 + Linux + hardware",
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "panel1_guarida_zero_rf_disconnect": true
+  },
+  "audited_receipts": {
+    "stage755a_live_wa_spectral_phyerr_and_vdev_guard_r78_80.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage756a_live_wa_84round_344window_milestone_r81_84.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage757a_live_wa_mk1_251_e2e_v13_milestone.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage758a_live_panel1_guarida_84_v13_audit.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage759a_cumulative_84round_344window_wa_champion_v13.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "modules_analyzed": [
+        "firmware-2.bin",
+        "umac.ko",
+        "mac80211.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko"
+      ],
+      "functions_decompiled": [
+        "rc_update_ht",
+        "whalSetCcaThreshold",
+        "ath10k_wmi_event_phyerr",
+        "ath10k_htt_txrx_compl_task",
+        "ieee80211_txq_airtime_check"
+      ],
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json",
+      "total_knobs": 571
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py",
+      "queue_ref": "artifacts/autoresearch/discovery_to_research_queue.json",
+      "scholar_queries": [
+        "QCA988x Xtensa SGMT BMI_LZ RAM firmware patch PHYERR suppression rate control",
+        "IEEE 802.11ac 344-window counterbalanced autoresearch Pareto frontier v13"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "pymoo",
+        "simpy",
+        "hypothesis-generation",
+        "statistical-analysis",
+        "scientific-critical-thinking"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S755A-01",
+        "FMX-S756A-01",
+        "FMX-S757A-01",
+        "FMX-S758A-01",
+        "FMX-S759A-01"
+      ]
+    }
+  }
+}

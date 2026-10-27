@@ -1,0 +1,335 @@
+{
+  "experiment_id": "FMX-AUTORESEARCH-LIVE-002-FACTORIAL-PARETO",
+  "timestamp_utc": "2026-10-24T05:33:54.690957+00:00",
+  "skills_applied": [
+    ".agents/skills/experimental-design/SKILL.md",
+    ".agents/skills/pymoo/SKILL.md",
+    ".agents/skills/statistical-analysis/SKILL.md"
+  ],
+  "objective_config": {
+    "target_goodput_mbps": 80.0,
+    "baseline_rtt_ms": 2.0,
+    "rtt_budget_ms": 20.0,
+    "max_p99_rtt_ms": 80.0,
+    "max_packet_loss_pct": 2.0,
+    "min_repetitions": 2,
+    "min_improvement_delta": 0.002,
+    "weight_throughput": 0.55,
+    "weight_p95_rtt": 0.25,
+    "weight_p99_rtt": 0.15,
+    "weight_fairness": 0.0,
+    "weight_retries": 0.05
+  },
+  "winning_incumbent_knobs": {
+    "name": "r2_iter1_aql2000_rc28_rifs0",
+    "description": "Interaction: AQL 2000/4000us (thresh 8000) + ct_special RC_PER=28% + RIFS=0",
+    "aql_low_us": 2000,
+    "aql_high_us": 4000,
+    "aql_threshold_us": 8000,
+    "fq_quantum_bytes": 300,
+    "htt_max_amsdu": 3,
+    "htt_max_ampdu": 64,
+    "ct_rc_per_thresh": 28,
+    "ct_baseband_rifs": 0,
+    "complexity_cost": 1
+  },
+  "best_fmx_loss": 0.250845,
+  "pareto_frontier": [
+    {
+      "commit": "r2_iter1_aql2000_rc28_rifs0",
+      "goodput_rx_mbps": 110.0,
+      "p50_rtt_ms": 8.815,
+      "p95_rtt_ms": 14.444,
+      "p99_rtt_ms": 14.706,
+      "fmx_loss": 0.250845
+    }
+  ],
+  "iterations": [
+    {
+      "commit": "r2_iter0_stock",
+      "candidate_knobs": {
+        "name": "r2_iter0_stock",
+        "description": "Stock OpenWrt 24.10.4 (AQL 5000/12000us, thresh 24000, RC_PER 50%, RIFS 0)",
+        "aql_low_us": 5000,
+        "aql_high_us": 12000,
+        "aql_threshold_us": 24000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 50,
+        "ct_baseband_rifs": 0,
+        "complexity_cost": 0
+      },
+      "observation": {
+        "goodput_rx_mbps": 110.0,
+        "p50_rtt_ms": 24.748,
+        "p95_rtt_ms": 33.942,
+        "p99_rtt_ms": 35.394,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.64973,
+        "decision": "keep",
+        "reason": "Initial baseline established",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.5971,
+          "p99_excess": 1.6697,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0
+        }
+      },
+      "goodputs_per_rep": [
+        110.0,
+        110.0
+      ],
+      "rtts_ms": [
+        1.814,
+        35.757,
+        22.343,
+        2.63,
+        28.499,
+        27.152
+      ],
+      "min_rtt_ms": 1.814,
+      "max_rtt_ms": 35.757,
+      "retransmits": 0,
+      "incumbent_after": "r2_iter0_stock"
+    },
+    {
+      "commit": "r2_iter1_aql2000_rc28_rifs0",
+      "candidate_knobs": {
+        "name": "r2_iter1_aql2000_rc28_rifs0",
+        "description": "Interaction: AQL 2000/4000us (thresh 8000) + ct_special RC_PER=28% + RIFS=0",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 0,
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 110.0,
+        "p50_rtt_ms": 8.815,
+        "p95_rtt_ms": 14.444,
+        "p99_rtt_ms": 14.706,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.250845,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.398885 (0.649730 -> 0.250845)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 0.6222,
+          "p99_excess": 0.6353,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0
+        }
+      },
+      "goodputs_per_rep": [
+        109.0,
+        111.0
+      ],
+      "rtts_ms": [
+        1.818,
+        6.13,
+        11.5,
+        2.81,
+        14.772,
+        13.458
+      ],
+      "min_rtt_ms": 1.818,
+      "max_rtt_ms": 14.772,
+      "retransmits": 0,
+      "incumbent_after": "r2_iter1_aql2000_rc28_rifs0"
+    },
+    {
+      "commit": "r2_iter2_aql2000_rc28_rifs1",
+      "candidate_knobs": {
+        "name": "r2_iter2_aql2000_rc28_rifs1",
+        "description": "Interaction: AQL 2000/4000us (thresh 8000) + ct_special RC_PER=28% + Baseband RIFS=1",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 1,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 110.0,
+        "p50_rtt_ms": 9.182,
+        "p95_rtt_ms": 18.616,
+        "p99_rtt_ms": 20.376,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.34552,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.345520 vs best 0.250845)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 0.8308,
+          "p99_excess": 0.9188,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0
+        }
+      },
+      "goodputs_per_rep": [
+        110.0,
+        110.0
+      ],
+      "rtts_ms": [
+        1.877,
+        12.016,
+        20.816,
+        1.618,
+        7.491,
+        10.873
+      ],
+      "min_rtt_ms": 1.618,
+      "max_rtt_ms": 20.816,
+      "retransmits": 0,
+      "incumbent_after": "r2_iter1_aql2000_rc28_rifs0"
+    },
+    {
+      "commit": "r2_iter3_aql1500_rc28_rifs1",
+      "candidate_knobs": {
+        "name": "r2_iter3_aql1500_rc28_rifs1",
+        "description": "Sweet-spot: AQL 1500/3000us (thresh 6000) + ct_special RC_PER=28% + Baseband RIFS=1",
+        "aql_low_us": 1500,
+        "aql_high_us": 3000,
+        "aql_threshold_us": 6000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 1,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 106.5,
+        "p50_rtt_ms": 10.402,
+        "p95_rtt_ms": 19.584,
+        "p99_rtt_ms": 19.893,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.353997,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.353997 vs best 0.250845)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 0.8792,
+          "p99_excess": 0.89465,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0
+        }
+      },
+      "goodputs_per_rep": [
+        106.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.901,
+        12.049,
+        8.756,
+        1.813,
+        18.425,
+        19.97
+      ],
+      "min_rtt_ms": 1.813,
+      "max_rtt_ms": 19.97,
+      "retransmits": 0,
+      "incumbent_after": "r2_iter1_aql2000_rc28_rifs0"
+    },
+    {
+      "commit": "r2_iter4_aql1500_rc35_rifs1",
+      "candidate_knobs": {
+        "name": "r2_iter4_aql1500_rc35_rifs1",
+        "description": "Moderate PER stepdown: AQL 1500/3000us (thresh 6000) + ct_special RC_PER=35% + Baseband RIFS=1",
+        "aql_low_us": 1500,
+        "aql_high_us": 3000,
+        "aql_threshold_us": 6000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 35,
+        "ct_baseband_rifs": 1,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 106.5,
+        "p50_rtt_ms": 10.774,
+        "p95_rtt_ms": 19.129,
+        "p99_rtt_ms": 19.179,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.342955,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.342955 vs best 0.250845)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 0.85645,
+          "p99_excess": 0.85895,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0
+        }
+      },
+      "goodputs_per_rep": [
+        106.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.804,
+        14.518,
+        7.03,
+        3.272,
+        19.192,
+        18.941
+      ],
+      "min_rtt_ms": 1.804,
+      "max_rtt_ms": 19.192,
+      "retransmits": 0,
+      "incumbent_after": "r2_iter1_aql2000_rc28_rifs0"
+    }
+  ],
+  "restoration_verified_readback": "24000\nAC\tAQL limit low\tAQL limit high\nVO\t5000\t\t12000\nVI\t5000\t\t12000\nBE\t5000\t\t12000\nBK\t5000\t\t12000\nBC/MC\t50000\nRW fq_quantum 300\n3 64"
+}

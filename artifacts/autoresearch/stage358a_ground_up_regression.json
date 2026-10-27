@@ -1,0 +1,284 @@
+{
+  "boundary": {
+    "native_host_decoder_allowed": true,
+    "network_access": false,
+    "physical_acceptance": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "gaps": [],
+  "independent_reviews": [
+    {
+      "binding": {
+        "bytes": 11631,
+        "path": "artifacts/verification/stage353a/independent_review.json",
+        "sha256": "c66eec94b4406adee22ce308101db4ed1b4fb089d81f898abf6f6ede77847f0e"
+      },
+      "binding_drift": [],
+      "missing_required_bindings": [],
+      "stage": 353,
+      "status": "PASS_QUALIFIED_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_RESEARCH_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 9789,
+        "path": "artifacts/verification/stage354a/independent_review.json",
+        "sha256": "bb41cfa1575ef7adc13651e65b7b1156ce195ef88e59d778bdaf7958b2a2eb47"
+      },
+      "binding_drift": [],
+      "missing_required_bindings": [],
+      "stage": 354,
+      "status": "PASS_QUALIFIED_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_SIMULATION_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 7658,
+        "path": "artifacts/verification/stage355a/independent_review.json",
+        "sha256": "271ad04464115059386410265537d2b1db4447735b83ea01127f81740a8d4044"
+      },
+      "binding_drift": [],
+      "missing_required_bindings": [],
+      "stage": 355,
+      "status": "PASS_QUALIFIED_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_SIMULATION_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 30012,
+        "path": "artifacts/verification/stage356a/independent_review.json",
+        "sha256": "05c079ed99638687dec27772392cef6cb7cc4bb36ec05bda6ff8be734f7c70a7"
+      },
+      "binding_drift": [],
+      "missing_required_bindings": [],
+      "stage": 356,
+      "status": "PASS_QUALIFIED_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_SAVED_EVIDENCE_AND_RELEASE_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 11430,
+        "path": "artifacts/verification/stage357a/independent_review.json",
+        "sha256": "a02dda30e207177b8a19083dcc890965fce1bf1cd8c5dd512c53d7c68b808159"
+      },
+      "binding_drift": [],
+      "missing_required_bindings": [],
+      "stage": 357,
+      "status": "PASS_QUALIFIED_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_LEDGER_AND_PROVENANCE_QUALIFICATIONS"
+    }
+  ],
+  "input_drift": [],
+  "junit_coverage": {
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 186,
+      "skipped": 0,
+      "tests": 186
+    },
+    "missing_file_attributes": 0,
+    "missing_suites": [],
+    "suite_files": [
+      "tests/test_stage353a.py",
+      "tests/test_stage353a_to_358a_ground_up_suite.py",
+      "tests/test_stage354a.py",
+      "tests/test_stage355a.py",
+      "tests/test_stage356a.py",
+      "tests/test_stage357a.py",
+      "tests/test_stage358a.py"
+    ],
+    "unexpected_suites": []
+  },
+  "missing_inputs": [],
+  "outputs": {
+    "docs/STAGE358A_GROUND_UP_REGRESSION.md": {
+      "bytes": 2475,
+      "path": "docs/STAGE358A_GROUND_UP_REGRESSION.md",
+      "sha256": "2c97119c33e50ec3859d104abf6870d06fa25fbba61a89e097a10861154fd10c"
+    }
+  },
+  "pytest": {
+    "command": [
+      "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "-o",
+      "addopts=",
+      "-o",
+      "junit_family=xunit1",
+      "tests/test_stage353a.py",
+      "tests/test_stage354a.py",
+      "tests/test_stage355a.py",
+      "tests/test_stage356a.py",
+      "tests/test_stage357a.py",
+      "tests/test_stage358a.py",
+      "tests/test_stage353a_to_358a_ground_up_suite.py",
+      "--junitxml=G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\verification\\stage358a\\run_001\\pytest.xml"
+    ],
+    "elapsed_seconds": 8.656000000002678,
+    "exit_code": 0,
+    "log": "artifacts/verification/stage358a/run_001/pytest.json",
+    "stderr": "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "stdout": "........................................................................ [ 38%]\n........................................................................ [ 77%]\n..........................................                               [100%]\n- generated xml file: G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\verification\\stage358a\\run_001\\pytest.xml -\n186 passed in 7.82s\n",
+    "timed_out": false
+  },
+  "pytest_counts": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 186,
+    "skipped": 0,
+    "tests": 186
+  },
+  "repo_gate": {
+    "command": [
+      "python",
+      "tools/verify/enforce_5pillar_research_gate.py",
+      "--check-repo"
+    ],
+    "elapsed_seconds": 0.0629999999946449,
+    "exit_code": 0,
+    "log": "artifacts/verification/stage358a/run_001/repo_gate.json",
+    "stderr": "",
+    "stdout": "{\n  \"compliant\": true,\n  \"failures\": []\n}\n",
+    "timed_out": false
+  },
+  "run_directory": "artifacts/verification/stage358a/run_001",
+  "stage": "358A",
+  "static_sources": [
+    {
+      "bytes": 8725,
+      "path": "tools/re/build_stage353a_sub20mhz_pll_ofdm_timing_matrix.py",
+      "sha256": "876b21d415d259ea255555cae3d7b6d271955f0cb0a60a70a73627e0afd02cc3"
+    },
+    {
+      "bytes": 59677,
+      "path": "artifacts/autoresearch/stage353a_sub20mhz_pll_ofdm_timing_matrix.json",
+      "sha256": "4b9433dbcb9c0c03a3c5da1a5d4c0449685c22c67166ad8eb45d7deda4ff590b"
+    },
+    {
+      "bytes": 2466,
+      "path": "docs/STAGE353A_SUB20MHZ_PLL_OFDM_TIMING_MATRIX.md",
+      "sha256": "e9a376a73dbefb508f9af3e3c5e4bf4583678716aa2032783866cc84efc3c175"
+    },
+    {
+      "bytes": 28002,
+      "path": "tools/sim/build_stage354a_wmi_4series_retry_fallback_pareto.py",
+      "sha256": "d80973cb0d34ab4804d6b6c6952823c1ddad877844ecaa273bdce9fed823e7b7"
+    },
+    {
+      "bytes": 385758,
+      "path": "artifacts/autoresearch/stage354a_wmi_4series_retry_fallback_pareto.json",
+      "sha256": "2dd79d20badd5ee6268bea008318471402cae3861e4a21b75fcc317e2be2ac62"
+    },
+    {
+      "bytes": 4547,
+      "path": "docs/STAGE354A_WMI_4SERIES_RETRY_FALLBACK_PARETO.md",
+      "sha256": "11a646a47d8cc57e8fe6a24c337bb873cd8d07d855672dcad4f13d07f42281fd"
+    },
+    {
+      "bytes": 17396,
+      "path": "tools/sim/build_stage355a_airselect_hopping_evasion_pareto.py",
+      "sha256": "2f446df52384fd972d4627bf2d89fac6a330111bbac5f21eb89c9f2c8820dc9d"
+    },
+    {
+      "bytes": 539584,
+      "path": "artifacts/autoresearch/stage355a_airselect_hopping_evasion_pareto.json",
+      "sha256": "04897cfe26ea87e34d2ad55fd50e197559f0686a687e1416e7213e823b887965"
+    },
+    {
+      "bytes": 3413,
+      "path": "docs/STAGE355A_AIRSELECT_HOPPING_EVASION_PARETO.md",
+      "sha256": "5f414d9934ecac630e2c2aa483d4697350ee29ba11516eb3c720af231d9c706f"
+    },
+    {
+      "bytes": 39098,
+      "path": "tools/firmware/verify_openmax_tester_bundle.py",
+      "sha256": "e8ea01806288102cc7be49edb73c929b16aa2cef1cefda25ffc8ad6ee2d28554"
+    },
+    {
+      "bytes": 25208,
+      "path": "artifacts/autoresearch/stage356a_tester_bundle_verifier.json",
+      "sha256": "50eb07e198f75b98cc08cef51e3936e02d41ca218f3ec3ec09c7d15ab3769809"
+    },
+    {
+      "bytes": 6258,
+      "path": "docs/STAGE356A_TESTER_BUNDLE_VERIFIER.md",
+      "sha256": "a4f102c55e893a99a9bc4e72ac2f0478d6bd5f8ea12b7263af523fb5c9148f73"
+    },
+    {
+      "bytes": 19193,
+      "path": "tools/verify/build_stage357a_ground_up_350stage_reconciliation.py",
+      "sha256": "757d8ba785f5f0419dfa7b61c82dcc883cd041e4cdc38e6a4475b27a8baf4176"
+    },
+    {
+      "bytes": 1896390,
+      "path": "artifacts/autoresearch/stage357a_ground_up_350stage_reconciliation.json",
+      "sha256": "a5d72449bd003171e422bde4f5529cf80c61c203ad6db8ab7601f6726fd88e9a"
+    },
+    {
+      "bytes": 4001,
+      "path": "docs/STAGE357A_GROUND_UP_350STAGE_RECONCILIATION.md",
+      "sha256": "825353979a0d76fdba2f8c762341fa4be0ea6a40169416a8dd44acd9939e2fb3"
+    },
+    {
+      "bytes": 2181,
+      "path": "tests/test_stage353a.py",
+      "sha256": "bcbf3c5a83993af7704fc3974d1caeeee576f76d51bfee1a15b33a2804906d42"
+    },
+    {
+      "bytes": 10910,
+      "path": "tests/test_stage354a.py",
+      "sha256": "eed51bf3ca7b5ce278ff98ead1baa06318ef554647ba94281f555ea1a6ebbd33"
+    },
+    {
+      "bytes": 3541,
+      "path": "tests/test_stage355a.py",
+      "sha256": "1363031b5ae66d4c8e0efe210c42a16a91203f0f632afed7358b31a6ffa1bc44"
+    },
+    {
+      "bytes": 22730,
+      "path": "tests/test_stage356a.py",
+      "sha256": "ed86d99e4536713a3191b4607d481d0e3c4b01026fa321c7655570901baa9b95"
+    },
+    {
+      "bytes": 6379,
+      "path": "tests/test_stage357a.py",
+      "sha256": "3bb048dbe4469c66bb816135484b0083de4bac6aacd84d203b0e85a7702a8215"
+    },
+    {
+      "bytes": 5421,
+      "path": "tests/test_stage358a.py",
+      "sha256": "1657ffa1ae7071ef4fa34e040a9d3390278ce8e6053d48547aefb40133281464"
+    },
+    {
+      "bytes": 2654,
+      "path": "tests/test_stage353a_to_358a_ground_up_suite.py",
+      "sha256": "39c36d71f835d5cf3a02eaa4998f03290bec1c5deecfe42233a57112f7ad12ba"
+    },
+    {
+      "bytes": 12508,
+      "path": "tools/verify/run_stage358a_ground_up_regression.py",
+      "sha256": "852acbc83487bc586ca1051b13e3d50f7522ffab19652601697300f7419c1c38"
+    },
+    {
+      "bytes": 2475,
+      "path": "docs/STAGE358A_GROUND_UP_REGRESSION.md",
+      "sha256": "2c97119c33e50ec3859d104abf6870d06fa25fbba61a89e097a10861154fd10c"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 8770,
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    }
+  ],
+  "status": "PASS_LOCAL_TOOLING_ONLY",
+  "task_id": "T-S358A-GROUND-UP-REGRESSION"
+}

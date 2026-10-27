@@ -1,0 +1,444 @@
+{
+  "stage": "248A",
+  "task_id": "T-S248A-LTU-5BOARD-CPE-FAMILY-BINARY-RE",
+  "generated_at": "2026-10-26T23:32:11.013976+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "afltu_2_4_2_ame_core_ko_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "afltu_2_4_2_ubnt_common_ko_sha256": "",
+    "afltu_2_4_2_air_fpga_sha256": "4233baa6f19bde37a87f9c836e0e23e2b0a0c7288b257b51b8f498f8c8ab0994",
+    "afltu_2_4_2_air_fpga_size_bytes": 2359369
+  },
+  "five_board_cpe_family": {
+    "board_ids": [
+      "0xae02",
+      "0xae07",
+      "0xae08",
+      "0xae09",
+      "0xae0b"
+    ],
+    "boards": [
+      {
+        "board_sysid": "0xae02",
+        "model": "LTU-Pro (AF-LTU5)",
+        "antenna_gain_dbi": 24,
+        "antenna_type": "Integrated 24 dBi Dual-Slant Dish",
+        "max_conducted_tx_power_dbm": 22,
+        "max_eirp_dbm": 46,
+        "pa_lna_profile_table": "af_ltu5_mcs_txpwr_freq_dbm",
+        "tx_power_by_mcs_dbm": {
+          "low_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          },
+          "high_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          }
+        },
+        "lna_nf_calibration_offset_db": -1.5
+      },
+      {
+        "board_sysid": "0xae07",
+        "model": "LTU-LR (Long-Range)",
+        "antenna_gain_dbi": 26,
+        "antenna_type": "Integrated 26 dBi High-Gain Reflector",
+        "max_conducted_tx_power_dbm": 22,
+        "max_eirp_dbm": 48,
+        "pa_lna_profile_table": "af_ltuLR_mcs_txpwr_freq_dbm",
+        "tx_power_by_mcs_dbm": {
+          "low_band": {
+            "4096-QAM (12x)": 0.02,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          },
+          "high_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          }
+        },
+        "lna_nf_calibration_offset_db": -2.0
+      },
+      {
+        "board_sysid": "0xae08",
+        "model": "LTU-Lite",
+        "antenna_gain_dbi": 13,
+        "antenna_type": "Integrated 13 dBi Compact Panel",
+        "max_conducted_tx_power_dbm": 22,
+        "max_eirp_dbm": 35,
+        "pa_lna_profile_table": "af_ltu5_mcs_txpwr_freq_dbm",
+        "tx_power_by_mcs_dbm": {
+          "low_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          },
+          "high_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          }
+        },
+        "lna_nf_calibration_offset_db": 0.0
+      },
+      {
+        "board_sysid": "0xae09",
+        "model": "LTU-XR (Extreme-Range)",
+        "antenna_gain_dbi": 29,
+        "antenna_type": "Integrated 29 dBi 550mm Deep-Dish Reflector",
+        "max_conducted_tx_power_dbm": 22,
+        "max_eirp_dbm": 51,
+        "pa_lna_profile_table": "af_ltuLR_mcs_txpwr_freq_dbm",
+        "tx_power_by_mcs_dbm": {
+          "low_band": {
+            "4096-QAM (12x)": 0.02,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          },
+          "high_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          }
+        },
+        "lna_nf_calibration_offset_db": -2.2
+      },
+      {
+        "board_sysid": "0xae0b",
+        "model": "LTU-Instant",
+        "antenna_gain_dbi": 13,
+        "antenna_type": "13 dBi Feedhorn / Instant Form Factor",
+        "max_conducted_tx_power_dbm": 22,
+        "max_eirp_dbm": 35,
+        "pa_lna_profile_table": "af_ltu5_mcs_txpwr_freq_dbm",
+        "tx_power_by_mcs_dbm": {
+          "low_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          },
+          "high_band": {
+            "4096-QAM (12x)": 0.01,
+            "1024-QAM (10x)": 0.02,
+            "256-QAM (8x)": 0.02,
+            "64-QAM (6x)": 0.02,
+            "16-QAM (4x)": 0.02,
+            "QPSK (2x)": 0.02
+          }
+        },
+        "lna_nf_calibration_offset_db": 0.0
+      }
+    ],
+    "mcs_txpwr_freq_ptp_profiles": {
+      "AF-5XHD_LTU-Rocket_LowBand": {
+        "4096-QAM (12x)": 16.0,
+        "1024-QAM (10x)": 20.0,
+        "256-QAM (8x)": 22.0,
+        "64-QAM (6x)": 24.0,
+        "16-QAM (4x)": 29.0,
+        "QPSK (2x)": 29.0,
+        "QPSK (1x)": 29.0
+      },
+      "AF-5XHD_LTU-Rocket_HighBand": {
+        "4096-QAM (12x)": 16.0,
+        "1024-QAM (10x)": 20.0,
+        "256-QAM (8x)": 22.0,
+        "64-QAM (6x)": 24.0,
+        "16-QAM (4x)": 27.0,
+        "QPSK (2x)": 29.0,
+        "QPSK (1x)": 29.0
+      },
+      "LTU-Lite_Pro_5_LowBand": {
+        "4096-QAM (12x)": 10.0,
+        "1024-QAM (10x)": 14.0,
+        "256-QAM (8x)": 17.0,
+        "64-QAM (6x)": 19.0,
+        "16-QAM (4x)": 22.0,
+        "QPSK (2x)": 22.0,
+        "QPSK (1x)": 22.0
+      },
+      "LTU-Lite_Pro_5_HighBand": {
+        "4096-QAM (12x)": 10.0,
+        "1024-QAM (10x)": 14.0,
+        "256-QAM (8x)": 18.0,
+        "64-QAM (6x)": 20.0,
+        "16-QAM (4x)": 22.0,
+        "QPSK (2x)": 22.0,
+        "QPSK (1x)": 22.0
+      },
+      "LTU-LR_XR_LowBand": {
+        "4096-QAM (12x)": 12.0,
+        "1024-QAM (10x)": 16.0,
+        "256-QAM (8x)": 18.0,
+        "64-QAM (6x)": 20.0,
+        "16-QAM (4x)": 22.0,
+        "QPSK (2x)": 22.0,
+        "QPSK (1x)": 22.0
+      },
+      "LTU-LR_XR_HighBand": {
+        "4096-QAM (12x)": 10.0,
+        "1024-QAM (10x)": 14.0,
+        "256-QAM (8x)": 19.0,
+        "64-QAM (6x)": 21.0,
+        "16-QAM (4x)": 22.0,
+        "QPSK (2x)": 22.0,
+        "QPSK (1x)": 22.0
+      }
+    },
+    "extracted_board_and_pa_lna_symbols": [
+      {
+        "name": "AME_Modem_RestartCalcSigWithFreq",
+        "offset_hex": "0x42b64",
+        "size_bytes": 92,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "AME_SchedCheckForcedDGain",
+        "offset_hex": "0x5dddc",
+        "size_bytes": 8,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "AME_SchedUpdateULDGain",
+        "offset_hex": "0x5cec4",
+        "size_bytes": 4,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "AME_Sched_Local",
+        "offset_hex": "0x62ce8",
+        "size_bytes": 2780,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "AME_Sched_Local_NoBeacon",
+        "offset_hex": "0x637c4",
+        "size_bytes": 108,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "AME_Scheduler_ForceCriteria_DGAIN",
+        "offset_hex": "0x6e99c",
+        "size_bytes": 68,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "CheckSpecialTunnelBufFilled",
+        "offset_hex": "0x729e0",
+        "size_bytes": 56,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "CheckSpecialTunnelTimeout",
+        "offset_hex": "0x72a18",
+        "size_bytes": 104,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "Ctrl_SaveConfig2Local",
+        "offset_hex": "0x706f8",
+        "size_bytes": 696,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "FreeSpecialTunnelBuf",
+        "offset_hex": "0x72d1c",
+        "size_bytes": 1268,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "GetSpecialTunnelBuf",
+        "offset_hex": "0x7328c",
+        "size_bytes": 40,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "GetSpecialTunnelBuflen",
+        "offset_hex": "0x7325c",
+        "size_bytes": 48,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "GetSpecialTunnelCtrlSN",
+        "offset_hex": "0x73398",
+        "size_bytes": 84,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "IF_Ctrl2Driv_CheckSpecialTunnelBuf",
+        "offset_hex": "0x78d78",
+        "size_bytes": 12,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "IF_Ctrl2Driv_FreeSpecialTunnelBuf",
+        "offset_hex": "0x79234",
+        "size_bytes": 12,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "IF_Ctrl2Driv_Periodical_Handler",
+        "offset_hex": "0x78d68",
+        "size_bytes": 16,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "IF_Ctrl2Driv_SaveConfig2Local",
+        "offset_hex": "0x79264",
+        "size_bytes": 12,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "IF_Ctrl2Driv_SetSpecialTunnelBuf",
+        "offset_hex": "0x78d84",
+        "size_bytes": 1200,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "LookUpTxPwrRoom",
+        "offset_hex": "0x368b4",
+        "size_bytes": 64,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "Sched_find_Qscale_by_QId",
+        "offset_hex": "0x5acac",
+        "size_bytes": 40,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "SetSpecialTunnelBuf",
+        "offset_hex": "0x72a80",
+        "size_bytes": 668,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "SetSpecialTunnelCtrlSN",
+        "offset_hex": "0x733ec",
+        "size_bytes": 332,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "__ksymtab_ame_bbp_get_rxgain",
+        "offset_hex": "0x38",
+        "size_bytes": 8,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "__ksymtab_ame_bbp_obs_set_rxgain",
+        "offset_hex": "0x40",
+        "size_bytes": 8,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "__ksymtab_ame_core_set_forceFixedRxGain",
+        "offset_hex": "0x68",
+        "size_bytes": 8,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "af_5xhd_mcs_txpwr_freq",
+        "offset_hex": "0x5498",
+        "size_bytes": 48,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "af_ltu5_mcs_txpwr_freq",
+        "offset_hex": "0x54c8",
+        "size_bytes": 48,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "af_ltuLR_mcs_txpwr_freq",
+        "offset_hex": "0x54f8",
+        "size_bytes": 48,
+        "type": "STT_OBJECT"
+      },
+      {
+        "name": "air_calc_available_queue_frag_count",
+        "offset_hex": "0x115828",
+        "size_bytes": 212,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "air_calc_frame_based_queue_frag_count",
+        "offset_hex": "0x115754",
+        "size_bytes": 212,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "ame_add_ioctl_callback",
+        "offset_hex": "0x83c90",
+        "size_bytes": 1456,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "ame_bbp_get_antenna_gain",
+        "offset_hex": "0x191354",
+        "size_bytes": 16,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "ame_bbp_get_dagc_gain",
+        "offset_hex": "0x18b680",
+        "size_bytes": 16,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "ame_bbp_get_rxgain",
+        "offset_hex": "0x18b3bc",
+        "size_bytes": 12,
+        "type": "STT_FUNC"
+      },
+      {
+        "name": "ame_bbp_get_tx_gain",
+        "offset_hex": "0x18b674",
+        "size_bytes": 12,
+        "type": "STT_FUNC"
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s248a-ltu-5board-cpe-family-re"
+  }
+}

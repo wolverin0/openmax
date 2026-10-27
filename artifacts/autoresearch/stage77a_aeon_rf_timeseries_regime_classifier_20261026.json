@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "77A",
+  "task_id": "T-S77A-AEON-TIME-SERIES-RF-REGIME-AND-ANOMALY-CLASSIFIER",
+  "generated_at_utc": "2026-10-26T13:43:17.601947+00:00",
+  "status": "CONFIRMED",
+  "epistemic_label": "CONFIRMED",
+  "protocol": "A1->B1->A2->B2",
+  "watchdog_seconds": 45,
+  "memory_master_claim_id": "mm-stage77a-aeon-rf-timeseries-regime-classifier-20261026",
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "COMPLIANT",
+    "evidence": "Calibrated 6-channel multivariate time-series signatures directly from Stage 63B/64A LTU-BUG-05 (-24 dB 3-second LNA step drop), Stage 71B/76A Guarida airtime hogs & co-channel interference, and Stage 59A zero-false-positive frozen-collector telemetry rules."
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "COMPLIANT",
+    "verifier_model": "jev-1.14.0",
+    "verified_paper_ids": [
+      "1503.04533v6",
+      "0806.4695v1",
+      "2211.03471v1",
+      "2101.07562v1"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "COMPLIANT",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "COMPLIANT",
+    "aeon_3d_shape": [
+      500,
+      6,
+      60
+    ],
+    "heldout_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "cv_5fold_mean_accuracy": 0.998,
+    "frozen_collector_false_positive_rate": 0.0
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage77a-aeon-rf-timeseries-regime-classifier-20261026",
+  "layer_attribution": [
+    "external controller",
+    "proprietary airMAX/LTU module",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "hardware"
+  ],
+  "dataset_specification": {
+    "shape_n_cases_n_channels_n_timepoints": [
+      500,
+      6,
+      60
+    ],
+    "train_shape": [
+      350,
+      6,
+      60
+    ],
+    "test_shape": [
+      150,
+      6,
+      60
+    ],
+    "channels": [
+      "rx_signal_dbm",
+      "channel_busy_pct",
+      "tx_retries_pct",
+      "p95_rtt_ms",
+      "rx_bytes_delta",
+      "max_bd_or_aql_backlog"
+    ],
+    "regime_classes": {
+      "0": "NORMAL_LOAD",
+      "1": "CO_CHANNEL_INTERFERENCE",
+      "2": "BAD_APPLE_AIRTIME_HOG",
+      "3": "LTU_BUG05_LNA_DEAFNESS",
+      "4": "FROZEN_COLLECTOR_FALSE_ALARM"
+    }
+  },
+  "evaluation_metrics": {
+    "heldout_accuracy": 1.0,
+    "heldout_macro_f1": 1.0,
+    "cv_5fold_accuracies": [
+      1.0,
+      0.99,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cv_5fold_mean_accuracy": 0.998,
+    "frozen_collector_false_positive_rate": 0.0,
+    "confusion_matrix_5x5": [
+      [
+        30,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        30,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        30,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        30,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        30
+      ]
+    ]
+  }
+}

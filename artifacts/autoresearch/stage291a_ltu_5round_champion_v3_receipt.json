@@ -1,0 +1,38 @@
+{
+  "stage": "291A",
+  "task_id": "T-S291A-LTU-5ROUND-CHAMPION-V3-CONSOLIDATION",
+  "generated_at": "2026-10-26T23:39:52.326212+00:00",
+  "status": "CONFIRMED",
+  "attribution": "Linux",
+  "script_path": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh",
+  "script_sha256": "8181d67ad0ef17674d4b03ced5b3c375f49f1828874fc3bfdf99c9636666b2e8",
+  "consolidated_stages": [
+    "185A",
+    "188A",
+    "218A",
+    "247A",
+    "287A"
+  ],
+  "total_live_ab_rounds": 15,
+  "total_live_measurement_windows": 60,
+  "checks": {
+    "exists": true,
+    "lf_only_no_crlf": true,
+    "zero_dev_ame_references": true,
+    "r1_smp_irq_and_rps_xps": true,
+    "r1_bql_limit_36288": true,
+    "r2_napi_480_48_somaxconn_512": true,
+    "r3_min_free_4096_tcp_small_queues": true,
+    "r4_pacing_bridge_fq_codel": true,
+    "r5_rmem_wmem_default_262144": true,
+    "r5_backlog_3000_tw_reuse_1": true,
+    "r5_rps_sock_flow_entries_4096": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s291a-ltu-5round-champion-v3"
+  }
+}

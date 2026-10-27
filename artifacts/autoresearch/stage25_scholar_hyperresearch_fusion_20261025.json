@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "T-S25-SCHOLAR-MCP-HYPERRESEARCH-FUSION-AND-M3-M5-BENCH",
+  "generated_at_utc": "2026-10-25T15:58:44Z",
+  "dual_engine_architecture": {
+    "engine_1_scholar_mcp": {
+      "discovery": "arXiv API candidate search (`scholar_research` / `scholar_search`)",
+      "gatekeeper": "Jev System One (`jev-1.14.0`) semantic probability filter (`P_empirical`, `P_applicable`)",
+      "verifier": "Exact character-offset span extraction & claim verification (`scholar_verify_claim`, `prob = 0.97`)"
+    },
+    "engine_2_hyperresearch_v0_12": {
+      "discovery": "OpenAlex + Crossref + Unpaywall + DOAB + Crawl4AI full-text fetch",
+      "knowledge_graph": "SQLite FTS5 + linked Markdown vault (`artifacts/hyperresearch_vault`) + cross-source claim stance aggregation"
+    }
+  },
+  "vault_tag": "stage25-scholar-fusion-20261025",
+  "ingested_scholar_papers": [
+    {
+      "paper_id": "1703.00064v2",
+      "title": "Ending the Anomaly: Achieving Low Latency and Airtime Fairness in WiFi",
+      "note_id": "scholarjev-verified-arxiv-170300064v2-ending-the-anomaly-achieving-low-latency-a",
+      "source_file": "artifacts\\hyperresearch_vault\\sources\\arxiv_1703.00064v2.json",
+      "verification_probability": 0.97,
+      "model_version": "jev-1.14.0",
+      "exact_span": {
+        "start_char": 821,
+        "end_char": 1035,
+        "text": "We show that our solution achieves an order of magnitude reduction in latency under load, large improvements in multi-station throughput, and nearly perfect airtime fairness for both TCP and downstream UDP traffic."
+      },
+      "futuramax_mechanism_link": "M3 (`PB-023` Per-Station CoDel Target/Interval & Dynamic Quantum Tuning on `mac80211`/`ath10k` TXQs)"
+    },
+    {
+      "paper_id": "0806.1089v1",
+      "title": "Fair and Efficient TCP Access in the IEEE 802.11 Infrastructure Basic Service Set",
+      "note_id": "scholarjev-verified-arxiv-08061089v1-fair-and-efficient-tcp-access-in-the-ieee-8",
+      "source_file": "artifacts\\hyperresearch_vault\\sources\\arxiv_0806.1089v1.json",
+      "verification_probability": 0.97,
+      "model_version": "jev-1.14.0",
+      "exact_span": {
+        "start_char": 874,
+        "end_char": 1122,
+        "text": "The novel and simple idea of the proposed link layer access control block is employing a congestion control and filtering algorithm on TCP ACK packets of uplink flows, thereby prioritizing the access of TCP data packets of downlink flows at the AP."
+      },
+      "futuramax_mechanism_link": "M5 (`PB-022` Asymmetric UL/DL TCP ACK Pacing, `tcp_thin_linear_timeouts=1`, `tcp_early_retrans=3`)"
+    }
+  ],
+  "claims_bundle_file": "artifacts\\hyperresearch_vault\\claims\\scholar_jev_verified_claims_stage25.json",
+  "hyperresearch_sync": true,
+  "hyperresearch_claims_ingest": {
+    "ok": true,
+    "data": {
+      "files": 11,
+      "ingested": 0,
+      "skipped": 12,
+      "errors": [],
+      "scanned": [
+        "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\hyperresearch_vault\\research\\temp"
+      ]
+    },
+    "vault": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\hyperresearch_vault",
+    "timestamp": "2026-10-25T15:58:42.809701+00:00"
+  },
+  "hyperresearch_link": false,
+  "hyperresearch_repair": true,
+  "vault_status_after_fusion": {
+    "vault_name": "FuturaMAX Deep Research Vault",
+    "vault_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\hyperresearch_vault",
+    "notes": {
+      "total": 23,
+      "by_status": {
+        "draft": 11,
+        "evergreen": 11,
+        "review": 1
+      },
+      "by_type": {
+        "index": 9,
+        "note": 14
+      }
+    },
+    "tags": {
+      "total_unique": 11,
+      "top": [
+        {
+          "tag": "scholar-mcp,jev-verified,arxiv,stage25-scholar-fusion-20261025",
+          "count": 2
+        },
+        {
+          "tag": "4096qam,1024qam,snr,evm,rate-control,ltu,af4x",
+          "count": 1
+        },
+        {
+          "tag": "ad9361,4096qam,1024qam,evm,phase-noise,ltu,tdd",
+          "count": 1
+        },
+        {
+          "tag": "airbbr,bbr,aql,airtime-fairness,80211ac,pacing",
+          "count": 1
+        },
+        {
+          "tag": "airtime,aql,codel,ptmp,fairness",
+          "count": 1
+        },
+        {
+          "tag": "fq_codel,bufferbloat,aqm,80211ac,quantum,ecn",
+          "count": 1
+        },
+        {
+          "tag": "hidden-node,rts-cts,ptmp,80211n,80211ac,collision",
+          "count": 1
+        },
+        {
+          "tag": "mimo,chain-imbalance,antenna-selection,stbc,mrc,80211n,80211ac",
+          "count": 1
+        },
+        {
+          "tag": "synthesis,stage24,airbbr,pb021,pb040,ltu,af4x,pbm5,qca988x",
+          "count": 1
+        },
+        {
+          "tag": "tdma,ptmp,txop,aql,polling,80211",
+          "count": 1
+        }
+      ]
+    },
+    "graph": {
+      "total_links": 84,
+      "broken_links": 6,
+      "orphan_notes": 0
+    },
+    "total_words": 47508,
+    "last_sync": "2026-10-25T15:58:43.710988+00:00"
+  }
+}

@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S37B-CODEX-CHAMPION-V10-MAC80211-AQM-AND-TRIPLE-PLAY-CANARY-VERIFIER",
+  "generated_at_utc": "2026-10-25T20:12:04.152643+00:00",
+  "status": "PASS_WITH_LIMITS",
+  "open_material_blockers": 0,
+  "material_findings": [],
+  "scope": "Independent static review of Stage37B source, tests, report and owner validation; no product imports or pytest execution",
+  "source_bindings": [
+    {
+      "path": "controller/mac80211_aqm_per_tid_canary_verifier.py",
+      "bytes": 25544,
+      "sha256": "f4d45f534d1da61a78ad0cb6d2c6331f639fcb7f33c8df818597337683a0621f"
+    },
+    {
+      "path": "tests/test_stage37b_mac80211_aqm_canary.py",
+      "bytes": 22668,
+      "sha256": "e0621ab5605c6c154173a7418d3482b6de427c6af32105a6f6b2220b048c0a9e"
+    },
+    {
+      "path": "docs/STAGE37B_MAC80211_AQM_PER_TID_CANARY_VERIFIER.md",
+      "bytes": 12821,
+      "sha256": "46b5fedf1d656ee12c251e7facce6596e1f63f1b6efccd24e8b7c95afe7b9584"
+    },
+    {
+      "path": "artifacts/autoresearch/stage37b_mac80211_aqm_validation_20261025.json",
+      "bytes": 4261,
+      "sha256": "4b63788cedbcf379286a8a80c73e2d761d2e9d11c1e029e9c69805c04e7845c0"
+    },
+    {
+      "path": "controller/iptv_dms_ac_vi_canary_gate.py",
+      "bytes": 26721,
+      "sha256": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1"
+    },
+    {
+      "path": "controller/openwisp_uisp_unified_canary_provisioner.py",
+      "bytes": 34017,
+      "sha256": "eacef354a5a657d049fa7b81a0aab761f6784cd34fe9039e0ff1838d333745e7"
+    },
+    {
+      "path": "artifacts/autoresearch/stage36a_live_iptv_ac_vi_ptmp_bench_20261025.json",
+      "bytes": 36524,
+      "sha256": "90cf485d24bcf77584f5ce2d2e4fe142c15e4ebdd70dffb631fbf8789d9a0f4d"
+    },
+    {
+      "path": "docs/STAGE36A_LIVE_IPTV_AC_VI_AND_DMS_PTMP_BENCHMARK.md",
+      "bytes": 7927,
+      "sha256": "ac2dbe5bc1a5098c8a276898f2e619926f5df312640af00ef2a20c7b45b1a934"
+    },
+    {
+      "path": "docs/BENCH_PLAN.md",
+      "bytes": 758650,
+      "sha256": "b72369f9fa0f86800b0241dbc31b08b7ad517a29cc8a15df84bb6274968da1fe"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact_pin_module",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "exact_pin_tests",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "exact_pin_report",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "exact_pin_stage36b",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "exact_pin_stage35b",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "module_AST_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "tests_AST_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "no_native_transport_import",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "global_header_access_and_complete_fields",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "global_unterminated_rejected",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "raw_event_swap_warning_preserved",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "station_unterminated_rejected",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "complete_eight_TID_profile_and_optional16",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "flags_space_and_uint_preserved",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_normalization_only_explicit_reader",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_R2_canonical_bound",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "independent_R2_digest",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_B1_ap_three_RW",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_B1_cpe_three_RW",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_B2_ap_three_RW",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "source_B2_cpe_three_RW",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "distinct_AP_CPE_AQL_and_threshold",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "plan_canonical_typed_rebuild",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "complete_station_inventory",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "identity_complete_global",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "station_path_and_epoch_binding",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "epoch_peer_membership_unchanged",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "all_event_totals_zero",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "counter_epoch_time_progression",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "both_proof_endpoints_v10",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "bounded_proof_window",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "typed_sequence_witness",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "explicit_service_class_epoch_witnesses",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "positive_counts_bounded_by_same_dequeue",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "proof_binds_normalized_snapshots",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "receiver_and_physical_not_inferred",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "only_three_typed_global_writes",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "atomic_commit_strict_preflight_before_any_readback",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "real_adapter_explicit_digest_and_evidence_kind",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "arm_before_any_candidate_write",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "saved_exact_RW_and_identity",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "lease_restore_reserve",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "postapply_probe_not_preapply",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "final_progression_checked",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "commit_plan_proof_both_directions",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "atomic_guard_protocol_complete",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "cancel_failure_caught_restore",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "restore_exact_identity_RW_flows_not_counters",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "release_only_after_verified_restore",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "unknown_arm_and_failed_restore_named",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_global_parser_rejects_partial_or_wrong_abi",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_station_parser_rejects_malformed_or_non_data_tid_rows",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_flow_counts_cannot_exceed_same_class_dequeue_delta",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_multiple_flows_cannot_reuse_evidence_or_overallocate_one_tid",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_standalone_triple_play_rejects_unapplied_baseline_even_with_valid_later_target",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_post_guard_failure_restores_exact_original_rw_not_champion_defaults",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_wrong_restore_or_changed_global_epoch_cannot_release_guard",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_guard_receipt_failure_never_mutates",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_real_adapter_is_blocked_before_preflight_by_default",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "test_present_test_atomic_commit_qualification_is_required_before_snapshot_or_arming",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "nondefault_saved_restore_fixture",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "commit_race_and_proof_receipt_regressions",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_header_5_summary_lines",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_mac80211_aqm_per_tid_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_test_stage37b_mac80211_aqm_canary.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_original forward plan",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_BENCH_PLAN",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_Stage36A JSON",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_Stage36A report",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_Stage36B gate",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "report_local_link_stage37b_mac80211_aqm_validation_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_no TID6 or identified VoIP flow",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_lacks a CPE AQL getter",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_both must be zero",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_read-only statistics",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_disjoint flow packets",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_atomic commit gate",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_Receiver delivery, jitter and player QoE require separate receiver evidence",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_NOT_ACCEPTED",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "document_limit_86 tests in0.45s",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_controller/mac80211_aqm_per_tid_canary_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_tests/test_stage37b_mac80211_aqm_canary.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_docs/STAGE37B_MAC80211_AQM_PER_TID_CANARY_VERIFIER.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_controller/iptv_dms_ac_vi_canary_gate.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_artifacts/autoresearch/stage36a_live_iptv_ac_vi_ptmp_bench_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_validation_pin_docs/STAGE36A_LIVE_IPTV_AC_VI_AND_DMS_PTMP_BENCHMARK.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_86PASS_current_console",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_81PASS_history_retained",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    },
+    {
+      "name": "owner_runtime_limits",
+      "passed": true,
+      "method": "fresh_static_AST_text_or_hash"
+    }
+  ],
+  "fresh_check_count": 89,
+  "test_functions_reviewed": [
+    "test_atomic_commit_qualification_is_required_before_snapshot_or_arming",
+    "test_canary_arms_before_only_three_global_rw_writes_and_never_touches_station_stats",
+    "test_combined_capture_has_one_explicit_aql_boundary_not_partial_global_parse",
+    "test_counter_deltas_refuse_reset_wrap_replay_or_changed_epochs",
+    "test_flow_counts_cannot_exceed_same_class_dequeue_delta",
+    "test_global_event_labels_both_block_without_guessing_swapped_counter_semantics",
+    "test_global_nine_fields_keep_read_only_labels_and_exact_three_writes",
+    "test_global_parser_rejects_partial_or_wrong_abi",
+    "test_guard_receipt_failure_never_mutates",
+    "test_multiple_flows_cannot_reuse_evidence_or_overallocate_one_tid",
+    "test_post_guard_failure_restores_exact_original_rw_not_champion_defaults",
+    "test_real_adapter_is_blocked_before_preflight_by_default",
+    "test_role_targets_and_aql_do_not_alias_ap_to_cpe",
+    "test_standalone_triple_play_rejects_unapplied_baseline_even_with_valid_later_target",
+    "test_station_parser_rejects_malformed_or_non_data_tid_rows",
+    "test_station_parser_requires_all_eight_data_tids_with_optional_management_tid16",
+    "test_triple_play_witnesses_prove_dequeue_classification_not_receiver_delivery",
+    "test_witnesses_must_bind_actual_service_tid_ac_epoch_and_window",
+    "test_wrong_restore_or_changed_global_epoch_cannot_release_guard",
+    "test_zero_event_policy_covers_every_observed_tid_not_only_three_service_tids"
+  ],
+  "owner_test_evidence": {
+    "classification": "REUSED_OWNER_DIRECT_CONSOLE_NOT_INDEPENDENT_EXECUTION",
+    "tests": {
+      "command": "python -m pytest tests/test_stage37b_mac80211_aqm_canary.py -q",
+      "direct_without_heavy_slot": true,
+      "exit_code": 0,
+      "passed": 86,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_elapsed_s": 0.45,
+      "tool_wall_time_s": 1.7403524,
+      "console_receipt": "97937c",
+      "stdout_summary": "86 passed in 0.45s",
+      "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+      "scope": "disposable_fixture_only"
+    },
+    "xml_available": false,
+    "earlier_revision": [
+      {
+        "tests": {
+          "command": "python -m pytest tests/test_stage37b_mac80211_aqm_canary.py -q",
+          "direct_without_heavy_slot": true,
+          "exit_code": 0,
+          "passed": 81,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "pytest_elapsed_s": 0.46,
+          "tool_wall_time_s": 2.6057362,
+          "console_receipt": "9a624c",
+          "stdout_summary": "81 passed in 0.46s",
+          "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+          "scope": "disposable_fixture_only"
+        },
+        "module_sha256": "03eea3cba558bce44e18710c7844ea1dbaef7284e91b7e713efb3a648d1e151e",
+        "test_sha256": "e7c35f3ef5be88dd9062e442ca9b46abd1053c634b28aab50d27b2c72861f322",
+        "superseded_by": "Atomic commit guard qualification and proof-binding regressions"
+      }
+    ]
+  },
+  "findings_resolved": [
+    {
+      "finding": "Pre-apply traffic could satisfy treatment proof",
+      "initial_module_sha256": "355cc2591533f00e2965dbf4e3257c20d955585c93f418b06c9633f83351ce9c",
+      "resolution": "Probe uses verified post-apply snapshot and standalone proof requires both endpoints v10."
+    },
+    {
+      "finding": "Unbounded or duplicated flow evidence",
+      "resolution": "Per-MAC/TID sum <= dequeue delta and same-class digest reuse rejected; disjoint trace qualification remains external."
+    },
+    {
+      "finding": "Last numeric field can hide truncated live read",
+      "resolution": "Both live parsers require newline; saved stripped capture normalization explicitly separate."
+    },
+    {
+      "finding": "Final-readback/commit TOCTOU",
+      "resolution": "Required strict atomic-commit qualification, fenced journal-bound plan/proof, exact receipt match and restoration on rejection."
+    }
+  ],
+  "checker_history": [
+    {
+      "tool_chunk": "86aae1",
+      "exit_code": 1,
+      "failed_check": "saved CPE normalization only source reader",
+      "classification": "REVIEW_CHECKER_ASSUMED_WRONG_LITERAL_NOT_PRODUCT_FAILURE",
+      "actual_expression": "getters[\"loco_aqm\"].rstrip(\"\\n\") + \"\\n\"",
+      "resolution": "AST/text check now matches actual explicit source-only reader; no product relaxation."
+    }
+  ],
+  "primary_source_references": [
+    {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/mac80211/debugfs.c",
+      "lines": "68-140,244-285,628",
+      "supports": "nine-field table/three RW setters/swapped printed event arguments/AQL update distinction"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/net/mac80211/debugfs_sta.c",
+      "lines": "125-182,1129-1164",
+      "supports": "station preamble/12 columns/flags/read-only statistics/TXQ identity"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gregkh/linux/v6.6.110/include/net/fq_impl.h",
+      "lines": "123-125,145-154,222-235",
+      "supports": "dequeue counters and FQ hash/event semantics, not over-air delivery"
+    }
+  ],
+  "limits": [
+    "Static evidence only; no independent pytest, native collector, device adapter or resident guard execution.",
+    "Linux stable tag source is not a verified installed OpenWrt source/module identity.",
+    "All-eight-data-TID plus optional16 is a bounded acceptance profile, not a universal parser for every kernel TXQ shape.",
+    "Trace disjointness and atomic setter/commit journal guarantees require independently qualified native adapter implementation; no default adapter provided.",
+    "60-second lease and five-second call bound are contract values, not a measured hardware recovery guarantee.",
+    "Restoration covers only three captured global RW parameters; counter/backlog/loss history is neither reset nor restored.",
+    "Canonical S36A-R2 source is authenticated; later whole-file hash is observation-only and does not establish voice/receiver/QoE/gain/physical acceptance."
+  ],
+  "writes": "Only this new private TEMP receipt/helper; project files untouched",
+  "stopped_after_receipt": true
+}

@@ -1,0 +1,65 @@
+{
+  "stage": "717A",
+  "title": "Guarida Tower v7 Synchronized 10ms 67/33 (.82/.83), 7935B A-MSDU (.84) & +10MHz (.60/.61) Pareto",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "ath10k",
+    "mac80211"
+  ],
+  "timestamp_utc": "2026-10-27T02:02:38.363134+00:00",
+  "v7_mechanisms": {
+    "panel2_82_and_panel3_83": "Synchronized Fixed 10ms 67/33 DL/UL duty cycle (+34.84% DL airtime) + Rocio DURAN & SOSA_Joaquin EVM alignment",
+    "panel1_84": "OpenWrt ht_capa=0x09ed (7935B Max A-MSDU) + PB060-TXOP-CABQ-SCHED",
+    "backbone_60_61": "+10 MHz center-frequency shift off Subcarrier-51 spur + ast_rxorn rescue"
+  },
+  "candidates": [
+    {
+      "id": "GUARIDA_STOCK_UNSYNCED",
+      "tdd_mode_82_83": "Auto / Unsynced 5ms",
+      "backbone_60_61_mbps": 148.0,
+      "panel1_84_mbps": 78.4,
+      "panel2_82_mbps": 68.1,
+      "panel3_83_mbps": 30.28,
+      "tower_aggregate_mbps": 324.78,
+      "tower_p99_rtt_ms": 48.2,
+      "pareto_optimal": false
+    },
+    {
+      "id": "GUARIDA_V6_PB060_UNSYNCED_TDD",
+      "tdd_mode_82_83": "Flexible cbp_dur=900us",
+      "backbone_60_61_mbps": 201.2,
+      "panel1_84_mbps": 104.5,
+      "panel2_82_mbps": 105.4,
+      "panel3_83_mbps": 46.8,
+      "tower_aggregate_mbps": 457.9,
+      "tower_p99_rtt_ms": 9.45,
+      "pareto_optimal": true
+    },
+    {
+      "id": "GUARIDA_V7_SYNC_10MS_67_33_AND_EVM_ALIGNED_CHAMPION",
+      "tdd_mode_82_83": "Synchronized Fixed 10ms 67/33 (+34.84% DL airtime) + cbp_dur=900us",
+      "backbone_60_61_mbps": 204.5,
+      "panel1_84_mbps": 106.2,
+      "panel2_82_mbps": 118.4,
+      "panel3_83_mbps": 52.1,
+      "tower_aggregate_mbps": 481.2,
+      "tower_p99_rtt_ms": 8.6,
+      "pareto_optimal": true
+    }
+  ],
+  "selected_champion": "GUARIDA_V7_SYNC_10MS_67_33_AND_EVM_ALIGNED_CHAMPION",
+  "tower_aggregate_gain_pct": 48.16,
+  "safety": {
+    "touched_protected_nodes": false,
+    "guarida_sg01_respected": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_re": "Unifies Fixed 10ms 67/33 TDD framing, ht_capa=0x09ed 7935B A-MSDU, PB060, and Subcarrier-51 shift",
+    "pillar_b_hyperresearch": "Eliminates co-tower DL/UL phase collisions between Panel2 (.82) and Panel3 (.83)",
+    "pillar_c_autoresearch": "Grounded on Stage 663A and Stage 702A verified Guarida telemetry",
+    "pillar_d_scientific": "SimPy + pymoo NSGA-II Pareto (+48.16% aggregate goodput: 324.78 -> 481.20 Mbps, p99 48.20 -> 8.60 ms)",
+    "pillar_e_memory": "project:futuramax stage717a_guarida_tower_v7_synchronized_67_33_pareto"
+  }
+}

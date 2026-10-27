@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "stage": "786A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage786a_ltu_ame_core_colocated_frame_pulse_sync_re.py",
+    "tool_sha256": "285895f54eb03b664f2e162ad19bea0927983866f561fcb74f9af96903bc087d",
+    "output": "artifacts/autoresearch/stage786a_ltu_ame_core_colocated_frame_pulse_sync_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "accessor-pair detection for frame_pulse_offset and cli_isolation; SFN sync predicate lookup at two layers; sysfs show/store detection; explicit probe for the coloc/sector/panel vocabulary",
+    "premise_corrections": [
+      "the isolation the stack implements is cli_isolation, which isolates CLIENTS, not co-located panels: coloc, sector and panel all return 0",
+      "frame_pulse_offset is a runtime writable knob, so the frame alignment Stage 416A could not find is exposed rather than compiled in"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "frame_pulse_offset": 2,
+        "is_remote_SFN": 2,
+        "isolation": 2,
+        "isolat": 2,
+        "coloc": 0,
+        "COLOC": 0,
+        "sector": 0,
+        "panel": 0
+      },
+      "fpo": {
+        "ame_bbp_set_frame_pulse_offset": 1,
+        "ame_bbp_get_frame_pulse_offset": 1
+      },
+      "sync": {
+        "ame_bbp_is_remote_SFN_synchronized": 1,
+        "bbp_base_is_remote_SFN_synchronized": 1
+      },
+      "cli": {
+        "ame_core_get_cli_isolation": 1,
+        "ame_core_set_cli_isolation": 1
+      },
+      "sysfs": {
+        "show": 0,
+        "store": 0
+      },
+      "assumed": {
+        "coloc": 0,
+        "sector": 0,
+        "panel": 0
+      },
+      "fpo_symbols": [
+        "ame_bbp_get_frame_pulse_offset",
+        "ame_bbp_set_frame_pulse_offset"
+      ],
+      "sync_symbols": [
+        "ame_bbp_is_remote_SFN_synchronized",
+        "bbp_base_is_remote_SFN_synchronized"
+      ],
+      "isolation_symbols": [
+        "ame_core_get_cli_isolation",
+        "ame_core_set_cli_isolation"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "frame_pulse_offset": 3,
+        "is_remote_SFN": 0,
+        "isolation": 2,
+        "isolat": 2,
+        "coloc": 0,
+        "COLOC": 0,
+        "sector": 0,
+        "panel": 0
+      },
+      "fpo": {
+        "ame_bbp_set_frame_pulse_offset": 0,
+        "ame_bbp_get_frame_pulse_offset": 0
+      },
+      "sync": {
+        "ame_bbp_is_remote_SFN_synchronized": 0,
+        "bbp_base_is_remote_SFN_synchronized": 0
+      },
+      "cli": {
+        "ame_core_get_cli_isolation": 0,
+        "ame_core_set_cli_isolation": 0
+      },
+      "sysfs": {
+        "show": 1,
+        "store": 1
+      },
+      "assumed": {
+        "coloc": 0,
+        "sector": 0,
+        "panel": 0
+      },
+      "fpo_symbols": [
+        "frame_pulse_offset_show",
+        "frame_pulse_offset_store"
+      ],
+      "sync_symbols": [],
+      "isolation_symbols": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "frame_pulse_offset_accessors": [
+      "ame_bbp_set_frame_pulse_offset",
+      "ame_bbp_get_frame_pulse_offset"
+    ],
+    "frame_pulse_offset_getset": 1,
+    "frame_pulse_offset_sysfs_pairs": 1,
+    "frame_pulse_offset_symbols": [
+      "ame_bbp_get_frame_pulse_offset",
+      "ame_bbp_set_frame_pulse_offset",
+      "frame_pulse_offset_show",
+      "frame_pulse_offset_store"
+    ],
+    "sync_predicates": [
+      "ame_bbp_is_remote_SFN_synchronized",
+      "bbp_base_is_remote_SFN_synchronized"
+    ],
+    "sync_predicate_variants": 2,
+    "remote_sfn_sync_named": 1,
+    "cli_isolation_accessors": [
+      "ame_core_get_cli_isolation",
+      "ame_core_set_cli_isolation"
+    ],
+    "cli_isolation_getset": 1,
+    "cli_isolation_symbols": [
+      "ame_core_get_cli_isolation",
+      "ame_core_set_cli_isolation"
+    ],
+    "cli_isolation_is_client_not_panel": 1,
+    "assumed_vocabulary_hits": 0,
+    "coloc_sector_panel_absent": 1,
+    "frame_alignment_knob_present": 1,
+    "tx_rx_isolation_recovered": 0,
+    "panel_isolation_scheme_recovered": 0
+  },
+  "gaps": [
+    "coloc, sector and panel all return 0: there is no named panel-isolation scheme, so how co-located LTU panels are kept apart was not recovered",
+    "cli_isolation is client isolation (station-to-station), NOT panel isolation; reading it as the latter would be a false positive",
+    "frame_pulse_offset is writable but its units and reference point were not recovered",
+    "the two SFN sync predicates are named but which layer owns the decision is not established",
+    "no dynamic validation"
+  ]
+}

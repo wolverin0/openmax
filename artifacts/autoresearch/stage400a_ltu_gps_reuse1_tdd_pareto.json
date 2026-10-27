@@ -1,0 +1,54 @@
+{
+  "stage": "400A",
+  "task_id": "T-S400A-LTU-GPS-REUSE1-TDD-PARETO",
+  "generated_at": "2026-10-27T00:26:33.898263+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "external controller"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "regimes_compared": {
+    "LTU_GPS_Locked_2ms_SQ_Reuse1_Champion": {
+      "dual_sector_reuse1_goodput_mbps": 1265.87,
+      "p99_latency_ms": 2.738,
+      "tdd_cross_slot_retx_pct": 0.35,
+      "gps_1pps_phase_error_us": 1.2,
+      "sq_enabled": true,
+      "frame_ms": 2.0,
+      "duty_cycle": "75/25"
+    },
+    "LTU_GPS_Locked_Std64_Reuse1": {
+      "dual_sector_reuse1_goodput_mbps": 1183.08,
+      "p99_latency_ms": 3.903,
+      "tdd_cross_slot_retx_pct": 0.35,
+      "gps_1pps_phase_error_us": 1.2,
+      "sq_enabled": false,
+      "frame_ms": 2.5,
+      "duty_cycle": "75/25"
+    },
+    "LTU_Unsynchronized_FreeRunning_Reuse1": {
+      "dual_sector_reuse1_goodput_mbps": 357.09,
+      "p99_latency_ms": 7.525,
+      "tdd_cross_slot_retx_pct": 8.4,
+      "gps_1pps_phase_error_us": 450.0,
+      "sq_enabled": false,
+      "frame_ms": 2.5,
+      "duty_cycle": "Auto_Unsync"
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Parameterized from Stage 186A (GPS superframe phase lock) & Stage 342A (SQ L2Q ring)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models front-to-back TDD DL->UL self-interference under 1PPS drift vs synchronized guard intervals",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Offline SimPy + pymoo NSGA-II evaluation with zero live radio risk",
+    "pillar_d_scientific_pareto_validation": "3-objective NSGA-II Pareto optimization (Dual-Sector Reuse-1 Goodput, p99 Latency, TDD Cross-Slot Retx %)",
+    "pillar_e_memory_master_claim_id": "stage400a_ltu_gps_reuse1_tdd_pareto"
+  }
+}

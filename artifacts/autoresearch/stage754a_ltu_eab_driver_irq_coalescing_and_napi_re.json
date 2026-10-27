@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "stage": "754A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage754a_ltu_eab_driver_irq_coalescing_and_napi_re.py",
+    "tool_sha256": "7647335e0c72739af583ce73ef687c0fb0004fa4504d8a2bd42b35cd83878806",
+    "output": "artifacts/autoresearch/stage754a_ltu_eab_driver_irq_coalescing_and_napi_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the NAPI, coalescing, GIC, IRQ and budget vocabularies; scheduler-IRQ entry extraction; context classification of the gic and budget hits",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so the stage's driver module has no bytes",
+      "gic is a substring of vermagic, napi does not exist at all, and budget is the TDMA scheduler budget rather than a NAPI poll budget"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "eab_driver": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "napi": 0,
+        "NAPI": 0,
+        "coalesc": 0,
+        "COALESC": 0,
+        "budget": 8,
+        "BUDGET": 0,
+        "gic": 1,
+        "GIC": 0,
+        "irq": 12,
+        "IRQ": 0,
+        "poll": 2,
+        "irq52": 0
+      },
+      "sched_irq": {
+        "ptmp_sched_irq_entry": 1,
+        "ptp_sched_irq_entry": 1
+      },
+      "irq_entries": {
+        "ame_core_freq_jump_check_irq": 2,
+        "ame_core_dump_airq_info": 1
+      },
+      "airq": {
+        "ame_core_airQexcptHandler": 2,
+        "monitor_airQueue_routine": 2,
+        "monitor_airQueue_work": 1
+      },
+      "sched_budget": 2,
+      "vermagic": 1,
+      "pollmode": 2,
+      "gic_contexts": [
+        "_apply:Preamble CFO Apply.parmtype=pb_cfo_apply:int.depends=.vermagic=3.14.65 SMP preempt mod_unload ARMv7 p2v8 ....ame_core_set_forceF"
+      ],
+      "irq_symbols": [
+        "ame_core_airQexcptHandler",
+        "ame_core_dump_airq_info",
+        "ame_core_freq_jump_check_irq",
+        "monitor_airQueue_routine",
+        "monitor_airQueue_work",
+        "ptmp_sched_irq_entry",
+        "ptp_sched_irq_entry",
+        "test_dbg_irq_symbol_analyz"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "napi": 0,
+        "NAPI": 0,
+        "coalesc": 0,
+        "COALESC": 0,
+        "budget": 0,
+        "BUDGET": 0,
+        "gic": 1,
+        "GIC": 0,
+        "irq": 4,
+        "IRQ": 0,
+        "poll": 0,
+        "irq52": 0
+      },
+      "sched_irq": {
+        "ptmp_sched_irq_entry": 0,
+        "ptp_sched_irq_entry": 0
+      },
+      "irq_entries": {
+        "ame_core_freq_jump_check_irq": 0,
+        "ame_core_dump_airq_info": 0
+      },
+      "airq": {
+        "ame_core_airQexcptHandler": 0,
+        "monitor_airQueue_routine": 0,
+        "monitor_airQueue_work": 0
+      },
+      "sched_budget": 0,
+      "vermagic": 1,
+      "pollmode": 0,
+      "gic_contexts": [
+        "g:int...srcversion=533BB7E5866E52F63B9ACCB..depends=ame_core.vermagic=3.14.65 SMP preempt mod_unload ARMv7 p2v8 ......................."
+      ],
+      "irq_symbols": []
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "modules_ok": 2,
+    "napi_token_hits": 0,
+    "napi_absent": 1,
+    "coalescing_token_hits": 0,
+    "coalescing_absent": 1,
+    "gic_token_hits": 2,
+    "gic_is_vermagic": 1,
+    "vermagic_hits": 2,
+    "irq52_literal": 0,
+    "irq_number_is_a_string": 0,
+    "sched_irq_entries": [
+      "ptmp_sched_irq_entry",
+      "ptp_sched_irq_entry"
+    ],
+    "sched_irq_count": 2,
+    "ptmp_ptp_split": 1,
+    "other_irq_entries": [
+      "ame_core_freq_jump_check_irq",
+      "ame_core_dump_airq_info"
+    ],
+    "airq_handler_count": 3,
+    "airq_exception_handler": 1,
+    "sched_budget_hits": 2,
+    "budget_is_scheduler": 1,
+    "polling_mode_hits": 2,
+    "poll_is_polling_mode": 1,
+    "irq_symbols": [
+      "ame_core_airQexcptHandler",
+      "ame_core_dump_airq_info",
+      "ame_core_freq_jump_check_irq",
+      "monitor_airQueue_routine",
+      "monitor_airQueue_work",
+      "ptmp_sched_irq_entry",
+      "ptp_sched_irq_entry",
+      "test_dbg_irq_symbol_analyz"
+    ],
+    "napi_poll_budget_recovered": 0,
+    "irq_coalescing_recovered": 0,
+    "gic_vector_map_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the driver side of the interrupt handling has no bytes",
+    "napi and NAPI return 0: this is not a netdev driver, so there is no NAPI poll budget to recover",
+    "coalesc and COALESC return 0: no interrupt moderation parameter exists, which is the second confirmation after Stage 460A",
+    "gic is a substring of vermagic (vermagic=3.14.65 SMP preempt mod_unload ARMv7 p2v8), so the Generic Interrupt Controller is not named",
+    "irq 52 is a routing constant in the interrupt table, not a string; no irq52 literal exists",
+    "the interrupt entries are scheduler-scoped (ptmp_sched_irq_entry, ptp_sched_irq_entry) with a frequency-jump check and an air-queue monitor, not packet-completion vectors",
+    "no dynamic validation"
+  ]
+}

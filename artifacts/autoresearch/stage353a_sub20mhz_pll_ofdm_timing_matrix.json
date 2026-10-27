@@ -1,0 +1,2068 @@
+{
+  "attribution": [
+    "Linux ath9k source",
+    "ath10k host interface",
+    "proprietary vendor ELF static symbols",
+    "theoretical legacy OFDM"
+  ],
+  "binary_dissection": {
+    "WA_ath_hal": {
+      "bytes": 367456,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/lib/modules/2.6.32.68/ath_hal.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "symbols": [
+        {
+          "bytes": 164,
+          "file_offset": 72004,
+          "first_32_bytes_hex": "27bdffe02ca20009afb10018afb00014afbf001c00a080211040000900808821",
+          "first_instructions": [
+            {
+              "address": 71940,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 71944,
+              "mnemonic": "sltiu",
+              "operands": "$v0, $a1, 9"
+            },
+            {
+              "address": 71948,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 71952,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 71956,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 71960,
+              "mnemonic": "move",
+              "operands": "$s0, $a1"
+            },
+            {
+              "address": 71964,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0x11944"
+            },
+            {
+              "address": 71968,
+              "mnemonic": "move",
+              "operands": "$s1, $a0"
+            },
+            {
+              "address": 71972,
+              "mnemonic": "addiu",
+              "operands": "$v1, $zero, -1"
+            },
+            {
+              "address": 71976,
+              "mnemonic": "move",
+              "operands": "$v0, $zero"
+            },
+            {
+              "address": 71980,
+              "mnemonic": "sw",
+              "operands": "$v1, 0xde4($s1)"
+            },
+            {
+              "address": 71984,
+              "mnemonic": "lw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 71988,
+              "mnemonic": "lw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 71992,
+              "mnemonic": "lw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 71996,
+              "mnemonic": "jr",
+              "operands": "$ra"
+            },
+            {
+              "address": 72000,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, 0x20"
+            }
+          ],
+          "name": "ar9300_set_slot_time",
+          "section": ".text",
+          "section_offset": 71940,
+          "sha256": "4c38a797ce7f859936b83fed177ba9059b1ee508efd6e6f99bf73a85e6ee3e32",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 164,
+          "file_offset": 4412,
+          "first_32_bytes_hex": "27bdffe0afb00014afbf001cafb100188c8200588c91055c0040f80900808021",
+          "first_instructions": [
+            {
+              "address": 4348,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 4352,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 4356,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 4360,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 4364,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x58($a0)"
+            },
+            {
+              "address": 4368,
+              "mnemonic": "lw",
+              "operands": "$s1, 0x55c($a0)"
+            },
+            {
+              "address": 4372,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 4376,
+              "mnemonic": "move",
+              "operands": "$s0, $a0"
+            },
+            {
+              "address": 4380,
+              "mnemonic": "move",
+              "operands": "$a0, $s0"
+            },
+            {
+              "address": 4384,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0x117c"
+            },
+            {
+              "address": 4388,
+              "mnemonic": "move",
+              "operands": "$a1, $s1"
+            },
+            {
+              "address": 4392,
+              "mnemonic": "lui",
+              "operands": "$v0, 0"
+            },
+            {
+              "address": 4396,
+              "mnemonic": "addiu",
+              "operands": "$v0, $v0, 0"
+            },
+            {
+              "address": 4400,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 4404,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 4408,
+              "mnemonic": "lui",
+              "operands": "$v1, 0"
+            }
+          ],
+          "name": "ath_hal_chan_2_clock_rate_mhz",
+          "section": ".text",
+          "section_offset": 4348,
+          "sha256": "73eb9db18151f01e8de64701431643bf23b0f5f7aae1441e2715219939eeaf6d",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 1160,
+          "file_offset": 105624,
+          "first_32_bytes_hex": "27bdffc8afb100143c110001afb00010afbf0034afbe0030afb7002cafb60028",
+          "first_instructions": [
+            {
+              "address": 105560,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x38"
+            },
+            {
+              "address": 105564,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 105568,
+              "mnemonic": "lui",
+              "operands": "$s1, 1"
+            },
+            {
+              "address": 105572,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 105576,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x34($sp)"
+            },
+            {
+              "address": 105580,
+              "mnemonic": "sw",
+              "operands": "$fp, 0x30($sp)"
+            },
+            {
+              "address": 105584,
+              "mnemonic": "sw",
+              "operands": "$s7, 0x2c($sp)"
+            },
+            {
+              "address": 105588,
+              "mnemonic": "sw",
+              "operands": "$s6, 0x28($sp)"
+            },
+            {
+              "address": 105592,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x24($sp)"
+            },
+            {
+              "address": 105596,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 105600,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 105604,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 105608,
+              "mnemonic": "addu",
+              "operands": "$v1, $a0, $s1"
+            },
+            {
+              "address": 105612,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x3d0($a0)"
+            },
+            {
+              "address": 105616,
+              "mnemonic": "lbu",
+              "operands": "$a2, -0x71cc($v1)"
+            },
+            {
+              "address": 105620,
+              "mnemonic": "addiu",
+              "operands": "$v1, $zero, 0x2c0"
+            }
+          ],
+          "name": "ar9300_init_pll",
+          "section": ".text",
+          "section_offset": 105560,
+          "sha256": "aae4ee9db325544c6c32efa3d1c0a244d5dc87f0096277de5139fd169ab96ad0",
+          "type": "STT_FUNC"
+        }
+      ]
+    },
+    "WA_umac": {
+      "bytes": 2356432,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "symbols": [
+        {
+          "bytes": 112,
+          "file_offset": 6780,
+          "first_32_bytes_hex": "8c8300043065800014a000172402000530634000146000142402000a27bdffe8",
+          "first_instructions": [
+            {
+              "address": 6716,
+              "mnemonic": "lw",
+              "operands": "$v1, 4($a0)"
+            },
+            {
+              "address": 6720,
+              "mnemonic": "andi",
+              "operands": "$a1, $v1, 0x8000"
+            },
+            {
+              "address": 6724,
+              "mnemonic": "bnez",
+              "operands": "$a1, 0x1aa4"
+            },
+            {
+              "address": 6728,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 5"
+            },
+            {
+              "address": 6732,
+              "mnemonic": "andi",
+              "operands": "$v1, $v1, 0x4000"
+            },
+            {
+              "address": 6736,
+              "mnemonic": "bnez",
+              "operands": "$v1, 0x1aa4"
+            },
+            {
+              "address": 6740,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0xa"
+            },
+            {
+              "address": 6744,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x18"
+            },
+            {
+              "address": 6748,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x14($sp)"
+            },
+            {
+              "address": 6752,
+              "mnemonic": "jal",
+              "operands": "0"
+            },
+            {
+              "address": 6756,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 6760,
+              "mnemonic": "addiu",
+              "operands": "$v1, $v0, -9"
+            },
+            {
+              "address": 6764,
+              "mnemonic": "sltiu",
+              "operands": "$a0, $v1, 0xb"
+            },
+            {
+              "address": 6768,
+              "mnemonic": "beqz",
+              "operands": "$a0, 0x1a9c"
+            },
+            {
+              "address": 6772,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0x14"
+            },
+            {
+              "address": 6776,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 1"
+            }
+          ],
+          "name": "ieee80211_get_chan_width",
+          "section": ".text",
+          "section_offset": 6716,
+          "sha256": "e1ce892dc74c0e4088d1d8b5ff9f585ed3d3f9f94d5ff37f24a811a105bd4a9f",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 308,
+          "file_offset": 733576,
+          "first_32_bytes_hex": "27bdffd83c03000200831821afb3001cafb10014afbf0024afb40020afb20018",
+          "first_instructions": [
+            {
+              "address": 733512,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x28"
+            },
+            {
+              "address": 733516,
+              "mnemonic": "lui",
+              "operands": "$v1, 2"
+            },
+            {
+              "address": 733520,
+              "mnemonic": "addu",
+              "operands": "$v1, $a0, $v1"
+            },
+            {
+              "address": 733524,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 733528,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 733532,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x24($sp)"
+            },
+            {
+              "address": 733536,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 733540,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 733544,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 733548,
+              "mnemonic": "lhu",
+              "operands": "$v0, -0x1a04($v1)"
+            },
+            {
+              "address": 733552,
+              "mnemonic": "move",
+              "operands": "$s1, $a0"
+            },
+            {
+              "address": 733556,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0xb31b4"
+            },
+            {
+              "address": 733560,
+              "mnemonic": "move",
+              "operands": "$s3, $a1"
+            },
+            {
+              "address": 733564,
+              "mnemonic": "lw",
+              "operands": "$v1, -0x64f0($v1)"
+            },
+            {
+              "address": 733568,
+              "mnemonic": "bnez",
+              "operands": "$v1, 0xb31b4"
+            },
+            {
+              "address": 733572,
+              "mnemonic": "srl",
+              "operands": "$v1, $a1, 0x1f"
+            }
+          ],
+          "name": "ol_ath_set_wlan_pll",
+          "section": ".text",
+          "section_offset": 733512,
+          "sha256": "49f5d297b8f52ba1ebae2e73c6d843b001d14b641b6add1dc1d3331a4670ffd8",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 764,
+          "file_offset": 701200,
+          "first_32_bytes_hex": "27bdffd0afb500240080a821afbf002cafb60028afb40020afb3001cafb20018",
+          "first_instructions": [
+            {
+              "address": 701136,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x30"
+            },
+            {
+              "address": 701140,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x24($sp)"
+            },
+            {
+              "address": 701144,
+              "mnemonic": "move",
+              "operands": "$s5, $a0"
+            },
+            {
+              "address": 701148,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x2c($sp)"
+            },
+            {
+              "address": 701152,
+              "mnemonic": "sw",
+              "operands": "$s6, 0x28($sp)"
+            },
+            {
+              "address": 701156,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 701160,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 701164,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 701168,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 701172,
+              "mnemonic": "move",
+              "operands": "$s4, $a2"
+            },
+            {
+              "address": 701176,
+              "mnemonic": "move",
+              "operands": "$s1, $a1"
+            },
+            {
+              "address": 701180,
+              "mnemonic": "move",
+              "operands": "$s6, $a3"
+            },
+            {
+              "address": 701184,
+              "mnemonic": "jal",
+              "operands": "0"
+            },
+            {
+              "address": 701188,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 701192,
+              "mnemonic": "move",
+              "operands": "$a0, $s5"
+            },
+            {
+              "address": 701196,
+              "mnemonic": "addiu",
+              "operands": "$a1, $zero, 0x1c"
+            }
+          ],
+          "name": "wmi_unified_pdev_set_channel",
+          "section": ".text",
+          "section_offset": 701136,
+          "sha256": "227863c16f8f6e6e65615f0f401eee38b19c0d564041391f170570ec627e4e9d",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 112,
+          "file_offset": 1077456,
+          "first_32_bytes_hex": "0000000801028c0102120102980102240102b001024801026001026c00000000",
+          "name": "ol_if_11a_halfrate_table",
+          "section": ".data",
+          "section_offset": 5152,
+          "sha256": "0d4c2e6f8ee471afdb67f46d73a478d37bbaf27deea91be77bfb885a75f69f1b",
+          "type": "STT_OBJECT"
+        },
+        {
+          "bytes": 112,
+          "file_offset": 1077344,
+          "first_32_bytes_hex": "0000000801028c0102120102980102240102b001024801026001026c00000000",
+          "name": "ol_if_11a_quarterrate_table",
+          "section": ".data",
+          "section_offset": 5040,
+          "sha256": "0d4c2e6f8ee471afdb67f46d73a478d37bbaf27deea91be77bfb885a75f69f1b",
+          "type": "STT_OBJECT"
+        }
+      ]
+    },
+    "XC_ath_hal": {
+      "bytes": 360896,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/lib/modules/2.6.32.68/ath_hal.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "symbols": [
+        {
+          "bytes": 164,
+          "file_offset": 72596,
+          "first_32_bytes_hex": "27bdffe02ca20009afb10018afb00014afbf001c00a080211040000900808821",
+          "first_instructions": [
+            {
+              "address": 72532,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 72536,
+              "mnemonic": "sltiu",
+              "operands": "$v0, $a1, 9"
+            },
+            {
+              "address": 72540,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 72544,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 72548,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 72552,
+              "mnemonic": "move",
+              "operands": "$s0, $a1"
+            },
+            {
+              "address": 72556,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0x11b94"
+            },
+            {
+              "address": 72560,
+              "mnemonic": "move",
+              "operands": "$s1, $a0"
+            },
+            {
+              "address": 72564,
+              "mnemonic": "addiu",
+              "operands": "$v1, $zero, -1"
+            },
+            {
+              "address": 72568,
+              "mnemonic": "move",
+              "operands": "$v0, $zero"
+            },
+            {
+              "address": 72572,
+              "mnemonic": "sw",
+              "operands": "$v1, 0xde4($s1)"
+            },
+            {
+              "address": 72576,
+              "mnemonic": "lw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 72580,
+              "mnemonic": "lw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 72584,
+              "mnemonic": "lw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 72588,
+              "mnemonic": "jr",
+              "operands": "$ra"
+            },
+            {
+              "address": 72592,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, 0x20"
+            }
+          ],
+          "name": "ar9300_set_slot_time",
+          "section": ".text",
+          "section_offset": 72532,
+          "sha256": "1d938889636d82daf6754057a5825ea00d5abe2a5c44f6d5f7e9d8cbd3431ecc",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 164,
+          "file_offset": 4420,
+          "first_32_bytes_hex": "27bdffe0afb00014afbf001cafb100188c8200588c91055c0040f80900808021",
+          "first_instructions": [
+            {
+              "address": 4356,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 4360,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 4364,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 4368,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 4372,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x58($a0)"
+            },
+            {
+              "address": 4376,
+              "mnemonic": "lw",
+              "operands": "$s1, 0x55c($a0)"
+            },
+            {
+              "address": 4380,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 4384,
+              "mnemonic": "move",
+              "operands": "$s0, $a0"
+            },
+            {
+              "address": 4388,
+              "mnemonic": "move",
+              "operands": "$a0, $s0"
+            },
+            {
+              "address": 4392,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0x1184"
+            },
+            {
+              "address": 4396,
+              "mnemonic": "move",
+              "operands": "$a1, $s1"
+            },
+            {
+              "address": 4400,
+              "mnemonic": "lui",
+              "operands": "$v0, 0"
+            },
+            {
+              "address": 4404,
+              "mnemonic": "addiu",
+              "operands": "$v0, $v0, 0"
+            },
+            {
+              "address": 4408,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 4412,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 4416,
+              "mnemonic": "lui",
+              "operands": "$v1, 0"
+            }
+          ],
+          "name": "ath_hal_chan_2_clock_rate_mhz",
+          "section": ".text",
+          "section_offset": 4356,
+          "sha256": "656cdc82c3d6d149473d760278e9299f6602d7fe33c441443aa1fd9ac34d2c1c",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 896,
+          "file_offset": 110080,
+          "first_32_bytes_hex": "27bdffd0afb2001c3c120001afb00014afbf002cafb50028afb40024afb30020",
+          "first_instructions": [
+            {
+              "address": 110016,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x30"
+            },
+            {
+              "address": 110020,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x1c($sp)"
+            },
+            {
+              "address": 110024,
+              "mnemonic": "lui",
+              "operands": "$s2, 1"
+            },
+            {
+              "address": 110028,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x14($sp)"
+            },
+            {
+              "address": 110032,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x2c($sp)"
+            },
+            {
+              "address": 110036,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x28($sp)"
+            },
+            {
+              "address": 110040,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x24($sp)"
+            },
+            {
+              "address": 110044,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x20($sp)"
+            },
+            {
+              "address": 110048,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x18($sp)"
+            },
+            {
+              "address": 110052,
+              "mnemonic": "addu",
+              "operands": "$v1, $a0, $s2"
+            },
+            {
+              "address": 110056,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x3d0($a0)"
+            },
+            {
+              "address": 110060,
+              "mnemonic": "lbu",
+              "operands": "$a2, -0x71cc($v1)"
+            },
+            {
+              "address": 110064,
+              "mnemonic": "addiu",
+              "operands": "$v1, $zero, 0x2c0"
+            },
+            {
+              "address": 110068,
+              "mnemonic": "beq",
+              "operands": "$v0, $v1, 0x1af90"
+            },
+            {
+              "address": 110072,
+              "mnemonic": "move",
+              "operands": "$s0, $a0"
+            },
+            {
+              "address": 110076,
+              "mnemonic": "addiu",
+              "operands": "$v1, $zero, 0x400"
+            }
+          ],
+          "name": "ar9300_init_pll",
+          "section": ".text",
+          "section_offset": 110016,
+          "sha256": "02b5d9906c33367b2de404ce65cc2cf3dfb613a5a38784eebf0341c71200005f",
+          "type": "STT_FUNC"
+        }
+      ]
+    },
+    "XC_umac": {
+      "bytes": 2358768,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "symbols": [
+        {
+          "bytes": 112,
+          "file_offset": 6780,
+          "first_32_bytes_hex": "8c8300043065800014a000172402000530634000146000142402000a27bdffe8",
+          "first_instructions": [
+            {
+              "address": 6716,
+              "mnemonic": "lw",
+              "operands": "$v1, 4($a0)"
+            },
+            {
+              "address": 6720,
+              "mnemonic": "andi",
+              "operands": "$a1, $v1, 0x8000"
+            },
+            {
+              "address": 6724,
+              "mnemonic": "bnez",
+              "operands": "$a1, 0x1aa4"
+            },
+            {
+              "address": 6728,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 5"
+            },
+            {
+              "address": 6732,
+              "mnemonic": "andi",
+              "operands": "$v1, $v1, 0x4000"
+            },
+            {
+              "address": 6736,
+              "mnemonic": "bnez",
+              "operands": "$v1, 0x1aa4"
+            },
+            {
+              "address": 6740,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0xa"
+            },
+            {
+              "address": 6744,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x18"
+            },
+            {
+              "address": 6748,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x14($sp)"
+            },
+            {
+              "address": 6752,
+              "mnemonic": "jal",
+              "operands": "0"
+            },
+            {
+              "address": 6756,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 6760,
+              "mnemonic": "addiu",
+              "operands": "$v1, $v0, -9"
+            },
+            {
+              "address": 6764,
+              "mnemonic": "sltiu",
+              "operands": "$a0, $v1, 0xb"
+            },
+            {
+              "address": 6768,
+              "mnemonic": "beqz",
+              "operands": "$a0, 0x1a9c"
+            },
+            {
+              "address": 6772,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0x14"
+            },
+            {
+              "address": 6776,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 1"
+            }
+          ],
+          "name": "ieee80211_get_chan_width",
+          "section": ".text",
+          "section_offset": 6716,
+          "sha256": "e1ce892dc74c0e4088d1d8b5ff9f585ed3d3f9f94d5ff37f24a811a105bd4a9f",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 308,
+          "file_offset": 733576,
+          "first_32_bytes_hex": "27bdffd83c03000200831821afb3001cafb10014afbf0024afb40020afb20018",
+          "first_instructions": [
+            {
+              "address": 733512,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x28"
+            },
+            {
+              "address": 733516,
+              "mnemonic": "lui",
+              "operands": "$v1, 2"
+            },
+            {
+              "address": 733520,
+              "mnemonic": "addu",
+              "operands": "$v1, $a0, $v1"
+            },
+            {
+              "address": 733524,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 733528,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 733532,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x24($sp)"
+            },
+            {
+              "address": 733536,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 733540,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 733544,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 733548,
+              "mnemonic": "lhu",
+              "operands": "$v0, -0x1a04($v1)"
+            },
+            {
+              "address": 733552,
+              "mnemonic": "move",
+              "operands": "$s1, $a0"
+            },
+            {
+              "address": 733556,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0xb31b4"
+            },
+            {
+              "address": 733560,
+              "mnemonic": "move",
+              "operands": "$s3, $a1"
+            },
+            {
+              "address": 733564,
+              "mnemonic": "lw",
+              "operands": "$v1, -0x64f0($v1)"
+            },
+            {
+              "address": 733568,
+              "mnemonic": "bnez",
+              "operands": "$v1, 0xb31b4"
+            },
+            {
+              "address": 733572,
+              "mnemonic": "srl",
+              "operands": "$v1, $a1, 0x1f"
+            }
+          ],
+          "name": "ol_ath_set_wlan_pll",
+          "section": ".text",
+          "section_offset": 733512,
+          "sha256": "b43fbf93e591cc55f74d6b27a629fddcd5fdb84b68d257966a8b76c3c728b93b",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 764,
+          "file_offset": 701200,
+          "first_32_bytes_hex": "27bdffd0afb500240080a821afbf002cafb60028afb40020afb3001cafb20018",
+          "first_instructions": [
+            {
+              "address": 701136,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x30"
+            },
+            {
+              "address": 701140,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x24($sp)"
+            },
+            {
+              "address": 701144,
+              "mnemonic": "move",
+              "operands": "$s5, $a0"
+            },
+            {
+              "address": 701148,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x2c($sp)"
+            },
+            {
+              "address": 701152,
+              "mnemonic": "sw",
+              "operands": "$s6, 0x28($sp)"
+            },
+            {
+              "address": 701156,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 701160,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 701164,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 701168,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 701172,
+              "mnemonic": "move",
+              "operands": "$s4, $a2"
+            },
+            {
+              "address": 701176,
+              "mnemonic": "move",
+              "operands": "$s1, $a1"
+            },
+            {
+              "address": 701180,
+              "mnemonic": "move",
+              "operands": "$s6, $a3"
+            },
+            {
+              "address": 701184,
+              "mnemonic": "jal",
+              "operands": "0"
+            },
+            {
+              "address": 701188,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 701192,
+              "mnemonic": "move",
+              "operands": "$a0, $s5"
+            },
+            {
+              "address": 701196,
+              "mnemonic": "addiu",
+              "operands": "$a1, $zero, 0x1c"
+            }
+          ],
+          "name": "wmi_unified_pdev_set_channel",
+          "section": ".text",
+          "section_offset": 701136,
+          "sha256": "aa9f210047fd77cde2fc3dc0c390bd9634638a69a80095ea9626662d04b3cb4c",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 112,
+          "file_offset": 1077456,
+          "first_32_bytes_hex": "0000000801028c0102120102980102240102b001024801026001026c00000000",
+          "name": "ol_if_11a_halfrate_table",
+          "section": ".data",
+          "section_offset": 5152,
+          "sha256": "0d4c2e6f8ee471afdb67f46d73a478d37bbaf27deea91be77bfb885a75f69f1b",
+          "type": "STT_OBJECT"
+        },
+        {
+          "bytes": 112,
+          "file_offset": 1077344,
+          "first_32_bytes_hex": "0000000801028c0102120102980102240102b001024801026001026c00000000",
+          "name": "ol_if_11a_quarterrate_table",
+          "section": ".data",
+          "section_offset": 5040,
+          "sha256": "0d4c2e6f8ee471afdb67f46d73a478d37bbaf27deea91be77bfb885a75f69f1b",
+          "type": "STT_OBJECT"
+        }
+      ]
+    },
+    "XW_held_0": {
+      "bytes": 562576,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xw_m5/xw_614_rootfs/lib/modules/2.6.32.71/ath_hal.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "880183f0a520d085154f2caf9ff50acf66f1e0264460cf19e5a8a09307e5d19b",
+      "symbols": [
+        {
+          "bytes": 1892,
+          "file_offset": 180032,
+          "first_32_bytes_hex": "27bdffc8afb50024afb40020afbf0030afb7002cafb60028afb3001cafb20018",
+          "first_instructions": [
+            {
+              "address": 179968,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x38"
+            },
+            {
+              "address": 179972,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x24($sp)"
+            },
+            {
+              "address": 179976,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x20($sp)"
+            },
+            {
+              "address": 179980,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x30($sp)"
+            },
+            {
+              "address": 179984,
+              "mnemonic": "sw",
+              "operands": "$s7, 0x2c($sp)"
+            },
+            {
+              "address": 179988,
+              "mnemonic": "sw",
+              "operands": "$s6, 0x28($sp)"
+            },
+            {
+              "address": 179992,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x1c($sp)"
+            },
+            {
+              "address": 179996,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 180000,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 180004,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 180008,
+              "mnemonic": "lui",
+              "operands": "$s5, 1"
+            },
+            {
+              "address": 180012,
+              "mnemonic": "lw",
+              "operands": "$v1, 0x560($a0)"
+            },
+            {
+              "address": 180016,
+              "mnemonic": "addu",
+              "operands": "$v0, $a0, $s5"
+            },
+            {
+              "address": 180020,
+              "mnemonic": "lbu",
+              "operands": "$a2, -0x51f8($v0)"
+            },
+            {
+              "address": 180024,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0x200"
+            },
+            {
+              "address": 180028,
+              "mnemonic": "bne",
+              "operands": "$v1, $v0, 0x2c100"
+            }
+          ],
+          "name": "ar9300InitPLL",
+          "section": ".text",
+          "section_offset": 179968,
+          "sha256": "5249f4894872a6d5f64746a5afe57e308abac0e249b1cef277e402e03d44c14f",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 188,
+          "file_offset": 62236,
+          "first_32_bytes_hex": "27bdffe0afb10014afbf001cafb20018afb000108c9014d00080882112000021",
+          "first_instructions": [
+            {
+              "address": 62172,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 62176,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 62180,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 62184,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 62188,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 62192,
+              "mnemonic": "lw",
+              "operands": "$s0, 0x14d0($a0)"
+            },
+            {
+              "address": 62196,
+              "mnemonic": "move",
+              "operands": "$s1, $a0"
+            },
+            {
+              "address": 62200,
+              "mnemonic": "beqz",
+              "operands": "$s0, 0xf380"
+            },
+            {
+              "address": 62204,
+              "mnemonic": "addiu",
+              "operands": "$v0, $zero, 0x2c"
+            },
+            {
+              "address": 62208,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x110($a0)"
+            },
+            {
+              "address": 62212,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 62216,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 62220,
+              "mnemonic": "lui",
+              "operands": "$v1, 0"
+            },
+            {
+              "address": 62224,
+              "mnemonic": "bnez",
+              "operands": "$v0, 0xf320"
+            },
+            {
+              "address": 62228,
+              "mnemonic": "addiu",
+              "operands": "$s2, $v1, 0x17ec"
+            },
+            {
+              "address": 62232,
+              "mnemonic": "lui",
+              "operands": "$v0, 0"
+            }
+          ],
+          "name": "ath_hal_chan_2_clockrateMHz",
+          "section": ".text",
+          "section_offset": 62172,
+          "sha256": "299504b83e1b80d8319b680305fc978e0f717ce2c9ffc1a7a863eb899e5667e4",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 148,
+          "file_offset": 152004,
+          "first_32_bytes_hex": "27bdffe03c020002afb20018afb10014afb0001000a08821afbf001c3405ffff",
+          "first_instructions": [
+            {
+              "address": 151940,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x20"
+            },
+            {
+              "address": 151944,
+              "mnemonic": "lui",
+              "operands": "$v0, 2"
+            },
+            {
+              "address": 151948,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x18($sp)"
+            },
+            {
+              "address": 151952,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x14($sp)"
+            },
+            {
+              "address": 151956,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x10($sp)"
+            },
+            {
+              "address": 151960,
+              "mnemonic": "move",
+              "operands": "$s1, $a1"
+            },
+            {
+              "address": 151964,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x1c($sp)"
+            },
+            {
+              "address": 151968,
+              "mnemonic": "ori",
+              "operands": "$a1, $zero, 0xffff"
+            },
+            {
+              "address": 151972,
+              "mnemonic": "addiu",
+              "operands": "$v0, $v0, 0x4c40"
+            },
+            {
+              "address": 151976,
+              "mnemonic": "jalr",
+              "operands": "$v0"
+            },
+            {
+              "address": 151980,
+              "mnemonic": "move",
+              "operands": "$s2, $a0"
+            },
+            {
+              "address": 151984,
+              "mnemonic": "move",
+              "operands": "$a1, $v0"
+            },
+            {
+              "address": 151988,
+              "mnemonic": "sltiu",
+              "operands": "$v0, $s1, 9"
+            },
+            {
+              "address": 151992,
+              "mnemonic": "move",
+              "operands": "$a0, $s2"
+            },
+            {
+              "address": 151996,
+              "mnemonic": "sltu",
+              "operands": "$v1, $s1, $a1"
+            },
+            {
+              "address": 152000,
+              "mnemonic": "bnez",
+              "operands": "$v0, 0x251d0"
+            }
+          ],
+          "name": "ar9300SetSlotTime",
+          "section": ".text",
+          "section_offset": 151940,
+          "sha256": "a23ffc9506cf4393043129eefe5efd1fe1f5402e4207db017193c73a9ae45879",
+          "type": "STT_FUNC"
+        }
+      ]
+    },
+    "XW_held_1": {
+      "bytes": 503892,
+      "endianness": "big",
+      "path": "artifacts/firmware_re_xw_m5/xw_636_rootfs/lib/modules/2.6.32.71/ath_hal.ko",
+      "qualification": "STATIC_SYMBOL_BYTES_ONLY_NOT_PROVEN_RUNTIME_CALL_CHAIN",
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "symbols": [
+        {
+          "bytes": 1608,
+          "file_offset": 111212,
+          "first_32_bytes_hex": "27bdffc0afb1001c3c110001afb00018afbf003cafbe0038afb70034afb60030",
+          "first_instructions": [
+            {
+              "address": 111116,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x40"
+            },
+            {
+              "address": 111120,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x1c($sp)"
+            },
+            {
+              "address": 111124,
+              "mnemonic": "lui",
+              "operands": "$s1, 1"
+            },
+            {
+              "address": 111128,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x18($sp)"
+            },
+            {
+              "address": 111132,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x3c($sp)"
+            },
+            {
+              "address": 111136,
+              "mnemonic": "sw",
+              "operands": "$fp, 0x38($sp)"
+            },
+            {
+              "address": 111140,
+              "mnemonic": "sw",
+              "operands": "$s7, 0x34($sp)"
+            },
+            {
+              "address": 111144,
+              "mnemonic": "sw",
+              "operands": "$s6, 0x30($sp)"
+            },
+            {
+              "address": 111148,
+              "mnemonic": "sw",
+              "operands": "$s5, 0x2c($sp)"
+            },
+            {
+              "address": 111152,
+              "mnemonic": "sw",
+              "operands": "$s4, 0x28($sp)"
+            },
+            {
+              "address": 111156,
+              "mnemonic": "sw",
+              "operands": "$s3, 0x24($sp)"
+            },
+            {
+              "address": 111160,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x20($sp)"
+            },
+            {
+              "address": 111164,
+              "mnemonic": "addu",
+              "operands": "$v0, $a0, $s1"
+            },
+            {
+              "address": 111168,
+              "mnemonic": "lbu",
+              "operands": "$v1, -0x5de0($v0)"
+            },
+            {
+              "address": 111172,
+              "mnemonic": "lw",
+              "operands": "$v0, 0x560($a0)"
+            },
+            {
+              "address": 111176,
+              "mnemonic": "addiu",
+              "operands": "$a2, $zero, 0x200"
+            }
+          ],
+          "name": "ar9300InitPLL",
+          "section": ".text",
+          "section_offset": 111116,
+          "sha256": "46a8fd8f91a3cd9b7648cb27e3311b5a744d487be0b3ae8d4a52c302226fe1a2",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 184,
+          "file_offset": 3960,
+          "first_32_bytes_hex": "27bdffd8afb00018afbf0024afb20020afb1001c8c9108ec1220001d00808021",
+          "first_instructions": [
+            {
+              "address": 3864,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x28"
+            },
+            {
+              "address": 3868,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x18($sp)"
+            },
+            {
+              "address": 3872,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x24($sp)"
+            },
+            {
+              "address": 3876,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x20($sp)"
+            },
+            {
+              "address": 3880,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x1c($sp)"
+            },
+            {
+              "address": 3884,
+              "mnemonic": "lw",
+              "operands": "$s1, 0x8ec($a0)"
+            },
+            {
+              "address": 3888,
+              "mnemonic": "beqz",
+              "operands": "$s1, 0xfa8"
+            },
+            {
+              "address": 3892,
+              "mnemonic": "move",
+              "operands": "$s0, $a0"
+            },
+            {
+              "address": 3896,
+              "mnemonic": "lw",
+              "operands": "$t9, 0x110($a0)"
+            },
+            {
+              "address": 3900,
+              "mnemonic": "jalr",
+              "operands": "$t9"
+            },
+            {
+              "address": 3904,
+              "mnemonic": "nop",
+              "operands": ""
+            },
+            {
+              "address": 3908,
+              "mnemonic": "beqz",
+              "operands": "$v0, 0xfb0"
+            },
+            {
+              "address": 3912,
+              "mnemonic": "lui",
+              "operands": "$s2, 0"
+            },
+            {
+              "address": 3916,
+              "mnemonic": "lui",
+              "operands": "$s2, 0"
+            },
+            {
+              "address": 3920,
+              "mnemonic": "addiu",
+              "operands": "$s2, $s2, 0x1814"
+            },
+            {
+              "address": 3924,
+              "mnemonic": "move",
+              "operands": "$a0, $s0"
+            }
+          ],
+          "name": "ath_hal_chan_2_clockrateMHz",
+          "section": ".text",
+          "section_offset": 3864,
+          "sha256": "411f61c538d7fa98b0876ad6df30d9b25e62e78090832105ded7d68fd56eb539",
+          "type": "STT_FUNC"
+        },
+        {
+          "bytes": 120,
+          "file_offset": 71008,
+          "first_32_bytes_hex": "27bdffd8afb2002000a090213405ffffafb1001cafb00018afbf00240c0042c0",
+          "first_instructions": [
+            {
+              "address": 70912,
+              "mnemonic": "addiu",
+              "operands": "$sp, $sp, -0x28"
+            },
+            {
+              "address": 70916,
+              "mnemonic": "sw",
+              "operands": "$s2, 0x20($sp)"
+            },
+            {
+              "address": 70920,
+              "mnemonic": "move",
+              "operands": "$s2, $a1"
+            },
+            {
+              "address": 70924,
+              "mnemonic": "ori",
+              "operands": "$a1, $zero, 0xffff"
+            },
+            {
+              "address": 70928,
+              "mnemonic": "sw",
+              "operands": "$s1, 0x1c($sp)"
+            },
+            {
+              "address": 70932,
+              "mnemonic": "sw",
+              "operands": "$s0, 0x18($sp)"
+            },
+            {
+              "address": 70936,
+              "mnemonic": "sw",
+              "operands": "$ra, 0x24($sp)"
+            },
+            {
+              "address": 70940,
+              "mnemonic": "jal",
+              "operands": "0x10b00"
+            },
+            {
+              "address": 70944,
+              "mnemonic": "move",
+              "operands": "$s0, $a0"
+            },
+            {
+              "address": 70948,
+              "mnemonic": "sltiu",
+              "operands": "$v1, $s2, 9"
+            },
+            {
+              "address": 70952,
+              "mnemonic": "bnez",
+              "operands": "$v1, 0x1153c"
+            },
+            {
+              "address": 70956,
+              "mnemonic": "addiu",
+              "operands": "$s1, $zero, 9"
+            },
+            {
+              "address": 70960,
+              "mnemonic": "sltu",
+              "operands": "$s1, $s2, $v0"
+            },
+            {
+              "address": 70964,
+              "mnemonic": "movz",
+              "operands": "$s2, $v0, $s1"
+            },
+            {
+              "address": 70968,
+              "mnemonic": "move",
+              "operands": "$s1, $s2"
+            },
+            {
+              "address": 70972,
+              "mnemonic": "move",
+              "operands": "$a0, $s0"
+            }
+          ],
+          "name": "ar9300SetSlotTime",
+          "section": ".text",
+          "section_offset": 70912,
+          "sha256": "2188adfdaed31d0fc89dc1e216d363697a4c152f18829cad053f9dcf389d1a97",
+          "type": "STT_FUNC"
+        }
+      ]
+    }
+  },
+  "boundary": {
+    "firmware_modified": false,
+    "hardware_access": false,
+    "physical_acceptance": false,
+    "register_write": false
+  },
+  "gaps": [
+    "Exact installed firmware accepts and applies sub20 command",
+    "Native PLL readback and lock, spectral mask/EVM and legal channel eligibility",
+    "Exact XW/XM board/radio identity and boot recovery",
+    "VHT5/10 and peer interoperability not established"
+  ],
+  "matrix": [
+    {
+      "control": "upstream inspected chan_to_phymode has no5/10 cases; vendor chanbw/symbols do not prove actuation",
+      "family": "WA",
+      "host": "AR934x-class",
+      "radio": "QCA988x ath10k/offloaded",
+      "status": "UNKNOWN_INSTALLED_BUILD_SUB20"
+    },
+    {
+      "control": "Do not apply integrated-ath9k PLL recipe to the QCA988x radio",
+      "family": "XC",
+      "host": "QCA955x-class",
+      "radio": "PCIe QCA988x ath10k/offloaded",
+      "status": "UNKNOWN_INSTALLED_BUILD_SUB20"
+    },
+    {
+      "control": "ath9k half/quarter clock, delta-slope, PLL selector and timing paths exist; board runtime UNKNOWN",
+      "family": "XW",
+      "host": "exact board may be AR934x",
+      "radio": "exact ath9k-class device requires identity",
+      "status": "CONFIRMED_UPSTREAM_PATH_ONLY"
+    },
+    {
+      "control": "Do not infer XM silicon or5/10 qualification from the marketing family",
+      "family": "XM",
+      "host": "exact board/revision UNKNOWN",
+      "radio": "ath9k-class not universally AR934x/QCA955x",
+      "status": "UNKNOWN_EXACT_BOARD"
+    }
+  ],
+  "outputs": {
+    "docs/STAGE353A_SUB20MHZ_PLL_OFDM_TIMING_MATRIX.md": {
+      "bytes": 2466,
+      "path": "docs/STAGE353A_SUB20MHZ_PLL_OFDM_TIMING_MATRIX.md",
+      "sha256": "e9a376a73dbefb508f9af3e3c5e4bf4583678716aa2032783866cc84efc3c175"
+    }
+  },
+  "source_findings": {
+    "ath10k_upstream_5_10_phymode_cases": false,
+    "qca6174_pll_code_is_qca988x_proof": false,
+    "regdomain_half_quarter_bits_are_runtime_support_proof": false
+  },
+  "source_version": "Linuxv6.6.110 plus separately qualified vendor ELF",
+  "stage": "353A",
+  "static_sources": [
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            39,
+            1591,
+            1994
+          ],
+          "token": "ath9k_hw_set_clockrate"
+        },
+        {
+          "line_numbers": [
+            61
+          ],
+          "token": "clockrate /= 2"
+        },
+        {
+          "line_numbers": [
+            63
+          ],
+          "token": "clockrate /= 4"
+        },
+        {
+          "line_numbers": [
+            1084
+          ],
+          "token": "sifstime = 32"
+        },
+        {
+          "line_numbers": [
+            1087
+          ],
+          "token": "slottime = 13"
+        },
+        {
+          "line_numbers": [
+            1095
+          ],
+          "token": "sifstime = 64"
+        },
+        {
+          "line_numbers": [
+            1098
+          ],
+          "token": "slottime = 21"
+        }
+      ],
+      "bytes": 87122,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath9k/hw.c",
+      "sha256": "8c3930144d5b8390e73d4b10855447143fb75daa36a14fdb84597f6328593817"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            576,
+            1939
+          ],
+          "token": "ar9003_hw_compute_pll_control_soc"
+        },
+        {
+          "line_numbers": [
+            584,
+            586
+          ],
+          "token": "AR_RTC_9300_SOC_PLL_CLKSEL"
+        },
+        {
+          "line_numbers": [
+            998,
+            1948
+          ],
+          "token": "ar9003_hw_set_delta_slope"
+        },
+        {
+          "line_numbers": [
+            583,
+            600,
+            986,
+            1009
+          ],
+          "token": "IS_CHAN_HALF_RATE"
+        },
+        {
+          "line_numbers": [
+            585,
+            602,
+            986,
+            1011
+          ],
+          "token": "IS_CHAN_QUARTER_RATE"
+        }
+      ],
+      "bytes": 62977,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath9k/ar9003_phy.c",
+      "sha256": "f7b1dd55d778578726128536bc2744f3058e9e7aa45908eb0b94ba275ecfc7b9"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            458,
+            467
+          ],
+          "token": "CHANNEL_HALF"
+        },
+        {
+          "line_numbers": [
+            459,
+            468
+          ],
+          "token": "CHANNEL_QUARTER"
+        }
+      ],
+      "bytes": 36270,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath9k/hw.h",
+      "sha256": "e8d59af29f0e60ecdf59c4e02b81b42e61794bbcd718ca8ce68b9b34b556808c"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            564,
+            1056,
+            1504,
+            6757
+          ],
+          "token": "chan_to_phymode"
+        }
+      ],
+      "bytes": 270563,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath10k/mac.c",
+      "sha256": "dd2c355c76e92ad85bee0fe2b9ae6bbc1aec4f81d5256ddd374783b0a1696f09"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            2198
+          ],
+          "token": "REGDMN_MODE_11A_HALF_RATE"
+        },
+        {
+          "line_numbers": [
+            2199
+          ],
+          "token": "REGDMN_MODE_11A_QUARTER_RATE"
+        }
+      ],
+      "bytes": 219931,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath10k/wmi.h",
+      "sha256": "694f7c89c35c70061dcd6bb7c4afb6d2f26e479a6073bc23826ec08934c6f667"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            592,
+            1135,
+            1144
+          ],
+          "token": "ath10k_hw_qca988x_set_coverage_class"
+        },
+        {
+          "line_numbers": [
+            730,
+            741,
+            1145,
+            1150
+          ],
+          "token": "ath10k_hw_qca6174_enable_pll_clock"
+        }
+      ],
+      "bytes": 32335,
+      "path": "artifacts/verification/stage353a_sources/drivers/net/wireless/ath/ath10k/hw.c",
+      "sha256": "9354d3016be2c159e278e2e75fcd554760154314d105021ff7115ff1380d985a"
+    }
+  ],
+  "summary": {
+    "bandwidth_rows": 3,
+    "families": 4,
+    "hardware_results": 0
+  },
+  "task_id": "T-S353A-SUB20-PLL-OFDM",
+  "timing_matrix": [
+    {
+      "ath9k_5ghz_sifs_us": 16,
+      "ath9k_precoverage_ack_setting_us": 25,
+      "ath9k_slot_us": 9,
+      "bandwidth_mhz": 20,
+      "clock_divisor": 1,
+      "fixed_nf_noise_bandwidth_delta_db": 0.0,
+      "legacy_ofdm_guard_us": 0.8,
+      "legacy_ofdm_preamble_us": 20.0,
+      "legacy_ofdm_symbol_us": 4.0,
+      "legacy_ofdm_useful_symbol_us": 3.2,
+      "qualification": "LEGACY_OFDM_MODEL_AND_UPSTREAM_SETTINGS_NOT_VHT5_10_OR_MEASURED_PLL",
+      "subcarrier_spacing_khz": 312.5,
+      "timing_assumptions": {
+        "band": "5GHz",
+        "configured_20mhz_slottime_us": 9,
+        "coverage_class": 0,
+        "dynack_enabled": false
+      }
+    },
+    {
+      "ath9k_5ghz_sifs_us": 32,
+      "ath9k_precoverage_ack_setting_us": 61,
+      "ath9k_slot_us": 13,
+      "bandwidth_mhz": 10,
+      "clock_divisor": 2,
+      "fixed_nf_noise_bandwidth_delta_db": -3.01029996,
+      "legacy_ofdm_guard_us": 1.6,
+      "legacy_ofdm_preamble_us": 40.0,
+      "legacy_ofdm_symbol_us": 8.0,
+      "legacy_ofdm_useful_symbol_us": 6.4,
+      "qualification": "LEGACY_OFDM_MODEL_AND_UPSTREAM_SETTINGS_NOT_VHT5_10_OR_MEASURED_PLL",
+      "subcarrier_spacing_khz": 156.25,
+      "timing_assumptions": {
+        "band": "5GHz",
+        "configured_20mhz_slottime_us": 9,
+        "coverage_class": 0,
+        "dynack_enabled": false
+      }
+    },
+    {
+      "ath9k_5ghz_sifs_us": 64,
+      "ath9k_precoverage_ack_setting_us": 117,
+      "ath9k_slot_us": 21,
+      "bandwidth_mhz": 5,
+      "clock_divisor": 4,
+      "fixed_nf_noise_bandwidth_delta_db": -6.02059991,
+      "legacy_ofdm_guard_us": 3.2,
+      "legacy_ofdm_preamble_us": 80.0,
+      "legacy_ofdm_symbol_us": 16.0,
+      "legacy_ofdm_useful_symbol_us": 12.8,
+      "qualification": "LEGACY_OFDM_MODEL_AND_UPSTREAM_SETTINGS_NOT_VHT5_10_OR_MEASURED_PLL",
+      "subcarrier_spacing_khz": 78.125,
+      "timing_assumptions": {
+        "band": "5GHz",
+        "configured_20mhz_slottime_us": 9,
+        "coverage_class": 0,
+        "dynack_enabled": false
+      }
+    }
+  ],
+  "upstream_manifest": {
+    "bytes": 2404,
+    "path": "artifacts/verification/stage353a_sources/source_manifest.json",
+    "sha256": "d9e7691ebfe8f4277eb6ef2fff2702298eacdaaff0dd5a6984f3269e29bcc4c3"
+  }
+}

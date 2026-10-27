@@ -1,14 +1,38 @@
-<!-- doc-head: openMAX Master Documentation & Reading Map (Stages 1–99D, < 215 lines, public-safe) -->
-Master reading order, stage report directory, and artifact map for the openMAX repository through Stage 99D.
-Covers PtMP Champion v22, PtP Champion v9, Dynamic 20/40 MHz auto-following, AF-LTU 12x 80-symbol SMP, Rocket 2AC Prism IRQ 2 fast-path, and MikroTik 802.1Q co-design.
+<!-- doc-head: Public reading map through824A and preserved historic engineering routes -->
 <!-- /doc-head -->
 
 # openMAX Master Documentation & Reading Map (`docs/DOCS-MAP.md`)
 
+## Current milestones through Stage824A / Hitos hasta Stage824A
+
+This Stage825A update reconciles saved evidence; it adds no radio measurements or publication.
+Esta actualizacion documental separa resultados reportados, empaquetado, simulacion y aceptacion fisica.
+
+| Milestone | Source-qualified result and limit |
+| --- | --- |
+| WA v13 | Stage773A reported 78.51 Mbps peak TCP in VHT20 and -86.37% loaded p50 RTT; imported claims, not remeasured here. |
+| PtP v4/v5 | Stage741A/v5 reported 25.47 Mbps peak TCP in VHT40; PBE-5AC-Gen2 and LBE-5AC-Gen2 have distinct board-specific profiles. |
+| PB040 + PB050 + PB060 | Stage817A composed seven triple-patch SGMT payloads offline; byte/layout verification is CONFIRMED, target activation UNKNOWN. |
+| LTU v20 | Stage774A reported 264 windows. Stage818A packages guarded br1 DHCP filtering tested with local command stubs; zero-rogue-DHCP runtime UNKNOWN. |
+| Guarida v10 | Stage819A is an uncalibrated sensitivity/Pareto model, not measured tower capacity. The imported 514.80 Mbps claim belongs to Stage775A/v9. |
+| Stage823A | Static strings in ubntspecd expose per-bandwidth BPS / SCORE / RATING labels; the numeric formula, coefficients and CPE-histogram combination remain UNKNOWN. |
+| Stage824A | Static symbols locate the DFS classifier surface in ame_dfs.ko; numeric PW/PRI tables, detector criteria and LNA-saturation immunity remain UNKNOWN. |
+
+Both PBE-5AC-Gen2 and LBE-5AC-Gen2 have CONFIRMED profile metadata; every revision's runtime compatibility remains UNKNOWN.
+No universal compatibility, safe OTA conversion, zero-FP rate or production acceptance follows from these artifacts.
+Attribution: Linux/mac80211/ath10k and QCA firmware for WA/PtP; Linux and proprietary airMAX/LTU module for LTU;
+external controller for simulation, packaging and documentation. Static names alone do not establish algorithm behavior.
+Source links are local evidence pointers; a privacy-filtered public selection may omit historical targets.
+Sources: [WA v13](STAGE773A_WA_CHAMPION_V13_344WINDOW_FIELD_ROLLOUT_KIT.md), [PtP v5](STAGE741A_PBE5AC_LBE5AC_VHT40_PB050_PRODUCTION_BUNDLE_V5.md),
+[triple patch](STAGE817A_UNIVERSAL_PB060_TRIPLE_PATCH_OPENWRT_AIROS_KIT.md), [LTU kit](STAGE818A_LTU_4096QAM_12X_LDPC_AND_SUPER4096_SAFE_KIT.md),
+[model](STAGE819A_GUARIDA_TOWER_V10_TRIPLE_PATCH_AND_XW_MIXED_TDMA_PARETO.md), [825A source ledger](STAGE825A_PUBLIC_MILESTONES_THROUGH_824A.md).
+
+The directory below preserves earlier reading routes; historical report claims are not independently reaccepted by this update.
+
 ## 1. Recommended Reading Order for Engineers & Researchers
 
 1. **[`README.md`](../README.md)** — Executive summary, physical testbed manifesto, and confirmed benchmark progression (`Stages 1–99D`).
-2. **[`AGENTS.md`](../AGENTS.md)** — Project constitution, source-of-truth hierarchy (`CONFIRMED` / `INFERRED` / `UNKNOWN` / `REFUTED`), safety boundaries (`mtd0/1/5`), and the 5-Pillar research framework.
+2. **Local project rules (excluded from public selection)** — Project constitution, source-of-truth hierarchy (`CONFIRMED` / `INFERRED` / `UNKNOWN` / `REFUTED`), safety boundaries (`mtd0/1/5`), and the 5-Pillar research framework.
 3. **[`docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md`](MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md)** — Master Research & Autoresearch Index (`v29.0`): hardware champions, `571`-knob catalog, and cross-platform tuning matrices (`WA`, `XC`, `2XC`, `XW`, `AF-LTU`, `MikroTik`).
 4. **[`docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md`](CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md)** — Complete ledger of `32` hardware discoveries (`FMX-DISC-01` through `FMX-DISC-32`).
 5. **[`docs/CURRENT_STATE.md`](CURRENT_STATE.md)** — Living operational state log and active bench configurations.
@@ -20,7 +44,7 @@ Covers PtMP Champion v22, PtP Champion v9, Dynamic 20/40 MHz auto-following, AF-
 
 ## 2. Highlighted Engineering & Hardware Breakthrough Reports (`Stages 7–99D`)
 
-| Stage / Domain | Primary Report | Key Verified Hardware / Simulation Result (`CONFIRMED`) |
+| Stage / Domain | Primary Report | Historical source-reported result; scope remains specific |
 | :--- | :--- | :--- |
 | **Stage 7 — Multi-Vendor PtMP** | [`STAGE7_MULTIVENDOR_PTMP_REPORT.md`](STAGE7_MULTIVENDOR_PTMP_REPORT.md) | 3-station (`802.11ac` + `MikroTik ath9k` + `airOS 6 M5`) `WMM AC_VO` Deficit Bypass (**`21.0x` RTT cut**) & `RTS/CTS 256B` (**`+18.5%` UL**). |
 | **Stage 8 — Adaptive Controller** | [`STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md`](STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md) | Zero-fork `fmx_adaptive_controller.sh` (**`47.6x` `p95` tail-latency cut**), `VHT40` vs `VHT80` (**`2.26x` spectral efficiency**), and 6-flow BiDir stress (**`39.1x` RTT cut**). |

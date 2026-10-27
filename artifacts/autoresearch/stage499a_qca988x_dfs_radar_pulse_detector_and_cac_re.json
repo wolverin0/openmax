@@ -1,0 +1,546 @@
+{
+  "meta": {
+    "stage": "499A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage499a_qca988x_dfs_radar_pulse_detector_and_cac_re.py",
+    "tool_sha256": "b2c25d6780a279d062b1d94c3becc5453dadc1c6940f9dff01b0811ae5b68136",
+    "output": "artifacts/autoresearch/stage499a_qca988x_dfs_radar_pulse_detector_and_cac_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted, nothing transmitted",
+    "method": "token census across five ath_dfs.ko variants; symbol-family classification for bin5/bin/chirp/pri_blacklist; sysctl-knob extraction for the CAC and false-RSSI override surface; literal probe for 60 and 600",
+    "premise_corrections": [
+      "firmware-2.bin and firmware-5.bin are absent, so no firmware-side pulse detector can be read",
+      "600 does not appear as a literal; the 60 s / 600 s CAC constants are not recoverable as numbers, only the millisecond override knob is"
+    ],
+    "radio_safety": "static only"
+  },
+  "firmware_images": {
+    "firmware-2.bin": 0,
+    "firmware-5.bin": 0
+  },
+  "modules": [
+    {
+      "image": "WA.v8.7.25",
+      "status": "ok",
+      "bytes": 203796,
+      "sha256": "63d7a3404d40576a98963dff0157c99735e283baf52123e87b72a3bd7f5b8650",
+      "defined_symbols": 668,
+      "tokens": {
+        "radar": 43,
+        "RADAR": 9,
+        "pulse": 69,
+        "PRI": 19,
+        "pri_": 11,
+        "chirp": 24,
+        "CAC": 2,
+        "dfs_": 256,
+        "false": 3,
+        "filter": 31,
+        "width": 13,
+        "peak": 11,
+        "bin5": 18
+      },
+      "knobs": {
+        "DFS_SET_CAC_TIME_OVERRIDE_MS": 1,
+        "DFS_SET_IGNORE_CAC": 1,
+        "DFS_SET_FALSE_RSSI_THRESHOLD": 1,
+        "DFS_SET_FILTER_RSSI_OFFSET": 1,
+        "DFS_SET_PRI_MULTIPLIER": 1,
+        "DFS_SET_MUTE_TIME": 1
+      },
+      "literals": {
+        "cac_60": 3,
+        "cac_600": 0
+      },
+      "families": {
+        "bin5": [
+          "dfs_bin5_addpulse",
+          "dfs_bin5_check",
+          "dfs_bin5_check_pulse",
+          "dfs_get_random_bin5_dur",
+          "dfs_print_formatted_row__delay_line__bin5_pattern",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification__struct",
+          "dfs_print_formatted_table__delay_line__bin5_pattern",
+          "dfs_retain_bin5_burst_pattern"
+        ],
+        "bin": [
+          "dfs_bin_check",
+          "dfs_bin_fixedpattern_check",
+          "dfs_bin_pri_check",
+          "dfs_get_bin_resolution_dhz",
+          "dfs_get_scaled_bin_resolution_dhz"
+        ],
+        "chirp": [
+          "DFS_chirp_protect",
+          "dfs_check_chirping"
+        ],
+        "pri_blacklist": [
+          "DFS_check_PRI_blakc_list",
+          "PRI_black_list",
+          "PRI_black_list_delta"
+        ]
+      },
+      "family_hits": {
+        "bin5": 9,
+        "bin": 5,
+        "chirp": 2,
+        "pri_blacklist": 3
+      },
+      "radar_symbols": [
+        "dfs_init_radar_filters",
+        "dfs_print_formatted_row__radar_pulse_report",
+        "dfs_process_radarevent",
+        "dfs_radar_disable",
+        "dfs_radar_enable",
+        "dfs_reset_radarq",
+        "etsi_radartool_alow",
+        "fcc_radartool_alow"
+      ],
+      "chirp_names": [
+        "_chirp_protect",
+        "check_chirp",
+        "chirp",
+        "dfs_check_chirping",
+        "dfs_check_chirping_merlin",
+        "hw_chirp",
+        "is_chirp",
+        "is_chirping",
+        "pe_do_chirp_check",
+        "pe_is_hw_chirp",
+        "pe_is_sw_chirp",
+        "re_flags__check_chirp",
+        "re_flags__hw_chirp",
+        "re_flags__sw_chirp",
+        "rpsr_is_chirp",
+        "sw_chirp"
+      ],
+      "chirp_contexts": [
+        "..%s[%d] phyerr %d len %d.....old dur %d slope =%d....new dur %d..is_chirping = %d dur=%d ....Chirp handler changed duration: bw=%u ref=%u befo"
+      ],
+      "false_contexts": [
+        "torage for only %u.  Dropping FFT data.  [len=%d].....%s: setting false_detect to TRUE. rssi=%d thresh=%d rsfr->peak_mag=%d thresh=%d.....%s: Un"
+      ],
+      "cac_contexts": [
+        "rride is now %d....DFS_GET_NOL.DFS_SET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s",
+        "ET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s: ERROR: Failed to allocate memory f"
+      ]
+    },
+    {
+      "image": "XC.v8.7.25",
+      "status": "ok",
+      "bytes": 203796,
+      "sha256": "110dbebfbfd63844353b2b8f3198400b54e5e81b84a8dbf672833e82de8ec1be",
+      "defined_symbols": 668,
+      "tokens": {
+        "radar": 43,
+        "RADAR": 9,
+        "pulse": 69,
+        "PRI": 19,
+        "pri_": 11,
+        "chirp": 24,
+        "CAC": 2,
+        "dfs_": 256,
+        "false": 3,
+        "filter": 31,
+        "width": 13,
+        "peak": 11,
+        "bin5": 18
+      },
+      "knobs": {
+        "DFS_SET_CAC_TIME_OVERRIDE_MS": 1,
+        "DFS_SET_IGNORE_CAC": 1,
+        "DFS_SET_FALSE_RSSI_THRESHOLD": 1,
+        "DFS_SET_FILTER_RSSI_OFFSET": 1,
+        "DFS_SET_PRI_MULTIPLIER": 1,
+        "DFS_SET_MUTE_TIME": 1
+      },
+      "literals": {
+        "cac_60": 3,
+        "cac_600": 0
+      },
+      "families": {
+        "bin5": [
+          "dfs_bin5_addpulse",
+          "dfs_bin5_check",
+          "dfs_bin5_check_pulse",
+          "dfs_get_random_bin5_dur",
+          "dfs_print_formatted_row__delay_line__bin5_pattern",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification__struct",
+          "dfs_print_formatted_table__delay_line__bin5_pattern",
+          "dfs_retain_bin5_burst_pattern"
+        ],
+        "bin": [
+          "dfs_bin_check",
+          "dfs_bin_fixedpattern_check",
+          "dfs_bin_pri_check",
+          "dfs_get_bin_resolution_dhz",
+          "dfs_get_scaled_bin_resolution_dhz"
+        ],
+        "chirp": [
+          "DFS_chirp_protect",
+          "dfs_check_chirping"
+        ],
+        "pri_blacklist": [
+          "DFS_check_PRI_blakc_list",
+          "PRI_black_list",
+          "PRI_black_list_delta"
+        ]
+      },
+      "family_hits": {
+        "bin5": 9,
+        "bin": 5,
+        "chirp": 2,
+        "pri_blacklist": 3
+      },
+      "radar_symbols": [
+        "dfs_init_radar_filters",
+        "dfs_print_formatted_row__radar_pulse_report",
+        "dfs_process_radarevent",
+        "dfs_radar_disable",
+        "dfs_radar_enable",
+        "dfs_reset_radarq",
+        "etsi_radartool_alow",
+        "fcc_radartool_alow"
+      ],
+      "chirp_names": [
+        "_chirp_protect",
+        "check_chirp",
+        "chirp",
+        "dfs_check_chirping",
+        "dfs_check_chirping_merlin",
+        "hw_chirp",
+        "is_chirp",
+        "is_chirping",
+        "pe_do_chirp_check",
+        "pe_is_hw_chirp",
+        "pe_is_sw_chirp",
+        "re_flags__check_chirp",
+        "re_flags__hw_chirp",
+        "re_flags__sw_chirp",
+        "rpsr_is_chirp",
+        "sw_chirp"
+      ],
+      "chirp_contexts": [
+        "..%s[%d] phyerr %d len %d.....old dur %d slope =%d....new dur %d..is_chirping = %d dur=%d ....Chirp handler changed duration: bw=%u ref=%u befo"
+      ],
+      "false_contexts": [
+        "torage for only %u.  Dropping FFT data.  [len=%d].....%s: setting false_detect to TRUE. rssi=%d thresh=%d rsfr->peak_mag=%d thresh=%d.....%s: Un"
+      ],
+      "cac_contexts": [
+        "rride is now %d....DFS_GET_NOL.DFS_SET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s",
+        "ET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s: ERROR: Failed to allocate memory f"
+      ]
+    },
+    {
+      "image": "XC.v8.7.4cs",
+      "status": "ok",
+      "bytes": 199932,
+      "sha256": "756756d0802df90e649649151f62f83e383f24abd0c985904fb5f7a0ddf7509b",
+      "defined_symbols": 658,
+      "tokens": {
+        "radar": 41,
+        "RADAR": 9,
+        "pulse": 69,
+        "PRI": 19,
+        "pri_": 11,
+        "chirp": 24,
+        "CAC": 2,
+        "dfs_": 255,
+        "false": 3,
+        "filter": 31,
+        "width": 13,
+        "peak": 11,
+        "bin5": 18
+      },
+      "knobs": {
+        "DFS_SET_CAC_TIME_OVERRIDE_MS": 1,
+        "DFS_SET_IGNORE_CAC": 1,
+        "DFS_SET_FALSE_RSSI_THRESHOLD": 1,
+        "DFS_SET_FILTER_RSSI_OFFSET": 1,
+        "DFS_SET_PRI_MULTIPLIER": 1,
+        "DFS_SET_MUTE_TIME": 1
+      },
+      "literals": {
+        "cac_60": 3,
+        "cac_600": 0
+      },
+      "families": {
+        "bin5": [
+          "dfs_bin5_addpulse",
+          "dfs_bin5_check",
+          "dfs_bin5_check_pulse",
+          "dfs_get_random_bin5_dur",
+          "dfs_print_formatted_row__delay_line__bin5_pattern",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification",
+          "dfs_print_formatted_row__dfs_bin5_filter_specification__struct",
+          "dfs_print_formatted_table__delay_line__bin5_pattern",
+          "dfs_retain_bin5_burst_pattern"
+        ],
+        "bin": [
+          "dfs_bin_check",
+          "dfs_bin_fixedpattern_check",
+          "dfs_bin_pri_check",
+          "dfs_get_bin_resolution_dhz",
+          "dfs_get_scaled_bin_resolution_dhz"
+        ],
+        "chirp": [
+          "DFS_chirp_protect",
+          "dfs_check_chirping"
+        ],
+        "pri_blacklist": [
+          "DFS_check_PRI_blakc_list",
+          "PRI_black_list",
+          "PRI_black_list_delta"
+        ]
+      },
+      "family_hits": {
+        "bin5": 9,
+        "bin": 5,
+        "chirp": 2,
+        "pri_blacklist": 3
+      },
+      "radar_symbols": [
+        "dfs_init_radar_filters",
+        "dfs_print_formatted_row__radar_pulse_report",
+        "dfs_process_radarevent",
+        "dfs_radar_disable",
+        "dfs_radar_enable",
+        "dfs_reset_radarq",
+        "etsi_radartool_alow",
+        "fcc_radartool_alow"
+      ],
+      "chirp_names": [
+        "_chirp_protect",
+        "check_chirp",
+        "chirp",
+        "dfs_check_chirping",
+        "dfs_check_chirping_merlin",
+        "hw_chirp",
+        "is_chirp",
+        "is_chirping",
+        "pe_do_chirp_check",
+        "pe_is_hw_chirp",
+        "pe_is_sw_chirp",
+        "re_flags__check_chirp",
+        "re_flags__hw_chirp",
+        "re_flags__sw_chirp",
+        "rpsr_is_chirp",
+        "sw_chirp"
+      ],
+      "chirp_contexts": [
+        "..%s[%d] phyerr %d len %d.....old dur %d slope =%d....new dur %d..is_chirping = %d dur=%d ....Chirp handler changed duration: bw=%u ref=%u befo"
+      ],
+      "false_contexts": [
+        "torage for only %u.  Dropping FFT data.  [len=%d].....%s: setting false_detect to TRUE. rssi=%d thresh=%d rsfr->peak_mag=%d thresh=%d.....%s: Un"
+      ],
+      "cac_contexts": [
+        "rride is now %d....DFS_GET_NOL.DFS_SET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s",
+        "ET_CAC_TIME_OVERRIDE_MS....%s cac time override = %d seconds...%s cac time override off....DFS_SET_DEBUG_LEVEL.%s: ERROR: Failed to allocate memory f"
+      ]
+    },
+    {
+      "image": "XW.v6.1.4",
+      "status": "ok",
+      "bytes": 191100,
+      "sha256": "e058a99353639217eefdbd9391ec3f40dee965bee8c147ff1cc55814e51b3438",
+      "defined_symbols": 528,
+      "tokens": {
+        "radar": 49,
+        "RADAR": 7,
+        "pulse": 125,
+        "PRI": 10,
+        "pri_": 15,
+        "chirp": 29,
+        "CAC": 16,
+        "dfs_": 65,
+        "false": 0,
+        "filter": 19,
+        "width": 10,
+        "peak": 0,
+        "bin5": 8
+      },
+      "knobs": {
+        "DFS_SET_CAC_TIME_OVERRIDE_MS": 1,
+        "DFS_SET_IGNORE_CAC": 0,
+        "DFS_SET_FALSE_RSSI_THRESHOLD": 0,
+        "DFS_SET_FILTER_RSSI_OFFSET": 0,
+        "DFS_SET_PRI_MULTIPLIER": 0,
+        "DFS_SET_MUTE_TIME": 1
+      },
+      "literals": {
+        "cac_60": 5,
+        "cac_600": 0
+      },
+      "families": {
+        "bin5": [],
+        "bin": [],
+        "chirp": [],
+        "pri_blacklist": []
+      },
+      "family_hits": {
+        "bin5": 0,
+        "bin": 0,
+        "chirp": 0,
+        "pri_blacklist": 0
+      },
+      "radar_symbols": [],
+      "chirp_names": [
+        "chirp",
+        "chirp_check",
+        "chirping",
+        "dfs_check_chirping",
+        "is_chirp"
+      ],
+      "chirp_contexts": [],
+      "false_contexts": [],
+      "cac_contexts": []
+    },
+    {
+      "image": "XW.v6.3.6",
+      "status": "ok",
+      "bytes": 176248,
+      "sha256": "cb86bb66b83aed041861f1480e9fdea81952525b2e464075d7ae943c88dea6a9",
+      "defined_symbols": 566,
+      "tokens": {
+        "radar": 51,
+        "RADAR": 13,
+        "pulse": 139,
+        "PRI": 13,
+        "pri_": 13,
+        "chirp": 35,
+        "CAC": 16,
+        "dfs_": 62,
+        "false": 0,
+        "filter": 24,
+        "width": 12,
+        "peak": 0,
+        "bin5": 8
+      },
+      "knobs": {
+        "DFS_SET_CAC_TIME_OVERRIDE_MS": 1,
+        "DFS_SET_IGNORE_CAC": 0,
+        "DFS_SET_FALSE_RSSI_THRESHOLD": 0,
+        "DFS_SET_FILTER_RSSI_OFFSET": 0,
+        "DFS_SET_PRI_MULTIPLIER": 0,
+        "DFS_SET_MUTE_TIME": 1
+      },
+      "literals": {
+        "cac_60": 9,
+        "cac_600": 0
+      },
+      "families": {
+        "bin5": [],
+        "bin": [],
+        "chirp": [
+          "DFS_chirp_protect"
+        ],
+        "pri_blacklist": [
+          "DFS_check_PRI_blakc_list",
+          "PRI_black_list",
+          "PRI_black_list_delta"
+        ]
+      },
+      "family_hits": {
+        "bin5": 0,
+        "bin": 0,
+        "chirp": 1,
+        "pri_blacklist": 3
+      },
+      "radar_symbols": [],
+      "chirp_names": [
+        "_chirp_protect",
+        "chirp",
+        "chirp_check",
+        "chirping",
+        "dfs_check_chirping",
+        "is_chirp"
+      ],
+      "chirp_contexts": [],
+      "false_contexts": [],
+      "cac_contexts": []
+    }
+  ],
+  "summary": {
+    "firmware_images_present": 0,
+    "modules_ok": 5,
+    "images_with_radar_symbols": 3,
+    "discriminator_families": [
+      "bin",
+      "bin5",
+      "chirp",
+      "pri_blacklist"
+    ],
+    "discriminator_family_count": 4,
+    "bin5_symbol_count": 9,
+    "bin5_symbols": [
+      "dfs_bin5_addpulse",
+      "dfs_bin5_check",
+      "dfs_bin5_check_pulse",
+      "dfs_get_random_bin5_dur",
+      "dfs_print_formatted_row__delay_line__bin5_pattern",
+      "dfs_print_formatted_row__dfs_bin5_filter_specification",
+      "dfs_print_formatted_row__dfs_bin5_filter_specification__struct",
+      "dfs_print_formatted_table__delay_line__bin5_pattern",
+      "dfs_retain_bin5_burst_pattern"
+    ],
+    "chirp_symbol_count": 2,
+    "chirp_symbols": [
+      "DFS_chirp_protect",
+      "dfs_check_chirping"
+    ],
+    "chirp_names": [
+      "_chirp_protect",
+      "check_chirp",
+      "chirp",
+      "chirp_check",
+      "chirping",
+      "dfs_check_chirping",
+      "dfs_check_chirping_merlin",
+      "hw_chirp",
+      "is_chirp",
+      "is_chirping",
+      "pe_do_chirp_check",
+      "pe_is_hw_chirp",
+      "pe_is_sw_chirp",
+      "re_flags__check_chirp",
+      "re_flags__hw_chirp",
+      "re_flags__sw_chirp",
+      "rpsr_is_chirp",
+      "sw_chirp"
+    ],
+    "chirp_is_per_chip": 1,
+    "pri_blacklist_symbols": [
+      "DFS_check_PRI_blakc_list",
+      "PRI_black_list",
+      "PRI_black_list_delta"
+    ],
+    "pri_blacklist_typo": 1,
+    "knobs_present": [
+      "DFS_SET_CAC_TIME_OVERRIDE_MS",
+      "DFS_SET_FALSE_RSSI_THRESHOLD",
+      "DFS_SET_FILTER_RSSI_OFFSET",
+      "DFS_SET_IGNORE_CAC",
+      "DFS_SET_MUTE_TIME",
+      "DFS_SET_PRI_MULTIPLIER"
+    ],
+    "knob_count": 6,
+    "cac_override_ms_modules": 5,
+    "ignore_cac_modules": 3,
+    "false_rssi_threshold_modules": 3,
+    "cac_60_literals": 23,
+    "cac_600_literals": 0,
+    "cac_constant_recovered": 0,
+    "pulse_width_table_recovered": 0,
+    "chirp_table_recovered": 0
+  },
+  "gaps": [
+    "firmware-2.bin and firmware-5.bin are absent, so the firmware-side pulse detector cannot be read at all",
+    "600 does not appear as a literal anywhere; the 23 hits for the byte pair 60 are not evidence of anything because that pair matches any decimal text, so neither the 600 s nor the 60 s CAC duration was recovered as a constant",
+    "the pulse-width and PRI thresholds are named (PRI multiplier, PRI blacklist with delta) but no value table was extracted",
+    "four discriminator families are present by name; the decision logic that combines them into a radar verdict was not decoded",
+    "DFS_check_PRI_blakc_list is misspelled in the shipped binary, so a grep for black_list misses the checker",
+    "no dynamic validation"
+  ]
+}

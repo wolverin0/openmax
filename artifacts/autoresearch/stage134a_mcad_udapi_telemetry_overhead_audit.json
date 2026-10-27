@@ -1,0 +1,1553 @@
+{
+  "meta": {
+    "stage": "134A",
+    "phase": "134A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/audit_stage134a_mcad_udapi_telemetry_overhead_audit.py",
+    "tool_sha256": "5198366304fe11c5ef2f441852bc0fdf91ff506349cc50413458110f991fae3b",
+    "output": "artifacts/autoresearch/stage134a_mcad_udapi_telemetry_overhead_audit.json",
+    "scope": "offline static analysis; zero network traffic; zero radio contact; no mtd access; .241/.242 never contacted",
+    "method": "non-PIC PLT resolution through DT_JMPREL; $a1/$a0 resolved at ioctl and timer call sites by backward slice; .rodata string sweep for /proc and /sys paths",
+    "premise_corrections": [
+      "mcad and udapi-bridge are standalone /bin binaries, not ubntbox applets",
+      "WA.v8.7.11 and XC.v8.7.11 rootfs trees do not exist here; audited v8.7.25",
+      "mcad does NOT collect radio telemetry through SIOCGATHSTATS or SIOCG80211STATS, and reads no /proc or /sys path: it is a UDP/libevent discovery daemon with a single ioctl. The telemetry-by-ioctl premise is REFUTED for mcad and holds only for udapi-bridge."
+    ],
+    "radio_safety": "static only; no ioctl issued, no socket opened, no device touched"
+  },
+  "images": [
+    {
+      "image": "WA.v8.7.25",
+      "binaries": [
+        {
+          "path": "mcad",
+          "bytes": 59192,
+          "sha256": "bcb05c5bc4988b77e03d63b31fba7f7da674b0edf23dc026f880b4d0ca71588a",
+          "imports": 89,
+          "plt_stubs": 84,
+          "ioctl_sites": 1,
+          "ioctl_requests": {
+            "0x00008927": 1
+          },
+          "ioctl_named": {},
+          "ioctl_unnamed": [
+            "0x00008927"
+          ],
+          "ioctl_unresolved": 0,
+          "ioctls": [
+            {
+              "site": "0x00406164",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            }
+          ],
+          "timer_sites": 1,
+          "timers": [
+            {
+              "site": "0x00402a9c",
+              "import_": "select",
+              "arg0": null,
+              "arg0_dec": null
+            }
+          ],
+          "intervals": [],
+          "file_sites": 3,
+          "files": [
+            {
+              "site": "0x00405c64",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00405d90",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00406224",
+              "import_": "open"
+            }
+          ],
+          "network_sites": 41,
+          "network": [
+            {
+              "site": "0x00402074",
+              "import_": "send"
+            },
+            {
+              "site": "0x00402940",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00402988",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004029c8",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00402b18",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00403494",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x00405dcc",
+              "import_": "evdns_init"
+            },
+            {
+              "site": "0x00405df0",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00405e00",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00405fac",
+              "import_": "event_base_dispatch"
+            },
+            {
+              "site": "0x00406134",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004066c4",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406ab4",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00406ac0",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406c34",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00406c40",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406c78",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00407168",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00407174",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x004071d8",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00407218",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x004079d0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00407a20",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00407f4c",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00407f58",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408078",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408604",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408610",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408634",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408640",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408d00",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00408d58",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00408d84",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408dac",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408dd0",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408ddc",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408fa8",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00409044",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00409050",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x004090e4",
+              "import_": "evdns_resolve_ipv4"
+            },
+            {
+              "site": "0x00409798",
+              "import_": "recv"
+            }
+          ],
+          "network_imports": [
+            "bind",
+            "connect",
+            "evdns_init",
+            "evdns_resolve_ipv4",
+            "event_add",
+            "event_base_dispatch",
+            "event_set",
+            "getaddrinfo",
+            "recv",
+            "recvfrom",
+            "send",
+            "sendto",
+            "socket"
+          ],
+          "proc_sys_paths": [],
+          "proc_sys_count": 0,
+          "loop_ops_per_cycle": 1,
+          "status": "ok",
+          "cost_model": {
+            "model": "NOT_APPLICABLE",
+            "ops_per_cycle": 1,
+            "reason": "event-driven: the binary waits in select/libevent rather than on a declared interval, and it carries no /proc or /sys telemetry paths",
+            "network_sites": 41,
+            "network_imports": [
+              "bind",
+              "connect",
+              "evdns_init",
+              "evdns_resolve_ipv4",
+              "event_add",
+              "event_base_dispatch",
+              "event_set",
+              "getaddrinfo",
+              "recv",
+              "recvfrom",
+              "send",
+              "sendto",
+              "socket"
+            ]
+          }
+        },
+        {
+          "path": "udapi-bridge",
+          "bytes": 606816,
+          "sha256": "11c8f687586ef65fc0115966d3b6bded16f46b9f16568550692080aa5f01716e",
+          "imports": 300,
+          "plt_stubs": 295,
+          "ioctl_sites": 16,
+          "ioctl_requests": {
+            "0x00008982": 2,
+            "0x00008933": 2,
+            "0x00008927": 2,
+            "0x00005480": 1,
+            "0x0000467f": 2,
+            "0x00008954": 1,
+            "0x00008946": 3,
+            "0x00008b01": 1
+          },
+          "ioctl_named": {},
+          "ioctl_unnamed": [
+            "0x00008982",
+            "0x00008933",
+            "0x00008927",
+            "0x00005480",
+            "0x0000467f",
+            "0x00008954",
+            "0x00008946",
+            "0x00008b01"
+          ],
+          "ioctl_unresolved": 2,
+          "ioctls": [
+            {
+              "site": "0x0040e7cc",
+              "request": "0x00008982",
+              "request_dec": 35202,
+              "name": null
+            },
+            {
+              "site": "0x0040e84c",
+              "request": "0x00008982",
+              "request_dec": 35202,
+              "name": null
+            },
+            {
+              "site": "0x0040e8a8",
+              "request": "0x00008933",
+              "request_dec": 35123,
+              "name": null
+            },
+            {
+              "site": "0x0040e8d0",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00412658",
+              "request": "0x00005480",
+              "request_dec": 21632,
+              "name": null
+            },
+            {
+              "site": "0x00414de0",
+              "request": null,
+              "request_dec": null,
+              "name": null
+            },
+            {
+              "site": "0x0041aeb8",
+              "request": "0x0000467f",
+              "request_dec": 18047,
+              "name": null
+            },
+            {
+              "site": "0x00426c40",
+              "request": "0x00008954",
+              "request_dec": 35156,
+              "name": null
+            },
+            {
+              "site": "0x00428024",
+              "request": null,
+              "request_dec": null,
+              "name": null
+            },
+            {
+              "site": "0x0043434c",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00434764",
+              "request": "0x0000467f",
+              "request_dec": 18047,
+              "name": null
+            },
+            {
+              "site": "0x00434a24",
+              "request": "0x00008933",
+              "request_dec": 35123,
+              "name": null
+            },
+            {
+              "site": "0x00435804",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435978",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435bd8",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435f8c",
+              "request": "0x00008b01",
+              "request_dec": 35585,
+              "name": null
+            }
+          ],
+          "timer_sites": 4,
+          "timers": [
+            {
+              "site": "0x0040d964",
+              "import_": "poll",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x004229ec",
+              "import_": "nanosleep",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x00435da4",
+              "import_": "sleep",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x0044063c",
+              "import_": "usleep",
+              "arg0": "0x00464664",
+              "arg0_dec": 4605540
+            }
+          ],
+          "intervals": [
+            {
+              "import_": "usleep",
+              "raw": 4605540,
+              "seconds": 4.60554
+            }
+          ],
+          "file_sites": 22,
+          "files": [
+            {
+              "site": "0x0040d72c",
+              "import_": "open"
+            },
+            {
+              "site": "0x0040f030",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0040f084",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x004124bc",
+              "import_": "open"
+            },
+            {
+              "site": "0x00422470",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00422da4",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x004231dc",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00424520",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00424a7c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042523c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425550",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042592c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425ee0",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425f58",
+              "import_": "open"
+            },
+            {
+              "site": "0x00425f70",
+              "import_": "open"
+            },
+            {
+              "site": "0x0042a348",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042ffac",
+              "import_": "open"
+            },
+            {
+              "site": "0x004300dc",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00430114",
+              "import_": "open"
+            },
+            {
+              "site": "0x00430600",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00430908",
+              "import_": "open"
+            },
+            {
+              "site": "0x0043451c",
+              "import_": "fopen"
+            }
+          ],
+          "network_sites": 50,
+          "network": [
+            {
+              "site": "0x004148c8",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x0041569c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00415e5c",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00415ebc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004174bc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041781c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00419b9c",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x0041af64",
+              "import_": "recv"
+            },
+            {
+              "site": "0x0041b034",
+              "import_": "recv"
+            },
+            {
+              "site": "0x0041b250",
+              "import_": "send"
+            },
+            {
+              "site": "0x0041b780",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041b820",
+              "import_": "bind"
+            },
+            {
+              "site": "0x0041b87c",
+              "import_": "connect"
+            },
+            {
+              "site": "0x0041b984",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041ba20",
+              "import_": "bind"
+            },
+            {
+              "site": "0x0042089c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00420a48",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x0042103c",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00426b98",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004273bc",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004278ec",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00427ee0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00428094",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00428128",
+              "import_": "recv"
+            },
+            {
+              "site": "0x004281a0",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004281d0",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004282b8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00428330",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00428988",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x004289d8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004289fc",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00432b80",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x004331bc",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004333a0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00433444",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004341b0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004341f4",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00434314",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0043484c",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00434a7c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00434fcc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00435028",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00435484",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004354c8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004354f4",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004361b0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00454f54",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004559ec",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00455bb8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00455c70",
+              "import_": "bind"
+            }
+          ],
+          "network_imports": [
+            "bind",
+            "connect",
+            "getaddrinfo",
+            "recv",
+            "recvfrom",
+            "send",
+            "sendto",
+            "socket"
+          ],
+          "proc_sys_paths": [
+            "/proc/%ld/statm",
+            "/proc/%u/cmdline",
+            "/proc/meminfo",
+            "/proc/self/exe",
+            "/proc/stat",
+            "/proc/uptime",
+            "/sys/class/net/%s/bridge",
+            "/sys/class/net/%s/flags"
+          ],
+          "proc_sys_count": 8,
+          "loop_ops_per_cycle": 24,
+          "status": "ok",
+          "cost_model": {
+            "model": "INFERRED",
+            "interval_source": "usleep",
+            "interval_raw": 4605540,
+            "interval_seconds": 4.60554,
+            "ops_per_cycle": 24,
+            "ops_per_second": 5.211,
+            "caveat": "counts telemetry operations issued per cycle divided by the declared interval; does not estimate CPU milliseconds, because ioctl and procfs latency are device-dependent and not knowable statically"
+          }
+        }
+      ]
+    },
+    {
+      "image": "XC.v8.7.25",
+      "binaries": [
+        {
+          "path": "mcad",
+          "bytes": 59192,
+          "sha256": "bcb05c5bc4988b77e03d63b31fba7f7da674b0edf23dc026f880b4d0ca71588a",
+          "imports": 89,
+          "plt_stubs": 84,
+          "ioctl_sites": 1,
+          "ioctl_requests": {
+            "0x00008927": 1
+          },
+          "ioctl_named": {},
+          "ioctl_unnamed": [
+            "0x00008927"
+          ],
+          "ioctl_unresolved": 0,
+          "ioctls": [
+            {
+              "site": "0x00406164",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            }
+          ],
+          "timer_sites": 1,
+          "timers": [
+            {
+              "site": "0x00402a9c",
+              "import_": "select",
+              "arg0": null,
+              "arg0_dec": null
+            }
+          ],
+          "intervals": [],
+          "file_sites": 3,
+          "files": [
+            {
+              "site": "0x00405c64",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00405d90",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00406224",
+              "import_": "open"
+            }
+          ],
+          "network_sites": 41,
+          "network": [
+            {
+              "site": "0x00402074",
+              "import_": "send"
+            },
+            {
+              "site": "0x00402940",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00402988",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004029c8",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00402b18",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00403494",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x00405dcc",
+              "import_": "evdns_init"
+            },
+            {
+              "site": "0x00405df0",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00405e00",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00405fac",
+              "import_": "event_base_dispatch"
+            },
+            {
+              "site": "0x00406134",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004066c4",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406ab4",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00406ac0",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406c34",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00406c40",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00406c78",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00407168",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00407174",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x004071d8",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00407218",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x004079d0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00407a20",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00407f4c",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00407f58",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408078",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408604",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408610",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408634",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408640",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408d00",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00408d58",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00408d84",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408dac",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408dd0",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00408ddc",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x00408fa8",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00409044",
+              "import_": "event_set"
+            },
+            {
+              "site": "0x00409050",
+              "import_": "event_add"
+            },
+            {
+              "site": "0x004090e4",
+              "import_": "evdns_resolve_ipv4"
+            },
+            {
+              "site": "0x00409798",
+              "import_": "recv"
+            }
+          ],
+          "network_imports": [
+            "bind",
+            "connect",
+            "evdns_init",
+            "evdns_resolve_ipv4",
+            "event_add",
+            "event_base_dispatch",
+            "event_set",
+            "getaddrinfo",
+            "recv",
+            "recvfrom",
+            "send",
+            "sendto",
+            "socket"
+          ],
+          "proc_sys_paths": [],
+          "proc_sys_count": 0,
+          "loop_ops_per_cycle": 1,
+          "status": "ok",
+          "cost_model": {
+            "model": "NOT_APPLICABLE",
+            "ops_per_cycle": 1,
+            "reason": "event-driven: the binary waits in select/libevent rather than on a declared interval, and it carries no /proc or /sys telemetry paths",
+            "network_sites": 41,
+            "network_imports": [
+              "bind",
+              "connect",
+              "evdns_init",
+              "evdns_resolve_ipv4",
+              "event_add",
+              "event_base_dispatch",
+              "event_set",
+              "getaddrinfo",
+              "recv",
+              "recvfrom",
+              "send",
+              "sendto",
+              "socket"
+            ]
+          }
+        },
+        {
+          "path": "udapi-bridge",
+          "bytes": 606816,
+          "sha256": "11c8f687586ef65fc0115966d3b6bded16f46b9f16568550692080aa5f01716e",
+          "imports": 300,
+          "plt_stubs": 295,
+          "ioctl_sites": 16,
+          "ioctl_requests": {
+            "0x00008982": 2,
+            "0x00008933": 2,
+            "0x00008927": 2,
+            "0x00005480": 1,
+            "0x0000467f": 2,
+            "0x00008954": 1,
+            "0x00008946": 3,
+            "0x00008b01": 1
+          },
+          "ioctl_named": {},
+          "ioctl_unnamed": [
+            "0x00008982",
+            "0x00008933",
+            "0x00008927",
+            "0x00005480",
+            "0x0000467f",
+            "0x00008954",
+            "0x00008946",
+            "0x00008b01"
+          ],
+          "ioctl_unresolved": 2,
+          "ioctls": [
+            {
+              "site": "0x0040e7cc",
+              "request": "0x00008982",
+              "request_dec": 35202,
+              "name": null
+            },
+            {
+              "site": "0x0040e84c",
+              "request": "0x00008982",
+              "request_dec": 35202,
+              "name": null
+            },
+            {
+              "site": "0x0040e8a8",
+              "request": "0x00008933",
+              "request_dec": 35123,
+              "name": null
+            },
+            {
+              "site": "0x0040e8d0",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00412658",
+              "request": "0x00005480",
+              "request_dec": 21632,
+              "name": null
+            },
+            {
+              "site": "0x00414de0",
+              "request": null,
+              "request_dec": null,
+              "name": null
+            },
+            {
+              "site": "0x0041aeb8",
+              "request": "0x0000467f",
+              "request_dec": 18047,
+              "name": null
+            },
+            {
+              "site": "0x00426c40",
+              "request": "0x00008954",
+              "request_dec": 35156,
+              "name": null
+            },
+            {
+              "site": "0x00428024",
+              "request": null,
+              "request_dec": null,
+              "name": null
+            },
+            {
+              "site": "0x0043434c",
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00434764",
+              "request": "0x0000467f",
+              "request_dec": 18047,
+              "name": null
+            },
+            {
+              "site": "0x00434a24",
+              "request": "0x00008933",
+              "request_dec": 35123,
+              "name": null
+            },
+            {
+              "site": "0x00435804",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435978",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435bd8",
+              "request": "0x00008946",
+              "request_dec": 35142,
+              "name": null
+            },
+            {
+              "site": "0x00435f8c",
+              "request": "0x00008b01",
+              "request_dec": 35585,
+              "name": null
+            }
+          ],
+          "timer_sites": 4,
+          "timers": [
+            {
+              "site": "0x0040d964",
+              "import_": "poll",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x004229ec",
+              "import_": "nanosleep",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x00435da4",
+              "import_": "sleep",
+              "arg0": null,
+              "arg0_dec": null
+            },
+            {
+              "site": "0x0044063c",
+              "import_": "usleep",
+              "arg0": "0x00464664",
+              "arg0_dec": 4605540
+            }
+          ],
+          "intervals": [
+            {
+              "import_": "usleep",
+              "raw": 4605540,
+              "seconds": 4.60554
+            }
+          ],
+          "file_sites": 22,
+          "files": [
+            {
+              "site": "0x0040d72c",
+              "import_": "open"
+            },
+            {
+              "site": "0x0040f030",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0040f084",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x004124bc",
+              "import_": "open"
+            },
+            {
+              "site": "0x00422470",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00422da4",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x004231dc",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00424520",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00424a7c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042523c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425550",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042592c",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425ee0",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00425f58",
+              "import_": "open"
+            },
+            {
+              "site": "0x00425f70",
+              "import_": "open"
+            },
+            {
+              "site": "0x0042a348",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x0042ffac",
+              "import_": "open"
+            },
+            {
+              "site": "0x004300dc",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00430114",
+              "import_": "open"
+            },
+            {
+              "site": "0x00430600",
+              "import_": "fopen"
+            },
+            {
+              "site": "0x00430908",
+              "import_": "open"
+            },
+            {
+              "site": "0x0043451c",
+              "import_": "fopen"
+            }
+          ],
+          "network_sites": 50,
+          "network": [
+            {
+              "site": "0x004148c8",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x0041569c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00415e5c",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00415ebc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004174bc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041781c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00419b9c",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x0041af64",
+              "import_": "recv"
+            },
+            {
+              "site": "0x0041b034",
+              "import_": "recv"
+            },
+            {
+              "site": "0x0041b250",
+              "import_": "send"
+            },
+            {
+              "site": "0x0041b780",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041b820",
+              "import_": "bind"
+            },
+            {
+              "site": "0x0041b87c",
+              "import_": "connect"
+            },
+            {
+              "site": "0x0041b984",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0041ba20",
+              "import_": "bind"
+            },
+            {
+              "site": "0x0042089c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00420a48",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x0042103c",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00426b98",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004273bc",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004278ec",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00427ee0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00428094",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00428128",
+              "import_": "recv"
+            },
+            {
+              "site": "0x004281a0",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004281d0",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004282b8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00428330",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00428988",
+              "import_": "getaddrinfo"
+            },
+            {
+              "site": "0x004289d8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004289fc",
+              "import_": "connect"
+            },
+            {
+              "site": "0x00432b80",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x004331bc",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004333a0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00433444",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004341b0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004341f4",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00434314",
+              "import_": "socket"
+            },
+            {
+              "site": "0x0043484c",
+              "import_": "recvfrom"
+            },
+            {
+              "site": "0x00434a7c",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x00434fcc",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00435028",
+              "import_": "bind"
+            },
+            {
+              "site": "0x00435484",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004354c8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x004354f4",
+              "import_": "bind"
+            },
+            {
+              "site": "0x004361b0",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00454f54",
+              "import_": "sendto"
+            },
+            {
+              "site": "0x004559ec",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00455bb8",
+              "import_": "socket"
+            },
+            {
+              "site": "0x00455c70",
+              "import_": "bind"
+            }
+          ],
+          "network_imports": [
+            "bind",
+            "connect",
+            "getaddrinfo",
+            "recv",
+            "recvfrom",
+            "send",
+            "sendto",
+            "socket"
+          ],
+          "proc_sys_paths": [
+            "/proc/%ld/statm",
+            "/proc/%u/cmdline",
+            "/proc/meminfo",
+            "/proc/self/exe",
+            "/proc/stat",
+            "/proc/uptime",
+            "/sys/class/net/%s/bridge",
+            "/sys/class/net/%s/flags"
+          ],
+          "proc_sys_count": 8,
+          "loop_ops_per_cycle": 24,
+          "status": "ok",
+          "cost_model": {
+            "model": "INFERRED",
+            "interval_source": "usleep",
+            "interval_raw": 4605540,
+            "interval_seconds": 4.60554,
+            "ops_per_cycle": 24,
+            "ops_per_second": 5.211,
+            "caveat": "counts telemetry operations issued per cycle divided by the declared interval; does not estimate CPU milliseconds, because ioctl and procfs latency are device-dependent and not knowable statically"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "binaries_audited": 4,
+    "mcad_ioctl_sites": 1,
+    "mcad_proc_sys_paths": 0,
+    "mcad_timer_sites": 1,
+    "mcad_ops_per_cycle": 1,
+    "mcad_cost_model": "NOT_APPLICABLE",
+    "mcad_network_sites": 41,
+    "mcad_network_imports": [
+      "bind",
+      "connect",
+      "evdns_init",
+      "evdns_resolve_ipv4",
+      "event_add",
+      "event_base_dispatch",
+      "event_set",
+      "getaddrinfo",
+      "recv",
+      "recvfrom",
+      "send",
+      "sendto",
+      "socket"
+    ],
+    "udapi_ioctl_sites": 16,
+    "udapi_proc_sys_paths": 8,
+    "udapi_timer_sites": 4,
+    "binaries_identical": true
+  },
+  "gaps": [
+    "the cost model counts operations per cycle and divides by the declared interval; it does not estimate CPU milliseconds, because ioctl and procfs latency are device-dependent",
+    "the loop body is inferred from the timer call site's enclosing function, not from a full CFG: a handler that issues ioctls outside that function is not counted in ops_per_cycle",
+    "udapi-bridge is 606,816 B and its Lua-side dispatch is not covered here",
+    "no dynamic validation: nothing was executed and no radio was contacted"
+  ]
+}

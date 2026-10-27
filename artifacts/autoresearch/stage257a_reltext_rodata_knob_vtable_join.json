@@ -1,0 +1,6827 @@
+{
+  "meta": {
+    "stage": "257A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage257a_reltext_rodata_knob_vtable_join.py",
+    "tool_sha256": "5cb663fa8d4f5e1f6abe1e807d14b2f533ec920d7af7f3b82b28c7a724e3c1b8",
+    "output": "artifacts/autoresearch/stage257a_reltext_rodata_knob_vtable_join.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "R_MIPS_HI16 (5) + R_MIPS_LO16 (6) relocation pairs from .rel.text give rodata_offset = (hi<<16)+sign16(lo) bound to a symbol index, so the referencing instruction is identified unambiguously",
+    "vtable_offsets_from_253a": [
+      4,
+      8,
+      156,
+      160,
+      164,
+      204,
+      208,
+      296,
+      300,
+      396,
+      520
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "knobs_in_module": 320,
+      "attributed": 41,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "ahbskip",
+          "id": "wa_8_7_25_umac_ahbskip",
+          "rodata_offset": "0x0082e0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setoptie",
+          "id": "wa_8_7_25_wext_setoptie_9d14",
+          "rodata_offset": "0x009d1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getoptie",
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "rodata_offset": "0x009d34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setkey",
+          "id": "wa_8_7_25_wext_setkey_9d44",
+          "rodata_offset": "0x009d4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delkey",
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "rodata_offset": "0x009d64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setmlme",
+          "id": "wa_8_7_25_wext_setmlme_9d74",
+          "rodata_offset": "0x009d7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addmac",
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "rodata_offset": "0x009d94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delmac",
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "rodata_offset": "0x009dac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getmac",
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "rodata_offset": "0x009dc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "kickmac",
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "rodata_offset": "0x009ddc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setchanlist",
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "rodata_offset": "0x009df4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchanlist",
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "rodata_offset": "0x009e0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchaninfo",
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "rodata_offset": "0x009e24",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mode",
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "rodata_offset": "0x009e3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mode",
+          "id": "wa_8_7_25_wext_get_mode_9e4c",
+          "rodata_offset": "0x009e54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setwmmparams",
+          "id": "wa_8_7_25_wext_setwmmparams_9e64",
+          "rodata_offset": "0x009e6c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getwmmparams",
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "rodata_offset": "0x009e84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmin",
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "rodata_offset": "0x009ecc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmin",
+          "id": "wa_8_7_25_wext_get_cwmin_9edc",
+          "rodata_offset": "0x009ee4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmax",
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "rodata_offset": "0x009efc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmax",
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "rodata_offset": "0x009f14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "aifs",
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "rodata_offset": "0x009f2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_aifs",
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "rodata_offset": "0x009f44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txoplimit",
+          "id": "wa_8_7_25_wext_txoplimit_9f54",
+          "rodata_offset": "0x009f5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_txoplimit",
+          "id": "wa_8_7_25_wext_get_txoplimit_9f6c",
+          "rodata_offset": "0x009f74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_acm",
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "rodata_offset": "0x009fa4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "noackpolicy",
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "rodata_offset": "0x009fbc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_noackpolicy",
+          "id": "wa_8_7_25_wext_get_noackpolicy_9fcc",
+          "rodata_offset": "0x009fd4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setparam",
+          "id": "wa_8_7_25_wext_setparam_9fe4",
+          "rodata_offset": "0x009fec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getparam",
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "rodata_offset": "0x00a004",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "authmode",
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "rodata_offset": "0x00a07c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_authmode",
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "rodata_offset": "0x00a094",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "protmode",
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "rodata_offset": "0x00a0ac",
+          "sites": [
+            "0x04d750"
+          ],
+          "function": "0x04d718",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_protmode",
+          "id": "wa_8_7_25_wext_get_protmode_a0bc",
+          "rodata_offset": "0x00a0c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastcipher",
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "rodata_offset": "0x00a0dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastcipher",
+          "id": "wa_8_7_25_wext_get_mcastcipher_a0ec",
+          "rodata_offset": "0x00a0f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastkeylen",
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "rodata_offset": "0x00a10c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastkeylen",
+          "id": "wa_8_7_25_wext_get_mcastkeylen_a11c",
+          "rodata_offset": "0x00a124",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastciphers",
+          "id": "wa_8_7_25_wext_ucastciphers_a134",
+          "rodata_offset": "0x00a13c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_uciphers",
+          "id": "wa_8_7_25_wext_get_uciphers_a14c",
+          "rodata_offset": "0x00a154",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastcipher",
+          "id": "wa_8_7_25_wext_ucastcipher_a164",
+          "rodata_offset": "0x00a16c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ucastcipher",
+          "id": "wa_8_7_25_wext_get_ucastcipher_a17c",
+          "rodata_offset": "0x00a184",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastkeylen",
+          "id": "wa_8_7_25_wext_ucastkeylen_a194",
+          "rodata_offset": "0x00a19c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ucastkeylen",
+          "id": "wa_8_7_25_wext_get_ucastkeylen_a1ac",
+          "rodata_offset": "0x00a1b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "keymgtalgs",
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "rodata_offset": "0x00a1cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_keymgtalgs",
+          "id": "wa_8_7_25_wext_get_keymgtalgs_a1dc",
+          "rodata_offset": "0x00a1e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rsncaps",
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "rodata_offset": "0x00a1fc",
+          "sites": [
+            "0x04dba8"
+          ],
+          "function": "0x04da70",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rsncaps",
+          "id": "wa_8_7_25_wext_get_rsncaps_a20c",
+          "rodata_offset": "0x00a214",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "privacy",
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "rodata_offset": "0x00a22c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_privacy",
+          "id": "wa_8_7_25_wext_get_privacy_a23c",
+          "rodata_offset": "0x00a244",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "countermeasures",
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "rodata_offset": "0x00a25c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countermeas",
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "rodata_offset": "0x00a274",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dropunencrypted",
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "rodata_offset": "0x00a28c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_dropunencry",
+          "id": "wa_8_7_25_wext_get_dropunencry_a29c",
+          "rodata_offset": "0x00a2a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wpa",
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "rodata_offset": "0x00a2d4",
+          "sites": [
+            "0x04dd00"
+          ],
+          "function": "0x04dc30",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "driver_caps",
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "rodata_offset": "0x00a2ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_driver_caps",
+          "id": "wa_8_7_25_wext_get_driver_caps_a2fc",
+          "rodata_offset": "0x00a304",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maccmd",
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "rodata_offset": "0x00a31c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maccmd",
+          "id": "wa_8_7_25_wext_get_maccmd_a32c",
+          "rodata_offset": "0x00a334",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wmm",
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "rodata_offset": "0x00a364",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hide_ssid",
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "rodata_offset": "0x00a37c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hide_ssid",
+          "id": "wa_8_7_25_wext_get_hide_ssid_a38c",
+          "rodata_offset": "0x00a394",
+          "sites": [
+            "0x04dee8"
+          ],
+          "function": "0x04dd94",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ap_bridge",
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "rodata_offset": "0x00a3ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ap_bridge",
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "rodata_offset": "0x00a3c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact",
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "rodata_offset": "0x00a3dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact",
+          "id": "wa_8_7_25_wext_get_inact_a3ec",
+          "rodata_offset": "0x00a3f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact_auth",
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "rodata_offset": "0x00a40c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact_auth",
+          "id": "wa_8_7_25_wext_get_inact_auth_a41c",
+          "rodata_offset": "0x00a424",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact_init",
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "rodata_offset": "0x00a43c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact_init",
+          "id": "wa_8_7_25_wext_get_inact_init_a44c",
+          "rodata_offset": "0x00a454",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dtim_period",
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "rodata_offset": "0x00a46c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_dtim_period",
+          "id": "wa_8_7_25_wext_get_dtim_period_a47c",
+          "rodata_offset": "0x00a484",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "bintval",
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "rodata_offset": "0x00a49c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_bintval",
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "rodata_offset": "0x00a4b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth",
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "rodata_offset": "0x00a4cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_doth",
+          "id": "wa_8_7_25_wext_get_doth_a4dc",
+          "rodata_offset": "0x00a4e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_pwrtgt",
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "rodata_offset": "0x00a4fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_doth_pwrtgt",
+          "id": "wa_8_7_25_wext_get_doth_pwrtgt_a50c",
+          "rodata_offset": "0x00a514",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_reassoc",
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "rodata_offset": "0x00a52c",
+          "sites": [
+            "0x04e234"
+          ],
+          "function": "0x04e1fc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "compression",
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "rodata_offset": "0x00a544",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_compression",
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "rodata_offset": "0x00a55c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ff",
+          "id": "wa_8_7_25_wext_get_ff_a584",
+          "rodata_offset": "0x00a58c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "turbo",
+          "id": "wa_8_7_25_wext_turbo_a59c",
+          "rodata_offset": "0x00a5a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_turbo",
+          "id": "wa_8_7_25_wext_get_turbo_a5b4",
+          "rodata_offset": "0x00a5bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x00a5d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x00a5ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_chanswitch",
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "rodata_offset": "0x00a604",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "pureg",
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "rodata_offset": "0x00a61c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_pureg",
+          "id": "wa_8_7_25_wext_get_pureg_a62c",
+          "rodata_offset": "0x00a634",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ar",
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "rodata_offset": "0x00a664",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wds",
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "rodata_offset": "0x00a694",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_ind",
+          "id": "wa_8_7_25_wext_vap_ind_a6a4",
+          "rodata_offset": "0x00a6ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vap_ind",
+          "id": "wa_8_7_25_wext_get_vap_ind_a6bc",
+          "rodata_offset": "0x00a6c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcast_rate",
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "rodata_offset": "0x00a6dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcast_rate",
+          "id": "wa_8_7_25_wext_get_mcast_rate_a6ec",
+          "rodata_offset": "0x00a6f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "countryie",
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "rodata_offset": "0x00a70c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countryie",
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "rodata_offset": "0x00a724",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "uapsd",
+          "id": "wa_8_7_25_wext_uapsd_a734",
+          "rodata_offset": "0x00a73c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_uapsd",
+          "id": "wa_8_7_25_wext_get_uapsd_a74c",
+          "rodata_offset": "0x00a754",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "qosnull",
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "rodata_offset": "0x00a76c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "pspoll",
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "rodata_offset": "0x00a784",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ips_pspoll",
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "rodata_offset": "0x00a79c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ips_pspoll",
+          "id": "wa_8_7_25_wext_get_ips_pspoll_a7ac",
+          "rodata_offset": "0x00a7b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "eospdrop",
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "rodata_offset": "0x00a7cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_eospdrop",
+          "id": "wa_8_7_25_wext_get_eospdrop_a7dc",
+          "rodata_offset": "0x00a7e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "markdfs",
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "rodata_offset": "0x00a7fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_markdfs",
+          "id": "wa_8_7_25_wext_get_markdfs_a80c",
+          "rodata_offset": "0x00a814",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chanbw",
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "rodata_offset": "0x00a82c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chanbw",
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "rodata_offset": "0x00a844",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "shpreamble",
+          "id": "wa_8_7_25_wext_shpreamble_a854",
+          "rodata_offset": "0x00a85c",
+          "sites": [
+            "0x050138"
+          ],
+          "function": "0x04ff44",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_shpreamble",
+          "id": "wa_8_7_25_wext_get_shpreamble_a86c",
+          "rodata_offset": "0x00a874",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "blockdfschan",
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "rodata_offset": "0x00a88c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setiebuf",
+          "id": "wa_8_7_25_wext_setiebuf_a89c",
+          "rodata_offset": "0x00a8a4",
+          "sites": [
+            "0x050198"
+          ],
+          "function": "0x04ff44",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getiebuf",
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "rodata_offset": "0x00a8bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setfilter",
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "rodata_offset": "0x00a8d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "powersave",
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "rodata_offset": "0x00a8ec",
+          "sites": [
+            "0x0504bc"
+          ],
+          "function": "0x05046c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_powersave",
+          "id": "wa_8_7_25_wext_get_powersave_a8fc",
+          "rodata_offset": "0x00a904",
+          "sites": [
+            "0x050534"
+          ],
+          "function": "0x05046c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extprotmode",
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "rodata_offset": "0x00a91c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extprotmode",
+          "id": "wa_8_7_25_wext_get_extprotmode_a92c",
+          "rodata_offset": "0x00a934",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extprotspac",
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "rodata_offset": "0x00a94c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extprotspac",
+          "id": "wa_8_7_25_wext_get_extprotspac_a95c",
+          "rodata_offset": "0x00a964",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmenable",
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "rodata_offset": "0x00a97c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmenable",
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "rodata_offset": "0x00a994",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extbusythres",
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "rodata_offset": "0x00a9ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extbusythres",
+          "id": "wa_8_7_25_wext_get_extbusythres_a9bc",
+          "rodata_offset": "0x00a9c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chwidth",
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "rodata_offset": "0x00a9dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chwidth",
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "rodata_offset": "0x00a9f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmmode",
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "rodata_offset": "0x00aa0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmmode",
+          "id": "wa_8_7_25_wext_get_cwmmode_aa1c",
+          "rodata_offset": "0x00aa24",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "shortgi",
+          "id": "wa_8_7_25_wext_shortgi_aa34",
+          "rodata_offset": "0x00aa3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_shortgi",
+          "id": "wa_8_7_25_wext_get_shortgi_aa4c",
+          "rodata_offset": "0x00aa54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ampdu",
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "rodata_offset": "0x00aa6c",
+          "sites": [
+            "0x050748"
+          ],
+          "function": "0x0505dc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ampdu",
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "rodata_offset": "0x00aa84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxampdu",
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "rodata_offset": "0x00aa9c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxampdu",
+          "id": "wa_8_7_25_wext_get_maxampdu_aaac",
+          "rodata_offset": "0x00aab4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vhtmaxampdu",
+          "id": "wa_8_7_25_wext_vhtmaxampdu_aac4",
+          "rodata_offset": "0x00aacc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vhtmaxampdu",
+          "id": "wa_8_7_25_wext_get_vhtmaxampdu_aadc",
+          "rodata_offset": "0x00aae4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x00aafc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "amsdu",
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "rodata_offset": "0x00ab14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_amsdu",
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "rodata_offset": "0x00ab2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countrycode",
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "rodata_offset": "0x00ab44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastenhance",
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "rodata_offset": "0x00ab5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastenhance",
+          "id": "wa_8_7_25_wext_get_mcastenhance_ab6c",
+          "rodata_offset": "0x00ab74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medump_dummy",
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "rodata_offset": "0x00ab8c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medump",
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "rodata_offset": "0x00aba4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medebug",
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "rodata_offset": "0x00abbc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_medebug",
+          "id": "wa_8_7_25_wext_get_medebug_abcc",
+          "rodata_offset": "0x00abd4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_length",
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "rodata_offset": "0x00abec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_me_length",
+          "id": "wa_8_7_25_wext_get_me_length_abfc",
+          "rodata_offset": "0x00ac04",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "metimer",
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "rodata_offset": "0x00ac1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_metimer",
+          "id": "wa_8_7_25_wext_get_metimer_ac2c",
+          "rodata_offset": "0x00ac34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "metimeout",
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "rodata_offset": "0x00ac4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_metimeout",
+          "id": "wa_8_7_25_wext_get_metimeout_ac5c",
+          "rodata_offset": "0x00ac64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medropmcast",
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "rodata_offset": "0x00ac7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_medropmcast",
+          "id": "wa_8_7_25_wext_get_medropmcast_ac8c",
+          "rodata_offset": "0x00ac94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_showdeny",
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "rodata_offset": "0x00acac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_cleardeny",
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "rodata_offset": "0x00acc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hbrtimer",
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "rodata_offset": "0x00acdc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hbrtimer",
+          "id": "wa_8_7_25_wext_get_hbrtimer_acec",
+          "rodata_offset": "0x00acf4",
+          "sites": [
+            "0x051afc",
+            "0x051d28"
+          ],
+          "function": "0x051ac8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hbrstate",
+          "id": "wa_8_7_25_wext_get_hbrstate_ad04",
+          "rodata_offset": "0x00ad0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_iqueconfig",
+          "id": "wa_8_7_25_wext_get_iqueconfig_ad1c",
+          "rodata_offset": "0x00ad24",
+          "sites": [
+            "0x051b24",
+            "0x051d50"
+          ],
+          "function": "0x051ac8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "acparams",
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "rodata_offset": "0x00ad3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rtparams",
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "rodata_offset": "0x00ad54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hbrparams",
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "rodata_offset": "0x00ad6c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_adddeny",
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "rodata_offset": "0x00ad84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanvalid",
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "rodata_offset": "0x00ad9c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanvalid",
+          "id": "wa_8_7_25_wext_get_scanvalid_adac",
+          "rodata_offset": "0x00adb4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rxtimeout",
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "rodata_offset": "0x00adcc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgreq",
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "rodata_offset": "0x00ade4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setaddbaoper",
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "rodata_offset": "0x00adfc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set11NRates",
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "rodata_offset": "0x00ae14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get11NRates",
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "rodata_offset": "0x00ae2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set11NRetries",
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "rodata_offset": "0x00ae44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get11NRetries",
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "rodata_offset": "0x00ae5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgLVL",
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "rodata_offset": "0x00ae74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getdbgLVL",
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "rodata_offset": "0x00ae8c",
+          "sites": [
+            "0x051f74"
+          ],
+          "function": "0x051e60",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgLVL_high",
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "rodata_offset": "0x00aea4",
+          "sites": [
+            "0x051fac"
+          ],
+          "function": "0x051e60",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getdbgLVL_high",
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "rodata_offset": "0x00aebc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "no_wradar",
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "rodata_offset": "0x00aed4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_no_wradar",
+          "id": "wa_8_7_25_wext_get_no_wradar_aee4",
+          "rodata_offset": "0x00aeec",
+          "sites": [
+            "0x052be8",
+            "0x0532a8"
+          ],
+          "function": "0x052b5c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wepkeycache",
+          "id": "wa_8_7_25_wext_wepkeycache_aefc",
+          "rodata_offset": "0x00af04",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wepkeycache",
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "rodata_offset": "0x00af1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wdsdetect",
+          "id": "wa_8_7_25_wext_wdsdetect_af2c",
+          "rodata_offset": "0x00af34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wdsdetect",
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "rodata_offset": "0x00af4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "htweptkip",
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "rodata_offset": "0x00af64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_htweptkip",
+          "id": "wa_8_7_25_wext_get_htweptkip_af74",
+          "rodata_offset": "0x00af7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "puren",
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "rodata_offset": "0x00af94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_puren",
+          "id": "wa_8_7_25_wext_get_puren_afa4",
+          "rodata_offset": "0x00afac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "basicrates",
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "rodata_offset": "0x00afc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ignore11d",
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "rodata_offset": "0x00afdc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ignore11d",
+          "id": "wa_8_7_25_wext_get_ignore11d_afec",
+          "rodata_offset": "0x00aff4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "stafwd",
+          "id": "wa_8_7_25_wext_stafwd_b004",
+          "rodata_offset": "0x00b00c",
+          "sites": [
+            "0x053408"
+          ],
+          "function": "0x0533cc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_stafwd",
+          "id": "wa_8_7_25_wext_get_stafwd_b01c",
+          "rodata_offset": "0x00b024",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "clrappoptie",
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "rodata_offset": "0x00b03c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "autoassoc",
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "rodata_offset": "0x00b054",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_autoassoc",
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "rodata_offset": "0x00b06c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_contryie",
+          "id": "wa_8_7_25_wext_vap_contryie_b07c",
+          "rodata_offset": "0x00b084",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vapcontryie",
+          "id": "wa_8_7_25_wext_get_vapcontryie_b094",
+          "rodata_offset": "0x00b09c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_doth",
+          "id": "wa_8_7_25_wext_vap_doth_b0ac",
+          "rodata_offset": "0x00b0b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vap_doth",
+          "id": "wa_8_7_25_wext_get_vap_doth_b0c4",
+          "rodata_offset": "0x00b0cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ht40intol",
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "rodata_offset": "0x00b0e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ht40intol",
+          "id": "wa_8_7_25_wext_get_ht40intol_b0f4",
+          "rodata_offset": "0x00b0fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chwidth",
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "rodata_offset": "0x00b114",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chwidth",
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "rodata_offset": "0x00b12c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chextoffset",
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "rodata_offset": "0x00b144",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chextoffset",
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "rodata_offset": "0x00b15c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_sko",
+          "id": "wa_8_7_25_wext_get_sko_b184",
+          "rodata_offset": "0x00b18c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chscaninit",
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "rodata_offset": "0x00b1a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chscaninit",
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "rodata_offset": "0x00b1bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "disablecoext",
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "rodata_offset": "0x00b1d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_disablecoext",
+          "id": "wa_8_7_25_wext_get_disablecoext_b1e4",
+          "rodata_offset": "0x00b1ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mfptest",
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "rodata_offset": "0x00b204",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mfptest",
+          "id": "wa_8_7_25_wext_get_mfptest_b214",
+          "rodata_offset": "0x00b21c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chutil_enab",
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "rodata_offset": "0x00b234",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chutil_enab",
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "rodata_offset": "0x00b24c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chutil",
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "rodata_offset": "0x00b264",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrm",
+          "id": "wa_8_7_25_wext_get_rrm_b28c",
+          "rodata_offset": "0x00b294",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmstats",
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "rodata_offset": "0x00b2ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmstats",
+          "id": "wa_8_7_25_wext_get_rrmstats_b2bc",
+          "rodata_offset": "0x00b2c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmslwin",
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "rodata_offset": "0x00b2dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmslwin",
+          "id": "wa_8_7_25_wext_get_rrmslwin_b2ec",
+          "rodata_offset": "0x00b2f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmdbg",
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "rodata_offset": "0x00b30c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmdbg",
+          "id": "wa_8_7_25_wext_get_rrmdbg_b31c",
+          "rodata_offset": "0x00b324",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sendmgmt",
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "rodata_offset": "0x00b33c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ccmpSwSelEn",
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "rodata_offset": "0x00b354",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ccmpSwSelEn",
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "rodata_offset": "0x00b36c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "s_scan_flush",
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "rodata_offset": "0x00b384",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "csa2g",
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "rodata_offset": "0x00b39c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_csa2g",
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "rodata_offset": "0x00b3b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wdsaddr",
+          "id": "wa_8_7_25_wext_wdsaddr_b3dc",
+          "rodata_offset": "0x00b3e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "no_disassoc",
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "rodata_offset": "0x00b3fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_no_disassoc",
+          "id": "wa_8_7_25_wext_get_no_disassoc_b40c",
+          "rodata_offset": "0x00b414",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxsta",
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "rodata_offset": "0x00b42c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxsta",
+          "id": "wa_8_7_25_wext_get_maxsta_b43c",
+          "rodata_offset": "0x00b444",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanband",
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "rodata_offset": "0x00b45c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanband",
+          "id": "wa_8_7_25_wext_get_scanband_b46c",
+          "rodata_offset": "0x00b474",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "senddeauth",
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "rodata_offset": "0x00b48c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_senddeauth",
+          "id": "wa_8_7_25_wext_get_senddeauth_b49c",
+          "rodata_offset": "0x00b4a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "siwtxpwradjust",
+          "id": "wa_8_7_25_wext_siwtxpwradjust_b4b4",
+          "rodata_offset": "0x00b4bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_dbg",
+          "id": "wa_8_7_25_wext_txrx_dbg_b4cc",
+          "rodata_offset": "0x00b4d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_stats",
+          "id": "wa_8_7_25_wext_txrx_fw_stats_b4e4",
+          "rodata_offset": "0x00b4ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_mstats",
+          "id": "wa_8_7_25_wext_txrx_fw_mstats_b4fc",
+          "rodata_offset": "0x00b504",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_st_rst",
+          "id": "wa_8_7_25_wext_txrx_fw_st_rst_b514",
+          "rodata_offset": "0x00b51c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tx_ppdu_log_cfg",
+          "id": "wa_8_7_25_wext_tx_ppdu_log_cfg_b52c",
+          "rodata_offset": "0x00b534",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vhtmcs",
+          "id": "wa_8_7_25_wext_vhtmcs_b544",
+          "rodata_offset": "0x00b54c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vhtmcs",
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "rodata_offset": "0x00b564",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_nss",
+          "id": "wa_8_7_25_wext_get_nss_b58c",
+          "rodata_offset": "0x00b594",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ldpc",
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "rodata_offset": "0x00b5ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ldpc",
+          "id": "wa_8_7_25_wext_get_ldpc_b5bc",
+          "rodata_offset": "0x00b5c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tx_stbc",
+          "id": "wa_8_7_25_wext_tx_stbc_b5d4",
+          "rodata_offset": "0x00b5dc",
+          "sites": [
+            "0x055a58"
+          ],
+          "function": "0x0558fc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_tx_stbc",
+          "id": "wa_8_7_25_wext_get_tx_stbc_b5ec",
+          "rodata_offset": "0x00b5f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rx_stbc",
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "rodata_offset": "0x00b60c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rx_stbc",
+          "id": "wa_8_7_25_wext_get_rx_stbc_b61c",
+          "rodata_offset": "0x00b624",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "opmode_notify",
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "rodata_offset": "0x00b63c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_opmod_notify",
+          "id": "wa_8_7_25_wext_get_opmod_notify_b64c",
+          "rodata_offset": "0x00b654",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_ch_chwidth",
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "rodata_offset": "0x00b66c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_cactimeout",
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "rodata_offset": "0x00b684",
+          "sites": [
+            "0x055f7c"
+          ],
+          "function": "0x055d30",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cactimeout",
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "rodata_offset": "0x00b69c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enablertscts",
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "rodata_offset": "0x00b6b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_enablertscts",
+          "id": "wa_8_7_25_wext_get_enablertscts_b6c4",
+          "rodata_offset": "0x00b6cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rc_retries",
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "rodata_offset": "0x00b6e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rc_retries",
+          "id": "wa_8_7_25_wext_get_rc_retries_b6f4",
+          "rodata_offset": "0x00b6fc",
+          "sites": [
+            "0x056d80"
+          ],
+          "function": "0x056178",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "bcast_rate",
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "rodata_offset": "0x00b714",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_bcast_rate",
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "rodata_offset": "0x00b72c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vht_mcsmap",
+          "id": "wa_8_7_25_wext_vht_mcsmap_b73c",
+          "rodata_offset": "0x00b744",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vht_mcsmap",
+          "id": "wa_8_7_25_wext_get_vht_mcsmap_b754",
+          "rodata_offset": "0x00b75c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_ol_stats",
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "rodata_offset": "0x00b774",
+          "sites": [
+            "0x0579e0"
+          ],
+          "function": "0x056178",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_acs_state",
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "rodata_offset": "0x00b78c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cac_state",
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "rodata_offset": "0x00b7a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxscanentry",
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "rodata_offset": "0x00b7bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxscanentry",
+          "id": "wa_8_7_25_wext_get_maxscanentry_b7cc",
+          "rodata_offset": "0x00b7d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanentryage",
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "rodata_offset": "0x00b7ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanentryage",
+          "id": "wa_8_7_25_wext_get_scanentryage_b7fc",
+          "rodata_offset": "0x00b804",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "disable_chan",
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "rodata_offset": "0x00b81c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_chan",
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "rodata_offset": "0x00b834",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ptpmode",
+          "id": "wa_8_7_25_wext_get_ptpmode_b844",
+          "rodata_offset": "0x00b84c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_multiq",
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "rodata_offset": "0x00b864",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_multiq",
+          "id": "wa_8_7_25_wext_get_multiq_b874",
+          "rodata_offset": "0x00b87c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rc_mode",
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "rodata_offset": "0x00b894",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rc_mode",
+          "id": "wa_8_7_25_wext_get_rc_mode_b8a4",
+          "rodata_offset": "0x00b8ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_noltimeout",
+          "id": "wa_8_7_25_wext_get_noltimeout_b8bc",
+          "rodata_offset": "0x00b8c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_nolstate",
+          "id": "wa_8_7_25_wext_get_nolstate_b8d4",
+          "rodata_offset": "0x00b8dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "war1_allow_sleep",
+          "id": "wa_8_7_25_umac_war1_allow_sleep",
+          "rodata_offset": "0x00e300",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "war1",
+          "id": "wa_8_7_25_umac_war1",
+          "rodata_offset": "0x00e314",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ubnt_radar_mode",
+          "id": "wa_8_7_25_umac_ubnt_radar_mode",
+          "rodata_offset": "0x00e374",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ubnt_op_mode",
+          "id": "wa_8_7_25_umac_ubnt_op_mode",
+          "rodata_offset": "0x00e384",
+          "sites": [
+            "0x0a3380"
+          ],
+          "function": "0x0a3270",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "is_ubnt_ff",
+          "id": "wa_8_7_25_umac_is_ubnt_ff",
+          "rodata_offset": "0x00e394",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "is_ubnt_ptp",
+          "id": "wa_8_7_25_umac_is_ubnt_ptp",
+          "rodata_offset": "0x00e3a0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "max_vdevs",
+          "id": "wa_8_7_25_umac_max_vdevs",
+          "rodata_offset": "0x00e3ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "max_peers",
+          "id": "wa_8_7_25_umac_max_peers",
+          "rodata_offset": "0x00e3b8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vow_config",
+          "id": "wa_8_7_25_umac_vow_config",
+          "rodata_offset": "0x00e3c4",
+          "sites": [
+            "0x0a364c"
+          ],
+          "function": "0x0a3618",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_tx_tcp_cksum",
+          "id": "wa_8_7_25_umac_enable_tx_tcp_cksum",
+          "rodata_offset": "0x00e3d0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tgdeb",
+          "id": "wa_8_7_25_umac_tgdeb",
+          "rodata_offset": "0x00e3e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "host_80211_enable",
+          "id": "wa_8_7_25_umac_host_80211_enable",
+          "rodata_offset": "0x00e3ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x00ebc8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x00ebe0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_ol_stats",
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "rodata_offset": "0x00ed60",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "distance",
+          "id": "xc_8_7_25_iwpriv_wifi0_distance",
+          "rodata_offset": "0x00ef10",
+          "sites": [
+            "0x0a7858"
+          ],
+          "function": "0x0a77ec",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chanbw",
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "rodata_offset": "0x00f060",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chanbw",
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "rodata_offset": "0x00f078",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x00f0d8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "msienable",
+          "id": "wa_8_7_25_umac_msienable",
+          "rodata_offset": "0x00f5cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_enable",
+          "rodata_offset": "0x001f30",
+          "sites": [
+            "0x018630"
+          ],
+          "function": "0x0185e0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "amsdu",
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "rodata_offset": "0x00b4f8",
+          "sites": [
+            "0x054f44",
+            "0x055008",
+            "0x055070"
+          ],
+          "function": "0x054da8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setchanlist",
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "rodata_offset": "0x00c1d4",
+          "sites": [
+            "0x09235c"
+          ],
+          "function": "0x092330",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sendmgmt",
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "rodata_offset": "0x00c3e4",
+          "sites": [
+            "0x0935a8"
+          ],
+          "function": "0x093574",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setfilter",
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "rodata_offset": "0x00c440",
+          "sites": [
+            "0x0936c4"
+          ],
+          "function": "0x093688",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchanlist",
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "rodata_offset": "0x00c4bc",
+          "sites": [
+            "0x093d40"
+          ],
+          "function": "0x093d0c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delmac",
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "rodata_offset": "0x00c4c8",
+          "sites": [
+            "0x093d9c"
+          ],
+          "function": "0x093d68",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addmac",
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "rodata_offset": "0x00c4ec",
+          "sites": [
+            "0x094238"
+          ],
+          "function": "0x094204",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getoptie",
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "rodata_offset": "0x00c4f4",
+          "sites": [
+            "0x09429c"
+          ],
+          "function": "0x094260",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setoptie",
+          "id": "wa_8_7_25_wext_setoptie_9d14",
+          "rodata_offset": "0x00c500",
+          "sites": [
+            "0x09432c"
+          ],
+          "function": "0x0942e8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchaninfo",
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "rodata_offset": "0x00c50c",
+          "sites": [
+            "0x094400"
+          ],
+          "function": "0x0943c0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setmlme",
+          "id": "wa_8_7_25_wext_setmlme_9d74",
+          "rodata_offset": "0x00c5d4",
+          "sites": [
+            "0x094900"
+          ],
+          "function": "0x0948b0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "kickmac",
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "rodata_offset": "0x00c68c",
+          "sites": [
+            "0x094e04"
+          ],
+          "function": "0x094db4",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getwmmparams",
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "rodata_offset": "0x00c6b0",
+          "sites": [
+            "0x094f1c"
+          ],
+          "function": "0x094ec8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delkey",
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "rodata_offset": "0x00c6dc",
+          "sites": [
+            "0x095080"
+          ],
+          "function": "0x095044",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setwmmparams",
+          "id": "wa_8_7_25_wext_setwmmparams_9e64",
+          "rodata_offset": "0x00c70c",
+          "sites": [
+            "0x095190"
+          ],
+          "function": "0x09513c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setkey",
+          "id": "wa_8_7_25_wext_setkey_9d44",
+          "rodata_offset": "0x00c740",
+          "sites": [
+            "0x095374"
+          ],
+          "function": "0x09532c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgreq",
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "rodata_offset": "0x00d05c",
+          "sites": [
+            "0x099198"
+          ],
+          "function": "0x099160",
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    },
+    {
+      "module": "WA.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "knobs_in_module": 6,
+      "attributed": 0,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x002010",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x002028",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "distance",
+          "id": "xc_8_7_25_iwpriv_wifi0_distance",
+          "rodata_offset": "0x0022e0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x0000c0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x001c90",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "powersave",
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "rodata_offset": "0x001d30",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    },
+    {
+      "module": "WA.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "knobs_in_module": 33,
+      "attributed": 12,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "gpsreset",
+          "id": "wa_8_7_25_proc_sys_dev_uph_gpsreset",
+          "rodata_offset": "0x00023c",
+          "sites": [
+            "0x001b28"
+          ],
+          "function": "0x001b00",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addradio",
+          "id": "wa_8_7_25_proc_sys_dev_uph_addradio",
+          "rodata_offset": "0x000248",
+          "sites": [
+            "0x001c24",
+            "0x001c68"
+          ],
+          "function": "0x001bfc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "gps_info",
+          "id": "wa_8_7_25_proc_sys_dev_uph_gps_info",
+          "rodata_offset": "0x0002f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_enable",
+          "rodata_offset": "0x000314",
+          "sites": [
+            "0x00216c"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "status",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_status",
+          "rodata_offset": "0x00031c",
+          "sites": [
+            "0x0021b4"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "timing",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_timing",
+          "rodata_offset": "0x000324",
+          "sites": [
+            "0x002200"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ptp_xmit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ptp_xmit",
+          "rodata_offset": "0x000330",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_diag",
+          "rodata_offset": "0x00033c",
+          "sites": [
+            "0x002338"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_diag",
+          "rodata_offset": "0x000348",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_host_diag",
+          "rodata_offset": "0x000354",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_host_diag",
+          "rodata_offset": "0x000390",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "gqparam",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_gqparam",
+          "rodata_offset": "0x000464",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sqparam",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sqparam",
+          "rodata_offset": "0x00046c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_reg",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_reg",
+          "rodata_offset": "0x000474",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_reg",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_reg",
+          "rodata_offset": "0x00047c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "swr_limit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_swr_limit",
+          "rodata_offset": "0x000484",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "noack_mode",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_noack_mode",
+          "rodata_offset": "0x000490",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "evm_meas_config",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_evm_meas_config",
+          "rodata_offset": "0x000518",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "atpc",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_atpc",
+          "rodata_offset": "0x000528",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cms_bias",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_cms_bias",
+          "rodata_offset": "0x000568",
+          "sites": [
+            "0x003f10"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "voip_bias",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_voip_bias",
+          "rodata_offset": "0x000574",
+          "sites": [
+            "0x00408c"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ff_cap_rep",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_cap_rep",
+          "rodata_offset": "0x000580",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ff_mcast_airtime_limit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_mcast_airtime_limit",
+          "rodata_offset": "0x00058c",
+          "sites": [
+            "0x00454c"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "daprot",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_daprot",
+          "rodata_offset": "0x0005a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sta_rx_rssi_th",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_rx_rssi_th",
+          "rodata_offset": "0x000620",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "fixed_frame",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_fixed_frame",
+          "rodata_offset": "0x000630",
+          "sites": [
+            "0x00a5dc"
+          ],
+          "function": "0x00a4e8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hsr_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_hsr_diag",
+          "rodata_offset": "0x000b7c",
+          "sites": [
+            "0x004630",
+            "0x004aa0"
+          ],
+          "function": "0x0045f0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "netconf",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_netconf",
+          "rodata_offset": "0x000b88",
+          "sites": [
+            "0x004670"
+          ],
+          "function": "0x0045f0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sta_priority",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_priority",
+          "rodata_offset": "0x0010d8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_remote_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_host_diag",
+          "rodata_offset": "0x0011b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_remote_target_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_target_diag",
+          "rodata_offset": "0x0011e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "debug_block_sta",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_block_sta",
+          "rodata_offset": "0x0011fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "debug_tid",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_tid",
+          "rodata_offset": "0x00120c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "knobs_in_module": 320,
+      "attributed": 41,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "ahbskip",
+          "id": "wa_8_7_25_umac_ahbskip",
+          "rodata_offset": "0x0082e0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setoptie",
+          "id": "wa_8_7_25_wext_setoptie_9d14",
+          "rodata_offset": "0x009d1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getoptie",
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "rodata_offset": "0x009d34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setkey",
+          "id": "wa_8_7_25_wext_setkey_9d44",
+          "rodata_offset": "0x009d4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delkey",
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "rodata_offset": "0x009d64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setmlme",
+          "id": "wa_8_7_25_wext_setmlme_9d74",
+          "rodata_offset": "0x009d7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addmac",
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "rodata_offset": "0x009d94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delmac",
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "rodata_offset": "0x009dac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getmac",
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "rodata_offset": "0x009dc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "kickmac",
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "rodata_offset": "0x009ddc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setchanlist",
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "rodata_offset": "0x009df4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchanlist",
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "rodata_offset": "0x009e0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchaninfo",
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "rodata_offset": "0x009e24",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mode",
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "rodata_offset": "0x009e3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mode",
+          "id": "wa_8_7_25_wext_get_mode_9e4c",
+          "rodata_offset": "0x009e54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setwmmparams",
+          "id": "wa_8_7_25_wext_setwmmparams_9e64",
+          "rodata_offset": "0x009e6c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getwmmparams",
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "rodata_offset": "0x009e84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmin",
+          "id": "wa_8_7_25_wext_cwmin_9ec4",
+          "rodata_offset": "0x009ecc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmin",
+          "id": "wa_8_7_25_wext_get_cwmin_9edc",
+          "rodata_offset": "0x009ee4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmax",
+          "id": "wa_8_7_25_wext_cwmax_9ef4",
+          "rodata_offset": "0x009efc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmax",
+          "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+          "rodata_offset": "0x009f14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "aifs",
+          "id": "wa_8_7_25_wext_aifs_9f24",
+          "rodata_offset": "0x009f2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_aifs",
+          "id": "wa_8_7_25_wext_get_aifs_9f3c",
+          "rodata_offset": "0x009f44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txoplimit",
+          "id": "wa_8_7_25_wext_txoplimit_9f54",
+          "rodata_offset": "0x009f5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_txoplimit",
+          "id": "wa_8_7_25_wext_get_txoplimit_9f6c",
+          "rodata_offset": "0x009f74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_acm",
+          "id": "wa_8_7_25_wext_get_acm_9f9c",
+          "rodata_offset": "0x009fa4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "noackpolicy",
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "rodata_offset": "0x009fbc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_noackpolicy",
+          "id": "wa_8_7_25_wext_get_noackpolicy_9fcc",
+          "rodata_offset": "0x009fd4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setparam",
+          "id": "wa_8_7_25_wext_setparam_9fe4",
+          "rodata_offset": "0x009fec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getparam",
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "rodata_offset": "0x00a004",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "authmode",
+          "id": "wa_8_7_25_wext_authmode_a074",
+          "rodata_offset": "0x00a07c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_authmode",
+          "id": "wa_8_7_25_wext_get_authmode_a08c",
+          "rodata_offset": "0x00a094",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "protmode",
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "rodata_offset": "0x00a0ac",
+          "sites": [
+            "0x04d750"
+          ],
+          "function": "0x04d718",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_protmode",
+          "id": "wa_8_7_25_wext_get_protmode_a0bc",
+          "rodata_offset": "0x00a0c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastcipher",
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "rodata_offset": "0x00a0dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastcipher",
+          "id": "wa_8_7_25_wext_get_mcastcipher_a0ec",
+          "rodata_offset": "0x00a0f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastkeylen",
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "rodata_offset": "0x00a10c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastkeylen",
+          "id": "wa_8_7_25_wext_get_mcastkeylen_a11c",
+          "rodata_offset": "0x00a124",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastciphers",
+          "id": "wa_8_7_25_wext_ucastciphers_a134",
+          "rodata_offset": "0x00a13c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_uciphers",
+          "id": "wa_8_7_25_wext_get_uciphers_a14c",
+          "rodata_offset": "0x00a154",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastcipher",
+          "id": "wa_8_7_25_wext_ucastcipher_a164",
+          "rodata_offset": "0x00a16c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ucastcipher",
+          "id": "wa_8_7_25_wext_get_ucastcipher_a17c",
+          "rodata_offset": "0x00a184",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ucastkeylen",
+          "id": "wa_8_7_25_wext_ucastkeylen_a194",
+          "rodata_offset": "0x00a19c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ucastkeylen",
+          "id": "wa_8_7_25_wext_get_ucastkeylen_a1ac",
+          "rodata_offset": "0x00a1b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "keymgtalgs",
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "rodata_offset": "0x00a1cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_keymgtalgs",
+          "id": "wa_8_7_25_wext_get_keymgtalgs_a1dc",
+          "rodata_offset": "0x00a1e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rsncaps",
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "rodata_offset": "0x00a1fc",
+          "sites": [
+            "0x04dba8"
+          ],
+          "function": "0x04da70",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rsncaps",
+          "id": "wa_8_7_25_wext_get_rsncaps_a20c",
+          "rodata_offset": "0x00a214",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "privacy",
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "rodata_offset": "0x00a22c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_privacy",
+          "id": "wa_8_7_25_wext_get_privacy_a23c",
+          "rodata_offset": "0x00a244",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "countermeasures",
+          "id": "wa_8_7_25_wext_countermeasures_a254",
+          "rodata_offset": "0x00a25c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countermeas",
+          "id": "wa_8_7_25_wext_get_countermeas_a26c",
+          "rodata_offset": "0x00a274",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dropunencrypted",
+          "id": "wa_8_7_25_wext_dropunencrypted_a284",
+          "rodata_offset": "0x00a28c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_dropunencry",
+          "id": "wa_8_7_25_wext_get_dropunencry_a29c",
+          "rodata_offset": "0x00a2a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wpa",
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "rodata_offset": "0x00a2d4",
+          "sites": [
+            "0x04dd00"
+          ],
+          "function": "0x04dc30",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "driver_caps",
+          "id": "wa_8_7_25_wext_driver_caps_a2e4",
+          "rodata_offset": "0x00a2ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_driver_caps",
+          "id": "wa_8_7_25_wext_get_driver_caps_a2fc",
+          "rodata_offset": "0x00a304",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maccmd",
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "rodata_offset": "0x00a31c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maccmd",
+          "id": "wa_8_7_25_wext_get_maccmd_a32c",
+          "rodata_offset": "0x00a334",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wmm",
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "rodata_offset": "0x00a364",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hide_ssid",
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "rodata_offset": "0x00a37c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hide_ssid",
+          "id": "wa_8_7_25_wext_get_hide_ssid_a38c",
+          "rodata_offset": "0x00a394",
+          "sites": [
+            "0x04dee8"
+          ],
+          "function": "0x04dd94",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ap_bridge",
+          "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+          "rodata_offset": "0x00a3ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ap_bridge",
+          "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+          "rodata_offset": "0x00a3c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact",
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "rodata_offset": "0x00a3dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact",
+          "id": "wa_8_7_25_wext_get_inact_a3ec",
+          "rodata_offset": "0x00a3f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact_auth",
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "rodata_offset": "0x00a40c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact_auth",
+          "id": "wa_8_7_25_wext_get_inact_auth_a41c",
+          "rodata_offset": "0x00a424",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "inact_init",
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "rodata_offset": "0x00a43c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_inact_init",
+          "id": "wa_8_7_25_wext_get_inact_init_a44c",
+          "rodata_offset": "0x00a454",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dtim_period",
+          "id": "wa_8_7_25_wext_dtim_period_a464",
+          "rodata_offset": "0x00a46c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_dtim_period",
+          "id": "wa_8_7_25_wext_get_dtim_period_a47c",
+          "rodata_offset": "0x00a484",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "bintval",
+          "id": "wa_8_7_25_wext_bintval_a494",
+          "rodata_offset": "0x00a49c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_bintval",
+          "id": "wa_8_7_25_wext_get_bintval_a4ac",
+          "rodata_offset": "0x00a4b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth",
+          "id": "wa_8_7_25_wext_doth_a4c4",
+          "rodata_offset": "0x00a4cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_doth",
+          "id": "wa_8_7_25_wext_get_doth_a4dc",
+          "rodata_offset": "0x00a4e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_pwrtgt",
+          "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+          "rodata_offset": "0x00a4fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_doth_pwrtgt",
+          "id": "wa_8_7_25_wext_get_doth_pwrtgt_a50c",
+          "rodata_offset": "0x00a514",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_reassoc",
+          "id": "wa_8_7_25_wext_doth_reassoc_a524",
+          "rodata_offset": "0x00a52c",
+          "sites": [
+            "0x04e234"
+          ],
+          "function": "0x04e1fc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "compression",
+          "id": "wa_8_7_25_wext_compression_a53c",
+          "rodata_offset": "0x00a544",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_compression",
+          "id": "wa_8_7_25_wext_get_compression_a554",
+          "rodata_offset": "0x00a55c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ff",
+          "id": "wa_8_7_25_wext_get_ff_a584",
+          "rodata_offset": "0x00a58c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "turbo",
+          "id": "wa_8_7_25_wext_turbo_a59c",
+          "rodata_offset": "0x00a5a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_turbo",
+          "id": "wa_8_7_25_wext_get_turbo_a5b4",
+          "rodata_offset": "0x00a5bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x00a5d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x00a5ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_chanswitch",
+          "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+          "rodata_offset": "0x00a604",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "pureg",
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "rodata_offset": "0x00a61c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_pureg",
+          "id": "wa_8_7_25_wext_get_pureg_a62c",
+          "rodata_offset": "0x00a634",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ar",
+          "id": "wa_8_7_25_wext_get_ar_a65c",
+          "rodata_offset": "0x00a664",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wds",
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "rodata_offset": "0x00a694",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_ind",
+          "id": "wa_8_7_25_wext_vap_ind_a6a4",
+          "rodata_offset": "0x00a6ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vap_ind",
+          "id": "wa_8_7_25_wext_get_vap_ind_a6bc",
+          "rodata_offset": "0x00a6c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcast_rate",
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "rodata_offset": "0x00a6dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcast_rate",
+          "id": "wa_8_7_25_wext_get_mcast_rate_a6ec",
+          "rodata_offset": "0x00a6f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "countryie",
+          "id": "wa_8_7_25_wext_countryie_a704",
+          "rodata_offset": "0x00a70c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countryie",
+          "id": "wa_8_7_25_wext_get_countryie_a71c",
+          "rodata_offset": "0x00a724",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "uapsd",
+          "id": "wa_8_7_25_wext_uapsd_a734",
+          "rodata_offset": "0x00a73c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_uapsd",
+          "id": "wa_8_7_25_wext_get_uapsd_a74c",
+          "rodata_offset": "0x00a754",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "qosnull",
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "rodata_offset": "0x00a76c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "pspoll",
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "rodata_offset": "0x00a784",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ips_pspoll",
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "rodata_offset": "0x00a79c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ips_pspoll",
+          "id": "wa_8_7_25_wext_get_ips_pspoll_a7ac",
+          "rodata_offset": "0x00a7b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "eospdrop",
+          "id": "wa_8_7_25_wext_eospdrop_a7c4",
+          "rodata_offset": "0x00a7cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_eospdrop",
+          "id": "wa_8_7_25_wext_get_eospdrop_a7dc",
+          "rodata_offset": "0x00a7e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "markdfs",
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "rodata_offset": "0x00a7fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_markdfs",
+          "id": "wa_8_7_25_wext_get_markdfs_a80c",
+          "rodata_offset": "0x00a814",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chanbw",
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "rodata_offset": "0x00a82c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chanbw",
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "rodata_offset": "0x00a844",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "shpreamble",
+          "id": "wa_8_7_25_wext_shpreamble_a854",
+          "rodata_offset": "0x00a85c",
+          "sites": [
+            "0x050138"
+          ],
+          "function": "0x04ff44",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_shpreamble",
+          "id": "wa_8_7_25_wext_get_shpreamble_a86c",
+          "rodata_offset": "0x00a874",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "blockdfschan",
+          "id": "wa_8_7_25_wext_blockdfschan_a884",
+          "rodata_offset": "0x00a88c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setiebuf",
+          "id": "wa_8_7_25_wext_setiebuf_a89c",
+          "rodata_offset": "0x00a8a4",
+          "sites": [
+            "0x050198"
+          ],
+          "function": "0x04ff44",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getiebuf",
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "rodata_offset": "0x00a8bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setfilter",
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "rodata_offset": "0x00a8d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "powersave",
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "rodata_offset": "0x00a8ec",
+          "sites": [
+            "0x0504bc"
+          ],
+          "function": "0x05046c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_powersave",
+          "id": "wa_8_7_25_wext_get_powersave_a8fc",
+          "rodata_offset": "0x00a904",
+          "sites": [
+            "0x050534"
+          ],
+          "function": "0x05046c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extprotmode",
+          "id": "wa_8_7_25_wext_extprotmode_a914",
+          "rodata_offset": "0x00a91c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extprotmode",
+          "id": "wa_8_7_25_wext_get_extprotmode_a92c",
+          "rodata_offset": "0x00a934",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extprotspac",
+          "id": "wa_8_7_25_wext_extprotspac_a944",
+          "rodata_offset": "0x00a94c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extprotspac",
+          "id": "wa_8_7_25_wext_get_extprotspac_a95c",
+          "rodata_offset": "0x00a964",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmenable",
+          "id": "wa_8_7_25_wext_cwmenable_a974",
+          "rodata_offset": "0x00a97c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmenable",
+          "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+          "rodata_offset": "0x00a994",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "extbusythres",
+          "id": "wa_8_7_25_wext_extbusythres_a9a4",
+          "rodata_offset": "0x00a9ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_extbusythres",
+          "id": "wa_8_7_25_wext_get_extbusythres_a9bc",
+          "rodata_offset": "0x00a9c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chwidth",
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "rodata_offset": "0x00a9dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chwidth",
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "rodata_offset": "0x00a9f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cwmmode",
+          "id": "wa_8_7_25_wext_cwmmode_aa04",
+          "rodata_offset": "0x00aa0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cwmmode",
+          "id": "wa_8_7_25_wext_get_cwmmode_aa1c",
+          "rodata_offset": "0x00aa24",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "shortgi",
+          "id": "wa_8_7_25_wext_shortgi_aa34",
+          "rodata_offset": "0x00aa3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_shortgi",
+          "id": "wa_8_7_25_wext_get_shortgi_aa4c",
+          "rodata_offset": "0x00aa54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ampdu",
+          "id": "wa_8_7_25_wext_ampdu_aa64",
+          "rodata_offset": "0x00aa6c",
+          "sites": [
+            "0x050748"
+          ],
+          "function": "0x0505dc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ampdu",
+          "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+          "rodata_offset": "0x00aa84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxampdu",
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "rodata_offset": "0x00aa9c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxampdu",
+          "id": "wa_8_7_25_wext_get_maxampdu_aaac",
+          "rodata_offset": "0x00aab4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vhtmaxampdu",
+          "id": "wa_8_7_25_wext_vhtmaxampdu_aac4",
+          "rodata_offset": "0x00aacc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vhtmaxampdu",
+          "id": "wa_8_7_25_wext_get_vhtmaxampdu_aadc",
+          "rodata_offset": "0x00aae4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x00aafc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "amsdu",
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "rodata_offset": "0x00ab14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_amsdu",
+          "id": "wa_8_7_25_wext_get_amsdu_ab24",
+          "rodata_offset": "0x00ab2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_countrycode",
+          "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+          "rodata_offset": "0x00ab44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mcastenhance",
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "rodata_offset": "0x00ab5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mcastenhance",
+          "id": "wa_8_7_25_wext_get_mcastenhance_ab6c",
+          "rodata_offset": "0x00ab74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medump_dummy",
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "rodata_offset": "0x00ab8c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medump",
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "rodata_offset": "0x00aba4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medebug",
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "rodata_offset": "0x00abbc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_medebug",
+          "id": "wa_8_7_25_wext_get_medebug_abcc",
+          "rodata_offset": "0x00abd4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_length",
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "rodata_offset": "0x00abec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_me_length",
+          "id": "wa_8_7_25_wext_get_me_length_abfc",
+          "rodata_offset": "0x00ac04",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "metimer",
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "rodata_offset": "0x00ac1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_metimer",
+          "id": "wa_8_7_25_wext_get_metimer_ac2c",
+          "rodata_offset": "0x00ac34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "metimeout",
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "rodata_offset": "0x00ac4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_metimeout",
+          "id": "wa_8_7_25_wext_get_metimeout_ac5c",
+          "rodata_offset": "0x00ac64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "medropmcast",
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "rodata_offset": "0x00ac7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_medropmcast",
+          "id": "wa_8_7_25_wext_get_medropmcast_ac8c",
+          "rodata_offset": "0x00ac94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_showdeny",
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "rodata_offset": "0x00acac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_cleardeny",
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "rodata_offset": "0x00acc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hbrtimer",
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "rodata_offset": "0x00acdc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hbrtimer",
+          "id": "wa_8_7_25_wext_get_hbrtimer_acec",
+          "rodata_offset": "0x00acf4",
+          "sites": [
+            "0x051afc",
+            "0x051d28"
+          ],
+          "function": "0x051ac8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_hbrstate",
+          "id": "wa_8_7_25_wext_get_hbrstate_ad04",
+          "rodata_offset": "0x00ad0c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_iqueconfig",
+          "id": "wa_8_7_25_wext_get_iqueconfig_ad1c",
+          "rodata_offset": "0x00ad24",
+          "sites": [
+            "0x051b24",
+            "0x051d50"
+          ],
+          "function": "0x051ac8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "acparams",
+          "id": "wa_8_7_25_wext_acparams_ad34",
+          "rodata_offset": "0x00ad3c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rtparams",
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "rodata_offset": "0x00ad54",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hbrparams",
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "rodata_offset": "0x00ad6c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "me_adddeny",
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "rodata_offset": "0x00ad84",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanvalid",
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "rodata_offset": "0x00ad9c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanvalid",
+          "id": "wa_8_7_25_wext_get_scanvalid_adac",
+          "rodata_offset": "0x00adb4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rxtimeout",
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "rodata_offset": "0x00adcc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgreq",
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "rodata_offset": "0x00ade4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setaddbaoper",
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "rodata_offset": "0x00adfc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set11NRates",
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "rodata_offset": "0x00ae14",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get11NRates",
+          "id": "wa_8_7_25_wext_get11nrates_ae24",
+          "rodata_offset": "0x00ae2c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set11NRetries",
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "rodata_offset": "0x00ae44",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get11NRetries",
+          "id": "wa_8_7_25_wext_get11nretries_ae54",
+          "rodata_offset": "0x00ae5c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgLVL",
+          "id": "wa_8_7_25_wext_dbglvl_ae6c",
+          "rodata_offset": "0x00ae74",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getdbgLVL",
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "rodata_offset": "0x00ae8c",
+          "sites": [
+            "0x051f74"
+          ],
+          "function": "0x051e60",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgLVL_high",
+          "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+          "rodata_offset": "0x00aea4",
+          "sites": [
+            "0x051fac"
+          ],
+          "function": "0x051e60",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getdbgLVL_high",
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "rodata_offset": "0x00aebc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "no_wradar",
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "rodata_offset": "0x00aed4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_no_wradar",
+          "id": "wa_8_7_25_wext_get_no_wradar_aee4",
+          "rodata_offset": "0x00aeec",
+          "sites": [
+            "0x052be8",
+            "0x0532a8"
+          ],
+          "function": "0x052b5c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wepkeycache",
+          "id": "wa_8_7_25_wext_wepkeycache_aefc",
+          "rodata_offset": "0x00af04",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wepkeycache",
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "rodata_offset": "0x00af1c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wdsdetect",
+          "id": "wa_8_7_25_wext_wdsdetect_af2c",
+          "rodata_offset": "0x00af34",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_wdsdetect",
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "rodata_offset": "0x00af4c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "htweptkip",
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "rodata_offset": "0x00af64",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_htweptkip",
+          "id": "wa_8_7_25_wext_get_htweptkip_af74",
+          "rodata_offset": "0x00af7c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "puren",
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "rodata_offset": "0x00af94",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_puren",
+          "id": "wa_8_7_25_wext_get_puren_afa4",
+          "rodata_offset": "0x00afac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "basicrates",
+          "id": "wa_8_7_25_wext_basicrates_afbc",
+          "rodata_offset": "0x00afc4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ignore11d",
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "rodata_offset": "0x00afdc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ignore11d",
+          "id": "wa_8_7_25_wext_get_ignore11d_afec",
+          "rodata_offset": "0x00aff4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "stafwd",
+          "id": "wa_8_7_25_wext_stafwd_b004",
+          "rodata_offset": "0x00b00c",
+          "sites": [
+            "0x053408"
+          ],
+          "function": "0x0533cc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_stafwd",
+          "id": "wa_8_7_25_wext_get_stafwd_b01c",
+          "rodata_offset": "0x00b024",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "clrappoptie",
+          "id": "wa_8_7_25_wext_clrappoptie_b034",
+          "rodata_offset": "0x00b03c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "autoassoc",
+          "id": "wa_8_7_25_wext_autoassoc_b04c",
+          "rodata_offset": "0x00b054",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_autoassoc",
+          "id": "wa_8_7_25_wext_get_autoassoc_b064",
+          "rodata_offset": "0x00b06c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_contryie",
+          "id": "wa_8_7_25_wext_vap_contryie_b07c",
+          "rodata_offset": "0x00b084",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vapcontryie",
+          "id": "wa_8_7_25_wext_get_vapcontryie_b094",
+          "rodata_offset": "0x00b09c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vap_doth",
+          "id": "wa_8_7_25_wext_vap_doth_b0ac",
+          "rodata_offset": "0x00b0b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vap_doth",
+          "id": "wa_8_7_25_wext_get_vap_doth_b0c4",
+          "rodata_offset": "0x00b0cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ht40intol",
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "rodata_offset": "0x00b0e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ht40intol",
+          "id": "wa_8_7_25_wext_get_ht40intol_b0f4",
+          "rodata_offset": "0x00b0fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chwidth",
+          "id": "wa_8_7_25_wext_chwidth_b10c",
+          "rodata_offset": "0x00b114",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chwidth",
+          "id": "wa_8_7_25_wext_get_chwidth_b124",
+          "rodata_offset": "0x00b12c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chextoffset",
+          "id": "wa_8_7_25_wext_chextoffset_b13c",
+          "rodata_offset": "0x00b144",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chextoffset",
+          "id": "wa_8_7_25_wext_get_chextoffset_b154",
+          "rodata_offset": "0x00b15c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_sko",
+          "id": "wa_8_7_25_wext_get_sko_b184",
+          "rodata_offset": "0x00b18c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chscaninit",
+          "id": "wa_8_7_25_wext_chscaninit_b19c",
+          "rodata_offset": "0x00b1a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chscaninit",
+          "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+          "rodata_offset": "0x00b1bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "disablecoext",
+          "id": "wa_8_7_25_wext_disablecoext_b1cc",
+          "rodata_offset": "0x00b1d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_disablecoext",
+          "id": "wa_8_7_25_wext_get_disablecoext_b1e4",
+          "rodata_offset": "0x00b1ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "mfptest",
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "rodata_offset": "0x00b204",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_mfptest",
+          "id": "wa_8_7_25_wext_get_mfptest_b214",
+          "rodata_offset": "0x00b21c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chutil_enab",
+          "id": "wa_8_7_25_wext_chutil_enab_b22c",
+          "rodata_offset": "0x00b234",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chutil_enab",
+          "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+          "rodata_offset": "0x00b24c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chutil",
+          "id": "wa_8_7_25_wext_get_chutil_b25c",
+          "rodata_offset": "0x00b264",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrm",
+          "id": "wa_8_7_25_wext_get_rrm_b28c",
+          "rodata_offset": "0x00b294",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmstats",
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "rodata_offset": "0x00b2ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmstats",
+          "id": "wa_8_7_25_wext_get_rrmstats_b2bc",
+          "rodata_offset": "0x00b2c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmslwin",
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "rodata_offset": "0x00b2dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmslwin",
+          "id": "wa_8_7_25_wext_get_rrmslwin_b2ec",
+          "rodata_offset": "0x00b2f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rrmdbg",
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "rodata_offset": "0x00b30c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rrmdbg",
+          "id": "wa_8_7_25_wext_get_rrmdbg_b31c",
+          "rodata_offset": "0x00b324",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sendmgmt",
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "rodata_offset": "0x00b33c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ccmpSwSelEn",
+          "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+          "rodata_offset": "0x00b354",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ccmpSwSelEn",
+          "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+          "rodata_offset": "0x00b36c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "s_scan_flush",
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "rodata_offset": "0x00b384",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "csa2g",
+          "id": "wa_8_7_25_wext_csa2g_b394",
+          "rodata_offset": "0x00b39c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_csa2g",
+          "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+          "rodata_offset": "0x00b3b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "wdsaddr",
+          "id": "wa_8_7_25_wext_wdsaddr_b3dc",
+          "rodata_offset": "0x00b3e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "no_disassoc",
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "rodata_offset": "0x00b3fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_no_disassoc",
+          "id": "wa_8_7_25_wext_get_no_disassoc_b40c",
+          "rodata_offset": "0x00b414",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxsta",
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "rodata_offset": "0x00b42c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxsta",
+          "id": "wa_8_7_25_wext_get_maxsta_b43c",
+          "rodata_offset": "0x00b444",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanband",
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "rodata_offset": "0x00b45c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanband",
+          "id": "wa_8_7_25_wext_get_scanband_b46c",
+          "rodata_offset": "0x00b474",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "senddeauth",
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "rodata_offset": "0x00b48c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_senddeauth",
+          "id": "wa_8_7_25_wext_get_senddeauth_b49c",
+          "rodata_offset": "0x00b4a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "siwtxpwradjust",
+          "id": "wa_8_7_25_wext_siwtxpwradjust_b4b4",
+          "rodata_offset": "0x00b4bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_dbg",
+          "id": "wa_8_7_25_wext_txrx_dbg_b4cc",
+          "rodata_offset": "0x00b4d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_stats",
+          "id": "wa_8_7_25_wext_txrx_fw_stats_b4e4",
+          "rodata_offset": "0x00b4ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_mstats",
+          "id": "wa_8_7_25_wext_txrx_fw_mstats_b4fc",
+          "rodata_offset": "0x00b504",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "txrx_fw_st_rst",
+          "id": "wa_8_7_25_wext_txrx_fw_st_rst_b514",
+          "rodata_offset": "0x00b51c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tx_ppdu_log_cfg",
+          "id": "wa_8_7_25_wext_tx_ppdu_log_cfg_b52c",
+          "rodata_offset": "0x00b534",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vhtmcs",
+          "id": "wa_8_7_25_wext_vhtmcs_b544",
+          "rodata_offset": "0x00b54c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vhtmcs",
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "rodata_offset": "0x00b564",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_nss",
+          "id": "wa_8_7_25_wext_get_nss_b58c",
+          "rodata_offset": "0x00b594",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ldpc",
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "rodata_offset": "0x00b5ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ldpc",
+          "id": "wa_8_7_25_wext_get_ldpc_b5bc",
+          "rodata_offset": "0x00b5c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tx_stbc",
+          "id": "wa_8_7_25_wext_tx_stbc_b5d4",
+          "rodata_offset": "0x00b5dc",
+          "sites": [
+            "0x055a58"
+          ],
+          "function": "0x0558fc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_tx_stbc",
+          "id": "wa_8_7_25_wext_get_tx_stbc_b5ec",
+          "rodata_offset": "0x00b5f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rx_stbc",
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "rodata_offset": "0x00b60c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rx_stbc",
+          "id": "wa_8_7_25_wext_get_rx_stbc_b61c",
+          "rodata_offset": "0x00b624",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "opmode_notify",
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "rodata_offset": "0x00b63c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_opmod_notify",
+          "id": "wa_8_7_25_wext_get_opmod_notify_b64c",
+          "rodata_offset": "0x00b654",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "doth_ch_chwidth",
+          "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+          "rodata_offset": "0x00b66c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_cactimeout",
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "rodata_offset": "0x00b684",
+          "sites": [
+            "0x055f7c"
+          ],
+          "function": "0x055d30",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cactimeout",
+          "id": "wa_8_7_25_wext_get_cactimeout_b694",
+          "rodata_offset": "0x00b69c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enablertscts",
+          "id": "wa_8_7_25_wext_enablertscts_b6ac",
+          "rodata_offset": "0x00b6b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_enablertscts",
+          "id": "wa_8_7_25_wext_get_enablertscts_b6c4",
+          "rodata_offset": "0x00b6cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rc_retries",
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "rodata_offset": "0x00b6e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rc_retries",
+          "id": "wa_8_7_25_wext_get_rc_retries_b6f4",
+          "rodata_offset": "0x00b6fc",
+          "sites": [
+            "0x056d80"
+          ],
+          "function": "0x056178",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "bcast_rate",
+          "id": "wa_8_7_25_wext_bcast_rate_b70c",
+          "rodata_offset": "0x00b714",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_bcast_rate",
+          "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+          "rodata_offset": "0x00b72c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vht_mcsmap",
+          "id": "wa_8_7_25_wext_vht_mcsmap_b73c",
+          "rodata_offset": "0x00b744",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_vht_mcsmap",
+          "id": "wa_8_7_25_wext_get_vht_mcsmap_b754",
+          "rodata_offset": "0x00b75c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_ol_stats",
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "rodata_offset": "0x00b774",
+          "sites": [
+            "0x0579e0"
+          ],
+          "function": "0x056178",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_acs_state",
+          "id": "wa_8_7_25_wext_get_acs_state_b784",
+          "rodata_offset": "0x00b78c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_cac_state",
+          "id": "wa_8_7_25_wext_get_cac_state_b79c",
+          "rodata_offset": "0x00b7a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "maxscanentry",
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "rodata_offset": "0x00b7bc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_maxscanentry",
+          "id": "wa_8_7_25_wext_get_maxscanentry_b7cc",
+          "rodata_offset": "0x00b7d4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "scanentryage",
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "rodata_offset": "0x00b7ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_scanentryage",
+          "id": "wa_8_7_25_wext_get_scanentryage_b7fc",
+          "rodata_offset": "0x00b804",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "disable_chan",
+          "id": "wa_8_7_25_wext_disable_chan_b814",
+          "rodata_offset": "0x00b81c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_chan",
+          "id": "wa_8_7_25_wext_enable_chan_b82c",
+          "rodata_offset": "0x00b834",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_ptpmode",
+          "id": "wa_8_7_25_wext_get_ptpmode_b844",
+          "rodata_offset": "0x00b84c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_multiq",
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "rodata_offset": "0x00b864",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_multiq",
+          "id": "wa_8_7_25_wext_get_multiq_b874",
+          "rodata_offset": "0x00b87c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "rc_mode",
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "rodata_offset": "0x00b894",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_rc_mode",
+          "id": "wa_8_7_25_wext_get_rc_mode_b8a4",
+          "rodata_offset": "0x00b8ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_noltimeout",
+          "id": "wa_8_7_25_wext_get_noltimeout_b8bc",
+          "rodata_offset": "0x00b8c4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_nolstate",
+          "id": "wa_8_7_25_wext_get_nolstate_b8d4",
+          "rodata_offset": "0x00b8dc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "war1_allow_sleep",
+          "id": "wa_8_7_25_umac_war1_allow_sleep",
+          "rodata_offset": "0x00e300",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "war1",
+          "id": "wa_8_7_25_umac_war1",
+          "rodata_offset": "0x00e314",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ubnt_radar_mode",
+          "id": "wa_8_7_25_umac_ubnt_radar_mode",
+          "rodata_offset": "0x00e374",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ubnt_op_mode",
+          "id": "wa_8_7_25_umac_ubnt_op_mode",
+          "rodata_offset": "0x00e384",
+          "sites": [
+            "0x0a3380"
+          ],
+          "function": "0x0a3270",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "is_ubnt_ff",
+          "id": "wa_8_7_25_umac_is_ubnt_ff",
+          "rodata_offset": "0x00e394",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "is_ubnt_ptp",
+          "id": "wa_8_7_25_umac_is_ubnt_ptp",
+          "rodata_offset": "0x00e3a0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "max_vdevs",
+          "id": "wa_8_7_25_umac_max_vdevs",
+          "rodata_offset": "0x00e3ac",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "max_peers",
+          "id": "wa_8_7_25_umac_max_peers",
+          "rodata_offset": "0x00e3b8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "vow_config",
+          "id": "wa_8_7_25_umac_vow_config",
+          "rodata_offset": "0x00e3c4",
+          "sites": [
+            "0x0a364c"
+          ],
+          "function": "0x0a3618",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_tx_tcp_cksum",
+          "id": "wa_8_7_25_umac_enable_tx_tcp_cksum",
+          "rodata_offset": "0x00e3d0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "tgdeb",
+          "id": "wa_8_7_25_umac_tgdeb",
+          "rodata_offset": "0x00e3e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "host_80211_enable",
+          "id": "wa_8_7_25_umac_host_80211_enable",
+          "rodata_offset": "0x00e3ec",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x00ebc8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x00ebe0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable_ol_stats",
+          "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+          "rodata_offset": "0x00ed60",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "distance",
+          "id": "xc_8_7_25_iwpriv_wifi0_distance",
+          "rodata_offset": "0x00ef10",
+          "sites": [
+            "0x0a7858"
+          ],
+          "function": "0x0a77ec",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "chanbw",
+          "id": "wa_8_7_25_wext_chanbw_a824",
+          "rodata_offset": "0x00f060",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_chanbw",
+          "id": "wa_8_7_25_wext_get_chanbw_a83c",
+          "rodata_offset": "0x00f078",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x00f0d8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "msienable",
+          "id": "wa_8_7_25_umac_msienable",
+          "rodata_offset": "0x00f5cc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_enable",
+          "rodata_offset": "0x001f30",
+          "sites": [
+            "0x018630"
+          ],
+          "function": "0x0185e0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "amsdu",
+          "id": "wa_8_7_25_wext_amsdu_ab0c",
+          "rodata_offset": "0x00b4f8",
+          "sites": [
+            "0x054f44",
+            "0x055008",
+            "0x055070"
+          ],
+          "function": "0x054da8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setchanlist",
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "rodata_offset": "0x00c1d4",
+          "sites": [
+            "0x09235c"
+          ],
+          "function": "0x092330",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sendmgmt",
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "rodata_offset": "0x00c3e4",
+          "sites": [
+            "0x0935a8"
+          ],
+          "function": "0x093574",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setfilter",
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "rodata_offset": "0x00c440",
+          "sites": [
+            "0x0936c4"
+          ],
+          "function": "0x093688",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchanlist",
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "rodata_offset": "0x00c4bc",
+          "sites": [
+            "0x093d40"
+          ],
+          "function": "0x093d0c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delmac",
+          "id": "wa_8_7_25_wext_delmac_9da4",
+          "rodata_offset": "0x00c4c8",
+          "sites": [
+            "0x093d9c"
+          ],
+          "function": "0x093d68",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addmac",
+          "id": "wa_8_7_25_wext_addmac_9d8c",
+          "rodata_offset": "0x00c4ec",
+          "sites": [
+            "0x094238"
+          ],
+          "function": "0x094204",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getoptie",
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "rodata_offset": "0x00c4f4",
+          "sites": [
+            "0x09429c"
+          ],
+          "function": "0x094260",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setoptie",
+          "id": "wa_8_7_25_wext_setoptie_9d14",
+          "rodata_offset": "0x00c500",
+          "sites": [
+            "0x09432c"
+          ],
+          "function": "0x0942e8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getchaninfo",
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "rodata_offset": "0x00c50c",
+          "sites": [
+            "0x094400"
+          ],
+          "function": "0x0943c0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setmlme",
+          "id": "wa_8_7_25_wext_setmlme_9d74",
+          "rodata_offset": "0x00c5d4",
+          "sites": [
+            "0x094900"
+          ],
+          "function": "0x0948b0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "kickmac",
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "rodata_offset": "0x00c68c",
+          "sites": [
+            "0x094e04"
+          ],
+          "function": "0x094db4",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "getwmmparams",
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "rodata_offset": "0x00c6b0",
+          "sites": [
+            "0x094f1c"
+          ],
+          "function": "0x094ec8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "delkey",
+          "id": "wa_8_7_25_wext_delkey_9d5c",
+          "rodata_offset": "0x00c6dc",
+          "sites": [
+            "0x095080"
+          ],
+          "function": "0x095044",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setwmmparams",
+          "id": "wa_8_7_25_wext_setwmmparams_9e64",
+          "rodata_offset": "0x00c70c",
+          "sites": [
+            "0x095190"
+          ],
+          "function": "0x09513c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "setkey",
+          "id": "wa_8_7_25_wext_setkey_9d44",
+          "rodata_offset": "0x00c740",
+          "sites": [
+            "0x095374"
+          ],
+          "function": "0x09532c",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "dbgreq",
+          "id": "wa_8_7_25_wext_dbgreq_addc",
+          "rodata_offset": "0x00d05c",
+          "sites": [
+            "0x099198"
+          ],
+          "function": "0x099160",
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "knobs_in_module": 6,
+      "attributed": 0,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x002010",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_burst",
+          "id": "wa_8_7_25_wext_get_burst_a5e4",
+          "rodata_offset": "0x002028",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "distance",
+          "id": "xc_8_7_25_iwpriv_wifi0_distance",
+          "rodata_offset": "0x0022e0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "burst",
+          "id": "wa_8_7_25_wext_burst_a5cc",
+          "rodata_offset": "0x0000c0",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "reset",
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "rodata_offset": "0x001c90",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "powersave",
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "rodata_offset": "0x001d30",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "knobs_in_module": 33,
+      "attributed": 12,
+      "reaching_253a": 0,
+      "knobs": [
+        {
+          "knob": "gpsreset",
+          "id": "wa_8_7_25_proc_sys_dev_uph_gpsreset",
+          "rodata_offset": "0x00023c",
+          "sites": [
+            "0x001b28"
+          ],
+          "function": "0x001b00",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "addradio",
+          "id": "wa_8_7_25_proc_sys_dev_uph_addradio",
+          "rodata_offset": "0x000248",
+          "sites": [
+            "0x001c24",
+            "0x001c68"
+          ],
+          "function": "0x001bfc",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "gps_info",
+          "id": "wa_8_7_25_proc_sys_dev_uph_gps_info",
+          "rodata_offset": "0x0002f4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "enable",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_enable",
+          "rodata_offset": "0x000314",
+          "sites": [
+            "0x00216c"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "status",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_status",
+          "rodata_offset": "0x00031c",
+          "sites": [
+            "0x0021b4"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "timing",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_timing",
+          "rodata_offset": "0x000324",
+          "sites": [
+            "0x002200"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ptp_xmit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ptp_xmit",
+          "rodata_offset": "0x000330",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_diag",
+          "rodata_offset": "0x00033c",
+          "sites": [
+            "0x002338"
+          ],
+          "function": "0x002138",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_diag",
+          "rodata_offset": "0x000348",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_host_diag",
+          "rodata_offset": "0x000354",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_host_diag",
+          "rodata_offset": "0x000390",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "gqparam",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_gqparam",
+          "rodata_offset": "0x000464",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sqparam",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sqparam",
+          "rodata_offset": "0x00046c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "get_reg",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_reg",
+          "rodata_offset": "0x000474",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_reg",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_reg",
+          "rodata_offset": "0x00047c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "swr_limit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_swr_limit",
+          "rodata_offset": "0x000484",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "noack_mode",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_noack_mode",
+          "rodata_offset": "0x000490",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "evm_meas_config",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_evm_meas_config",
+          "rodata_offset": "0x000518",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "atpc",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_atpc",
+          "rodata_offset": "0x000528",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "cms_bias",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_cms_bias",
+          "rodata_offset": "0x000568",
+          "sites": [
+            "0x003f10"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "voip_bias",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_voip_bias",
+          "rodata_offset": "0x000574",
+          "sites": [
+            "0x00408c"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ff_cap_rep",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_cap_rep",
+          "rodata_offset": "0x000580",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "ff_mcast_airtime_limit",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_mcast_airtime_limit",
+          "rodata_offset": "0x00058c",
+          "sites": [
+            "0x00454c"
+          ],
+          "function": "0x003374",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "daprot",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_daprot",
+          "rodata_offset": "0x0005a4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sta_rx_rssi_th",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_rx_rssi_th",
+          "rodata_offset": "0x000620",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "fixed_frame",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_fixed_frame",
+          "rodata_offset": "0x000630",
+          "sites": [
+            "0x00a5dc"
+          ],
+          "function": "0x00a4e8",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "hsr_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_hsr_diag",
+          "rodata_offset": "0x000b7c",
+          "sites": [
+            "0x004630",
+            "0x004aa0"
+          ],
+          "function": "0x0045f0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "netconf",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_netconf",
+          "rodata_offset": "0x000b88",
+          "sites": [
+            "0x004670"
+          ],
+          "function": "0x0045f0",
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "sta_priority",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_priority",
+          "rodata_offset": "0x0010d8",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_remote_host_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_host_diag",
+          "rodata_offset": "0x0011b4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "set_remote_target_diag",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_target_diag",
+          "rodata_offset": "0x0011e4",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "debug_block_sta",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_block_sta",
+          "rodata_offset": "0x0011fc",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        },
+        {
+          "knob": "debug_tid",
+          "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_tid",
+          "rodata_offset": "0x00120c",
+          "sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 6,
+    "knobs_in_catalogue": 357,
+    "knobs_attributed": 106,
+    "knobs_reaching_253a": 0,
+    "slot_histogram": {},
+    "per_module": {
+      "WA.v8.7.25:umac.ko": {
+        "knobs": 320,
+        "attributed": 41,
+        "reaching": 0
+      },
+      "WA.v8.7.25:ath_dev.ko": {
+        "knobs": 6,
+        "attributed": 0,
+        "reaching": 0
+      },
+      "WA.v8.7.25:ubnt_poll_host.ko": {
+        "knobs": 33,
+        "attributed": 12,
+        "reaching": 0
+      },
+      "XC.v8.7.25:umac.ko": {
+        "knobs": 320,
+        "attributed": 41,
+        "reaching": 0
+      },
+      "XC.v8.7.25:ath_dev.ko": {
+        "knobs": 6,
+        "attributed": 0,
+        "reaching": 0
+      },
+      "XC.v8.7.25:ubnt_poll_host.ko": {
+        "knobs": 33,
+        "attributed": 12,
+        "reaching": 0
+      }
+    }
+  },
+  "gaps": [
+    "the enclosing function is the nearest prologue; a literal referenced from a data table rather than code has sites inside whichever function emitted it",
+    "reaching a 253A slot means the containing function dispatches through the HAL vtable, not that this knob is the argument",
+    "only the first .text site is used for attribution; multiple sites are recorded but not each resolved",
+    "no dynamic validation"
+  ]
+}

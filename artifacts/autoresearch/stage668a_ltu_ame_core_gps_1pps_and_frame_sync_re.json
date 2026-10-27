@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "stage": "668A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage668a_ltu_ame_core_gps_1pps_and_frame_sync_re.py",
+    "tool_sha256": "b2fc31c153fc6344d5d4ce86113b7991a589d8f2c32f73fc78b9a95a7c7125a4",
+    "output": "artifacts/autoresearch/stage668a_ltu_ame_core_gps_1pps_and_frame_sync_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the SFN, GPS, pps and ptp vocabularies; defined-symbol lookup for the sfn counter and synchronisation families; explicit context classification of the pps and ptp traps",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so the SFN and GPS analysis is ame_core.ko only",
+      "pps in these modules means packets per second (ATX/ARX statistics), and 1pps does not exist: the one-second pulse is not named here"
+    ],
+    "radio_safety": "static_only"
+  },
+  "absence": {
+    "eab_driver": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "sfn": 80,
+        "SFN": 121,
+        "gps": 4,
+        "GPS": 38,
+        "pps": 2,
+        "1pps": 0,
+        "ptp": 25,
+        "superframe": 0,
+        "frame_sync": 0
+      },
+      "sfn": {
+        "ame_bbp_get_rx_sfn": 1,
+        "ame_bbp_set_rx_sfn": 1,
+        "ame_bbp_get_tx_sfn": 1,
+        "ame_bbp_set_tx_sfn": 1,
+        "ame_bbp_op_sync_sfn": 2,
+        "ame_bbp_sync_SFN": 1
+      },
+      "sync": {
+        "ame_bbp_get_sync_sfn_count": 1,
+        "ame_bbp_is_remote_SFN_synchronized": 1,
+        "ame_bbp_set_remote_SFN": 1,
+        "ame_bbp_get_sync_mode": 1,
+        "ame_bbp_set_sync_mode": 1
+      },
+      "gps_msg": 2,
+      "pps_trap": 2,
+      "ptp_trap": 7,
+      "sfn_symbols": [
+        "ame_bbp_get_rx_sfn",
+        "ame_bbp_get_sync_sfn_count",
+        "ame_bbp_get_tx_sfn",
+        "ame_bbp_is_remote_SFN_synchronized",
+        "ame_bbp_op_sync_sfn",
+        "ame_bbp_reset_aes_sfn_ext",
+        "ame_bbp_set_remote_SFN",
+        "ame_bbp_set_rx_sfn",
+        "ame_bbp_set_tx_sfn",
+        "ame_bbp_sync_SFN",
+        "ame_bbp_util_freq_analyze_get_last_mutedtx_sfn",
+        "bbp_base_is_remote_SFN_synchronized",
+        "bbp_base_is_sfn_sync",
+        "bbp_base_reset_sfn_sync",
+        "bbp_base_set_remote_SFN",
+        "bbp_base_syncSFN",
+        "bbp_mrx_get_rx_sfn",
+        "bbp_mrx_set_rx_sfn",
+        "bbp_mtx_get_tx_sfn",
+        "bbp_mtx_set_tx_sfn",
+        "bbp_util_freq_analyze_get_last_mutedtx_sfn",
+        "bbp_util_freq_analyze_set_mutedtx_sfn",
+        "fty_bbp_base_set_remote_SFN",
+        "fty_bbp_base_syncSFN"
+      ],
+      "gps_symbols": [
+        "bbp_rf_dcxo_get_gps_state",
+        "bbp_rf_dcxo_is_sync_by_gps",
+        "cpeFsmNxN_OffGPS_OnCIR",
+        "fty_rf_dcxo_get_gps_state",
+        "fty_rf_dcxo_is_sync_by_gps"
+      ],
+      "ptp_symbols": [
+        "AME_Sched_PtP_SubmitSymbols",
+        "AME_Sched_PtP_early_data_decision",
+        "AME_Sched_PtP_escape1",
+        "AME_Sched_PtP_escape2",
+        "AME_Sched_PtP_master",
+        "AME_Sched_PtP_slave",
+        "AME_Sched_Reset_PTP",
+        "CtrlSM_AP_PTP",
+        "CtrlSM_CPE_PTP",
+        "__ame_core_ptp_range_optimize_step2",
+        "ame_bbp_op_txnrx_cmd_ptp_cpe",
+        "ame_core_get_ptp_turbo",
+        "ame_core_print_ap_ptp",
+        "ame_core_print_cpe_ptp",
+        "ame_core_ptp_range_optimize_step1",
+        "ame_core_ptp_range_optimize_step3"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "sfn": 6,
+        "SFN": 0,
+        "gps": 1,
+        "GPS": 1,
+        "pps": 12,
+        "1pps": 0,
+        "ptp": 1,
+        "superframe": 0,
+        "frame_sync": 0
+      },
+      "sfn": {
+        "ame_bbp_get_rx_sfn": 0,
+        "ame_bbp_set_rx_sfn": 0,
+        "ame_bbp_get_tx_sfn": 0,
+        "ame_bbp_set_tx_sfn": 0,
+        "ame_bbp_op_sync_sfn": 0,
+        "ame_bbp_sync_SFN": 0
+      },
+      "sync": {
+        "ame_bbp_get_sync_sfn_count": 0,
+        "ame_bbp_is_remote_SFN_synchronized": 0,
+        "ame_bbp_set_remote_SFN": 0,
+        "ame_bbp_get_sync_mode": 0,
+        "ame_bbp_set_sync_mode": 0
+      },
+      "gps_msg": 0,
+      "pps_trap": 0,
+      "ptp_trap": 0,
+      "sfn_symbols": [
+        "freq_analyzer_mutedsfn_show",
+        "freq_analyzer_mutedsfn_trigger",
+        "sfn_sync_cnt_show",
+        "sfn_sync_cnt_store"
+      ],
+      "gps_symbols": [],
+      "ptp_symbols": []
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "modules_ok": 2,
+    "sfn_token_hits": 207,
+    "sfn_symbol_count": 28,
+    "sfn_counter_symbols": [
+      "ame_bbp_get_rx_sfn",
+      "ame_bbp_set_rx_sfn",
+      "ame_bbp_get_tx_sfn",
+      "ame_bbp_set_tx_sfn",
+      "ame_bbp_op_sync_sfn",
+      "ame_bbp_sync_SFN"
+    ],
+    "sfn_counter_count": 6,
+    "rx_tx_sfn_separate": 1,
+    "sync_controls": [
+      "ame_bbp_get_sync_sfn_count",
+      "ame_bbp_is_remote_SFN_synchronized",
+      "ame_bbp_set_remote_SFN",
+      "ame_bbp_get_sync_mode",
+      "ame_bbp_set_sync_mode"
+    ],
+    "sync_control_count": 5,
+    "remote_sfn_synchronized": 1,
+    "gps_token_hits": 44,
+    "gps_symbol_count": 5,
+    "gps_symbols": [
+      "bbp_rf_dcxo_get_gps_state",
+      "bbp_rf_dcxo_is_sync_by_gps",
+      "cpeFsmNxN_OffGPS_OnCIR",
+      "fty_rf_dcxo_get_gps_state",
+      "fty_rf_dcxo_is_sync_by_gps"
+    ],
+    "gps_sync_required": 2,
+    "gps_required_message": 1,
+    "pps_trap_hits": 2,
+    "pps_is_packets_per_second": 1,
+    "one_pps_hits": 0,
+    "one_pps_absent": 1,
+    "ptp_token_hits": 26,
+    "ptp_trap_hits": 7,
+    "ptp_symbols": [
+      "AME_Sched_PtP_SubmitSymbols",
+      "AME_Sched_PtP_early_data_decision",
+      "AME_Sched_PtP_escape1",
+      "AME_Sched_PtP_escape2",
+      "AME_Sched_PtP_master",
+      "AME_Sched_PtP_slave"
+    ],
+    "ptp_is_point_to_point": 1,
+    "superframe_clock_named": 1,
+    "one_pps_source_recovered": 0,
+    "sfn_epoch_alignment_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the stage's second module has no bytes",
+    "1pps does not exist as a token and the two pps hits are packets-per-second throughput counters (ATX/ARX), not a one-second pulse",
+    "ptp is dominated by AME_Sched_PtP_master/_slave, which is Point-to-Point link scheduling, not Precision Time Protocol",
+    "the SFN counter family is named in full but the counter width and the epoch alignment to any external reference were not recovered",
+    "GPS is present as a requirement (NxN needs GPS sync) and as a fallback state (cpeFsmNxN_OffGPS_OnCIR), not as a reader; Stage 416A showed ubnt-gps-reader is a zero-byte file",
+    "no dynamic validation"
+  ]
+}

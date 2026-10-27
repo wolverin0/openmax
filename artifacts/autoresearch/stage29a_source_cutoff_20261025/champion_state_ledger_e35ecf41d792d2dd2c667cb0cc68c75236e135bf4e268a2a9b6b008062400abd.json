@@ -1,0 +1,432 @@
+{
+  "schema_version": "1.0",
+  "updated_at_utc": "2026-10-25T17:50:49Z",
+  "persistence_policy": "PC_LEDGER_PERSISTENT_RADIO_RAM_APPLIED_FLASH_UNTOUCHED",
+  "profiles_count": 8,
+  "profiles": {
+    "af4x_invictus": {
+      "profile_id": "af4x_invictus",
+      "device_family": "Ubiquiti airFiber 4X (AF-4X)",
+      "firmware_baseline": "AF06.v4.1.0 (Linux 2.6.33-rc4)",
+      "soc_and_radio": "TI DaVinci AM1808 (ARM926EJ-S) + Invictus v2 Custom TDD FPGA (IRQ 140)",
+      "apply_commands": [
+        "ifconfig eth0 txqueuelen 256 && ifconfig air0 txqueuelen 256",
+        "sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=2000 net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_low_latency=1 net.ipv4.tcp_fin_timeout=15 >/dev/null",
+        "af set stricttiming on >/dev/null 2>&1",
+        "af set framelength 2.5ms >/dev/null 2>&1",
+        "af set flowcntl on >/dev/null 2>&1",
+        "af set dpcntl off >/dev/null 2>&1 && af set sharedant off >/dev/null 2>&1",
+        "af set cpsel disabled >/dev/null 2>&1 && af set cp 8 >/dev/null 2>&1",
+        "af set shortcp on >/dev/null 2>&1 && af set ber 5 >/dev/null 2>&1"
+      ],
+      "rollback_commands": [
+        "ifconfig eth0 txqueuelen 1000 && ifconfig air0 txqueuelen 1000",
+        "sysctl -w net.core.rmem_max=110592 net.core.wmem_max=110592 net.core.netdev_max_backlog=1000 net.ipv4.tcp_dsack=0 net.ipv4.tcp_low_latency=0 net.ipv4.tcp_fin_timeout=60 >/dev/null",
+        "af set stricttiming off >/dev/null 2>&1",
+        "af set framelength 2.0ms >/dev/null 2>&1",
+        "af set flowcntl off >/dev/null 2>&1",
+        "af set dpcntl on >/dev/null 2>&1",
+        "af set cpsel enabled >/dev/null 2>&1 && af set cp 24 >/dev/null 2>&1",
+        "af set shortcp off >/dev/null 2>&1 && af set ber 6 >/dev/null 2>&1"
+      ],
+      "verify_commands": [
+        "cat /sys/class/net/eth0/tx_queue_len",
+        "sysctl net.ipv4.tcp_low_latency net.ipv4.tcp_fin_timeout",
+        "af get stricttiming",
+        "af get framelength",
+        "af get flowcntl",
+        "af get dpcntl",
+        "af get cpsel",
+        "af get cp"
+      ],
+      "validated_rounds": [
+        "AF4X-R1",
+        "AF4X-R2",
+        "AF4X-R4",
+        "AF4X-R5",
+        "AF4X-R7",
+        "AF4X-R10",
+        "AF4X-R11",
+        "AF4X-R12",
+        "AF4X-R13",
+        "AF4X-R14",
+        "AF4X-R17",
+        "AF4X-R19"
+      ],
+      "key_findings_summary": "framelength=2.5ms reduces 500Hz->400Hz TDD frame interrupt cadence on the 124 BogoMIPS AM1808 CPU (-16.1% p95 RTT, +15.3% SSH stream); flowcntl=on (+13.6% throughput) and cp=8 with stricttiming=on cut cumulative p95 tail latency by -22.8% (33.25 -> 25.68 ms)."
+    },
+    "ltu_lite_amesoc": {
+      "profile_id": "ltu_lite_amesoc",
+      "device_family": "Ubiquiti LTU-Lite (AF-LTU, sysid=0xa614)",
+      "firmware_baseline": "LTU.afltu.v2.4.0 (Linux 3.14.65 SMP PREEMPT RT)",
+      "soc_and_radio": "UBNT AME SoC (Dual-Core ARMv7 Cortex-A9 r3p0) + ame_core LTU MAC/PHY (IRQ 63/92)",
+      "apply_commands": [
+        "sysctl -w net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 >/dev/null",
+        "ifconfig eth0 txqueuelen 256 && ifconfig ath0 txqueuelen 256",
+        "echo 8 > /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "echo 0 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable",
+        "echo 1 > /sys/module/ame_core/parameters/multi_ack_enable",
+        "echo 0 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "echo 12 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin",
+        "echo 62 > /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end",
+        "echo 72 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end",
+        "echo 1 > /sys/module/ame_core/parameters/send_map_enable",
+        "tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn"
+      ],
+      "rollback_commands": [
+        "sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=1000 net.ipv4.tcp_dsack=0 >/dev/null",
+        "ifconfig eth0 txqueuelen 1000 && ifconfig ath0 txqueuelen 1000",
+        "echo 5 > /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "echo 1 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable",
+        "echo 1 > /sys/module/ame_core/parameters/multi_ack_enable",
+        "echo 1 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "echo 0 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin",
+        "echo 60 > /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end",
+        "echo 70 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end",
+        "echo 0 > /sys/module/ame_core/parameters/send_map_enable",
+        "tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn"
+      ],
+      "verify_commands": [
+        "cat /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "cat /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable",
+        "cat /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin",
+        "cat /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end",
+        "cat /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end",
+        "cat /sys/module/ame_core/parameters/send_map_enable",
+        "sysctl net.ipv4.tcp_dsack",
+        "tc qdisc show dev ath0"
+      ],
+      "validated_rounds": [
+        "LTU-R2",
+        "LTU-R4",
+        "LTU-R9",
+        "LTU-R10",
+        "LTU-R11",
+        "LTU-R14",
+        "LTU-R19",
+        "S17B-R3",
+        "S24F-R1"
+      ],
+      "key_findings_summary": "Raising ame_core sched_max_agg_cnt from 5 to 8 eliminated background scan/scheduler tail spikes (-88.5% p95 RTT); full-MTU fq_codel quantum=1514 target=2.5ms on ath0 root cut tail latency by -45.8%, whereas replacing eth0's 8 hardware mq leaves caused transient queueing spikes (LTU-R13 REJECT); in Stage 17B unlocked AP-PtMP SQ mode (board_ssid=0xae05 + ptmp_max_cpe=4), S17B-R3 (sched_mcs_limit_symbol_begin=14 + send_map_enable=1) cuts p95 RTT by an additional -2.84%; in Stage 24F (S24F-R1), isolating pure symbol-window widening (sched_mcs_limit_symbol_begin=12, sched_ap_mcs_limit_symbol_end=62, sched_mcs_limit_symbol_end=72 with DGAIN_DL_ENABLE=0, pb_boost=2 AUTO) increased goodput by +1.363% and cut p95/p99 RTT by -38.76%/-45.93% (+14.93% Pareto score)."
+    },
+    "r2ac_prism_ap": {
+      "profile_id": "r2ac_prism_ap",
+      "device_family": "Ubiquiti Rocket 2AC Prism (R2AC, sysid=0xe7f5)",
+      "firmware_baseline": "2XC.v8.7.11 (Linux 2.6.32.68, Mode: Master AP on 2412 MHz)",
+      "soc_and_radio": "QCA955x MIPS 74Kc + QCA988x 2.4 GHz (wifi0) + AirView (wifi1) + 2.4 GHz AirPrism (IRQ 64)",
+      "apply_commands": [
+        "iwpriv wifi0 ani_enable 1",
+        "echo 0 > /proc/sys/dev/uph_wifi0/daprot",
+        "echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit && echo 1 > /proc/sys/dev/uph_wifi0/fixed_frame",
+        "iwpriv wifi0 nonaggr_swretry 4 && iwpriv wifi0 aggr_swretry 6",
+        "iwpriv ath0 shpreamble 1 && iwpriv ath0 protmode 1 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3",
+        "ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && ifconfig br0 txqueuelen 256 2>/dev/null || true",
+        "ifconfig airview1 down 2>/dev/null || true",
+        "echo 6 > /proc/sys/dev/uph_wifi0/cms_bias && echo 6 > /proc/sys/dev/uph_wifi0/voip_bias && echo -82 > /proc/sys/dev/uph_wifi0/sta_rx_rssi_th",
+        "sysctl -w net.ipv4.tcp_low_latency=1 net.core.netdev_budget=600 net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+      ],
+      "rollback_commands": [
+        "iwpriv wifi0 ani_enable 1",
+        "echo 0 > /proc/sys/dev/uph_wifi0/daprot",
+        "echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit && echo 0 > /proc/sys/dev/uph_wifi0/fixed_frame",
+        "iwpriv wifi0 nonaggr_swretry 8 && iwpriv wifi0 aggr_swretry 8",
+        "iwpriv ath0 shpreamble 0 && iwpriv ath0 protmode 0 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3",
+        "ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && ifconfig br0 txqueuelen 1000 2>/dev/null || true",
+        "ifconfig airview1 up 2>/dev/null || true",
+        "echo 0 > /proc/sys/dev/uph_wifi0/cms_bias && echo 0 > /proc/sys/dev/uph_wifi0/voip_bias && echo 0 > /proc/sys/dev/uph_wifi0/sta_rx_rssi_th",
+        "sysctl -w net.ipv4.tcp_low_latency=0 net.core.netdev_budget=300 net.core.rmem_max=131071 net.core.wmem_max=131071 net.core.netdev_max_backlog=1000 net.ipv4.tcp_dsack=0 net.ipv4.tcp_fin_timeout=60 >/dev/null"
+      ],
+      "verify_commands": [
+        "iwpriv wifi0 get_ani_enable",
+        "cat /proc/sys/dev/uph_wifi0/ptp_xmit /proc/sys/dev/uph_wifi0/fixed_frame",
+        "cat /proc/sys/dev/uph_wifi0/cms_bias /proc/sys/dev/uph_wifi0/voip_bias /proc/sys/dev/uph_wifi0/sta_rx_rssi_th",
+        "iwpriv ath0 get_shpreamble",
+        "iwpriv ath0 get_protmode",
+        "cat /sys/class/net/ath0/tx_queue_len",
+        "sysctl net.ipv4.tcp_dsack net.ipv4.tcp_fin_timeout"
+      ],
+      "validated_rounds": [
+        "R2AC-R3",
+        "R2AC-R4",
+        "R2AC-R7",
+        "R2AC-R10",
+        "R2AC-R12",
+        "R2AC-R13",
+        "R2AC-R15",
+        "R2AC-R17",
+        "R2AC-R19",
+        "R2AC-R21",
+        "S27-R2AC-R1",
+        "S27-R2AC-R2"
+      ],
+      "key_findings_summary": "In 2.4 GHz AP mode on a fixed channel (2412 MHz), in-band noise passes through the 20 MHz AirPrism passband so ani_enable=1 MUST remain enabled; combining ani_enable=1 with shpreamble=1 (-54.3% p50), ptp_xmit=1, swretry=4/6, and txqueuelen=256 achieves sub-2ms p50 RTT; in Stage 27 under live 2.4 GHz adjacent-channel RF load from NanoStation Loco M2 (2444 MHz at -59 dBm on gi2), quiescing airview1 down + uph_wifi0/cms_bias=6 + voip_bias=6 + sta_rx_rssi_th=-82 (S27-R2AC-R1) boosted goodput by +5.20% (27.06 -> 28.47 Mbps) and cut p95 RTT by -35.96% (23.68 -> 15.17 ms), and adding br0 txqueuelen=256 + tcp_sack/dsack=1 + tcp_fin_timeout=15 (S27-R2AC-R2) added another +1.50% goodput and -17.84% p95 RTT."
+    },
+    "r5ac_prism_sta": {
+      "profile_id": "r5ac_prism_sta",
+      "device_family": "Ubiquiti Rocket Prism 5AC Gen2 (RP-5AC-Gen2, sysid=0xe7e9)",
+      "firmware_baseline": "XC.v8.7.25 (Linux 2.6.32.68, Mode: Managed STA under 5 GHz co-location)",
+      "soc_and_radio": "QCA955x MIPS 74Kc + QCA9880 5 GHz (wifi0) + AirView (wifi1) + 5 GHz AirPrism (IRQ 64)",
+      "apply_commands": [
+        "ifconfig airview1 down",
+        "iwpriv wifi0 ani_enable 0",
+        "iwpriv wifi0 nonaggr_swretry 4 && iwpriv wifi0 aggr_swretry 6",
+        "iwpriv ath0 protmode 1 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3",
+        "ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256",
+        "sysctl -w net.ipv4.tcp_low_latency=1 net.core.rmem_max=524288 net.core.wmem_max=524288 >/dev/null"
+      ],
+      "rollback_commands": [
+        "ifconfig airview1 up",
+        "iwpriv wifi0 ani_enable 1",
+        "iwpriv wifi0 nonaggr_swretry 8 && iwpriv wifi0 aggr_swretry 8",
+        "iwpriv ath0 protmode 0 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3",
+        "ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000",
+        "sysctl -w net.ipv4.tcp_low_latency=0 net.core.rmem_max=131071 net.core.wmem_max=131071 >/dev/null"
+      ],
+      "verify_commands": [
+        "iwpriv wifi0 get_ani_enable",
+        "iwpriv ath0 get_protmode",
+        "cat /sys/class/net/ath0/tx_queue_len",
+        "sysctl net.ipv4.tcp_low_latency"
+      ],
+      "validated_rounds": [
+        "R5AC-R6",
+        "R5AC-R7",
+        "R5AC-R9",
+        "R5AC-R10",
+        "R5AC-R19",
+        "S19-R3"
+      ],
+      "key_findings_summary": "Under 5 GHz co-location (5180/5805 MHz) with hardware AirPrism blanking (IRQ 64 at 35-80/s), quiescing airview1 down (without SIGSTOP on ubntspecd), disabling software ANI register polling during multi-channel scan (-60.5% p50), and bounding swretry=4/6 (-67.9% p50) cuts latency to 1.81 ms; in S19-R3 2-CPE contention alongside OpenWrt LAP-120 AP, boosts aggregate sector goodput by +38.55% (51.02 -> 70.68 Mbps)."
+    },
+    "pbm5_xw_weak_ota": {
+      "profile_id": "pbm5_xw_weak_ota",
+      "device_family": "Ubiquiti PowerBeam M5 300 PtP Link (PBM5-300, sysid=0xe3e5)",
+      "firmware_baseline": "XW.v6.3.22 (Linux 2.6.32.71, 5.805 GHz 20 MHz Weak -80 dBm OTA Link)",
+      "soc_and_radio": "AR9342 MIPS 74Kc (Wasp) + 5 GHz 2x2 MIMO (chainrssi=[9, 15..17], 6-8 dB imbalance)",
+      "apply_commands": [
+        "iwpriv wifi0 txchainmask 2 && iwpriv wifi0 rxchainmask 3",
+        "iwpriv wifi0 txstbc 1 && iwpriv wifi0 rxstbc 1",
+        "iwpriv wifi0 ANIEna 1 && echo 1 > /proc/athrtscts",
+        "echo 1 > /sys/module/ath_rate_atheros/parameters/ubnt_ewma_delegate_on",
+        "iwpriv wifi0 AMPDUFrames 16 && iwpriv wifi0 AMPDULim 16384",
+        "iwpriv wifi0 distance 150",
+        "echo '15 5' > /proc/sys/dev/ubnt_poll/txop_params",
+        "echo 1 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "echo 1 > /proc/sys/dev/ubnt_poll/ap_no_dur_off_lim && echo 0 > /proc/sys/dev/ubnt_poll/downlink_mp && echo 1 > /proc/sys/dev/ubnt_poll/no_auto_prio",
+        "iwpriv ath0 protmode 1 && iwpriv ath0 shpreamble 1",
+        "ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256",
+        "sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.ipv4.tcp_low_latency=1 >/dev/null"
+      ],
+      "rollback_commands": [
+        "iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3",
+        "iwpriv wifi0 txstbc 1 && iwpriv wifi0 rxstbc 1",
+        "iwpriv wifi0 ANIEna 0 && echo 0 > /proc/athrtscts",
+        "echo 0 > /sys/module/ath_rate_atheros/parameters/ubnt_ewma_delegate_on",
+        "iwpriv wifi0 AMPDUFrames 32 && iwpriv wifi0 AMPDULim 50000",
+        "iwpriv wifi0 distance 600",
+        "echo '25 5' > /proc/sys/dev/ubnt_poll/txop_params",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "echo 0 > /proc/sys/dev/ubnt_poll/ap_no_dur_off_lim && echo 1 > /proc/sys/dev/ubnt_poll/downlink_mp && echo 0 > /proc/sys/dev/ubnt_poll/no_auto_prio",
+        "iwpriv ath0 protmode 0 && iwpriv ath0 shpreamble 0",
+        "ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000",
+        "sysctl -w net.core.rmem_max=131071 net.core.wmem_max=131071 net.ipv4.tcp_low_latency=0 >/dev/null"
+      ],
+      "verify_commands": [
+        "iwpriv wifi0 get_txchainmask",
+        "iwpriv wifi0 get_rxchainmask",
+        "iwpriv wifi0 GetANIEna",
+        "cat /sys/module/ath_rate_atheros/parameters/ubnt_ewma_delegate_on",
+        "iwpriv wifi0 getAMPDUFrames",
+        "iwpriv wifi0 getAMPDULim",
+        "iwpriv wifi0 get_distance",
+        "cat /proc/sys/dev/ubnt_poll/txop_params",
+        "cat /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "cat /proc/sys/dev/ubnt_poll/no_auto_prio",
+        "iwpriv ath0 get_protmode",
+        "iwpriv ath0 get_shpreamble"
+      ],
+      "validated_rounds": [
+        "PBM5-R1",
+        "PBM5-R5",
+        "PBM5-R9",
+        "PBM5-R10",
+        "PBM5-R11",
+        "PBM5-R13",
+        "PBM5-R15",
+        "PBM5-R16",
+        "PBM5-R21",
+        "PBM5-R23",
+        "PBM5-R25",
+        "PBM5-R27",
+        "PBM5-R28",
+        "PBM5-R29",
+        "PBM5-R30",
+        "PBM5-R33",
+        "PBM5-R34",
+        "PBM5-R35",
+        "PBM5-R36"
+      ],
+      "key_findings_summary": "On a weak -80 dBm 5.805 GHz link with 6-8 dB chain imbalance (chainrssi=[9, 15..17]), asymmetric SIMO TX / 2x2 MRC RX (txchainmask=2, rxchainmask=3) eliminates 32-42% PER 2-stream MCS11..15 failures and boosts remote STA RSSI by +5 dB (-81 -> -76 dBm); enabling ubnt_ewma_delegate_on=1 (-12.4% J), ANIEna=1 + /proc/athrtscts=1 (-33.1% J), no_auto_prio=1 (-19.2% J), and AMPDU=16/16384 cuts 1400B Over-The-Air burst p95 RTT by -36.0% in combined holdout verification."
+    },
+    "openwrt_lap120_ptp_1cpe_champion": {
+      "profile_id": "openwrt_lap120_ptp_1cpe_champion",
+      "device_family": "Ubiquiti LiteAP 120 + NanoStation 5AC Loco (OpenWrt 24.10.4, 1-CPE PtP / Low-Contention)",
+      "firmware_baseline": "OpenWrt 24.10.4 (Linux 6.6.110, ath10k-ct QCA988x 5180 MHz 20 MHz)",
+      "soc_and_radio": "QCA955x / AR9342 MIPS 74Kc + QCA988x 2x2 VHT20 (phy0)",
+      "apply_commands": [
+        "echo '0 900 1500' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '1 900 1500' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '2 900 1500' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '3 900 1500' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo 4000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "echo 7 > /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "iw phy phy0 set retry short 5 long 4",
+        "iw phy phy0 set rts off",
+        "echo 30 > /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "ip link set dev phy0-sta0 txqueuelen 256 2>/dev/null || ip link set dev phy0-ap0 txqueuelen 256 2>/dev/null || true",
+        "ip link set dev br-lan txqueuelen 256 2>/dev/null || true",
+        "tc qdisc replace dev phy0-sta0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn 2>/dev/null || tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn 2>/dev/null || true",
+        "sysctl -w net.ipv4.tcp_limit_output_bytes=131072 net.ipv4.tcp_notsent_lowat=16384 net.core.netdev_budget=600 net.ipv4.tcp_pacing_ca_ratio=110 net.ipv4.tcp_pacing_ss_ratio=150 net.ipv4.tcp_thin_linear_timeouts=1 net.ipv4.tcp_early_retrans=3 net.ipv4.tcp_autocorking=0 net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+      ],
+      "rollback_commands": [
+        "echo '0 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '1 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '2 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '3 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo 24000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "echo 7 > /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "iw phy phy0 set retry short 7 long 4",
+        "iw phy phy0 set rts 2347",
+        "echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "ip link set dev phy0-sta0 txqueuelen 1000 2>/dev/null || ip link set dev phy0-ap0 txqueuelen 1000 2>/dev/null || true",
+        "ip link set dev br-lan txqueuelen 1000 2>/dev/null || true",
+        "tc qdisc replace dev phy0-sta0 root fq_codel quantum 300 target 5ms interval 100ms ecn 2>/dev/null || tc qdisc replace dev phy0-ap0 root fq_codel quantum 300 target 5ms interval 100ms ecn 2>/dev/null || true",
+        "sysctl -w net.ipv4.tcp_limit_output_bytes=1048576 net.ipv4.tcp_notsent_lowat=4294967295 net.core.netdev_budget=300 net.ipv4.tcp_pacing_ca_ratio=120 net.ipv4.tcp_pacing_ss_ratio=200 net.ipv4.tcp_thin_linear_timeouts=0 net.ipv4.tcp_early_retrans=3 net.ipv4.tcp_autocorking=1 net.ipv4.tcp_dsack=0 net.ipv4.tcp_fin_timeout=60 >/dev/null"
+      ],
+      "verify_commands": [
+        "cat /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "cat /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "cat /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "cat /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "sysctl net.ipv4.tcp_limit_output_bytes net.ipv4.tcp_notsent_lowat net.core.netdev_budget net.ipv4.tcp_pacing_ca_ratio net.ipv4.tcp_pacing_ss_ratio net.ipv4.tcp_thin_linear_timeouts net.ipv4.tcp_early_retrans net.ipv4.tcp_autocorking net.ipv4.tcp_dsack net.ipv4.tcp_fin_timeout"
+      ],
+      "validated_rounds": [
+        "R165",
+        "R171",
+        "R177",
+        "R183",
+        "R184",
+        "R185",
+        "R186",
+        "R187",
+        "R188",
+        "R189",
+        "R190",
+        "R191",
+        "R192",
+        "R193",
+        "R194",
+        "S19-R2",
+        "S21-R2",
+        "S24C-R1",
+        "S24E-R1",
+        "S25-R2",
+        "S28-R1"
+      ],
+      "key_findings_summary": "1-factor orthogonal ablation (R165..R182) proved aql_txq_limit=900/1500 us is the mandatory hardware gatekeeper on QCA988x (+3.14% to +15.79% pure AC_BE goodput, -33.1% to -40.7% p95 RTT across 1..14 km); combining with fq_quantum=1514 and CoDel 10/50ms lifts 4-flow Jain fairness from 0.8734 to 0.9520; S19-R2 incremental PB-031 upgrade (retry short 5 long 4 + nf_cal_period=30 + txqueuelen=256) adds +4.23% goodput (71.05 -> 74.05 Mbps) and -19.77% p95 RTT (23.96 -> 19.22 ms); S21-R2 (tcp_notsent_lowat=16384 + netdev_budget=600) cuts p95 RTT by an additional -12.35% (19.92 -> 17.46 ms); S24C-R1 (AirBBR TCP pacing ca_ratio=110/ss_ratio=150 + fq_codel memory_limit 4mb) cuts p95 RTT by another -3.17% (19.74 -> 19.11 ms); S24E-R1 (M2 clean-SNR rts off) boosts 1-CPE goodput by +21.87% (60.43 -> 73.64 Mbps); S25-R2 (M5 Asymmetric UL/DL TCP ACK Pacing: tcp_thin_linear_timeouts=1, tcp_early_retrans=3, tcp_autocorking=0) cuts p95 RTT by -10.33% and boosts goodput by +3.66%; S28-R1 (M6 PB-024 2-MTU DRR Frame-Aggregation Quantum fq_codel quantum=3028 + br-lan txqueuelen=256 + tcp_dsack=1 + tcp_fin_timeout=15 synthesized by Closed-Loop Research Reactor from arXiv:2211.03471v1 + S25-R1 + S27-R2AC-R2) cuts p95 RTT by another -8.80% (42.73 -> 38.97 ms, p50 -9.89%) and adds +0.59% goodput with 0.0% loss."
+    },
+    "openwrt_lap120_ptmp_multicpe_champion": {
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "device_family": "Ubiquiti LiteAP 120 AP (OpenWrt 24.10.4, Multi-CPE Heterogeneous & Near-Far PtMP Sector)",
+      "firmware_baseline": "OpenWrt 24.10.4 (Linux 6.6.110, 3-to-5 Station Heterogeneous AC + M5 Sector)",
+      "soc_and_radio": "QCA955x + QCA988x 2x2 VHT20 AP serving 2x2 AC + 1x1 M5 + Weak Near-Far CPEs",
+      "apply_commands": [
+        "echo '0 600 1200' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '1 1200 2400' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '2 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '3 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo 5000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "echo 7 > /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "iw phy phy0 set retry short 5 long 4",
+        "iw phy phy0 set rts 512",
+        "echo 30 > /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "ip link set dev phy0-ap0 txqueuelen 256 2>/dev/null || true",
+        "ip link set dev br-lan txqueuelen 256 2>/dev/null || true",
+        "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn 2>/dev/null || true",
+        "sysctl -w net.ipv4.tcp_limit_output_bytes=131072 net.ipv4.tcp_notsent_lowat=16384 net.core.netdev_budget=600 net.ipv4.tcp_pacing_ca_ratio=110 net.ipv4.tcp_pacing_ss_ratio=150 net.ipv4.tcp_thin_linear_timeouts=1 net.ipv4.tcp_early_retrans=3 net.ipv4.tcp_autocorking=0 net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+      ],
+      "rollback_commands": [
+        "echo '0 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '1 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '2 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '3 5000 12000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo 24000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "echo 0 > /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "iw phy phy0 set retry short 7 long 4",
+        "iw phy phy0 set rts 2347",
+        "echo 0 > /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "ip link set dev phy0-ap0 txqueuelen 1000 2>/dev/null || true",
+        "ip link set dev br-lan txqueuelen 1000 2>/dev/null || true",
+        "tc qdisc replace dev phy0-ap0 root fq_codel quantum 300 target 5ms interval 100ms ecn 2>/dev/null || true",
+        "sysctl -w net.ipv4.tcp_limit_output_bytes=1048576 net.ipv4.tcp_notsent_lowat=4294967295 net.core.netdev_budget=300 net.ipv4.tcp_pacing_ca_ratio=120 net.ipv4.tcp_pacing_ss_ratio=200 net.ipv4.tcp_thin_linear_timeouts=0 net.ipv4.tcp_early_retrans=3 net.ipv4.tcp_autocorking=1 net.ipv4.tcp_dsack=0 net.ipv4.tcp_fin_timeout=60 >/dev/null"
+      ],
+      "verify_commands": [
+        "cat /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "cat /sys/kernel/debug/ieee80211/phy0/aql_threshold",
+        "cat /sys/kernel/debug/ieee80211/phy0/airtime_flags",
+        "cat /sys/kernel/debug/ieee80211/phy0/ath10k/nf_cal_period",
+        "sysctl net.ipv4.tcp_limit_output_bytes net.ipv4.tcp_notsent_lowat net.core.netdev_budget net.ipv4.tcp_pacing_ca_ratio net.ipv4.tcp_pacing_ss_ratio net.ipv4.tcp_thin_linear_timeouts net.ipv4.tcp_early_retrans net.ipv4.tcp_autocorking net.ipv4.tcp_dsack net.ipv4.tcp_fin_timeout"
+      ],
+      "validated_rounds": [
+        "M1-R1",
+        "M1-R2",
+        "M1-R4",
+        "M1-R5",
+        "M1-R6",
+        "M2-R8",
+        "M2-R11",
+        "M2-R12",
+        "S14-R1",
+        "S14-R5",
+        "S14-R6",
+        "S19-R3",
+        "S19-R4",
+        "S21-R3",
+        "S24C-R2",
+        "S24E-R2",
+        "S25-R2",
+        "S28-R1"
+      ],
+      "key_findings_summary": "Under simultaneous 3-CPE heterogeneous contention (Loco 5AC + Rocket Prism 5AC + LiteBeam M5) and 5-station Near-Far load, Coupled AQL + airtime_flags=7 + fq_quantum=1514 boosts 3-CPE goodput by +7.31% to +10.58% (at 6000m), co-designed 5-station Near-Far goodput by +21.63% (55.66 -> 67.69 Mbps, -11.85% p95 RTT), 2-CPE AP+Rocket STA Champion Co-Design (S19-R3) by +38.55% (51.02 -> 70.68 Mbps), 3-CPE All-Champion Co-Design (S21-R3) cuts sector p95 RTT by -9.89% (63.36 -> 57.09 ms), S24C-R2 Responsible-Airtime Overhead-Corrected Weights (640:512:96, per-AC AQL 750..1500/1500..3000, thresh=5000 + AirBBR Pacing) adds +11.19% aggregate goodput (45.73 -> 50.84 Mbps) and -22.70% worst-case sector p95 RTT (95.09 -> 73.50 ms), S24E-R2 (M2 Adaptive RTS/CTS 512B + M1 Dynamic Responsible-Airtime Weights) adds another +5.24% goodput (56.79 -> 59.76 Mbps, 3.03 Mbps/MHz) and cuts worst-case sector p95 RTT by -41.98% (110.40 -> 64.06 ms, >3.8x lower p99 RTT, 0.0% loss), S25-R2 (M5 Asymmetric UL/DL TCP ACK Pacing: tcp_thin_linear_timeouts=1, tcp_early_retrans=3, tcp_autocorking=0, AC_VO AQL 600/1200) adds +3.66% goodput (61.07 -> 63.30 Mbps, reaching 64.56 Mbps / 3.23 Mbps/MHz in B2) and cuts p95 RTT by another -10.33% (74.73 -> 67.02 ms) with 0.0% loss, and S28-R1 (M6 PB-024 2-MTU DRR Frame-Aggregation Quantum fq_codel quantum=3028 + br-lan txqueuelen=256 + tcp_dsack=1 + tcp_fin_timeout=15) cuts p95 RTT by another -8.80% (42.73 -> 38.97 ms) and adds +0.59% goodput."
+    },
+    "ltu_ptmp_3unit_sector_champion": {
+      "profile_id": "ltu_ptmp_3unit_sector_champion",
+      "device_family": "Ubiquiti LTU-Rocket AP + 2x LTU-Lite CPEs (Stage 15 3-Unit PtMP Sector)",
+      "firmware_baseline": "LTU.aflturocket.v2.1.0 AP + LTU.afltu.v2.4.0 CPEs (Linux 3.14.65 RT)",
+      "soc_and_radio": "UBNT AME SoC + AD9361 SDR + Invictus LTU Custom TDD MAC/PHY",
+      "apply_commands": [
+        "echo 1 > /sys/module/ame_core/parameters/change_ssd_pause_flag",
+        "echo 8 > /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "echo 1 > /sys/module/ame_core/parameters/multi_ack_enable",
+        "echo 1 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "echo 1 > /sys/module/ame_core/parameters/send_map_enable",
+        "echo 14 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin",
+        "ifconfig eth0 txqueuelen 256 && ifconfig ath0 txqueuelen 256",
+        "tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn"
+      ],
+      "rollback_commands": [
+        "echo 0 > /sys/module/ame_core/parameters/change_ssd_pause_flag",
+        "echo 5 > /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "echo 0 > /sys/module/ame_core/parameters/multi_ack_enable",
+        "echo 0 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "echo 0 > /sys/module/ame_core/parameters/send_map_enable",
+        "echo 0 > /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin",
+        "ifconfig eth0 txqueuelen 1000 && ifconfig ath0 txqueuelen 1000",
+        "tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn"
+      ],
+      "verify_commands": [
+        "cat /sys/module/ame_core/parameters/change_ssd_pause_flag",
+        "cat /sys/module/ame_core/parameters/sched_max_agg_cnt",
+        "cat /sys/module/ame_core/parameters/multi_ack_enable",
+        "cat /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "cat /sys/module/ame_core/parameters/send_map_enable",
+        "cat /sys/module/ame_core/parameters/sched_mcs_limit_symbol_begin"
+      ],
+      "validated_rounds": [
+        "LTU-S15-R1",
+        "LTU-S15-R2",
+        "LTU-S15-R6",
+        "LTU-S15-R8"
+      ],
+      "key_findings_summary": "On the 3-unit LTU PtMP sector, enabling multi_ack_enable=1 + send_ctrl_in_data=1 + send_map_enable=1 boosts sector goodput by +9.86% and cuts p95 RTT by -47.02%; sched_max_agg_cnt=8 cuts p95 by -39.56% (Jain=1.0000); sched_mcs_limit_symbol_begin=14 cuts p95 by -25.40%; change_ssd_pause_flag=1 cuts p95 by -17.21%."
+    }
+  }
+}

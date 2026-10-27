@@ -1,0 +1,75 @@
+{
+  "stage": "573A",
+  "task_id": "T-S573A-QCA-PAPRD-OLPC-AND-THERMAL-TPC-HELPER",
+  "title": "Pillar 1 & Pillar 2 QCA988x & AR9344 Power Amplifier Pre-Distortion (PAPRD), OLPC/CLPC (TPC/CTL), and Thermal TPC Helper",
+  "memory_master_claim": {
+    "code": "mm-25f8",
+    "id": 155448
+  },
+  "generated_at": "2026-10-27T01:30:19.250535+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca_paprd_olpc_tpc_helper.sh",
+    "sha256": "c6e3681b052fee269749f63854240c5bc70dbb11f8c454e46a23e20a9c08dcb7",
+    "size_bytes": 2475,
+    "default_mode": "--status"
+  },
+  "stage563a_re_foundation": {
+    "modules_analyzed": 7,
+    "paprd_symbol_count": 29,
+    "paprd_pipeline_stages": [
+      "create_curve",
+      "init_table",
+      "populate_paprd",
+      "swizzle",
+      "setup_gain_table",
+      "set_paprd_tx_desc",
+      "is_done"
+    ],
+    "tpc_symbol_count": 15,
+    "ctl_symbol_count": 22,
+    "loop_controls_present": [
+      "enable_tpc",
+      "get_ctl_by_country",
+      "get_ctl_chan_nf",
+      "get_rate_tpc",
+      "get_tpc_tables",
+      "update_loc_ctl_reg"
+    ],
+    "green_tx_skips_paprd": true
+  },
+  "paprd_and_tpc_parameters": {
+    "paprd_enabled": true,
+    "greentx_disabled_to_protect_paprd": true,
+    "tpc_enabled": true,
+    "ath10k_nf_cal_period_ms": 30000,
+    "thermal_hook": "ar9300_paprd_thermal_send"
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "covers_paprd_tpc_ctl_and_greentx_guard": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 563A RE across 7 WA/XC/XW kernel modules (29 PAPRD symbols, 15 TPC symbols, 22 CTL symbols)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Prevents ar9300_is_skip_paprd_by_greentx from disabling PA pre-distortion and enforces thermal TPC/NF calibration stability",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply uses safe debugfs/sysfs attributes",
+    "pillar_d_scientific_pareto_validation": "Protects 256-QAM (MCS8/9) and 64-QAM (MCS7) constellation EVM under thermal swing without PA saturation",
+    "pillar_e_memory_master_claim_id": "mm-25f8 (id=155448)"
+  }
+}

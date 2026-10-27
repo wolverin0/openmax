@@ -1,0 +1,691 @@
+{
+  "meta": {
+    "stage": "372A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/wmi_0x9044_peer_rate_retry_sched_re.py",
+    "tool_sha256": "eb1f6d37f32cb3d83e6b4b3836a5e85f0bb6de19519198aaf51c31af4fa9efe1",
+    "output": "artifacts/autoresearch/stage372a_wmi_0x9044_peer_rate_retry_sched_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "exact-string probe for the command name and the retry-series field names; MIPS lui+ori pair search for the numeric id 0x9044; surrounding-byte context for the one PEER_RATE_RETRY hit",
+    "wmi_id": "0x9044",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "probe_hits": {
+        "PEER_RATE_RETRY": 1,
+        "peer_rate_retry": 0,
+        "retry_sched": 0,
+        "RETRY_SCHED": 1,
+        "series_bw": 0,
+        "LDPC": 5,
+        "STBC": 9,
+        "SGI": 3,
+        "txchainmask": 2,
+        "2x2": 2,
+        "1x2": 0,
+        "CDD": 7
+      },
+      "peer_rate_retry_context": [
+        {
+          "section": ".rodata.str1.4",
+          "offset": "0x01683c",
+          "context": "ARAM_CMDID..WMI_AP_PS_PEER_UAPSD_COEX_CMDID.WMI_PEER_RATE_RETRY_SCHED_CMDID.WMI_WLAN_PROFILE_TRIGGER_CMDID..WMI"
+        }
+      ],
+      "name_table_position": {
+        "section": ".rodata.str1.4",
+        "offset": "0x016838",
+        "preceding_strings": 7485,
+        "section_strings": 8295
+      },
+      "wmi_id_sites": [],
+      "wmi_id_site_count": 0,
+      "id_literals": {
+        "aligned": [
+          "0x239ff8"
+        ],
+        "unaligned": [
+          "0x0247d2",
+          "0x03137a",
+          "0x03b2f6",
+          "0x0522ee",
+          "0x057462",
+          "0x0919ae",
+          "0x09b76a",
+          "0x0a8ca2",
+          "0x0a8cd2",
+          "0x0a8e1e",
+          "0x0be9be"
+        ],
+        "aligned_count": 1,
+        "unaligned_count": 11,
+        "verdict": "aligned literal present"
+      },
+      "id_table_run": {
+        "run_start": "0x239f70",
+        "count": 32,
+        "trailing_values": [
+          "0x00000102"
+        ],
+        "entries": [
+          {
+            "id": "0x9000",
+            "trailing": "0x00000102",
+            "at": "0x239f70"
+          },
+          {
+            "id": "0x9004",
+            "trailing": "0x00000102",
+            "at": "0x239f78"
+          },
+          {
+            "id": "0x9008",
+            "trailing": "0x00000102",
+            "at": "0x239f80"
+          },
+          {
+            "id": "0x900c",
+            "trailing": "0x00000102",
+            "at": "0x239f88"
+          },
+          {
+            "id": "0x9010",
+            "trailing": "0x00000102",
+            "at": "0x239f90"
+          },
+          {
+            "id": "0x9014",
+            "trailing": "0x00000102",
+            "at": "0x239f98"
+          },
+          {
+            "id": "0x9018",
+            "trailing": "0x00000102",
+            "at": "0x239fa0"
+          },
+          {
+            "id": "0x901c",
+            "trailing": "0x00000102",
+            "at": "0x239fa8"
+          },
+          {
+            "id": "0x9020",
+            "trailing": "0x00000102",
+            "at": "0x239fb0"
+          },
+          {
+            "id": "0x9024",
+            "trailing": "0x00000102",
+            "at": "0x239fb8"
+          },
+          {
+            "id": "0x9028",
+            "trailing": "0x00000102",
+            "at": "0x239fc0"
+          },
+          {
+            "id": "0x902c",
+            "trailing": "0x00000102",
+            "at": "0x239fc8"
+          },
+          {
+            "id": "0x9030",
+            "trailing": "0x00000102",
+            "at": "0x239fd0"
+          },
+          {
+            "id": "0x9034",
+            "trailing": "0x00000102",
+            "at": "0x239fd8"
+          },
+          {
+            "id": "0x9038",
+            "trailing": "0x00000102",
+            "at": "0x239fe0"
+          },
+          {
+            "id": "0x903c",
+            "trailing": "0x00000102",
+            "at": "0x239fe8"
+          },
+          {
+            "id": "0x9040",
+            "trailing": "0x00000102",
+            "at": "0x239ff0"
+          },
+          {
+            "id": "0x9044",
+            "trailing": "0x00000102",
+            "at": "0x239ff8"
+          },
+          {
+            "id": "0x9048",
+            "trailing": "0x00000102",
+            "at": "0x23a000"
+          },
+          {
+            "id": "0x904c",
+            "trailing": "0x00000102",
+            "at": "0x23a008"
+          },
+          {
+            "id": "0x9050",
+            "trailing": "0x00000102",
+            "at": "0x23a010"
+          },
+          {
+            "id": "0x9054",
+            "trailing": "0x00000102",
+            "at": "0x23a018"
+          },
+          {
+            "id": "0x9058",
+            "trailing": "0x00000102",
+            "at": "0x23a020"
+          },
+          {
+            "id": "0x905c",
+            "trailing": "0x00000102",
+            "at": "0x23a028"
+          },
+          {
+            "id": "0x9060",
+            "trailing": "0x00000102",
+            "at": "0x23a030"
+          },
+          {
+            "id": "0x9064",
+            "trailing": "0x00000102",
+            "at": "0x23a038"
+          },
+          {
+            "id": "0x9068",
+            "trailing": "0x00000102",
+            "at": "0x23a040"
+          },
+          {
+            "id": "0x906c",
+            "trailing": "0x00000102",
+            "at": "0x23a048"
+          },
+          {
+            "id": "0x9070",
+            "trailing": "0x00000102",
+            "at": "0x23a050"
+          },
+          {
+            "id": "0x9074",
+            "trailing": "0x00000102",
+            "at": "0x23a058"
+          },
+          {
+            "id": "0x9078",
+            "trailing": "0x00000102",
+            "at": "0x23a060"
+          },
+          {
+            "id": "0x907c",
+            "trailing": "0x00000102",
+            "at": "0x23a068"
+          }
+        ],
+        "contains_target": true
+      }
+    },
+    {
+      "module": "WA.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "probe_hits": {
+        "PEER_RATE_RETRY": 0,
+        "peer_rate_retry": 0,
+        "retry_sched": 0,
+        "RETRY_SCHED": 0,
+        "series_bw": 0,
+        "LDPC": 0,
+        "STBC": 0,
+        "SGI": 0,
+        "txchainmask": 0,
+        "2x2": 0,
+        "1x2": 0,
+        "CDD": 0
+      },
+      "peer_rate_retry_context": [],
+      "name_table_position": null,
+      "wmi_id_sites": [],
+      "wmi_id_site_count": 0,
+      "id_literals": {
+        "aligned": [],
+        "unaligned": [
+          "0x000d52",
+          "0x000e0e",
+          "0x000e6e",
+          "0x001b6a",
+          "0x001c66",
+          "0x001caa",
+          "0x002de2",
+          "0x0033f2",
+          "0x003462",
+          "0x0034ee",
+          "0x00353a",
+          "0x003586",
+          "0x0035d2",
+          "0x00361e",
+          "0x00366a",
+          "0x0036b6",
+          "0x003702",
+          "0x00374e",
+          "0x00379a",
+          "0x0037e6",
+          "0x003832",
+          "0x00387e",
+          "0x0038ca",
+          "0x003916",
+          "0x003962",
+          "0x0039ae",
+          "0x0039fa",
+          "0x003a46",
+          "0x003a92",
+          "0x003ade",
+          "0x003b2a",
+          "0x003b76",
+          "0x003bc2",
+          "0x003c0e",
+          "0x003c5a",
+          "0x003ca6",
+          "0x003cf2",
+          "0x003d3e",
+          "0x003d8a",
+          "0x003dd6",
+          "0x003e22",
+          "0x003e6e",
+          "0x003eba",
+          "0x003f06",
+          "0x003f52",
+          "0x003f9e",
+          "0x003fea",
+          "0x004036",
+          "0x004082",
+          "0x0040ce",
+          "0x00411a",
+          "0x004166",
+          "0x0041b2",
+          "0x0041fe",
+          "0x00424a",
+          "0x004296",
+          "0x0042e2",
+          "0x00432e",
+          "0x00437a",
+          "0x0043c6",
+          "0x004412",
+          "0x00445e",
+          "0x0044aa",
+          "0x0044f6",
+          "0x004542",
+          "0x00458e",
+          "0x0045da",
+          "0x005192",
+          "0x0051d2"
+        ],
+        "aligned_count": 0,
+        "unaligned_count": 69,
+        "verdict": "no aligned literal: all hits straddle instructions"
+      },
+      "id_table_run": null
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "probe_hits": {
+        "PEER_RATE_RETRY": 1,
+        "peer_rate_retry": 0,
+        "retry_sched": 0,
+        "RETRY_SCHED": 1,
+        "series_bw": 0,
+        "LDPC": 5,
+        "STBC": 9,
+        "SGI": 3,
+        "txchainmask": 2,
+        "2x2": 2,
+        "1x2": 0,
+        "CDD": 7
+      },
+      "peer_rate_retry_context": [
+        {
+          "section": ".rodata.str1.4",
+          "offset": "0x01683c",
+          "context": "ARAM_CMDID..WMI_AP_PS_PEER_UAPSD_COEX_CMDID.WMI_PEER_RATE_RETRY_SCHED_CMDID.WMI_WLAN_PROFILE_TRIGGER_CMDID..WMI"
+        }
+      ],
+      "name_table_position": {
+        "section": ".rodata.str1.4",
+        "offset": "0x016838",
+        "preceding_strings": 7485,
+        "section_strings": 8295
+      },
+      "wmi_id_sites": [],
+      "wmi_id_site_count": 0,
+      "id_literals": {
+        "aligned": [
+          "0x23a918"
+        ],
+        "unaligned": [
+          "0x0247d2",
+          "0x03137a",
+          "0x03b2f6",
+          "0x0522ee",
+          "0x057462",
+          "0x0919ae",
+          "0x09b76a",
+          "0x0a8ca2",
+          "0x0a8cd2",
+          "0x0a8e1e",
+          "0x0be9be"
+        ],
+        "aligned_count": 1,
+        "unaligned_count": 11,
+        "verdict": "aligned literal present"
+      },
+      "id_table_run": {
+        "run_start": "0x23a890",
+        "count": 32,
+        "trailing_values": [
+          "0x00000102"
+        ],
+        "entries": [
+          {
+            "id": "0x9000",
+            "trailing": "0x00000102",
+            "at": "0x23a890"
+          },
+          {
+            "id": "0x9004",
+            "trailing": "0x00000102",
+            "at": "0x23a898"
+          },
+          {
+            "id": "0x9008",
+            "trailing": "0x00000102",
+            "at": "0x23a8a0"
+          },
+          {
+            "id": "0x900c",
+            "trailing": "0x00000102",
+            "at": "0x23a8a8"
+          },
+          {
+            "id": "0x9010",
+            "trailing": "0x00000102",
+            "at": "0x23a8b0"
+          },
+          {
+            "id": "0x9014",
+            "trailing": "0x00000102",
+            "at": "0x23a8b8"
+          },
+          {
+            "id": "0x9018",
+            "trailing": "0x00000102",
+            "at": "0x23a8c0"
+          },
+          {
+            "id": "0x901c",
+            "trailing": "0x00000102",
+            "at": "0x23a8c8"
+          },
+          {
+            "id": "0x9020",
+            "trailing": "0x00000102",
+            "at": "0x23a8d0"
+          },
+          {
+            "id": "0x9024",
+            "trailing": "0x00000102",
+            "at": "0x23a8d8"
+          },
+          {
+            "id": "0x9028",
+            "trailing": "0x00000102",
+            "at": "0x23a8e0"
+          },
+          {
+            "id": "0x902c",
+            "trailing": "0x00000102",
+            "at": "0x23a8e8"
+          },
+          {
+            "id": "0x9030",
+            "trailing": "0x00000102",
+            "at": "0x23a8f0"
+          },
+          {
+            "id": "0x9034",
+            "trailing": "0x00000102",
+            "at": "0x23a8f8"
+          },
+          {
+            "id": "0x9038",
+            "trailing": "0x00000102",
+            "at": "0x23a900"
+          },
+          {
+            "id": "0x903c",
+            "trailing": "0x00000102",
+            "at": "0x23a908"
+          },
+          {
+            "id": "0x9040",
+            "trailing": "0x00000102",
+            "at": "0x23a910"
+          },
+          {
+            "id": "0x9044",
+            "trailing": "0x00000102",
+            "at": "0x23a918"
+          },
+          {
+            "id": "0x9048",
+            "trailing": "0x00000102",
+            "at": "0x23a920"
+          },
+          {
+            "id": "0x904c",
+            "trailing": "0x00000102",
+            "at": "0x23a928"
+          },
+          {
+            "id": "0x9050",
+            "trailing": "0x00000102",
+            "at": "0x23a930"
+          },
+          {
+            "id": "0x9054",
+            "trailing": "0x00000102",
+            "at": "0x23a938"
+          },
+          {
+            "id": "0x9058",
+            "trailing": "0x00000102",
+            "at": "0x23a940"
+          },
+          {
+            "id": "0x905c",
+            "trailing": "0x00000102",
+            "at": "0x23a948"
+          },
+          {
+            "id": "0x9060",
+            "trailing": "0x00000102",
+            "at": "0x23a950"
+          },
+          {
+            "id": "0x9064",
+            "trailing": "0x00000102",
+            "at": "0x23a958"
+          },
+          {
+            "id": "0x9068",
+            "trailing": "0x00000102",
+            "at": "0x23a960"
+          },
+          {
+            "id": "0x906c",
+            "trailing": "0x00000102",
+            "at": "0x23a968"
+          },
+          {
+            "id": "0x9070",
+            "trailing": "0x00000102",
+            "at": "0x23a970"
+          },
+          {
+            "id": "0x9074",
+            "trailing": "0x00000102",
+            "at": "0x23a978"
+          },
+          {
+            "id": "0x9078",
+            "trailing": "0x00000102",
+            "at": "0x23a980"
+          },
+          {
+            "id": "0x907c",
+            "trailing": "0x00000102",
+            "at": "0x23a988"
+          }
+        ],
+        "contains_target": true
+      }
+    },
+    {
+      "module": "XC.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "probe_hits": {
+        "PEER_RATE_RETRY": 0,
+        "peer_rate_retry": 0,
+        "retry_sched": 0,
+        "RETRY_SCHED": 0,
+        "series_bw": 0,
+        "LDPC": 0,
+        "STBC": 0,
+        "SGI": 0,
+        "txchainmask": 0,
+        "2x2": 0,
+        "1x2": 0,
+        "CDD": 0
+      },
+      "peer_rate_retry_context": [],
+      "name_table_position": null,
+      "wmi_id_sites": [],
+      "wmi_id_site_count": 0,
+      "id_literals": {
+        "aligned": [],
+        "unaligned": [
+          "0x000d52",
+          "0x000e0e",
+          "0x000e6e",
+          "0x001b6a",
+          "0x001c66",
+          "0x001caa",
+          "0x002de2",
+          "0x0033f2",
+          "0x003462",
+          "0x0034ee",
+          "0x00353a",
+          "0x003586",
+          "0x0035d2",
+          "0x00361e",
+          "0x00366a",
+          "0x0036b6",
+          "0x003702",
+          "0x00374e",
+          "0x00379a",
+          "0x0037e6",
+          "0x003832",
+          "0x00387e",
+          "0x0038ca",
+          "0x003916",
+          "0x003962",
+          "0x0039ae",
+          "0x0039fa",
+          "0x003a46",
+          "0x003a92",
+          "0x003ade",
+          "0x003b2a",
+          "0x003b76",
+          "0x003bc2",
+          "0x003c0e",
+          "0x003c5a",
+          "0x003ca6",
+          "0x003cf2",
+          "0x003d3e",
+          "0x003d8a",
+          "0x003dd6",
+          "0x003e22",
+          "0x003e6e",
+          "0x003eba",
+          "0x003f06",
+          "0x003f52",
+          "0x003f9e",
+          "0x003fea",
+          "0x004036",
+          "0x004082",
+          "0x0040ce",
+          "0x00411a",
+          "0x004166",
+          "0x0041b2",
+          "0x0041fe",
+          "0x00424a",
+          "0x004296",
+          "0x0042e2",
+          "0x00432e",
+          "0x00437a",
+          "0x0043c6",
+          "0x004412",
+          "0x00445e",
+          "0x0044aa",
+          "0x0044f6",
+          "0x004542",
+          "0x00458e",
+          "0x0045da",
+          "0x005192",
+          "0x0051d2"
+        ],
+        "aligned_count": 0,
+        "unaligned_count": 69,
+        "verdict": "no aligned literal: all hits straddle instructions"
+      },
+      "id_table_run": null
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "peer_rate_retry_hits": 1,
+    "modules_with_command_name": 2,
+    "modules_with_numeric_id": 0,
+    "numeric_id_sites": 0,
+    "series_field_names_found": 4,
+    "aligned_id_literals": 2,
+    "unaligned_id_literals": 160,
+    "modules_with_id_in_table": 2,
+    "id_table_run_length": 32,
+    "retry_table_recovered": 0
+  },
+  "gaps": [
+    "the numeric id IS stored as an aligned 32-bit literal inside an [id][value] descriptor run, but the trailing word was not interpreted and no handler pointer was tied to it, so dispatch is unproven",
+    "the 160 unaligned 0x00009044 hits straddle two instructions and are coincidences of adjacent code, not stored ids",
+    "the retry-series field names appear as strings but no 4-series table was reconstructed: presence of a field name is not a schema",
+    "no dynamic validation"
+  ]
+}

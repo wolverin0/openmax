@@ -1,0 +1,142 @@
+{
+  "stage": "220A",
+  "task_id": "T-S220A-LTU-SPLIT-SPECTRUM-PTMP-SIMPY-NSGA2-PARETO",
+  "generated_at": "2026-10-26T23:25:18.815245+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "benchmarks": {
+    "symmetric_cochannel_40mhz_under_tower_noise": {
+      "split_spectrum_enabled": false,
+      "dl_bw_mhz": 40.0,
+      "ul_bw_mhz": 40.0,
+      "dl_duty_permille": 670,
+      "ul_cinr_db": 16.0,
+      "ul_bler_ratio": 0.24,
+      "dl_goodput_mbps": 391.27,
+      "ul_goodput_mbps": 26.52,
+      "sector_aggregate_goodput_mbps": 417.78,
+      "p99_rtt_ms": 9.158
+    },
+    "split_spectrum_50dl_20ul_75_25_champion": {
+      "split_spectrum_enabled": true,
+      "dl_bw_mhz": 50.0,
+      "ul_bw_mhz": 20.0,
+      "dl_duty_permille": 750,
+      "ul_cinr_db": 36.0,
+      "ul_bler_ratio": 0.008,
+      "dl_goodput_mbps": 578.44,
+      "ul_goodput_mbps": 66.37,
+      "sector_aggregate_goodput_mbps": 644.81,
+      "p99_rtt_ms": 2.532
+    },
+    "aggregate_goodput_gain_pct": 54.34,
+    "p99_rtt_reduction_ms": 6.626
+  },
+  "nsga2_pareto_front": {
+    "solutions_count": 21,
+    "top_10_solutions": [
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 40.0,
+        "dl_duty_permille": 741,
+        "sector_aggregate_goodput_mbps": 706.61,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 90.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 30.0,
+        "dl_duty_permille": 713,
+        "sector_aggregate_goodput_mbps": 661.94,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 80.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 30.0,
+        "dl_duty_permille": 713,
+        "sector_aggregate_goodput_mbps": 661.94,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 80.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 30.0,
+        "dl_duty_permille": 713,
+        "sector_aggregate_goodput_mbps": 661.94,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 80.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 20.0,
+        "dl_duty_permille": 713,
+        "sector_aggregate_goodput_mbps": 623.97,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 70.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 20.0,
+        "dl_duty_permille": 713,
+        "sector_aggregate_goodput_mbps": 623.97,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 70.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 10.0,
+        "dl_duty_permille": 725,
+        "sector_aggregate_goodput_mbps": 593.64,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 60.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 10.0,
+        "dl_duty_permille": 725,
+        "sector_aggregate_goodput_mbps": 593.64,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 60.0
+      },
+      {
+        "split_spectrum_enabled": true,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 10.0,
+        "dl_duty_permille": 725,
+        "sector_aggregate_goodput_mbps": 593.64,
+        "p99_rtt_ms": 2.529,
+        "total_spectrum_mhz": 60.0
+      },
+      {
+        "split_spectrum_enabled": false,
+        "dl_bw_mhz": 50.0,
+        "ul_bw_mhz": 10.0,
+        "dl_duty_permille": 655,
+        "sector_aggregate_goodput_mbps": 537.99,
+        "p99_rtt_ms": 9.155,
+        "total_spectrum_mhz": 50.0
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s220a-ltu-split-spectrum-ptmp-pareto"
+  }
+}

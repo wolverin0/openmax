@@ -1,0 +1,427 @@
+{
+  "stage": "350A",
+  "title": "Cooperative CPE Control-Plane Differential Sensing Engine (Zero-False-Positive Fault Classifier)",
+  "claim_status": "CONFIRMED",
+  "attribution": "external controller",
+  "memory_master_claim_id": "mm-7295",
+  "c_micro_classifier_header": {
+    "path": "firmware/openwrt/common/fmx_cooperative_cpe_classifier.h",
+    "sha256": "9c3f99ed2ff8ebdd52ba3e74309bcc7d33f4299f3a18198873c660ea0c06fcaf"
+  },
+  "classification_metrics": {
+    "scenarios_tested": 5,
+    "scenarios_correct": 5,
+    "false_positive_count": 0,
+    "false_positive_rate_pct": 0.0,
+    "accuracy_pct": 100.0
+  },
+  "scenario_evaluations": {
+    "scenario_a_tower_collocation": {
+      "expected_sector_verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+      "actual_sector_verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+      "exact_match": true,
+      "details": {
+        "sector_verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+        "cpes_evaluated": 4,
+        "sector_phy_err_fraction": 1.0,
+        "sector_bmiss_fraction": 1.0,
+        "fault_counts": {
+          "TOWER_AP_COLLOCATION_INTERFERENCE": 4,
+          "LOCALIZED_NEIGHBOR_RF_INTERFERENCE": 0,
+          "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION": 0,
+          "LAN_POE_CABLE_CARRIER_FAULT": 0,
+          "HEALTHY_SECTOR": 0
+        },
+        "per_cpe_verdicts": {
+          "MONZON_10.10.100.41": {
+            "verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+            "rationale": "Common-mode sector interference (100% CPEs with rx_phy_err>=80/s, bmiss=4, evm=-18.5 dB)",
+            "metrics": {
+              "cpe_id": "MONZON_10.10.100.41",
+              "azimuth_deg": 12.0,
+              "evm_db": -18.5,
+              "pilot_evm_std_db": 0.9,
+              "rx_phy_err_per_sec": 240.0,
+              "chain_delta_db": 1.5,
+              "bmiss_count": 4,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "GAMBOA_10.10.100.223": {
+            "verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+            "rationale": "Common-mode sector interference (100% CPEs with rx_phy_err>=80/s, bmiss=3, evm=-19.0 dB)",
+            "metrics": {
+              "cpe_id": "GAMBOA_10.10.100.223",
+              "azimuth_deg": 28.0,
+              "evm_db": -19.0,
+              "pilot_evm_std_db": 1.0,
+              "rx_phy_err_per_sec": 215.0,
+              "chain_delta_db": 1.8,
+              "bmiss_count": 3,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "TOLABA_10.10.100.80": {
+            "verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+            "rationale": "Common-mode sector interference (100% CPEs with rx_phy_err>=80/s, bmiss=5, evm=-17.8 dB)",
+            "metrics": {
+              "cpe_id": "TOLABA_10.10.100.80",
+              "azimuth_deg": 44.0,
+              "evm_db": -17.8,
+              "pilot_evm_std_db": 0.8,
+              "rx_phy_err_per_sec": 260.0,
+              "chain_delta_db": 1.2,
+              "bmiss_count": 5,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "FARELA_10.10.200.91": {
+            "verdict": "TOWER_AP_COLLOCATION_INTERFERENCE",
+            "rationale": "Common-mode sector interference (100% CPEs with rx_phy_err>=80/s, bmiss=4, evm=-18.2 dB)",
+            "metrics": {
+              "cpe_id": "FARELA_10.10.200.91",
+              "azimuth_deg": 51.0,
+              "evm_db": -18.2,
+              "pilot_evm_std_db": 0.9,
+              "rx_phy_err_per_sec": 230.0,
+              "chain_delta_db": 1.6,
+              "bmiss_count": 4,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          }
+        }
+      }
+    },
+    "scenario_b_localized_neighbor_rf": {
+      "expected_sector_verdict": "LOCALIZED_NEIGHBOR_RF_INTERFERENCE",
+      "actual_sector_verdict": "LOCALIZED_NEIGHBOR_RF_INTERFERENCE",
+      "exact_match": true,
+      "details": {
+        "sector_verdict": "LOCALIZED_NEIGHBOR_RF_INTERFERENCE",
+        "cpes_evaluated": 4,
+        "sector_phy_err_fraction": 0.25,
+        "sector_bmiss_fraction": 0.25,
+        "fault_counts": {
+          "TOWER_AP_COLLOCATION_INTERFERENCE": 0,
+          "LOCALIZED_NEIGHBOR_RF_INTERFERENCE": 1,
+          "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION": 0,
+          "LAN_POE_CABLE_CARRIER_FAULT": 0,
+          "HEALTHY_SECTOR": 3
+        },
+        "per_cpe_verdicts": {
+          "MONZON_10.10.100.41": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.5 dB, chain_delta=1.2 dB)",
+            "metrics": {
+              "cpe_id": "MONZON_10.10.100.41",
+              "azimuth_deg": 12.0,
+              "evm_db": -30.5,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 4.0,
+              "chain_delta_db": 1.2,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "GAMBOA_10.10.100.223": {
+            "verdict": "LOCALIZED_NEIGHBOR_RF_INTERFERENCE",
+            "rationale": "Isolated CPE rx_phy_err=195/s + degraded EVM (-17.5 dB) with balanced chains (1.4 dB) while rest of sector is clean",
+            "metrics": {
+              "cpe_id": "GAMBOA_10.10.100.223",
+              "azimuth_deg": 28.0,
+              "evm_db": -17.5,
+              "pilot_evm_std_db": 0.9,
+              "rx_phy_err_per_sec": 195.0,
+              "chain_delta_db": 1.4,
+              "bmiss_count": 2,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "TOLABA_10.10.100.80": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-31.0 dB, chain_delta=1.0 dB)",
+            "metrics": {
+              "cpe_id": "TOLABA_10.10.100.80",
+              "azimuth_deg": 44.0,
+              "evm_db": -31.0,
+              "pilot_evm_std_db": 0.5,
+              "rx_phy_err_per_sec": 3.0,
+              "chain_delta_db": 1.0,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "FARELA_10.10.200.91": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-29.8 dB, chain_delta=1.5 dB)",
+            "metrics": {
+              "cpe_id": "FARELA_10.10.200.91",
+              "azimuth_deg": 51.0,
+              "evm_db": -29.8,
+              "pilot_evm_std_db": 0.7,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.5,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          }
+        }
+      }
+    },
+    "scenario_c_single_cpe_fresnel_foliage": {
+      "expected_sector_verdict": "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION",
+      "actual_sector_verdict": "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION",
+      "exact_match": true,
+      "details": {
+        "sector_verdict": "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION",
+        "cpes_evaluated": 4,
+        "sector_phy_err_fraction": 0.0,
+        "sector_bmiss_fraction": 0.0,
+        "fault_counts": {
+          "TOWER_AP_COLLOCATION_INTERFERENCE": 0,
+          "LOCALIZED_NEIGHBOR_RF_INTERFERENCE": 0,
+          "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION": 1,
+          "LAN_POE_CABLE_CARRIER_FAULT": 0,
+          "HEALTHY_SECTOR": 3
+        },
+        "per_cpe_verdicts": {
+          "MONZON_10.10.100.41": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.5 dB, chain_delta=1.2 dB)",
+            "metrics": {
+              "cpe_id": "MONZON_10.10.100.41",
+              "azimuth_deg": 12.0,
+              "evm_db": -30.5,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 4.0,
+              "chain_delta_db": 1.2,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "GAMBOA_10.10.100.223": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.0 dB, chain_delta=1.1 dB)",
+            "metrics": {
+              "cpe_id": "GAMBOA_10.10.100.223",
+              "azimuth_deg": 28.0,
+              "evm_db": -30.0,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.1,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "TOLABA_10.10.100.80": {
+            "verdict": "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION",
+            "rationale": "Isolated chain imbalance (8.5 dB >= 6 dB) + frequency-selective pilot EVM dispersion (std=3.80 dB) without sector PHY error storm",
+            "metrics": {
+              "cpe_id": "TOLABA_10.10.100.80",
+              "azimuth_deg": 44.0,
+              "evm_db": -21.0,
+              "pilot_evm_std_db": 3.8,
+              "rx_phy_err_per_sec": 12.0,
+              "chain_delta_db": 8.5,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "FARELA_10.10.200.91": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-29.8 dB, chain_delta=1.5 dB)",
+            "metrics": {
+              "cpe_id": "FARELA_10.10.200.91",
+              "azimuth_deg": 51.0,
+              "evm_db": -29.8,
+              "pilot_evm_std_db": 0.7,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.5,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          }
+        }
+      }
+    },
+    "scenario_d_lan_poe_cable_fault": {
+      "expected_sector_verdict": "LAN_POE_CABLE_CARRIER_FAULT",
+      "actual_sector_verdict": "LAN_POE_CABLE_CARRIER_FAULT",
+      "exact_match": true,
+      "details": {
+        "sector_verdict": "LAN_POE_CABLE_CARRIER_FAULT",
+        "cpes_evaluated": 4,
+        "sector_phy_err_fraction": 0.0,
+        "sector_bmiss_fraction": 0.0,
+        "fault_counts": {
+          "TOWER_AP_COLLOCATION_INTERFERENCE": 0,
+          "LOCALIZED_NEIGHBOR_RF_INTERFERENCE": 0,
+          "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION": 0,
+          "LAN_POE_CABLE_CARRIER_FAULT": 1,
+          "HEALTHY_SECTOR": 3
+        },
+        "per_cpe_verdicts": {
+          "MONZON_10.10.100.41": {
+            "verdict": "LAN_POE_CABLE_CARRIER_FAULT",
+            "rationale": "eth0_carrier_changes=3, eth0_crc_errors=18 while RF chain_delta=1.2 dB",
+            "metrics": {
+              "cpe_id": "MONZON_10.10.100.41",
+              "azimuth_deg": 12.0,
+              "evm_db": -30.5,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 4.0,
+              "chain_delta_db": 1.2,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 3,
+              "eth0_crc_errors": 18
+            }
+          },
+          "GAMBOA_10.10.100.223": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.0 dB, chain_delta=1.1 dB)",
+            "metrics": {
+              "cpe_id": "GAMBOA_10.10.100.223",
+              "azimuth_deg": 28.0,
+              "evm_db": -30.0,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.1,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "TOLABA_10.10.100.80": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-31.0 dB, chain_delta=1.0 dB)",
+            "metrics": {
+              "cpe_id": "TOLABA_10.10.100.80",
+              "azimuth_deg": 44.0,
+              "evm_db": -31.0,
+              "pilot_evm_std_db": 0.5,
+              "rx_phy_err_per_sec": 3.0,
+              "chain_delta_db": 1.0,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "FARELA_10.10.200.91": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-29.8 dB, chain_delta=1.5 dB)",
+            "metrics": {
+              "cpe_id": "FARELA_10.10.200.91",
+              "azimuth_deg": 51.0,
+              "evm_db": -29.8,
+              "pilot_evm_std_db": 0.7,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.5,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          }
+        }
+      }
+    },
+    "scenario_e_healthy_sector": {
+      "expected_sector_verdict": "HEALTHY_SECTOR",
+      "actual_sector_verdict": "HEALTHY_SECTOR",
+      "exact_match": true,
+      "details": {
+        "sector_verdict": "HEALTHY_SECTOR",
+        "cpes_evaluated": 4,
+        "sector_phy_err_fraction": 0.0,
+        "sector_bmiss_fraction": 0.0,
+        "fault_counts": {
+          "TOWER_AP_COLLOCATION_INTERFERENCE": 0,
+          "LOCALIZED_NEIGHBOR_RF_INTERFERENCE": 0,
+          "SINGLE_CPE_FRESNEL_FOLIAGE_OBSTRUCTION": 0,
+          "LAN_POE_CABLE_CARRIER_FAULT": 0,
+          "HEALTHY_SECTOR": 4
+        },
+        "per_cpe_verdicts": {
+          "MONZON_10.10.100.41": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.5 dB, chain_delta=1.2 dB)",
+            "metrics": {
+              "cpe_id": "MONZON_10.10.100.41",
+              "azimuth_deg": 12.0,
+              "evm_db": -30.5,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 4.0,
+              "chain_delta_db": 1.2,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "GAMBOA_10.10.100.223": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-30.0 dB, chain_delta=1.1 dB)",
+            "metrics": {
+              "cpe_id": "GAMBOA_10.10.100.223",
+              "azimuth_deg": 28.0,
+              "evm_db": -30.0,
+              "pilot_evm_std_db": 0.6,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.1,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "TOLABA_10.10.100.80": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-31.0 dB, chain_delta=1.0 dB)",
+            "metrics": {
+              "cpe_id": "TOLABA_10.10.100.80",
+              "azimuth_deg": 44.0,
+              "evm_db": -31.0,
+              "pilot_evm_std_db": 0.5,
+              "rx_phy_err_per_sec": 3.0,
+              "chain_delta_db": 1.0,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          },
+          "FARELA_10.10.200.91": {
+            "verdict": "HEALTHY_SECTOR",
+            "rationale": "Normal RF & LAN telemetry (evm=-29.8 dB, chain_delta=1.5 dB)",
+            "metrics": {
+              "cpe_id": "FARELA_10.10.200.91",
+              "azimuth_deg": 51.0,
+              "evm_db": -29.8,
+              "pilot_evm_std_db": 0.7,
+              "rx_phy_err_per_sec": 5.0,
+              "chain_delta_db": 1.5,
+              "bmiss_count": 0,
+              "eth0_carrier_changes": 0,
+              "eth0_crc_errors": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_binary_re": "Consumes PB-021 16-pilot EVM dispersion (Stage 348A) + ath10k rx_phy_err + chain_delta + bmiss",
+    "pillar_b_closed_loop_research": "Implements Stage 59A Zero-False-Positive WISP RF Observability across Guarida CPE topology",
+    "pillar_c_counterbalanced_harness": "Prevents false RF rollbacks when fault is LAN_POE_CABLE_CARRIER_FAULT or localized CPE foliage",
+    "pillar_d_scientific_validation": "100.0% classification accuracy (0.0% false positive rate) across all 5 orthogonal fault classes",
+    "pillar_e_memory_master": "mm-7295 (id=155372, scope=project:futuramax)"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "44C",
+  "task_id": "T-S44C-GEM2-IMAGEBUILDER-CHAMPION-V11-AND-CLOSED-LOOP-REACTOR-V11",
+  "generated_at_utc": "2026-10-26T18:03:43.754828+00:00",
+  "ingested_rounds_summary": {
+    "S37A-R1": "M17_MAC80211_FQ_LIMIT_TRIPLE_PLAY (AP fq_quantum=3028, fq_limit=2048/1024, AC_VO=600/1200 -> -3.628% goodput, -3.028% p95 RTT -> RETAIN_CURRENT_CHAMPION / REFUTED)",
+    "S37A-R2": "M17b_MAC80211_FQ_LIMIT_TRIPLE_PLAY_QUANTUM_VO_AQL Champion v11 (AP fq_quantum=4542 3xMTU, fq_limit=2048/1024, AC_VO=300/600, AC_VI=1200/2400, AC_BE=1500/3000 -> +2.648% goodput, -3.778% p95 RTT, -22.452% p50 RTT, 0/5684 IPTV loss, 0/1198 VoIP loss -> PROMOTE_NEW_CHAMPION / CONFIRMED)"
+  },
+  "ingested_reactor_events": [
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S37A-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 51.65,
+      "gp_candidate_mbps": 49.776,
+      "gp_delta_pct": -3.628,
+      "p95_champion_ms": 120.232,
+      "p95_candidate_ms": 116.591,
+      "p95_delta_pct": -3.028,
+      "pareto_score_delta_pct": -2.5684,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S37A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 frame aggregation A-MPDU TCP latency throughput",
+        "deficit round robin quantum multi-frame aggregation 802.11ac",
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac",
+        "mac80211 fq_limit packet backlog cap per-TID overlimit drop prevention 64MB RAM",
+        "RFC 4445 Media Delivery Index MDI closed-loop ABR rate clamping wireless PtMP",
+        "deficit round robin quantum multi-frame aggregation 802.11ac",
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "dynamic fq_quantum scaling active station count WMM AC_VO AC_VI preemption"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + S25-R1 negative result (quantum=300 starved A-MPDU) + S27-R2AC-R2 (br0 txqueuelen=256 + tcp_dsack=1)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M18",
+          "title": "PB-036 Direct mac80211 aqm Packet Count Bounding (fq_limit=2048) + Per-TID overlimit Zero-Drop Guard",
+          "scientific_basis": "Stage 36A S36A-R2 Champion v10 (+2.513% goodput, -3.375% p95 RTT, -8.990% p99 RTT, 0/3980 IPTV loss with fq_quantum=3028 & fq_memory_limit=4194304)",
+          "candidate_delta_commands": [
+            "echo fq_quantum 3028 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm"
+          ]
+        },
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Co-designing CPE-side airOS 8 WMM AC_VI EDCA parameters with AP-side tid4_ac1 AQL (1200/2400 us) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data clobber guard (write ff_mcast_airtime_limit=5 LAST)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan",
+          "scientific_basis": "Eliminates stale multicast-to-unicast DMS flows during IPTV channel zapping across dynamic phy0-ap0.sta* ports",
+          "candidate_delta_commands": [
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M21",
+          "title": "PB-039 Closed-Loop Per-CPE ABR Feedback Clamping (2.2 Mbps 1080p60 -> 1.5 Mbps 720p60 -> 0.9 Mbps 480p30) Driven by AC_VI AQL & SINR",
+          "scientific_basis": "Stage 39C RFC 4445 MDI & AC_VI SLA Exporter + Stage 36A Champion v10 per-TID aqm telemetry",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0.sta1 root fq quantum 3028 initial_quantum 15140 maxrate 3500kbit"
+          ]
+        },
+        {
+          "mechanism_id": "M22",
+          "title": "PB-040 Dynamic Per-Active-Station fq_quantum Scaling on mac80211 (1514B Idle -> 3028B Dual-Play IPTV -> 4542B 3xMTU Under Active tid6_ac0 VoIP + tid4_ac1 IPTV Triple-Play Contention)",
+          "scientific_basis": "Stage 37A S37A-R1 (-3.628% GP at fq_quantum=3028 under 100 pps VoIP + 470 pps Dual IPTV preemption) vs S37A-R2 Champion v11 (+2.648% GP, -3.778% p95 RTT, -22.452% p50 RTT at AP fq_quantum=4542 3xMTU)",
+          "candidate_delta_commands": [
+            "echo fq_quantum 4542 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm"
+          ]
+        },
+        {
+          "mechanism_id": "M23",
+          "title": "PB-041 VoIP-Aware AC_VO Burst Guard on ath10k (0 300 600 us AQL Tightening + nftables DSCP EF Rate-Bounded Guard Preventing Voice Preemption Starvation of AC_BE Bulk TCP)",
+          "scientific_basis": "Stage 37A S37A-R2 Champion v11 proved tightening AC_VO (tid6_ac0) AQL from 600/1200 us to 300/600 us preserves 0/1198 (0.00%) VoIP loss while preventing voice TXOP monopolization against AC_BE A-MPDUs",
+          "candidate_delta_commands": [
+            "echo '0 300 600' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo '1 1200 2400' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo '2 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo 5000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S37A-R2",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 49.657,
+      "gp_candidate_mbps": 50.972,
+      "gp_delta_pct": 2.648,
+      "p95_champion_ms": 110.72,
+      "p95_candidate_ms": 106.537,
+      "p95_delta_pct": -3.778,
+      "pareto_score_delta_pct": 3.9705,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S37A-R2.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac",
+        "mac80211 fq_limit packet backlog cap per-TID overlimit drop prevention 64MB RAM",
+        "RFC 4445 Media Delivery Index MDI closed-loop ABR rate clamping wireless PtMP",
+        "deficit round robin quantum multi-frame aggregation 802.11ac",
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "dynamic fq_quantum scaling active station count WMM AC_VO AC_VI preemption"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + arXiv:0806.4695v1 (jev-1.14.0 prob=0.77)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M18",
+          "title": "PB-036 Direct mac80211 aqm Packet Count Bounding (fq_limit=2048) + Per-TID overlimit Zero-Drop Guard",
+          "scientific_basis": "Stage 36A S36A-R2 Champion v10 (+2.513% goodput, -3.375% p95 RTT, -8.990% p99 RTT, 0/3980 IPTV loss with fq_quantum=3028 & fq_memory_limit=4194304)",
+          "candidate_delta_commands": [
+            "echo fq_quantum 3028 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm"
+          ]
+        },
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Co-designing CPE-side airOS 8 WMM AC_VI EDCA parameters with AP-side tid4_ac1 AQL (1200/2400 us) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data clobber guard (write ff_mcast_airtime_limit=5 LAST)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan",
+          "scientific_basis": "Eliminates stale multicast-to-unicast DMS flows during IPTV channel zapping across dynamic phy0-ap0.sta* ports",
+          "candidate_delta_commands": [
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M21",
+          "title": "PB-039 Closed-Loop Per-CPE ABR Feedback Clamping (2.2 Mbps 1080p60 -> 1.5 Mbps 720p60 -> 0.9 Mbps 480p30) Driven by AC_VI AQL & SINR",
+          "scientific_basis": "Stage 39C RFC 4445 MDI & AC_VI SLA Exporter + Stage 36A Champion v10 per-TID aqm telemetry",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0.sta1 root fq quantum 3028 initial_quantum 15140 maxrate 3500kbit"
+          ]
+        },
+        {
+          "mechanism_id": "M22",
+          "title": "PB-040 Dynamic Per-Active-Station fq_quantum Scaling on mac80211 (1514B Idle -> 3028B Dual-Play IPTV -> 4542B 3xMTU Under Active tid6_ac0 VoIP + tid4_ac1 IPTV Triple-Play Contention)",
+          "scientific_basis": "Stage 37A S37A-R1 (-3.628% GP at fq_quantum=3028 under 100 pps VoIP + 470 pps Dual IPTV preemption) vs S37A-R2 Champion v11 (+2.648% GP, -3.778% p95 RTT, -22.452% p50 RTT at AP fq_quantum=4542 3xMTU)",
+          "candidate_delta_commands": [
+            "echo fq_quantum 4542 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm"
+          ]
+        },
+        {
+          "mechanism_id": "M23",
+          "title": "PB-041 VoIP-Aware AC_VO Burst Guard on ath10k (0 300 600 us AQL Tightening + nftables DSCP EF Rate-Bounded Guard Preventing Voice Preemption Starvation of AC_BE Bulk TCP)",
+          "scientific_basis": "Stage 37A S37A-R2 Champion v11 proved tightening AC_VO (tid6_ac0) AQL from 600/1200 us to 300/600 us preserves 0/1198 (0.00%) VoIP loss while preventing voice TXOP monopolization against AC_BE A-MPDUs",
+          "candidate_delta_commands": [
+            "echo '0 300 600' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo '1 1200 2400' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo '2 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo 5000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold"
+          ]
+        }
+      ]
+    }
+  ],
+  "next_wave_mechanisms_m22_to_m23": [
+    {
+      "mechanism_id": "M22",
+      "title": "PB-040 Dynamic Per-Active-Station fq_quantum Scaling on mac80211 (1514B Idle -> 3028B Dual-Play IPTV -> 4542B 3xMTU Under Active tid6_ac0 VoIP + tid4_ac1 IPTV Triple-Play Contention)",
+      "scientific_basis": "Stage 37A S37A-R1 (-3.628% GP at fq_quantum=3028 under 100 pps VoIP + 470 pps Dual IPTV preemption) vs S37A-R2 Champion v11 (+2.648% GP, -3.778% p95 RTT, -22.452% p50 RTT at AP fq_quantum=4542 3xMTU)",
+      "candidate_delta_commands": [
+        "echo fq_quantum 4542 > /sys/kernel/debug/ieee80211/phy0/aqm",
+        "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm",
+        "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm"
+      ]
+    },
+    {
+      "mechanism_id": "M23",
+      "title": "PB-041 VoIP-Aware AC_VO Burst Guard on ath10k (0 300 600 us AQL Tightening + nftables DSCP EF Rate-Bounded Guard Preventing Voice Preemption Starvation of AC_BE Bulk TCP)",
+      "scientific_basis": "Stage 37A S37A-R2 Champion v11 proved tightening AC_VO (tid6_ac0) AQL from 600/1200 us to 300/600 us preserves 0/1198 (0.00%) VoIP loss while preventing voice TXOP monopolization against AC_BE A-MPDUs",
+      "candidate_delta_commands": [
+        "echo '0 300 600' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo '1 1200 2400' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo '2 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+        "echo 5000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold"
+      ]
+    }
+  ]
+}

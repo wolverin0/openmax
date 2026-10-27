@@ -1,0 +1,120 @@
+{
+  "stage": "478A",
+  "title": "Consolidated Verification Suite for QCA988x Xtensa RC Globals, PB050 SGMT Patcher, wal_peer 32-Params, and HT_COMM 51-Opcodes (Stages 473A..478A)",
+  "status": "CONFIRMED",
+  "attribution": "QCA firmware",
+  "live_devices_touched": false,
+  "stages_verified": {
+    "473A": {
+      "artifact_path": "artifacts/autoresearch/stage473a_openwrt_ct_vs_stock_xtensa_rc_globals_map.json",
+      "status": "CONFIRMED",
+      "live_devices_touched": false,
+      "five_pillar_compliant": true
+    },
+    "474A": {
+      "artifact_path": "artifacts/autoresearch/stage474a_pb050_xtensa_rc_probe_dampener_sgmt_patch.json",
+      "status": "CONFIRMED",
+      "live_devices_touched": false,
+      "five_pillar_compliant": true
+    },
+    "475A": {
+      "artifact_path": "artifacts/autoresearch/stage475a_xtensa_wal_peer_32params_and_retry_sched_re.json",
+      "status": "CONFIRMED",
+      "live_devices_touched": false,
+      "five_pillar_compliant": true
+    },
+    "476A": {
+      "artifact_path": "artifacts/autoresearch/stage476a_xtensa_ht_comm_opcodes_full_table_re.json",
+      "status": "CONFIRMED",
+      "live_devices_touched": false,
+      "five_pillar_compliant": true
+    },
+    "477A": {
+      "artifact_path": "artifacts/autoresearch/stage477a_pb050_rc_probe_dampener_vs_stock_pareto.json",
+      "status": "CONFIRMED",
+      "live_devices_touched": false,
+      "five_pillar_compliant": true
+    }
+  },
+  "docs_verified": {
+    "473A": {
+      "doc_path": "docs/STAGE473A_OPENWRT_CT_VS_STOCK_XTENSA_RC_GLOBALS_MAP.md",
+      "line_count": 80,
+      "has_doc_head": true
+    },
+    "474A": {
+      "doc_path": "docs/STAGE474A_PB050_XTENSA_RC_PROBE_DAMPENER_SGMT_PATCH.md",
+      "line_count": 46,
+      "has_doc_head": true
+    },
+    "475A": {
+      "doc_path": "docs/STAGE475A_XTENSA_WAL_PEER_32PARAMS_AND_RETRY_SCHED_RE.md",
+      "line_count": 76,
+      "has_doc_head": true
+    },
+    "476A": {
+      "doc_path": "docs/STAGE476A_XTENSA_HT_COMM_OPCODES_FULL_TABLE_RE.md",
+      "line_count": 64,
+      "has_doc_head": true
+    },
+    "477A": {
+      "doc_path": "docs/STAGE477A_PB050_RC_PROBE_DAMPENER_VS_STOCK_PARETO.md",
+      "line_count": 38,
+      "has_doc_head": true
+    },
+    "478A": {
+      "doc_path": "docs/STAGE478A_XTENSA_PB050_AND_WAL_PEER_SUITE.md",
+      "line_count": 23,
+      "has_doc_head": true
+    }
+  },
+  "consolidated_highlights": {
+    "stage473a_firmwares_mapped": 10,
+    "stage474a_sgmt_images_patched": 7,
+    "stage475a_wal_peer_slots_dissected": 33,
+    "stage475a_active_set_params": 22,
+    "stage476a_ht_comm_slots_dissected": 51,
+    "stage476a_active_rx_opcodes": 21,
+    "stage476a_active_unpack_opcodes": 24,
+    "stage477a_pb050_goodput_gain_mbps": 122.861,
+    "stage477a_pb050_goodput_gain_pct": 44.15,
+    "stage477a_pb050_p99_reduction_pct": 9.19
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "PASS",
+    "knob_catalog_path": "orchestration/autoresearch/firmware_knob_candidates.json",
+    "knob_catalog_total": 571,
+    "evidence": "Verified Stages 473A..476A instruction-level Xtensa dissections and 7-image PB050 SGMT binary patches."
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "PASS",
+    "reactor_script": "tools/research/closed_loop_research_reactor.py",
+    "queue_path": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "evidence": "All 6 stage receipts reconciled with closed-loop research queue and 5-pillar gate."
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "PASS",
+    "harness_path": "orchestration/autoresearch/fmx_autoresearch_harness.py",
+    "non_dfs_rollback_sec": 45,
+    "dfs_rollback_sec": 120,
+    "evidence": "100% offline verification across all 6 stages (`live_devices_touched=False`)."
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "PASS",
+    "skills_used": [
+      "simpy",
+      "pymoo",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "evidence": "Verified Stage 477A SimPy + pymoo NSGA-II Pareto front (+122.861 Mbps / +44.15% goodput, -9.19% p99 latency)."
+  },
+  "pillar_e_memory_master_claim_id": "FMX-STAGE478A-XTENSA-PB050-WAL-PEER-HTCOMM-SUITE",
+  "five_pillar_compliance": {
+    "pillar_a_re": true,
+    "pillar_b_reactor": true,
+    "pillar_c_harness": true,
+    "pillar_d_scientific": true,
+    "pillar_e_memory": true
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "stage": "423A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage423a_qca988x_xtensa_target_polling_hooks_re.py",
+    "tool_sha256": "f6129c1e88e00d46ddfdde4e3531523f997e40fe4a533c70c8883e418006cd7f",
+    "output": "artifacts/autoresearch/stage423a_qca988x_xtensa_target_polling_hooks_re.json",
+    "scope": "offline static; no firmware loaded, no radio contacted",
+    "method": "container TLV/SGMT parse; base-candidate resolution of the claimed address; verbatim 32-word dump with pointer classification; whole-segment scan for runs of 8+ aligned in-range pointers",
+    "target_address": "0x0040f688",
+    "target_entries": 32,
+    "premise_corrections": [
+      "firmware-2.bin and firmware-5.bin do not exist in the corpus; the only QCA988x container is openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "0x0040f688 is unreachable under the SGMT header base 0x00980000 and only resolves under DRAM base 0x00400000"
+    ],
+    "radio_safety": "static only"
+  },
+  "named_files": {
+    "firmware-2.bin": 0,
+    "firmware-5.bin": 0
+  },
+  "container": {
+    "bytes": 204796,
+    "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "version": "10.1-ct-8x-__fW-022-ecad3248",
+    "segments": 2,
+    "tail_pad": 3
+  },
+  "base_windows": [
+    {
+      "base": "0x00400000",
+      "segment": 4,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00400000",
+      "segment": 3,
+      "inside": true,
+      "rel": "0x00f688"
+    },
+    {
+      "base": "0x00980000",
+      "segment": 4,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00980000",
+      "segment": 3,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00009800",
+      "segment": 4,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00009800",
+      "segment": 3,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00000000",
+      "segment": 4,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00000000",
+      "segment": 3,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00e00000",
+      "segment": 4,
+      "inside": false,
+      "rel": null
+    },
+    {
+      "base": "0x00e00000",
+      "segment": 3,
+      "inside": false,
+      "rel": null
+    }
+  ],
+  "chunk": {
+    "address": "0x0040f688",
+    "base": "0x00400000",
+    "segment": 3,
+    "rel": "0x00f688",
+    "file_offset": "0x0112e0",
+    "words": [
+      "0x71a91f4a",
+      "0x400006f2",
+      "0x3f56c0ff",
+      "0x010682aa",
+      "0xa872049f",
+      "0x020692a9",
+      "0x1972049f",
+      "0x0306a2a9",
+      "0x56c0aa40",
+      "0x06b2a88a",
+      "0xc0bb4004",
+      "0xc2a7fb56",
+      "0xcc400506",
+      "0xa76c56c0",
+      "0xd815b4e1",
+      "0x20dde0a1",
+      "0x9a46a1d9",
+      "0x1261e2fe",
+      "0x558b0f9d",
+      "0xf915cbf1",
+      "0x9fa2c6a1",
+      "0x9a6e8207",
+      "0xf09af812",
+      "0xcf5605f2",
+      "0xb6f1b8a5",
+      "0x3d0602bb",
+      "0x028bb600",
+      "0x91006b46",
+      "0x9b9015d2",
+      "0x060998a0",
+      "0x81059f69",
+      "0x820c4e3a"
+    ],
+    "count": 32,
+    "in_range": 0,
+    "aligned": 0,
+    "distinct": 32,
+    "verdict": "code or data, not a pointer table"
+  },
+  "pointer_runs": {
+    "4": [],
+    "3": [
+      {
+        "at": "0x001144",
+        "length": 9
+      }
+    ]
+  },
+  "summary": {
+    "named_files_present": 0,
+    "segments": 2,
+    "address_resolvable": 1,
+    "resolving_base": "0x00400000",
+    "file_offset": "0x0112e0",
+    "words_in_chunk": 32,
+    "valid_pointers_in_chunk": 0,
+    "chunk_looks_like_code": 1,
+    "pointer_runs_8plus": 1,
+    "exact_32_runs": 0,
+    "best_run_length": 9,
+    "hook_table_recovered": 0
+  },
+  "gaps": [
+    "firmware-2.bin and firmware-5.bin are absent, so the stage's own filenames cannot be checked against their real contents",
+    "the 32 words at 0x0040f688 contain zero in-range pointers, so the claimed hook table is not there; the bytes read as Xtensa instruction encodings",
+    "no run of exactly 32 consecutive in-range pointers exists anywhere in either segment, so no alternative table of that shape was found either",
+    "the true SGMT load base is still unresolved: the header field reads 0x00980000 under both endiannesses while only 0x00400000 makes the claimed address land",
+    "whether target-assisted polling exists at all is not settled; only its claimed table address is refuted",
+    "no dynamic validation"
+  ]
+}

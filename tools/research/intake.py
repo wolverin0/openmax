@@ -10,6 +10,7 @@ Verdict: CURRENT. Re-runnable; run_id is content-derived so re-runs are idempote
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -36,6 +37,14 @@ class Input:
 
 
 INPUTS = [
+    Input(
+        "operator-unrecorded",
+        "UNKNOWN (provider and model not recorded in supplied report)",
+        DROP / "openMAX_QCA988x_physical_boundary_research_2026-10-24.md",
+        None,
+        "Operator-supplied Physical-Boundary report; evidence freeze 2026-10-24. "
+        "Original provider/model and generation timestamps UNKNOWN; registration is not generation time.",
+    ),
     Input("chatgpt", "ChatGPT Deep Research (exact model unrecorded)", DROP / "chatgpt.md"),
     Input("google", "Google/Gemini Deep Research (exact model unrecorded)", DROP / "googleresearch.md"),
     Input("qwen", "Qwen Max Deep Research (exact model unrecorded)", DROP / "qwenmax.pdf"),
@@ -97,15 +106,24 @@ def yaml_escape(s: str) -> str:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--provider", choices=sorted({inp.provider for inp in INPUTS}),
+                        help="Register one provider while preserving all other existing records.")
+    args = parser.parse_args()
     if not DROP.is_dir():
         print(f"FATAL: drop zone missing: {DROP}", file=sys.stderr)
         return 1
 
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     records = []
+    if args.provider and (INTAKE / "manifest.json").exists():
+        previous = json.loads((INTAKE / "manifest.json").read_text(encoding="utf-8"))
+        records = [r for r in previous["runs"] if r["provider"] != args.provider]
     missing = []
 
     for inp in INPUTS:
+        if args.provider and inp.provider != args.provider:
+            continue
         if not inp.primary.is_file():
             missing.append(str(inp.primary))
             continue
@@ -155,6 +173,10 @@ def main() -> int:
                 # Wave-1 prompt recovered verbatim from the saved grok/mistral pages; identity for
                 # chatgpt/google/qwen is INFERRED from all six returning the same 11-section template.
                 "prompt_recorded": (
+                    "UNKNOWN (report-generation prompt not supplied); intake task: "
+                    "research/openMAX_codex_physical_boundary_phase0_prompt.md"
+                    if inp.provider == "operator-unrecorded"
+                    else
                     "inputs/prompts/external-deep-research-prompt.md (VERBATIM)"
                     if inp.provider in ("grok", "mistral")
                     else "inputs/prompts/external-deep-research-prompt.md (INFERRED same prompt)"
@@ -166,6 +188,10 @@ def main() -> int:
                 "notes": inp.notes,
             }
         )
+
+    if args.provider and missing:
+        print("FATAL: selected provider input missing; existing manifests preserved", file=sys.stderr)
+        return 1
 
     INTAKE.mkdir(parents=True, exist_ok=True)
     (INTAKE / "manifest.json").write_text(json.dumps({"generated_at": now, "runs": records}, indent=2), encoding="utf-8")

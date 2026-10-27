@@ -1,0 +1,667 @@
+{
+  "experiment_id": "FMX-AUTORESEARCH-LIVE-003-CATALOG-KNOBS",
+  "timestamp_utc": "2026-10-24T06:03:27.419219+00:00",
+  "audit_improvements_applied": [
+    "20 loaded ICMP samples per candidate (2 reps x 10 probes) for p95/p99 tail estimation",
+    "True 802.11 MAC layer tx_retries / tx_packets delta via iw dev phy0-ap0.sta1 station dump",
+    "Explicit ct_special exit-code verification (no || true)",
+    "Screening of fq_quantum (300/1514/3028B), RC_PER (20%/24%/28%), AQL (1800/3600us), and ct_special id=12 PSHACK"
+  ],
+  "objective_config": {
+    "target_goodput_mbps": 80.0,
+    "baseline_rtt_ms": 2.0,
+    "rtt_budget_ms": 20.0,
+    "max_p99_rtt_ms": 80.0,
+    "max_packet_loss_pct": 5.0,
+    "min_repetitions": 2,
+    "min_improvement_delta": 0.002,
+    "weight_throughput": 0.55,
+    "weight_p95_rtt": 0.25,
+    "weight_p99_rtt": 0.15,
+    "weight_fairness": 0.0,
+    "weight_retries": 0.05
+  },
+  "winning_incumbent_knobs": {
+    "name": "r3_iter1_r2_winner_fq300",
+    "description": "R2 Winner: AQL 2000/4000us (thresh 8000) + RC_PER=28% + fq_quantum=300B",
+    "aql_low_us": 2000,
+    "aql_high_us": 4000,
+    "aql_threshold_us": 8000,
+    "fq_quantum_bytes": 300,
+    "htt_max_amsdu": 3,
+    "htt_max_ampdu": 64,
+    "ct_rc_per_thresh": 28,
+    "ct_baseband_rifs": 0,
+    "ct_pshack": 0,
+    "complexity_cost": 1
+  },
+  "best_fmx_loss": 0.426772,
+  "pareto_frontier": [
+    {
+      "commit": "r3_iter1_r2_winner_fq300",
+      "goodput_rx_mbps": 107.5,
+      "p50_rtt_ms": 10.901,
+      "p95_rtt_ms": 22.778,
+      "p99_rtt_ms": 24.261,
+      "mac_retry_rate": 0.0018,
+      "fmx_loss": 0.426772
+    },
+    {
+      "commit": "r3_iter6_aql2000_rc28_fq1514_pshack3",
+      "goodput_rx_mbps": 108.5,
+      "p50_rtt_ms": 13.692,
+      "p95_rtt_ms": 35.844,
+      "p99_rtt_ms": 36.35,
+      "mac_retry_rate": 0.0022,
+      "fmx_loss": 0.680785
+    },
+    {
+      "commit": "r3_iter0_stock_control",
+      "goodput_rx_mbps": 109.0,
+      "p50_rtt_ms": 18.963,
+      "p95_rtt_ms": 35.973,
+      "p99_rtt_ms": 36.011,
+      "mac_retry_rate": 0.0022,
+      "fmx_loss": 0.679855
+    }
+  ],
+  "iterations": [
+    {
+      "commit": "r3_iter0_stock_control",
+      "candidate_knobs": {
+        "name": "r3_iter0_stock_control",
+        "description": "Stock OpenWrt 24.10.4 (AQL 5000/12000us, thresh 24000, fq_quantum 300B, RC_PER 50%, RIFS 0, PSHACK 0)",
+        "aql_low_us": 5000,
+        "aql_high_us": 12000,
+        "aql_threshold_us": 24000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 50,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 0
+      },
+      "observation": {
+        "goodput_rx_mbps": 109.0,
+        "p50_rtt_ms": 18.963,
+        "p95_rtt_ms": 35.973,
+        "p99_rtt_ms": 36.011,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0022,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.679855,
+        "decision": "keep",
+        "reason": "Initial baseline established",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.69865,
+          "p99_excess": 1.70055,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0022
+        }
+      },
+      "goodputs_per_rep": [
+        108.0,
+        110.0
+      ],
+      "rtts_ms": [
+        1.58,
+        1.7,
+        2.33,
+        3.52,
+        10.66,
+        15.59,
+        16.07,
+        16.32,
+        17.04,
+        18.4,
+        19.53,
+        20.82,
+        21.86,
+        23.23,
+        23.7,
+        24.29,
+        26.51,
+        26.95,
+        35.97,
+        36.02
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 95601,
+      "mac_tx_retries_delta": 208,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0022,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n24000\nAC\tAQL limit low\tAQL limit high\nVO\t5000\t\t12000\nVI\t5000\t\t12000\nBE\t5000\t\t12000\nBK\t5000\t\t12000\nBC/MC\t50000\nRW fq_quantum 300\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x700000032",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter0_stock_control"
+    },
+    {
+      "commit": "r3_iter1_r2_winner_fq300",
+      "candidate_knobs": {
+        "name": "r3_iter1_r2_winner_fq300",
+        "description": "R2 Winner: AQL 2000/4000us (thresh 8000) + RC_PER=28% + fq_quantum=300B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 107.5,
+        "p50_rtt_ms": 10.901,
+        "p95_rtt_ms": 22.778,
+        "p99_rtt_ms": 24.261,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0018,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.426772,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.253083 (0.679855 -> 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.0389,
+          "p99_excess": 1.11305,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0018
+        }
+      },
+      "goodputs_per_rep": [
+        108.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.6,
+        1.61,
+        2.04,
+        2.41,
+        4.29,
+        8.69,
+        9.21,
+        9.48,
+        10.49,
+        10.57,
+        11.23,
+        11.78,
+        11.8,
+        14.23,
+        14.79,
+        15.34,
+        17.25,
+        20.51,
+        22.68,
+        24.63
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94130,
+      "mac_tx_retries_delta": 169,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0018,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n8000\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\nRW fq_quantum 300\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x70000001c",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    },
+    {
+      "commit": "r3_iter2_aql2000_rc28_fq1514",
+      "candidate_knobs": {
+        "name": "r3_iter2_aql2000_rc28_fq1514",
+        "description": "Catalog Knob: AQL 2000/4000us + RC_PER=28% + fq_quantum=1514B (1 full MTU per DRR turn)",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 1514,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 106.0,
+        "p50_rtt_ms": 12.242,
+        "p95_rtt_ms": 24.246,
+        "p99_rtt_ms": 27.429,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0029,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.468937,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.468937 vs best 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.1123,
+          "p99_excess": 1.27145,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0029
+        }
+      },
+      "goodputs_per_rep": [
+        105.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.93,
+        2.15,
+        3.73,
+        4.54,
+        7.75,
+        8.54,
+        8.78,
+        11.57,
+        11.96,
+        12.1,
+        12.39,
+        13.23,
+        14.31,
+        14.87,
+        15.02,
+        16.82,
+        22.49,
+        23.35,
+        24.04,
+        28.23
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 93009,
+      "mac_tx_retries_delta": 268,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0029,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n8000\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\nRW fq_quantum 1514\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x70000001c",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    },
+    {
+      "commit": "r3_iter3_aql2000_rc28_fq3028",
+      "candidate_knobs": {
+        "name": "r3_iter3_aql2000_rc28_fq3028",
+        "description": "Catalog Knob: AQL 2000/4000us + RC_PER=28% + fq_quantum=3028B (2 MTUs per DRR turn)",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 3028,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 107.0,
+        "p50_rtt_ms": 12.839,
+        "p95_rtt_ms": 24.321,
+        "p99_rtt_ms": 31.557,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0025,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.500815,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.500815 vs best 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.11605,
+          "p99_excess": 1.47785,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0025
+        }
+      },
+      "goodputs_per_rep": [
+        107.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.78,
+        3.84,
+        4.73,
+        7.69,
+        8.87,
+        8.88,
+        10.62,
+        11.13,
+        11.59,
+        12.44,
+        13.24,
+        16.07,
+        16.12,
+        16.74,
+        17.53,
+        22.82,
+        22.84,
+        23.66,
+        23.84,
+        33.37
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94437,
+      "mac_tx_retries_delta": 234,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0025,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n8000\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\nRW fq_quantum 3028\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x70000001c",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    },
+    {
+      "commit": "r3_iter4_aql2000_rc20_fq1514",
+      "candidate_knobs": {
+        "name": "r3_iter4_aql2000_rc20_fq1514",
+        "description": "Catalog Knob: AQL 2000/4000us + tighter RC_PER=20% + fq_quantum=1514B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 1514,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 20,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 107.5,
+        "p50_rtt_ms": 17.023,
+        "p95_rtt_ms": 33.859,
+        "p99_rtt_ms": 46.797,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.002,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.734315,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.734315 vs best 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.59295,
+          "p99_excess": 2.23985,
+          "unfairness": 0.0,
+          "retry_penalty": 0.002
+        }
+      },
+      "goodputs_per_rep": [
+        108.0,
+        107.0
+      ],
+      "rtts_ms": [
+        2.03,
+        3.22,
+        5.57,
+        9.11,
+        9.39,
+        9.44,
+        10.14,
+        10.82,
+        14.53,
+        16.08,
+        17.97,
+        18.22,
+        18.36,
+        19.68,
+        20.06,
+        20.75,
+        21.07,
+        27.43,
+        33.01,
+        50.03
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94477,
+      "mac_tx_retries_delta": 190,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.002,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n8000\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\nRW fq_quantum 1514\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x700000014",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    },
+    {
+      "commit": "r3_iter5_aql1800_rc24_fq1514",
+      "candidate_knobs": {
+        "name": "r3_iter5_aql1800_rc24_fq1514",
+        "description": "Sweet-Spot Interpolation: AQL 1800/3600us (thresh 7200) + RC_PER=24% + fq_quantum=1514B",
+        "aql_low_us": 1800,
+        "aql_high_us": 3600,
+        "aql_threshold_us": 7200,
+        "fq_quantum_bytes": 1514,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 24,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 0,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 105.5,
+        "p50_rtt_ms": 15.925,
+        "p95_rtt_ms": 37.152,
+        "p99_rtt_ms": 38.964,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0029,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.716775,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.716775 vs best 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.7576,
+          "p99_excess": 1.8482,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0029
+        }
+      },
+      "goodputs_per_rep": [
+        107.0,
+        104.0
+      ],
+      "rtts_ms": [
+        1.95,
+        2.63,
+        5.2,
+        6.24,
+        6.56,
+        10.39,
+        12.28,
+        13.17,
+        13.89,
+        14.88,
+        16.97,
+        17.63,
+        17.73,
+        20.83,
+        23.31,
+        24.4,
+        32.22,
+        34.56,
+        37.03,
+        39.42
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 92514,
+      "mac_tx_retries_delta": 268,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0029,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n7200\nAC\tAQL limit low\tAQL limit high\nVO\t1800\t\t3600\nVI\t1800\t\t3600\nBE\t1800\t\t3600\nBK\t1800\t\t3600\nBC/MC\t50000\nRW fq_quantum 1514\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x700000018",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000000"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    },
+    {
+      "commit": "r3_iter6_aql2000_rc28_fq1514_pshack3",
+      "candidate_knobs": {
+        "name": "r3_iter6_aql2000_rc28_fq1514_pshack3",
+        "description": "Catalog Knob: AQL 2000/4000us + RC_PER=28% + fq_quantum=1514B + ct_special id=12 PSHACK=3",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 1514,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "ct_baseband_rifs": 0,
+        "ct_pshack": 3,
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 108.5,
+        "p50_rtt_ms": 13.692,
+        "p95_rtt_ms": 35.844,
+        "p99_rtt_ms": 36.35,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0022,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.680785,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.680785 vs best 0.426772)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.6922,
+          "p99_excess": 1.7175,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0022
+        }
+      },
+      "goodputs_per_rep": [
+        107.0,
+        110.0
+      ],
+      "rtts_ms": [
+        1.81,
+        3.02,
+        3.42,
+        3.5,
+        7.87,
+        8.26,
+        8.26,
+        8.65,
+        9.04,
+        12.96,
+        14.43,
+        14.61,
+        14.74,
+        15.85,
+        18.19,
+        22.05,
+        22.57,
+        22.75,
+        35.81,
+        36.48
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 95133,
+      "mac_tx_retries_delta": 208,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0022,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,0,0\n8000\nAC\tAQL limit low\tAQL limit high\nVO\t2000\t\t4000\nVI\t2000\t\t4000\nBE\t2000\t\t4000\nBK\t2000\t\t4000\nBC/MC\t50000\nRW fq_quantum 1514\n3 64",
+        "ct_special_written": {
+          "rc_per_u64": "0x70000001c",
+          "rifs_u64": "0xa00000000",
+          "pshack_u64": "0xc00000003"
+        }
+      },
+      "incumbent_after": "r3_iter1_r2_winner_fq300"
+    }
+  ],
+  "restoration_verified_readback": {
+    "rc": 0,
+    "readback": "CT_RCS=0,0,0\n24000\nAC\tAQL limit low\tAQL limit high\nVO\t5000\t\t12000\nVI\t5000\t\t12000\nBE\t5000\t\t12000\nBK\t5000\t\t12000\nBC/MC\t50000\nRW fq_quantum 300\n3 64",
+    "ct_special_written": {
+      "rc_per_u64": "0x700000032",
+      "rifs_u64": "0xa00000000",
+      "pshack_u64": "0xc00000000"
+    }
+  }
+}

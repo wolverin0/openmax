@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-274A",
+  "task_id": "T-S274A-MULTI-RADIO-V41-SUITE-GATE-269A-TO-274A",
+  "generated_at_utc": "2026-10-26T23:38:53.935296+00:00",
+  "status": "PASS",
+  "evidence_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_20_or_250": false,
+    "touched_production_guarida": false,
+    "flash_writes": 0
+  },
+  "audited_stages_count": 5,
+  "audited_stages": {
+    "STAGE-269A": {
+      "receipt_path": "artifacts/autoresearch/stage269a_live_xc198_round5_autoresearch.json",
+      "receipt_sha256": "f699565f810547f5a402aecbdb1b561ec657f1812bf328d45255cb273f99e450",
+      "doc_path": "docs/STAGE269A_LIVE_XC198_ROUND5_AUTORESEARCH.md",
+      "doc_lines": 27,
+      "test_path": "tests/test_stage269a_live_xc198_round5_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-270A": {
+      "receipt_path": "artifacts/autoresearch/stage270a_live_2xc253_round5_autoresearch.json",
+      "receipt_sha256": "79a5442a8128166cb0d487b2387208972609e757f00c8c67cec5181e71199327",
+      "doc_path": "docs/STAGE270A_LIVE_2XC253_ROUND5_AUTORESEARCH.md",
+      "doc_lines": 25,
+      "test_path": "tests/test_stage270a_live_2xc253_round5_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-271A": {
+      "receipt_path": "artifacts/autoresearch/stage271a_live_xm20_round5_autoresearch.json",
+      "receipt_sha256": "d0487ecb2e9e25329387716b1d337648fc24e73818deda912d3ba144e0476645",
+      "doc_path": "docs/STAGE271A_LIVE_XM20_ROUND5_AUTORESEARCH.md",
+      "doc_lines": 27,
+      "test_path": "tests/test_stage271a_live_xm20_round5_autoresearch.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-272A": {
+      "receipt_path": "artifacts/autoresearch/stage272a_dualband_2xc_xc_nlos_failover_pareto.json",
+      "receipt_sha256": "785a86a26ef0bcb0908c760cd9c6e7a5cc2ce9f4d1a5a182ecfa226266d9f2d5",
+      "doc_path": "docs/STAGE272A_DUALBAND_2XC_XC_NLOS_FAILOVER_PARETO.md",
+      "doc_lines": 26,
+      "test_path": "tests/test_stage272a_dualband_2xc_xc_nlos_failover_pareto.py",
+      "five_pillar_compliant": true
+    },
+    "STAGE-273A": {
+      "receipt_path": "artifacts/autoresearch/stage273a_cross_fleet_champion_v41_receipt.json",
+      "receipt_sha256": "15bb66ce2cfe1e3a420b16d2eb6146f6f85229fb0c1da406312650d28debf064",
+      "doc_path": "docs/STAGE273A_CROSS_FLEET_CHAMPION_V41.md",
+      "doc_lines": 26,
+      "test_path": "tests/test_stage273a_cross_fleet_champion_v41.py",
+      "five_pillar_compliant": true
+    }
+  },
+  "repo_deterministic_gates": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "families_covered": [
+        "WA",
+        "XC",
+        "2XC",
+        "XW",
+        "XM",
+        "LTU"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-11-UPH-SHARED-64B-VECTOR-DAPROT-BEFORE-MCAST",
+        "FMX-DISC-16-XW-XM-MCS0-WARMUP-AND-EWMA-DELEGATE",
+        "FMX-DISC-33-WA-XC-SOFTIRQ-AND-ATOMIC-SKB-RESERVE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "verified_stages": [
+        "STAGE-269A",
+        "STAGE-270A",
+        "STAGE-271A",
+        "STAGE-272A",
+        "STAGE-273A"
+      ]
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "p95_rtt_ms",
+        "nlos_cpe_p99_rtt_ms",
+        "jitter_ms",
+        "cpu_softirq_pct"
+      ]
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE274A-MULTI-RADIO-V41-SUITE-GATE"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

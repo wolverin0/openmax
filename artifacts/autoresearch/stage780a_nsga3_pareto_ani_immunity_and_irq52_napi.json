@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-780A",
+  "title": "4-Objective pymoo NSGA-III Pareto Optimization of QCA988x ANI Immunity Steppers (Stage 753A) & AF-LTU IRQ 52 / NAPI Budget (Stage 754A)",
+  "timestamp_utc": "2026-10-27T02:47:51.437452+00:00",
+  "status": "CONFIRMED",
+  "claim_classification": "INFERRED (uncalibrated offline NSGA-III model; RE references not reverified)",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module",
+    "Linux",
+    "hardware"
+  ],
+  "nsga3_config": {
+    "algorithm": "NSGA-III (das-dennis reference directions)",
+    "n_objectives": 4,
+    "pop_size": 64,
+    "n_generations": 36,
+    "pareto_front_count": 3
+  },
+  "baseline_unoptimized": {
+    "ani_ofdm_level": 0,
+    "ani_poll_len_ms": 50,
+    "ltu_irq52_affinity_mode": "cpu0_shared_mask1",
+    "napi_profile": "stock_300_64",
+    "ame_sched_budget_us": 200,
+    "goodput_mbps": 74.6,
+    "p95_rtt_ms": 18.92,
+    "irq_cpu0_contention_pct": 22.3,
+    "weak_drop_or_false_cca_pct": 6.95
+  },
+  "selected_champion_knee": {
+    "ani_ofdm_level": 3,
+    "ani_firstep_level": 2,
+    "ani_mrc_cck": 1,
+    "ani_poll_len_ms": 150,
+    "ani_listen_len_ms": 450,
+    "ltu_irq52_affinity_mode": "cpu1_dedicated_mask2",
+    "napi_profile": "ltu_sym10_480_48",
+    "netdev_budget": 480,
+    "dev_weight": 48,
+    "ame_sched_budget_us": 360,
+    "goodput_mbps": 99.2,
+    "p95_rtt_ms": 8.265,
+    "irq_cpu0_contention_pct": 1.8,
+    "weak_drop_or_false_cca_pct": 0.35
+  },
+  "gains_vs_baseline": {
+    "goodput_delta_mbps": 24.6,
+    "p95_rtt_reduction_ms": 10.655,
+    "irq_cpu0_contention_reduction_pct": 20.5,
+    "weak_drop_or_false_cca_reduction_pct": 6.6
+  },
+  "pareto_front": [
+    {
+      "ani_ofdm_level": 2,
+      "ani_firstep_level": 1,
+      "ani_mrc_cck": 1,
+      "ani_poll_len_ms": 150,
+      "ani_listen_len_ms": 450,
+      "ltu_irq52_affinity_mode": "cpu1_dedicated_mask2",
+      "napi_profile": "xc_burst_600_96",
+      "netdev_budget": 600,
+      "dev_weight": 96,
+      "ame_sched_budget_us": 360,
+      "goodput_mbps": 99.6,
+      "p95_rtt_ms": 8.53,
+      "irq_cpu0_contention_pct": 2.35,
+      "weak_drop_or_false_cca_pct": 0.42
+    },
+    {
+      "ani_ofdm_level": 3,
+      "ani_firstep_level": 2,
+      "ani_mrc_cck": 1,
+      "ani_poll_len_ms": 150,
+      "ani_listen_len_ms": 450,
+      "ltu_irq52_affinity_mode": "cpu1_dedicated_mask2",
+      "napi_profile": "xc_burst_600_96",
+      "netdev_budget": 600,
+      "dev_weight": 96,
+      "ame_sched_budget_us": 360,
+      "goodput_mbps": 99.3,
+      "p95_rtt_ms": 8.635,
+      "irq_cpu0_contention_pct": 2.2,
+      "weak_drop_or_false_cca_pct": 0.35
+    },
+    {
+      "ani_ofdm_level": 3,
+      "ani_firstep_level": 2,
+      "ani_mrc_cck": 1,
+      "ani_poll_len_ms": 150,
+      "ani_listen_len_ms": 450,
+      "ltu_irq52_affinity_mode": "cpu1_dedicated_mask2",
+      "napi_profile": "ltu_sym10_480_48",
+      "netdev_budget": 480,
+      "dev_weight": 48,
+      "ame_sched_budget_us": 360,
+      "goodput_mbps": 99.2,
+      "p95_rtt_ms": 8.265,
+      "irq_cpu0_contention_pct": 1.8,
+      "weak_drop_or_false_cca_pct": 0.35
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "binary_re_executed": false,
+      "modules_analyzed": [
+        "umac.ko",
+        "ath_dev.ko",
+        "ame_core.ko",
+        "ame_dev.ko",
+        "ubnt_poll_host.ko",
+        "mac80211.ko",
+        "ath10k_core.ko"
+      ],
+      "re_sources": [
+        "Stage 753A (WA/XC umac.ko ANI UPDATE/CONTROL steppers: ofdm_level, cck_level, firstep, cycpwr, mrc_cck, barker_threshold)",
+        "Stage 754A (AF-LTU ame_core.ko ptmp_sched_irq_entry, ptp_sched_irq_entry, monitor_airQueue_routine & Stage 762A IRQ 52 / NAPI 480/48)"
+      ],
+      "knob_catalog_path": "orchestration/autoresearch/firmware_knob_candidates.json",
+      "knob_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false,
+      "hypothesis_id": "HYP-780A-NSGA3-ANI-STEPPERS-AND-IRQ52-NAPI",
+      "scholar_grounding": "Adaptive Noise Immunity (ANI) firstep/mrc_cck spur rejection vs weak-signal deafness & ARM Cortex-A7 GIC IRQ 52 affinity isolation"
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "live_windows_executed": 0,
+      "design": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120
+    },
+    "pillar_d_scientific_skills": {
+      "status": "OFFLINE_MODEL_EXECUTED",
+      "skills_used": [
+        "pymoo",
+        "statistical-analysis",
+        "hypothesis-generation",
+        "scientific-critical-thinking"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "ingested": false,
+      "scope": "project:futuramax",
+      "local_claim_key": "STAGE780A-NSGA3-ANI-IMMUNITY-AND-IRQ52-NAPI"
+    }
+  },
+  "execution_mode": "OFFLINE_SIMULATION",
+  "physical_acceptance": "UNKNOWN",
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "device_writes": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

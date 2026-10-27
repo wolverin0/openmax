@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "stage": "616A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage616a_ltu_ame_core_ranging_tof_and_timing_advance_re.py",
+    "tool_sha256": "6cd1550b28e1d90c17f7aa1c3659fd51d839d0c315846b05e1766af0ca6e61ae",
+    "output": "artifacts/autoresearch/stage616a_ltu_ame_core_ranging_tof_and_timing_advance_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, nothing transmitted",
+    "method": "token census of the ranging, timing and CP vocabularies; context classification of the tof and ta_ substrings; defined-symbol lookup for the distance and autofa families; sysfs pair detection",
+    "premise_corrections": [
+      "tof is not Time-of-Flight: every hit sits inside the autofa auto-frequency acquisition family, and ranging, rtt and round_trip are all 0",
+      "timing_adv does not exist as an identifier; the ta_ token count is substring noise, not timing advance"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "tof": 29,
+        "TOF": 2,
+        "ranging": 0,
+        "rtt": 0,
+        "round_trip": 0,
+        "cpe_distance": 1,
+        "distance_meter": 1,
+        "distance": 2,
+        "timing_adv": 0,
+        "ta_": 65,
+        "cyclic": 0,
+        "cp_align": 0,
+        "cpsample": 0,
+        "autofa": 21
+      },
+      "distance": {
+        "ame_core_get_distance_meter": 1,
+        "cpe_distance": 1
+      },
+      "sysfs": {
+        "show": 0,
+        "store": 0
+      },
+      "tof_is_autofa": true,
+      "tof_contexts": [
+        "rite_dbgbuf...ame_core_mem_mon_rmv....ame_core_mem_mon_dump...autofa_create_scanning_list.'...........tJC..............!...........",
+        "..tJC..............!......................t!..<...............autofa_scan_next....calc_inband_nf..autofa_get_result...autofa_set_sp"
+      ],
+      "ta_contexts": [
+        "_reset_airphy_w_setup...ame_core_reset_w_setup..ame_core_update_ta_cpe..ame_core_updateTA...ame_core_czlen_vs_normal....ame_core_cz",
+        "rved_ul_mgmt_syms.weight_calc.bugt_record.AME_Sched_PtP_early_data_decision........................................................"
+      ],
+      "autofa_symbols": [
+        "autofa_force_freq",
+        "autofa_force_frequency",
+        "autofa_force_idx",
+        "autofa_force_idx_end",
+        "autofa_force_in_dl",
+        "autofa_get_avg_freq_range",
+        "autofa_get_config",
+        "autofa_get_paused",
+        "autofa_get_result",
+        "autofa_get_scan_mode",
+        "autofa_run_config",
+        "autofa_set_paused",
+        "autofa_set_scan_mode",
+        "autofa_set_speed",
+        "autofa_stop"
+      ],
+      "distance_symbols": [
+        "ame_core_get_distance_meter",
+        "cpe_distance"
+      ],
+      "timing_symbols": [
+        "AME_Sched_PtP_early_data_decision",
+        "AME_Scheduler_Early_Data_Decision",
+        "air_data_handler_compose",
+        "air_data_handler_queue_pkt_count",
+        "air_data_handler_test_eab_many_cpes",
+        "air_data_handler_with_macs",
+        "ame_add_data_checkatx",
+        "ame_add_data_checkatx_w_lock",
+        "ame_add_data_cleaner",
+        "ame_add_data_cleaner_w_lock",
+        "ame_add_data_handlr",
+        "ame_add_data_recver_w_lock"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "tof": 0,
+        "TOF": 0,
+        "ranging": 0,
+        "rtt": 0,
+        "round_trip": 0,
+        "cpe_distance": 0,
+        "distance_meter": 3,
+        "distance": 4,
+        "timing_adv": 0,
+        "ta_": 11,
+        "cyclic": 0,
+        "cp_align": 0,
+        "cpsample": 2,
+        "autofa": 0
+      },
+      "distance": {
+        "ame_core_get_distance_meter": 0,
+        "cpe_distance": 0
+      },
+      "sysfs": {
+        "show": 1,
+        "store": 1
+      },
+      "tof_is_autofa": false,
+      "tof_contexts": [],
+      "ta_contexts": [
+        "ne..ctrl_info...force_tx_pattern....frame_pulse_offset..early_data_cfg..iir_dummy...dfs_dummy_traffic...bd_rate.gain_pulse..ulpwr_c",
+        "_store.frame_pulse_offset_show.frame_pulse_offset_store.early_data_cfg_show.early_data_cfg_store.iir_dummy_show.iir_dummy_store.dfs"
+      ],
+      "autofa_symbols": [],
+      "distance_symbols": [
+        "distance_meter_show",
+        "distance_meter_store"
+      ],
+      "timing_symbols": [
+        "early_data_cfg_show",
+        "early_data_cfg_store",
+        "gen_data_show",
+        "gen_data_store",
+        "txDummyData_show",
+        "txDummyData_store",
+        "txTestData_show",
+        "txTestData_store",
+        "update_ta_show",
+        "update_ta_store"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "tof_token_hits": 29,
+    "tof_is_autofa_modules": 1,
+    "tof_is_autofa": 1,
+    "autofa_symbol_count": 15,
+    "autofa_symbols": [
+      "autofa_force_freq",
+      "autofa_force_frequency",
+      "autofa_force_idx",
+      "autofa_force_idx_end",
+      "autofa_force_in_dl",
+      "autofa_get_avg_freq_range",
+      "autofa_get_config",
+      "autofa_get_paused",
+      "autofa_get_result",
+      "autofa_get_scan_mode",
+      "autofa_run_config",
+      "autofa_set_paused"
+    ],
+    "ranging_token_hits": 0,
+    "ranging_absent": 1,
+    "cpe_distance_hits": 1,
+    "distance_meter_symbol_hits": 1,
+    "distance_symbols": [
+      "ame_core_get_distance_meter",
+      "cpe_distance",
+      "distance_meter_show",
+      "distance_meter_store"
+    ],
+    "distance_measurement_present": 1,
+    "distance_sysfs_pairs": 1,
+    "timing_adv_token_hits": 0,
+    "ta_token_hits": 76,
+    "timing_adv_absent": 1,
+    "timing_symbols": [
+      "AME_Sched_PtP_early_data_decision",
+      "AME_Scheduler_Early_Data_Decision",
+      "air_data_handler_compose",
+      "air_data_handler_queue_pkt_count",
+      "air_data_handler_test_eab_many_cpes",
+      "air_data_handler_with_macs",
+      "ame_add_data_checkatx",
+      "ame_add_data_checkatx_w_lock",
+      "ame_add_data_cleaner",
+      "ame_add_data_cleaner_w_lock",
+      "ame_add_data_handlr",
+      "ame_add_data_recver_w_lock",
+      "early_data_cfg_show",
+      "early_data_cfg_store",
+      "gen_data_show",
+      "gen_data_store",
+      "txDummyData_show",
+      "txDummyData_store",
+      "txTestData_show",
+      "txTestData_store",
+      "update_ta_show",
+      "update_ta_store"
+    ],
+    "cyclic_token_hits": 0,
+    "cpsample_hits": 2,
+    "cp_alignment_named": 0,
+    "tof_ranging_recovered": 0,
+    "ta_mechanism_recovered": 0,
+    "cp_alignment_offset_recovered": 0
+  },
+  "gaps": [
+    "tof is a substring of autofa (auto-frequency acquisition), so the 29 hits are channel scanning, not ranging; ranging, rtt and round_trip are all 0",
+    "timing_adv does not exist as an identifier, and the 65 ta_ hits are substrings of data_/sta_/delta_-style names, not timing advance",
+    "cpe_distance and ame_core_get_distance_meter are real and expose a distance value with a sysfs pair, but the measurement source and units were not recovered",
+    "cpsample is the cyclic-prefix length parameter, not a CP alignment offset; no cp_align or cyclic token exists",
+    "autofa is a bonus finding, not part of this stage: 14 symbols covering scan list, next, result, config, speed and stop",
+    "no dynamic validation"
+  ]
+}

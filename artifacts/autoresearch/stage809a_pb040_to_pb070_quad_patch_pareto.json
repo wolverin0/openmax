@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "stage": "809A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/sim/run_stage809a_pb040_to_pb070_quad_patch_pareto.py",
+    "tool_sha256": "a0d49f4674e4c7613f14676531997faa522f61204f8b435f2d9245d17a56280e",
+    "output": "artifacts/autoresearch/stage809a_pb040_to_pb070_quad_patch_pareto.json",
+    "scope": "offline static simulation; reads two JSON receipts only; no firmware, no flash, no radio",
+    "method": "two-objective Pareto (cost = observed diff bytes, offset = mutation offset in segment) over PB-040 roles_verified, cross-checked against PB-070 readiness",
+    "label": "PROJECTION FROM RECEIPT DATA - not a measurement, not an execution order",
+    "radio_safety": "static only"
+  },
+  "inputs": {
+    "pb040": {
+      "path": "artifacts/qca988x/pb_040_inert_mutation_dryrun_receipt.json",
+      "sha256": "7fe73f877882fad949bb4bcc9a633321dc3e7294356377d9e58441354d8136a4",
+      "gate": "PB-040",
+      "phase": "OFFLINE_PREPARATION_DRYRUN_ONLY"
+    },
+    "pb060_070": {
+      "path": "artifacts/qca988x/pb_060_070_pilot_and_verdict.json",
+      "sha256": "b79b3bcb4bdf61be10965ffd148d17d650a40a182fe8d730e1bcb473b3fcf6bf",
+      "gates": [
+        "PB-060",
+        "PB-070"
+      ]
+    }
+  },
+  "roles": [
+    {
+      "role": "athwlan_AR9888v2_ptmp_ap_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 5020,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    },
+    {
+      "role": "athwlan_AR9888v2_ptmp_sta_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 4988,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    },
+    {
+      "role": "athwlan_AR9888v2_ptp_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 5216,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    }
+  ],
+  "pareto_front": [
+    {
+      "role": "athwlan_AR9888v2_ptmp_sta_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 4988,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    }
+  ],
+  "dominated": [
+    {
+      "role": "athwlan_AR9888v2_ptmp_ap_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 5020,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    },
+    {
+      "role": "athwlan_AR9888v2_ptp_bin",
+      "cost": 4,
+      "expected": 4,
+      "offset": 5216,
+      "dram": 4,
+      "segment": "0x0040b000",
+      "anchor": "UBNT_POLL_MEM_ALLOC",
+      "mutated": "OMAX_POLL_MEM_ALLOC"
+    }
+  ],
+  "gates": {
+    "spi_flash_write_allowed": false,
+    "automatic_execution_allowed": false,
+    "operator_gate_required": true,
+    "pb070_ready": false,
+    "pb070_unmet": [
+      "PB-023",
+      "PB-031",
+      "PB-040"
+    ],
+    "pb070_safety_level": "L3"
+  },
+  "summary": {
+    "roles_parsed": 3,
+    "pareto_front_size": 1,
+    "dominated_count": 2,
+    "total_cost_bytes": 12,
+    "front_cost_bytes": 4,
+    "cost_fraction_on_front": 0.3333,
+    "all_roles_blocked": 1,
+    "execution_authorised": 0,
+    "measurement_or_projection": "projection"
+  },
+  "gaps": [
+    "this is a projection from a dry-run receipt, not a measurement of any deployed behaviour",
+    "PB-070 is not ready: unmet prerequisites are listed and spi_flash_write_allowed is false, so no role may be executed",
+    "the two objectives are both taken from PB-040, so the front cannot reveal a trade-off that PB-040 did not already record",
+    "the offsets are per-segment and the segment base is ambiguous (Stage 806A), so the front is ordinal only",
+    "no dynamic validation"
+  ]
+}

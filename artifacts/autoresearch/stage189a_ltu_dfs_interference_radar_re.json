@@ -1,0 +1,1760 @@
+{
+  "stage": "189A",
+  "task_id": "T-S189A-LTU-DFS-INTERFERENCE-RADAR-SPECTRAL-BINARY-RE",
+  "generated_at": "2026-10-26T23:13:32.714540+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "aflturocket_2_4_2_ame_core_ko": {
+      "sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "size_bytes": 3318764,
+      "func_count": 2627
+    },
+    "afltu_2_4_2_ame_core_ko": {
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "size_bytes": 3282052,
+      "func_count": 2590
+    },
+    "aflturocket_2_4_2_cds_mac_mod_ko": {
+      "sha256": "883a8c29b8fd3c58a29f1e76ece68178b415540c263679c95e12b6df6953369c",
+      "size_bytes": 145332
+    },
+    "aflturocket_2_4_2_ame_dev_ko": {
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "size_bytes": 298760
+    },
+    "ap_kernel_modules_list": [
+      "act_ipt.ko",
+      "act_mirred.ko",
+      "act_police.ko",
+      "act_skbedit.ko",
+      "ame_core.ko",
+      "ame_dev.ko",
+      "ame_dfs.ko",
+      "ame_gpio_mod.ko",
+      "ame_helper_mod.ko",
+      "ame_radio_mod.ko",
+      "arc4.ko",
+      "cds_mac_mod.ko",
+      "cls_basic.ko",
+      "cls_flow.ko",
+      "cls_fw.ko",
+      "cls_route.ko",
+      "cls_tcindex.ko",
+      "cls_u32.ko",
+      "compat_xtables.ko",
+      "crc-ccitt.ko",
+      "ebt_802_3.ko",
+      "ebt_among.ko",
+      "ebt_arp.ko",
+      "ebt_arpreply.ko",
+      "ebt_dnat.ko",
+      "ebt_ip.ko",
+      "ebt_ip6.ko",
+      "ebt_limit.ko",
+      "ebt_log.ko",
+      "ebt_mark.ko",
+      "ebt_mark_m.ko",
+      "ebt_nflog.ko",
+      "ebt_pkttype.ko",
+      "ebt_redirect.ko",
+      "ebt_snat.ko",
+      "ebt_stp.ko",
+      "ebt_ulog.ko",
+      "ebt_vlan.ko",
+      "ebtable_broute.ko",
+      "ebtable_filter.ko",
+      "ebtable_nat.ko",
+      "ebtables.ko",
+      "em_cmp.ko",
+      "em_ipset.ko",
+      "em_meta.ko",
+      "em_nbyte.ko",
+      "em_text.ko",
+      "em_u32.ko",
+      "gre.ko",
+      "ip6_tables.ko",
+      "ip6t_REJECT.ko",
+      "ip6table_filter.ko",
+      "ip6table_mangle.ko",
+      "ip6table_raw.ko",
+      "ip_gre.ko",
+      "ip_set.ko",
+      "ip_set_bitmap_ip.ko",
+      "ip_set_bitmap_ipmac.ko",
+      "ip_set_bitmap_port.ko",
+      "ip_set_hash_ip.ko",
+      "ip_set_hash_ipport.ko",
+      "ip_set_hash_ipportip.ko",
+      "ip_set_hash_ipportnet.ko",
+      "ip_set_hash_net.ko",
+      "ip_set_hash_netiface.ko",
+      "ip_set_hash_netnet.ko",
+      "ip_set_hash_netport.ko",
+      "ip_set_hash_netportnet.ko",
+      "ip_set_list_set.ko",
+      "ip_tables.ko",
+      "ip_tunnel.ko",
+      "ipt_ECN.ko",
+      "ipt_MASQUERADE.ko",
+      "ipt_REJECT.ko",
+      "iptable_filter.ko",
+      "iptable_mangle.ko",
+      "iptable_nat.ko",
+      "iptable_raw.ko",
+      "ipv6.ko",
+      "nf_conntrack.ko",
+      "nf_conntrack_ftp.ko",
+      "nf_conntrack_ipv4.ko",
+      "nf_conntrack_ipv6.ko",
+      "nf_conntrack_irc.ko",
+      "nf_conntrack_netlink.ko",
+      "nf_defrag_ipv4.ko",
+      "nf_defrag_ipv6.ko",
+      "nf_nat.ko",
+      "nf_nat_ftp.ko",
+      "nf_nat_ipv4.ko",
+      "nf_nat_irc.ko",
+      "nfnetlink.ko",
+      "ppp_async.ko",
+      "ppp_generic.ko",
+      "ppp_mppe.ko",
+      "pppoe.ko",
+      "pppox.ko",
+      "pptp.ko",
+      "qca-ssdk.ko",
+      "sch_codel.ko",
+      "sch_dsmark.ko",
+      "sch_gred.ko",
+      "sch_hfsc.ko",
+      "sch_htb.ko",
+      "sch_ingress.ko",
+      "sch_prio.ko",
+      "sch_red.ko",
+      "sch_sfq.ko",
+      "sch_tbf.ko",
+      "sch_teql.ko",
+      "sha1_generic.ko",
+      "shortcut-fe-cm.ko",
+      "shortcut-fe-ipv6.ko",
+      "shortcut-fe.ko",
+      "slhc.ko",
+      "spdtst.ko",
+      "swconfig.ko",
+      "ts_bm.ko",
+      "ts_fsm.ko",
+      "ts_kmp.ko",
+      "ubnthal.ko",
+      "ubus.ko",
+      "urd.ko",
+      "x_tables.ko",
+      "xt_CLASSIFY.ko",
+      "xt_CT.ko",
+      "xt_LOG.ko",
+      "xt_REDIRECT.ko",
+      "xt_comment.ko",
+      "xt_connbytes.ko",
+      "xt_connlimit.ko",
+      "xt_connmark.ko",
+      "xt_conntrack.ko",
+      "xt_dscp.ko",
+      "xt_ecn.ko",
+      "xt_helper.ko",
+      "xt_hl.ko",
+      "xt_id.ko",
+      "xt_ipp2p.ko",
+      "xt_length.ko",
+      "xt_limit.ko",
+      "xt_mac.ko",
+      "xt_mark.ko",
+      "xt_multiport.ko",
+      "xt_nat.ko",
+      "xt_recent.ko",
+      "xt_set.ko",
+      "xt_state.ko",
+      "xt_statistic.ko",
+      "xt_string.ko",
+      "xt_tcpmss.ko",
+      "xt_tcpudp.ko",
+      "xt_time.ko",
+      "xt_u32.ko"
+    ],
+    "cpe_kernel_modules_list": [
+      "act_ipt.ko",
+      "act_mirred.ko",
+      "act_police.ko",
+      "act_skbedit.ko",
+      "ame_core.ko",
+      "ame_dev.ko",
+      "ame_dfs.ko",
+      "ame_gpio_mod.ko",
+      "ame_helper_mod.ko",
+      "ame_radio_mod.ko",
+      "arc4.ko",
+      "cds_mac_mod.ko",
+      "cls_basic.ko",
+      "cls_flow.ko",
+      "cls_fw.ko",
+      "cls_route.ko",
+      "cls_tcindex.ko",
+      "cls_u32.ko",
+      "compat_xtables.ko",
+      "crc-ccitt.ko",
+      "ebt_802_3.ko",
+      "ebt_among.ko",
+      "ebt_arp.ko",
+      "ebt_arpreply.ko",
+      "ebt_dnat.ko",
+      "ebt_ip.ko",
+      "ebt_ip6.ko",
+      "ebt_limit.ko",
+      "ebt_log.ko",
+      "ebt_mark.ko",
+      "ebt_mark_m.ko",
+      "ebt_nflog.ko",
+      "ebt_pkttype.ko",
+      "ebt_redirect.ko",
+      "ebt_snat.ko",
+      "ebt_stp.ko",
+      "ebt_ulog.ko",
+      "ebt_vlan.ko",
+      "ebtable_broute.ko",
+      "ebtable_filter.ko",
+      "ebtable_nat.ko",
+      "ebtables.ko",
+      "em_cmp.ko",
+      "em_ipset.ko",
+      "em_meta.ko",
+      "em_nbyte.ko",
+      "em_text.ko",
+      "em_u32.ko",
+      "gre.ko",
+      "ip6_tables.ko",
+      "ip6t_REJECT.ko",
+      "ip6table_filter.ko",
+      "ip6table_mangle.ko",
+      "ip6table_raw.ko",
+      "ip_gre.ko",
+      "ip_set.ko",
+      "ip_set_bitmap_ip.ko",
+      "ip_set_bitmap_ipmac.ko",
+      "ip_set_bitmap_port.ko",
+      "ip_set_hash_ip.ko",
+      "ip_set_hash_ipport.ko",
+      "ip_set_hash_ipportip.ko",
+      "ip_set_hash_ipportnet.ko",
+      "ip_set_hash_net.ko",
+      "ip_set_hash_netiface.ko",
+      "ip_set_hash_netnet.ko",
+      "ip_set_hash_netport.ko",
+      "ip_set_hash_netportnet.ko",
+      "ip_set_list_set.ko",
+      "ip_tables.ko",
+      "ip_tunnel.ko",
+      "ipt_ECN.ko",
+      "ipt_MASQUERADE.ko",
+      "ipt_REJECT.ko",
+      "iptable_filter.ko",
+      "iptable_mangle.ko",
+      "iptable_nat.ko",
+      "iptable_raw.ko",
+      "ipv6.ko",
+      "nf_conntrack.ko",
+      "nf_conntrack_ftp.ko",
+      "nf_conntrack_ipv4.ko",
+      "nf_conntrack_ipv6.ko",
+      "nf_conntrack_irc.ko",
+      "nf_conntrack_netlink.ko",
+      "nf_defrag_ipv4.ko",
+      "nf_defrag_ipv6.ko",
+      "nf_nat.ko",
+      "nf_nat_ftp.ko",
+      "nf_nat_ipv4.ko",
+      "nf_nat_irc.ko",
+      "nfnetlink.ko",
+      "ppp_async.ko",
+      "ppp_generic.ko",
+      "ppp_mppe.ko",
+      "pppoe.ko",
+      "pppox.ko",
+      "pptp.ko",
+      "qca-ssdk.ko",
+      "sch_codel.ko",
+      "sch_dsmark.ko",
+      "sch_gred.ko",
+      "sch_hfsc.ko",
+      "sch_htb.ko",
+      "sch_ingress.ko",
+      "sch_prio.ko",
+      "sch_red.ko",
+      "sch_sfq.ko",
+      "sch_tbf.ko",
+      "sch_teql.ko",
+      "sha1_generic.ko",
+      "shortcut-fe-cm.ko",
+      "shortcut-fe-ipv6.ko",
+      "shortcut-fe.ko",
+      "slhc.ko",
+      "spdtst.ko",
+      "swconfig.ko",
+      "ts_bm.ko",
+      "ts_fsm.ko",
+      "ts_kmp.ko",
+      "ubnthal.ko",
+      "ubus.ko",
+      "urd.ko",
+      "x_tables.ko",
+      "xt_CLASSIFY.ko",
+      "xt_CT.ko",
+      "xt_LOG.ko",
+      "xt_REDIRECT.ko",
+      "xt_comment.ko",
+      "xt_connbytes.ko",
+      "xt_connlimit.ko",
+      "xt_connmark.ko",
+      "xt_conntrack.ko",
+      "xt_dscp.ko",
+      "xt_ecn.ko",
+      "xt_helper.ko",
+      "xt_hl.ko",
+      "xt_id.ko",
+      "xt_ipp2p.ko",
+      "xt_length.ko",
+      "xt_limit.ko",
+      "xt_mac.ko",
+      "xt_mark.ko",
+      "xt_multiport.ko",
+      "xt_nat.ko",
+      "xt_recent.ko",
+      "xt_set.ko",
+      "xt_state.ko",
+      "xt_statistic.ko",
+      "xt_string.ko",
+      "xt_tcpmss.ko",
+      "xt_tcpudp.ko",
+      "xt_time.ko",
+      "xt_u32.ko"
+    ]
+  },
+  "dfs_and_spectral_radar_architecture": {
+    "beetle_bbp_radar_detector": "Unlike airMAX AC (where ubnt_spectral.ko reads QCA988x FFT bins over PCIe), LTU implements DFS pulse/chirp detection and wideband PSD spectral scanning directly inside the Beetle ASIC baseband processor (ame_core.ko + dedicated airView/spectral radio chain on LTU-Rocket/Pro/LR), exposing telemetry via /sys/kernel/debug/ame/* and /sys/devices/platform/ame_debug_dev/*.",
+    "auto_frequency_and_smart_scan_knobs": {
+      "auto_freq_mode": "Controls automatic frequency hop on DFS radar hit or severe CINR/BLER degradation (0=disabled, 1=enabled)",
+      "auto_freq_list": "Candidate center frequencies (MHz) evaluated by background PSD/CINR scanner",
+      "smart_scan": "Prioritizes previously locked low-interference channels during CPE re-association",
+      "DGAIN_DL_ENABLE": "/sys/module/ame_core/parameters/DGAIN_DL_ENABLE (dynamic digital gain interference mitigation toggle)"
+    },
+    "interference_mitigation_pipeline": [
+      "1. Continuous per-subchannel (2.0 MHz PRB) EVM and CINR estimation via ame_bbp_op_evm_mcs_map.",
+      "2. Selective subchannel MCS downshift or punctured PRB allocation when narrowband interference hits a subband.",
+      "3. Fast codeword BLER penalty hysteresis (penaltyThreshold, penaltyTime, cpeRxBler_scale) before full channel hop.",
+      "4. Coordinated AP-to-CPE channel switch announcement embedded in the 0x9898 MAP superframe header on DFS trigger."
+    ]
+  },
+  "extracted_symbols_and_strings": {
+    "ap_ame_core_symbols": {
+      "dfs_and_radar_symbols": [
+        {
+          "name": "AME_SchedDfsDummytraffic",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x61430",
+          "size_bytes": 32
+        },
+        {
+          "name": "AME_Scheduler_DfsDummyTraffic",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x722a0",
+          "size_bytes": 64
+        },
+        {
+          "name": "CPS_UncachedRead32",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13f6ac",
+          "size_bytes": 8
+        },
+        {
+          "name": "CPS_UncachedWrite32",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13f6b4",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_AME_Scheduler_DfsDummyTraffic",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x18",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbpFrameLength_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x98",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_AP",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_CPE",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xd0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_dfs_adjust_custom_threshold",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xe0",
+          "size_bytes": 8
+        },
+        {
+          "name": "ame_bbp_get_frame_pulse_offset",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x198190",
+          "size_bytes": 28
+        },
+        {
+          "name": "ame_bbp_set_frame_pulse_offset",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1981ac",
+          "size_bytes": 20
+        },
+        {
+          "name": "ame_bbp_set_rxpulse",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1950c4",
+          "size_bytes": 72
+        },
+        {
+          "name": "ame_core_set_Dfs_dummy",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0xb510",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_rfic_adj_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18878c",
+          "size_bytes": 72
+        },
+        {
+          "name": "ame_rfic_overwrite_last_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1884c0",
+          "size_bytes": 244
+        },
+        {
+          "name": "ame_rfic_retrieve_cached_rxgain_before_renew",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1884a4",
+          "size_bytes": 28
+        },
+        {
+          "name": "ame_rfic_set_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1885b4",
+          "size_bytes": 472
+        },
+        {
+          "name": "assign_dummy_for_DFS_dummy",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x68d64",
+          "size_bytes": 204
+        },
+        {
+          "name": "bbpFrameLength_forDFS",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150624",
+          "size_bytes": 32
+        },
+        {
+          "name": "bbp_get_ul_subframe_length_forDFS",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150644",
+          "size_bytes": 32
+        },
+        {
+          "name": "bbp_mrx_MGC_adj_pulse",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x147590",
+          "size_bytes": 680
+        },
+        {
+          "name": "bbp_set_DFS_activeTimeExt",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x155638",
+          "size_bytes": 324
+        },
+        {
+          "name": "bbp_set_DFS_activeTime_AP",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150d70",
+          "size_bytes": 368
+        },
+        {
+          "name": "bbp_set_DFS_activeTime_CPE",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150bac",
+          "size_bytes": 452
+        },
+        {
+          "name": "bbp_util_DFS_H2L",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1502f0",
+          "size_bytes": 124
+        },
+        {
+          "name": "bbp_util_DFS_H2L_EXT",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x15058c",
+          "size_bytes": 152
+        },
+        {
+          "name": "bbp_util_DFS_L2H",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1500ec",
+          "size_bytes": 516
+        },
+        {
+          "name": "bbp_util_DFS_L2H_EXT",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x15036c",
+          "size_bytes": 544
+        },
+        {
+          "name": "dfs_adjust_custom_threshold",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1432e8",
+          "size_bytes": 832
+        },
+        {
+          "name": "dfs_channel_dump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x44174",
+          "size_bytes": 196
+        }
+      ],
+      "spectral_and_channel_scan_symbols": [
+        {
+          "name": "AME_EAB_GetISRInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12eab8",
+          "size_bytes": 696
+        },
+        {
+          "name": "AME_EAB_GetInfBDCnt",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11cb8c",
+          "size_bytes": 176
+        },
+        {
+          "name": "AME_EAB_GetInfBDNextIdx",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11cc3c",
+          "size_bytes": 72
+        },
+        {
+          "name": "AME_EAB_GetQueuesInfo_CPE",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x127ccc",
+          "size_bytes": 640
+        },
+        {
+          "name": "AME_EAB_GetTxACKInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x125b34",
+          "size_bytes": 32
+        },
+        {
+          "name": "AME_EAB_GetTxCtrlInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x125c14",
+          "size_bytes": 428
+        },
+        {
+          "name": "AME_EAB_GetTxCtrlInfo_extra",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x125b54",
+          "size_bytes": 192
+        },
+        {
+          "name": "AME_EAB_GetTxDataQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x125998",
+          "size_bytes": 320
+        },
+        {
+          "name": "AME_EAB_GetTxMngtQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x125ad8",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_EAB_ReadRXQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x117ee0",
+          "size_bytes": 1108
+        },
+        {
+          "name": "AME_EAB_ReadTXQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x117a50",
+          "size_bytes": 1168
+        },
+        {
+          "name": "AME_HFE_CleanEFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x121238",
+          "size_bytes": 112
+        },
+        {
+          "name": "AME_HFE_EFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1211e0",
+          "size_bytes": 88
+        },
+        {
+          "name": "AME_HFE_Get_EFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x118d64",
+          "size_bytes": 4592
+        },
+        {
+          "name": "AME_HFE_Get_Inf_ETH",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1187b4",
+          "size_bytes": 1456
+        },
+        {
+          "name": "AME_HFE_Get_Inf_Status",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12ba8c",
+          "size_bytes": 320
+        },
+        {
+          "name": "AME_HSM_ConfigQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19a37c",
+          "size_bytes": 536
+        },
+        {
+          "name": "AME_HSM_ConfigQ_OFDMA",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19a178",
+          "size_bytes": 516
+        },
+        {
+          "name": "AME_HSM_Config_CPE_Q",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19a610",
+          "size_bytes": 436
+        },
+        {
+          "name": "AME_Modem_GetChannelsInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x482cc",
+          "size_bytes": 100
+        },
+        {
+          "name": "AME_Modem_NotifyFreqJump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x48908",
+          "size_bytes": 180
+        },
+        {
+          "name": "AME_Modem_RestartByScanning",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x47520",
+          "size_bytes": 1288
+        },
+        {
+          "name": "AME_Modem_RestartCalcSigWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x45cac",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_Modem_RestartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x46c98",
+          "size_bytes": 920
+        },
+        {
+          "name": "AME_Modem_StartByScanning",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x47030",
+          "size_bytes": 1264
+        },
+        {
+          "name": "AME_Modem_StartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x46624",
+          "size_bytes": 812
+        },
+        {
+          "name": "AME_Scheduler_UpdateQinfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x72db0",
+          "size_bytes": 288
+        },
+        {
+          "name": "AvgOfRequst",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x2a2e0c",
+          "size_bytes": 36864
+        },
+        {
+          "name": "CheckSpecialTunnelBufFilled",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x77654",
+          "size_bytes": 56
+        },
+        {
+          "name": "CheckSpecialTunnelTimeout",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7768c",
+          "size_bytes": 104
+        },
+        {
+          "name": "CtrlSetResReqBulletinInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x76d10",
+          "size_bytes": 68
+        },
+        {
+          "name": "Ctrl_CleanSpecialBuffer",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7c4a4",
+          "size_bytes": 144
+        },
+        {
+          "name": "Ctrl_GetCurrCfgQinfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x756b0",
+          "size_bytes": 220
+        },
+        {
+          "name": "Ctrl_GetULMap_Info",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x79ce8",
+          "size_bytes": 68
+        },
+        {
+          "name": "Ctrl_ReadConfig",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7c45c",
+          "size_bytes": 72
+        }
+      ],
+      "interference_mitigation_and_autofreq_symbols": [
+        {
+          "name": "AME_EAB_PeakBDInterface",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x117318",
+          "size_bytes": 1848
+        },
+        {
+          "name": "AME_SchedCheckForcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x614bc",
+          "size_bytes": 24
+        },
+        {
+          "name": "AME_SchedUpdateULDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x60574",
+          "size_bytes": 52
+        },
+        {
+          "name": "AME_Scheduler_ForceCriteria_DGAIN",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x73610",
+          "size_bytes": 68
+        },
+        {
+          "name": "DGAIN_ENABLE",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xd2c",
+          "size_bytes": 2
+        },
+        {
+          "name": "__ksymtab_get_dgain_enable",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xe8",
+          "size_bytes": 8
+        },
+        {
+          "name": "ame_bbp_get_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x190654",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_get_bler_cz",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x190660",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_set_bler_clear",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1949a8",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_core_czdgain_estimate_init_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13240",
+          "size_bytes": 384
+        },
+        {
+          "name": "ame_core_czdgain_expect_txpwr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13140",
+          "size_bytes": 256
+        },
+        {
+          "name": "ame_core_czdgain_get_exp_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x133c0",
+          "size_bytes": 44
+        },
+        {
+          "name": "ame_core_czdgain_set_init_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x133ec",
+          "size_bytes": 520
+        },
+        {
+          "name": "ame_core_get_auto_switchQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12254",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_get_cpe_forcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7bc4",
+          "size_bytes": 68
+        },
+        {
+          "name": "ame_core_get_czdgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7f6c",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_get_ext_switch_hw_en",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x2a68",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_get_rf_interference_avg",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11d08",
+          "size_bytes": 96
+        },
+        {
+          "name": "ame_core_get_rf_interference_curr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11d68",
+          "size_bytes": 64
+        },
+        {
+          "name": "ame_core_interference_det_deinit",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12174",
+          "size_bytes": 224
+        },
+        {
+          "name": "ame_core_interference_det_init",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1206c",
+          "size_bytes": 264
+        },
+        {
+          "name": "ame_core_set_auto_switchQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12264",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_set_cpe_forcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7b6c",
+          "size_bytes": 88
+        },
+        {
+          "name": "ame_core_set_czdgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7f5c",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_set_dgain_test_pattern",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6b9c",
+          "size_bytes": 68
+        },
+        {
+          "name": "ame_core_set_ext_switch_hw_en",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x2a54",
+          "size_bytes": 20
+        },
+        {
+          "name": "ame_core_switch_pgy_feature",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1b720",
+          "size_bytes": 32
+        },
+        {
+          "name": "ame_core_switch_pgy_from_bcast_mgmtQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1b6b0",
+          "size_bytes": 112
+        },
+        {
+          "name": "ame_core_switch_pgy_timer",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1b740",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_updateSwitchPort",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x16ca4",
+          "size_bytes": 128
+        },
+        {
+          "name": "ame_gem_enableRx",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x140cf4",
+          "size_bytes": 280
+        },
+        {
+          "name": "ame_rf_interference_det_fn",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x76c",
+          "size_bytes": 1932
+        },
+        {
+          "name": "ame_string_printf",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x3cc24",
+          "size_bytes": 192
+        },
+        {
+          "name": "autoMCS_get_each_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x15a050",
+          "size_bytes": 360
+        },
+        {
+          "name": "autoMCS_reset_each_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x15a1b8",
+          "size_bytes": 424
+        }
+      ],
+      "counts": {
+        "dfs_and_radar_count": 45,
+        "spectral_and_channel_scan_count": 241,
+        "interference_mitigation_count": 81
+      }
+    },
+    "cpe_ame_core_symbols": {
+      "dfs_and_radar_symbols": [
+        {
+          "name": "AME_SchedDfsDummytraffic",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5dd50",
+          "size_bytes": 32
+        },
+        {
+          "name": "AME_Scheduler_DfsDummyTraffic",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6d62c",
+          "size_bytes": 64
+        },
+        {
+          "name": "CPS_UncachedRead32",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13a7bc",
+          "size_bytes": 8
+        },
+        {
+          "name": "CPS_UncachedWrite32",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13a7c4",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_AME_Scheduler_DfsDummyTraffic",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x18",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbpFrameLength_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x98",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_AP",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_CPE",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xd0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_dfs_adjust_custom_threshold",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xe0",
+          "size_bytes": 8
+        },
+        {
+          "name": "ame_bbp_get_frame_pulse_offset",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x193058",
+          "size_bytes": 28
+        },
+        {
+          "name": "ame_bbp_set_frame_pulse_offset",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x193074",
+          "size_bytes": 20
+        },
+        {
+          "name": "ame_bbp_set_rxpulse",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18ff8c",
+          "size_bytes": 72
+        },
+        {
+          "name": "ame_core_set_Dfs_dummy",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0xa2a0",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_rfic_adj_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x183654",
+          "size_bytes": 72
+        },
+        {
+          "name": "ame_rfic_overwrite_last_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x183388",
+          "size_bytes": 244
+        },
+        {
+          "name": "ame_rfic_retrieve_cached_rxgain_before_renew",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18336c",
+          "size_bytes": 28
+        },
+        {
+          "name": "ame_rfic_set_cached_rxgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18347c",
+          "size_bytes": 472
+        },
+        {
+          "name": "assign_dummy_for_DFS_dummy",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x64648",
+          "size_bytes": 180
+        },
+        {
+          "name": "bbpFrameLength_forDFS",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b734",
+          "size_bytes": 32
+        },
+        {
+          "name": "bbp_get_ul_subframe_length_forDFS",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b754",
+          "size_bytes": 32
+        },
+        {
+          "name": "bbp_mrx_MGC_adj_pulse",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1426a0",
+          "size_bytes": 680
+        },
+        {
+          "name": "bbp_set_DFS_activeTimeExt",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150734",
+          "size_bytes": 324
+        },
+        {
+          "name": "bbp_set_DFS_activeTime_AP",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14be80",
+          "size_bytes": 348
+        },
+        {
+          "name": "bbp_set_DFS_activeTime_CPE",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14bcbc",
+          "size_bytes": 452
+        },
+        {
+          "name": "bbp_util_DFS_H2L",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b400",
+          "size_bytes": 124
+        },
+        {
+          "name": "bbp_util_DFS_H2L_EXT",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b69c",
+          "size_bytes": 152
+        },
+        {
+          "name": "bbp_util_DFS_L2H",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b1fc",
+          "size_bytes": 516
+        },
+        {
+          "name": "bbp_util_DFS_L2H_EXT",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14b47c",
+          "size_bytes": 544
+        },
+        {
+          "name": "dfs_adjust_custom_threshold",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13e3f8",
+          "size_bytes": 832
+        },
+        {
+          "name": "dfs_channel_dump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x4102c",
+          "size_bytes": 196
+        }
+      ],
+      "spectral_and_channel_scan_symbols": [
+        {
+          "name": "AME_EAB_GetISRInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x129bc8",
+          "size_bytes": 696
+        },
+        {
+          "name": "AME_EAB_GetInfBDCnt",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x117c9c",
+          "size_bytes": 176
+        },
+        {
+          "name": "AME_EAB_GetInfBDNextIdx",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x117d4c",
+          "size_bytes": 72
+        },
+        {
+          "name": "AME_EAB_GetQueuesInfo_CPE",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x122ddc",
+          "size_bytes": 640
+        },
+        {
+          "name": "AME_EAB_GetTxACKInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x120c44",
+          "size_bytes": 32
+        },
+        {
+          "name": "AME_EAB_GetTxCtrlInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x120d24",
+          "size_bytes": 428
+        },
+        {
+          "name": "AME_EAB_GetTxCtrlInfo_extra",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x120c64",
+          "size_bytes": 192
+        },
+        {
+          "name": "AME_EAB_GetTxDataQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x120aa8",
+          "size_bytes": 320
+        },
+        {
+          "name": "AME_EAB_GetTxMngtQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x120be8",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_EAB_ReadRXQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x112ff0",
+          "size_bytes": 1108
+        },
+        {
+          "name": "AME_EAB_ReadTXQInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x112b60",
+          "size_bytes": 1168
+        },
+        {
+          "name": "AME_HFE_CleanEFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11c348",
+          "size_bytes": 112
+        },
+        {
+          "name": "AME_HFE_EFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x11c2f0",
+          "size_bytes": 88
+        },
+        {
+          "name": "AME_HFE_Get_EFInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x113e74",
+          "size_bytes": 4592
+        },
+        {
+          "name": "AME_HFE_Get_Inf_ETH",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1138c4",
+          "size_bytes": 1456
+        },
+        {
+          "name": "AME_HFE_Get_Inf_Status",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x126b9c",
+          "size_bytes": 320
+        },
+        {
+          "name": "AME_HSM_ConfigQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x195244",
+          "size_bytes": 536
+        },
+        {
+          "name": "AME_HSM_ConfigQ_OFDMA",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x195040",
+          "size_bytes": 516
+        },
+        {
+          "name": "AME_HSM_Config_CPE_Q",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1954d8",
+          "size_bytes": 436
+        },
+        {
+          "name": "AME_Modem_GetChannelsInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x45184",
+          "size_bytes": 100
+        },
+        {
+          "name": "AME_Modem_NotifyFreqJump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x457c0",
+          "size_bytes": 180
+        },
+        {
+          "name": "AME_Modem_RestartByScanning",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x443d8",
+          "size_bytes": 1288
+        },
+        {
+          "name": "AME_Modem_RestartCalcSigWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x42b64",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_Modem_RestartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x43b50",
+          "size_bytes": 920
+        },
+        {
+          "name": "AME_Modem_StartByScanning",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x43ee8",
+          "size_bytes": 1264
+        },
+        {
+          "name": "AME_Modem_StartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x434dc",
+          "size_bytes": 812
+        },
+        {
+          "name": "AME_Scheduler_UpdateQinfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6e13c",
+          "size_bytes": 288
+        },
+        {
+          "name": "AvgOfRequst",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x2a0670",
+          "size_bytes": 36864
+        },
+        {
+          "name": "CheckSpecialTunnelBufFilled",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x729e0",
+          "size_bytes": 56
+        },
+        {
+          "name": "CheckSpecialTunnelTimeout",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x72a18",
+          "size_bytes": 104
+        },
+        {
+          "name": "CtrlSetResReqBulletinInfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x7209c",
+          "size_bytes": 68
+        },
+        {
+          "name": "Ctrl_CleanSpecialBuffer",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x77830",
+          "size_bytes": 144
+        },
+        {
+          "name": "Ctrl_GetCurrCfgQinfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x70a3c",
+          "size_bytes": 220
+        },
+        {
+          "name": "Ctrl_GetULMap_Info",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x75074",
+          "size_bytes": 68
+        },
+        {
+          "name": "Ctrl_ReadConfig",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x777e8",
+          "size_bytes": 72
+        }
+      ],
+      "interference_mitigation_and_autofreq_symbols": [
+        {
+          "name": "AME_EAB_PeakBDInterface",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x112428",
+          "size_bytes": 1848
+        },
+        {
+          "name": "AME_SchedCheckForcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5dddc",
+          "size_bytes": 8
+        },
+        {
+          "name": "AME_SchedUpdateULDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5cec4",
+          "size_bytes": 4
+        },
+        {
+          "name": "AME_Scheduler_ForceCriteria_DGAIN",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6e99c",
+          "size_bytes": 68
+        },
+        {
+          "name": "ame_bbp_get_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b51c",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_get_bler_cz",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b528",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_set_bler_clear",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18f870",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_core_czdgain_estimate_init_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13f5c",
+          "size_bytes": 380
+        },
+        {
+          "name": "ame_core_czdgain_expect_txpwr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13e58",
+          "size_bytes": 260
+        },
+        {
+          "name": "ame_core_czdgain_get_exp_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x140d8",
+          "size_bytes": 44
+        },
+        {
+          "name": "ame_core_czdgain_set_init_dgain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x14104",
+          "size_bytes": 260
+        },
+        {
+          "name": "ame_core_get_auto_switchQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12f84",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_get_cpe_forcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6cd0",
+          "size_bytes": 8
+        },
+        {
+          "name": "ame_core_get_ext_switch_hw_en",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x2394",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_get_rf_interference_avg",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12ab0",
+          "size_bytes": 96
+        },
+        {
+          "name": "ame_core_get_rf_interference_curr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12b10",
+          "size_bytes": 64
+        },
+        {
+          "name": "ame_core_interference_det_deinit",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12efc",
+          "size_bytes": 136
+        },
+        {
+          "name": "ame_core_interference_det_init",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12e14",
+          "size_bytes": 232
+        },
+        {
+          "name": "ame_core_set_auto_switchQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x12f94",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_set_cpe_forcedDGain",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x6ccc",
+          "size_bytes": 4
+        },
+        {
+          "name": "ame_core_set_dgain_test_pattern",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5c78",
+          "size_bytes": 200
+        },
+        {
+          "name": "ame_core_set_ext_switch_hw_en",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x2380",
+          "size_bytes": 20
+        },
+        {
+          "name": "ame_core_switch_pgy_feature",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19d54",
+          "size_bytes": 32
+        },
+        {
+          "name": "ame_core_switch_pgy_from_bcast_mgmtQ",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19ce4",
+          "size_bytes": 112
+        },
+        {
+          "name": "ame_core_switch_pgy_timer",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19d74",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_core_updateSwitchPort",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1530c",
+          "size_bytes": 128
+        },
+        {
+          "name": "ame_gem_enableRx",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x13be04",
+          "size_bytes": 280
+        },
+        {
+          "name": "ame_rf_interference_det_fn",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x76c",
+          "size_bytes": 264
+        },
+        {
+          "name": "ame_string_printf",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x39adc",
+          "size_bytes": 192
+        },
+        {
+          "name": "autoMCS_get_each_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x15514c",
+          "size_bytes": 360
+        },
+        {
+          "name": "autoMCS_reset_each_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1552b4",
+          "size_bytes": 424
+        },
+        {
+          "name": "auto_switchQ_routine",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x293bc",
+          "size_bytes": 1548
+        },
+        {
+          "name": "auto_switchQ_work",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x474",
+          "size_bytes": 16
+        },
+        {
+          "name": "bbp_show_bler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x17273c",
+          "size_bytes": 580
+        },
+        {
+          "name": "bbp_show_bler_cz",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x172980",
+          "size_bytes": 580
+        }
+      ],
+      "counts": {
+        "dfs_and_radar_count": 45,
+        "spectral_and_channel_scan_count": 235,
+        "interference_mitigation_count": 57
+      }
+    },
+    "ap_rodata_strings": {
+      "dfs_radar_strings": [
+        "&(&lock_dfs)->lock",
+        "&lock_dfs",
+        "dfs_channel_add",
+        "dfs_channel_set_available",
+        "dfs_channel_get_available",
+        "dfs_channel_timer_handlr",
+        "dfs_channel_dump_n_reset",
+        "dfs_adjust_custom_threshold",
+        "bbp_mrx_MGC_adj_pulse",
+        "dfs_win_test",
+        "ame_rfic_overwrite_last_cached_rxgain",
+        "ame_rfic_set_cached_rxgain"
+      ],
+      "spectral_airview_strings": [
+        "Current RxTargetPwr(%4u,%4u) RxTargetPwrScan(%4u,%4u) AdditionalBoost(%4u) boosting:%d",
+        "BW %d, TxFreq %u RxFreq %u",
+        "scanning_again",
+        "scanning_next",
+        "scanning_one",
+        "scanning_all",
+        "/sys/kernel/debug/persti/chan_freq",
+        "scanning_again",
+        "scanning_next",
+        "scanning_one",
+        "scanning_all",
+        "&(&(AMEctrl.specialBlk.lock))->lock",
+        "&(AMEctrl.specialBlk.lock)",
+        "AFL_SET_RX_FREQ",
+        "AFL_SET_TX_FREQ",
+        "AFL_SET_TXRX_FREQ",
+        "AFL_SET_RO_FREQ",
+        "AFL_GET_TXFREQ",
+        "AFL_SET_TXFREQ",
+        "AFL_GET_RO_FREQ",
+        "AFL_GET_RX_FREQ",
+        "AFL_SET_RX_FREQ_NO_CAL",
+        "Scan",
+        "================================(FFT * (-1))=========================================",
+        "FFT peak: %u, total: %llu/%u"
+      ],
+      "interference_autofreq_strings": [
+        "<hfe> : stage = 0x%02x, debugOp = 0x%02x, switch cnt = %u",
+        "PGY_SWITCH",
+        "switch: ATXPktCnt[%u]  = %u",
+        "switch: ATXPktByte[%u] = %u",
+        "switch: ARXPktCnt[%u]  = %u",
+        "switch: ARXPktByte[%u] = %u",
+        "ame_core_czdgain_expect_txpwr",
+        "ame_core_czdgain_estimate_init_dgain",
+        "ame_core_czdgain_set_init_dgain",
+        "SIDE_INTERFER_THD",
+        "dgain_thr",
+        "dgain_check",
+        "DGAIN_DL_ENABLE",
+        "cz_dgain_enable",
+        "DGAIN_ENABLE",
+        "testflow_checkBDInterface",
+        "testflow_checkFIFOInterface",
+        "testflow_checkTXCMDInterface",
+        "testflow_checkBCONInterface",
+        "test_hfe_force_switch",
+        "AME_EAB_PeakBDInterface",
+        "RX_POWER_HIGH_INTERF_STABLE_PWR_HIGH",
+        "RX_POWER_HIGH_INTERF_STABLE_PWR_LOW"
+      ]
+    },
+    "relevant_module_params": [
+      {
+        "name": "DGAIN_DL_ENABLE",
+        "sysfs_path": "/sys/module/ame_core/parameters/DGAIN_DL_ENABLE",
+        "type": "byte",
+        "description": "enable dl digital gain into the FPGA"
+      },
+      {
+        "name": "DGAIN_ENABLE",
+        "sysfs_path": "/sys/module/ame_core/parameters/DGAIN_ENABLE",
+        "type": "ushort",
+        "description": "enable digital gain into the FPGA"
+      },
+      {
+        "name": "cz_dgain_enable",
+        "sysfs_path": "/sys/module/ame_core/parameters/cz_dgain_enable",
+        "type": "uint",
+        "description": ""
+      },
+      {
+        "name": "dfs_win_test",
+        "sysfs_path": "/sys/module/ame_core/parameters/dfs_win_test",
+        "type": "ushort",
+        "description": ""
+      },
+      {
+        "name": "dgain_check",
+        "sysfs_path": "/sys/module/ame_core/parameters/dgain_check",
+        "type": "array of int",
+        "description": ""
+      },
+      {
+        "name": "dgain_thr",
+        "sysfs_path": "/sys/module/ame_core/parameters/dgain_thr",
+        "type": "int",
+        "description": ""
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s189a-ltu-dfs-interference-radar-re"
+  }
+}

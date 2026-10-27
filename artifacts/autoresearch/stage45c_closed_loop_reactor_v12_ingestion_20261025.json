@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "45C",
+  "task_id": "T-S45C-GEM2-CHAMPION-V12-WDS-FAST-LEAVE-AND-UPH-BUFFER-CLOBBER-GUARD",
+  "generated_at_utc": "2026-10-26T18:03:43.782418+00:00",
+  "ingested_rounds_summary": {
+    "S39A-R1": "M19_M20_IGMPV3_FAST_LEAVE_AND_AIROS8_MCAST_VOIP_BIAS (-4.560% GP, +12.729% p95 RTT -> RETAIN_CURRENT_CHAMPION / REFUTED: voip_bias=1 clobbered ff_mcast_airtime_limit=5 to 1 via shared sysctl_table->data vector in ubnt_poll_host.ko, and IGMPv3 injected 72B CS6 tid7_ac0 query bursts)",
+    "S39A-R2": "M19b_M20b_AP_WDS_FAST_LEAVE_AND_SINGLE_QUERIER_DISCIPLINE (-0.700% GP, +11.736% p95 RTT -> RETAIN_CURRENT_CHAMPION / REFUTED: mid-window multicast_snooping & tc qdisc replace flushed MDB/qdisc state)",
+    "S39A-R3": "M19c_M20c_CLEAN_WDS_FAST_LEAVE_AND_UPH_MCAST_LIMIT Champion v12 (IGMPv2=2, AP querier=1, CPE querier=0, AP WDS phy0-ap0* fast_leave=1 + DMS=1, CPE fast_leave=1, ff_mcast_airtime_limit=5 written LAST on .198 -> +5.863% GP, -5.361% p95 RTT, -8.747% p50 RTT, 0/5669 IPTV loss, 0/1199 VoIP loss -> PROMOTE_NEW_CHAMPION / CONFIRMED)"
+  },
+  "ingested_reactor_events": [
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S39A-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 52.394,
+      "gp_candidate_mbps": 50.005,
+      "gp_delta_pct": -4.56,
+      "p95_champion_ms": 109.735,
+      "p95_candidate_ms": 123.703,
+      "p95_delta_pct": 12.729,
+      "pareto_score_delta_pct": -9.0148,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S39A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection",
+        "Linux sysctl_table proc_dointvec shared data buffer overwrite kernel module",
+        "IEEE 802.11v DMS IGMPv2 single querier fast leave CS6 voice queue contention"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M24",
+          "title": "PB-042 Shared sysctl_table->data Buffer Clobber Guard & Atomic Procfs Write Ordering on ubnt_poll_host.ko (ff_mcast_airtime_limit=5 Written Last + Readback Verification)",
+          "scientific_basis": "Stage 39A S39A-R1 physical discovery: writing voip_bias=1 after ff_mcast_airtime_limit=5 on airOS 8 (.198) overwrote ff_mcast_airtime_limit from 5 to 1 via shared 16-integer sysctl_table->data vector; S39A-R3 Champion v12 proved writing ff_mcast_airtime_limit=5 LAST restores +5.863% goodput & -5.361% p95 RTT",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M25",
+          "title": "PB-043 Single-Querier IGMPv2 & Zero-Flush WDS Fast-Leave State Machine Across Dynamic phy0-ap0.sta* Bridge Ports (Zero CS6 tid7_ac0 Query Bursts)",
+          "scientific_basis": "Stage 39A S39A-R1/R2/R3: IGMPv3 injected 72-byte CS6 (tid7_ac0 AC_VO) query bursts (-4.560% GP) and mid-window snooping/qdisc flushes caused MDB drops (-0.700% GP); S39A-R3 Champion v12 (IGMPv2=2, AP querier=1, CPE querier=0, WDS fast_leave=1 + DMS=1) achieved +5.863% GP, -5.361% p95 RTT, 0% VoIP/IPTV loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br-lan/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for fl in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $fl 2>/dev/null || true; done"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S39A-R2",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 37.583,
+      "gp_candidate_mbps": 37.32,
+      "gp_delta_pct": -0.7,
+      "p95_champion_ms": 79.203,
+      "p95_candidate_ms": 88.498,
+      "p95_delta_pct": 11.736,
+      "pareto_score_delta_pct": -4.8073,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S39A-R2.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 frame aggregation A-MPDU TCP latency throughput",
+        "deficit round robin quantum multi-frame aggregation 802.11ac",
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection",
+        "Linux sysctl_table proc_dointvec shared data buffer overwrite kernel module",
+        "IEEE 802.11v DMS IGMPv2 single querier fast leave CS6 voice queue contention"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + S25-R1 negative result (quantum=300 starved A-MPDU) + S27-R2AC-R2 (br0 txqueuelen=256 + tcp_dsack=1)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M24",
+          "title": "PB-042 Shared sysctl_table->data Buffer Clobber Guard & Atomic Procfs Write Ordering on ubnt_poll_host.ko (ff_mcast_airtime_limit=5 Written Last + Readback Verification)",
+          "scientific_basis": "Stage 39A S39A-R1 physical discovery: writing voip_bias=1 after ff_mcast_airtime_limit=5 on airOS 8 (.198) overwrote ff_mcast_airtime_limit from 5 to 1 via shared 16-integer sysctl_table->data vector; S39A-R3 Champion v12 proved writing ff_mcast_airtime_limit=5 LAST restores +5.863% goodput & -5.361% p95 RTT",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M25",
+          "title": "PB-043 Single-Querier IGMPv2 & Zero-Flush WDS Fast-Leave State Machine Across Dynamic phy0-ap0.sta* Bridge Ports (Zero CS6 tid7_ac0 Query Bursts)",
+          "scientific_basis": "Stage 39A S39A-R1/R2/R3: IGMPv3 injected 72-byte CS6 (tid7_ac0 AC_VO) query bursts (-4.560% GP) and mid-window snooping/qdisc flushes caused MDB drops (-0.700% GP); S39A-R3 Champion v12 (IGMPv2=2, AP querier=1, CPE querier=0, WDS fast_leave=1 + DMS=1) achieved +5.863% GP, -5.361% p95 RTT, 0% VoIP/IPTV loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br-lan/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for fl in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $fl 2>/dev/null || true; done"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S39A-R3",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 48.949,
+      "gp_candidate_mbps": 51.819,
+      "gp_delta_pct": 5.863,
+      "p95_champion_ms": 113.749,
+      "p95_candidate_ms": 107.651,
+      "p95_delta_pct": -5.361,
+      "pareto_score_delta_pct": 7.7396,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S39A-R3.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection",
+        "Linux sysctl_table proc_dointvec shared data buffer overwrite kernel module",
+        "IEEE 802.11v DMS IGMPv2 single querier fast leave CS6 voice queue contention"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M24",
+          "title": "PB-042 Shared sysctl_table->data Buffer Clobber Guard & Atomic Procfs Write Ordering on ubnt_poll_host.ko (ff_mcast_airtime_limit=5 Written Last + Readback Verification)",
+          "scientific_basis": "Stage 39A S39A-R1 physical discovery: writing voip_bias=1 after ff_mcast_airtime_limit=5 on airOS 8 (.198) overwrote ff_mcast_airtime_limit from 5 to 1 via shared 16-integer sysctl_table->data vector; S39A-R3 Champion v12 proved writing ff_mcast_airtime_limit=5 LAST restores +5.863% goodput & -5.361% p95 RTT",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M25",
+          "title": "PB-043 Single-Querier IGMPv2 & Zero-Flush WDS Fast-Leave State Machine Across Dynamic phy0-ap0.sta* Bridge Ports (Zero CS6 tid7_ac0 Query Bursts)",
+          "scientific_basis": "Stage 39A S39A-R1/R2/R3: IGMPv3 injected 72-byte CS6 (tid7_ac0 AC_VO) query bursts (-4.560% GP) and mid-window snooping/qdisc flushes caused MDB drops (-0.700% GP); S39A-R3 Champion v12 (IGMPv2=2, AP querier=1, CPE querier=0, WDS fast_leave=1 + DMS=1) achieved +5.863% GP, -5.361% p95 RTT, 0% VoIP/IPTV loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br-lan/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for fl in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $fl 2>/dev/null || true; done"
+          ]
+        }
+      ]
+    }
+  ],
+  "next_wave_mechanisms_m24_to_m25": [
+    {
+      "mechanism_id": "M24",
+      "title": "PB-042 Shared sysctl_table->data Buffer Clobber Guard & Atomic Procfs Write Ordering on ubnt_poll_host.ko (ff_mcast_airtime_limit=5 Written Last + Readback Verification)",
+      "scientific_basis": "Stage 39A S39A-R1 physical discovery: writing voip_bias=1 after ff_mcast_airtime_limit=5 on airOS 8 (.198) overwrote ff_mcast_airtime_limit from 5 to 1 via shared 16-integer sysctl_table->data vector; S39A-R3 Champion v12 proved writing ff_mcast_airtime_limit=5 LAST restores +5.863% goodput & -5.361% p95 RTT",
+      "candidate_delta_commands": [
+        "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+      ]
+    },
+    {
+      "mechanism_id": "M25",
+      "title": "PB-043 Single-Querier IGMPv2 & Zero-Flush WDS Fast-Leave State Machine Across Dynamic phy0-ap0.sta* Bridge Ports (Zero CS6 tid7_ac0 Query Bursts)",
+      "scientific_basis": "Stage 39A S39A-R1/R2/R3: IGMPv3 injected 72-byte CS6 (tid7_ac0 AC_VO) query bursts (-4.560% GP) and mid-window snooping/qdisc flushes caused MDB drops (-0.700% GP); S39A-R3 Champion v12 (IGMPv2=2, AP querier=1, CPE querier=0, WDS fast_leave=1 + DMS=1) achieved +5.863% GP, -5.361% p95 RTT, 0% VoIP/IPTV loss",
+      "candidate_delta_commands": [
+        "echo 2 > /sys/devices/virtual/net/br-lan/bridge/multicast_igmp_version",
+        "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+        "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+        "for fl in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $fl 2>/dev/null || true; done"
+      ]
+    }
+  ]
+}

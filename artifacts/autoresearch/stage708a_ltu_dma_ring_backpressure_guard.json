@@ -1,0 +1,56 @@
+{
+  "stage": "708A",
+  "task_id": "T-S708A-LTU-DMA-RING-BACKPRESSURE-GUARD",
+  "title": "AF-LTU (Beetle) Zero-Copy DMA Ring & ame_ASIC0 Backpressure Read-Only Guard",
+  "memory_master_claim": {
+    "code": "mm-cc53",
+    "id": 155467
+  },
+  "generated_at": "2026-10-27T02:04:01.756626+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "guard_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_dma_ring_backpressure_guard.sh",
+    "sha256": "1dd0f6f9e96ec1800d1c78660e5e58a8687805c46d112d5848cddf26ac93be18",
+    "size_bytes": 1675,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "dma_ring_backpressure_profile": {
+    "kernel_modules": [
+      "eab_driver.ko",
+      "ame_core.ko"
+    ],
+    "irq52_target_cpu": "CPU1 (smp_affinity=2)",
+    "eth0_bql_limit_max_bytes": 36288,
+    "busy_read_enforced": 0,
+    "busy_poll_enforced": 0,
+    "netdev_max_backlog": 2048
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "inspects_dma_ring_and_backpressure": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false,
+    "zero_dev_ame_touches": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 694A RE of eab_driver.ko & ame_core.ko zero-copy DMA rings and IRQ 52 completion path",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models ARM Cortex-A7 <-> ame_ASIC0 DMA ring backpressure, BQL limit_max=36288, and busy_read=0 lock avoidance",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only (--inspect-only) with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Prevents DMA ring exhaustion and softnet time_squeeze drops across 2ms..4ms LTU TDMA superframes",
+    "pillar_e_memory_master_claim_id": "mm-cc53 (id=155467)"
+  }
+}

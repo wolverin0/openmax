@@ -1,0 +1,52 @@
+{
+  "stage": "539A",
+  "task_id": "T-S539A-QCA988X-DFS-CAC-AND-CHIRP-IMMUNITY-KIT",
+  "title": "Pillar 1 & Pillar 5 QCA988x ath_dfs False-Radar Immunity & CAC Override Integration (WA/XC Hybrid + OpenWrt)",
+  "memory_master_claim": {
+    "code": "mm-db72",
+    "id": 155438
+  },
+  "generated_at": "2026-10-27T01:14:27.645589+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "ath10k",
+    "QCA firmware",
+    "mac80211"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca988x_dfs_chirp_immunity.sh",
+    "sha256": "5ab0914b02a4f2b1073fd8c561e79125b39e00d013f6a167c24aef4f0ffaef54",
+    "size_bytes": 1810,
+    "default_mode": "--status"
+  },
+  "stage499a_re_linked": true,
+  "dfs_immunity_knobs": {
+    "DFS_SET_CAC_TIME_OVERRIDE_MS": "Configurable bench/hybrid CAC timer override",
+    "DFS_SET_FALSE_RSSI_THRESHOLD": 24,
+    "DFS_SET_FILTER_RSSI_OFFSET": 6,
+    "DFS_SET_PRI_MULTIPLIER": 2,
+    "DFS_chirp_protect": 1
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "references_all_5_stage499a_dfs_knobs": true,
+    "disables_pktlog_filter_on_apply": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 499A ath_dfs.ko ioctls (DFS_SET_CAC_TIME_OVERRIDE_MS, FALSE_RSSI_THRESHOLD, FILTER_RSSI_OFFSET, PRI_MULTIPLIER, DFS_chirp_protect)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Distinguishes adjacent-channel OFDM symbol edges from truechirp/staggered-PRI weather/military radar pulses",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Paired with 120s DFS CAC rollback watchdog (FMX-DISC-24) and read-only default --status mode",
+    "pillar_d_scientific_pareto_validation": "Prevents 30-minute Non-Occupancy Period (NOP) channel blackouts caused by false radar triggers on crowded WISP towers",
+    "pillar_e_memory_master_claim_id": "mm-db72 (id=155438)"
+  }
+}

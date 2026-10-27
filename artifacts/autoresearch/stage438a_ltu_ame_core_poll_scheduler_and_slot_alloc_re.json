@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "stage": "438A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage438a_ltu_ame_core_poll_scheduler_and_slot_alloc_re.py",
+    "tool_sha256": "4ddde7468aa1cabac73b1217418c16131dc759cdfa23c778d83655e285552d43",
+    "output": "artifacts/autoresearch/stage438a_ltu_ame_core_poll_scheduler_and_slot_alloc_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census with a printable-context classifier that separates real log strings from binary coincidences; symbol lookup for the scheduler, poll and slot/ofdma families",
+    "premise_corrections": [
+      "eab_driver.ko does not exist (0 files); the scheduler is entirely inside ame_core.ko",
+      "the two CPE classes are named N and S, not long and short: LQ has 0 format-string contexts and long_queue/short_queue have 0 hits"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "counts": {
+        "SQ": 6,
+        "NQ": 1,
+        "LQ": 20,
+        "SWQ": 3,
+        "NtoS": 1,
+        "StoN": 1,
+        "numSQ": 4,
+        "numQ": 32,
+        "poll": 2,
+        "sched": 297,
+        "slot": 41,
+        "ofdma": 43,
+        "OFDMA": 45,
+        "short_queue": 0,
+        "long_queue": 0
+      },
+      "sq": [
+        {
+          "at": "0x1b16b0",
+          "printable": true,
+          "format": true,
+          "context": "....--- SFN[%x] ---.....Top NQ CPE(%d) [%d.%d] (NtoS=%d)....Min SQ CPE(%d) [%d.%d] (StoN=%d)........SQ-CPE(%d)[%d.%d] ..SWQ_Record"
+        },
+        {
+          "at": "0x1b16d4",
+          "printable": false,
+          "format": true,
+          "context": "d) [%d.%d] (NtoS=%d)....Min SQ CPE(%d) [%d.%d] (StoN=%d)........SQ-CPE(%d)[%d.%d] ..SWQ_Record Not Support...%d[ %ld.%.9ld] [%s/%d"
+        },
+        {
+          "at": "0x1cdf57",
+          "printable": true,
+          "format": true,
+          "context": "d.%.9ld] [%s/%d] %s(%d): [%d] TA %d, ID %d, QID %d, numQ %d, numSQ %d, macAddr 0x%02x:%02x:%02x:%02x:%02x:%02x....%d[%s/%d] %s(%d)"
+        },
+        {
+          "at": "0x1cdfc2",
+          "printable": true,
+          "format": true,
+          "context": "02x....%d[%s/%d] %s(%d): [%d] TA %d, ID %d, QID %d, numQ %d, numSQ %d, macAddr 0x%02x:%02x:%02x:%02x:%02x:%02x.....%d[ %ld.%.9ld] "
+        },
+        {
+          "at": "0x1cf110",
+          "printable": true,
+          "format": true,
+          "context": ".%d[ %ld.%.9ld] [%s/%d] %s(%d): cpeID %d, startQ %d, numQ %d numSQ %d....%d[%s/%d] %s(%d): cpeID %d, startQ %d, numQ %d numSQ %d.."
+        },
+        {
+          "at": "0x1cf14b",
+          "printable": true,
+          "format": true,
+          "context": "d numSQ %d....%d[%s/%d] %s(%d): cpeID %d, startQ %d, numQ %d numSQ %d.....%d[ %ld.%.9ld] [%s/%d] %s(%d): rxFIFOCnt %d.....%d[%s/%d"
+        }
+      ],
+      "lq": [
+        {
+          "at": "0x030f08",
+          "printable": false,
+          "format": false,
+          "context": ".0....... ...0........T......0...0@..0...0....S.........,.......LQ..\\Q...@-...M..0...0@..P...@........P..................0...0@..0"
+        },
+        {
+          "at": "0x15d714",
+          "printable": false,
+          "format": false,
+          "context": "..A..`f.>........a&.O....0...b\"..Pe.N....0...0@..0....S.....3./.LQ.......C-.,.M..P...0...0@..`.......(..P0..Pp......O.... ...@..O."
+        },
+        {
+          "at": "0x19bee7",
+          "printable": true,
+          "format": false,
+          "context": ".........mcs_ceiling_toggle_txpwr....BINSXZ?FKPVW=CINTU<BHMST:AFLQR8@DJOP6>BHMN4<@FKLAGMRWX=EJOTU<CHNST;BGLQS:@FKPQ9>DINO8<BGLM7:@"
+        },
+        {
+          "at": "0x19bf11",
+          "printable": true,
+          "format": false,
+          "context": "Z?FKPVW=CINTU<BHMST:AFLQR8@DJOP6>BHMN4<@FKLAGMRWX=EJOTU<CHNST;BGLQS:@FKPQ9>DINO8<BGLM7:@EJK......................................."
+        },
+        {
+          "at": "0x19bffc",
+          "printable": true,
+          "format": false,
+          "context": "........5>?ABCDNOTUY:@AEFHIOPUV[?ABGHKLOPUV[5@AGHLMRSWX[3<=?@ABKLQRW8=>CDFGLMRSX..=DEIJLMRSX3=>DEIJOPTUX3:;@ACDIJOPU889ABFGIJOPW.."
+        },
+        {
+          "at": "0x19c0ca",
+          "printable": true,
+          "format": false,
+          "context": "<FGKLP278=>@AGHMNS79:@AEFHINOU,67>?CDIJOPR/349:<=DEJKP..2<=@AEFKLQ..7=>DEFGLMT/34=>BCIJOPQ+019:<=DEJKP..2<=@AEFKLQ..7=>DEFGLMT+56="
+        }
+      ],
+      "nq": [
+        {
+          "at": "0x1b168c",
+          "printable": true,
+          "format": true,
+          "context": ".....%d[%s/%d] %s(%d): BYE frm task.....--- SFN[%x] ---.....Top NQ CPE(%d) [%d.%d] (NtoS=%d)....Min SQ CPE(%d) [%d.%d] (StoN=%d).."
+        }
+      ],
+      "poll": [
+        {
+          "at": "0x1cd59a",
+          "printable": true,
+          "format": true,
+          "context": "d[%s/%d] %s(%d): done......%d[ %ld.%.9ld] [%s/%d] %s(%d): enter polling mode.......%d[%s/%d] %s(%d): enter polling mode........%d[ %"
+        },
+        {
+          "at": "0x1cd5c5",
+          "printable": true,
+          "format": true,
+          "context": "%s/%d] %s(%d): enter polling mode.......%d[%s/%d] %s(%d): enter polling mode........%d[ %ld.%.9ld] [%s/%d] %s(%d): Q#%u is active wi"
+        }
+      ],
+      "ntos": [
+        {
+          "at": "0x1b16a0",
+          "printable": true,
+          "format": true,
+          "context": "): BYE frm task.....--- SFN[%x] ---.....Top NQ CPE(%d) [%d.%d] (NtoS=%d)....Min SQ CPE(%d) [%d.%d] (StoN=%d)........SQ-CPE(%d)[%d.%d"
+        }
+      ],
+      "ston": [
+        {
+          "at": "0x1b16c4",
+          "printable": true,
+          "format": true,
+          "context": "....Top NQ CPE(%d) [%d.%d] (NtoS=%d)....Min SQ CPE(%d) [%d.%d] (StoN=%d)........SQ-CPE(%d)[%d.%d] ..SWQ_Record Not Support...%d[ %ld"
+        }
+      ],
+      "sched_symbols": [
+        "AME_HSM_add_sched_result",
+        "AME_HSM_submit_sched_result",
+        "AME_SchedAutoMCS",
+        "AME_SchedCheckActiveCPE",
+        "AME_SchedCheckAuthCPE",
+        "AME_SchedCheckForcedDGain",
+        "AME_SchedCheckNumActiveCPEs",
+        "AME_SchedDfsDummytraffic",
+        "AME_SchedEarlyDataCFG",
+        "AME_SchedFrameOp",
+        "AME_SchedGetCPE_stat_dl_sched_amount",
+        "AME_SchedGetCPE_stat_dl_sched_times",
+        "AME_SchedGetCPE_stat_ul_sched_amount",
+        "AME_SchedGetCPE_stat_ul_sched_times",
+        "AME_SchedGetCPE_statistic",
+        "AME_SchedGetMaxCPECnt",
+        "AME_SchedGetQ_stat_dl_sched_amount",
+        "AME_SchedGetQ_stat_dl_sched_times",
+        "AME_SchedGetQ_stat_ul_sched_amount",
+        "AME_SchedGetQ_stat_ul_sched_times",
+        "AME_SchedGetQ_statistic",
+        "AME_SchedIirDummy",
+        "AME_SchedMaxFragCFG",
+        "AME_SchedQAdmission",
+        "AME_SchedUpdateAuthCfg",
+        "AME_SchedUpdateBugtCfg",
+        "AME_SchedUpdateDLCeiling",
+        "AME_SchedUpdateMCS",
+        "AME_SchedUpdateRateCtrlCfg",
+        "AME_SchedUpdateSysMCS",
+        "AME_SchedUpdateULDGain",
+        "AME_SchedUpdateULRequest",
+        "AME_SchedUpdateUsrCfg",
+        "AME_Sched_DL",
+        "AME_Sched_Get_Queue_Profile",
+        "AME_Sched_InitData",
+        "AME_Sched_IsSuperQ",
+        "AME_Sched_Local",
+        "AME_Sched_Local_NoBeacon",
+        "AME_Sched_MixMcs_Default_portion"
+      ],
+      "poll_symbols": [],
+      "slot_symbols": [
+        "AME_HSM_ConfigQ_OFDMA",
+        "ame_bbp_get_ofdma_subband0_hdrIdx",
+        "ame_bbp_get_ofdma_subbands",
+        "ame_bbp_set_ofdma_en",
+        "ame_bbp_set_ofdma_subband0_hdrIdx",
+        "ame_bbp_set_ofdma_subband_type",
+        "ame_bbp_set_ofdma_subbands",
+        "ame_check_hw_NoOFDMA",
+        "ame_core_get_avail_cz_slot",
+        "bbp_base_aes_get_slot_counts",
+        "bbp_base_set_ofdma_subband_type",
+        "bbp_mrx_band_ofdma_subbands",
+        "bbp_mrx_set_ofdma_subband0_hdrIdx",
+        "bbp_mtx_set_ofdma_subband0_hdrIdx",
+        "eab_ofdma_cnt",
+        "eab_ofdma_dat_cnt",
+        "eab_ofdma_e",
+        "eab_ofdma_mgn_cnt",
+        "eab_ofdma_s",
+        "sched_force_training_symbol_ofdma"
+      ]
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "module_ok": 1,
+    "sq_tokens": 6,
+    "sq_string_contexts": 6,
+    "nq_tokens": 1,
+    "swq_tokens": 3,
+    "lq_tokens": 20,
+    "lq_string_contexts": 0,
+    "lq_printable_contexts": 4,
+    "long_queue_tokens": 0,
+    "short_queue_tokens": 0,
+    "ntos_contexts": 1,
+    "ston_contexts": 1,
+    "poll_tokens": 2,
+    "sched_tokens": 297,
+    "ofdma_tokens": 88,
+    "slot_tokens": 41,
+    "scheduler_symbols": 40,
+    "scheduler_symbols_sample": [
+      "AME_HSM_add_sched_result",
+      "AME_HSM_submit_sched_result",
+      "AME_SchedAutoMCS",
+      "AME_SchedCheckActiveCPE",
+      "AME_SchedCheckAuthCPE",
+      "AME_SchedCheckForcedDGain",
+      "AME_SchedCheckNumActiveCPEs",
+      "AME_SchedDfsDummytraffic",
+      "AME_SchedEarlyDataCFG",
+      "AME_SchedFrameOp"
+    ],
+    "poll_symbols_sample": [],
+    "threshold_16_present": 0,
+    "sq_lq_split_recovered": 0,
+    "nq_sq_split_recovered": 1
+  },
+  "gaps": [
+    "eab_driver.ko does not exist, so the stage's second module has no bytes",
+    "the stage's SQ<=16 / LQ>16 framing is refuted: LQ has zero format-string contexts (its printable hits are a base64-style lookup table) and long_queue/short_queue have zero hits; the real classes are N and S",
+    "the 16-CPE threshold appears nowhere; no numeric boundary was recovered",
+    "the NtoS/StoN counters prove the class transition is dynamic but do not give the rule that triggers it",
+    "slot appears in 41 places but the contexts mix crypto keystore slots (wait_for_aes_slots) with scheduler slot indices, so no single slot allocator was isolated",
+    "no dynamic validation"
+  ]
+}

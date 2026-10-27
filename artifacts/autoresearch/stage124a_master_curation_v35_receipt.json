@@ -1,0 +1,281 @@
+{
+  "stage_id": "Stage 124A",
+  "task_id": "T-S124A-MASTER-CURATION-V35-AND-WA-UNIVERSAL-KIT-VERIFICATION",
+  "curation_version": "v35.0",
+  "timestamp_utc": "2026-10-26T22:45:54.935493+00:00",
+  "claim_status": "CONFIRMED",
+  "attribution": "Linux, mac80211, ath10k, hardware, proprietary airMAX/LTU module, external controller",
+  "hardware_safety": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_guarida_poe_switches_200_201": false,
+    "flash_writes": 0
+  },
+  "discoveries_reconciled": {
+    "FMX-DISC-39": {
+      "claim_status": "CONFIRMED",
+      "attribution": "Linux + mac80211",
+      "prior_6_6_73_hypothesis": "REFUTED",
+      "shared_vermagic": "6.6.110 mod_unload MIPS32_R2 32BIT ",
+      "shared_text_size_bytes": 564672,
+      "shared_rel_text_entries": 13917,
+      "panel1_lap120_snapshot_6_6_110": {
+        "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb.ko",
+        "size_bytes": 829464,
+        "sha256": "19a8fde6c6e5efbec3b5b3ddb28399631fc3bba516c5341c8f40e7263124c416",
+        "module_layout_size_bytes": 384,
+        "skb_data_offset_hex": "0xa4",
+        "lw_skb_data_insn": "0x8cc900a4",
+        "sw_skb_data_insn": "0xacc900a4"
+      },
+      "openwrt_24_10_4_release_6_6_110": {
+        "rom_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_rom_241.ko",
+        "teb_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_6.6.110.ko",
+        "size_bytes": 815640,
+        "rom_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+        "teb_sha256": "3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868",
+        "module_layout_size_bytes": 352,
+        "skb_data_offset_hex": "0xa8",
+        "lw_skb_data_insn": "0x8cc900a8",
+        "sw_skb_data_insn": "0xacc900a8"
+      },
+      "file_size_delta_bytes": 13824
+    },
+    "FMX-DISC-40": {
+      "claim_status": "CONFIRMED",
+      "attribution": "hardware + Linux + mac80211 + ath10k + proprietary airMAX/LTU module",
+      "shared_platform_dtsi": "ar9342_ubnt_wa.dtsi",
+      "wa_boards_built_count": 4,
+      "total_images_verified_count": 16,
+      "boards_summary": {
+        "powerbeam-5ac-gen2": {
+          "board_id": "ubnt,powerbeam-5ac-gen2",
+          "sysid_hex": "0xe3d6",
+          "factory_hsqs_offset_hex": "0x280184",
+          "sysupgrade_hsqs_offset_hex": "0x280000",
+          "factory_ap_crc32": "0xa50079fd",
+          "sysupgrade_ap_crc32": "0x875de6d",
+          "factory_ap_sha256": "77295d869a44668470be46af60daa9968bbd20ee2cbf8a9af8dff9914745ad45",
+          "sysupgrade_ap_sha256": "85e21cd5cae6adda53990c4731175837ce34b138cae61c163f8095e6631ff40b"
+        },
+        "litebeam-5ac-gen2": {
+          "board_id": "ubnt,litebeam-ac-gen2",
+          "sysid_hex": "0xe7f9",
+          "factory_hsqs_offset_hex": "0x290184",
+          "sysupgrade_hsqs_offset_hex": "0x290000",
+          "factory_ap_crc32": "0xecba3b0f",
+          "sysupgrade_ap_crc32": "0x894f8b81",
+          "factory_ap_sha256": "7a5ca92880afc10ba5c47b7e9e8b237c3494c617fd42499fce7ab9a812e70a33",
+          "sysupgrade_ap_sha256": "8544a28fe51badad54e16f8fb07384cb31efe33cc168582db3a2cf4eaa59289f"
+        },
+        "lap-120": {
+          "board_id": "ubnt,lap-120",
+          "sysid_hex": "0xe7f5",
+          "factory_hsqs_offset_hex": "0x280184",
+          "sysupgrade_hsqs_offset_hex": "0x280000",
+          "factory_ap_crc32": "0xb1f519a5",
+          "sysupgrade_ap_crc32": "0x1a36b85",
+          "factory_ap_sha256": "62ec7facf89562991eae26152556dcab99e49b0608f18cce7d556af210c61b49",
+          "sysupgrade_ap_sha256": "3536e4368be9e1ca6cf5ddf02ff624b2f1cb31dc41b799f105892dc534942573"
+        },
+        "nanostation-ac-loco": {
+          "board_id": "ubnt,nanostation-ac-loco",
+          "sysid_hex": "0xe7f7",
+          "factory_hsqs_offset_hex": "0x290184",
+          "sysupgrade_hsqs_offset_hex": "0x290000",
+          "factory_ap_crc32": "0x376c017f",
+          "sysupgrade_ap_crc32": "0xf0036de5",
+          "factory_ap_sha256": "27db691e3783f1dc6bc06f9635eb1cc202d8fd685a51f069afb16dc6c81429d3",
+          "sysupgrade_ap_sha256": "73464769365ba377f132af2cb4f94e39f3e969fff07b12d5a2204f45602e36ef"
+        }
+      },
+      "rc_poststart_knob_groups_mapped": 13,
+      "athbox_applets_audited": 15,
+      "ubntbox_applets_audited": 29
+    }
+  },
+  "stages_synchronized": {
+    "stage108a": {
+      "path": "artifacts/autoresearch/stage108a_cross_arch_wds_audit_receipt.json",
+      "sha256": "b21715cd3c926b51ce2a0a01092113b369020a963db90ea48806a7d8fdca94db",
+      "compliant_5pillar": true
+    },
+    "stage109a": {
+      "path": "artifacts/autoresearch/stage109a_guarida_rf_and_wds_readiness.json",
+      "sha256": "b4ea6efea2d695e1e8187eccf6abb9cd40af4ed246cdc8144f5fb17170a1593a",
+      "compliant_5pillar": true
+    },
+    "stage112a": {
+      "path": "artifacts/autoresearch/stage112a_multiradio_kernel_and_knob_matrix.json",
+      "sha256": "b1011f62f3b7c9f223f799bec895d283cc5577a5094c953225d36c8e1b1e25fe",
+      "compliant_5pillar": true
+    },
+    "stage113a": {
+      "path": "artifacts/autoresearch/stage113a_athbox_15applets_plt_and_ioctl_audit.json",
+      "sha256": "feafd9f4adafd9b855f9045b93c1a276cc33b1ae6f576f984b1fc14de0b47298",
+      "compliant_5pillar": true
+    },
+    "stage114a": {
+      "path": "artifacts/autoresearch/stage114a_guarida_panel2_panel3_migration_manifest.json",
+      "sha256": "bdd07fcdc9c122c165f4043a54baf78a4b63f31fce769605bc13f102a4affd2e",
+      "compliant_5pillar": true
+    },
+    "stage115a": {
+      "path": "artifacts/autoresearch/stage115a_reactor_sync_v34_receipt.json",
+      "sha256": "b2258fb8f51a26fbd245864a16d477e6531d8d3e8ff09a8315f7ea1f5c1ee366",
+      "compliant_5pillar": true
+    },
+    "stage116a": {
+      "path": "artifacts/autoresearch/stage116a_pbe5ac_kit_v2_receipt.json",
+      "sha256": "ddfb4d29af12499200c2795578bec5ee8cf12340aa0f165039487fb6eb620cb4",
+      "compliant_5pillar": true
+    },
+    "stage118a": {
+      "path": "artifacts/autoresearch/stage118a_ubntbox_29applets_plt_and_sink_audit.json",
+      "sha256": "41be906faccad9f9d27d8fa62fddd10a2a893292f50a69c4edf78458a99ec290",
+      "compliant_5pillar": true
+    },
+    "stage119a": {
+      "path": "artifacts/autoresearch/stage119a_wa_family_pbe_lbe_compatibility_and_rc_poststart_map.json",
+      "sha256": "70140aac935d9ed6ec567ec801e1d082295e2c7ed1627b6fa0a182e34d032d39",
+      "compliant_5pillar": true
+    },
+    "stage120a": {
+      "path": "artifacts/autoresearch/stage120a_pbe5ac_deep_autoresearch_harness_receipt.json",
+      "sha256": "c3f11e7283368fc0b8752cfe4e404c7fd1a0585caf8bdccc1e1bc813b8793c0c",
+      "compliant_5pillar": true
+    },
+    "stage121a": {
+      "path": "artifacts/autoresearch/stage121a_wa_family_universal_builder_receipt.json",
+      "sha256": "f2e22dba5a1c370cf1e05164076d48c4ebea311fe02649064432dd7d5fabffce",
+      "compliant_5pillar": true
+    }
+  },
+  "master_curation_v35_docs": {
+    "master_index": {
+      "path": "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md",
+      "line_count": 212,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_39": true,
+      "has_fmx_disc_40": true,
+      "has_abi_829464_0xa4": true,
+      "has_abi_815640_0xa8": true,
+      "has_wa_16_images": true
+    },
+    "curated_discoveries": {
+      "path": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+      "line_count": 150,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_39": true,
+      "has_fmx_disc_40": true,
+      "has_abi_829464_0xa4": true,
+      "has_abi_815640_0xa8": true,
+      "has_wa_16_images": true
+    },
+    "current_state": {
+      "path": "docs/CURRENT_STATE.md",
+      "line_count": 212,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_39": true,
+      "has_fmx_disc_40": true,
+      "has_abi_829464_0xa4": true,
+      "has_abi_815640_0xa8": true,
+      "has_wa_16_images": true
+    }
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "tool": "tools/verify/verify_stage124a_master_curation_v35.py",
+    "binaries_dissected": [
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb.ko (829,464B, module_layout=384B, skb->data @ 0xa4)",
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_rom_241.ko (815,640B, module_layout=352B, skb->data @ 0xa8)",
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_6.6.110.ko (815,640B, SHA-256 3e3d812f...)",
+      "bin/athbox (15 applets, 69 PLT stubs in WA/XC v8.7.25)",
+      "bin/ubntbox (29 applets, 320 PLT stubs in WA/XC v8.7.25)"
+    ],
+    "knob_ids_linked": [
+      "FMX-DISC-39",
+      "FMX-DISC-40",
+      "OWRT-AQL-TXQ-LIMIT-BE",
+      "OWRT-BQL-ETH0-HOLD800",
+      "OWRT-FQ-MEMORY-LIMIT-4MB",
+      "OWRT-HOSTAPD-BEACON-INT-30"
+    ],
+    "catalog_size": 571
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_script": "tools/research/closed_loop_research_reactor.py",
+    "queue_path": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "reactor_event": {
+      "timestamp_utc": "2026-10-26T22:45:54Z",
+      "round_id": "Stage 124A",
+      "profile_id": "WA-family (PBE-5AC-Gen2 0xe3d6, LBE-5AC-Gen2 0xe7f9, LAP-120 0xe7f5, Loco 5AC 0xe7f7)",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 0.0,
+      "gp_candidate_mbps": 0.0,
+      "gp_delta_pct": 0.0,
+      "p95_champion_ms": 0.0,
+      "p95_candidate_ms": 0.0,
+      "p95_delta_pct": 0.0,
+      "pareto_score_delta_pct": 0.0,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_Stage_124A.md",
+      "followup_scholar_queries": [
+        "Linux struct sk_buff ABI layout evolution across kernel config symbols (module_layout 384B/0xa4 vs 352B/0xa8)",
+        "IEEE 802.11ac 4-address WDS transparent Ethernet bridging (ETH_P_TEB 0x6558) across shared ar9342_ubnt_wa.dtsi hardware",
+        "IEEE 802.11ac wireless PtMP optimization WA-family (PBE-5AC-Gen2 0xe3d6, LBE-5AC-Gen2 0xe7f9, LAP-120 0xe7f5, Loco 5AC 0xe7f7) Stage 124A"
+      ],
+      "synthesized_next_mechanisms": []
+    },
+    "scholar_verified_references": [
+      "Linux struct sk_buff ABI layout evolution across kernel config symbols (module_layout 384B/0xa4 vs 352B/0xa8)",
+      "IEEE 802.11ac 4-address WDS transparent Ethernet bridging (ETH_P_TEB 0x6558) across shared ar9342_ubnt_wa.dtsi hardware"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "harness_path": "orchestration/autoresearch/fmx_autoresearch_harness.py",
+    "counterbalanced_design": "A1 -> B1 -> A2 -> B2",
+    "rollback_watchdog": {
+      "non_dfs_seconds": 45,
+      "dfs_seconds": 120,
+      "ota_ptp_watchdog_seconds": 180,
+      "rule": "FMX-DISC-24"
+    }
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "curated_discoveries_total": 40,
+    "wa_images_verified_count": 16,
+    "abi_variants_verified_count": 2,
+    "hybrid_vht20_goodput_delta_pct": 35.34,
+    "hybrid_vht20_p95_rtt_delta_pct": -81.79,
+    "full_openwrt_vht20_goodput_delta_pct": 13.8,
+    "full_openwrt_vht20_p95_rtt_delta_pct": -67.6
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage124a-master-curation-v35-wa-universal-kit-20261026",
+  "five_pillar_gate_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

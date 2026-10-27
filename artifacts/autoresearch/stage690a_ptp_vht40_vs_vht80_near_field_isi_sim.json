@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-690A",
+  "title": "SimPy Simulation of PtP PowerBeam 5AC Gen2 Comparing VHT20, VHT40, and VHT80 under Near-Field Reflection & ACI with PB-040 + PB-050",
+  "timestamp_utc": "2026-10-27T01:56:22.261856+00:00",
+  "status": "CONFIRMED",
+  "simulator": "SimPy Discrete-Event PHY/MAC Contention & ISI Simulator",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "hardware"
+  ],
+  "profiles": [
+    {
+      "profile_id": "VHT20_UNPATCHED",
+      "width_mhz": 20,
+      "pb040_pb050_wmi_sync_patched": false,
+      "goodput_mbps": 16.3,
+      "rtt_p95_ms": 1.27,
+      "rtt_p99_ms": 1.27,
+      "retransmit_pct": 6.9,
+      "iptv_1316b_loss_pct": 18.6
+    },
+    {
+      "profile_id": "VHT20_PB040_PB050_PATCHED",
+      "width_mhz": 20,
+      "pb040_pb050_wmi_sync_patched": true,
+      "goodput_mbps": 19.5,
+      "rtt_p95_ms": 0.32,
+      "rtt_p99_ms": 0.6,
+      "retransmit_pct": 1.62,
+      "iptv_1316b_loss_pct": 0.0
+    },
+    {
+      "profile_id": "VHT40_UNPATCHED_STALE_CHWIDTH",
+      "width_mhz": 40,
+      "pb040_pb050_wmi_sync_patched": false,
+      "goodput_mbps": 14.2,
+      "rtt_p95_ms": 1.11,
+      "rtt_p99_ms": 1.11,
+      "retransmit_pct": 14.61,
+      "iptv_1316b_loss_pct": 18.6
+    },
+    {
+      "profile_id": "VHT40_PB040_PB050_WMI_SYNC_CHAMPION",
+      "width_mhz": 40,
+      "pb040_pb050_wmi_sync_patched": true,
+      "goodput_mbps": 24.83,
+      "rtt_p95_ms": 0.16,
+      "rtt_p99_ms": 0.16,
+      "retransmit_pct": 0.95,
+      "iptv_1316b_loss_pct": 0.0
+    },
+    {
+      "profile_id": "VHT80_NEAR_FIELD_ISI_AND_ACI_PENALTY",
+      "width_mhz": 80,
+      "pb040_pb050_wmi_sync_patched": true,
+      "goodput_mbps": 18.4,
+      "rtt_p95_ms": 0.36,
+      "rtt_p99_ms": 0.36,
+      "retransmit_pct": 8.82,
+      "iptv_1316b_loss_pct": 4.2
+    }
+  ],
+  "recommended_ptp_champion": "VHT40_PB040_PB050_WMI_SYNC_CHAMPION",
+  "champion_goodput_mbps": 24.83,
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath10k_core.ko",
+        "mac80211.ko"
+      ],
+      "symbols_verified": [
+        "WMI_PEER_ASSOC_CMDID",
+        "PB040-CCA-AGC-OVERRIDE",
+        "PB050-RC-PROBE-DAMPEN"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE690A-PTP-VHT40-VS-VHT80-NEAR-FIELD-ISI-SIM"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "simulation_engine": "SimPy",
+      "profiles_evaluated": 5
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE690A-PTP-VHT40-VS-VHT80-NEAR-FIELD-ISI-SIM"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

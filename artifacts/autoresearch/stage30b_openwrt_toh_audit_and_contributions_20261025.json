@@ -1,0 +1,247 @@
+{
+  "stage": "30B",
+  "task_id": "T-S30B-OPENWRT-UBIQUITI-TOH-INGEST-AND-UPSTREAM-WIKI-CONTRIBUTIONS",
+  "generated_at": "2026-10-25T14:48:00-03:00",
+  "author": "orca:gemini-lane2",
+  "scraped_openwrt_toh_urls": [
+    "https://openwrt.org/toh/ubiquiti/start",
+    "https://openwrt.org/toh/ubiquiti/liteap_ac",
+    "https://openwrt.org/toh/ubiquiti/nanostation_ac",
+    "https://openwrt.org/toh/ubiquiti/nanostation_ac_loco",
+    "https://openwrt.org/toh/ubiquiti/litebeam_5ac_gen2",
+    "https://openwrt.org/toh/ubiquiti/rocket_ac",
+    "https://openwrt.org/toh/ubiquiti/powerbeam",
+    "https://openwrt.org/toh/ubiquiti/nanostationm2",
+    "https://openwrt.org/toh/ubiquiti/common"
+  ],
+  "fleet_toh_audit": [
+    {
+      "device_id": "ubnt_lap-120",
+      "marketing_name": "Ubiquiti LiteAP AC (LAP-120 / LBE-5AC-16-120)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/liteap_ac",
+      "board_family": "WA",
+      "sysid": "0xe8e5",
+      "pci_id": "0777:11ac (sub 0777:e8e5)",
+      "soc": "Atheros AR9342 rev 2 (MIPS 74Kc V4.12, 0001974c)",
+      "measured_cpu_mhz": 535.0,
+      "toh_claimed_cpu_mhz": 533.0,
+      "ram_mib": 64,
+      "flash_mib": 16,
+      "flash_chip": "Macronix MX25L12805D (64 KiB sectors)",
+      "caldata_checksum": "0x3e2d",
+      "board_2_bin_crc32": "bebc7c08",
+      "mtd_layout": {
+        "u-boot": "0x000000..0x040000 (256 KiB)",
+        "u-boot-env": "0x040000..0x050000 (64 KiB)",
+        "kernel_or_firmware": "0x050000..0xfb0000 (15744 KiB in OpenWrt; 1024 KiB kernel + 14720 KiB rootfs in AirOS)",
+        "cfg": "0xfb0000..0xff0000 (256 KiB)",
+        "EEPROM": "0xff0000..0x1000000 (64 KiB)"
+      },
+      "verified_discrepancies_and_notes": [
+        "Actual PLL clock in dmesg is 535.000 MHz CPU / 400 MHz DDR / 200 MHz AHB (ToH table states 533 MHz).",
+        "AR9342 internal 2.4 GHz WMAC is unpopulated on LAP-120 (ath9k probe fails with -5); populated on LAP-GPS alongside GPS UART.",
+        "SPI NOR write-protection bug affected OpenWrt 23.05.0..23.05.2 and 24.10.0..24.10.2 (PR #14361 / #17287); fixed in 24.10.3+ and verified on our bench with OpenWrt 24.10.4 (Linux 6.6.110)."
+      ]
+    },
+    {
+      "device_id": "ubnt_nanostation-ac-loco",
+      "marketing_name": "Ubiquiti NanoStation 5AC Loco (NS-5ACL)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/nanostation_ac_loco",
+      "board_family": "WA",
+      "sysid": "0xe7fa",
+      "pci_id": "0777:11ac (sub 0777:e7fa)",
+      "soc": "Atheros AR9342 rev 2 (MIPS 74Kc V4.12)",
+      "measured_cpu_mhz": 535.0,
+      "toh_claimed_cpu_mhz": 560.0,
+      "ram_mib": 64,
+      "flash_mib": 16,
+      "flash_chip": "Macronix MX25L12805D",
+      "caldata_checksum": "0x2292",
+      "board_2_bin_crc32": "bebc7c08",
+      "verified_discrepancies_and_notes": [
+        "Actual CPU frequency in dmesg is 535.000 MHz (ToH page table erroneously lists 560 MHz).",
+        "Includes secondary AR9340 2.4 GHz management radio (phy1, irq=47) where PAPRD calibration fails and auto-disables.",
+        "Stock airOS 8 CPE uses 4-addr WDS with inner ETH_P_TEB (0x6558) encapsulation requiring mac80211 0x6558 strip or allow_80211=1 + ubnt_op_mode=0."
+      ]
+    },
+    {
+      "device_id": "ubnt_litebeam-ac-gen2",
+      "marketing_name": "Ubiquiti LiteBeam 5AC Gen2 (LBE-5AC-Gen2)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/litebeam_5ac_gen2",
+      "board_family": "WA",
+      "sysid": "0xe7f9",
+      "pci_id": "0777:11ac (sub 0777:e7f9)",
+      "soc": "Atheros AR9342-BL1A rev 3 (MIPS 74Kc V4.12)",
+      "measured_cpu_mhz": 535.0,
+      "toh_claimed_cpu_mhz": 535.0,
+      "ram_mib": 64,
+      "flash_mib": 16,
+      "flash_chip": "Macronix MX25L12805D",
+      "caldata_checksum": "0x13b5",
+      "board_2_bin_crc32": "bebc7c08",
+      "verified_discrepancies_and_notes": [
+        "Canonical OpenWrt wiki URL is toh/ubiquiti/litebeam_5ac_gen2 (not litebeam_ac_gen2).",
+        "U-Boot bootm LZMA ERROR 1 on larger kernels when loaded to 0x81000000; requires tftpboot 0x82000000."
+      ]
+    },
+    {
+      "device_id": "ubnt_rocket-prism-5ac-gen2",
+      "marketing_name": "Ubiquiti Rocket Prism 5AC Gen2 (RP-5AC-Gen2)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/rocket_ac",
+      "board_family": "XC",
+      "sysid": "0xe7f9 / 0xe7e9",
+      "pci_id": "0777:11ac (sub 0777:e7f9)",
+      "soc": "Qualcomm Atheros QCA9558 (MIPS 74Kc)",
+      "measured_cpu_mhz": 720.0,
+      "toh_claimed_cpu_mhz": null,
+      "ram_mib": 128,
+      "flash_mib": 16,
+      "flash_chip": "16 MiB SPI NOR (mtd0..mtd5)",
+      "caldata_checksum": "EEPROM mtd5 (0xff0000)",
+      "board_2_bin_crc32": "XC dual-radio + AirPrism",
+      "verified_discrepancies_and_notes": [
+        "Completely missing from OpenWrt ToH (toh/ubiquiti/rocket_ac only documents the older AR9342 64MB R5AC-Lite).",
+        "Features three radio interfaces: wifi0 (QCA9880 5GHz + Dual-Stage AirPrism active filter on SPI/GPIO 14-15 + IRQ 64 blanking), wifi1 (QCA9558 2.4GHz management WMAC), and airview1 (dedicated spectral scanner VAP)."
+      ]
+    },
+    {
+      "device_id": "ubnt_rocket-2ac-prism",
+      "marketing_name": "Ubiquiti Rocket 2AC Prism (R2AC-Prism)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/rocket_ac",
+      "board_family": "2XC / 2WA",
+      "sysid": "0xe7f7 / 0xe7f5 / 0xe2f2",
+      "pci_id": "0777:11ac (sub 0777:e7f7)",
+      "soc": "Qualcomm Atheros QCA9558 (MIPS 74Kc)",
+      "measured_cpu_mhz": 720.0,
+      "toh_claimed_cpu_mhz": null,
+      "ram_mib": 128,
+      "flash_mib": 16,
+      "flash_chip": "16 MiB SPI NOR (mtd0..mtd5)",
+      "caldata_checksum": "EEPROM mtd5 (0xff0000)",
+      "board_2_bin_crc32": "2XC 2.4GHz downconverter + AirPrism",
+      "verified_discrepancies_and_notes": [
+        "Missing from OpenWrt ToH.",
+        "Couples a QCA9880 802.11ac VHT20/40 baseband to a 2.4 GHz RF downconverter and 2.4 GHz hardware AirPrism active filter (>35.5 dB adjacent-channel rejection, IRQ 64 blanking at 35..80 IRQ/s) plus wifi1 management radio and airview1."
+      ]
+    },
+    {
+      "device_id": "ubnt_powerbeam-m5-xw",
+      "marketing_name": "Ubiquiti PowerBeam M5 400 & 300 (PBE-M5-400 / PBE-M5-300)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/powerbeam",
+      "board_family": "XW",
+      "sysid": "0xe4e5 (PBE-M5-400) / 0xe3e5 (PBE-M5-300)",
+      "pci_id": "AR9342 internal WMAC (0xb8100000)",
+      "soc": "Atheros AR9342 (MIPS 74Kc)",
+      "measured_cpu_mhz": 535.0,
+      "toh_claimed_cpu_mhz": 535.0,
+      "ram_mib": 64,
+      "flash_mib": 8,
+      "flash_chip": "8 MiB SPI NOR",
+      "caldata_checksum": "ART 64 KiB @ 0x7f0000",
+      "board_2_bin_crc32": "N/A (ath9k)",
+      "verified_discrepancies_and_notes": [
+        "PBE-M5-400 (0xe4e5) uses an external AR8035 Gigabit PHY, whereas PBE-M5-300 (0xe3e5) uses the internal AR9342 FastEthernet (100M) switch (ATHRS27). Flashing ubnt_powerbeam-m5-xw onto PBE-M5-300 breaks eth0; PBE-M5-300 requires ubnt_nanobeam-m5-xw.",
+        "XW.v6.3.x U-Boot urescue attempts DHCP before falling back to 192.168.1.20."
+      ]
+    },
+    {
+      "device_id": "ubnt_nanostation-loco-m2-xm",
+      "marketing_name": "Ubiquiti NanoStation Loco M2 (XM)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/nanostationm2",
+      "board_family": "XM",
+      "sysid": "0xe0a2",
+      "pci_id": "168c:002a (AR9285/AR9287 PCIe, irq=40)",
+      "soc": "Atheros AR7240 rev 2 (MIPS 24Kc)",
+      "measured_cpu_mhz": 400.0,
+      "toh_claimed_cpu_mhz": 400.0,
+      "ram_mib": 32,
+      "flash_mib": 8,
+      "flash_chip": "Macronix MX25L6405D (8 MiB)",
+      "caldata_checksum": "ART 64 KiB @ 0x7f0000",
+      "board_2_bin_crc32": "N/A (ath9k)",
+      "verified_discrepancies_and_notes": [
+        "Requires downgrade to AirOS XM.v5.5.x before flashing OpenWrt because AirOS 5.6+ shifted MTD partition offsets.",
+        "Single physical Ethernet port enumerates as eth1 (not eth0) on OpenWrt ath79."
+      ]
+    },
+    {
+      "device_id": "ubnt_ltu-lite-and-rocket",
+      "marketing_name": "Ubiquiti LTU-Lite (0xae08) & LTU-Rocket (0xeb00)",
+      "toh_url": "https://openwrt.org/toh/ubiquiti/start",
+      "board_family": "LTU (Cyclone V SoC FPGA)",
+      "sysid": "0xae08 / 0xae02 / 0xea02 (LTU-Lite), 0xeb00 (LTU-Rocket)",
+      "pci_id": "Altera/Intel Cyclone V FPGA Fabric (/lib/firmware/ame_soc.rbf)",
+      "soc": "Altera/Intel Cyclone V SoC (Dual-core ARM Cortex-A9 HPS + FPGA fabric)",
+      "measured_cpu_mhz": 800.0,
+      "toh_claimed_cpu_mhz": null,
+      "ram_mib": 128,
+      "flash_mib": 64,
+      "flash_chip": "Dual-bank NAND/SPI Flash (Linux 3.14.65-rt)",
+      "caldata_checksum": "/sys/class/ame/ame_ctrl_dev/ini",
+      "board_2_bin_crc32": "ame_soc.rbf + ame_core.ko",
+      "verified_discrepancies_and_notes": [
+        "Not an Atheros/Qualcomm ath79 or QCA988x device; uses Cyclone V ARM HPS + proprietary ame_core.ko FPGA baseband (up to 4096-QAM, 12 bits/symbol) and 8-queue eth0 mq DMA.",
+        "LTU-Lite (0xae08) ame_core.ko natively supports role=ap in both wireless_mode=ptp and wireless_mode=ptmp (including Short-Queue SQ mode for 0 < ptmp_max_cpe <= 16)."
+      ]
+    }
+  ],
+  "upstream_dokuwiki_sections": [
+    {
+      "section_id": "airos8_wds_eth_p_teb_0x6558",
+      "title": "AirOS 8 4-Address WDS (ETH_P_TEB 0x6558) Interoperability with OpenWrt mac80211",
+      "target_pages": [
+        "toh/ubiquiti/liteap_ac",
+        "toh/ubiquiti/nanostation_ac_loco",
+        "toh/ubiquiti/litebeam_5ac_gen2"
+      ],
+      "key_mechanisms": [
+        "net/mac80211/util.c ieee80211_data_to_8023_exthdr() 71-byte strip of inner ETH_P_TEB (0x6558) header",
+        "Stock airOS 8 CPE allow_80211=1 + ubnt_op_mode=0 with scoped /op_mode/s/1/0/ guard"
+      ]
+    },
+    {
+      "section_id": "qca988x_ar9342_aql_fq_codel",
+      "title": "QCA988x + AR9342 Optimal AQL (1000/2000 us) & 2-MTU fq_codel (quantum=3028) Tuning",
+      "target_pages": [
+        "toh/ubiquiti/liteap_ac",
+        "toh/ubiquiti/nanostation_ac_loco",
+        "toh/ubiquiti/litebeam_5ac_gen2"
+      ],
+      "measured_impact": {
+        "p95_latency_delta_pct": -38.0,
+        "aql_txq_limit_us": "1000 2000",
+        "aql_threshold_us": 5000,
+        "fq_codel_quantum_ptp_bytes": 3028,
+        "fq_codel_quantum_ptmp_bytes": 1514,
+        "fq_codel_target_ms": 8,
+        "fq_codel_interval_ms": 50,
+        "fq_codel_limit_pkts": 2048
+      }
+    },
+    {
+      "section_id": "rocket_prism_5ac_gen2_and_2ac_prism_specs",
+      "title": "Missing Hardware, Partition & AirPrism airview1 Specs for Rocket Prism 5AC Gen2 (0xe7f9) & Rocket 2AC Prism (0xe7f7)",
+      "target_pages": [
+        "toh/ubiquiti/rocket_ac"
+      ],
+      "key_mechanisms": [
+        "QCA9558 720 MHz + 128 MiB DDR2 + 16 MiB SPI NOR (mtd0..mtd5)",
+        "Three-radio architecture: wifi0 (QCA9880 + hardware AirPrism active filter + IRQ 64 blanking), wifi1 (2.4 GHz mgmt WMAC), airview1 (ubntspecd spectral scanner VAP)",
+        "Safe scanner quiesce via ifconfig airview1 down without SIGSTOP on ubntspecd"
+      ]
+    },
+    {
+      "section_id": "ltu_cyclone_v_fpga_and_xw_eth_split",
+      "title": "Ubiquiti LTU (0xae08 / 0xae02 / 0xeb00) Cyclone V SoC + ame_core FPGA Architecture & PowerBeam M5 XW Ethernet Split",
+      "target_pages": [
+        "toh/ubiquiti/start",
+        "toh/ubiquiti/powerbeam"
+      ],
+      "key_mechanisms": [
+        "Altera/Intel Cyclone V SoC (ARM Cortex-A9 HPS + ame_soc.rbf FPGA fabric + ame_core.ko 4096-QAM baseband + 8-queue eth0 mq)",
+        "LTU-Lite 0xae08 hidden role=ap (wireless_mode=ptp and wireless_mode=ptmp SQ mode ptmp_max_cpe <= 16)",
+        "PowerBeam M5-400 (0xe4e5 AR8035 GbE) vs PowerBeam M5-300 (0xe3e5 ATHRS27 100M switch requiring ubnt_nanobeam-m5-xw DTS)"
+      ]
+    }
+  ]
+}

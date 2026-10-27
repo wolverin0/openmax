@@ -1,0 +1,276 @@
+{
+  "task_id": "T-S42B-CODEX-STAGE47B-LTU-OTA-1024QAM-AND-16BYTE-SSID-VERIFIER",
+  "generated_utc": "2026-10-26T00:32:48.519524+00:00",
+  "status": "PASS_OFFLINE_SOFTWARE_ONLY",
+  "scope": "OFFLINE_ONLY",
+  "source_sha256": {
+    "artifacts/autoresearch/stage47b_boca7_live_flash_and_ota_verification_20261025.json": "916f4c33c5ce29dcd6203f068b1747207f80ecb0638896697361438a6dc78d1e",
+    "docs/STAGE47B_BOCA7_LIVE_FLASH_AND_OTA_VERIFICATION.md": "81aa3100cfa0d8b338173da6954fbcec2d6b781e17a27b3a3110c9133e126b51",
+    "artifacts/autoresearch/stage42b_poststart_source_freeze_20261025.json": "9545c136873a4d56411d639e08053b6f18b93e485d94f12826953d947d8a8230",
+    "tools/bench/run_stage45b_ltu_16byte_ssid_and_boca7_provisioner.py": "0d120f8af8f8003f6ef824279dc03ddcab3c444355beea44125918df1891cda0",
+    "controller/stage42a_netdev_txq_and_airos6_verifier.py": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70",
+    "controller/stage44a_champion_v15_and_ltu_beacon_verifier.py": "ebe768b1fe5775b0cae6e4823e51bd5a75db47a50c3bb822a096b74533ce87dd",
+    "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/init": "5e5fb1ad00d37aafcb8e8e429e5776ae70df6e34af337ae9fe894383a1321ee1",
+    "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/usr/etc/rc.d/rc.funcs": "3bae5d9ca25fa7e5d8ac1840e495e4218af6e18be1e8c5c5ba493310c145f86d",
+    "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/bin/ame_drv.sh": "ff6bcde884d234154f12bc83a3dd460bab39fc74929a11a108c37691116bdee0",
+    "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/bin/ubntbox": "879b3085d6e9f1091cf987a8c4258a34a69dfd160821647ba35567e6ba2737fb"
+  },
+  "audit": {
+    "task_id": "T-S42B-CODEX-STAGE47B-LTU-OTA-1024QAM-AND-16BYTE-SSID-VERIFIER",
+    "source_contract": {
+      "saved_objects_authenticated": true,
+      "stage47b_canonical_sha256": "fa681a2a6f7823fbc3f7ea728e899a4069080e08014e1366d3bbafa505c460a7",
+      "report_sha256": "81aa3100cfa0d8b338173da6954fbcec2d6b781e17a27b3a3110c9133e126b51",
+      "freeze_canonical_sha256": "6b7e9b284c8aff723d6a82aba9805c914b1673691a9aaad235f3b84d558875f3",
+      "deployed_poststart_identity": "UNKNOWN",
+      "native_acquisition_authenticated": false
+    },
+    "stage47b": {
+      "association": {
+        "LTU1": {
+          "saved_run_and_one_peer_consistent": true,
+          "spectrum_efficient": 1535,
+          "constellation_nss_mapping_qualified": false,
+          "new_hardware_measurement": false
+        },
+        "LTU2": {
+          "saved_run_and_one_peer_consistent": true,
+          "spectrum_efficient": 1319,
+          "constellation_nss_mapping_qualified": false,
+          "new_hardware_measurement": false
+        }
+      },
+      "state_machine": {
+        "transcript_sequence_consistent": true,
+        "cpe_events_uptime_s": {
+          "ssid": "6624.681497",
+          "valid_beacon": "6639.223536",
+          "coming": "6639.223565",
+          "preferred": "6639.223575",
+          "cir_sfn": "6644.025407",
+          "lock_transition": "6644.025436",
+          "lock_done": "6644.026584",
+          "state3": "6644.316280",
+          "ta235": "6644.360846",
+          "ta_applied": "6644.361984"
+        },
+        "ap_events_uptime_s": {
+          "superqueue": "8975.623737",
+          "ta235": "8975.635995",
+          "ta2_trigger": "8975.677755",
+          "ta2_done": "8975.683453",
+          "user1": "8975.691922",
+          "carrier_clear": "8975.691952",
+          "air3": "8975.691976"
+        },
+        "beacon_to_state3_s": 5.092744,
+        "ssid_config_to_state3_s": 19.634783,
+        "restart_to_link_latency_known": false,
+        "cross_radio_clock_order_qualified": false,
+        "raw_boot_epoch_authenticated": false
+      },
+      "metrics": {
+        "rates": {
+          "dl": {
+            "reported_mean_mbps": 61.4,
+            "reported_peak_mbps": 79.1,
+            "reported_retransmits": 14
+          },
+          "ul": {
+            "reported_mean_mbps": 41.9,
+            "reported_peak_mbps": 42.4,
+            "reported_retransmits": 11
+          }
+        },
+        "reported_ping": {
+          "min_ms": 3.16,
+          "avg_ms": 5.25,
+          "max_ms": 7.822,
+          "loss_pct": 0.0
+        },
+        "directional_sum_mbps": 103.3,
+        "directional_sum_per_mhz": 5.165,
+        "simultaneous_aggregate_proven": false,
+        "raw_ping_or_iperf_receivers_available": false,
+        "ota_route_isolation_proven": false
+      },
+      "persistence": {
+        "LTU1": {
+          "progress_receipt": "MISSING",
+          "dual_partition_progress_100": false,
+          "persisted_readback_qualified": false,
+          "cold_boot_qualified": false
+        },
+        "LTU2": {
+          "progress_receipt": "PRESENT",
+          "dual_partition_progress_100": true,
+          "command_exit_code": "UNKNOWN",
+          "persisted_readback_qualified": false,
+          "cold_boot_qualified": false
+        }
+      },
+      "saved_relocation_claim": true,
+      "native_relocation_accepted": false,
+      "cold_boot_standalone_acceptance": "UNKNOWN",
+      "ssid_dcxo_power_causal_isolation": "UNKNOWN",
+      "exact_beacon_instruction_proof": "UNKNOWN"
+    },
+    "poststart": {
+      "LTU1": {
+        "literal_sha256": "58cf59d1968bd107b37883f48f338e2144db8fc80be264a5465a5b4998e73fb2",
+        "known_snapshot": true,
+        "short_ssid_substitution_present": true,
+        "live_ssid_command_present": false,
+        "alternating_scan_command_present": false,
+        "ath0_address_attempt_present": true,
+        "ath0_keeper_attempt_present": true,
+        "config_edits_only_if_file_exists": true,
+        "direct_load_requires_tmp_ame_cfg": true,
+        "generated_ame_program_dependency_verified": false,
+        "tmp_config_generation_in_script": false,
+        "driver_restart_can_follow_ini_edits": true,
+        "success_marker_proves_restore": false,
+        "silent_failures_present": true,
+        "same_management_subnet_on_br0_br1": true,
+        "runtime_bridge_membership_known": false,
+        "cold_boot_restore_proven": false,
+        "deployed_identity": "UNKNOWN",
+        "disposition": "BLOCKED_MISSING_NATIVE_COLD_BOOT_AND_ROUTE_EVIDENCE"
+      },
+      "LTU2": {
+        "literal_sha256": "d234783df13dac748db8f6e0378ab671c3cde7a32952d127e67b5868db518fb6",
+        "known_snapshot": true,
+        "short_ssid_substitution_present": true,
+        "live_ssid_command_present": true,
+        "alternating_scan_command_present": true,
+        "ath0_address_attempt_present": true,
+        "ath0_keeper_attempt_present": true,
+        "config_edits_only_if_file_exists": true,
+        "direct_load_requires_tmp_ame_cfg": true,
+        "generated_ame_program_dependency_verified": false,
+        "tmp_config_generation_in_script": false,
+        "driver_restart_can_follow_ini_edits": true,
+        "success_marker_proves_restore": false,
+        "silent_failures_present": true,
+        "same_management_subnet_on_br0_br1": true,
+        "runtime_bridge_membership_known": false,
+        "cold_boot_restore_proven": false,
+        "deployed_identity": "UNKNOWN",
+        "disposition": "BLOCKED_MISSING_NATIVE_COLD_BOOT_AND_ROUTE_EVIDENCE"
+      }
+    },
+    "boundaries": {
+      "offline_only": true,
+      "native_dispatch_allowed": false,
+      "ssh": false,
+      "hardware_access": false,
+      "physical_acceptance": "UNKNOWN",
+      "e2": "NOT_ACCEPTED"
+    }
+  },
+  "source_capture_note": "Current deploy source changed during initial read; captured poststart literals govern, deployed identity UNKNOWN; mutable deployment source not a runtime input.",
+  "navigation": "GitNexus inventory queried; no fresh FuturaMAX index relied on; Serena overview/find_symbol tools not exposed; scoped native path/text and AST used.",
+  "independent_initial_findings": {
+    "generation_chain": "held2.4.2 only; ubntconf placeholder/ubntbox strings not native generation proof",
+    "flash": "Only CPE progress receipt, no AP/readback/coldboot",
+    "routing": "same-switch bypass not excluded; no route/bridge/sourcebinding captures"
+  },
+  "test_runs": [
+    {
+      "path": "artifacts/autoresearch/stage42b_test_run_1_20261025.json",
+      "sha256": "aa2d2815907f3ee222bb14e1fa25e7619613f5c70e3f8c5f58ee9934880970a2",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage42b_stage47b_ltu_ota_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:4 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage42b_sta ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 28%]\r\n........................................................................ [ 57%]\r\n........................................................................ [ 86%]\r\n..................................                                       [100%]\r\n250 passed in 0.40s\r\n",
+        "scope": "LOCAL_OFFLINE_TESTS_ONLY",
+        "timestamp_utc": "2026-10-26T00:28:09.8372244Z"
+      }
+    },
+    {
+      "path": "artifacts/autoresearch/stage42b_test_run_2_20261025.json",
+      "sha256": "4a6af3d7cc77ea8665be542220b6d0e3de16e49b78e4306fd33c002f5f553c06",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage42b_stage47b_ltu_ota_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:4 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage42b_sta ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 28%]\r\n........................................................................ [ 57%]\r\n........................................................................ [ 85%]\r\n....................................                                     [100%]\r\n252 passed in 0.39s\r\n",
+        "scope": "LOCAL_OFFLINE_TESTS_ONLY",
+        "changed_hypothesis": "Root missing-vs-None fields: require explicit interface master and route via",
+        "timestamp_utc": "2026-10-26T00:29:03.5950681Z"
+      }
+    }
+  ],
+  "independent_review": {
+    "status": "PASS",
+    "initial_findings": [
+      {
+        "finding": "Persisted system.cfg edit was described as including preferred-SSID",
+        "resolution": "Report now limits persisted edits to SSID keys; later live preferred-SSID handled separately"
+      },
+      {
+        "finding": "Missing interface master or route via was treated as explicit None",
+        "resolution": "Explicit key presence required; two new regression tests pass"
+      },
+      {
+        "finding": "Mutable poststart templates changed again after frozen input capture",
+        "resolution": "Independent bounded delta documented: only permanent-neighbor attempts; later revision remains unqualified and is not substituted into tested classifier"
+      }
+    ],
+    "metadata_finalization_exception": "After frozen review only validation status/review receipt pointer, own task-card completion and user-requested memory checkpoint may change; no reviewed code/test/docs edits.",
+    "receipt_path": "artifacts/autoresearch/stage42b_independent_review_20261025.json",
+    "receipt_sha256": "172012c6894d21f10376e6730a84ade97178ccd801b811e95e40230fd76c9fb8",
+    "reviewed_pre_finalization_validation_sha256": "a09eef7890faab61cb82ce192753fcf848f787cacc91695dc5fd2817709d3e3e"
+  },
+  "boundary": {
+    "offline_only": true,
+    "native_dispatch_allowed": false,
+    "ssh": false,
+    "hardware_access": false,
+    "physical_acceptance": "UNKNOWN",
+    "e2": "NOT_ACCEPTED"
+  },
+  "test_summary": {
+    "initial_passed": 250,
+    "initial_failed": 0,
+    "initial_exit_code": 0,
+    "initial_module_sha256_reported_by_worker": "ce68b004462d643e61c8c5aeb194a8b0235c86febec1cf55f2a89692dcb511cd",
+    "final_passed": 252,
+    "final_failed": 0,
+    "final_exit_code": 0,
+    "final_duration_s": 0.39,
+    "scope": "Only tests/test_stage42b_stage47b_ltu_ota_verifier.py; not full repository suite",
+    "changed_hypothesis": "Require explicit master/via readbacks rather than treating missing as None; add missing-field regressions; AP fixed-frequency readback does not require CPE scan recipe."
+  },
+  "frozen_review_files": {
+    "controller/stage47b_ltu_ota_link_and_poststart_verifier.py": "9437900156931f91f1b6f97db30b363dc88c32ff07221f477250eccb9d45c5d6",
+    "tests/test_stage42b_stage47b_ltu_ota_verifier.py": "c721bfa38c7cebdabb8288044fc837cc78d5534112fc8ab6f3e150f6139ea178",
+    "docs/STAGE42B_STAGE47B_LTU_OTA_1024QAM_AND_POSTSTART_VERIFIER.md": "73c6a5a44d4a25a0c58c28693e1469ca40788a137ce35c6ec39ef715124bbbb0",
+    "docs/BENCH_PLAN.md": "746f4910be203fca6ef4fed4629aba8a6da0108fe094a0c302c67cf1c3e8e4b8",
+    "docs/CURRENT_STATE.md": "cbc122ac84bbf4dcd101c25fc9b2e5c0d009719b2d16d5fd6de549496c42e344",
+    "docs/RESEARCH_LEDGER.md": "1dbc0ce53908e0724043626bea6afe61ec5447d914d5238a26a032f1fcf55cf5",
+    "docs/DECISIONS.md": "12b0e27b4e94af0bd7c2d421d3a1e1b0cefbddeea56127457474d2141cb011c3",
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": "db19397b28f7c035da68e6093ca9d6c0553805d19087284c1562c7ffc8605ef3"
+  },
+  "current_deploy_source_sha256_at_final_check": "dfb5b0a593695a55067d191e4eed99c3b48e806179919cefe7faa0c8327ff5f4",
+  "captured_literal_still_matches_current_source": {
+    "LTU1": false,
+    "LTU2": false
+  },
+  "coordinator_static_checks": {
+    "source_hashes_match": true,
+    "final_test_module_identity_matches": true,
+    "stage42b_headers_paired_at_most_six_lines": true,
+    "report_local_links_exist": true,
+    "deployment_source_execution": false
+  },
+  "post_cutoff_template_delta": {
+    "observed_parent_sha256": "dfb5b0a593695a55067d191e4eed99c3b48e806179919cefe7faa0c8327ff5f4",
+    "later_literal_sha256": {
+      "LTU1": "90703d1fe8037121ed0ee29ea4bb5933edd46d16f8b4bafb809985f0f74ae310",
+      "LTU2": "33b3c048a60914be7ca2bb542b97aa006c45e429e8237ea83d074394d608b996"
+    },
+    "independent_static_delta": "Only adds reciprocal permanent-neighbor restoration attempts after initial address assignment and in keeper loops; no generation/readback/coldboot evidence added.",
+    "acceptance": "UNQUALIFIED_LATER_REVISION_NOT_SUBSTITUTED_INTO_FROZEN_CLASSIFIER",
+    "native_execution": false
+  }
+}

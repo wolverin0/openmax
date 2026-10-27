@@ -1,0 +1,30 @@
+{
+  "stage": "Stage 586A",
+  "timestamp": "2026-10-27T01:48:06.420208+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller + mac80211 + QCA firmware",
+  "helper_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v3",
+  "helper_sha256": "d69a809cee96c29b2fa0b4fdaac79dff5ceb74c56e8dd7523a6a87282da484dd",
+  "guard_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_wmi_peer_phymode_sync_guard.sh",
+  "guard_sha256": "abecd564613bd0f351e808cb63b6ece71c66d8e584113c6009c02cb65e68f315",
+  "supported_boards": [
+    {
+      "model": "PowerBeam 5AC Gen2",
+      "sysid": "0xe3d6"
+    },
+    {
+      "model": "LiteBeam 5AC Gen2",
+      "sysid": "0xe4d6 / 0xe7f9"
+    },
+    {
+      "model": "NanoBeam 5AC Gen2",
+      "sysid": "0xe3d8"
+    },
+    {
+      "model": "NanoStation 5AC",
+      "sysid": "0xe7f8"
+    }
+  ],
+  "deployed_on_241_and_242": true,
+  "deploy_readback": "-rwxr-xr-x    1 root     root          2885 Oct 27 01:29 /etc/hotplug.d/net/99-fmx-wa-ptp-champion-v3\n-rwxr-xr-x    1 root     root           818 Oct 27 01:29 /usr/sbin/fmx_wmi_peer_phymode_sync_guard.sh\n-rwxr-xr-x    1 root     root          2885 Oct 27 01:48 /etc/hotplug.d/net/99-fmx-wa-ptp-champion-v3\n-rwxr-xr-x    1 root     root           818 Oct 27 01:48 /usr/sbin/fmx_wmi_peer_phymode_sync_guard.sh"
+}

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "stage": "225A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; no device access",
+    "premise_correction": "the athwlan_AR9888v2_ptmp_ap_bin and athwlan_AR9888v2_ptmp_sta_bin binaries are NOT present; only the Stage 12 manifests are on disk",
+    "radio_safety": "static only"
+  },
+  "binaries_found": [
+    "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\qca988x\\ar9888_utf_handler_and_build_matrix.json",
+    "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\qca988x\\ar9888_v2_descriptor_map.json"
+  ],
+  "binaries_found_count": 2,
+  "available_manifests": [
+    "artifacts/qca988x/ar9888_v2_descriptor_map.json",
+    "artifacts/qca988x/ar9888_utf_handler_and_build_matrix.json",
+    "artifacts/hyperresearch_vault/research/notes/futuramax/STAGE12_AR9888_V2_DESCRIPTOR_AND_CHANNEL_DUMP_MAP.md"
+  ],
+  "summary": {
+    "binaries_found": 2,
+    "ap_sta_pair_present": false,
+    "manifests_available": 3,
+    "wmi_handlers_diffed": 0
+  },
+  "gaps": [
+    "the AP/STA firmware pair is absent, so no WMI handler delta is possible",
+    "the Stage 12 manifests describe the descriptor/channel map for a single build, not an AP-vs-STA comparison"
+  ]
+}

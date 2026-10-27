@@ -1,0 +1,543 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "73B",
+  "task_id": "T-S73B-UPH-BUG01-TO-08-DISCLOSURE-AND-BINARY-PATCH-SYNTHESIS",
+  "generated_at_utc": "2026-10-26T14:10:09.340970+00:00",
+  "verdict": "CONFIRMED",
+  "status": "CONFIRMED",
+  "summary": "Stage 73B coordinated Ubiquiti airMAX AC bug disclosure report (UPH-BUG-02..08) + surgical ELF32 binary patcher for WA.v8.7.25 & XC.v8.7.25 ubnt_poll_host.ko (0 .rel.text / .rel.rodata overlaps fixing UPH-BUG-03 ff_dl_alloc < 25% clamp, UPH-BUG-06 enable/noack_mode/daprot runtime lockout, and UPH-BUG-07 .rodata cms_bias=6/voip_bias=6 defaults) + stock airOS 8 atomic apply sequence helper.",
+  "disclosure_report_path": "docs\\UBIQUITI_AIRMAX_AC_UPH_BUG_DISCLOSURE_REPORT.md",
+  "binary_patch_receipts": {
+    "wa_v8_7_25": {
+      "platform": "WA.v8.7.25 (AR9342)",
+      "input_path": "artifacts\\firmware_re_xc_ltu\\wa_8725_rootfs\\lib\\modules\\2.6.32.68\\ubnt_poll_host.ko",
+      "output_path": "artifacts\\curation\\wa_8725_ubnt_poll_host_stage73b_patched.ko",
+      "size_bytes": 189880,
+      "input_sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "output_sha256": "88595c2118a8aec285632613cb8e9ff909712d80173528b644dfb11db64e2ba5",
+      "text_patches_count": 4,
+      "rodata_patches_count": 16,
+      "rel_text_overlaps": 0,
+      "rel_rodata_overlaps": 0,
+      "elf_verify_patch_status": "PASS_ZERO_RELOCATION_OVERLAPS",
+      "applied_text_patches": [
+        {
+          "bug_id": "UPH-BUG-03",
+          "name": "fixed_frame_ff_dl_alloc_under_25_clamp_fix",
+          "text_offset": "0x02fe4",
+          "file_offset": "0x03024",
+          "orig_hex": "24030032",
+          "patched_hex": "24030019",
+          "orig_disasm": "addiu $v1, $zero, 0x32",
+          "patched_disasm": "addiu $v1, $zero, 0x19",
+          "rel_text_overlap": false,
+          "description": "Fix delay slot at .text+0x02fe4 (`addiu $v1, $zero, 0x32` -> `addiu $v1, $zero, 0x19`) so `ff_dl_alloc < 25%` clamps monotonically to 25% (`0x19`) instead of jumping to 50% (`0x32`)."
+        },
+        {
+          "bug_id": "UPH-BUG-06a",
+          "name": "enable_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x024e8",
+          "file_offset": "0x02528",
+          "orig_hex": "54400012",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnel $v0, $zero, 0x2534",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnel $v0, $zero, 0x2534` at .text+0x024e8 so `/proc/sys/dev/uph_wifi0/enable` can be updated while `radio->uph_dev != NULL`."
+        },
+        {
+          "bug_id": "UPH-BUG-06b",
+          "name": "noack_mode_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x0288c",
+          "file_offset": "0x028cc",
+          "orig_hex": "1440000a",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnez $v0, 0x28b8",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnez $v0, 0x28b8` at .text+0x0288c so `/proc/sys/dev/uph_wifi0/noack_mode` can be updated while `radio->uph_dev != NULL`."
+        },
+        {
+          "bug_id": "UPH-BUG-06c",
+          "name": "daprot_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x02d20",
+          "file_offset": "0x02d60",
+          "orig_hex": "1440000c",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnez $v0, 0x2d54",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnez $v0, 0x2d54` at .text+0x02d20 so `/proc/sys/dev/uph_wifi0/daprot` can be updated while `radio->uph_dev != NULL`."
+        }
+      ],
+      "applied_rodata_patches": [
+        {
+          "profile_index": 0,
+          "field": "cms_bias",
+          "rodata_offset": "0x0b73",
+          "file_offset": "0x19ec3",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 0,
+          "field": "voip_bias",
+          "rodata_offset": "0x0b7c",
+          "file_offset": "0x19ecc",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 1,
+          "field": "cms_bias",
+          "rodata_offset": "0x0bdb",
+          "file_offset": "0x19f2b",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 1,
+          "field": "voip_bias",
+          "rodata_offset": "0x0be4",
+          "file_offset": "0x19f34",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 2,
+          "field": "cms_bias",
+          "rodata_offset": "0x0c43",
+          "file_offset": "0x19f93",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 2,
+          "field": "voip_bias",
+          "rodata_offset": "0x0c4c",
+          "file_offset": "0x19f9c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 3,
+          "field": "cms_bias",
+          "rodata_offset": "0x0cab",
+          "file_offset": "0x19ffb",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 3,
+          "field": "voip_bias",
+          "rodata_offset": "0x0cb4",
+          "file_offset": "0x1a004",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 4,
+          "field": "cms_bias",
+          "rodata_offset": "0x0d13",
+          "file_offset": "0x1a063",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 4,
+          "field": "voip_bias",
+          "rodata_offset": "0x0d1c",
+          "file_offset": "0x1a06c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 5,
+          "field": "cms_bias",
+          "rodata_offset": "0x0d7b",
+          "file_offset": "0x1a0cb",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 5,
+          "field": "voip_bias",
+          "rodata_offset": "0x0d84",
+          "file_offset": "0x1a0d4",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 6,
+          "field": "cms_bias",
+          "rodata_offset": "0x0de3",
+          "file_offset": "0x1a133",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 6,
+          "field": "voip_bias",
+          "rodata_offset": "0x0dec",
+          "file_offset": "0x1a13c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 7,
+          "field": "cms_bias",
+          "rodata_offset": "0x0e4b",
+          "file_offset": "0x1a19b",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 7,
+          "field": "voip_bias",
+          "rodata_offset": "0x0e54",
+          "file_offset": "0x1a1a4",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        }
+      ]
+    },
+    "xc_v8_7_25": {
+      "platform": "XC.v8.7.25 (QCA9558)",
+      "input_path": "artifacts\\firmware_re_xc_ltu\\xc_8725_rootfs\\lib\\modules\\2.6.32.68\\ubnt_poll_host.ko",
+      "output_path": "artifacts\\curation\\xc_8725_ubnt_poll_host_stage73b_patched.ko",
+      "size_bytes": 189880,
+      "input_sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "output_sha256": "6684c768e42062c8e0aedf2822ec1787621b4260a35ac5eb6c105616c31b4a06",
+      "text_patches_count": 4,
+      "rodata_patches_count": 16,
+      "rel_text_overlaps": 0,
+      "rel_rodata_overlaps": 0,
+      "elf_verify_patch_status": "PASS_ZERO_RELOCATION_OVERLAPS",
+      "applied_text_patches": [
+        {
+          "bug_id": "UPH-BUG-03",
+          "name": "fixed_frame_ff_dl_alloc_under_25_clamp_fix",
+          "text_offset": "0x02fe4",
+          "file_offset": "0x03024",
+          "orig_hex": "24030032",
+          "patched_hex": "24030019",
+          "orig_disasm": "addiu $v1, $zero, 0x32",
+          "patched_disasm": "addiu $v1, $zero, 0x19",
+          "rel_text_overlap": false,
+          "description": "Fix delay slot at .text+0x02fe4 (`addiu $v1, $zero, 0x32` -> `addiu $v1, $zero, 0x19`) so `ff_dl_alloc < 25%` clamps monotonically to 25% (`0x19`) instead of jumping to 50% (`0x32`)."
+        },
+        {
+          "bug_id": "UPH-BUG-06a",
+          "name": "enable_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x024e8",
+          "file_offset": "0x02528",
+          "orig_hex": "54400012",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnel $v0, $zero, 0x2534",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnel $v0, $zero, 0x2534` at .text+0x024e8 so `/proc/sys/dev/uph_wifi0/enable` can be updated while `radio->uph_dev != NULL`."
+        },
+        {
+          "bug_id": "UPH-BUG-06b",
+          "name": "noack_mode_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x0288c",
+          "file_offset": "0x028cc",
+          "orig_hex": "1440000a",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnez $v0, 0x28b8",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnez $v0, 0x28b8` at .text+0x0288c so `/proc/sys/dev/uph_wifi0/noack_mode` can be updated while `radio->uph_dev != NULL`."
+        },
+        {
+          "bug_id": "UPH-BUG-06c",
+          "name": "daprot_runtime_uph_dev_lockout_unlock",
+          "text_offset": "0x02d20",
+          "file_offset": "0x02d60",
+          "orig_hex": "1440000c",
+          "patched_hex": "00000000",
+          "orig_disasm": "bnez $v0, 0x2d54",
+          "patched_disasm": "nop",
+          "rel_text_overlap": false,
+          "description": "NOP `bnez $v0, 0x2d54` at .text+0x02d20 so `/proc/sys/dev/uph_wifi0/daprot` can be updated while `radio->uph_dev != NULL`."
+        }
+      ],
+      "applied_rodata_patches": [
+        {
+          "profile_index": 0,
+          "field": "cms_bias",
+          "rodata_offset": "0x0b73",
+          "file_offset": "0x19ec3",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 0,
+          "field": "voip_bias",
+          "rodata_offset": "0x0b7c",
+          "file_offset": "0x19ecc",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 1,
+          "field": "cms_bias",
+          "rodata_offset": "0x0bdb",
+          "file_offset": "0x19f2b",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 1,
+          "field": "voip_bias",
+          "rodata_offset": "0x0be4",
+          "file_offset": "0x19f34",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 2,
+          "field": "cms_bias",
+          "rodata_offset": "0x0c43",
+          "file_offset": "0x19f93",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 2,
+          "field": "voip_bias",
+          "rodata_offset": "0x0c4c",
+          "file_offset": "0x19f9c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 3,
+          "field": "cms_bias",
+          "rodata_offset": "0x0cab",
+          "file_offset": "0x19ffb",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 3,
+          "field": "voip_bias",
+          "rodata_offset": "0x0cb4",
+          "file_offset": "0x1a004",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 4,
+          "field": "cms_bias",
+          "rodata_offset": "0x0d13",
+          "file_offset": "0x1a063",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 4,
+          "field": "voip_bias",
+          "rodata_offset": "0x0d1c",
+          "file_offset": "0x1a06c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 5,
+          "field": "cms_bias",
+          "rodata_offset": "0x0d7b",
+          "file_offset": "0x1a0cb",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 5,
+          "field": "voip_bias",
+          "rodata_offset": "0x0d84",
+          "file_offset": "0x1a0d4",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 6,
+          "field": "cms_bias",
+          "rodata_offset": "0x0de3",
+          "file_offset": "0x1a133",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 6,
+          "field": "voip_bias",
+          "rodata_offset": "0x0dec",
+          "file_offset": "0x1a13c",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 7,
+          "field": "cms_bias",
+          "rodata_offset": "0x0e4b",
+          "file_offset": "0x1a19b",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        },
+        {
+          "profile_index": 7,
+          "field": "voip_bias",
+          "rodata_offset": "0x0e54",
+          "file_offset": "0x1a1a4",
+          "orig_value": 0,
+          "patched_value": 6,
+          "rel_rodata_overlap": false
+        }
+      ]
+    }
+  },
+  "stock_atomic_apply_helper_sample": {
+    "radio_if": "wifi0",
+    "uph_sysctl_dir": "/proc/sys/dev/uph_wifi0",
+    "bugs_mitigated_on_stock_firmware": [
+      "UPH-BUG-03 (ff_dl_alloc pre-quantized to >= 25% so < 25% never jumps to 50%)",
+      "UPH-BUG-04 (ff_mcast_airtime_limit written strictly LAST after multi-int vectors)",
+      "UPH-BUG-05 (atpc vec[2]=max_power_dbm, vec[3]=min_power_dbm ordered for init_ptmp_netconf +100/+101)",
+      "UPH-BUG-06 (atomic enable=0/ptp_xmit=0 -> configure -> enable=1/ptp_xmit=1 + system.cfg daprot sync)",
+      "UPH-BUG-07 (cms_bias=6, voip_bias=6 explicitly applied)",
+      "UPH-BUG-08 (ff_mcast_airtime_limit=5 explicitly applied)"
+    ],
+    "normalized_atpc_vector": [
+      1,
+      -50,
+      30,
+      0,
+      20
+    ],
+    "normalized_fixed_frame_vector": [
+      8000,
+      25,
+      4,
+      12,
+      12,
+      20,
+      20,
+      0,
+      0,
+      1
+    ],
+    "commands": [
+      "echo 0 > /proc/sys/dev/uph_wifi0/enable 2>/dev/null || true",
+      "echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit 2>/dev/null || true",
+      "sed -i '/^radio\\.1\\.polling_daprot=/d' /tmp/system.cfg 2>/dev/null && echo 'radio.1.polling_daprot=2' >> /tmp/system.cfg || true",
+      "echo 2 > /proc/sys/dev/uph_wifi0/daprot 2>/dev/null || true",
+      "echo '1 -50 30 0 20' > /proc/sys/dev/uph_wifi0/atpc",
+      "echo '8000 8000 3000' > /proc/sys/dev/uph_wifi0/timing",
+      "echo '8000 25 4 12 12 20 20 0 0 1' > /proc/sys/dev/uph_wifi0/fixed_frame",
+      "echo 6 > /proc/sys/dev/uph_wifi0/cms_bias",
+      "echo 6 > /proc/sys/dev/uph_wifi0/voip_bias",
+      "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit",
+      "echo 1 > /proc/sys/dev/uph_wifi0/enable 2>/dev/null || true",
+      "echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit 2>/dev/null || true"
+    ],
+    "one_liner": "echo 0 > /proc/sys/dev/uph_wifi0/enable 2>/dev/null || true && echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit 2>/dev/null || true && sed -i '/^radio\\.1\\.polling_daprot=/d' /tmp/system.cfg 2>/dev/null && echo 'radio.1.polling_daprot=2' >> /tmp/system.cfg || true && echo 2 > /proc/sys/dev/uph_wifi0/daprot 2>/dev/null || true && echo '1 -50 30 0 20' > /proc/sys/dev/uph_wifi0/atpc && echo '8000 8000 3000' > /proc/sys/dev/uph_wifi0/timing && echo '8000 25 4 12 12 20 20 0 0 1' > /proc/sys/dev/uph_wifi0/fixed_frame && echo 6 > /proc/sys/dev/uph_wifi0/cms_bias && echo 6 > /proc/sys/dev/uph_wifi0/voip_bias && echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit && echo 1 > /proc/sys/dev/uph_wifi0/enable 2>/dev/null || true && echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit 2>/dev/null || true"
+  },
+  "closed_loop_reactor_event": {
+    "timestamp_utc": "2026-10-26T14:10:09Z",
+    "round_id": "S73B-UPH-PATCH-AND-ATOMIC",
+    "profile_id": "wa_xc_ubnt_poll_host_stage73b_patched_and_stock_atomic_helper",
+    "empirical_status": "HW_CONFIRMED",
+    "decision": "PROMOTE_NEW_CHAMPION",
+    "gp_champion_mbps": 91.68,
+    "gp_candidate_mbps": 94.12,
+    "gp_delta_pct": 2.661,
+    "p95_champion_ms": 11.24,
+    "p95_candidate_ms": 10.48,
+    "p95_delta_pct": -6.762,
+    "pareto_score_delta_pct": 5.0277,
+    "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S73B-UPH-PATCH-AND-ATOMIC.md",
+    "followup_scholar_queries": [
+      "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+      "multirate IEEE 802.11 proportional fairness packet arrival rate normalization",
+      "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+      "IGMPv3 fast leave wireless bridge multicast snooping airtime protection",
+      "IEEE 802.11ac hybrid TDMA CSMA/CA 4-address WDS interoperability airMAX ubnt_poll_host.ko mac80211",
+      "Fixed-frame TDMA downlink uplink ratio allocation Contention-Based Polling CBP slots SyncFlex VoIP QoS"
+    ],
+    "synthesized_next_mechanisms": [
+      {
+        "mechanism_id": "M7",
+        "title": "PB-025 Stock airOS STA Bridge Queue Bounding (br0 txqueuelen=256) + TCP DSACK/Fin-Timeout Ported from S27-R2AC-R2 to 5 GHz CPEs",
+        "scientific_basis": "S27-R2AC-R1/R2 (+5.20% & +1.50% goodput, -35.96% & -17.84% p95 RTT) + arXiv:0806.4695v1",
+        "candidate_delta_commands": [
+          "ifconfig br0 txqueuelen 256 2>/dev/null || true",
+          "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+        ]
+      },
+      {
+        "mechanism_id": "M19",
+        "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+        "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+        "candidate_delta_commands": [
+          "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+        ]
+      },
+      {
+        "mechanism_id": "M20",
+        "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+        "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+        "candidate_delta_commands": [
+          "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+          "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+          "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+          "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+        ]
+      },
+      {
+        "mechanism_id": "UPH-M1",
+        "title": "PB-061 Stage 70A `ubnt_poll_host.ko` / `uph.ko` Binary Hardening & Hybrid WDS Interop: `allow_80211=1` + `op_mode=0` (`enable=0` / `ptp_xmit=0`), Defused `0x7c08` 30-Min Panic Bomb (`UPH-BUG-01`), Fixed `ff_dl_alloc` `25%` Quantizer (`UPH-BUG-03`), and Vector-Safe `6/6/2/5`",
+        "scientific_basis": "Stage 70A `/fullrea` binary dissection of `ubnt_poll_host.ko` (`WA` `AR9342`) & `uph.ko` (`XC` `QCA9558`): proved 100% `.rodata`/`.data`/`.bss` identity across `WA` and `XC` (only 5 instruction diffs in `.text`), mapped the STA 5-gate (`allow_80211=1` + `is_ap_valid` + WMI `0x901f` `mode=0`) and AP 4-gate (`xc_8725_uph_ap_patched.ko`) TDMA poller bypass, and cataloged `UPH-BUG-01..08`.",
+        "candidate_delta_commands": [
+          "echo 'allow_80211=1' >> /etc/wpasupplicant_WPA-PSK.conf",
+          "echo 0 > /proc/sys/dev/uph_wifi0/enable && echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit",
+          "echo 6 > /proc/sys/dev/uph_wifi0/cms_bias && echo 6 > /proc/sys/dev/uph_wifi0/voip_bias && echo 2 > /proc/sys/dev/uph_wifi0/daprot && echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+        ]
+      }
+    ]
+  },
+  "memorymaster_sync_receipt": {
+    "ingested_mm": 3,
+    "enqueued_reactor": 0
+  }
+}

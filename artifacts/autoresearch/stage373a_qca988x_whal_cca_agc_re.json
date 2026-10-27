@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "stage": "373A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/qca988x_whal_cca_agc_register_table_re.py",
+    "tool_sha256": "c49abc5609a470622d78acc10ba42524b44e8fa8c429add0dc2d8495e306e478",
+    "output": "artifacts/autoresearch/stage373a_qca988x_whal_cca_agc_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "method": "container TLV parse accepted only if it tiles; SGMT payload prefix fingerprint; raw token sweep over the HAL modules with section attribution and string context",
+    "radio_safety": "static only"
+  },
+  "container": {
+    "path": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+    "bytes": 204796,
+    "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "token_sweep": {
+      "cca_thresh": 0,
+      "thresh62": 0,
+      "nf_cal": 0,
+      "noise_floor": 0,
+      "strong_signal": 0,
+      "firstep": 0,
+      "cycpwr_thr1": 0,
+      "cycpwr": 0,
+      "cca": 0,
+      "agc": 0
+    },
+    "parsed": true,
+    "magic": "QCA-ATH10K",
+    "version_len": 28,
+    "version": "10.1-ct-8x-__fW-022-ecad3248",
+    "ie_count": 5,
+    "ies": [
+      {
+        "id": 1,
+        "len": 4,
+        "at": "0x000030",
+        "tag": "\u00e8\u00ca\u00a6_",
+        "head": "e8caa65f",
+        "at_offset_12": null
+      },
+      {
+        "id": 2,
+        "len": 8,
+        "at": "0x00003c",
+        "tag": "\u0006\u0010\u0000\u00c0",
+        "head": "061000c012f01600",
+        "at_offset_12": null
+      },
+      {
+        "id": 30,
+        "len": 16,
+        "at": "0x00004c",
+        "tag": "\u0000\u00c9@\u0000",
+        "head": "00c94000701e0000000c4000e85c0000",
+        "at_offset_12": 23784
+      },
+      {
+        "id": 4,
+        "len": 7140,
+        "at": "0x000064",
+        "tag": "SGMT",
+        "head": "53474d54010000000000980094000000",
+        "at_offset_12": 148
+      },
+      {
+        "id": 3,
+        "len": 197537,
+        "at": "0x001c50",
+        "tag": "SGMT",
+        "head": "53474d5401000000000098006c150000",
+        "at_offset_12": 5484
+      }
+    ],
+    "end": "0x031ff9",
+    "file_len": 204796,
+    "tail_pad": 3,
+    "tiled": true,
+    "sgmt": [
+      {
+        "id": 4,
+        "len": 7140,
+        "at": "0x000064",
+        "tag": "SGMT",
+        "head": "53474d54010000000000980094000000",
+        "at_offset_12": 148
+      },
+      {
+        "id": 3,
+        "len": 197537,
+        "at": "0x001c50",
+        "tag": "SGMT",
+        "head": "53474d5401000000000098006c150000",
+        "at_offset_12": 5484
+      }
+    ]
+  },
+  "modules": [
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "tokens": {
+        "cca_thresh": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04e514",
+              "context": "Fix.ar9300ForceVCS.ar9300_get_mib_mac_stats.ar9300_reset_tsf.ar9300_set_cca_threshold.ar9300_calibration_data_address_get.ar9300_compression_checksum.ar93"
+            }
+          ]
+        },
+        "nf_cal": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04e27c",
+              "context": "burst_last.ath_hal_log_ani_callback_register.ar9300_get_tsf64.ar9300_is_nf_cal_done.ar9300_ant_ctrl_common_get.ar9300_eeprom_get_num_ant_config.ar9300"
+            }
+          ]
+        },
+        "noise_floor": {
+          "count": 3,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04e019",
+              "context": "get_power_from_eeprom.ar9300_get_hw_hangs._ath_hal_attach.ar9300_upload_noise_floor.ath_hal_get_curmode.ath_hal_setcapability.ar9300_11b_table.ar9300_set_t"
+            },
+            {
+              "section": "",
+              "at": "0x04ece4",
+              "context": "ar9300_eeprom_get_ht20_trgt_pwr.ar9300_get_intr_mitigation_timer.ar9300_noise_floor_cal_or_power_get.ath_hal_detach.ar9300_adjust_reg_txpower_cdd.ar9300_ch"
+            },
+            {
+              "section": "",
+              "at": "0x04ff65",
+              "context": "_get_cur_rssi.ar9300_get_min_cca_pwr.ar9300_set_rx_sel_evm.ar9300_chain_noise_floor.ar9300_ani_attach.ar9300_adjust_difs.ath_hal_get_device_info.ar9300_rx_"
+            }
+          ]
+        },
+        "strong_signal": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04ec8e",
+              "context": "iddle.ar9300_get_pending_interrupts.ath_hal_chan2htwmode.ar9300_disable_strong_signal.ar9300_eeprom_get_ht20_trgt_pwr.ar9300_get_intr_mitigation_timer.ar9300"
+            }
+          ]
+        },
+        "cca": {
+          "count": 2,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04e514",
+              "context": "Fix.ar9300ForceVCS.ar9300_get_mib_mac_stats.ar9300_reset_tsf.ar9300_set_cca_threshold.ar9300_calibration_data_address_get.ar9300_compression_checks"
+            },
+            {
+              "section": "",
+              "at": "0x04ff3a",
+              "context": "cc_bin5pulses.ar9300_get_bss_id_mask.ar9300_get_cur_rssi.ar9300_get_min_cca_pwr.ar9300_set_rx_sel_evm.ar9300_chain_noise_floor.ar9300_ani_attach.ar"
+            }
+          ]
+        },
+        "agc": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x045f10",
+              "context": "==..** BB state: wd=%u det=%u rdar=%u rOFDM=%d rCCK=%u tOFDM=%u tCCK=%u agc=%u src=%u **....** BB WD cntl: cntl1=0x%08x cntl2=0x%08x **.....** BB m"
+            }
+          ]
+        }
+      },
+      "token_count": 6
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "tokens": {
+        "noise_floor": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x02fce0",
+              "context": "d]: paprd_enable %d paprd_done %d Apply %d..%d.%03d | %s: channel %u/%x noise_floor=%d..%d.%03d | %s: calibration of channel %u/%x failed...Too much interf"
+            }
+          ]
+        }
+      },
+      "token_count": 1
+    },
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "tokens": {
+        "noise_floor": {
+          "count": 6,
+          "contexts": [
+            {
+              "section": ".rodata",
+              "at": "0x0e7b3d",
+              "context": "isefloor...ol_if_spectral_get_ext_noisefloor...ol_if_spectral_get_chain_noise_floor....ol_if_spectral_reset_hw.ol_spectral_info_write..wmi_send_vdev_spectr"
+            },
+            {
+              "section": "",
+              "at": "0x1cf49b",
+              "context": "ster_events.ol_power_sta_get_pspoll.ol_ath_set_ht_vht_ies.wlan_get_chan_noise_floor.htt_rx_mpdu_desc_list_next_hl.ol_alloc_cookie.ath_cwm_set_curchannelfla"
+            },
+            {
+              "section": "",
+              "at": "0x1d1518",
+              "context": "tach.cwm_radio_disable.htt_rx_mpdu_desc_seq_num_ll.ieee80211_scan_entry_noise_floor.wmi_unified_gpio_output.ieee80211_80211frm_amsdu_check.cleanup_module.i"
+            }
+          ]
+        },
+        "firstep": {
+          "count": 7,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0fd3d1",
+              "context": "%d ListenTime %d ofdmphyerr %d cckphyerr %d....ANI UPDATE ofdm level %d firstep %d firstep_low %d cycpwr_thr %d self_corr_low %d...ANI UPDATE  cck leve"
+            },
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0fd3dc",
+              "context": "me %d ofdmphyerr %d cckphyerr %d....ANI UPDATE ofdm level %d firstep %d firstep_low %d cycpwr_thr %d self_corr_low %d...ANI UPDATE  cck level %d firste"
+            },
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0fd425",
+              "context": "irstep_low %d cycpwr_thr %d self_corr_low %d...ANI UPDATE  cck level %d firstep %d firstep_low %d mrc_cck %d...ANI CONTROL ofdmlevel %d ccklevel %d...."
+            }
+          ]
+        },
+        "cycpwr": {
+          "count": 2,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0fd3eb",
+              "context": "r %d cckphyerr %d....ANI UPDATE ofdm level %d firstep %d firstep_low %d cycpwr_thr %d self_corr_low %d...ANI UPDATE  cck level %d firstep %d firstep_l"
+            },
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0fd490",
+              "context": "d...ANI CONTROL ofdmlevel %d ccklevel %d....ANI ofdm_control firstep %d cycpwr %d...ANI cck_control mrc_cck %d barker_threshold %d..ANI resetting rese"
+            }
+          ]
+        }
+      },
+      "token_count": 3
+    },
+    {
+      "module": "XC:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "tokens": {
+        "cca_thresh": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04cd34",
+              "context": "Fix.ar9300ForceVCS.ar9300_get_mib_mac_stats.ar9300_reset_tsf.ar9300_set_cca_threshold.ar9300_calibration_data_address_get.ar9300_compression_checksum.ar93"
+            }
+          ]
+        },
+        "nf_cal": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04ca9c",
+              "context": "burst_last.ath_hal_log_ani_callback_register.ar9300_get_tsf64.ar9300_is_nf_cal_done.ar9300_ant_ctrl_common_get.ar9300_eeprom_get_num_ant_config.ar9300"
+            }
+          ]
+        },
+        "noise_floor": {
+          "count": 3,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04c839",
+              "context": "get_power_from_eeprom.ar9300_get_hw_hangs._ath_hal_attach.ar9300_upload_noise_floor.ath_hal_get_curmode.ath_hal_setcapability.ar9300_11b_table.ar9300_set_t"
+            },
+            {
+              "section": "",
+              "at": "0x04d504",
+              "context": "ar9300_eeprom_get_ht20_trgt_pwr.ar9300_get_intr_mitigation_timer.ar9300_noise_floor_cal_or_power_get.ath_hal_detach.ar9300_adjust_reg_txpower_cdd.ar9300_ch"
+            },
+            {
+              "section": "",
+              "at": "0x04e785",
+              "context": "_get_cur_rssi.ar9300_get_min_cca_pwr.ar9300_set_rx_sel_evm.ar9300_chain_noise_floor.ar9300_ani_attach.ar9300_adjust_difs.ath_hal_get_device_info.ar9300_rx_"
+            }
+          ]
+        },
+        "strong_signal": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04d4ae",
+              "context": "iddle.ar9300_get_pending_interrupts.ath_hal_chan2htwmode.ar9300_disable_strong_signal.ar9300_eeprom_get_ht20_trgt_pwr.ar9300_get_intr_mitigation_timer.ar9300"
+            }
+          ]
+        },
+        "cca": {
+          "count": 2,
+          "contexts": [
+            {
+              "section": "",
+              "at": "0x04cd34",
+              "context": "Fix.ar9300ForceVCS.ar9300_get_mib_mac_stats.ar9300_reset_tsf.ar9300_set_cca_threshold.ar9300_calibration_data_address_get.ar9300_compression_checks"
+            },
+            {
+              "section": "",
+              "at": "0x04e75a",
+              "context": "cc_bin5pulses.ar9300_get_bss_id_mask.ar9300_get_cur_rssi.ar9300_get_min_cca_pwr.ar9300_set_rx_sel_evm.ar9300_chain_noise_floor.ar9300_ani_attach.ar"
+            }
+          ]
+        },
+        "agc": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x044730",
+              "context": "==..** BB state: wd=%u det=%u rdar=%u rOFDM=%d rCCK=%u tOFDM=%u tCCK=%u agc=%u src=%u **....** BB WD cntl: cntl1=0x%08x cntl2=0x%08x **.....** BB m"
+            }
+          ]
+        }
+      },
+      "token_count": 6
+    },
+    {
+      "module": "XW:ath_hal.ko",
+      "status": "ok",
+      "bytes": 503892,
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "tokens": {
+        "firstep": {
+          "count": 2,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0558a7",
+              "context": "_LEVEL level out of range (%u > %u)..%s: ** ch %d: level %d=>%d[def:%d] firstep[level]=%d ini=%d.....%s: ** ch %d: level %d=>%d[def:%d] firstep_low[lev"
+            },
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0558e7",
+              "context": "def:%d] firstep[level]=%d ini=%d.....%s: ** ch %d: level %d=>%d[def:%d] firstep_low[level]=%d ini=%d.....%s: HAL_ANI_SPUR_IMMUNITY_LEVEL level out of r"
+            }
+          ]
+        },
+        "cycpwr": {
+          "count": 2,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x05596b",
+              "context": "EVEL level out of range (%u > %u)....%s: ** ch %d: level %d=>%d[def:%d] cycpwrThr1[level]=%d ini=%d..%s: ** ch %d: level %d=>%d[def:%d] cycpwrThr1Ext["
+            },
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x0559ab",
+              "context": "def:%d] cycpwrThr1[level]=%d ini=%d..%s: ** ch %d: level %d=>%d[def:%d] cycpwrThr1Ext[level]=%d ini=%d...%s: ** ch %d: MRC CCK: %s=>%s...**** %s: ofdm"
+            }
+          ]
+        },
+        "agc": {
+          "count": 1,
+          "contexts": [
+            {
+              "section": ".rodata.str1.4",
+              "at": "0x053d78",
+              "context": "==..** BB state: wd=%u det=%u rdar=%u rOFDM=%d rCCK=%u tOFDM=%u tCCK=%u agc=%u src=%u **....** BB WD cntl: cntl1=0x%08x cntl2=0x%08x **.....** BB m"
+            }
+          ]
+        }
+      },
+      "token_count": 3
+    }
+  ],
+  "summary": {
+    "container_parsed": true,
+    "container_tiled": true,
+    "tlvs": 5,
+    "sgmt_segments": 2,
+    "sgmt_bytes": 204677,
+    "sgmt_prefixes": [
+      "53474d540100000000009800",
+      "53474d540100000000009800"
+    ],
+    "sgmt_u32_at_12": [
+      148,
+      5484
+    ],
+    "modules_ok": 5,
+    "modules_with_whal_tokens": 5,
+    "cca_thresh_modules": 2,
+    "firstep_modules": 2,
+    "cycpwr_modules": 2,
+    "nf_cal_modules": 2,
+    "firmware_whal_tokens": 0,
+    "analog_register_table_recovered": 0,
+    "name_to_register_map": 0
+  },
+  "gaps": [
+    "the SGMT payloads carry no parameter names; no numeric array inside them was mapped to a WHAL register, so the CCA/AGC table is not recovered",
+    "the u32 at SGMT payload offset 12 differs between the two segments (148 vs 5484) and was not interpreted",
+    "the WHAL token names live in ath_hal.ko and umac.ko, not in the firmware blob, so presence of a name and presence of a table are separate facts",
+    "no Xtensa disassembly was performed",
+    "no dynamic validation"
+  ]
+}

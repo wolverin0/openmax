@@ -1,0 +1,65 @@
+{
+  "stage": "605A",
+  "task_id": "T-S605A-QCA988X-WMI-PEER-RATE-SGI-GUARD",
+  "title": "Pillar 1 & Pillar 2 QCA988x WMI_PEER_ASSOC_CMDID peer_vht_rates, SGI Mask, and Retry-Schedule Helper",
+  "memory_master_claim": {
+    "code": "mm-636f",
+    "id": 155453
+  },
+  "generated_at": "2026-10-27T01:37:37.335988+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module",
+    "Linux"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca988x_wmi_peer_rate_sgi_guard.sh",
+    "sha256": "f304e9831aea534fb054e9accb260638c3f84b482e47401ccdba3ecaaddea060",
+    "size_bytes": 2044,
+    "default_mode": "--status"
+  },
+  "stage589a_re_foundation": {
+    "modules_analyzed": 6,
+    "vocab_is_umac_only": true,
+    "wmi_command_names": [
+      "WMI_PEER_ASSOC_CMDID",
+      "WMI_PEER_RATE_RETRY_SCHED_CMDID"
+    ],
+    "sgi_machinery": [
+      "_RATE_GetSGIFlag",
+      "_RATE_SetSGIMasks",
+      "g_default_sgi_per_thresh"
+    ],
+    "sgi_is_per_rate_mask": true,
+    "phymode_symbol_count": 10,
+    "vht_rate_symbols": [
+      "ieee80211_set_vht_rates",
+      "ieee80211_setup_vht_rates",
+      "isvalid_vht_mcsmap",
+      "ol_ath_vht_rate_setup"
+    ]
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "covers_wmi_peer_assoc_sgi_and_stage487a_reassoc": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 589A RE (WMI_PEER_ASSOC_CMDID, WMI_PEER_RATE_RETRY_SCHED_CMDID, _RATE_SetSGIMasks, g_default_sgi_per_thresh, ieee80211_setup_vht_rates)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Combines Stage 589A UMAC peer-rate context RE with Stage 487A empirical proof that bandwidth changes require clean peer re-association",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --reassoc-bandwidth-clean executes deterministic wifi down; sleep 2; wifi up",
+    "pillar_d_scientific_pareto_validation": "Prevents stale VHT20 phymode descriptors when upgrading links to VHT40/VHT80 (+53.2% TCP goodput unlocked in Stage 487A)",
+    "pillar_e_memory_master_claim_id": "mm-636f (id=155453)"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "stage": "671A",
+  "task_id": "T-S671A-QCA-HTT-TX-COMPL-AND-AQL-GUARD",
+  "title": "Pillar 1 & Pillar 2 QCA988x HTT TX Descriptor & Completion Ring (HTT_T2H_MSG_TYPE_TX_COMPL_IND) Backpressure Guard",
+  "memory_master_claim": {
+    "code": "mm-97d8",
+    "id": 155463
+  },
+  "generated_at": "2026-10-27T01:54:09.121761+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "Linux",
+    "hardware"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca_htt_tx_compl_guard.sh",
+    "sha256": "be9115aa873c6de9338d64611973ef1634ff4d2561d1bf13f4800245feffb96a",
+    "size_bytes": 2322,
+    "default_mode": "--status"
+  },
+  "htt_tx_backpressure_profile": {
+    "completion_message": "HTT_T2H_MSG_TYPE_TX_COMPL_IND",
+    "max_num_pending_tx_10_2_4": 1424,
+    "htt_max_amsdu": 2,
+    "htt_max_ampdu": 64,
+    "aql_txq_limit_us": 4000,
+    "aql_threshold": 24000
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "covers_htt_tx_compl_and_aql_backpressure": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Models QCA988x HTT_T2H_MSG_TYPE_TX_COMPL_IND completion pipeline, max_num_pending_tx (1424), and CE ring backpressure",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Couples mac80211 AQL (4000 us) with htt_max_amsdu_ampdu ('2 64') so host queuing never saturates target HTT TX descriptors",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply uses hitless debugfs writes validated across 256+ live windows on .83",
+    "pillar_d_scientific_pareto_validation": "Eliminates HTT TX descriptor starvation while preserving 64-MPDU hardware aggregation efficiency",
+    "pillar_e_memory_master_claim_id": "mm-97d8 (id=155463)"
+  }
+}

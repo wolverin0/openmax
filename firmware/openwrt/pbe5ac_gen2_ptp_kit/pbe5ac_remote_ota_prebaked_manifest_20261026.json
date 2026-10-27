@@ -1,0 +1,119 @@
+{
+  "stage": "Stage 62A",
+  "generated_at": "2026-10-26T04:23:28.336524+00:00",
+  "zero_climb_ota_rule": {
+    "agents_md_section": "2 & 14.6",
+    "never_require_tower_climb_or_local_cable": true,
+    "staged_hybrid_interop_first": true,
+    "hybrid_ap_enabler_script": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/enable_airos8_ap_hybrid_80211_for_openwrt_sta.sh",
+      "sha256": "5fbf2d001794298fdd0c41dabee250e251abda4d73a3027fe6e8a4ae19c658e9",
+      "enables": [
+        "allow_80211=1",
+        "op_mode=0",
+        "iwpriv ath0 wds 1"
+      ]
+    },
+    "rollback_watchdog": {
+      "embedded_path": "/usr/sbin/fmx_ptp_rollback_watchdog.sh",
+      "launched_by": "/etc/rc.local",
+      "timeout_seconds": 180,
+      "sta_watchdog_sha256": "2ae02da30ba287fd069420fa43c612823919dfe9055c091203b285742d2946c4",
+      "ap_watchdog_sha256": "b816882696bfd7330a0379cd474b5a401c1f7c35a0b5cae80c83b3d5af140a27"
+    },
+    "flash_order": [
+      "Step 0: Verify mtd0/mtd1/mtd4/mtd5 SHA-256 backups on both .242 (remote STA) and .241 (local AP).",
+      "Step 1 (Hybrid airOS 8 AP <-> OpenWrt STA First): Run enable_airos8_ap_hybrid_80211_for_openwrt_sta.sh on airOS 8 AP (.241) to set allow_80211=1 + op_mode=0, then flash remote STA (.242) Over-The-Air with 99-fmx-preconfig + fmx_ptp_rollback_watchdog.sh and benchmark Hybrid PtP.",
+      "Step 2 (Full OpenWrt AP <-> OpenWrt STA): Flash local AP (.241) with 99-fmx-preconfig + fmx_ptp_rollback_watchdog.sh and benchmark Full OpenWrt PtP."
+    ],
+    "protected_partitions_never_touched": [
+      "mtd0 (u-boot)",
+      "mtd1 (u-boot-env)",
+      "mtd5 (EEPROM)"
+    ]
+  },
+  "images": {
+    "factory_bin": {
+      "filename": "openwrt-24.10.4-ath79-generic-ubnt_powerbeam-5ac-gen2-squashfs-factory.bin",
+      "size_bytes": 6881944,
+      "sha256": "52d25c7f17ffc69dedc66895af090630e913945ac34fcb87288a4c381021f174",
+      "header_magic_ascii": "OPEN",
+      "uimage": {
+        "offset_bytes": 324,
+        "offset_hex": "0x144",
+        "kernel_size_bytes": 2618212,
+        "load_addr_hex": "0x80060000",
+        "entry_point_hex": "0x80060000",
+        "image_name": "MIPS OpenWrt Linux-6.6.110"
+      },
+      "squashfs": {
+        "magic": "hsqs",
+        "offset_bytes": 2621828,
+        "offset_hex": "0x280184",
+        "inodes": 1395,
+        "block_size": 262144,
+        "compression_id": 4,
+        "version": "4.0",
+        "bytes_used": 4234676
+      },
+      "jffs2_deadc0de_offset": 6881668,
+      "jffs2_deadc0de_offset_hex": "0x690184",
+      "fits_fwupdate_real_15925248": true
+    },
+    "sysupgrade_bin": {
+      "filename": "openwrt-24.10.4-ath79-generic-ubnt_powerbeam-5ac-gen2-squashfs-sysupgrade.bin",
+      "size_bytes": 6881601,
+      "sha256": "c3e17ac02259db08708dfa8250e1b06d7765487923bdd435dc5d52998da301a4",
+      "header_magic_ascii": "'\u0005\u0019V",
+      "uimage": {
+        "offset_bytes": 0,
+        "offset_hex": "0x0",
+        "kernel_size_bytes": 2618212,
+        "load_addr_hex": "0x80060000",
+        "entry_point_hex": "0x80060000",
+        "image_name": "MIPS OpenWrt Linux-6.6.110"
+      },
+      "squashfs": {
+        "magic": "hsqs",
+        "offset_bytes": 2621440,
+        "offset_hex": "0x280000",
+        "inodes": 1395,
+        "block_size": 262144,
+        "compression_id": 4,
+        "version": "4.0",
+        "bytes_used": 4234676
+      },
+      "jffs2_deadc0de_offset": 6881280,
+      "jffs2_deadc0de_offset_hex": "0x690000",
+      "fits_fwupdate_real_15925248": true
+    }
+  },
+  "prebaked_overlays": {
+    "ap_241": {
+      "tar_gz_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\firmware\\openwrt\\pbe5ac_gen2_ptp_kit\\sysupgrade-overlay-pbe5ac-ptp-ap-241.tar.gz",
+      "size_bytes": 1791,
+      "sha256": "b89c1e29d4efd329aa44a9597333482a9f85a374b83e78c40b268a80b2f7c964",
+      "embedded_files": [
+        "etc/fmx_ota_node_manifest.json",
+        "etc/rc.local",
+        "etc/uci-defaults/99-fmx-preconfig",
+        "usr/sbin/fmx_ptp_rollback_watchdog.sh"
+      ]
+    },
+    "sta_242": {
+      "tar_gz_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\firmware\\openwrt\\pbe5ac_gen2_ptp_kit\\sysupgrade-overlay-pbe5ac-ptp-sta-242.tar.gz",
+      "size_bytes": 1809,
+      "sha256": "a8f606204f19329185a3abca26f69dea511dab17e68a7963b203fd2cfdd69aba",
+      "embedded_files": [
+        "etc/fmx_ota_node_manifest.json",
+        "etc/rc.local",
+        "etc/uci-defaults/99-fmx-preconfig",
+        "usr/sbin/fmx_ptp_rollback_watchdog.sh"
+      ]
+    }
+  },
+  "caldata_backups_verified": {
+    "receipt_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage58a_pbe5ac_gen2_ground_up_and_caldata_backup_20261026.json",
+    "all_backups_verified": false
+  }
+}

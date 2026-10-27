@@ -1,0 +1,629 @@
+{
+  "experiment_id": "FMX-AUTORESEARCH-LIVE-004-SUBQUANTUM-RTS",
+  "timestamp_utc": "2026-10-24T06:07:08.691747+00:00",
+  "objective_config": {
+    "target_goodput_mbps": 80.0,
+    "baseline_rtt_ms": 2.0,
+    "rtt_budget_ms": 20.0,
+    "max_p99_rtt_ms": 80.0,
+    "max_packet_loss_pct": 5.0,
+    "min_repetitions": 2,
+    "min_improvement_delta": 0.002,
+    "weight_throughput": 0.55,
+    "weight_p95_rtt": 0.25,
+    "weight_p99_rtt": 0.15,
+    "weight_fairness": 0.0,
+    "weight_retries": 0.05
+  },
+  "winning_incumbent_knobs": {
+    "name": "r4_iter5_aql2200_rc28_fq200",
+    "description": "Slightly Wider AQL 2200/4400us (thresh 8800) + RC_PER=28% + fq_quantum=200B",
+    "aql_low_us": 2200,
+    "aql_high_us": 4400,
+    "aql_threshold_us": 8800,
+    "fq_quantum_bytes": 200,
+    "htt_max_amsdu": 3,
+    "htt_max_ampdu": 64,
+    "ct_rc_per_thresh": 28,
+    "rts_threshold": "off",
+    "complexity_cost": 1
+  },
+  "best_fmx_loss": 0.428902,
+  "pareto_frontier": [
+    {
+      "commit": "r4_iter5_aql2200_rc28_fq200",
+      "goodput_rx_mbps": 108.0,
+      "p50_rtt_ms": 12.952,
+      "p95_rtt_ms": 21.876,
+      "p99_rtt_ms": 26.047,
+      "mac_retry_rate": 0.002,
+      "fmx_loss": 0.428902
+    },
+    {
+      "commit": "r4_iter4_aql2000_rc30_fq200",
+      "goodput_rx_mbps": 107.0,
+      "p50_rtt_ms": 12.745,
+      "p95_rtt_ms": 24.945,
+      "p99_rtt_ms": 25.499,
+      "mac_retry_rate": 0.002,
+      "fmx_loss": 0.463155
+    },
+    {
+      "commit": "r4_iter6_aql2000_rc28_fq200_rts1024",
+      "goodput_rx_mbps": 113.5,
+      "p50_rtt_ms": 12.357,
+      "p95_rtt_ms": 25.715,
+      "p99_rtt_ms": 26.048,
+      "mac_retry_rate": 0.0025,
+      "fmx_loss": 0.476922
+    }
+  ],
+  "iterations": [
+    {
+      "commit": "r4_iter0_stock_control",
+      "candidate_knobs": {
+        "name": "r4_iter0_stock_control",
+        "description": "Stock OpenWrt 24.10.4 (AQL 5000/12000us, thresh 24000, fq_quantum 300B, RC_PER 50%, RTS off)",
+        "aql_low_us": 5000,
+        "aql_high_us": 12000,
+        "aql_threshold_us": 24000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 50,
+        "rts_threshold": "off",
+        "complexity_cost": 0
+      },
+      "observation": {
+        "goodput_rx_mbps": 106.5,
+        "p50_rtt_ms": 16.233,
+        "p95_rtt_ms": 31.689,
+        "p99_rtt_ms": 36.703,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.003,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.631535,
+        "decision": "keep",
+        "reason": "Initial baseline established",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.48445,
+          "p99_excess": 1.73515,
+          "unfairness": 0.0,
+          "retry_penalty": 0.003
+        }
+      },
+      "goodputs_per_rep": [
+        109.0,
+        104.0
+      ],
+      "rtts_ms": [
+        1.69,
+        3.48,
+        4.09,
+        4.17,
+        4.21,
+        5.58,
+        7.19,
+        12.04,
+        13.77,
+        15.23,
+        17.23,
+        18.54,
+        18.76,
+        19.75,
+        21.52,
+        22.22,
+        22.73,
+        27.81,
+        31.36,
+        37.96
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 93877,
+      "mac_tx_retries_delta": 284,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.003,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n24000\nRW fq_quantum 300",
+        "rc_per_u64": "0x700000032",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter0_stock_control"
+    },
+    {
+      "commit": "r4_iter1_r3_winner_fq300",
+      "candidate_knobs": {
+        "name": "r4_iter1_r3_winner_fq300",
+        "description": "R2/R3 Winner: AQL 2000/4000us (thresh 8000) + RC_PER=28% + fq_quantum=300B + RTS off",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 300,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "rts_threshold": "off",
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 107.5,
+        "p50_rtt_ms": 16.032,
+        "p95_rtt_ms": 32.077,
+        "p99_rtt_ms": 33.811,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0027,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.61468,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.016855 (0.631535 -> 0.614680)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.50385,
+          "p99_excess": 1.59055,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0027
+        }
+      },
+      "goodputs_per_rep": [
+        106.0,
+        109.0
+      ],
+      "rtts_ms": [
+        1.51,
+        1.54,
+        3.0,
+        4.12,
+        5.11,
+        9.62,
+        11.97,
+        14.71,
+        15.1,
+        15.88,
+        16.19,
+        18.97,
+        21.99,
+        22.79,
+        22.99,
+        25.84,
+        29.13,
+        31.81,
+        31.96,
+        34.24
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94578,
+      "mac_tx_retries_delta": 258,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0027,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8000\nRW fq_quantum 300",
+        "rc_per_u64": "0x70000001c",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter1_r3_winner_fq300"
+    },
+    {
+      "commit": "r4_iter2_subquantum_fq200_rc28",
+      "candidate_knobs": {
+        "name": "r4_iter2_subquantum_fq200_rc28",
+        "description": "Sub-300B Quantum: AQL 2000/4000us + RC_PER=28% + fq_quantum=200B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 200,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "rts_threshold": "off",
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 108.0,
+        "p50_rtt_ms": 13.911,
+        "p95_rtt_ms": 25.078,
+        "p99_rtt_ms": 31.661,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0019,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.511027,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.103653 (0.614680 -> 0.511027)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.1539,
+          "p99_excess": 1.48305,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0019
+        }
+      },
+      "goodputs_per_rep": [
+        108.0,
+        108.0
+      ],
+      "rtts_ms": [
+        1.62,
+        1.73,
+        2.57,
+        3.04,
+        8.5,
+        8.61,
+        10.74,
+        11.44,
+        13.41,
+        13.88,
+        13.94,
+        14.41,
+        15.26,
+        15.48,
+        16.06,
+        22.18,
+        23.91,
+        24.45,
+        24.64,
+        33.31
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94909,
+      "mac_tx_retries_delta": 184,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0019,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8000\nRW fq_quantum 200",
+        "rc_per_u64": "0x70000001c",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter2_subquantum_fq200_rc28"
+    },
+    {
+      "commit": "r4_iter3_subquantum_fq128_rc28",
+      "candidate_knobs": {
+        "name": "r4_iter3_subquantum_fq128_rc28",
+        "description": "Sub-300B Quantum: AQL 2000/4000us + RC_PER=28% + fq_quantum=128B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 128,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "rts_threshold": "off",
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 108.5,
+        "p50_rtt_ms": 15.839,
+        "p95_rtt_ms": 27.735,
+        "p99_rtt_ms": 28.037,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.002,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.517065,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.517065 vs best 0.511027)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.28675,
+          "p99_excess": 1.30185,
+          "unfairness": 0.0,
+          "retry_penalty": 0.002
+        }
+      },
+      "goodputs_per_rep": [
+        110.0,
+        107.0
+      ],
+      "rtts_ms": [
+        1.59,
+        1.85,
+        1.96,
+        2.44,
+        10.07,
+        11.5,
+        12.05,
+        12.16,
+        13.37,
+        15.22,
+        16.46,
+        17.14,
+        17.33,
+        17.57,
+        19.43,
+        21.45,
+        22.3,
+        26.32,
+        27.71,
+        28.11
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 95266,
+      "mac_tx_retries_delta": 187,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.002,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8000\nRW fq_quantum 128",
+        "rc_per_u64": "0x70000001c",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter2_subquantum_fq200_rc28"
+    },
+    {
+      "commit": "r4_iter4_aql2000_rc30_fq200",
+      "candidate_knobs": {
+        "name": "r4_iter4_aql2000_rc30_fq200",
+        "description": "Fine-Grained RC_PER=30% + AQL 2000/4000us + fq_quantum=200B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 200,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 30,
+        "rts_threshold": "off",
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 107.0,
+        "p50_rtt_ms": 12.745,
+        "p95_rtt_ms": 24.945,
+        "p99_rtt_ms": 25.499,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.002,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.463155,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.047872 (0.511027 -> 0.463155)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.14725,
+          "p99_excess": 1.17495,
+          "unfairness": 0.0,
+          "retry_penalty": 0.002
+        }
+      },
+      "goodputs_per_rep": [
+        107.0,
+        107.0
+      ],
+      "rtts_ms": [
+        3.13,
+        3.37,
+        4.1,
+        4.32,
+        8.88,
+        9.24,
+        11.33,
+        11.34,
+        11.54,
+        11.94,
+        13.55,
+        14.48,
+        18.48,
+        18.96,
+        23.31,
+        23.38,
+        23.55,
+        23.71,
+        24.91,
+        25.64
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94008,
+      "mac_tx_retries_delta": 191,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.002,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8000\nRW fq_quantum 200",
+        "rc_per_u64": "0x70000001e",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter4_aql2000_rc30_fq200"
+    },
+    {
+      "commit": "r4_iter5_aql2200_rc28_fq200",
+      "candidate_knobs": {
+        "name": "r4_iter5_aql2200_rc28_fq200",
+        "description": "Slightly Wider AQL 2200/4400us (thresh 8800) + RC_PER=28% + fq_quantum=200B",
+        "aql_low_us": 2200,
+        "aql_high_us": 4400,
+        "aql_threshold_us": 8800,
+        "fq_quantum_bytes": 200,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "rts_threshold": "off",
+        "complexity_cost": 1
+      },
+      "observation": {
+        "goodput_rx_mbps": 108.0,
+        "p50_rtt_ms": 12.952,
+        "p95_rtt_ms": 21.876,
+        "p99_rtt_ms": 26.047,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.002,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.428902,
+        "decision": "keep",
+        "reason": "Improved fmx_loss by 0.034253 (0.463155 -> 0.428902)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 0.9938,
+          "p99_excess": 1.20235,
+          "unfairness": 0.0,
+          "retry_penalty": 0.002
+        }
+      },
+      "goodputs_per_rep": [
+        108.0,
+        108.0
+      ],
+      "rtts_ms": [
+        1.9,
+        1.95,
+        2.13,
+        2.49,
+        5.35,
+        12.13,
+        12.15,
+        12.19,
+        12.54,
+        12.69,
+        13.22,
+        13.37,
+        14.6,
+        15.0,
+        15.68,
+        16.68,
+        18.61,
+        19.06,
+        21.6,
+        27.09
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 94816,
+      "mac_tx_retries_delta": 191,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.002,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8800\nRW fq_quantum 200",
+        "rc_per_u64": "0x70000001c",
+        "rts_threshold": "off"
+      },
+      "incumbent_after": "r4_iter5_aql2200_rc28_fq200"
+    },
+    {
+      "commit": "r4_iter6_aql2000_rc28_fq200_rts1024",
+      "candidate_knobs": {
+        "name": "r4_iter6_aql2000_rc28_fq200_rts1024",
+        "description": "RTS Protection Gate: AQL 2000/4000us + RC_PER=28% + fq_quantum=200B + RTS=1024B",
+        "aql_low_us": 2000,
+        "aql_high_us": 4000,
+        "aql_threshold_us": 8000,
+        "fq_quantum_bytes": 200,
+        "htt_max_amsdu": 3,
+        "htt_max_ampdu": 64,
+        "ct_rc_per_thresh": 28,
+        "rts_threshold": "1024",
+        "complexity_cost": 2
+      },
+      "observation": {
+        "goodput_rx_mbps": 113.5,
+        "p50_rtt_ms": 12.357,
+        "p95_rtt_ms": 25.715,
+        "p99_rtt_ms": 26.048,
+        "packet_loss_pct": 0.0,
+        "jain_fairness": 1.0,
+        "retry_rate": 0.0025,
+        "station_drops": 0,
+        "restoration_verified": true,
+        "repetitions": 2
+      },
+      "evaluation": {
+        "fmx_loss": 0.476922,
+        "decision": "discard",
+        "reason": "Did not improve fmx_loss sufficiently (candidate 0.476922 vs best 0.428902)",
+        "disqualified": false,
+        "components": {
+          "tput_deficit": 0.0,
+          "p95_excess": 1.18575,
+          "p99_excess": 1.2024,
+          "unfairness": 0.0,
+          "retry_penalty": 0.0025
+        }
+      },
+      "goodputs_per_rep": [
+        112.0,
+        115.0
+      ],
+      "rtts_ms": [
+        2.25,
+        2.46,
+        4.29,
+        8.69,
+        9.03,
+        9.17,
+        9.52,
+        10.88,
+        10.9,
+        11.3,
+        13.41,
+        17.24,
+        18.16,
+        18.98,
+        19.88,
+        20.7,
+        22.96,
+        25.41,
+        25.69,
+        26.13
+      ],
+      "rtt_sample_count": 20,
+      "retransmits": 0,
+      "mac_tx_packets_delta": 99189,
+      "mac_tx_retries_delta": 247,
+      "mac_tx_failed_delta": 0,
+      "mac_retry_rate": 0.0025,
+      "readback": {
+        "rc": 0,
+        "readback": "CT_RCS=0,RTS_RC=0\n8000\nRW fq_quantum 200\n\tRTS threshold: 1024",
+        "rc_per_u64": "0x70000001c",
+        "rts_threshold": "1024"
+      },
+      "incumbent_after": "r4_iter5_aql2200_rc28_fq200"
+    }
+  ],
+  "restoration_verified_readback": {
+    "rc": 0,
+    "readback": "CT_RCS=0,RTS_RC=0\n24000\nRW fq_quantum 300",
+    "rc_per_u64": "0x700000032",
+    "rts_threshold": "off"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "stage": "165A",
+  "task_id": "T-S165A-XC-FAMILY-UNIVERSAL-OPENWRT-KIT",
+  "timestamp_utc": "2026-10-26T22:58:50.194669+00:00",
+  "status": "CONFIRMED",
+  "attribution": "Linux / mac80211 / ath10k / hardware (Universal XC QCA9558 720 MHz + QCA9880 128 MB RAM OpenWrt 24.10.4 Champion Kit: vm.min_free_kbytes=6144, fq_memory_limit=8388608 8MB, fq_limit=2048, AP fq_quantum=3028 / STA fq_quantum=1514, aql_threshold=4000, BQL 6056/36288/600)",
+  "live_radios_241_242_20_250_touched": false,
+  "xc_champion_script": {
+    "path": "firmware/openwrt/xc_family_universal_kit/99-fmx-xc-universal-champion",
+    "sha256": "2014ede26087b48932010fd6f53c45b6c3754d53283cd6cf4895ee7e4aa334aa",
+    "size_bytes": 6286
+  },
+  "xc_overlay_tar": {
+    "path": "firmware/openwrt/xc_family_universal_kit/sysupgrade-overlay-xc-universal-v1.tar.gz",
+    "sha256": "e07fd4d7ffb57f5707d12f3c95b00afd6cdde28462628713edbaf4c7fff20e3c",
+    "size_bytes": 390048
+  },
+  "xc_boards_count": 6,
+  "xc_boards": {
+    "0xe7f9": {
+      "sysid": "0xe7f9",
+      "model": "Rocket 5AC Prism Gen2 (RP-5AC-Gen2)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2 + airPrism + GPS",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "AR8035 Gigabit RGMII (eth0)",
+      "openwrt_board_id": "ubnt,rocket-5ac-prism-gen2"
+    },
+    "0xe7f8": {
+      "sysid": "0xe7f8",
+      "model": "PrismStation 5AC (PrismAP-5AC)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2 + airPrism + GPS",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "AR8035 Gigabit RGMII (eth0)",
+      "openwrt_board_id": "ubnt,prismstation-5ac"
+    },
+    "0xe7f5": {
+      "sysid": "0xe7f5",
+      "model": "IsoStation 5AC (IS-5AC XC)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "AR8035 Gigabit RGMII (eth0)",
+      "openwrt_board_id": "ubnt,isostation-5ac-xc"
+    },
+    "0xe3f5": {
+      "sysid": "0xe3f5",
+      "model": "PowerBeam 5AC 500 (PBE-5AC-500)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2 (27 dBi 500mm dish)",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "AR8035 Gigabit RGMII (eth0)",
+      "openwrt_board_id": "ubnt,powerbeam-5ac-500"
+    },
+    "0xe4f5": {
+      "sysid": "0xe4f5",
+      "model": "PowerBeam 5AC 620 (PBE-5AC-620)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2 (29 dBi 620mm dish)",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "AR8035 Gigabit RGMII (eth0)",
+      "openwrt_board_id": "ubnt,powerbeam-5ac-620"
+    },
+    "0xe6e5": {
+      "sysid": "0xe6e5",
+      "model": "NanoBeam 5AC 19 (NBE-5AC-19)",
+      "soc": "QCA9558 720 MHz MIPS 74Kc",
+      "wlan_5ghz": "QCA9880-BR4A 802.11ac 2x2 (19 dBi)",
+      "ram_mb": 128,
+      "flash_mb": 16,
+      "eth_phy": "Dual AR8035/Switch Gigabit (eth0 + eth1)",
+      "openwrt_board_id": "ubnt,nanobeam-ac-xc"
+    }
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_components": [
+      "99-fmx-xc-universal-champion (128 MB RAM QCA9558 + QCA9880 XC profile)",
+      "xc_board_manifest.json (0xe7f9, 0xe7f8, 0xe7f5, 0xe3f5, 0xe4f5, 0xe6e5)",
+      "mac80211_teb_4addr_v3_6.6.110.ko + fmx_pbe5ac_admitter.sh v2"
+    ],
+    "catalog_knob_ids": [
+      "XC-VM-MIN-FREE-KBYTES-6144",
+      "XC-FQ-MEM-LIMIT-8MB",
+      "XC-FQ-LIMIT-2048",
+      "XC-BQL-ETH0-6056-36288-600",
+      "OWRT-AQL-THRESHOLD-4000"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Scaling fq_memory_limit to 8 MB (8388608 B), fq_limit to 2048 packets, vm.min_free_kbytes to 6144 KB, and eth0 BQL limit_min to 6056 B (4xMTU) exploits XC's 128 MB DDR2 RAM and 720 MHz QCA9558 CPU without bufferbloat."
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "dfs_watchdog_seconds": 120
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "xc_ram_mb": 128,
+    "vm_min_free_kbytes": 6144,
+    "fq_memory_limit_bytes": 8388608
+  },
+  "pillar_e_memory_master_claim_id": "mm-37fa",
+  "pillar_e_memory_master_numeric_id": 155044
+}

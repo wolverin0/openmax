@@ -1,0 +1,210 @@
+{
+  "task_id": "T-S44B-CODEX-STAGE48B-LTU-OTA-TRIPLE-PLAY-ULPWRTUNE-AND-LOOP-FLEE-VERIFIER",
+  "validation_version": 1,
+  "status": "PASS_OFFLINE_SOFTWARE_WITH_PLATFORM_SKIP_AND_NATIVE_QUALIFICATIONS",
+  "timestamp_utc": "2026-10-26T01:29:21.498598+00:00",
+  "frozen_owned_sha256": {
+    "controller/stage48b_ltu_ota_triple_play_and_loop_flee_verifier.py": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed",
+    "tools/verify_stage48b_ltu_ota_triple_play.py": "836cefa8f2c0433db6ccbba54350d1024d6bacec49b54e2ef127bb24be30ba5e",
+    "tests/test_stage48b_ltu_ota_triple_play_verifier.py": "3e563b00bc22d8bfc29b28be8d8253de0f5e208130acae805298cd1d169883ea",
+    "docs/CURRENT_STATE.md": "7fd2120f465709146f36bdab95ada2f5b701e6d84d69dddcc87679714d7e7908",
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": "b2b01306f8feea0098e13ee185d6817a39601da032852cf15829f67e38219006",
+    "docs/BENCH_PLAN.md": "ffabb470089ae0b0fcd7968b31224d59a0050ee38591f5f8ebe371c0e3f35ece",
+    "docs/DECISIONS.md": "85e13a6b8a206ab366ef839623dc6979a6ce8fb516c80102aa352246d0d7aae8",
+    "docs/RESEARCH_LEDGER.md": "7f2f0d35a17de6e580c0b6750f0b086f3b45c5c6f535de21c92bd4624c0872ad",
+    "artifacts/autoresearch/stage48b_ltu_ota_triple_play_audit_20261025.json": "e6ca92bc5788f06be012d926e74b52c7d7135c57d1c06367d53776031f150011"
+  },
+  "input_sha256": {
+    "artifacts/autoresearch/stage48b_ltu_ota_triple_play_and_standalone_poe_20261025.json": "70b636aa82b42c51faa46a0ba9f83d154694161b7033f0551a0247d12be3930a",
+    "docs/STAGE48B_LTU_OTA_TRIPLE_PLAY_AND_STANDALONE_POE_BENCHMARK.md": "259e96b1c930570bcb6be8eb4a0e5cc0a5b71dd32ab2dfb73db307319ccbb6eb",
+    "tools/bench/run_stage48b_ltu_ota_triple_play_bench.py": "5eab364b74b3b103ba5b05592f7fda35e0191928990c22c28ea018adf00953ca",
+    "controller/stage42a_netdev_txq_and_airos6_verifier.py": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70"
+  },
+  "test_receipts": {
+    "artifacts/autoresearch/stage44b_test_run_1_20261025.json": {
+      "sha256": "9e7d3f7a8c547b845b9bb0ac6e5aa834612c53a56ace05f17040762f4931392a",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage48b_ltu_ota_triple_play_verifier.py",
+        "exit_code": 1,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:7 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage48b_ltu ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 66%]\r\n.................FFF.......s.........                                    [100%]\r\n================================== FAILURES ===================================\r\n_______ test_export_requires_literal_nondevice_json_filename[NUL.json] ________\r\n\r\naudit = {'audit_version': 1, 'boundary': {'e2': 'NOT_ACCEPTED', 'hardware_access': False, 'native_dispatch_allowed': False, 'o...TRIPLE_PLAY_AND_STANDALONE_POE_BENCHMARK.md': '259e96b1c930570bcb6be8eb4a0e5cc0a5b71dd32ab2dfb73db307319ccbb6eb'}, ...}\r\ntmp_path = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n2')\r\nfilename = 'NUL.json'\r\n\r\n    @pytest.mark.parametrize(\"filename\", (\"audit.txt\", \"audit.py\", \"NUL.json\", \"CON.json\", \"COM1.json\", \"bad name.json\"))\r\n    def test_export_requires_literal_nondevice_json_filename(audit, tmp_path, filename):\r\n        output = tmp_path / filename\r\n        with pytest.raises(ValueError):\r\n            verifier.write_audit(audit, output)\r\n>       assert not output.exists()\r\nE       AssertionError: assert not True\r\nE        +  where True = exists()\r\nE        +    where exists = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n2/NUL.json').exists\r\n\r\ntests\\test_stage48b_ltu_ota_triple_play_verifier.py:376: AssertionError\r\n_______ test_export_requires_literal_nondevice_json_filename[CON.json] ________\r\n\r\naudit = {'audit_version': 1, 'boundary': {'e2': 'NOT_ACCEPTED', 'hardware_access': False, 'native_dispatch_allowed': False, 'o...TRIPLE_PLAY_AND_STANDALONE_POE_BENCHMARK.md': '259e96b1c930570bcb6be8eb4a0e5cc0a5b71dd32ab2dfb73db307319ccbb6eb'}, ...}\r\ntmp_path = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n3')\r\nfilename = 'CON.json'\r\n\r\n    @pytest.mark.parametrize(\"filename\", (\"audit.txt\", \"audit.py\", \"NUL.json\", \"CON.json\", \"COM1.json\", \"bad name.json\"))\r\n    def test_export_requires_literal_nondevice_json_filename(audit, tmp_path, filename):\r\n        output = tmp_path / filename\r\n        with pytest.raises(ValueError):\r\n            verifier.write_audit(audit, output)\r\n>       assert not output.exists()\r\nE       AssertionError: assert not True\r\nE        +  where True = exists()\r\nE        +    where exists = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n3/CON.json').exists\r\n\r\ntests\\test_stage48b_ltu_ota_triple_play_verifier.py:376: AssertionError\r\n_______ test_export_requires_literal_nondevice_json_filename[COM1.json] _______\r\n\r\naudit = {'audit_version': 1, 'boundary': {'e2': 'NOT_ACCEPTED', 'hardware_access': False, 'native_dispatch_allowed': False, 'o...TRIPLE_PLAY_AND_STANDALONE_POE_BENCHMARK.md': '259e96b1c930570bcb6be8eb4a0e5cc0a5b71dd32ab2dfb73db307319ccbb6eb'}, ...}\r\ntmp_path = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n4')\r\nfilename = 'COM1.json'\r\n\r\n    @pytest.mark.parametrize(\"filename\", (\"audit.txt\", \"audit.py\", \"NUL.json\", \"CON.json\", \"COM1.json\", \"bad name.json\"))\r\n    def test_export_requires_literal_nondevice_json_filename(audit, tmp_path, filename):\r\n        output = tmp_path / filename\r\n        with pytest.raises(ValueError):\r\n            verifier.write_audit(audit, output)\r\n>       assert not output.exists()\r\nE       AssertionError: assert not True\r\nE        +  where True = exists()\r\nE        +    where exists = WindowsPath('C:/_tmp/systemp/pytest-of-pauol/pytest-1755/test_export_requires_literal_n4/COM1.json').exists\r\n\r\ntests\\test_stage48b_ltu_ota_triple_play_verifier.py:376: AssertionError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_stage48b_ltu_ota_triple_play_verifier.py::test_export_requires_literal_nondevice_json_filename[NUL.json]\r\nFAILED tests/test_stage48b_ltu_ota_triple_play_verifier.py::test_export_requires_literal_nondevice_json_filename[CON.json]\r\nFAILED tests/test_stage48b_ltu_ota_triple_play_verifier.py::test_export_requires_literal_nondevice_json_filename[COM1.json]\r\n3 failed, 105 passed, 1 skipped in 0.75s\r\n",
+        "module_sha256": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed",
+        "module_sha256_after": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed",
+        "cli_sha256": "836cefa8f2c0433db6ccbba54350d1024d6bacec49b54e2ef127bb24be30ba5e",
+        "test_sha256": "d117eda39187326f19bcf08877ab1df556e003d4e444d04fc8c365ca9b1b8ad4",
+        "scope": "LOCAL_OFFLINE_TESTS_AND_DISPOSABLE_LOCAL_CLI_FIXTURES_ONLY",
+        "timestamp_utc": "2026-10-26T01:24:07.2318139Z"
+      }
+    },
+    "artifacts/autoresearch/stage44b_test_run_2_20261025.json": {
+      "sha256": "79463653300cb5e1c898e8a0ca193d15b1191560f56b2ef396a9ac5881e3b566",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage48b_ltu_ota_triple_play_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:7 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage48b_ltu ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 66%]\r\n...........................s.........                                    [100%]\r\n108 passed, 1 skipped in 0.58s\r\n",
+        "module_sha256": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed",
+        "module_sha256_after": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed",
+        "cli_sha256": "836cefa8f2c0433db6ccbba54350d1024d6bacec49b54e2ef127bb24be30ba5e",
+        "test_sha256": "3e563b00bc22d8bfc29b28be8d8253de0f5e208130acae805298cd1d169883ea",
+        "changed_hypothesis": "Reserved DOS device names are rejected; verify unchanged directory entries rather than Windows device exists() result",
+        "scope": "LOCAL_OFFLINE_TESTS_AND_DISPOSABLE_LOCAL_CLI_FIXTURES_ONLY",
+        "timestamp_utc": "2026-10-26T01:24:55.1095658Z"
+      }
+    }
+  },
+  "docs": {
+    "docs/CURRENT_STATE.md": {
+      "line_count": 223,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": {
+      "line_count": 247,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/BENCH_PLAN.md": {
+      "line_count": 222,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/DECISIONS.md": {
+      "line_count": 206,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/RESEARCH_LEDGER.md": {
+      "line_count": 211,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    }
+  },
+  "audit_summary": {
+    "status": "COMPLETE_WITH_QUALIFICATIONS",
+    "trials": 6,
+    "findings": [
+      {
+        "code": "RSSI_36DB_IS_ONE_REPORTED_PEAK_CHAIN_NOT_BOTH_FINAL_CHAINS",
+        "evidence": "REPORT_NUMBERS_ONLY"
+      },
+      {
+        "code": "IPTV_LOSS_TRADEOFF_NOT_SHOWN_IN_MAIN_REPORT_TABLE",
+        "candidate_rep1_pct": 9.456,
+        "candidate_mean_pct": 3.254
+      },
+      {
+        "code": "REPORT_TRIAL_P50_DIFFERS",
+        "profile_id": "S48B-R0-STOCK-QUEUE",
+        "rep": 3,
+        "report": 66.265,
+        "json": 66.263
+      },
+      {
+        "code": "REPORT_TRIAL_P50_DIFFERS",
+        "profile_id": "S48B-R1-CHAMPION-V1",
+        "rep": 3,
+        "report": 5.702,
+        "json": 5.703
+      }
+    ],
+    "changes_pct": {
+      "mean_loaded_ping_p50_ms": -92.5473,
+      "mean_loaded_ping_p95_ms": -82.7345,
+      "mean_loaded_ping_p99_ms": -82.7345,
+      "mean_bulk_tcp_mbps": -16.538,
+      "mean_iptv_udp_mbps": -10.4705,
+      "mean_iptv_jitter_ms": 0,
+      "mean_voip_jitter_ms": 3.4126
+    },
+    "native_acceptance": false
+  },
+  "cli_receipt": {
+    "command": "python tools/verify_stage48b_ltu_ota_triple_play.py",
+    "chunk_id": "bfd8ab",
+    "wall_time_seconds": 0.7112925,
+    "exit_code": 0,
+    "original_token_count": 61,
+    "output": "{\"status\": \"COMPLETE_WITH_QUALIFICATIONS\", \"output\": \"G:\\\\_OneDrive\\\\OneDrive\\\\Desktop\\\\Py Apps\\\\futuraMAX\\\\artifacts\\\\autoresearch\\\\stage48b_ltu_ota_triple_play_audit_20261025.json\", \"trials\": 6, \"findings\": 4, \"native_acceptance\": false}\r\n"
+  },
+  "post_edit_document_test_receipt": {
+    "command": "python -m pytest -q -o addopts= tests/test_stage48b_ltu_ota_triple_play_verifier.py::test_live_index_docs_stay_compact_with_a_single_opening_doc_head",
+    "chunk_id": "a56ed5",
+    "wall_time_seconds": 1.4878255,
+    "exit_code": 0,
+    "original_token_count": 191,
+    "output": "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n..                                                                       [100%]\r\n2 passed in 0.27s\r\n"
+  },
+  "test_disposition": {
+    "final": "108 passed, 1 skipped; exit 0",
+    "initial": "105 passed, 3 failed, 1 skipped; exit 1; preserved",
+    "repair": "Test-only postcondition corrected for Windows reserved DOS device exists() behavior. Implementation unchanged.",
+    "platform_skip": "Local symlink creation unavailable; real-symlink branch not executed. Exact OSError was not captured by the quiet receipt.",
+    "warning": "Pre-existing pytest-asyncio fixture-loop-scope deprecation retained; no asynchronous tests or shared service mutations."
+  },
+  "references": [
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc2474.html",
+      "txt_sha256": "c490f3e15aa0b85b4117fe31ffbe68f17bf12e68357e8a1651c520ba2589f909",
+      "role": "Six DSCP bits; software packet-field arithmetic only"
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3168.html",
+      "txt_sha256": "35b437f1826b2624d6c5e7af2f047a6ba0a3110cd5559ffbd0cefdc8c3d87b76",
+      "role": "Two ECN bits; TOS-byte mask arithmetic only"
+    },
+    {
+      "url": "https://www.iana.org/assignments/dscp-registry",
+      "role": "Standard CS4=32, EF=46, AF41=34; no private firmware ABI inference"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/iproute2/iproute2/v6.6.0/tc/f_u32.c",
+      "sha256": "1b1a7bba3e7e3926385e9f3ee7284ba0fa9670ffdb6987630d7b3484e16a0f44",
+      "role": "Lines472-476: ip tos/dsfield matcher; not firmware selector semantics"
+    }
+  ],
+  "boundary": {
+    "offline_only": true,
+    "hardware_access": false,
+    "ssh": false,
+    "native_runner_executed": false,
+    "config_or_flash": false,
+    "new_rf_measurements": false,
+    "native_acceptance": false,
+    "physical_status": "UNKNOWN",
+    "e2": "NOT_ACCEPTED"
+  },
+  "next_tasks": [],
+  "physical_user_action_required": false,
+  "independent_review": {
+    "status": "PASS_SOFTWARE_CLOSURE_WITH_QUALIFIED_EVIDENCE",
+    "receipt": "artifacts/autoresearch/stage44b_independent_review_20261025.json",
+    "receipt_sha256": "f369eb16534b7b258adfb5637d31da8f96ecca5c63ee6ff8963f1a2ccd857a11",
+    "reviewed_validation_sha256_before_metadata_only_update": "66e1e93e678254d59fcfd7c4aa4f2513001f7ca5d41acfc3ec1123ed651c5784",
+    "allowed_post_review_mutations": [
+      "This validation status/review pointer only",
+      "Separate independent review receipt",
+      "Own task card DONE/summary only",
+      "Small user-authorized memory checkpoint note; no registry or database writes"
+    ],
+    "frozen_files_must_remain_unchanged": true
+  }
+}

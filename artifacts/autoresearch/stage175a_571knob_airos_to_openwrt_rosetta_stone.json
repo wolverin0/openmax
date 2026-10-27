@@ -1,0 +1,4596 @@
+{
+  "meta": {
+    "stage": "175A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage173a_to_175a_ltu_re_and_rosetta.py",
+    "scope": "offline static cross-reference; no device access",
+    "champion": "artifacts/autoresearch/stage163a_cumulative_18round_wa_champion_v2.json",
+    "champion_sha256": "b60d21699a56ada57ebf2a5251b7a4a99d8945cb40fdf0504574cf41f913759d",
+    "method": "normalised token match of the airOS knob name (full and last dotted component) against every key and string in the Stage 163A champion",
+    "claim_limit": "a token match is a CANDIDATE mapping, not a verified equivalence: the OpenWrt parameter semantics were not compared",
+    "radio_safety": "static only"
+  },
+  "knobs": [
+    {
+      "id": "ct_special_3",
+      "name": "ct_special.THRESH62_EXT",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_4",
+      "name": "ct_special.NOISE_FLR_THRESH",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_5",
+      "name": "ct_special.IBSS_AMSDU_OK",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_6",
+      "name": "ct_special.MAX_TXPOWER",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_7",
+      "name": "ct_special.RC_MAX_PER_THR",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_8",
+      "name": "ct_special.STA_TXBW_MASK",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_9",
+      "name": "ct_special.PDEV_XRETRY_TH",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_10",
+      "name": "ct_special.RIFS_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_11",
+      "name": "ct_special.WMI_WD",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_12",
+      "name": "ct_special.PSHACK",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_13",
+      "name": "ct_special.CSI",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_14",
+      "name": "ct_special.BW_DISABLE_MASK",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_15",
+      "name": "ct_special.TXBF_CV_MSG",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ct_special_16",
+      "name": "ct_special.RX_ALL_MGT",
+      "boundary": "QCA_10_1_FW",
+      "family": "ct_special",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "aql_txq_limit",
+      "name": "AQL low/high per access category",
+      "boundary": "mac80211",
+      "family": "mac80211",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "aql_threshold",
+      "name": "AQL aggregate pending-airtime threshold",
+      "boundary": "mac80211",
+      "family": "mac80211",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "fq_quantum",
+      "name": "fq_quantum_bytes",
+      "boundary": "mac80211",
+      "family": "mac80211",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "htt_aggr_size",
+      "name": "htt_max_amsdu_ampdu",
+      "boundary": "ath10k-ct",
+      "family": "htt",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "rts_threshold",
+      "name": "rts_threshold_bytes",
+      "boundary": "QCA_10_1_FW",
+      "family": "ath10k",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "coverage_class",
+      "name": "coverage_class",
+      "boundary": "ath10k-ct",
+      "family": "ath10k",
+      "rosetta_candidate": "coverage_class",
+      "mapped": true
+    },
+    {
+      "id": "vht_mcs_mask",
+      "name": "vht_mcs_mask",
+      "boundary": "QCA_10_1_FW",
+      "family": "ath10k",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "set_rates",
+      "name": "set_rates",
+      "boundary": "ath10k-ct",
+      "family": "ath10k",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "set_rate_override",
+      "name": "set_rate_override",
+      "boundary": "ath10k-ct",
+      "family": "ath10k",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_tx_chain_mask",
+      "name": "WMI_10X_PDEV_PARAM_TX_CHAIN_MASK",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_rx_chain_mask",
+      "name": "WMI_10X_PDEV_PARAM_RX_CHAIN_MASK",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_txpower_limit2g",
+      "name": "WMI_10X_PDEV_PARAM_TXPOWER_LIMIT2G",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_txpower_limit5g",
+      "name": "WMI_10X_PDEV_PARAM_TXPOWER_LIMIT5G",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_txpower_scale",
+      "name": "WMI_10X_PDEV_PARAM_TXPOWER_SCALE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_beacon_gen_mode",
+      "name": "WMI_10X_PDEV_PARAM_BEACON_GEN_MODE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_beacon_tx_mode",
+      "name": "WMI_10X_PDEV_PARAM_BEACON_TX_MODE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_resmgr_offchan_mode",
+      "name": "WMI_10X_PDEV_PARAM_RESMGR_OFFCHAN_MODE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_protection_mode",
+      "name": "WMI_10X_PDEV_PARAM_PROTECTION_MODE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_dynamic_bw",
+      "name": "WMI_10X_PDEV_PARAM_DYNAMIC_BW",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_non_agg_sw_retry_th",
+      "name": "WMI_10X_PDEV_PARAM_NON_AGG_SW_RETRY_TH",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_agg_sw_retry_th",
+      "name": "WMI_10X_PDEV_PARAM_AGG_SW_RETRY_TH",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_sta_kickout_th",
+      "name": "WMI_10X_PDEV_PARAM_STA_KICKOUT_TH",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ac_aggrsize_scaling",
+      "name": "WMI_10X_PDEV_PARAM_AC_AGGRSIZE_SCALING",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_enable",
+      "name": "WMI_10X_PDEV_PARAM_LTR_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_ac_latency_be",
+      "name": "WMI_10X_PDEV_PARAM_LTR_AC_LATENCY_BE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_ac_latency_bk",
+      "name": "WMI_10X_PDEV_PARAM_LTR_AC_LATENCY_BK",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_ac_latency_vi",
+      "name": "WMI_10X_PDEV_PARAM_LTR_AC_LATENCY_VI",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_ac_latency_vo",
+      "name": "WMI_10X_PDEV_PARAM_LTR_AC_LATENCY_VO",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_ac_latency_timeout",
+      "name": "WMI_10X_PDEV_PARAM_LTR_AC_LATENCY_TIMEOUT",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_sleep_override",
+      "name": "WMI_10X_PDEV_PARAM_LTR_SLEEP_OVERRIDE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_rx_override",
+      "name": "WMI_10X_PDEV_PARAM_LTR_RX_OVERRIDE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ltr_tx_activity_timeout",
+      "name": "WMI_10X_PDEV_PARAM_LTR_TX_ACTIVITY_TIMEOUT",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_l1ss_enable",
+      "name": "WMI_10X_PDEV_PARAM_L1SS_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_dsleep_enable",
+      "name": "WMI_10X_PDEV_PARAM_DSLEEP_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_pdev_stats_update_period",
+      "name": "WMI_10X_PDEV_PARAM_PDEV_STATS_UPDATE_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_vdev_stats_update_period",
+      "name": "WMI_10X_PDEV_PARAM_VDEV_STATS_UPDATE_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_peer_stats_update_period",
+      "name": "WMI_10X_PDEV_PARAM_PEER_STATS_UPDATE_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_bcnflt_stats_update_period",
+      "name": "WMI_10X_PDEV_PARAM_BCNFLT_STATS_UPDATE_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_pmf_qos",
+      "name": "WMI_10X_PDEV_PARAM_PMF_QOS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_arp_ac_override",
+      "name": "WMI_10X_PDEV_PARAM_ARPDHCP_AC_OVERRIDE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_dcs",
+      "name": "WMI_10X_PDEV_PARAM_DCS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ani_enable",
+      "name": "WMI_10X_PDEV_PARAM_ANI_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ani_poll_period",
+      "name": "WMI_10X_PDEV_PARAM_ANI_POLL_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ani_listen_period",
+      "name": "WMI_10X_PDEV_PARAM_ANI_LISTEN_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ani_ofdm_level",
+      "name": "WMI_10X_PDEV_PARAM_ANI_OFDM_LEVEL",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_ani_cck_level",
+      "name": "WMI_10X_PDEV_PARAM_ANI_CCK_LEVEL",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_dyntxchain",
+      "name": "WMI_10X_PDEV_PARAM_DYNTXCHAIN",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_fast_channel_reset",
+      "name": "WMI_10X_PDEV_PARAM_FAST_CHANNEL_RESET",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_burst_dur",
+      "name": "WMI_10X_PDEV_PARAM_BURST_DUR",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_burst_enable",
+      "name": "WMI_10X_PDEV_PARAM_BURST_ENABLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_pdev_cal_period",
+      "name": "WMI_10X_PDEV_PARAM_CAL_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_pdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_rts_threshold",
+      "name": "WMI_10X_VDEV_PARAM_RTS_THRESHOLD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_fragmentation_threshold",
+      "name": "WMI_10X_VDEV_PARAM_FRAGMENTATION_THRESHOLD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_beacon_interval",
+      "name": "WMI_10X_VDEV_PARAM_BEACON_INTERVAL",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_listen_interval",
+      "name": "WMI_10X_VDEV_PARAM_LISTEN_INTERVAL",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_multicast_rate",
+      "name": "WMI_10X_VDEV_PARAM_MULTICAST_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_mgmt_tx_rate",
+      "name": "WMI_10X_VDEV_PARAM_MGMT_TX_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_slot_time",
+      "name": "WMI_10X_VDEV_PARAM_SLOT_TIME",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_preamble",
+      "name": "WMI_10X_VDEV_PARAM_PREAMBLE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_swba_time",
+      "name": "WMI_10X_VDEV_PARAM_SWBA_TIME",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_wmi_vdev_stats_update_period",
+      "name": "WMI_10X_VDEV_STATS_UPDATE_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_wmi_vdev_pwrsave_ageout_time",
+      "name": "WMI_10X_VDEV_PWRSAVE_AGEOUT_TIME",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_wmi_vdev_host_swba_interval",
+      "name": "WMI_10X_VDEV_HOST_SWBA_INTERVAL",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_dtim_period",
+      "name": "WMI_10X_VDEV_PARAM_DTIM_PERIOD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_wmi_vdev_oc_scheduler_air_time_limit",
+      "name": "WMI_10X_VDEV_OC_SCHEDULER_AIR_TIME_LIMIT",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_wds",
+      "name": "WMI_10X_VDEV_PARAM_WDS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_atim_window",
+      "name": "WMI_10X_VDEV_PARAM_ATIM_WINDOW",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_bmiss_count_max",
+      "name": "WMI_10X_VDEV_PARAM_BMISS_COUNT_MAX",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_feature_wmm",
+      "name": "WMI_10X_VDEV_PARAM_FEATURE_WMM",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_chwidth",
+      "name": "WMI_10X_VDEV_PARAM_CHWIDTH",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_chextoffset",
+      "name": "WMI_10X_VDEV_PARAM_CHEXTOFFSET",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_disable_htprotection",
+      "name": "WMI_10X_VDEV_PARAM_DISABLE_HTPROTECTION",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_sta_quickkickout",
+      "name": "WMI_10X_VDEV_PARAM_STA_QUICKKICKOUT",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_mgmt_rate",
+      "name": "WMI_10X_VDEV_PARAM_MGMT_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_protection_mode",
+      "name": "WMI_10X_VDEV_PARAM_PROTECTION_MODE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_fixed_rate",
+      "name": "WMI_10X_VDEV_PARAM_FIXED_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_sgi",
+      "name": "WMI_10X_VDEV_PARAM_SGI",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ldpc",
+      "name": "WMI_10X_VDEV_PARAM_LDPC",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_tx_stbc",
+      "name": "WMI_10X_VDEV_PARAM_TX_STBC",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_rx_stbc",
+      "name": "WMI_10X_VDEV_PARAM_RX_STBC",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_intra_bss_fwd",
+      "name": "WMI_10X_VDEV_PARAM_INTRA_BSS_FWD",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_def_keyid",
+      "name": "WMI_10X_VDEV_PARAM_DEF_KEYID",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_nss",
+      "name": "WMI_10X_VDEV_PARAM_NSS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_bcast_data_rate",
+      "name": "WMI_10X_VDEV_PARAM_BCAST_DATA_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_mcast_data_rate",
+      "name": "WMI_10X_VDEV_PARAM_MCAST_DATA_RATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_mcast_indicate",
+      "name": "WMI_10X_VDEV_PARAM_MCAST_INDICATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_dhcp_indicate",
+      "name": "WMI_10X_VDEV_PARAM_DHCP_INDICATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_unknown_dest_indicate",
+      "name": "WMI_10X_VDEV_PARAM_UNKNOWN_DEST_INDICATE",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ap_keepalive_min_idle_inactive_time_secs",
+      "name": "WMI_10X_VDEV_PARAM_AP_KEEPALIVE_MIN_IDLE_INACTIVE_TIME_SECS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ap_keepalive_max_idle_inactive_time_secs",
+      "name": "WMI_10X_VDEV_PARAM_AP_KEEPALIVE_MAX_IDLE_INACTIVE_TIME_SECS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ap_keepalive_max_unresponsive_time_secs",
+      "name": "WMI_10X_VDEV_PARAM_AP_KEEPALIVE_MAX_UNRESPONSIVE_TIME_SECS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ap_enable_nawds",
+      "name": "WMI_10X_VDEV_PARAM_AP_ENABLE_NAWDS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_mcast2ucast_set",
+      "name": "WMI_10X_VDEV_PARAM_MCAST2UCAST_SET",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_enable_rtscts",
+      "name": "WMI_10X_VDEV_PARAM_ENABLE_RTSCTS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_ap_detect_out_of_sync_sleeping_sta_time_secs",
+      "name": "WMI_10X_VDEV_PARAM_AP_DETECT_OUT_OF_SYNC_SLEEPING_STA_TIME_SECS",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wmi10_1_vdev_rc_num_retries",
+      "name": "WMI_10X_VDEV_PARAM_RC_NUM_RETRIES",
+      "boundary": "QCA_10_1_FW",
+      "family": "wmi_vdev",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_ahbskip",
+      "name": "ahbskip",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_war1_allow_sleep",
+      "name": "war1_allow_sleep",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_war1",
+      "name": "war1",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_bmi",
+      "name": "bmi",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_ubnt_radar_mode",
+      "name": "ubnt_radar_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_ubnt_op_mode",
+      "name": "ubnt_op_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_is_ubnt_ff",
+      "name": "is_ubnt_ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_is_ubnt_ptp",
+      "name": "is_ubnt_ptp",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_max_vdevs",
+      "name": "max_vdevs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_max_peers",
+      "name": "max_peers",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_vow_config",
+      "name": "vow_config",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_enable_tx_tcp_cksum",
+      "name": "enable_tx_tcp_cksum",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_tgdeb",
+      "name": "tgdeb",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_host_80211_enable",
+      "name": "host_80211_enable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_sys_module_umac_parameters_msienable",
+      "name": "msienable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_set_host_diag",
+      "name": "set_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_set_diag",
+      "name": "set_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_get_diag",
+      "name": "get_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_get_host_diag",
+      "name": "get_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_enable",
+      "name": "enable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_timing",
+      "name": "timing",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_gqparam",
+      "name": "gqparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_sqparam",
+      "name": "sqparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_status",
+      "name": "status",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": "status",
+      "mapped": true
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_hsr_diag",
+      "name": "hsr_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_get_reg",
+      "name": "get_reg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_set_reg",
+      "name": "set_reg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_ro",
+      "name": "ro",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_swr_limit",
+      "name": "swr_limit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_noack_mode",
+      "name": "noack_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_netconf",
+      "name": "netconf",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_sta_priority",
+      "name": "sta_priority",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_set_remote_host_diag",
+      "name": "set_remote_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_set_remote_target_diag",
+      "name": "set_remote_target_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_debug_block_sta",
+      "name": "debug_block_sta",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_evm_meas_config",
+      "name": "evm_meas_config",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_debug_tid",
+      "name": "debug_tid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_atpc",
+      "name": "atpc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_cms_bias",
+      "name": "cms_bias",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_ff_cap_rep",
+      "name": "ff_cap_rep",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_ff_mcast_airtime_limit",
+      "name": "ff_mcast_airtime_limit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_voip_bias",
+      "name": "voip_bias",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_ptp_xmit",
+      "name": "ptp_xmit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_fixed_frame",
+      "name": "fixed_frame",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_sta_rx_rssi_th",
+      "name": "sta_rx_rssi_th",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_wifi0_daprot",
+      "name": "daprot",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_addradio",
+      "name": "addradio",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_gpsreset",
+      "name": "gpsreset",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_proc_sys_dev_uph_gps_info",
+      "name": "gps_info",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_host_diag",
+      "name": "set_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_diag",
+      "name": "set_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_diag",
+      "name": "get_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_host_diag",
+      "name": "get_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_enable",
+      "name": "enable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_timing",
+      "name": "timing",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_gqparam",
+      "name": "gqparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sqparam",
+      "name": "sqparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_status",
+      "name": "status",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": "status",
+      "mapped": true
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_hsr_diag",
+      "name": "hsr_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_get_reg",
+      "name": "get_reg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_reg",
+      "name": "set_reg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ro",
+      "name": "ro",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_swr_limit",
+      "name": "swr_limit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_noack_mode",
+      "name": "noack_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_netconf",
+      "name": "netconf",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_priority",
+      "name": "sta_priority",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_host_diag",
+      "name": "set_remote_host_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_set_remote_target_diag",
+      "name": "set_remote_target_diag",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_block_sta",
+      "name": "debug_block_sta",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_evm_meas_config",
+      "name": "evm_meas_config",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_debug_tid",
+      "name": "debug_tid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_atpc",
+      "name": "atpc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_cms_bias",
+      "name": "cms_bias",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_cap_rep",
+      "name": "ff_cap_rep",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ff_mcast_airtime_limit",
+      "name": "ff_mcast_airtime_limit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_voip_bias",
+      "name": "voip_bias",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_ptp_xmit",
+      "name": "ptp_xmit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_fixed_frame",
+      "name": "fixed_frame",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_sta_rx_rssi_th",
+      "name": "sta_rx_rssi_th",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_wifi0_daprot",
+      "name": "daprot",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_addradio",
+      "name": "addradio",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_gpsreset",
+      "name": "gpsreset",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_proc_sys_dev_uph_gps_info",
+      "name": "gps_info",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_sysctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_noackpolicy",
+      "name": "noackpolicy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_noackpolicy",
+      "name": "get_noackpolicy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_ff",
+      "name": "ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_ff",
+      "name": "get_ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_mcast_rate",
+      "name": "mcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_mcast_rate",
+      "name": "get_mcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_ampdu",
+      "name": "ampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_ampdu",
+      "name": "get_ampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_maxampdu",
+      "name": "maxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_maxampdu",
+      "name": "get_maxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_vhtmaxampdu",
+      "name": "vhtmaxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_vhtmaxampdu",
+      "name": "get_vhtmaxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_amsdu",
+      "name": "amsdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_amsdu",
+      "name": "get_amsdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_set11nrates",
+      "name": "set11NRates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get11nrates",
+      "name": "get11NRates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_set11nretries",
+      "name": "set11NRetries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get11nretries",
+      "name": "get11NRetries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_basicrates",
+      "name": "basicrates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_vhtmcs",
+      "name": "vhtmcs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_vhtmcs",
+      "name": "get_vhtmcs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_enablertscts",
+      "name": "enablertscts",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_enablertscts",
+      "name": "get_enablertscts",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_rc_retries",
+      "name": "rc_retries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_rc_retries",
+      "name": "get_rc_retries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_bcast_rate",
+      "name": "bcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_bcast_rate",
+      "name": "get_bcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_vht_mcsmap",
+      "name": "vht_mcsmap",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_ath_vap_get_vht_mcsmap",
+      "name": "get_vht_mcsmap",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "xc_8_7_25_iwpriv_wifi0_distance",
+      "name": "distance",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_automcsceiling",
+      "name": "autoMcsCeiling",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mcs",
+      "name": "adj_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_automcs4096",
+      "name": "autoMcs4096",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_cpe_mcs",
+      "name": "cpe_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mix_mcs",
+      "name": "adj_mix_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mimo",
+      "name": "adj_mimo",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_en",
+      "name": "ofdma_en",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_subbands",
+      "name": "ofdma_subbands",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_subband0_hdridx",
+      "name": "ofdma_subband0_hdrIdx",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_ap_2_4_2_sys_class_ame_ame_ctrl_dev_ldpc_iteration",
+      "name": "ldpc_iteration",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_automcsceiling",
+      "name": "autoMcsCeiling",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mcs",
+      "name": "adj_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_automcs4096",
+      "name": "autoMcs4096",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_cpe_mcs",
+      "name": "cpe_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mix_mcs",
+      "name": "adj_mix_mcs",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_adj_mimo",
+      "name": "adj_mimo",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_en",
+      "name": "ofdma_en",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_subbands",
+      "name": "ofdma_subbands",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_ofdma_subband0_hdridx",
+      "name": "ofdma_subband0_hdrIdx",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "ltu_cpe_2_4_2_sys_class_ame_ame_ctrl_dev_ldpc_iteration",
+      "name": "ldpc_iteration",
+      "boundary": "LTU_AME_FW",
+      "family": "ltu_sysfs",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "codel_target",
+      "name": "codel_target_ms",
+      "boundary": "Linux_qdisc",
+      "family": "policy_only",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "codel_interval",
+      "name": "codel_interval_ms",
+      "boundary": "Linux_qdisc",
+      "family": "policy_only",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "cake_bandwidth",
+      "name": "cake_bandwidth_mbps",
+      "boundary": "Linux_qdisc",
+      "family": "policy_only",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "airprism_gpio_hsr",
+      "name": "AirPrism filter bank / LNA control",
+      "boundary": "hardware",
+      "family": "hardware",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_ahbskip",
+      "name": "ahbskip",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_war1_allow_sleep",
+      "name": "war1_allow_sleep",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_war1",
+      "name": "war1",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_bmi",
+      "name": "bmi",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_ubnt_radar_mode",
+      "name": "ubnt_radar_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_ubnt_op_mode",
+      "name": "ubnt_op_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_is_ubnt_ff",
+      "name": "is_ubnt_ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_is_ubnt_ptp",
+      "name": "is_ubnt_ptp",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_max_vdevs",
+      "name": "max_vdevs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_max_peers",
+      "name": "max_peers",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_vow_config",
+      "name": "vow_config",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_enable_tx_tcp_cksum",
+      "name": "enable_tx_tcp_cksum",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_tgdeb",
+      "name": "tgdeb",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_host_80211_enable",
+      "name": "host_80211_enable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_umac_msienable",
+      "name": "msienable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_module",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setoptie_9d14",
+      "name": "setoptie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getoptie_9d2c",
+      "name": "getoptie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setkey_9d44",
+      "name": "setkey",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_delkey_9d5c",
+      "name": "delkey",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setmlme_9d74",
+      "name": "setmlme",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_addmac_9d8c",
+      "name": "addmac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_delmac_9da4",
+      "name": "delmac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getmac_9dbc",
+      "name": "getmac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_kickmac_9dd4",
+      "name": "kickmac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setchanlist_9dec",
+      "name": "setchanlist",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getchanlist_9e04",
+      "name": "getchanlist",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+      "name": "getchaninfo",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mode_9e34",
+      "name": "mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mode_9e4c",
+      "name": "get_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setwmmparams_9e64",
+      "name": "setwmmparams",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+      "name": "getwmmparams",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_9e94",
+      "name": "Unnamed WEXT dispatcher 0x9e94",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_9eac",
+      "name": "Unnamed WEXT dispatcher 0x9eac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_cwmin_9ec4",
+      "name": "cwmin",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cwmin_9edc",
+      "name": "get_cwmin",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_cwmax_9ef4",
+      "name": "cwmax",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cwmax_9f0c",
+      "name": "get_cwmax",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_aifs_9f24",
+      "name": "aifs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_aifs_9f3c",
+      "name": "get_aifs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_txoplimit_9f54",
+      "name": "txoplimit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_txoplimit_9f6c",
+      "name": "get_txoplimit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_acm_9f84",
+      "name": "acm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_acm_9f9c",
+      "name": "get_acm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+      "name": "noackpolicy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_noackpolicy_9fcc",
+      "name": "get_noackpolicy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setparam_9fe4",
+      "name": "setparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getparam_9ffc",
+      "name": "getparam",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_a014",
+      "name": "Unnamed WEXT dispatcher 0xa014",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_a02c",
+      "name": "Unnamed WEXT dispatcher 0xa02c",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_a044",
+      "name": "Unnamed WEXT dispatcher 0xa044",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_a05c",
+      "name": "Unnamed WEXT dispatcher 0xa05c",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_authmode_a074",
+      "name": "authmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_authmode_a08c",
+      "name": "get_authmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_protmode_a0a4",
+      "name": "protmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_protmode_a0bc",
+      "name": "get_protmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+      "name": "mcastcipher",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mcastcipher_a0ec",
+      "name": "get_mcastcipher",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mcastkeylen_a104",
+      "name": "mcastkeylen",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mcastkeylen_a11c",
+      "name": "get_mcastkeylen",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ucastciphers_a134",
+      "name": "ucastciphers",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_uciphers_a14c",
+      "name": "get_uciphers",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ucastcipher_a164",
+      "name": "ucastcipher",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ucastcipher_a17c",
+      "name": "get_ucastcipher",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ucastkeylen_a194",
+      "name": "ucastkeylen",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ucastkeylen_a1ac",
+      "name": "get_ucastkeylen",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+      "name": "keymgtalgs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_keymgtalgs_a1dc",
+      "name": "get_keymgtalgs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rsncaps_a1f4",
+      "name": "rsncaps",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rsncaps_a20c",
+      "name": "get_rsncaps",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_privacy_a224",
+      "name": "privacy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_privacy_a23c",
+      "name": "get_privacy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_countermeasures_a254",
+      "name": "countermeasures",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_countermeas_a26c",
+      "name": "get_countermeas",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_dropunencrypted_a284",
+      "name": "dropunencrypted",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_dropunencry_a29c",
+      "name": "get_dropunencry",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wpa_a2b4",
+      "name": "wpa",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_wpa_a2cc",
+      "name": "get_wpa",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_driver_caps_a2e4",
+      "name": "driver_caps",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_driver_caps_a2fc",
+      "name": "get_driver_caps",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_maccmd_a314",
+      "name": "maccmd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_maccmd_a32c",
+      "name": "get_maccmd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wmm_a344",
+      "name": "wmm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_wmm_a35c",
+      "name": "get_wmm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_hide_ssid_a374",
+      "name": "hide_ssid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_hide_ssid_a38c",
+      "name": "get_hide_ssid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ap_bridge_a3a4",
+      "name": "ap_bridge",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ap_bridge_a3bc",
+      "name": "get_ap_bridge",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_inact_a3d4",
+      "name": "inact",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_inact_a3ec",
+      "name": "get_inact",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_inact_auth_a404",
+      "name": "inact_auth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_inact_auth_a41c",
+      "name": "get_inact_auth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_inact_init_a434",
+      "name": "inact_init",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_inact_init_a44c",
+      "name": "get_inact_init",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_dtim_period_a464",
+      "name": "dtim_period",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_dtim_period_a47c",
+      "name": "get_dtim_period",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_bintval_a494",
+      "name": "bintval",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_bintval_a4ac",
+      "name": "get_bintval",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_doth_a4c4",
+      "name": "doth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_doth_a4dc",
+      "name": "get_doth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_doth_pwrtgt_a4f4",
+      "name": "doth_pwrtgt",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_doth_pwrtgt_a50c",
+      "name": "get_doth_pwrtgt",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_doth_reassoc_a524",
+      "name": "doth_reassoc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_compression_a53c",
+      "name": "compression",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_compression_a554",
+      "name": "get_compression",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ff_a56c",
+      "name": "ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ff_a584",
+      "name": "get_ff",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_turbo_a59c",
+      "name": "turbo",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_turbo_a5b4",
+      "name": "get_turbo",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_burst_a5cc",
+      "name": "burst",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_burst_a5e4",
+      "name": "get_burst",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_doth_chanswitch_a5fc",
+      "name": "doth_chanswitch",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_pureg_a614",
+      "name": "pureg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_pureg_a62c",
+      "name": "get_pureg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ar_a644",
+      "name": "ar",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ar_a65c",
+      "name": "get_ar",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wds_a674",
+      "name": "wds",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_wds_a68c",
+      "name": "get_wds",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vap_ind_a6a4",
+      "name": "vap_ind",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vap_ind_a6bc",
+      "name": "get_vap_ind",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+      "name": "mcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mcast_rate_a6ec",
+      "name": "get_mcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_countryie_a704",
+      "name": "countryie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_countryie_a71c",
+      "name": "get_countryie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_uapsd_a734",
+      "name": "uapsd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_uapsd_a74c",
+      "name": "get_uapsd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_qosnull_a764",
+      "name": "qosnull",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_pspoll_a77c",
+      "name": "pspoll",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ips_pspoll_a794",
+      "name": "ips_pspoll",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ips_pspoll_a7ac",
+      "name": "get_ips_pspoll",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_eospdrop_a7c4",
+      "name": "eospdrop",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_eospdrop_a7dc",
+      "name": "get_eospdrop",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_markdfs_a7f4",
+      "name": "markdfs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_markdfs_a80c",
+      "name": "get_markdfs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chanbw_a824",
+      "name": "chanbw",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chanbw_a83c",
+      "name": "get_chanbw",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_shpreamble_a854",
+      "name": "shpreamble",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_shpreamble_a86c",
+      "name": "get_shpreamble",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_blockdfschan_a884",
+      "name": "blockdfschan",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setiebuf_a89c",
+      "name": "setiebuf",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getiebuf_a8b4",
+      "name": "getiebuf",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setfilter_a8cc",
+      "name": "setfilter",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_powersave_a8e4",
+      "name": "powersave",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_powersave_a8fc",
+      "name": "get_powersave",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_extprotmode_a914",
+      "name": "extprotmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_extprotmode_a92c",
+      "name": "get_extprotmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_extprotspac_a944",
+      "name": "extprotspac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_extprotspac_a95c",
+      "name": "get_extprotspac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_cwmenable_a974",
+      "name": "cwmenable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cwmenable_a98c",
+      "name": "get_cwmenable",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_extbusythres_a9a4",
+      "name": "extbusythres",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_extbusythres_a9bc",
+      "name": "get_extbusythres",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chwidth_a9d4",
+      "name": "chwidth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chwidth_a9ec",
+      "name": "get_chwidth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_cwmmode_aa04",
+      "name": "cwmmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cwmmode_aa1c",
+      "name": "get_cwmmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_shortgi_aa34",
+      "name": "shortgi",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_shortgi_aa4c",
+      "name": "get_shortgi",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ampdu_aa64",
+      "name": "ampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ampdu_aa7c",
+      "name": "get_ampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_maxampdu_aa94",
+      "name": "maxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_maxampdu_aaac",
+      "name": "get_maxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vhtmaxampdu_aac4",
+      "name": "vhtmaxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vhtmaxampdu_aadc",
+      "name": "get_vhtmaxampdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_reset_aaf4",
+      "name": "reset",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_amsdu_ab0c",
+      "name": "amsdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_amsdu_ab24",
+      "name": "get_amsdu",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_countrycode_ab3c",
+      "name": "get_countrycode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mcastenhance_ab54",
+      "name": "mcastenhance",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mcastenhance_ab6c",
+      "name": "get_mcastenhance",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_medump_dummy_ab84",
+      "name": "medump_dummy",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_medump_ab9c",
+      "name": "medump",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_medebug_abb4",
+      "name": "medebug",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_medebug_abcc",
+      "name": "get_medebug",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_me_length_abe4",
+      "name": "me_length",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_me_length_abfc",
+      "name": "get_me_length",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_metimer_ac14",
+      "name": "metimer",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_metimer_ac2c",
+      "name": "get_metimer",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_metimeout_ac44",
+      "name": "metimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_metimeout_ac5c",
+      "name": "get_metimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_medropmcast_ac74",
+      "name": "medropmcast",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_medropmcast_ac8c",
+      "name": "get_medropmcast",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_me_showdeny_aca4",
+      "name": "me_showdeny",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+      "name": "me_cleardeny",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_hbrtimer_acd4",
+      "name": "hbrtimer",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_hbrtimer_acec",
+      "name": "get_hbrtimer",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_hbrstate_ad04",
+      "name": "get_hbrstate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_iqueconfig_ad1c",
+      "name": "get_iqueconfig",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_acparams_ad34",
+      "name": "acparams",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rtparams_ad4c",
+      "name": "rtparams",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_hbrparams_ad64",
+      "name": "hbrparams",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+      "name": "me_adddeny",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_scanvalid_ad94",
+      "name": "scanvalid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_scanvalid_adac",
+      "name": "get_scanvalid",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rxtimeout_adc4",
+      "name": "rxtimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_dbgreq_addc",
+      "name": "dbgreq",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+      "name": "setaddbaoper",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_set11nrates_ae0c",
+      "name": "set11NRates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get11nrates_ae24",
+      "name": "get11NRates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_set11nretries_ae3c",
+      "name": "set11NRetries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get11nretries_ae54",
+      "name": "get11NRetries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_dbglvl_ae6c",
+      "name": "dbgLVL",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getdbglvl_ae84",
+      "name": "getdbgLVL",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_dbglvl_high_ae9c",
+      "name": "dbgLVL_high",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+      "name": "getdbgLVL_high",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_no_wradar_aecc",
+      "name": "no_wradar",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_no_wradar_aee4",
+      "name": "get_no_wradar",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wepkeycache_aefc",
+      "name": "wepkeycache",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+      "name": "get_wepkeycache",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wdsdetect_af2c",
+      "name": "wdsdetect",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+      "name": "get_wdsdetect",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_htweptkip_af5c",
+      "name": "htweptkip",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_htweptkip_af74",
+      "name": "get_htweptkip",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_puren_af8c",
+      "name": "puren",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_puren_afa4",
+      "name": "get_puren",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_basicrates_afbc",
+      "name": "basicrates",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ignore11d_afd4",
+      "name": "ignore11d",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ignore11d_afec",
+      "name": "get_ignore11d",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_stafwd_b004",
+      "name": "stafwd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_stafwd_b01c",
+      "name": "get_stafwd",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_clrappoptie_b034",
+      "name": "clrappoptie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_autoassoc_b04c",
+      "name": "autoassoc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_autoassoc_b064",
+      "name": "get_autoassoc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vap_contryie_b07c",
+      "name": "vap_contryie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vapcontryie_b094",
+      "name": "get_vapcontryie",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vap_doth_b0ac",
+      "name": "vap_doth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vap_doth_b0c4",
+      "name": "get_vap_doth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ht40intol_b0dc",
+      "name": "ht40intol",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ht40intol_b0f4",
+      "name": "get_ht40intol",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chwidth_b10c",
+      "name": "chwidth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chwidth_b124",
+      "name": "get_chwidth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chextoffset_b13c",
+      "name": "chextoffset",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chextoffset_b154",
+      "name": "get_chextoffset",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_sko_b16c",
+      "name": "sko",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_sko_b184",
+      "name": "get_sko",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chscaninit_b19c",
+      "name": "chscaninit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chscaninit_b1b4",
+      "name": "get_chscaninit",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_disablecoext_b1cc",
+      "name": "disablecoext",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_disablecoext_b1e4",
+      "name": "get_disablecoext",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_mfptest_b1fc",
+      "name": "mfptest",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_mfptest_b214",
+      "name": "get_mfptest",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_chutil_enab_b22c",
+      "name": "chutil_enab",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chutil_enab_b244",
+      "name": "get_chutil_enab",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_chutil_b25c",
+      "name": "get_chutil",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rrm_b274",
+      "name": "rrm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rrm_b28c",
+      "name": "get_rrm",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rrmstats_b2a4",
+      "name": "rrmstats",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rrmstats_b2bc",
+      "name": "get_rrmstats",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+      "name": "rrmslwin",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rrmslwin_b2ec",
+      "name": "get_rrmslwin",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rrmdbg_b304",
+      "name": "rrmdbg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rrmdbg_b31c",
+      "name": "get_rrmdbg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_sendmgmt_b334",
+      "name": "sendmgmt",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ccmpswselen_b34c",
+      "name": "ccmpSwSelEn",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ccmpswselen_b364",
+      "name": "get_ccmpSwSelEn",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+      "name": "s_scan_flush",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_csa2g_b394",
+      "name": "csa2g",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_csa2g_b3ac",
+      "name": "get_csa2g",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b3c4",
+      "name": "Unnamed WEXT dispatcher 0xb3c4",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_wdsaddr_b3dc",
+      "name": "wdsaddr",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+      "name": "no_disassoc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_no_disassoc_b40c",
+      "name": "get_no_disassoc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_maxsta_b424",
+      "name": "maxsta",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_maxsta_b43c",
+      "name": "get_maxsta",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_scanband_b454",
+      "name": "scanband",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_scanband_b46c",
+      "name": "get_scanband",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_senddeauth_b484",
+      "name": "senddeauth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_senddeauth_b49c",
+      "name": "get_senddeauth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_siwtxpwradjust_b4b4",
+      "name": "siwtxpwradjust",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_txrx_dbg_b4cc",
+      "name": "txrx_dbg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_txrx_fw_stats_b4e4",
+      "name": "txrx_fw_stats",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_txrx_fw_mstats_b4fc",
+      "name": "txrx_fw_mstats",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_txrx_fw_st_rst_b514",
+      "name": "txrx_fw_st_rst",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_tx_ppdu_log_cfg_b52c",
+      "name": "tx_ppdu_log_cfg",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vhtmcs_b544",
+      "name": "vhtmcs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+      "name": "get_vhtmcs",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_nss_b574",
+      "name": "nss",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_nss_b58c",
+      "name": "get_nss",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_ldpc_b5a4",
+      "name": "ldpc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ldpc_b5bc",
+      "name": "get_ldpc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_tx_stbc_b5d4",
+      "name": "tx_stbc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_tx_stbc_b5ec",
+      "name": "get_tx_stbc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rx_stbc_b604",
+      "name": "rx_stbc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rx_stbc_b61c",
+      "name": "get_rx_stbc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_opmode_notify_b634",
+      "name": "opmode_notify",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_opmod_notify_b64c",
+      "name": "get_opmod_notify",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_doth_ch_chwidth_b664",
+      "name": "doth_ch_chwidth",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+      "name": "set_cactimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cactimeout_b694",
+      "name": "get_cactimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_enablertscts_b6ac",
+      "name": "enablertscts",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_enablertscts_b6c4",
+      "name": "get_enablertscts",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rc_retries_b6dc",
+      "name": "rc_retries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rc_retries_b6f4",
+      "name": "get_rc_retries",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_bcast_rate_b70c",
+      "name": "bcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_bcast_rate_b724",
+      "name": "get_bcast_rate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_vht_mcsmap_b73c",
+      "name": "vht_mcsmap",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_vht_mcsmap_b754",
+      "name": "get_vht_mcsmap",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_enable_ol_stats_b76c",
+      "name": "enable_ol_stats",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_acs_state_b784",
+      "name": "get_acs_state",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_cac_state_b79c",
+      "name": "get_cac_state",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+      "name": "maxscanentry",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_maxscanentry_b7cc",
+      "name": "get_maxscanentry",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_scanentryage_b7e4",
+      "name": "scanentryage",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_scanentryage_b7fc",
+      "name": "get_scanentryage",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_disable_chan_b814",
+      "name": "disable_chan",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_enable_chan_b82c",
+      "name": "enable_chan",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_ptpmode_b844",
+      "name": "get_ptpmode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_set_multiq_b85c",
+      "name": "set_multiq",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_multiq_b874",
+      "name": "get_multiq",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_rc_mode_b88c",
+      "name": "rc_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_rc_mode_b8a4",
+      "name": "get_rc_mode",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_noltimeout_b8bc",
+      "name": "get_noltimeout",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_get_nolstate_b8d4",
+      "name": "get_nolstate",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b8ec",
+      "name": "Unnamed WEXT dispatcher 0xb8ec",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b904",
+      "name": "Unnamed WEXT dispatcher 0xb904",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b91c",
+      "name": "Unnamed WEXT dispatcher 0xb91c",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b934",
+      "name": "Unnamed WEXT dispatcher 0xb934",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b94c",
+      "name": "Unnamed WEXT dispatcher 0xb94c",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b964",
+      "name": "Unnamed WEXT dispatcher 0xb964",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b97c",
+      "name": "Unnamed WEXT dispatcher 0xb97c",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b994",
+      "name": "Unnamed WEXT dispatcher 0xb994",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b9ac",
+      "name": "Unnamed WEXT dispatcher 0xb9ac",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b9c4",
+      "name": "Unnamed WEXT dispatcher 0xb9c4",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b9dc",
+      "name": "Unnamed WEXT dispatcher 0xb9dc",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    },
+    {
+      "id": "wa_8_7_25_wext_unnamed_dispatcher_b9f4",
+      "name": "Unnamed WEXT dispatcher 0xb9f4",
+      "boundary": "airOS_UMAC_UPH",
+      "family": "airos_ioctl",
+      "rosetta_candidate": null,
+      "mapped": false
+    }
+  ],
+  "summary": {
+    "knobs": 571,
+    "mapped": 3,
+    "unmapped": 568,
+    "mapped_pct": 0.53,
+    "champion_tokens": 167,
+    "equivalence_confirmed": 0
+  },
+  "gaps": [
+    "candidate mappings are name matches only; semantics were not compared",
+    "equivalence_confirmed is 0: no knob was proven to have the same effect on both stacks",
+    "knobs absent from the champion may be unimplemented there or simply named differently"
+  ]
+}

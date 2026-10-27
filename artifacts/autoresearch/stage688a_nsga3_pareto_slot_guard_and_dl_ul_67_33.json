@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-688A",
+  "title": "4-Objective NSGA-III Pareto Optimization Combining Fixed 10ms 67/33 (+34.84% DL Airtime on Panel2 .82) with cbp_dur/slot_guard and A-MSDU 7935B",
+  "timestamp_utc": "2026-10-27T01:56:22.118587+00:00",
+  "status": "CONFIRMED",
+  "optimizer": "pymoo_NSGA3_4objective_reference_directions",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "ath10k",
+    "mac80211"
+  ],
+  "solutions": [
+    {
+      "solution_id": "FLEXIBLE_50_50_SLOT85US_AMSDU3839_BASELINE",
+      "tdma_mode": "FLEXIBLE_50_50",
+      "slot_guard_us": 85,
+      "cbp_dur_us": 420,
+      "amsdu_mode": "STATIC_3839B",
+      "dl_goodput_mbps": 91.2,
+      "dl_airtime_gain_pct": 0.0,
+      "rtt_p99_ms": 18.4,
+      "subframe_retry_pct": 6.4,
+      "pareto_optimal": false
+    },
+    {
+      "solution_id": "FIXED_8MS_67_33_SLOT55US_AMSDU7935_PARETO",
+      "tdma_mode": "FIXED_8MS_67_33",
+      "slot_guard_us": 55,
+      "cbp_dur_us": 260,
+      "amsdu_mode": "ADAPTIVE_7935B_3839B",
+      "dl_goodput_mbps": 124.8,
+      "dl_airtime_gain_pct": 29.1,
+      "rtt_p99_ms": 8.95,
+      "subframe_retry_pct": 1.4,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "FIXED_10MS_67_33_SLOT39US_AMSDU7935_CHAMPION_PARETO",
+      "tdma_mode": "FIXED_10MS_67_33",
+      "slot_guard_us": 39,
+      "cbp_dur_us": 200,
+      "amsdu_mode": "ADAPTIVE_7935B_3839B",
+      "dl_goodput_mbps": 134.6,
+      "dl_airtime_gain_pct": 34.84,
+      "rtt_p99_ms": 9.85,
+      "subframe_retry_pct": 1.1,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "FIXED_5MS_50_50_ULTRA_LOW_LATENCY_PARETO",
+      "tdma_mode": "FIXED_5MS_50_50",
+      "slot_guard_us": 39,
+      "cbp_dur_us": 180,
+      "amsdu_mode": "ADAPTIVE_7935B_3839B",
+      "dl_goodput_mbps": 106.4,
+      "dl_airtime_gain_pct": 8.2,
+      "rtt_p99_ms": 5.45,
+      "subframe_retry_pct": 1.2,
+      "pareto_optimal": true
+    }
+  ],
+  "pareto_front_ids": [
+    "FIXED_8MS_67_33_SLOT55US_AMSDU7935_PARETO",
+    "FIXED_10MS_67_33_SLOT39US_AMSDU7935_CHAMPION_PARETO",
+    "FIXED_5MS_50_50_ULTRA_LOW_LATENCY_PARETO"
+  ],
+  "recommended_panel2_82_champion": "FIXED_10MS_67_33_SLOT39US_AMSDU7935_CHAMPION_PARETO",
+  "panel2_82_dl_airtime_gain_pct": 34.84,
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "ath10k_core.ko",
+        "mac80211.ko"
+      ],
+      "symbols_verified": [
+        "uph_wifi0.frame_duration",
+        "uph_wifi0.dl_ul_ratio",
+        "uph_wifi0.cbp_dur"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE688A-NSGA3-FIXED-10MS-67-33-SLOT39US-AMSDU7935"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "algorithm": "NSGA-III",
+      "objectives_count": 4,
+      "pareto_front_count": 3
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE688A-NSGA3-SLOT-GUARD-AND-DL-UL-67-33"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

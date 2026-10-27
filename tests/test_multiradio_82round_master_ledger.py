@@ -1,0 +1,39 @@
+import json
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_multiradio_82round_master_ledger_completeness():
+    ledger_path = REPO_ROOT / "artifacts" / "autoresearch" / "multiradio_82round_master_ledger_20261024.json"
+    assert ledger_path.exists(), f"Missing {ledger_path}"
+    data = json.loads(ledger_path.read_text(encoding="utf-8"))
+
+    assert data["experiment_id"] == "FMX-STAGE12-MULTIRADIO-82ROUND-MASTER-LEDGER"
+    assert data["total_paired_rounds"] == 82
+    assert data["total_sub_phases_ab_ab"] == 328
+    assert data["total_kept"] == 38
+    assert data["total_rejected"] == 44
+    assert data["total_kept"] + data["total_rejected"] == 82
+    assert len(data["all_82_rounds_index"]) == 82
+
+    safety = data["safety_attestation"]
+    assert safety["ram_only"] is True
+    assert safety["cfgmtd_flash_writes"] == 0
+    assert safety["production_guarida_10_10_100_84_touched"] is False
+    assert safety["bench_runner_192_168_200_x_touched"] is False
+
+    by_dev = data["by_device_summary"]
+    assert by_dev["af4x_invictus"]["total_rounds"] == 18
+    assert by_dev["ltu_lite_amesoc"]["total_rounds"] == 18
+    assert by_dev["r2ac_prism_ap"]["total_rounds"] == 17
+    assert by_dev["r5ac_prism_sta"]["total_rounds"] == 11
+    assert by_dev["pbm5_xw_weak_ota"]["total_rounds"] == 18
+    assert sum(v["total_rounds"] for v in by_dev.values()) == 82
+
+    assert "PBM5-R21" in data["kept_round_ids"]
+    assert "AF4X-R17" in data["kept_round_ids"]
+
+    doc_path = REPO_ROOT / "docs" / "STAGE12_MULTIRADIO_82ROUND_MASTER_BENCHMARK.md"
+    assert doc_path.exists(), f"Missing {doc_path}"
+    assert "FMX-STAGE12-MULTIRADIO-82ROUND-MASTER-LEDGER" in doc_path.read_text(encoding="utf-8")

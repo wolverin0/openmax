@@ -1,0 +1,79 @@
+{
+  "stage": "572A",
+  "task_id": "T-S572A-LTU-TDMA-FRAMING-AND-SPLIT-SFN-HELPER",
+  "title": "Pillar 4 AF-LTU (Beetle) TDMA Framing (1ms..5ms), Split TX/RX Synthesizer & SFN Sync Helper",
+  "memory_master_claim": {
+    "code": "mm-d4a8",
+    "id": 155447
+  },
+  "generated_at": "2026-10-27T01:30:19.200661+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "helper_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_tdma_split_sfn_helper.sh",
+    "sha256": "9ab4241a3835c885e390a762cc0713b763e74f64b08164128d6c16483c964cbc",
+    "size_bytes": 1931,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "stage564a_re_foundation": {
+    "ame_core_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "ame_dev_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+    "sysfs_knobs": [
+      "bc_dl_symbols",
+      "duty_cycle",
+      "frame_len",
+      "frame_pulse_offset"
+    ],
+    "get_set_pairs": [
+      "bc_dl_symbols",
+      "duty_cycle",
+      "frame_len"
+    ],
+    "subframe_getters": [
+      "bbp_get_rx_sub_frame_length",
+      "bbp_get_tx_sub_frame_length",
+      "bbp_get_ul_subframe_length_forDFS"
+    ]
+  },
+  "tdma_framing_profile": {
+    "supported_frame_lengths_ms": [
+      1,
+      2,
+      2.5,
+      4,
+      5
+    ],
+    "optimal_mixed_triple_play_frame_len_ms": 2,
+    "optimal_dl_ul_duty_cycle_pct": 67,
+    "bc_dl_symbols_default": 2,
+    "sfn_synchronization_symbol": "ame_bbp_is_remote_SFN_synchronized",
+    "ul_map_dumper_symbol": "sched_ulmap_dump"
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "inspects_all_4_ame_dev_sysfs_knobs": true,
+    "references_sfn_and_split_rx_tx": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 564A RE of ame_core.ko (9699 symbols) & ame_dev.ko (1669 symbols) sysfs framing and SFN sync getters",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models 2ms 67/33 TDMA framing + AD9361 fastlock RX/TX frequency split + GPS SFN pulse alignment",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Balances 2ms VoIP/gaming latency against broadcast DL symbol (bc_dl_symbols=2) overhead and DFS UL subframe sizing",
+    "pillar_e_memory_master_claim_id": "mm-d4a8 (id=155447)"
+  }
+}

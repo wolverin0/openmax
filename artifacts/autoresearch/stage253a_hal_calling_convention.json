@@ -1,0 +1,1129 @@
+{
+  "meta": {
+    "stage": "253A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage253a_hal_calling_convention.py",
+    "tool_sha256": "81338646d66d7deeff87adc1b5a463eb86b41728d574dbef37237948f3f9d09f",
+    "output": "artifacts/autoresearch/stage253a_hal_calling_convention.json",
+    "scope": "offline static; MIPS32 big-endian capstone disassembly; no module loaded, no radio contacted",
+    "method": "locate the attach functions by .symtab, disassemble them, and for each jalr walk back to the lw that defined the target register; the (base, offset) pair is the vtable slot and $a0..$a3 are the arguments in flight",
+    "radio_safety": "static only"
+  },
+  "images": [
+    {
+      "image": "WA.v8.7.25",
+      "module": "ath_hal.ko",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "functions": {
+        "ath_hal_attach": {
+          "offset_in_text": "0x000630",
+          "declared_size": 120,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "_ath_hal_attach": {
+          "offset_in_text": "0x0001fc",
+          "declared_size": 104,
+          "jalr_count": 0,
+          "slots": []
+        }
+      },
+      "status": "ok"
+    },
+    {
+      "image": "WA.v8.7.25",
+      "module": "umac.ko",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "functions": {
+        "ol_ath_attach": {
+          "offset_in_text": "0x0a9c94",
+          "declared_size": 2004,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "__ol_ath_attach": {
+          "offset_in_text": "0x0bbdc4",
+          "declared_size": 1364,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "ath_attach": {
+          "offset_in_text": "0x01c2fc",
+          "declared_size": 4256,
+          "jalr_count": 41,
+          "slots": [
+            {
+              "jalr_at": "0x01c5d8",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c5d0",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c5d4"
+              }
+            },
+            {
+              "jalr_at": "0x01c5fc",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c5f4",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c5f8",
+                "$a1": "addiu $a1, $zero, 1  @0x01c5dc"
+              }
+            },
+            {
+              "jalr_at": "0x01c614",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c60c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c610",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c600"
+              }
+            },
+            {
+              "jalr_at": "0x01c634",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c630",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c624",
+                "$a1": "addiu $a1, $zero, 0x10  @0x01c618"
+              }
+            },
+            {
+              "jalr_at": "0x01c650",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c64c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c640",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c638"
+              }
+            },
+            {
+              "jalr_at": "0x01c680",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c67c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c670",
+                "$a1": "addiu $a1, $zero, 0x1c  @0x01c654"
+              }
+            },
+            {
+              "jalr_at": "0x01c6d0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c6c8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c6cc"
+              }
+            },
+            {
+              "jalr_at": "0x01c700",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c6ec",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c6f0",
+                "$a1": "addiu $a1, $zero, 1  @0x01c6f4",
+                "$a2": "addiu $a2, $zero, 1  @0x01c6f8"
+              }
+            },
+            {
+              "jalr_at": "0x01c718",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c70c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c710",
+                "$a1": "addiu $a1, $zero, 1  @0x01c714",
+                "$a2": "addiu $a2, $zero, 1  @0x01c6f8"
+              }
+            },
+            {
+              "jalr_at": "0x01c730",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c724",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c728",
+                "$a1": "addiu $a1, $zero, 1  @0x01c72c",
+                "$a2": "move $a2, $zero  @0x01c71c"
+              }
+            },
+            {
+              "jalr_at": "0x01c748",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c73c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c740",
+                "$a1": "addiu $a1, $zero, 1  @0x01c744",
+                "$a2": "addiu $a2, $zero, 2  @0x01c734"
+              }
+            },
+            {
+              "jalr_at": "0x01c760",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c754",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c758",
+                "$a1": "addiu $a1, $zero, 2  @0x01c75c",
+                "$a2": "addiu $a2, $zero, 3  @0x01c74c"
+              }
+            },
+            {
+              "jalr_at": "0x01c77c",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 164,
+              "load_at": "0x01c774",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01c770",
+                "$a1": "addiu $a1, $zero, 4  @0x01c778",
+                "$a2": "move $a2, $zero  @0x01c764"
+              }
+            },
+            {
+              "jalr_at": "0x01c794",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 4,
+              "load_at": "0x01c790",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01c78c",
+                "$a1": "addiu $a1, $zero, 4  @0x01c778",
+                "$a2": "move $a2, $zero  @0x01c780"
+              }
+            },
+            {
+              "jalr_at": "0x01c7c4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c7bc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c7c0",
+                "$a1": "addiu $a1, $zero, 0x14  @0x01c798"
+              }
+            },
+            {
+              "jalr_at": "0x01c7e8",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c7e0",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c7e4",
+                "$a1": "move $a1, $zero  @0x01c7c8"
+              }
+            },
+            {
+              "jalr_at": "0x01c80c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c804",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c808",
+                "$a1": "addiu $a1, $zero, 1  @0x01c7ec"
+              }
+            },
+            {
+              "jalr_at": "0x01c830",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c828",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c82c",
+                "$a1": "addiu $a1, $zero, 2  @0x01c810"
+              }
+            },
+            {
+              "jalr_at": "0x01c854",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c84c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c850",
+                "$a1": "addiu $a1, $zero, 3  @0x01c834"
+              }
+            },
+            {
+              "jalr_at": "0x01c874",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c870",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c860",
+                "$a1": "addiu $a1, $zero, 4  @0x01c858"
+              }
+            },
+            {
+              "jalr_at": "0x01c898",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c894",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c888",
+                "$a1": "addiu $a1, $zero, 0x7f  @0x01c878"
+              }
+            },
+            {
+              "jalr_at": "0x01c8d0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c8c8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c8cc"
+              }
+            },
+            {
+              "jalr_at": "0x01c920",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c918",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c91c",
+                "$a1": "addiu $a1, $zero, 0x11  @0x01c908",
+                "$a2": "addiu $a2, $a2, 0  @0x01c90c",
+                "$a3": "addiu $a3, $a3, 0x3bb4  @0x01c914"
+              }
+            },
+            {
+              "jalr_at": "0x01c94c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c944",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c948",
+                "$a1": "addiu $a1, $zero, 8  @0x01c924"
+              }
+            },
+            {
+              "jalr_at": "0x01c994",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c98c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c990"
+              }
+            },
+            {
+              "jalr_at": "0x01c9c0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c9bc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c9a0",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c998"
+              }
+            },
+            {
+              "jalr_at": "0x01c9e4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c9dc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c9e0",
+                "$a1": "addiu $a1, $zero, 0xc  @0x01c9c4"
+              }
+            },
+            {
+              "jalr_at": "0x01ca34",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01ca30",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01ca14"
+              }
+            },
+            {
+              "jalr_at": "0x01ca74",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 520,
+              "load_at": "0x01ca70",
+              "args": {
+                "$a0": "lw $a0, -0x210c($v0)  @0x01ca68",
+                "$a1": "addiu $a1, $zero, 0x24  @0x01ca6c"
+              }
+            },
+            {
+              "jalr_at": "0x01caa4",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 520,
+              "load_at": "0x01caa0",
+              "args": {
+                "$a0": "lw $a0, -0x210c($v0)  @0x01ca98",
+                "$a2": "addiu $a2, $sp, 0x28  @0x01ca9c"
+              }
+            },
+            {
+              "jalr_at": "0x01cabc",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cab8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cab0",
+                "$a1": "addiu $a1, $zero, 0x47  @0x01caa8",
+                "$a2": "addiu $a2, $sp, 0x28  @0x01ca9c"
+              }
+            },
+            {
+              "jalr_at": "0x01cad0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cac8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cacc",
+                "$a1": "addiu $a1, $zero, 0x16  @0x01cac0"
+              }
+            },
+            {
+              "jalr_at": "0x01cae4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cadc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cae0",
+                "$a1": "addiu $a1, $zero, 0x15  @0x01cad4"
+              }
+            },
+            {
+              "jalr_at": "0x01cb08",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb00",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb04",
+                "$a1": "addiu $a1, $zero, 0xe  @0x01cae8"
+              }
+            },
+            {
+              "jalr_at": "0x01cb2c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb24",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb28",
+                "$a1": "addiu $a1, $zero, 0xd  @0x01cb0c"
+              }
+            },
+            {
+              "jalr_at": "0x01cb8c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb84",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb88"
+              }
+            },
+            {
+              "jalr_at": "0x01cbbc",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 4,
+              "load_at": "0x01cbb8",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01cbb4",
+                "$a1": "addiu $a1, $zero, 1  @0x01cb90"
+              }
+            },
+            {
+              "jalr_at": "0x01cbd8",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 4,
+              "load_at": "0x01cbd4",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01cbd0",
+                "$a1": "addiu $a1, $zero, 0x1d  @0x01cbc0"
+              }
+            },
+            {
+              "jalr_at": "0x01cc08",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 296,
+              "load_at": "0x01cc00",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cc04",
+                "$a1": "addiu $a1, $zero, 0x1e  @0x01cbdc"
+              }
+            },
+            {
+              "jalr_at": "0x01cc18",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 300,
+              "load_at": "0x01cc10",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cc14",
+                "$a1": "addiu $a1, $s1, 0x2c  @0x01cc0c"
+              }
+            }
+          ]
+        },
+        "__ath_attach": {
+          "offset_in_text": "0x091114",
+          "declared_size": 1152,
+          "jalr_count": 4,
+          "slots": [
+            {
+              "jalr_at": "0x0912e4",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 156,
+              "load_at": "0x0912e0",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($s0)  @0x0912dc",
+                "$a1": "addiu $a1, $zero, 1  @0x0912cc"
+              }
+            },
+            {
+              "jalr_at": "0x091300",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 204,
+              "load_at": "0x0912fc",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($s0)  @0x0912f8",
+                "$a1": "addiu $a1, $zero, 0x1c0  @0x0912e8"
+              }
+            },
+            {
+              "jalr_at": "0x09153c",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 208,
+              "load_at": "0x091538",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($v0)  @0x091534"
+              }
+            },
+            {
+              "jalr_at": "0x091554",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 160,
+              "load_at": "0x091550",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($v0)  @0x091534"
+              }
+            }
+          ]
+        }
+      },
+      "status": "ok"
+    },
+    {
+      "image": "XC.v8.7.25",
+      "module": "ath_hal.ko",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "functions": {
+        "ath_hal_attach": {
+          "offset_in_text": "0x000630",
+          "declared_size": 128,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "_ath_hal_attach": {
+          "offset_in_text": "0x0001fc",
+          "declared_size": 104,
+          "jalr_count": 0,
+          "slots": []
+        }
+      },
+      "status": "ok"
+    },
+    {
+      "image": "XC.v8.7.25",
+      "module": "umac.ko",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "functions": {
+        "ol_ath_attach": {
+          "offset_in_text": "0x0a9c94",
+          "declared_size": 2004,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "__ol_ath_attach": {
+          "offset_in_text": "0x0bbdc8",
+          "declared_size": 1364,
+          "jalr_count": 0,
+          "slots": []
+        },
+        "ath_attach": {
+          "offset_in_text": "0x01c2fc",
+          "declared_size": 4256,
+          "jalr_count": 41,
+          "slots": [
+            {
+              "jalr_at": "0x01c5d8",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c5d0",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c5d4"
+              }
+            },
+            {
+              "jalr_at": "0x01c5fc",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c5f4",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c5f8",
+                "$a1": "addiu $a1, $zero, 1  @0x01c5dc"
+              }
+            },
+            {
+              "jalr_at": "0x01c614",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c60c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c610",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c600"
+              }
+            },
+            {
+              "jalr_at": "0x01c634",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c630",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c624",
+                "$a1": "addiu $a1, $zero, 0x10  @0x01c618"
+              }
+            },
+            {
+              "jalr_at": "0x01c650",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c64c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c640",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c638"
+              }
+            },
+            {
+              "jalr_at": "0x01c680",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c67c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c670",
+                "$a1": "addiu $a1, $zero, 0x1c  @0x01c654"
+              }
+            },
+            {
+              "jalr_at": "0x01c6d0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c6c8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c6cc"
+              }
+            },
+            {
+              "jalr_at": "0x01c700",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c6ec",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c6f0",
+                "$a1": "addiu $a1, $zero, 1  @0x01c6f4",
+                "$a2": "addiu $a2, $zero, 1  @0x01c6f8"
+              }
+            },
+            {
+              "jalr_at": "0x01c718",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c70c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c710",
+                "$a1": "addiu $a1, $zero, 1  @0x01c714",
+                "$a2": "addiu $a2, $zero, 1  @0x01c6f8"
+              }
+            },
+            {
+              "jalr_at": "0x01c730",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c724",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c728",
+                "$a1": "addiu $a1, $zero, 1  @0x01c72c",
+                "$a2": "move $a2, $zero  @0x01c71c"
+              }
+            },
+            {
+              "jalr_at": "0x01c748",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c73c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c740",
+                "$a1": "addiu $a1, $zero, 1  @0x01c744",
+                "$a2": "addiu $a2, $zero, 2  @0x01c734"
+              }
+            },
+            {
+              "jalr_at": "0x01c760",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 164,
+              "load_at": "0x01c754",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c758",
+                "$a1": "addiu $a1, $zero, 2  @0x01c75c",
+                "$a2": "addiu $a2, $zero, 3  @0x01c74c"
+              }
+            },
+            {
+              "jalr_at": "0x01c77c",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 164,
+              "load_at": "0x01c774",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01c770",
+                "$a1": "addiu $a1, $zero, 4  @0x01c778",
+                "$a2": "move $a2, $zero  @0x01c764"
+              }
+            },
+            {
+              "jalr_at": "0x01c794",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 4,
+              "load_at": "0x01c790",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01c78c",
+                "$a1": "addiu $a1, $zero, 4  @0x01c778",
+                "$a2": "move $a2, $zero  @0x01c780"
+              }
+            },
+            {
+              "jalr_at": "0x01c7c4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c7bc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c7c0",
+                "$a1": "addiu $a1, $zero, 0x14  @0x01c798"
+              }
+            },
+            {
+              "jalr_at": "0x01c7e8",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c7e0",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c7e4",
+                "$a1": "move $a1, $zero  @0x01c7c8"
+              }
+            },
+            {
+              "jalr_at": "0x01c80c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c804",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c808",
+                "$a1": "addiu $a1, $zero, 1  @0x01c7ec"
+              }
+            },
+            {
+              "jalr_at": "0x01c830",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c828",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c82c",
+                "$a1": "addiu $a1, $zero, 2  @0x01c810"
+              }
+            },
+            {
+              "jalr_at": "0x01c854",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c84c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c850",
+                "$a1": "addiu $a1, $zero, 3  @0x01c834"
+              }
+            },
+            {
+              "jalr_at": "0x01c874",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 8,
+              "load_at": "0x01c870",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c860",
+                "$a1": "addiu $a1, $zero, 4  @0x01c858"
+              }
+            },
+            {
+              "jalr_at": "0x01c898",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c894",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c888",
+                "$a1": "addiu $a1, $zero, 0x7f  @0x01c878"
+              }
+            },
+            {
+              "jalr_at": "0x01c8d0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c8c8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c8cc"
+              }
+            },
+            {
+              "jalr_at": "0x01c920",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c918",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c91c",
+                "$a1": "addiu $a1, $zero, 0x11  @0x01c908",
+                "$a2": "addiu $a2, $a2, 0  @0x01c90c",
+                "$a3": "addiu $a3, $a3, 0x3bb4  @0x01c914"
+              }
+            },
+            {
+              "jalr_at": "0x01c94c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c944",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c948",
+                "$a1": "addiu $a1, $zero, 8  @0x01c924"
+              }
+            },
+            {
+              "jalr_at": "0x01c994",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c98c",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c990"
+              }
+            },
+            {
+              "jalr_at": "0x01c9c0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c9bc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c9a0",
+                "$a1": "addiu $a1, $zero, 0xb  @0x01c998"
+              }
+            },
+            {
+              "jalr_at": "0x01c9e4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01c9dc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01c9e0",
+                "$a1": "addiu $a1, $zero, 0xc  @0x01c9c4"
+              }
+            },
+            {
+              "jalr_at": "0x01ca34",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01ca30",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01ca14"
+              }
+            },
+            {
+              "jalr_at": "0x01ca74",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 520,
+              "load_at": "0x01ca70",
+              "args": {
+                "$a0": "lw $a0, -0x210c($v0)  @0x01ca68",
+                "$a1": "addiu $a1, $zero, 0x24  @0x01ca6c"
+              }
+            },
+            {
+              "jalr_at": "0x01caa4",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 520,
+              "load_at": "0x01caa0",
+              "args": {
+                "$a0": "lw $a0, -0x210c($v0)  @0x01ca98",
+                "$a2": "addiu $a2, $sp, 0x28  @0x01ca9c"
+              }
+            },
+            {
+              "jalr_at": "0x01cabc",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cab8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cab0",
+                "$a1": "addiu $a1, $zero, 0x47  @0x01caa8",
+                "$a2": "addiu $a2, $sp, 0x28  @0x01ca9c"
+              }
+            },
+            {
+              "jalr_at": "0x01cad0",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cac8",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cacc",
+                "$a1": "addiu $a1, $zero, 0x16  @0x01cac0"
+              }
+            },
+            {
+              "jalr_at": "0x01cae4",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cadc",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cae0",
+                "$a1": "addiu $a1, $zero, 0x15  @0x01cad4"
+              }
+            },
+            {
+              "jalr_at": "0x01cb08",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb00",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb04",
+                "$a1": "addiu $a1, $zero, 0xe  @0x01cae8"
+              }
+            },
+            {
+              "jalr_at": "0x01cb2c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb24",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb28",
+                "$a1": "addiu $a1, $zero, 0xd  @0x01cb0c"
+              }
+            },
+            {
+              "jalr_at": "0x01cb8c",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 4,
+              "load_at": "0x01cb84",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cb88"
+              }
+            },
+            {
+              "jalr_at": "0x01cbbc",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 4,
+              "load_at": "0x01cbb8",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01cbb4",
+                "$a1": "addiu $a1, $zero, 1  @0x01cb90"
+              }
+            },
+            {
+              "jalr_at": "0x01cbd8",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 4,
+              "load_at": "0x01cbd4",
+              "args": {
+                "$a0": "lw $a0, -0x210c($s3)  @0x01cbd0",
+                "$a1": "addiu $a1, $zero, 0x1d  @0x01cbc0"
+              }
+            },
+            {
+              "jalr_at": "0x01cc08",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 296,
+              "load_at": "0x01cc00",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cc04",
+                "$a1": "addiu $a1, $zero, 0x1e  @0x01cbdc"
+              }
+            },
+            {
+              "jalr_at": "0x01cc18",
+              "target_reg": "$v0",
+              "vtable_base": "$s2",
+              "vtable_offset": 300,
+              "load_at": "0x01cc10",
+              "args": {
+                "$a0": "move $a0, $s0  @0x01cc14",
+                "$a1": "addiu $a1, $s1, 0x2c  @0x01cc0c"
+              }
+            }
+          ]
+        },
+        "__ath_attach": {
+          "offset_in_text": "0x091114",
+          "declared_size": 1152,
+          "jalr_count": 4,
+          "slots": [
+            {
+              "jalr_at": "0x0912e4",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 156,
+              "load_at": "0x0912e0",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($s0)  @0x0912dc",
+                "$a1": "addiu $a1, $zero, 1  @0x0912cc"
+              }
+            },
+            {
+              "jalr_at": "0x091300",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 204,
+              "load_at": "0x0912fc",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($s0)  @0x0912f8",
+                "$a1": "addiu $a1, $zero, 0x1c0  @0x0912e8"
+              }
+            },
+            {
+              "jalr_at": "0x09153c",
+              "target_reg": "$v0",
+              "vtable_base": "$v1",
+              "vtable_offset": 208,
+              "load_at": "0x091538",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($v0)  @0x091534"
+              }
+            },
+            {
+              "jalr_at": "0x091554",
+              "target_reg": "$v0",
+              "vtable_base": "$v0",
+              "vtable_offset": 160,
+              "load_at": "0x091550",
+              "args": {
+                "$a0": "lw $a0, -0x1e4c($v0)  @0x091534"
+              }
+            }
+          ]
+        }
+      },
+      "status": "ok"
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "functions_found": 12,
+    "jalr_sites": 90,
+    "distinct_vtable_offsets": 11,
+    "top_offsets": {
+      "4": 48,
+      "164": 12,
+      "8": 12,
+      "520": 4,
+      "296": 2,
+      "300": 2,
+      "396": 2,
+      "156": 2,
+      "204": 2,
+      "208": 2,
+      "160": 2
+    },
+    "base_registers": {
+      "$s2": 70,
+      "$v1": 10,
+      "$v0": 10
+    }
+  },
+  "gaps": [
+    "a jalr whose target register was not loaded from a base register inside the scanned window is skipped, not guessed",
+    "the argument capture reports the last instruction that wrote $a0..$a3, which is the setup and not necessarily the semantic role of each argument",
+    "UNKNOWN - which of the 11 offsets is the register-write accessor: offset 4 is the most used slot, not the write path",
+    "no dynamic validation"
+  ]
+}

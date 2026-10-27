@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "T-S28-CLOSED-LOOP-DISCOVERY-TO-RESEARCH-REACTOR",
+  "stage": "STAGE28",
+  "generated_at_utc": "2026-10-26T18:03:43Z",
+  "closed_loop_wiring": {
+    "trigger_hook": "IncrementalChampionPromoter.evaluate_candidate(..., auto_trigger_research=True)",
+    "reactor_module": "tools/research/closed_loop_research_reactor.py",
+    "discovery_queue_file": "artifacts\\autoresearch\\discovery_to_research_queue.json",
+    "empirical_feedback_dir": "artifacts/hyperresearch_vault/notes/empirical_feedback/"
+  },
+  "processed_discovery_events": [
+    {
+      "timestamp_utc": "2026-10-26T18:03:40Z",
+      "round_id": "S24F-R1",
+      "profile_id": "ltu_lite_amesoc",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 31.981,
+      "gp_candidate_mbps": 32.417,
+      "gp_delta_pct": 1.363,
+      "p95_champion_ms": 213.925,
+      "p95_candidate_ms": 131.007,
+      "p95_delta_pct": -38.76,
+      "pareto_score_delta_pct": 14.929,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S24F-R1.md",
+      "followup_scholar_queries": [
+        "OFDM TDD frame symbol window cyclic prefix scheduling latency",
+        "fixed wireless PtMP adaptive modulation symbol boundary"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M8",
+          "title": "PB-026 LTU-Lite Pure Symbol Window (12..62/72) + Bridge Queue Co-Design (br0 txqueuelen=256, tcp_fin_timeout=15)",
+          "scientific_basis": "S24F-R1 (-38.76% p95 RTT, -45.93% p99 RTT) + S27-R2AC-R2 bridge queue bounding",
+          "candidate_delta_commands": [
+            "ifconfig br0 txqueuelen 256 2>/dev/null || true",
+            "sysctl -w net.ipv4.tcp_fin_timeout=15 net.ipv4.tcp_low_latency=1 >/dev/null"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:40Z",
+      "round_id": "S25-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 62.064,
+      "gp_candidate_mbps": 45.117,
+      "gp_delta_pct": -27.306,
+      "p95_champion_ms": 64.328,
+      "p95_candidate_ms": 75.177,
+      "p95_delta_pct": 16.865,
+      "pareto_score_delta_pct": -33.2088,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S25-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 frame aggregation A-MPDU TCP latency throughput",
+        "deficit round robin quantum multi-frame aggregation 802.11ac",
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + S25-R1 negative result (quantum=300 starved A-MPDU) + S27-R2AC-R2 (br0 txqueuelen=256 + tcp_dsack=1)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:40Z",
+      "round_id": "S25-R2",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 61.067,
+      "gp_candidate_mbps": 63.299,
+      "gp_delta_pct": 3.655,
+      "p95_champion_ms": 74.734,
+      "p95_candidate_ms": 67.016,
+      "p95_delta_pct": -10.327,
+      "pareto_score_delta_pct": 7.2695,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S25-R2.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac",
+        "Linux sysfs tx_queue_len 256 netdev_max_backlog 1000 tcp_early_retrans 3 MIPS 74Kc softirq",
+        "IEEE 802.11n unpolled airOS 6 XW br0 ath0 eth0 txqueuelen 256 ubnt_ewma_delegate_on rate control"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + arXiv:0806.4695v1 (jev-1.14.0 prob=0.77)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M30",
+          "title": "PB-048 Pure Direct Sysfs WDS tx_queue_len=256 & netdev_max_backlog=1000 Co-Design (tcp_early_retrans=3) Eliminating 1000-Packet Dynamic WDS Netdev Queue Bloat Without Single-Core MIPS 74Kc Softirq Backlog Inflation",
+          "scientific_basis": "Stage 42A S42A-R5 Champion v14 (M24e_M25e_PURE_SYSFS_WDS_TXQ_256_AND_LBM5_BR0_TXQ_256): isolating pure direct sysfs /sys/class/net/br-lan/tx_queue_len=256 and /sys/class/net/phy0-ap0*/tx_queue_len=256 on LAP-120 (.20) and Loco 5AC (.250) while keeping net.core.netdev_max_backlog=1000 (not 2000) and net.ipv4.tcp_early_retrans=3 achieved +3.208% goodput (45.331 -> 46.785 Mbps), -7.917% p95 RTT (104.429 -> 96.161 ms), -12.355% Dual 1080p60 IPTV jitter (1.902 -> 1.667 ms, 0.00% loss), -8.110% VoIP jitter (2.429 -> 2.232 ms, 0.00% loss), 0 tid0_ac2 drops, and Pareto +5.9786%",
+          "candidate_delta_commands": [
+            "echo 256 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 256 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 net.ipv4.tcp_early_retrans=3 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M31",
+          "title": "PB-049 Unpolled airOS 6 XW br0/ath0/eth0 txqueuelen=256 & ubnt_ewma_delegate_on=1 Rate-Control Delegation with Zero ubnt_poll Contention (txop_params='0 0', no_ack_rate=0)",
+          "scientific_basis": "Stage 42A S42A-R1 vs S42A-R5 causal separation on LiteBeam M5 (.251, airOS 6 XW): S42A-R1 proved unpolled ubnt_poll txop_params='15 5' + no_ack_rate=1 caused -8.352% goodput loss; S42A-R5 Champion v14 kept ubnt_poll txop_params='0 0' + no_ack_rate=0 while bounding br0/ath0/eth0 tx_queue_len=256, enabling ubnt_ewma_delegate_on=1, multicast_snooping=1, multicast_querier=0, and multicast_fast_leave=1, contributing to +3.208% sector goodput and -7.917% p95 RTT",
+          "candidate_delta_commands": [
+            "echo 256 > /sys/class/net/br0/tx_queue_len",
+            "echo 256 > /sys/class/net/ath0/tx_queue_len",
+            "echo 256 > /sys/class/net/eth0/tx_queue_len",
+            "echo 1 > /proc/sys/net/ath0/ubnt_ewma_delegate_on",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:40Z",
+      "round_id": "S27-R2AC-R1",
+      "profile_id": "r2ac_prism_ap",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 27.062,
+      "gp_candidate_mbps": 28.47,
+      "gp_delta_pct": 5.203,
+      "p95_champion_ms": 23.68,
+      "p95_candidate_ms": 15.165,
+      "p95_delta_pct": -35.959,
+      "pareto_score_delta_pct": 17.7884,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S27-R2AC-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+        "multirate IEEE 802.11 proportional fairness packet arrival rate normalization"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M7",
+          "title": "PB-025 Stock airOS STA Bridge Queue Bounding (br0 txqueuelen=256) + TCP DSACK/Fin-Timeout Ported from S27-R2AC-R2 to 5 GHz CPEs",
+          "scientific_basis": "S27-R2AC-R1/R2 (+5.20% & +1.50% goodput, -35.96% & -17.84% p95 RTT) + arXiv:0806.4695v1",
+          "candidate_delta_commands": [
+            "ifconfig br0 txqueuelen 256 2>/dev/null || true",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:40Z",
+      "round_id": "S27-R2AC-R2",
+      "profile_id": "r2ac_prism_ap",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 27.026,
+      "gp_candidate_mbps": 27.43,
+      "gp_delta_pct": 1.495,
+      "p95_champion_ms": 19.488,
+      "p95_candidate_ms": 16.012,
+      "p95_delta_pct": -17.837,
+      "pareto_score_delta_pct": 7.7377,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S27-R2AC-R2.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+        "multirate IEEE 802.11 proportional fairness packet arrival rate normalization"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M7",
+          "title": "PB-025 Stock airOS STA Bridge Queue Bounding (br0 txqueuelen=256) + TCP DSACK/Fin-Timeout Ported from S27-R2AC-R2 to 5 GHz CPEs",
+          "scientific_basis": "S27-R2AC-R1/R2 (+5.20% & +1.50% goodput, -35.96% & -17.84% p95 RTT) + arXiv:0806.4695v1",
+          "candidate_delta_commands": [
+            "ifconfig br0 txqueuelen 256 2>/dev/null || true",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        }
+      ]
+    }
+  ],
+  "scholar_and_hyperresearch_ingestion": {
+    "ingested_followup_papers": [
+      {
+        "paper_id": "2211.03471v1",
+        "title": "Sittin'On the Dock of the (WiFi) Bay: On the Frame Aggregation under IEEE 802.11 DCF",
+        "note_id": "stage-28-closed-loop-reactor-arxiv-221103471v1-sittinon-the-dock-of-the-wifi-b-2",
+        "triggered_by_rounds": [
+          "S25-R1",
+          "S25-R2"
+        ],
+        "verification_probability": 0.97,
+        "model_version": "jev-1.14.0",
+        "exact_span": {
+          "start_char": 381,
+          "end_char": 590,
+          "text": "To do so, we first describe the transmission time in IEEE 802.11 in a stochastic framework and then we calculate the optimal value of the frames that, when aggregated, saves transmission time in the long term."
+        },
+        "synthesized_mechanism_id": "M6 (`PB-024` 2-MTU DRR Frame-Aggregation Quantum `3028B` + Cross-Sector Bridge/DSACK Co-Design)"
+      },
+      {
+        "paper_id": "0806.4695v1",
+        "title": "On the Throughput Allocation for Proportional Fairness in Multirate IEEE 802.11 DCF",
+        "note_id": "stage-28-closed-loop-reactor-arxiv-08064695v1-on-the-throughput-allocation-for-2",
+        "triggered_by_rounds": [
+          "S24C-R2",
+          "S24E-R2",
+          "S27-R2AC-R1"
+        ],
+        "verification_probability": 0.77,
+        "model_version": "jev-1.14.0",
+        "exact_span": {
+          "start_char": 484,
+          "end_char": 734,
+          "text": "The throughput allocation resulting from the proposed algorithm is able to greatly increase the aggregate throughput of the DCF while ensuring fairness levels among the stations of the same order of the ones available with the classical PF criterion."
+        },
+        "synthesized_mechanism_id": "M7 (`PB-025` Arrival-Rate Normalized Airtime Weighting & Cross-Generation `cms_bias=6` / `br0` Queue Co-Design)"
+      }
+    ],
+    "claims_bundle_file": "artifacts\\hyperresearch_vault\\claims\\scholar_jev_verified_claims_stage28.json",
+    "hyperresearch_sync": true,
+    "hyperresearch_link": false,
+    "hyperresearch_repair": true,
+    "vault_status_after_reactor": {
+      "vault_name": "FuturaMAX Deep Research Vault",
+      "vault_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\hyperresearch_vault",
+      "notes": {
+        "total": 41,
+        "by_status": {
+          "draft": 25,
+          "evergreen": 13,
+          "review": 3
+        },
+        "by_type": {
+          "index": 10,
+          "note": 31
+        }
+      },
+      "tags": {
+        "total_unique": 12,
+        "top": [
+          {
+            "tag": "closed-loop-reactor,scholar-mcp,jev-verified,stage28-closed-loop-reactor-20261025",
+            "count": 4
+          },
+          {
+            "tag": "scholar-mcp,jev-verified,arxiv,stage25-scholar-fusion-20261025",
+            "count": 2
+          },
+          {
+            "tag": "4096qam,1024qam,snr,evm,rate-control,ltu,af4x",
+            "count": 1
+          },
+          {
+            "tag": "ad9361,4096qam,1024qam,evm,phase-noise,ltu,tdd",
+            "count": 1
+          },
+          {
+            "tag": "airbbr,bbr,aql,airtime-fairness,80211ac,pacing",
+            "count": 1
+          },
+          {
+            "tag": "airtime,aql,codel,ptmp,fairness",
+            "count": 1
+          },
+          {
+            "tag": "fq_codel,bufferbloat,aqm,80211ac,quantum,ecn",
+            "count": 1
+          },
+          {
+            "tag": "hidden-node,rts-cts,ptmp,80211n,80211ac,collision",
+            "count": 1
+          },
+          {
+            "tag": "mimo,chain-imbalance,antenna-selection,stbc,mrc,80211n,80211ac",
+            "count": 1
+          },
+          {
+            "tag": "synthesis,stage24,airbbr,pb021,pb040,ltu,af4x,pbm5,qca988x",
+            "count": 1
+          }
+        ]
+      },
+      "graph": {
+        "total_links": 180,
+        "broken_links": 37,
+        "orphan_notes": 0
+      },
+      "total_words": 50828,
+      "last_sync": "2026-10-26T18:03:43.300124+00:00"
+    }
+  }
+}

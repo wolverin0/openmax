@@ -1,0 +1,84 @@
+{
+  "stage": "363A",
+  "task_id": "T-S363A-GUARIDA-KITS-V2-OL-VERIFIER",
+  "generated_at": "2026-10-26T21:23:00-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "proprietary airMAX/LTU module",
+    "QCA firmware"
+  ],
+  "writes_performed": 0,
+  "kits_updated_count": 4,
+  "kits": [
+    {
+      "kit_name": "almafuerte_60_mode_b.sh",
+      "script_path": "tools/guarida_stage0_kits/almafuerte_60_mode_b.sh",
+      "sha256": "4b098b84401b87c9a085ae26f44f044c2afa4706d878025ec2f6be5c666dc231",
+      "uses_athstats_ol": true,
+      "forbids_bare_athstats": true,
+      "verified_wal_fields": [
+        "mpdus_requed",
+        "excess retries",
+        "underrun",
+        "mcast_dropped",
+        "ast_be_nobuf",
+        "ast_rxorn"
+      ]
+    },
+    {
+      "kit_name": "guarida_61_mode_b.sh",
+      "script_path": "tools/guarida_stage0_kits/guarida_61_mode_b.sh",
+      "sha256": "dcd1de8e46875eaf0b6e418b92c58ca82fbb9a145a7b5bf0523244ad52edd088",
+      "uses_athstats_ol": true,
+      "forbids_bare_athstats": true,
+      "verified_wal_fields": [
+        "mpdus_requed",
+        "excess retries",
+        "underrun",
+        "mcast_dropped",
+        "ast_be_nobuf",
+        "ast_rxorn"
+      ]
+    },
+    {
+      "kit_name": "panel2_82_mode_b.sh",
+      "script_path": "tools/guarida_stage0_kits/panel2_82_mode_b.sh",
+      "sha256": "7afb16c4e5e5f0c181e2b4a8081898c9f670cf198588dc5f821a684686554a10",
+      "uses_athstats_ol": true,
+      "forbids_bare_athstats": true,
+      "verified_wal_fields": [
+        "mpdus_requed",
+        "excess retries",
+        "underrun",
+        "mcast_dropped",
+        "ast_be_nobuf",
+        "ast_rxorn"
+      ]
+    },
+    {
+      "kit_name": "panel3_83_mode_b.sh",
+      "script_path": "tools/guarida_stage0_kits/panel3_83_mode_b.sh",
+      "sha256": "dcc9da9f95eabb2cd3d6c945f06a932f8b23c4f9038d7891b81fe055cabdac70",
+      "uses_athstats_ol": true,
+      "forbids_bare_athstats": true,
+      "verified_wal_fields": [
+        "mpdus_requed",
+        "excess retries",
+        "underrun",
+        "mcast_dropped",
+        "ast_be_nobuf",
+        "ast_rxorn"
+      ]
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Integrates bin/athbox 0x00401930 'athstats -ol' verifier and Panel2 sta_priority='1 2 1' / daprot=2 / ff_mcast_airtime_limit=5 into all 4 Stage 0 kits.",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Eliminates SIOCGATHSTATS 0x89f0 false-positive nobuf/xmit_filtered aliasing from Stage 0 rollout verification.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Pre-stages pre/post WAL snapshots in /etc/persistent/fmx_stage0_backup with 0 live writes.",
+    "pillar_d_scientific_pareto_validation": "Tracks true QCA9882 WAL mpdus_requed, excess_retries, underrun, and ast_rxorn deltas.",
+    "pillar_e_memory_master_claim_id": "mm-stage363a-guarida-kits-v2-ol-verifier-v1"
+  }
+}

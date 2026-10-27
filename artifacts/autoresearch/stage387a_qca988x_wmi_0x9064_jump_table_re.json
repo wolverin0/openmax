@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "stage": "387A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/qca988x_wmi_0x9064_51entry_jump_table_re.py",
+    "tool_sha256": "cf08028120f61e2340dee8c5eb7caef361baf7801511ad1e527ef1c1d21da8da",
+    "output": "artifacts/autoresearch/stage387a_qca988x_wmi_0x9064_jump_table_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "target_address": "0x009b2037",
+    "target_jump": "0x009b5c02",
+    "premise_corrections": [
+      "0x9064 and 0x9070 are slot 25 and slot 28 of the dense 0x9000+4k array already mapped in Stage 372A, so their presence in umac.ko is expected whether or not any proprietary tunnel exists",
+      "0x009b2037 falls outside every segment window under both endian readings of the SGMT base field"
+    ],
+    "radio_safety": "static only"
+  },
+  "container": {
+    "bytes": 204796,
+    "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "segments": [
+      {
+        "id": 4,
+        "len": 7140,
+        "file_off": 108,
+        "base_be": 38912,
+        "base_le": 9961472,
+        "prefix": "53474d540100000000009800",
+        "u32_at_12": 148
+      },
+      {
+        "id": 3,
+        "len": 197537,
+        "file_off": 7256,
+        "base_be": 38912,
+        "base_le": 9961472,
+        "prefix": "53474d540100000000009800",
+        "u32_at_12": 5484
+      }
+    ]
+  },
+  "address_windows": [
+    {
+      "segment": 4,
+      "endian": "be",
+      "base": "0x00009800",
+      "lo": "0x00009800",
+      "hi": "0x0000b3e4",
+      "contains_target": false,
+      "offset": null,
+      "bytes_past_end": 10120275,
+      "contains_jump": false
+    },
+    {
+      "segment": 4,
+      "endian": "le",
+      "base": "0x00980000",
+      "lo": "0x00980000",
+      "hi": "0x00981be4",
+      "contains_target": false,
+      "offset": null,
+      "bytes_past_end": 197715,
+      "contains_jump": false
+    },
+    {
+      "segment": 3,
+      "endian": "be",
+      "base": "0x00009800",
+      "lo": "0x00009800",
+      "hi": "0x00039ba1",
+      "contains_target": false,
+      "offset": null,
+      "bytes_past_end": 9929878,
+      "contains_jump": false
+    },
+    {
+      "segment": 3,
+      "endian": "le",
+      "base": "0x00980000",
+      "lo": "0x00980000",
+      "hi": "0x009b03a1",
+      "contains_target": false,
+      "offset": null,
+      "bytes_past_end": 7318,
+      "contains_jump": false
+    }
+  ],
+  "dense_slot_arrays": [
+    {
+      "start": "0x239f70",
+      "count": 432,
+      "trailing": "00000102"
+    }
+  ],
+  "blob_ids": {
+    "0x9064": {
+      "be": 0,
+      "le": 0
+    },
+    "0x9070": {
+      "be": 0,
+      "le": 1
+    }
+  },
+  "blob_name_probes": {
+    "set_txq_param": 0,
+    "txq_param": 0,
+    "set_rate_override": 0,
+    "rate_override": 0,
+    "UBNT_CMDID": 0,
+    "wmi_ubnt": 0,
+    "WMI_UBNT": 0
+  },
+  "blob_pointer_runs": {
+    "4": [],
+    "3": []
+  },
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "ids": {
+        "0x9064": {
+          "total": 11,
+          "aligned": 1,
+          "unaligned": 10,
+          "classified": [
+            {
+              "at": "0x23a038",
+              "slot_index": 25,
+              "in_dense_slot_array": true
+            }
+          ],
+          "outside_dense_run": 0
+        },
+        "0x9070": {
+          "total": 1,
+          "aligned": 1,
+          "unaligned": 0,
+          "classified": [
+            {
+              "at": "0x23a050",
+              "slot_index": 28,
+              "in_dense_slot_array": true
+            }
+          ],
+          "outside_dense_run": 0
+        }
+      },
+      "name_probes": {
+        "set_txq_param": 0,
+        "txq_param": 0,
+        "set_rate_override": 0,
+        "rate_override": 0,
+        "UBNT_CMDID": 0,
+        "wmi_ubnt": 0,
+        "WMI_UBNT": 6
+      },
+      "subcommand_names": {
+        "set_txq_param": 0,
+        "set_rate_override": 0
+      },
+      "name_contexts": {
+        "WMI_UBNT": [
+          "I_REQUEST_STATS_CMDID.WMI_GPIO_CONFIG_CMDID...WMI_GPIO_OUTPUT_CMDID...WMI_UBNT_POLL_CMDID.WMI_REQ_UBNT_STATS_CMDID....WMI_PDEV_DFS_CONFIGURE_CMDID..",
+          "..WMI_TBTTOFFSET_UPDATE_EVENTID...WMI_TSF_MEASUREMENT_REPORT_EVENTID..WMI_UBNT_PDEV_FAILURE_EVENTID...WMI_UBNT_POLL_EVENTID...WMI_UBNT_STATS_EVENTID",
+          "..WMI_TSF_MEASUREMENT_REPORT_EVENTID..WMI_UBNT_PDEV_FAILURE_EVENTID...WMI_UBNT_POLL_EVENTID...WMI_UBNT_STATS_EVENTID..WMI_UPDATE_STATS_EVENTID....WM",
+          "PORT_EVENTID..WMI_UBNT_PDEV_FAILURE_EVENTID...WMI_UBNT_POLL_EVENTID...WMI_UBNT_STATS_EVENTID..WMI_UPDATE_STATS_EVENTID....WMI_VDEV_RESUME_REQ_EVENTI",
+          "VENTID....WMI_WLAN_PROFILE_DATA_EVENTID...WMI_WOW_WAKEUP_HOST_EVENTID.WMI_UBNT_PEER_ADD_EVENTID...WMI_UBNT_PEER_DEL_EVENTID...allocation of wmi hand",
+          "ATA_EVENTID...WMI_WOW_WAKEUP_HOST_EVENTID.WMI_UBNT_PEER_ADD_EVENTID...WMI_UBNT_PEER_DEL_EVENTID...allocation of wmi handle failed %d ..... Failed to"
+        ]
+      }
+    },
+    {
+      "module": "WA:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "ids": {
+        "0x9064": {
+          "total": 1,
+          "aligned": 0,
+          "unaligned": 1,
+          "classified": [],
+          "outside_dense_run": 0
+        },
+        "0x9070": {
+          "total": 0,
+          "aligned": 0,
+          "unaligned": 0,
+          "classified": [],
+          "outside_dense_run": 0
+        }
+      },
+      "name_probes": {
+        "set_txq_param": 1,
+        "txq_param": 2,
+        "set_rate_override": 1,
+        "rate_override": 1,
+        "UBNT_CMDID": 0,
+        "wmi_ubnt": 0,
+        "WMI_UBNT": 0
+      },
+      "subcommand_names": {
+        "set_txq_param": 1,
+        "set_rate_override": 1
+      },
+      "name_contexts": {
+        "set_txq_param": [
+          "host_get_sta_mgmt_rssi.ubnt_poll_host_init_proc_sysctl.ubnt_poll_host_set_txq_param.ubnt_poll_host_proto_create_key.ubnt_poll_host_set_node_amsdu_intoler"
+        ],
+        "txq_param": [
+          "_get_sta_mgmt_rssi.ubnt_poll_host_init_proc_sysctl.ubnt_poll_host_set_txq_param.ubnt_poll_host_proto_create_key.ubnt_poll_host_set_node_amsdu_intoler",
+          "xpower.ubnt_poll_host_assoc_req_tx_should_add_ssid.ubnt_poll_host_get_txq_param.ubnt_poll_ht_comm_setup.ubnt_poll_host_set_sta_priority.ubnt_poll_hos"
+        ],
+        "set_rate_override": [
+          "_poll_ku_comm_get_info.ubnt_poll_host_on_assoc_resp_rx.ubnt_poll_host_set_rate_override.ubnt_poll_ku_comm_get_sta_spec_data.ubnt_poll_host_set_tid5_rate_war."
+        ],
+        "rate_override": [
+          "l_ku_comm_get_info.ubnt_poll_host_on_assoc_resp_rx.ubnt_poll_host_set_rate_override.ubnt_poll_ku_comm_get_sta_spec_data.ubnt_poll_host_set_tid5_rate_war."
+        ]
+      }
+    }
+  ],
+  "subcommands": [
+    {
+      "id": "0x17",
+      "name": "set_txq_param"
+    },
+    {
+      "id": "0x1e",
+      "name": "set_rate_override"
+    }
+  ],
+  "summary": {
+    "target_in_any_window": 0,
+    "jump_in_any_window": 0,
+    "bytes_past_nearest_window": 7318,
+    "dense_slot_arrays": 1,
+    "aligned_id_hits": 2,
+    "id_hits_outside_dense_run": 0,
+    "name_probes_found": 5,
+    "pointer_runs_51plus": 0,
+    "jump_table_recovered": 0
+  },
+  "gaps": [
+    "the claimed address 0x009b2037 is not inside any parsed segment window: the nearest LE window ends at 0x009b03a1, leaving the target past the end",
+    "no 51-entry jump table was decoded; the pointer-run scan is reported as raw evidence and no table was bound to the address",
+    "the SGMT header is not fully decoded: the base field reads 0x00980000 both ways and the u32 at payload offset 12 (148 / 5484) is uninterpreted, so the mapping used here is the widest available, not a proven load address",
+    "every aligned 0x9064/0x9070 hit inside the dense slot array is an enumeration artefact and is classified as such",
+    "set_txq_param, set_rate_override and WMI_UBNT exist as strings in ubnt_poll_host.ko and umac.ko respectively, but no subcommand dispatch table was found, so the opcode numbers 0x17 and 0x1e are not bound to those handlers",
+    "no dynamic validation"
+  ]
+}

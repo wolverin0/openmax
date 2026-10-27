@@ -1,0 +1,62 @@
+{
+  "stage": "637A",
+  "task_id": "T-S637A-QCA-TXBF-STBC-AND-LDPC-GUARD",
+  "title": "Pillar 1 & Pillar 2 QCA988x & AR9344 Transmit Beamforming (TxBF), STBC, and LDPC Guard",
+  "memory_master_claim": {
+    "code": "mm-e480",
+    "id": 155458
+  },
+  "generated_at": "2026-10-27T01:45:30.964183+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module",
+    "Linux"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca_txbf_stbc_ldpc_guard.sh",
+    "sha256": "0a34b6f3a02c85cfc429c119b3ac55e12539632d096d10a544decf4611253b76",
+    "size_bytes": 2037,
+    "default_mode": "--status"
+  },
+  "stage615a_re_foundation": {
+    "modules_analyzed": 7,
+    "txbf_tokens": 14,
+    "stbc_tokens": 38,
+    "ldpc_tokens": 18,
+    "runtime_getters": [
+      "Getting LDPC",
+      "Getting RX STBC",
+      "Getting TX STBC",
+      "Getting VHT MCS MAP"
+    ],
+    "proc_knobs": [
+      "LDPC",
+      "getLDPC"
+    ],
+    "bf_means_buffer_in_ath_dev": true,
+    "xw_umac_token_total": 0
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "covers_ldpc_stbc_and_txbf_guard": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 615A RE across 7 WA/XC/XW kernel modules (runtime getters for LDPC/STBC/VHT MCS MAP, proc LDPC/getLDPC, maxregpwr_txbf, and bf_ TX buffer disambiguation)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Enables LDPC (+1.5..2.0 dB coding gain over BCC at 256-QAM) and STBC while keeping SU-TxBF sounding disabled on 2x2 fixed outdoor dishes",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply sets deterministic OpenWrt UCI wireless attributes",
+    "pillar_d_scientific_pareto_validation": "Eliminates NDPA/NDP sounding airtime tax on 2x2 links while maximizing MCS8/9 FEC resilience via LDPC",
+    "pillar_e_memory_master_claim_id": "mm-e480 (id=155458)"
+  }
+}

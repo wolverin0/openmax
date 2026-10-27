@@ -1,0 +1,466 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "76A",
+  "task_id": "T-S76A-SIMPY-DISCRETE-EVENT-GUARIDA-32CPE-3PANEL-SOAK-SIMULATOR",
+  "generated_at_utc": "2026-10-26T14:02:12.207672+00:00",
+  "status": "CONFIRMED",
+  "epistemic_label": "INFERRED",
+  "protocol": "A1->B1->A2->B2",
+  "watchdog_seconds": 45,
+  "memory_master_claim_id": "mm-stage76a-simpy-guarida-32cpe-3panel-simulation-20261026",
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "COMPLIANT",
+    "evidence": "Parameterized directly from Guarida 32-CPE radiography + Stage 71B AirPrism (ubnt_prism_hook 50 MHz Stage 1 filter) + Stage 73B uph.ko (cms_bias=6, voip_bias=6, daprot=2, sta_rx_rssi_th=-78) + Stage 72A OpenWrt Champion v20 (mac80211 AQL + BQL 4542/42392/800ms)."
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "COMPLIANT",
+    "verifier_model": "jev-1.14.0",
+    "verified_paper_ids": [
+      "1503.04533v6",
+      "0806.4695v1",
+      "2211.03471v1",
+      "2101.07562v1"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "COMPLIANT",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "COMPLIANT",
+    "simpy_version": "4.1.2",
+    "warmup_ms": 200.0,
+    "horizon_ms": 1000.0,
+    "steady_state_window_ms": 800.0,
+    "n_replications": 12,
+    "base_seed": 20261026
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage76a-simpy-guarida-32cpe-3panel-simulation-20261026",
+  "layer_attribution": [
+    "proprietary airMAX/LTU module",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "hardware"
+  ],
+  "guarida_topology_modeled": {
+    "total_cpes": 32,
+    "panel1_cpes": 4,
+    "panel2_cpes": 22,
+    "panel2_airtime_hogs": 3,
+    "panel3_cpes": 6,
+    "panel3_active_rf_cpes": 4
+  },
+  "sector_results": {
+    "Panel1_Guarida_OpenWrt_Champion_v20": {
+      "n_replications": 12,
+      "p50_queue_delay_ms": {
+        "mean": 0.0158,
+        "sd": 0.0174,
+        "ci95_low": 0.0047,
+        "ci95_high": 0.0269
+      },
+      "p95_queue_delay_ms": {
+        "mean": 0.6255,
+        "sd": 0.0575,
+        "ci95_low": 0.589,
+        "ci95_high": 0.662
+      },
+      "p99_queue_delay_ms": {
+        "mean": 1.0465,
+        "sd": 0.1359,
+        "ci95_low": 0.9601,
+        "ci95_high": 1.1329
+      },
+      "voip_drop_rate_pct": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "hog_airtime_share_pct": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "jain_fairness_index": {
+        "mean": 0.9966,
+        "sd": 0.0023,
+        "ci95_low": 0.9951,
+        "ci95_high": 0.998
+      },
+      "sector_goodput_mbps": {
+        "mean": 35.9707,
+        "sd": 0.5968,
+        "ci95_low": 35.5915,
+        "ci95_high": 36.3499
+      },
+      "unfinished_entities_at_horizon": {
+        "mean": 0.75,
+        "sd": 1.0553,
+        "ci95_low": 0.0795,
+        "ci95_high": 1.4205
+      }
+    },
+    "Panel3_Guarida_5785MHz_ModeB_TDMA": {
+      "n_replications": 12,
+      "p50_queue_delay_ms": {
+        "mean": 0.2492,
+        "sd": 0.0317,
+        "ci95_low": 0.2291,
+        "ci95_high": 0.2694
+      },
+      "p95_queue_delay_ms": {
+        "mean": 1.6209,
+        "sd": 0.2931,
+        "ci95_low": 1.4346,
+        "ci95_high": 1.8071
+      },
+      "p99_queue_delay_ms": {
+        "mean": 2.4937,
+        "sd": 0.7571,
+        "ci95_low": 2.0126,
+        "ci95_high": 2.9747
+      },
+      "voip_drop_rate_pct": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "hog_airtime_share_pct": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "jain_fairness_index": {
+        "mean": 0.9981,
+        "sd": 0.0012,
+        "ci95_low": 0.9973,
+        "ci95_high": 0.9989
+      },
+      "sector_goodput_mbps": {
+        "mean": 40.3708,
+        "sd": 0.6912,
+        "ci95_low": 39.9317,
+        "ci95_high": 40.81
+      },
+      "unfinished_entities_at_horizon": {
+        "mean": 0.6667,
+        "sd": 0.9847,
+        "ci95_low": 0.041,
+        "ci95_high": 1.2923
+      }
+    },
+    "Panel2_Guarida_22CPE_Comparison": {
+      "Arm_A0_Stock_airOS8_Unpatched_CoChannel": {
+        "n_replications": 12,
+        "p50_queue_delay_ms": {
+          "mean": 153.468,
+          "sd": 9.2916,
+          "ci95_low": 147.5644,
+          "ci95_high": 159.3716
+        },
+        "p95_queue_delay_ms": {
+          "mean": 182.4073,
+          "sd": 12.019,
+          "ci95_low": 174.7708,
+          "ci95_high": 190.0438
+        },
+        "p99_queue_delay_ms": {
+          "mean": 190.1427,
+          "sd": 12.3016,
+          "ci95_low": 182.3267,
+          "ci95_high": 197.9588
+        },
+        "voip_drop_rate_pct": {
+          "mean": 89.931,
+          "sd": 1.3781,
+          "ci95_low": 89.0554,
+          "ci95_high": 90.8066
+        },
+        "hog_airtime_share_pct": {
+          "mean": 89.7668,
+          "sd": 1.4974,
+          "ci95_low": 88.8154,
+          "ci95_high": 90.7182
+        },
+        "jain_fairness_index": {
+          "mean": 0.4396,
+          "sd": 0.0512,
+          "ci95_low": 0.4071,
+          "ci95_high": 0.4721
+        },
+        "sector_goodput_mbps": {
+          "mean": 7.1372,
+          "sd": 0.4446,
+          "ci95_low": 6.8548,
+          "ci95_high": 7.4197
+        },
+        "unfinished_entities_at_horizon": {
+          "mean": 49.9167,
+          "sd": 0.2887,
+          "ci95_low": 49.7333,
+          "ci95_high": 50.1001
+        }
+      },
+      "Arm_B1_Stage71B_5540MHz_Stage73B_UPH_BNG_CAKE": {
+        "n_replications": 12,
+        "p50_queue_delay_ms": {
+          "mean": 54.2971,
+          "sd": 0.5889,
+          "ci95_low": 53.9229,
+          "ci95_high": 54.6713
+        },
+        "p95_queue_delay_ms": {
+          "mean": 59.0122,
+          "sd": 0.5394,
+          "ci95_low": 58.6695,
+          "ci95_high": 59.3549
+        },
+        "p99_queue_delay_ms": {
+          "mean": 60.4081,
+          "sd": 0.613,
+          "ci95_low": 60.0186,
+          "ci95_high": 60.7975
+        },
+        "voip_drop_rate_pct": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.0
+        },
+        "hog_airtime_share_pct": {
+          "mean": 0.6832,
+          "sd": 0.0256,
+          "ci95_low": 0.6669,
+          "ci95_high": 0.6995
+        },
+        "jain_fairness_index": {
+          "mean": 0.8676,
+          "sd": 0.0004,
+          "ci95_low": 0.8673,
+          "ci95_high": 0.8678
+        },
+        "sector_goodput_mbps": {
+          "mean": 56.8657,
+          "sd": 0.1638,
+          "ci95_low": 56.7616,
+          "ci95_high": 56.9698
+        },
+        "unfinished_entities_at_horizon": {
+          "mean": 125.4167,
+          "sd": 3.4234,
+          "ci95_low": 123.2415,
+          "ci95_high": 127.5918
+        }
+      },
+      "Arm_B2_Full_OpenWrt_Champion_v20_VendorIE": {
+        "n_replications": 12,
+        "p50_queue_delay_ms": {
+          "mean": 32.5185,
+          "sd": 0.4084,
+          "ci95_low": 32.259,
+          "ci95_high": 32.778
+        },
+        "p95_queue_delay_ms": {
+          "mean": 36.2042,
+          "sd": 0.558,
+          "ci95_low": 35.8497,
+          "ci95_high": 36.5588
+        },
+        "p99_queue_delay_ms": {
+          "mean": 37.4098,
+          "sd": 0.7092,
+          "ci95_low": 36.9592,
+          "ci95_high": 37.8604
+        },
+        "voip_drop_rate_pct": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.0
+        },
+        "hog_airtime_share_pct": {
+          "mean": 0.6344,
+          "sd": 0.0244,
+          "ci95_low": 0.6189,
+          "ci95_high": 0.6498
+        },
+        "jain_fairness_index": {
+          "mean": 0.867,
+          "sd": 0.0005,
+          "ci95_low": 0.8667,
+          "ci95_high": 0.8673
+        },
+        "sector_goodput_mbps": {
+          "mean": 68.2272,
+          "sd": 0.2042,
+          "ci95_low": 68.0974,
+          "ci95_high": 68.3569
+        },
+        "unfinished_entities_at_horizon": {
+          "mean": 105.0833,
+          "sd": 3.6546,
+          "ci95_low": 102.7613,
+          "ci95_high": 107.4054
+        }
+      }
+    }
+  },
+  "panel2_paired_statistical_contrasts": {
+    "B1_vs_A0": {
+      "p95_queue_delay_ms": {
+        "n_replications": 12,
+        "mean_diff": -123.3951,
+        "sd_diff": 11.9133,
+        "ci95_low": -130.9644,
+        "ci95_high": -115.8257,
+        "cohen_dz_signed": 10.3578,
+        "hedges_gz_signed": 9.6351,
+        "t_stat": -35.8804,
+        "p_val_two_sided": 0.0
+      },
+      "voip_drop_rate_pct": {
+        "n_replications": 12,
+        "mean_diff": -89.931,
+        "sd_diff": 1.3781,
+        "ci95_low": -90.8066,
+        "ci95_high": -89.0554,
+        "cohen_dz_signed": 65.2557,
+        "hedges_gz_signed": 60.703,
+        "t_stat": -226.0525,
+        "p_val_two_sided": 0.0
+      },
+      "hog_airtime_share_pct": {
+        "n_replications": 12,
+        "mean_diff": -89.0836,
+        "sd_diff": 1.4979,
+        "ci95_low": -90.0354,
+        "ci95_high": -88.1319,
+        "cohen_dz_signed": 59.4719,
+        "hedges_gz_signed": 55.3227,
+        "t_stat": -206.0166,
+        "p_val_two_sided": 0.0
+      },
+      "jain_fairness_index": {
+        "n_replications": 12,
+        "mean_diff": 0.428,
+        "sd_diff": 0.0512,
+        "ci95_low": 0.3955,
+        "ci95_high": 0.4605,
+        "cohen_dz_signed": 8.3668,
+        "hedges_gz_signed": 7.7831,
+        "t_stat": 28.9836,
+        "p_val_two_sided": 0.0
+      },
+      "sector_goodput_mbps": {
+        "n_replications": 12,
+        "mean_diff": 49.7285,
+        "sd_diff": 0.408,
+        "ci95_low": 49.4692,
+        "ci95_high": 49.9877,
+        "cohen_dz_signed": 121.8786,
+        "hedges_gz_signed": 113.3755,
+        "t_stat": 422.1999,
+        "p_val_two_sided": 0.0
+      }
+    },
+    "B2_vs_A0": {
+      "p95_queue_delay_ms": {
+        "n_replications": 12,
+        "mean_diff": -146.203,
+        "sd_diff": 11.8786,
+        "ci95_low": -153.7504,
+        "ci95_high": -138.6557,
+        "cohen_dz_signed": 12.3081,
+        "hedges_gz_signed": 11.4494,
+        "t_stat": -42.6364,
+        "p_val_two_sided": 0.0
+      },
+      "voip_drop_rate_pct": {
+        "n_replications": 12,
+        "mean_diff": -89.931,
+        "sd_diff": 1.3781,
+        "ci95_low": -90.8066,
+        "ci95_high": -89.0554,
+        "cohen_dz_signed": 65.2557,
+        "hedges_gz_signed": 60.703,
+        "t_stat": -226.0525,
+        "p_val_two_sided": 0.0
+      },
+      "hog_airtime_share_pct": {
+        "n_replications": 12,
+        "mean_diff": -89.1325,
+        "sd_diff": 1.4921,
+        "ci95_low": -90.0805,
+        "ci95_high": -88.1844,
+        "cohen_dz_signed": 59.7353,
+        "hedges_gz_signed": 55.5677,
+        "t_stat": -206.929,
+        "p_val_two_sided": 0.0
+      },
+      "jain_fairness_index": {
+        "n_replications": 12,
+        "mean_diff": 0.4274,
+        "sd_diff": 0.0513,
+        "ci95_low": 0.3948,
+        "ci95_high": 0.46,
+        "cohen_dz_signed": 8.3309,
+        "hedges_gz_signed": 7.7497,
+        "t_stat": 28.8592,
+        "p_val_two_sided": 0.0
+      },
+      "sector_goodput_mbps": {
+        "n_replications": 12,
+        "mean_diff": 61.09,
+        "sd_diff": 0.4306,
+        "ci95_low": 60.8164,
+        "ci95_high": 61.3635,
+        "cohen_dz_signed": 141.876,
+        "hedges_gz_signed": 131.9777,
+        "t_stat": 491.473,
+        "p_val_two_sided": 0.0
+      }
+    },
+    "B2_vs_B1": {
+      "p95_queue_delay_ms": {
+        "n_replications": 12,
+        "mean_diff": -22.808,
+        "sd_diff": 0.4086,
+        "ci95_low": -23.0676,
+        "ci95_high": -22.5483,
+        "cohen_dz_signed": 55.8131,
+        "hedges_gz_signed": 51.9192,
+        "t_stat": -193.3424,
+        "p_val_two_sided": 0.0
+      },
+      "jain_fairness_index": {
+        "n_replications": 12,
+        "mean_diff": -0.0006,
+        "sd_diff": 0.0005,
+        "ci95_low": -0.0008,
+        "ci95_high": -0.0003,
+        "cohen_dz_signed": -1.2265,
+        "hedges_gz_signed": -1.1409,
+        "t_stat": -4.2485,
+        "p_val_two_sided": 0.001369
+      },
+      "sector_goodput_mbps": {
+        "n_replications": 12,
+        "mean_diff": 11.3615,
+        "sd_diff": 0.1343,
+        "ci95_low": 11.2762,
+        "ci95_high": 11.4468,
+        "cohen_dz_signed": 84.6162,
+        "hedges_gz_signed": 78.7127,
+        "t_stat": 293.1191,
+        "p_val_two_sided": 0.0
+      }
+    }
+  }
+}

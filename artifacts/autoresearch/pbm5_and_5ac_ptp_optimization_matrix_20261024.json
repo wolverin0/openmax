@@ -1,0 +1,638 @@
+{
+  "study_id": "STAGE12-PBM5-XW-AND-5AC-PTP-OPTIMIZATION-20261024",
+  "automatic_execution_allowed": false,
+  "distances_evaluated_km": [
+    1.0,
+    3.0,
+    6.0,
+    10.0,
+    14.0
+  ],
+  "xw_m5_distance_matrix_20mhz": [
+    {
+      "distance_km": 1.0,
+      "recommended_profile": {
+        "profile_id": "XW_M5_OPT_1KM_20MHZ",
+        "distance_km": 1.0,
+        "channel_width_mhz": 20,
+        "ubnt_poll_fixed_frame": 0,
+        "tdd_frame_duration_ms": 0,
+        "ubnt_poll_no_ack_rate": 0,
+        "ampduframes": 24,
+        "ackdistance_m": 1500,
+        "txqueuelen": 200,
+        "htb_sfq_shaping_enabled": true,
+        "htb_ceil_mbps": 58.56,
+        "max_mcs_index": 15
+      },
+      "shell_commands": [
+        "echo 0 > /proc/sys/dev/ubnt_poll/fixed_frame",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "iwpriv ath0 ampduframes 24",
+        "iwpriv wifi0 distance 1500",
+        "ifconfig ath0 txqueuelen 200",
+        "tc qdisc del dev ath0 root 2>/dev/null || true",
+        "tc qdisc add dev ath0 root handle 1: htb default 10",
+        "tc class add dev ath0 parent 1: classid 1:10 htb rate 58560kbit ceil 58560kbit burst 15k",
+        "tc qdisc add dev ath0 parent 1:10 handle 10: sfq perturb 10 quantum 1514 limit 64"
+      ],
+      "paired_ab_evaluation": {
+        "family": "XW_M5",
+        "distance_km": 1.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 2.585,
+        "optimized_mean_goodput_per_mhz": 2.97,
+        "stock_mean_p99_latency_ms": 45.8,
+        "optimized_mean_p99_latency_ms": 15.65,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +14.9% (95% CI +14.8%..+14.9%, paired_p=0.0312 <= 0.0500) with p99=-65.8%, p95=-66.8%, fairness=+6.6%.",
+          "p99_delta_pct": -65.83,
+          "goodput_delta_pct": 14.89,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +14.9% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -66.83,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 14.89,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            14.8458,
+            14.9419
+          ],
+          "ci_95_p99_delta_pct": [
+            -65.9358,
+            -65.7261
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.3,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 3.0,
+      "recommended_profile": {
+        "profile_id": "XW_M5_OPT_3KM_20MHZ",
+        "distance_km": 3.0,
+        "channel_width_mhz": 20,
+        "ubnt_poll_fixed_frame": 0,
+        "tdd_frame_duration_ms": 0,
+        "ubnt_poll_no_ack_rate": 0,
+        "ampduframes": 24,
+        "ackdistance_m": 3500,
+        "txqueuelen": 200,
+        "htb_sfq_shaping_enabled": true,
+        "htb_ceil_mbps": 54.23,
+        "max_mcs_index": 15
+      },
+      "shell_commands": [
+        "echo 0 > /proc/sys/dev/ubnt_poll/fixed_frame",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "iwpriv ath0 ampduframes 24",
+        "iwpriv wifi0 distance 3500",
+        "ifconfig ath0 txqueuelen 200",
+        "tc qdisc del dev ath0 root 2>/dev/null || true",
+        "tc qdisc add dev ath0 root handle 1: htb default 10",
+        "tc class add dev ath0 parent 1: classid 1:10 htb rate 54230kbit ceil 54230kbit burst 15k",
+        "tc qdisc add dev ath0 parent 1:10 handle 10: sfq perturb 10 quantum 1514 limit 64"
+      ],
+      "paired_ab_evaluation": {
+        "family": "XW_M5",
+        "distance_km": 3.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 2.355,
+        "optimized_mean_goodput_per_mhz": 2.76,
+        "stock_mean_p99_latency_ms": 53.4,
+        "optimized_mean_p99_latency_ms": 17.95,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +17.2% (95% CI +17.1%..+17.3%, paired_p=0.0312 <= 0.0500) with p99=-66.4%, p95=-67.4%, fairness=+6.6%.",
+          "p99_delta_pct": -66.39,
+          "goodput_delta_pct": 17.2,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +17.2% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -67.37,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 17.2,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            17.1369,
+            17.2587
+          ],
+          "ci_95_p99_delta_pct": [
+            -66.4792,
+            -66.2942
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.11,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 6.0,
+      "recommended_profile": {
+        "profile_id": "XW_M5_OPT_6KM_20MHZ",
+        "distance_km": 6.0,
+        "channel_width_mhz": 20,
+        "ubnt_poll_fixed_frame": 0,
+        "tdd_frame_duration_ms": 0,
+        "ubnt_poll_no_ack_rate": 0,
+        "ampduframes": 24,
+        "ackdistance_m": 6900,
+        "txqueuelen": 180,
+        "htb_sfq_shaping_enabled": true,
+        "htb_ceil_mbps": 47.75,
+        "max_mcs_index": 15
+      },
+      "shell_commands": [
+        "echo 0 > /proc/sys/dev/ubnt_poll/fixed_frame",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "iwpriv ath0 ampduframes 24",
+        "iwpriv wifi0 distance 6900",
+        "ifconfig ath0 txqueuelen 180",
+        "tc qdisc del dev ath0 root 2>/dev/null || true",
+        "tc qdisc add dev ath0 root handle 1: htb default 10",
+        "tc class add dev ath0 parent 1: classid 1:10 htb rate 47750kbit ceil 47750kbit burst 15k",
+        "tc qdisc add dev ath0 parent 1:10 handle 10: sfq perturb 10 quantum 1514 limit 64"
+      ],
+      "paired_ab_evaluation": {
+        "family": "XW_M5",
+        "distance_km": 6.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 2.01,
+        "optimized_mean_goodput_per_mhz": 2.445,
+        "stock_mean_p99_latency_ms": 64.8,
+        "optimized_mean_p99_latency_ms": 21.4,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +21.6% (95% CI +21.6%..+21.7%, paired_p=0.0312 <= 0.0500) with p99=-67.0%, p95=-67.9%, fairness=+6.6%.",
+          "p99_delta_pct": -66.98,
+          "goodput_delta_pct": 21.64,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +21.6% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -67.95,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 21.64,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            21.5525,
+            21.7321
+          ],
+          "ci_95_p99_delta_pct": [
+            -67.0545,
+            -66.8975
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.0,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 10.0,
+      "recommended_profile": {
+        "profile_id": "XW_M5_OPT_10KM_20MHZ",
+        "distance_km": 10.0,
+        "channel_width_mhz": 20,
+        "ubnt_poll_fixed_frame": 0,
+        "tdd_frame_duration_ms": 0,
+        "ubnt_poll_no_ack_rate": 0,
+        "ampduframes": 16,
+        "ackdistance_m": 11500,
+        "txqueuelen": 150,
+        "htb_sfq_shaping_enabled": true,
+        "htb_ceil_mbps": 39.1,
+        "max_mcs_index": 14
+      },
+      "shell_commands": [
+        "echo 0 > /proc/sys/dev/ubnt_poll/fixed_frame",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "iwpriv ath0 ampduframes 16",
+        "iwpriv wifi0 distance 11500",
+        "ifconfig ath0 txqueuelen 150",
+        "tc qdisc del dev ath0 root 2>/dev/null || true",
+        "tc qdisc add dev ath0 root handle 1: htb default 10",
+        "tc class add dev ath0 parent 1: classid 1:10 htb rate 39100kbit ceil 39100kbit burst 15k",
+        "tc qdisc add dev ath0 parent 1:10 handle 10: sfq perturb 10 quantum 1514 limit 64"
+      ],
+      "paired_ab_evaluation": {
+        "family": "XW_M5",
+        "distance_km": 10.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 1.55,
+        "optimized_mean_goodput_per_mhz": 2.025,
+        "stock_mean_p99_latency_ms": 80.0,
+        "optimized_mean_p99_latency_ms": 26.0,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +30.6% (95% CI +30.5%..+30.8%, paired_p=0.0312 <= 0.0500) with p99=-67.5%, p95=-68.5%, fairness=+6.6%.",
+          "p99_delta_pct": -67.5,
+          "goodput_delta_pct": 30.65,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +30.6% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -68.46,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 30.65,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            30.4815,
+            30.8114
+          ],
+          "ci_95_p99_delta_pct": [
+            -67.5656,
+            -67.4353
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.3,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 14.0,
+      "recommended_profile": {
+        "profile_id": "XW_M5_OPT_14KM_20MHZ",
+        "distance_km": 14.0,
+        "channel_width_mhz": 20,
+        "ubnt_poll_fixed_frame": 0,
+        "tdd_frame_duration_ms": 0,
+        "ubnt_poll_no_ack_rate": 0,
+        "ampduframes": 16,
+        "ackdistance_m": 16100,
+        "txqueuelen": 150,
+        "htb_sfq_shaping_enabled": true,
+        "htb_ceil_mbps": 30.45,
+        "max_mcs_index": 13
+      },
+      "shell_commands": [
+        "echo 0 > /proc/sys/dev/ubnt_poll/fixed_frame",
+        "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "iwpriv ath0 ampduframes 16",
+        "iwpriv wifi0 distance 16100",
+        "ifconfig ath0 txqueuelen 150",
+        "tc qdisc del dev ath0 root 2>/dev/null || true",
+        "tc qdisc add dev ath0 root handle 1: htb default 10",
+        "tc class add dev ath0 parent 1: classid 1:10 htb rate 30450kbit ceil 30450kbit burst 15k",
+        "tc qdisc add dev ath0 parent 1:10 handle 10: sfq perturb 10 quantum 1514 limit 64"
+      ],
+      "paired_ab_evaluation": {
+        "family": "XW_M5",
+        "distance_km": 14.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 1.09,
+        "optimized_mean_goodput_per_mhz": 1.605,
+        "stock_mean_p99_latency_ms": 95.2,
+        "optimized_mean_p99_latency_ms": 30.6,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +47.2% (95% CI +46.9%..+47.6%, paired_p=0.0312 <= 0.0500) with p99=-67.9%, p95=-68.8%, fairness=+6.6%.",
+          "p99_delta_pct": -67.86,
+          "goodput_delta_pct": 47.25,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +47.2% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -68.8,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 47.25,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            46.8898,
+            47.6136
+          ],
+          "ci_95_p99_delta_pct": [
+            -67.9132,
+            -67.8018
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.86,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    }
+  ],
+  "wa_5ac_distance_matrix_20mhz": [
+    {
+      "distance_km": 1.0,
+      "recommended_profile": {
+        "profile_id": "WA_5AC_OPT_1KM_20MHZ",
+        "distance_km": 1.0,
+        "channel_width_mhz": 20,
+        "stack_mode": "OPENWRT_2410_FUTURAMAX_QOE",
+        "aql_be_limit_us": 2100,
+        "rts_threshold_bytes": 2347,
+        "tx_power_dbm": 8,
+        "max_vht_mcs": 9,
+        "ackdistance_m": 1500
+      },
+      "paired_ab_evaluation": {
+        "family": "WA_5AC",
+        "distance_km": 1.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 3.945,
+        "optimized_mean_goodput_per_mhz": 4.5325,
+        "stock_mean_p99_latency_ms": 33.6,
+        "optimized_mean_p99_latency_ms": 10.65,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +14.9% (95% CI +14.9%..+14.9%, paired_p=0.0312 <= 0.0500) with p99=-68.3%, p95=-69.2%, fairness=+6.6%.",
+          "p99_delta_pct": -68.3,
+          "goodput_delta_pct": 14.89,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +14.9% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -69.24,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 14.89,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            14.8609,
+            14.9238
+          ],
+          "ci_95_p99_delta_pct": [
+            -68.4677,
+            -68.1447
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.76,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 3.0,
+      "recommended_profile": {
+        "profile_id": "WA_5AC_OPT_3KM_20MHZ",
+        "distance_km": 3.0,
+        "channel_width_mhz": 20,
+        "stack_mode": "OPENWRT_2410_FUTURAMAX_QOE",
+        "aql_be_limit_us": 2950,
+        "rts_threshold_bytes": 2347,
+        "tx_power_dbm": 13,
+        "max_vht_mcs": 9,
+        "ackdistance_m": 3500
+      },
+      "paired_ab_evaluation": {
+        "family": "WA_5AC",
+        "distance_km": 3.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 3.635,
+        "optimized_mean_goodput_per_mhz": 4.2475,
+        "stock_mean_p99_latency_ms": 38.8,
+        "optimized_mean_p99_latency_ms": 12.35,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +16.9% (95% CI +16.8%..+16.9%, paired_p=0.0312 <= 0.0500) with p99=-68.2%, p95=-69.1%, fairness=+6.6%.",
+          "p99_delta_pct": -68.17,
+          "goodput_delta_pct": 16.85,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +16.9% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -69.11,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 16.85,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            16.8115,
+            16.8888
+          ],
+          "ci_95_p99_delta_pct": [
+            -68.311,
+            -68.0331
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.53,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 6.0,
+      "recommended_profile": {
+        "profile_id": "WA_5AC_OPT_6KM_20MHZ",
+        "distance_km": 6.0,
+        "channel_width_mhz": 20,
+        "stack_mode": "OPENWRT_2410_FUTURAMAX_QOE",
+        "aql_be_limit_us": 3450,
+        "rts_threshold_bytes": 2347,
+        "tx_power_dbm": 17,
+        "max_vht_mcs": 8,
+        "ackdistance_m": 6900
+      },
+      "paired_ab_evaluation": {
+        "family": "WA_5AC",
+        "distance_km": 6.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 3.17,
+        "optimized_mean_goodput_per_mhz": 3.82,
+        "stock_mean_p99_latency_ms": 46.6,
+        "optimized_mean_p99_latency_ms": 14.9,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +20.5% (95% CI +20.5%..+20.6%, paired_p=0.0312 <= 0.0500) with p99=-68.0%, p95=-69.0%, fairness=+6.6%.",
+          "p99_delta_pct": -68.03,
+          "goodput_delta_pct": 20.5,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +20.5% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -68.97,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 20.5,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            20.451,
+            20.5589
+          ],
+          "ci_95_p99_delta_pct": [
+            -68.142,
+            -67.9123
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.28,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 10.0,
+      "recommended_profile": {
+        "profile_id": "WA_5AC_OPT_10KM_20MHZ",
+        "distance_km": 10.0,
+        "channel_width_mhz": 20,
+        "stack_mode": "OPENWRT_2410_FUTURAMAX_QOE",
+        "aql_be_limit_us": 3850,
+        "rts_threshold_bytes": 2347,
+        "tx_power_dbm": 20,
+        "max_vht_mcs": 8,
+        "ackdistance_m": 11500
+      },
+      "paired_ab_evaluation": {
+        "family": "WA_5AC",
+        "distance_km": 10.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 2.55,
+        "optimized_mean_goodput_per_mhz": 3.25,
+        "stock_mean_p99_latency_ms": 57.0,
+        "optimized_mean_p99_latency_ms": 18.3,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +27.5% (95% CI +27.4%..+27.5%, paired_p=0.0312 <= 0.0500) with p99=-67.9%, p95=-68.8%, fairness=+6.6%.",
+          "p99_delta_pct": -67.89,
+          "goodput_delta_pct": 27.45,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +27.5% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -68.84,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 27.45,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            27.3616,
+            27.5412
+          ],
+          "ci_95_p99_delta_pct": [
+            -67.9889,
+            -67.8024
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.04,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    },
+    {
+      "distance_km": 14.0,
+      "recommended_profile": {
+        "profile_id": "WA_5AC_OPT_14KM_20MHZ",
+        "distance_km": 14.0,
+        "channel_width_mhz": 20,
+        "stack_mode": "OPENWRT_2410_FUTURAMAX_QOE",
+        "aql_be_limit_us": 4100,
+        "rts_threshold_bytes": 2347,
+        "tx_power_dbm": 22,
+        "max_vht_mcs": 7,
+        "ackdistance_m": 16100
+      },
+      "paired_ab_evaluation": {
+        "family": "WA_5AC",
+        "distance_km": 14.0,
+        "channel_width_mhz": 20,
+        "stock_mean_goodput_per_mhz": 1.93,
+        "optimized_mean_goodput_per_mhz": 2.68,
+        "stock_mean_p99_latency_ms": 67.4,
+        "optimized_mean_p99_latency_ms": 21.7,
+        "gate_decision": {
+          "verdict": "PROMOTE",
+          "rationale": "Candidate PROMOTE: goodput/MHz improved by +38.9% (95% CI +38.7%..+39.0%, paired_p=0.0312 <= 0.0500) with p99=-67.8%, p95=-68.8%, fairness=+6.6%.",
+          "p99_delta_pct": -67.8,
+          "goodput_delta_pct": 38.86,
+          "p_value": 0.0312,
+          "summary": "PROMOTE: +38.9% goodput/MHz with bounded latency and fairness.",
+          "promotion_stage": "PROMOTE",
+          "p95_delta_pct": -68.75,
+          "fairness_delta_pct": 6.59,
+          "goodput_per_mhz_delta_pct": 38.86,
+          "paired_permutation_p_value": 0.0312,
+          "ci_95_goodput_per_mhz_delta_pct": [
+            38.6932,
+            39.0291
+          ],
+          "ci_95_p99_delta_pct": [
+            -67.8833,
+            -67.7263
+          ],
+          "drift_detected": false,
+          "drift_pct": 1.04,
+          "paired_blocks_count": 6,
+          "adjusted_alpha": 0.05
+        }
+      }
+    }
+  ],
+  "no_ack_rate_pathology_audit": {
+    "knob_tested": "/proc/sys/dev/ubnt_poll/no_ack_rate=1",
+    "distance_km": 6.0,
+    "channel_width_mhz": 20,
+    "rf_per_pct": 2.2,
+    "gate_decision": {
+      "verdict": "REJECT",
+      "rationale": "Bufferbloat regression: p99 latency degraded by +569.8% (21.2ms -> 142.0ms). Exceeds +10.0% limit.",
+      "p99_delta_pct": 569.81,
+      "goodput_delta_pct": -39.98,
+      "p_value": 0.0,
+      "summary": "REJECT: Latency p99 regressed.",
+      "promotion_stage": "REJECT",
+      "p95_delta_pct": 403.7,
+      "fairness_delta_pct": -14.58,
+      "goodput_per_mhz_delta_pct": -39.98,
+      "paired_permutation_p_value": 0.0312,
+      "ci_95_goodput_per_mhz_delta_pct": [
+        -40.375,
+        -39.5802
+      ],
+      "ci_95_p99_delta_pct": [
+        569.8113,
+        569.8113
+      ],
+      "drift_detected": false,
+      "drift_pct": 0.62,
+      "paired_blocks_count": 6,
+      "adjusted_alpha": 0.05
+    }
+  },
+  "cross_generation_5ac_vs_m5_comparison": [
+    {
+      "distance_km": 1.0,
+      "xw_m5_optimized_goodput_per_mhz": 2.97,
+      "wa_5ac_optimized_goodput_per_mhz": 4.5325,
+      "wa_5ac_vs_xw_m5_gain_pct": 52.61,
+      "xw_m5_optimized_p99_ms": 15.65,
+      "wa_5ac_optimized_p99_ms": 10.65
+    },
+    {
+      "distance_km": 3.0,
+      "xw_m5_optimized_goodput_per_mhz": 2.76,
+      "wa_5ac_optimized_goodput_per_mhz": 4.2475,
+      "wa_5ac_vs_xw_m5_gain_pct": 53.89,
+      "xw_m5_optimized_p99_ms": 17.95,
+      "wa_5ac_optimized_p99_ms": 12.35
+    },
+    {
+      "distance_km": 6.0,
+      "xw_m5_optimized_goodput_per_mhz": 2.445,
+      "wa_5ac_optimized_goodput_per_mhz": 3.82,
+      "wa_5ac_vs_xw_m5_gain_pct": 56.24,
+      "xw_m5_optimized_p99_ms": 21.4,
+      "wa_5ac_optimized_p99_ms": 14.9
+    },
+    {
+      "distance_km": 10.0,
+      "xw_m5_optimized_goodput_per_mhz": 2.025,
+      "wa_5ac_optimized_goodput_per_mhz": 3.25,
+      "wa_5ac_vs_xw_m5_gain_pct": 60.49,
+      "xw_m5_optimized_p99_ms": 26.0,
+      "wa_5ac_optimized_p99_ms": 18.3
+    },
+    {
+      "distance_km": 14.0,
+      "xw_m5_optimized_goodput_per_mhz": 1.605,
+      "wa_5ac_optimized_goodput_per_mhz": 2.68,
+      "wa_5ac_vs_xw_m5_gain_pct": 66.98,
+      "xw_m5_optimized_p99_ms": 30.6,
+      "wa_5ac_optimized_p99_ms": 21.7
+    }
+  ]
+}

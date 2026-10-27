@@ -1,0 +1,2059 @@
+{
+  "meta": {
+    "stage": "258A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage258a_ubnt_poll_reloc_sysctl_proc_trees.py",
+    "tool_sha256": "7738197ac301f458521e010b472a47361b2c59032feae1ef19cd68646a7b5c9b",
+    "output": "artifacts/autoresearch/stage258a_ubnt_poll_reloc_sysctl_proc_trees.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "R_MIPS_32 pointer fields resolved as symbol+word for ctl_table; HI16/LO16 pairs in .init.text/.text resolve proc_create_data arguments; stride 44 confirmed by the 0x580 = 32x44 memcpy",
+    "radio_safety": "static only"
+  },
+  "images": [
+    {
+      "image": "WA.v8.7.25",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "ctl_tables": [
+        {
+          "section": ".data",
+          "offset": "0x000070",
+          "count": 1,
+          "entries": [
+            {
+              "name": "dev",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".data",
+                "offset": 200,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x0000c8",
+          "count": 1,
+          "entries": [
+            {
+              "name": "uph",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".data",
+                "offset": 288,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x000120",
+          "count": 3,
+          "entries": [
+            {
+              "name": "addradio",
+              "mode": "0o0644",
+              "maxlen": 128,
+              "data": {
+                "section": ".bss",
+                "offset": 280,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 7164,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gpsreset",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 276,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 6912,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gps_info",
+              "mode": "0o0644",
+              "maxlen": 256,
+              "data": {
+                "section": ".bss",
+                "offset": 20,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 7164,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x0001ec",
+          "count": 1,
+          "entries": [
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".text",
+                "offset": 7724,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 7744,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x000238",
+          "count": 2,
+          "entries": [
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 0,
+              "data": {
+                "section": ".text",
+                "offset": 8212,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": null
+            },
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 8180,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000000",
+          "count": 1,
+          "entries": [
+            {
+              "name": "dev",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000058",
+          "count": 1,
+          "entries": [
+            {
+              "name": "uph",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x0000b0",
+          "count": 31,
+          "entries": [
+            {
+              "name": "set_host_diag",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_diag",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_diag",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_host_diag",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "enable",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "timing",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gqparam",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sqparam",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "status",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "hsr_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_reg",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_reg",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ro",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "swr_limit",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "noack_mode",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "netconf",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sta_priority",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_remote_host_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_remote_target_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "debug_block_sta",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "evm_meas_config",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "debug_tid",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "atpc",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "cms_bias",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ff_cap_rep",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ff_mcast_airtime_limit",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "voip_bias",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ptp_xmit",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "fixed_frame",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sta_rx_rssi_th",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "daprot",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000630",
+          "count": 1,
+          "entries": [
+            {
+              "name": "Ar`",
+              "mode": "0o123500",
+              "maxlen": 42760,
+              "data": {
+                "section": ".text",
+                "offset": 42708,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 42736,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x005f38",
+          "count": 2,
+          "entries": [
+            {
+              "name": "&#",
+              "mode": "0o241064",
+              "maxlen": 84092,
+              "data": {
+                "section": ".text",
+                "offset": 82328,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 84092,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 83072,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "&1",
+              "mode": "0o244174",
+              "maxlen": 82752,
+              "data": {
+                "section": ".text",
+                "offset": 84092,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 84080,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 83232,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x005f9c",
+          "count": 1,
+          "entries": [
+            {
+              "name": "&1",
+              "mode": "0o244174",
+              "maxlen": 84056,
+              "data": {
+                "section": ".text",
+                "offset": 83356,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 82644,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 82848,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x00617c",
+          "count": 5,
+          "entries": [
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90584,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90600,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 95312,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x0064ac",
+          "count": 5,
+          "entries": [
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99604,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99620,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        }
+      ],
+      "proc_creates": [
+        {
+          "section": ".text",
+          "call": "0x005458",
+          "name": {
+            "section": ".rodata.str1.4",
+            "offset": 4696,
+            "symbol": "$LC133"
+          },
+          "mode": null,
+          "fops": null
+        },
+        {
+          "section": ".text",
+          "call": "0x0054a0",
+          "name": {
+            "section": ".rodata.str1.4",
+            "offset": 4704,
+            "symbol": "$LC134"
+          },
+          "mode": null,
+          "fops": null
+        }
+      ]
+    },
+    {
+      "image": "XC.v8.7.25",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "ctl_tables": [
+        {
+          "section": ".data",
+          "offset": "0x000070",
+          "count": 1,
+          "entries": [
+            {
+              "name": "dev",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".data",
+                "offset": 200,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x0000c8",
+          "count": 1,
+          "entries": [
+            {
+              "name": "uph",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".data",
+                "offset": 288,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x000120",
+          "count": 3,
+          "entries": [
+            {
+              "name": "addradio",
+              "mode": "0o0644",
+              "maxlen": 128,
+              "data": {
+                "section": ".bss",
+                "offset": 280,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 7164,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gpsreset",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 276,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 6912,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gps_info",
+              "mode": "0o0644",
+              "maxlen": 256,
+              "data": {
+                "section": ".bss",
+                "offset": 20,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 7164,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x0001ec",
+          "count": 1,
+          "entries": [
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 0,
+              "data": null,
+              "child": {
+                "section": ".text",
+                "offset": 7724,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 7744,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".data",
+          "offset": "0x000238",
+          "count": 2,
+          "entries": [
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 0,
+              "data": {
+                "section": ".text",
+                "offset": 8212,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": null
+            },
+            {
+              "name": "'\u00bd\u00ff\u00e8\u00af\u00bf",
+              "mode": "0o0000",
+              "maxlen": 8180,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000000",
+          "count": 1,
+          "entries": [
+            {
+              "name": "dev",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000058",
+          "count": 1,
+          "entries": [
+            {
+              "name": "uph",
+              "mode": "0o0555",
+              "maxlen": 0,
+              "data": null,
+              "child": null,
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x0000b0",
+          "count": 31,
+          "entries": [
+            {
+              "name": "set_host_diag",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_diag",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_diag",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_host_diag",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "enable",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "timing",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "gqparam",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sqparam",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "status",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "hsr_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "get_reg",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_reg",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ro",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "swr_limit",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "noack_mode",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "netconf",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sta_priority",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_remote_host_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "set_remote_target_diag",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "debug_block_sta",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "evm_meas_config",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "debug_tid",
+              "mode": "0o0644",
+              "maxlen": 2048,
+              "data": {
+                "section": ".bss",
+                "offset": 420,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 17904,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "atpc",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "cms_bias",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ff_cap_rep",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ff_mcast_airtime_limit",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "voip_bias",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "ptp_xmit",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "fixed_frame",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "sta_rx_rssi_th",
+              "mode": "0o0644",
+              "maxlen": 64,
+              "data": {
+                "section": ".bss",
+                "offset": 2472,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "daprot",
+              "mode": "0o0644",
+              "maxlen": 4,
+              "data": {
+                "section": ".bss",
+                "offset": 2468,
+                "symbol": ""
+              },
+              "child": null,
+              "handler": {
+                "section": ".text",
+                "offset": 8504,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x000630",
+          "count": 1,
+          "entries": [
+            {
+              "name": "Ar`",
+              "mode": "0o123500",
+              "maxlen": 42760,
+              "data": {
+                "section": ".text",
+                "offset": 42708,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 42736,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x005f38",
+          "count": 2,
+          "entries": [
+            {
+              "name": "&#",
+              "mode": "0o241064",
+              "maxlen": 84092,
+              "data": {
+                "section": ".text",
+                "offset": 82328,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 84092,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 83072,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "&1",
+              "mode": "0o244174",
+              "maxlen": 82752,
+              "data": {
+                "section": ".text",
+                "offset": 84092,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 84080,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 83232,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x005f9c",
+          "count": 1,
+          "entries": [
+            {
+              "name": "&1",
+              "mode": "0o244174",
+              "maxlen": 84056,
+              "data": {
+                "section": ".text",
+                "offset": 83356,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 82644,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 82848,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x00617c",
+          "count": 5,
+          "entries": [
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 90584,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$F",
+              "mode": "0o260770",
+              "maxlen": 90616,
+              "data": {
+                "section": ".text",
+                "offset": 90616,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 90600,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 95312,
+                "symbol": ""
+              }
+            }
+          ]
+        },
+        {
+          "section": ".rodata",
+          "offset": "0x0064ac",
+          "count": 5,
+          "entries": [
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "handler": {
+                "section": ".text",
+                "offset": 99604,
+                "symbol": ""
+              }
+            },
+            {
+              "name": "$\u00a4",
+              "mode": "0o302464",
+              "maxlen": 99636,
+              "data": {
+                "section": ".text",
+                "offset": 99636,
+                "symbol": ""
+              },
+              "child": {
+                "section": ".text",
+                "offset": 99620,
+                "symbol": ""
+              },
+              "handler": null
+            }
+          ]
+        }
+      ],
+      "proc_creates": [
+        {
+          "section": ".text",
+          "call": "0x005458",
+          "name": {
+            "section": ".rodata.str1.4",
+            "offset": 4696,
+            "symbol": "$LC133"
+          },
+          "mode": null,
+          "fops": null
+        },
+        {
+          "section": ".text",
+          "call": "0x0054a0",
+          "name": {
+            "section": ".rodata.str1.4",
+            "offset": 4704,
+            "symbol": "$LC134"
+          },
+          "mode": null,
+          "fops": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "images_ok": 2,
+    "ctl_tables": 13,
+    "ctl_entries": 55,
+    "ctl_handlers": 13,
+    "ctl_children": 11,
+    "proc_create_sites": 2,
+    "world_writable_entries": 0
+  },
+  "gaps": [
+    "a ctl_table with no child and no handler is skipped as a terminator",
+    "proc_create_data mode is read from the nearest addiu to $a1, which may belong to a different call in a tight sequence",
+    "no dynamic validation"
+  ]
+}

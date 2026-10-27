@@ -1,0 +1,378 @@
+{
+  "stage_id": "Stage 115A",
+  "card_id": "T-S115A-CLOSED-LOOP-REACTOR-AND-5PILLAR-RECEIPT-AUDIT-V34",
+  "curation_version": "v34.0",
+  "timestamp_utc": "2026-10-26T22:19:54.205062+00:00",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "proprietary airMAX/LTU module"
+  ],
+  "hardware_ips_touched": [],
+  "live_hardware_contact_241_242": false,
+  "audited_receipt_count": 29,
+  "all_receipts_5pillar_compliant": true,
+  "reactor_queue_events_count": 188,
+  "enqueued_stage100_to_114_count": 29,
+  "memorymaster_hook_sync": {
+    "ingested_mm": 1,
+    "enqueued_reactor": 1
+  },
+  "repo_deterministic_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "negative_empty_receipt_probe": {
+    "compliant": false,
+    "missing_pillars": [
+      "pillar_a_ground_up_re_and_knob_catalog",
+      "pillar_b_hyperresearch_and_scholar_reactor",
+      "pillar_c_karpathy_autoresearch_and_watchdog",
+      "pillar_d_scientific_pareto_validation",
+      "pillar_e_memory_master_claim_id"
+    ],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": false,
+      "pillar_b_hyperresearch_and_scholar_reactor": false,
+      "pillar_c_karpathy_autoresearch_and_watchdog": false,
+      "pillar_d_scientific_pareto_validation": false,
+      "pillar_e_memory_master_claim_id": false
+    }
+  },
+  "reconciled_bugs": {
+    "FMX-DISC-39A": {
+      "status": "CONFIRMED",
+      "attribution": "external controller",
+      "component": "tools/research/closed_loop_research_reactor.py",
+      "finding": "Added ClosedLoopResearchReactor.enqueue_discovery() adapter so tools/hooks/agy_memorymaster_post_and_stop.py enqueues stage receipts into artifacts/autoresearch/discovery_to_research_queue.json without AttributeError."
+    },
+    "FMX-DISC-39B": {
+      "status": "CONFIRMED",
+      "attribution": "external controller",
+      "component": "tools/verify/enforce_5pillar_research_gate.py",
+      "finding": "Extended audit_stage_receipt_5pillars() to validate nested five_pillar_compliance dicts (Stages 101A, 102D, 103D) and static ELF/kernel boundary schemas (Stages 102C, 113A) without mutating SHA-256-pinned receipts."
+    }
+  },
+  "audited_receipts": [
+    {
+      "file_name": "stage100a_git_public_repo_safety_and_reddit_sync.json",
+      "sha256": "acfe226a9fb05d69d25a83198eb84afb5d9419bff52b24cab80d0be6431c0544",
+      "stage_id": "100A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE100A_GIT_PUBLIC_REPO_SAFETY_AND_REDDIT_SYNC",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE100A_GIT_PUBLIC_REPO_SAFETY_AND_REDDIT_SYNC.md"
+    },
+    {
+      "file_name": "stage100b_571knob_catalog_sync.json",
+      "sha256": "64174b689254f3b97451eebc394641a030c9c1c6c9ee1fe623fbc4f9de7da578",
+      "stage_id": "100B",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE100B_571KNOB_CATALOG_SYNC",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE100B_571KNOB_CATALOG_SYNC.md"
+    },
+    {
+      "file_name": "stage100c_public_openmax_readme_polish.json",
+      "sha256": "416ef7a53ff1a7a9f75f57938dfa53642e8b0c57b79bf9290435bcaf7871fed5",
+      "stage_id": "Stage 100C",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE100C_PUBLIC_OPENMAX_README_POLISH",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE100C_PUBLIC_OPENMAX_README_POLISH.md"
+    },
+    {
+      "file_name": "stage100d_xc_bug03_hs_uart_and_ltu_suid_verify.json",
+      "sha256": "c9e2b74e7fed722171839dd3a04ac6976f159f330642444b520aad26773f685e",
+      "stage_id": "100D",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE100D_XC_BUG03_HS_UART_AND_LTU_SUID_VERIFY",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE100D_XC_BUG03_HS_UART_AND_LTU_SUID_VERIFY.md"
+    },
+    {
+      "file_name": "stage101a_champion_v23_wds_churn_healer_benchmark.json",
+      "sha256": "4d7b83cf9ca90892c67efa873c46ab680c68c6eaa0b637c6ad15e7bc8ace50d6",
+      "stage_id": "101A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE101A_CHAMPION_V23_WDS_CHURN_HEALER_BENCHMARK",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE101A_CHAMPION_V23_WDS_CHURN_HEALER_BENCHMARK.md"
+    },
+    {
+      "file_name": "stage101b_master_curation_v30_receipt.json",
+      "sha256": "b36ce092b52d9a925839bedf04c8d02869596e53cc5437774236883a556c4b89",
+      "stage_id": "101B",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE101B_MASTER_CURATION_V30_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE101B_MASTER_CURATION_V30_RECEIPT.md"
+    },
+    {
+      "file_name": "stage102a_571knob_untested_pareto_sweep.json",
+      "sha256": "d882af4a099809ba6bb53977f462014b2243ab7f1234586e1afa8be200f43884",
+      "stage_id": "Stage 102A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE102A_571KNOB_UNTESTED_PARETO_SWEEP",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE102A_571KNOB_UNTESTED_PARETO_SWEEP.md"
+    },
+    {
+      "file_name": "stage102b_observability_v30_sync.json",
+      "sha256": "8403548630650ea3c5de4ffc584d2036687d4858f21d4b2f01a48d2d4f21b716",
+      "stage_id": "102B",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE102B_OBSERVABILITY_V30_SYNC",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE102B_OBSERVABILITY_V30_SYNC.md"
+    },
+    {
+      "file_name": "stage102c_h1_amedev_kernel_report.json",
+      "sha256": "11102d2059ab5b4d6fb3b9690aa32a7c100d0c64e4fa425220e3802b167bf3a7",
+      "stage_id": "102C",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE102C_H1_AMEDEV_KERNEL_REPORT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE102C_H1_AMEDEV_KERNEL_REPORT.md"
+    },
+    {
+      "file_name": "stage102d_mkt_vlan107_csa_under_load.json",
+      "sha256": "bb28e2f45704c9a70a290bcedddfcefe199df25789ebb712d79d67b899a56f9f",
+      "stage_id": "102D",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE102D_MKT_VLAN107_CSA_UNDER_LOAD",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE102D_MKT_VLAN107_CSA_UNDER_LOAD.md"
+    },
+    {
+      "file_name": "stage102e_ltu_superframe_pacing_bench.json",
+      "sha256": "b4c42a1c0a70e90068c48473c1f89a9ab2e8e2f6aabfc1d9b048799ab2e471b7",
+      "stage_id": "102E",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE102E_LTU_SUPERFRAME_PACING_BENCH",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE102E_LTU_SUPERFRAME_PACING_BENCH.md"
+    },
+    {
+      "file_name": "stage103a_wa_xc_untested_knobs_bench.json",
+      "sha256": "a3f6b9d66d2b42bac136c15896d86769fc789847ffc5bfc8fed2af9501981f49",
+      "stage_id": "Stage 103A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE103A_WA_XC_UNTESTED_KNOBS_BENCH",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE103A_WA_XC_UNTESTED_KNOBS_BENCH.md"
+    },
+    {
+      "file_name": "stage103b_master_curation_v31_receipt.json",
+      "sha256": "c5e6e9f4059663fde8325a3171576c36fcb30b0027f39994ff2ededfccbd2651",
+      "stage_id": "103B",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE103B_MASTER_CURATION_V31_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE103B_MASTER_CURATION_V31_RECEIPT.md"
+    },
+    {
+      "file_name": "stage103d_mkt_bidirectional_framesize_soak.json",
+      "sha256": "34423b38677e09d4247ac4f3fabe722e9c12f3cd50d64ca5fff216eb7e9dd964",
+      "stage_id": "103D",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE103D_MKT_BIDIRECTIONAL_FRAMESIZE_SOAK",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE103D_MKT_BIDIRECTIONAL_FRAMESIZE_SOAK.md"
+    },
+    {
+      "file_name": "stage103e_pbe5ac_to_mkt_e2e_bench.json",
+      "sha256": "eaf58bd48c77d69180ed0578c0c2ca843871fd6bef752afac7f1e32c9cb14f9f",
+      "stage_id": "Stage 103E",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE103E_PBE5AC_TO_MKT_E2E_BENCH",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE103E_PBE5AC_TO_MKT_E2E_BENCH.md"
+    },
+    {
+      "file_name": "stage103f_ltu_dual_and_2xc_bench.json",
+      "sha256": "a87ce3c84e5fbd68b616734ac4d473d4bb8db5fc911c5f2569d454accbd6ddaa",
+      "stage_id": "103F",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE103F_LTU_DUAL_AND_2XC_BENCH",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE103F_LTU_DUAL_AND_2XC_BENCH.md"
+    },
+    {
+      "file_name": "stage104a_master_curation_v32_receipt.json",
+      "sha256": "0fead2e2fd7638bc856453c5f63ecc25d94e29c73a8a6bcdf183b83476402e1b",
+      "stage_id": "104A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE104A_MASTER_CURATION_V32_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE104A_MASTER_CURATION_V32_RECEIPT.md"
+    },
+    {
+      "file_name": "stage104b_observability_v31_sync.json",
+      "sha256": "8aef05aa6d7ba6c69a464302d0d82898d5d290c97ac28ea82b20e14148c95001",
+      "stage_id": "T-S104B-OBSERVABILITY-V31-S102D-CSA-S102E-LTU-TAIL-GUARD-SYNC",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE104B_OBSERVABILITY_V31_SYNC",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE104B_OBSERVABILITY_V31_SYNC.md"
+    },
+    {
+      "file_name": "stage106a_wds_4addr_reconciliation_v33_receipt.json",
+      "sha256": "3934ef86d82874e9d742fca6ca7c2375db87255fd69fee67801889a8555761d4",
+      "stage_id": "stage106a_wds_4addr_reconciliation_v33_receipt",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE106A_WDS_4ADDR_RECONCILIATION_V33_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE106A_WDS_4ADDR_RECONCILIATION_V33_RECEIPT.md"
+    },
+    {
+      "file_name": "stage107a_knob_pareto_prober_receipt.json",
+      "sha256": "612f8e09447098f975a676d8aa97f1279cc59905526e778eaed203c7af1e3c72",
+      "stage_id": "107A",
+      "verdict": "OFFLINE_SELECTOR_VERIFIED_RUNTIME_UNQUALIFIED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE107A_KNOB_PARETO_PROBER_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE107A_KNOB_PARETO_PROBER_RECEIPT.md"
+    },
+    {
+      "file_name": "stage108a_cross_arch_wds_audit_receipt.json",
+      "sha256": "b21715cd3c926b51ce2a0a01092113b369020a963db90ea48806a7d8fdca94db",
+      "stage_id": "Stage 108A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE108A_CROSS_ARCH_WDS_AUDIT_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE108A_CROSS_ARCH_WDS_AUDIT_RECEIPT.md"
+    },
+    {
+      "file_name": "stage109a_guarida_rf_and_wds_readiness.json",
+      "sha256": "b4ea6efea2d695e1e8187eccf6abb9cd40af4ed246cdc8144f5fb17170a1593a",
+      "stage_id": "T-S109A-GUARIDA-32CPE-AND-PANEL1-LIVE-ZERO-FALSE-POSITIVE-RF-OBSERVABILITY-AND-HYBRID-WDS-READINESS",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE109A_GUARIDA_RF_AND_WDS_READINESS",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE109A_GUARIDA_RF_AND_WDS_READINESS.md"
+    },
+    {
+      "file_name": "stage111a_airos8_ptp_eapol_timeout_re.json",
+      "sha256": "8557e8919005213cd42406e14bb92861bcbcc7d74ebe75304151dbe569b2a38d",
+      "stage_id": "Stage 111A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE111A_AIROS8_PTP_EAPOL_TIMEOUT_RE",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE111A_AIROS8_PTP_EAPOL_TIMEOUT_RE.md"
+    },
+    {
+      "file_name": "stage112a_multiradio_kernel_and_knob_matrix.json",
+      "sha256": "b1011f62f3b7c9f223f799bec895d283cc5577a5094c953225d36c8e1b1e25fe",
+      "stage_id": "Stage 112A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE112A_MULTIRADIO_KERNEL_AND_KNOB_MATRIX",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE112A_MULTIRADIO_KERNEL_AND_KNOB_MATRIX.md"
+    },
+    {
+      "file_name": "stage113a_athbox_15applets_plt_and_ioctl_audit.json",
+      "sha256": "feafd9f4adafd9b855f9045b93c1a276cc33b1ae6f576f984b1fc14de0b47298",
+      "stage_id": "stage113a_athbox_15applets_plt_and_ioctl_audit",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE113A_ATHBOX_15APPLETS_PLT_AND_IOCTL_AUDIT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE113A_ATHBOX_15APPLETS_PLT_AND_IOCTL_AUDIT.md"
+    },
+    {
+      "file_name": "stage114a_guarida_panel2_panel3_migration_manifest.json",
+      "sha256": "bdd07fcdc9c122c165f4043a54baf78a4b63f31fce769605bc13f102a4affd2e",
+      "stage_id": "T-S114A-GUARIDA-PANEL2-22CPE-AND-PANEL3-6CPE-PREMIGRATION-ABI-ADMITTER-MANIFEST-AND-PANEL1-BOOT-PERSISTENCE",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE114A_GUARIDA_PANEL2_PANEL3_MIGRATION_MANIFEST",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE114A_GUARIDA_PANEL2_PANEL3_MIGRATION_MANIFEST.md"
+    },
+    {
+      "file_name": "stage116a_pbe5ac_kit_v2_receipt.json",
+      "sha256": "b03097d06784d4dcc8bdaaf8ccc19e8873eca5ca7f93d1688f382b40bbd4ee98",
+      "stage_id": "116A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE116A_PBE5AC_KIT_V2_RECEIPT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE116A_PBE5AC_KIT_V2_RECEIPT.md"
+    },
+    {
+      "file_name": "stage118a_ubntbox_29applets_plt_and_sink_audit.json",
+      "sha256": "41be906faccad9f9d27d8fa62fddd10a2a893292f50a69c4edf78458a99ec290",
+      "stage_id": "stage118a_ubntbox_29applets_plt_and_sink_audit",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE118A_UBNTBOX_29APPLETS_PLT_AND_SINK_AUDIT",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE118A_UBNTBOX_29APPLETS_PLT_AND_SINK_AUDIT.md"
+    },
+    {
+      "file_name": "stage119a_wa_family_pbe_lbe_compatibility_and_rc_poststart_map.json",
+      "sha256": "7c4ddd41c6174dee1ae4c168f9ba06a9074a54db0dd5db2f1c6aad8c1df3e580",
+      "stage_id": "119A",
+      "verdict": "CONFIRMED",
+      "compliant": true,
+      "missing_pillars": [],
+      "reactor_round_id": "S115A-SYNC-STAGE119A_WA_FAMILY_PBE_LBE_COMPATIBILITY_AND_RC_POSTSTART_MAP",
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S115A-SYNC-STAGE119A_WA_FAMILY_PBE_LBE_COMPATIBILITY_AND_RC_POSTSTART_MAP.md"
+    }
+  ],
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "PASS",
+    "evidence": "Audited all Stage 100A..114A receipts including static ELF/PLT/ioctl dissections (Stage 100D, 102C, 106A, 113A) and 571-knob catalog sweeps (Stage 100B, 102A, 103A, 107A)."
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "PASS",
+    "evidence": "Synchronized 29 Stage 100A..114A receipts into ClosedLoopResearchReactor (discovery_to_research_queue.json total=188)."
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "PASS",
+    "watchdog_seconds_non_dfs": 45,
+    "watchdog_seconds_dfs": 120,
+    "evidence": "Verified A1->B1->A2->B2 counterbalanced protocol and 45s/120s watchdog invariants across all live benchmark receipts with zero contact on .241/.242."
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "PASS",
+    "evidence": "Verified Pareto deltas, NSGA-II sweeps, and evidence-bounded statistical claims across all Stage 100A..114A receipts."
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage115a-v34-reactor-5pillar-sync",
+  "five_pillars_compliance": {
+    "compliant": true,
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": true
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-750A",
+  "title": "750-Stage Grand Milestone Master Dossier Consolidating FMX-DISC-01..54, 5 Ground-Up Pillars, and Live Fleet Results",
+  "timestamp_utc": "2026-10-27T02:10:01.066168+00:00",
+  "status": "CONFIRMED",
+  "milestone_stage_number": 750,
+  "discoveries_cataloged_range": "FMX-DISC-01..FMX-DISC-54",
+  "discoveries_count": 54,
+  "window_totals": {
+    "wa_windows": 316,
+    "multi_radio_windows": 252,
+    "ltu_windows": 252,
+    "total_cross_lane_windows": 820
+  },
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "landmark_discoveries_summary": {
+    "FMX-DISC-11": "64-byte shared sysctl vector in ubnt_poll_host.ko (daprot=2 before mcast=2)",
+    "FMX-DISC-24": "120s DFS CAC vs 45s Non-DFS rollback watchdog timer differentiation",
+    "FMX-DISC-33": "WA/XC 64MB RAM atomic SKB reserve & PCIe CE2/CE7 pktlog=0x0 relief",
+    "FMX-DISC-45": "Guarida .60-.61 10MHz shift (5695->5715MHz): +7.99dB Chain 0 EVM & +17.17Mbps",
+    "FMX-DISC-48": "WMI_PEER_ASSOC_CMDID PEER_CHWIDTH sync + CS4 0x80 0.0% IPTV 1316B loss",
+    "FMX-DISC-54": "Triple Xtensa RAM patch (PB-040 + PB-050 + PB-060) + Spectral PHYERR & LTU PA Thermal Comp"
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "umac.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ],
+      "knobs_cataloged": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE750A-750STAGE-GRAND-MILESTONE-DOSSIER"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "windows_executed": 252
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "discoveries_verified": 54,
+      "families_covered": 8
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE750A-750STAGE-GRAND-MILESTONE-DOSSIER"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

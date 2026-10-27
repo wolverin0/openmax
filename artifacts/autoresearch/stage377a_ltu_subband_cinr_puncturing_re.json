@@ -1,0 +1,536 @@
+{
+  "stage": "377A",
+  "task_id": "T-S377A-LTU-SUBBAND-CINR-PUNCTURING-RE",
+  "generated_at": "2026-10-27T00:16:51.411429+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "subband_cinr_and_puncturing_architecture": {
+    "subbands_per_channel": 8,
+    "subband_width_mhz_at_40mhz": 5.0,
+    "subband_width_mhz_at_80mhz": 10.0,
+    "subband_width_mhz_at_100mhz": 12.5,
+    "pilot_evm_slicer_resolution_db": 0.25,
+    "modulation_cinr_thresholds_db": {
+      "12x_4096QAM_9_10": 38.0,
+      "10x_1024QAM_5_6": 33.0,
+      "8x_256QAM_3_4": 27.0,
+      "6x_64QAM_2_3": 21.0,
+      "4x_16QAM_1_2": 14.0,
+      "2x_QPSK_1_2": 8.0
+    },
+    "adaptive_subchannel_puncturing": {
+      "mechanism": "Per-subband bit-loading / Resource Unit (RU) exclusion mask in ame_core.ko & cds_mac_mod.ko",
+      "advantage_over_80211ac_ath10k": "In 802.11ac (QCA988x ath10k), a narrowband 5..10 MHz interferer degrades wideband LDPC block BER across the entire 40/80 MHz channel, forcing full-channel MCS drop from 256-QAM 8x down to 64-QAM/16-QAM. In LTU OFDMA, the Beetle FPGA measures per-subband pilot CINR across 8 subbands and punctures/modulates only the affected 1/8th subband while keeping the remaining 7/8th subbands locked at 4096-QAM 12x."
+    }
+  },
+  "cinr_subband_symbol_count": 819,
+  "cinr_subband_symbols_sample": [
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_ActivateSuperQueue",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x126bec",
+      "size_bytes": 676
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_ClearBDRateCtrlStats",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12f0bc",
+      "size_bytes": 148
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_GetBDRateCtrlStats",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12f150",
+      "size_bytes": 96
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_Get_Mcs",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x124bd8",
+      "size_bytes": 84
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_IsSuperQ",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x127600",
+      "size_bytes": 352
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_MakeSuperQueue",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x126778",
+      "size_bytes": 1140
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_SetBDRateCtrl",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x12ef74",
+      "size_bytes": 328
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_SubmitBeacon",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x124248",
+      "size_bytes": 500
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_SubmitSymbols",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x124e20",
+      "size_bytes": 1304
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_EAB_SubmitTxCmd",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x11c858",
+      "size_bytes": 416
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_GEM_Construct",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x141358",
+      "size_bytes": 884
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_HSM_submit_sched_result",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x199cac",
+      "size_bytes": 352
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_ModemRx_getDC",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18ea44",
+      "size_bytes": 344
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_DeInit",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45a78",
+      "size_bytes": 472
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_DoRFAlign",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45d08",
+      "size_bytes": 420
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_GetChannelsInfo",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x482cc",
+      "size_bytes": 100
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_GetULSymAssignment",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45c84",
+      "size_bytes": 40
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_Init",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x46044",
+      "size_bytes": 1152
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_NextRun",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x47b58",
+      "size_bytes": 372
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_NotifyFreqJump",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x48908",
+      "size_bytes": 180
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_PrepareDeInit",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45a0c",
+      "size_bytes": 108
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_Restart",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x46b14",
+      "size_bytes": 388
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_RestartByScanning",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x47520",
+      "size_bytes": 1288
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_RestartCalcSigWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45cac",
+      "size_bytes": 92
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_RestartWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x46c98",
+      "size_bytes": 920
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_Start",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x464c4",
+      "size_bytes": 352
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_StartByScanning",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x47030",
+      "size_bytes": 1264
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_StartWithFreq",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x46624",
+      "size_bytes": 812
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_Stop",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x46950",
+      "size_bytes": 452
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_UpdateULSymAssignments",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45c60",
+      "size_bytes": 36
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_isLock",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x47a28",
+      "size_bytes": 304
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Modem_state_without_interrupt",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45ee8",
+      "size_bytes": 348
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_SchedAutoMCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x613e0",
+      "size_bytes": 80
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_SchedUpdateMCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x60c94",
+      "size_bytes": 888
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_SchedUpdateRateCtrlCfg",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x58bc4",
+      "size_bytes": 116
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_SchedUpdateSysMCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x618ec",
+      "size_bytes": 656
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_IsSuperQ",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f41c",
+      "size_bytes": 44
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_Default_portion",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f448",
+      "size_bytes": 72
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_get_cfg",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x61518",
+      "size_bytes": 464
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_init",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5fa10",
+      "size_bytes": 172
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_normalQ_portion",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f618",
+      "size_bytes": 616
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_set_cfg",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5fabc",
+      "size_bytes": 632
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_superQ_portion",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f570",
+      "size_bytes": 168
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_MixMcs_update",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f880",
+      "size_bytes": 400
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_PtP_SubmitSymbols",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x722f0",
+      "size_bytes": 292
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Sched_SubmitSymbols",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x72414",
+      "size_bytes": 1924
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_AutoMCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x73500",
+      "size_bytes": 84
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_AutoMCS_GetPtmpCpeRateWithTraffic",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x73584",
+      "size_bytes": 40
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_AutoMCS_GetPtmpDLCeiling",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x735ac",
+      "size_bytes": 100
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_AutoMCS_Restart",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x73554",
+      "size_bytes": 28
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_AutoMCS_UpdatePtmpCpeRateWithTraffic",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x73570",
+      "size_bytes": 20
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_MaxFragPerFrame",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x737f0",
+      "size_bytes": 56
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_RateCtrlCfg",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x736b4",
+      "size_bytes": 108
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_UpdateModulation",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x72ed0",
+      "size_bytes": 556
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "AME_Scheduler_UpdateModulation_SYS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x730fc",
+      "size_bytes": 68
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Ctrl_GetMCS",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x743c0",
+      "size_bytes": 40
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Ctrl_GetMixMcsPortion",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x74440",
+      "size_bytes": 40
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Ctrl_GetSubRate",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x743e8",
+      "size_bytes": 88
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "IF_Ctrl2Driv_Periodical_Handler",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x7d9e8",
+      "size_bytes": 16
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "ModemRun",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x47ccc",
+      "size_bytes": 716
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Modem_GetDevId",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x480f8",
+      "size_bytes": 64
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Modem_GetDevType",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x45eac",
+      "size_bytes": 60
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Modem_SendEvt2SysSM",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x48138",
+      "size_bytes": 404
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_AdjustCpeDLSubdLst",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5ef38",
+      "size_bytes": 236
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_FindCpeDLSubdLstByMcsLvl",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f0d0",
+      "size_bytes": 40
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_UpdateCpeDLModulation",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f024",
+      "size_bytes": 172
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_UpdateULModulation",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5f128",
+      "size_bytes": 84
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_choose_ack_symbol_mcs",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x643f4",
+      "size_bytes": 380
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_fetch_ack_mcs",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5e688",
+      "size_bytes": 68
+    },
+    {
+      "module": "ap_ame_core.ko",
+      "name": "Sched_fetch_mcs",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x5e620",
+      "size_bytes": 104
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Dissected CINR/EVM/subband/modulation/LDPC symbols across CPE & Rocket ame_core.ko and cds_mac_mod.ko",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Verified per-subband pilot EVM estimation vs full-band OFDM frequency-selective fading",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Pure offline binary RE with zero live radio perturbation",
+    "pillar_d_scientific_pareto_validation": "Directly parameterizes Stage 378A 8-Subband Adaptive OFDMA Puncturing NSGA-II model",
+    "pillar_e_memory_master_claim_id": "stage377a_ltu_subband_cinr_puncturing_re"
+  }
+}

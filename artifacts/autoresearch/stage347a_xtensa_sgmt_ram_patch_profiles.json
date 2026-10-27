@@ -1,0 +1,551 @@
+{
+  "stage": "347A",
+  "title": "PB-040 Xtensa SGMT Surgical RAM Patch Profiles (PB040-CANARY-RODATA, PB040-CCA-AGC-OVERRIDE, PB040-SUB20MHZ-PLL-DIV)",
+  "claim_status": "CONFIRMED",
+  "attribution": "QCA firmware",
+  "memory_master_claim_id": "mm-61aa",
+  "pinned_digests_verified": {
+    "xtensa_sgmt_surgical_patcher_py_sha256": "49cb277389bc20af708777d4a5e23cc4d923d91b4d83c5a97bde683096f1451d",
+    "pb040_sgmt_surgical_patch_spec_json_sha256": "ea397abb4f522425674a75ab03554baf02837c3737adf189cfe1a9dbadc07c64",
+    "pins_intact": true
+  },
+  "sgmt_bmi_lz_verification": {
+    "containers_verified": 3,
+    "segments_verified": 12,
+    "all_12_segments_lossless_roundtrip": true,
+    "sgmt_magic_le_hex": "0x544d4753",
+    "xtensa_litbase_sr5_hex": "0x009bb001"
+  },
+  "profiles_by_image": {
+    "athwlan_AR9888v2_ptmp_ap_bin": {
+      "PB040-CANARY-RODATA": {
+        "patch_id": "PB040-CANARY-RODATA",
+        "pb_stage": "PB-040 (Step 1 \u2014 Zero-Risk .rodata String Canary)",
+        "description": "ASCII case flip in .rodata 'ubnt_set_power_range' -> 'ubnt_set_power_rangE' at 0x0040b953",
+        "target_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040b953",
+        "segment_relative_offset_int": 2387,
+        "segment_relative_offset_hex": "0x000953",
+        "patch_length_bytes": 1,
+        "expected_orig_bytes_hex": "65",
+        "patched_bytes_hex": "45",
+        "orig_segment_decoded_size": 8500,
+        "patched_segment_decoded_size": 8500,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "4352471afde9d65477ebf3af97cdfffb48080895a43b3e71745c08389c589483",
+        "patched_segment_sha256": "5bae628f353f7e7960310a594ecba663555a7e7292e29a05c4f118d06b19bfdb",
+        "repacked_container_size_bytes": 251839,
+        "repacked_container_sha256": "e2402d644fc85e595d9efca09c65281076d05f839e3f47a94b7e9f8b2c82b415",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x00981068",
+          "lit4_target_value_hex": "0x0040b940",
+          "l32r_imm16_hex": "0x181a",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009acbb9",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            },
+            {
+              "pc_hex": "0x009acbd5",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            },
+            {
+              "pc_hex": "0x009acbf2",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+        "output_sgmt_sha256": "e2402d644fc85e595d9efca09c65281076d05f839e3f47a94b7e9f8b2c82b415",
+        "output_sgmt_size_bytes": 251839
+      },
+      "PB040-CCA-AGC-OVERRIDE": {
+        "patch_id": "PB040-CCA-AGC-OVERRIDE",
+        "pb_stage": "PB-031 (Baseband CCA Energy Detect cca_thresh62 & Timing Control INI Tuple)",
+        "description": "Baseband modal INI tuple for 0x00029e00 (BB_timing_controls_1 cca_thresh62) at 0x009c7a78",
+        "target_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+        "segment_index": 3,
+        "segment_base_hex": "0x00983c00",
+        "virtual_address_hex": "0x009c7a78",
+        "segment_relative_offset_int": 278136,
+        "segment_relative_offset_hex": "0x043e78",
+        "patch_length_bytes": 16,
+        "expected_orig_bytes_hex": "009e0200a016721320137213109e0200",
+        "patched_bytes_hex": "009e0200a016721320137613109e0200",
+        "orig_segment_decoded_size": 283604,
+        "patched_segment_decoded_size": 283604,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "50410ea5ddaa149e5f91ecb4ab74a196c86584976cb9e1c755ddfa060be44c86",
+        "patched_segment_sha256": "6eee8d71383a0789c4b924245827ba2474b4f544c5fc152bb58ab020aeb39fb7",
+        "repacked_container_size_bytes": 256508,
+        "repacked_container_sha256": "390d8f7f91630de339fbc195277c210a6f906a0ef860317b0e954f59d01a50e9",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009810dc",
+          "lit4_target_value_hex": "0x009c7a60",
+          "l32r_imm16_hex": "0x1837",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009ad001",
+              "insn_bytes_hex": "413718",
+              "mnemonic": "l32r a4, [0x009810dc] ; -> 0x009c7a60"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+        "output_sgmt_sha256": "390d8f7f91630de339fbc195277c210a6f906a0ef860317b0e954f59d01a50e9",
+        "output_sgmt_size_bytes": 256508
+      },
+      "PB040-SUB20MHZ-PLL-DIV": {
+        "patch_id": "PB040-SUB20MHZ-PLL-DIV",
+        "pb_stage": "PB-030 (Sub-20 MHz 5/10 MHz Half/Quarter-Rate Clock & Rate Table)",
+        "description": "Sub-20 MHz 5/10 MHz rate/divider table adjustment in .rodata at 0x0040bb40",
+        "target_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040bb40",
+        "segment_relative_offset_int": 2880,
+        "segment_relative_offset_hex": "0x000b40",
+        "patch_length_bytes": 8,
+        "expected_orig_bytes_hex": "060c121824303600",
+        "patched_bytes_hex": "060c121824304800",
+        "orig_segment_decoded_size": 8500,
+        "patched_segment_decoded_size": 8500,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "4352471afde9d65477ebf3af97cdfffb48080895a43b3e71745c08389c589483",
+        "patched_segment_sha256": "f411eab1f38db612c44e222679735a232105eb886e759754ec6d693d18f581a2",
+        "repacked_container_size_bytes": 251838,
+        "repacked_container_sha256": "96a801e933c2ce8b5cb6d82eb5a5599e7f119d66eb0087b1c46363c6bc374d66",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009814ec",
+          "lit4_target_value_hex": "0x0040bb40",
+          "l32r_imm16_hex": "0x193b",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009b68ff",
+              "insn_bytes_hex": "b13b19",
+              "mnemonic": "l32r a11, [0x009814ec] ; -> 0x0040bb40"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+        "output_sgmt_sha256": "96a801e933c2ce8b5cb6d82eb5a5599e7f119d66eb0087b1c46363c6bc374d66",
+        "output_sgmt_size_bytes": 251838
+      }
+    },
+    "athwlan_AR9888v2_ptmp_sta_bin": {
+      "PB040-CANARY-RODATA": {
+        "patch_id": "PB040-CANARY-RODATA",
+        "pb_stage": "PB-040 (Step 1 \u2014 Zero-Risk .rodata String Canary)",
+        "description": "ASCII case flip in .rodata 'ubnt_set_power_range' -> 'ubnt_set_power_rangE' at 0x0040b953",
+        "target_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040b953",
+        "segment_relative_offset_int": 2387,
+        "segment_relative_offset_hex": "0x000953",
+        "patch_length_bytes": 1,
+        "expected_orig_bytes_hex": "65",
+        "patched_bytes_hex": "45",
+        "orig_segment_decoded_size": 8492,
+        "patched_segment_decoded_size": 8492,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "b7c1f7855fb27b2097b0a82ed0788980f7264e4298346cf3111cf8a1c3a3c687",
+        "patched_segment_sha256": "c5e1674959139c029d512867f96a5a3213df95015564bcd09c492afea049171e",
+        "repacked_container_size_bytes": 234424,
+        "repacked_container_sha256": "821db9aaeb828c915dce86791e10a2522ff418e62a5260a6e7f243143686baf4",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x00981068",
+          "lit4_target_value_hex": "0x0040b940",
+          "l32r_imm16_hex": "0x181a",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009acbe5",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            },
+            {
+              "pc_hex": "0x009acc01",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            },
+            {
+              "pc_hex": "0x009acc1e",
+              "insn_bytes_hex": "b11a18",
+              "mnemonic": "l32r a11, [0x00981068] ; -> 0x0040b940"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+        "output_sgmt_sha256": "821db9aaeb828c915dce86791e10a2522ff418e62a5260a6e7f243143686baf4",
+        "output_sgmt_size_bytes": 234424
+      },
+      "PB040-CCA-AGC-OVERRIDE": {
+        "patch_id": "PB040-CCA-AGC-OVERRIDE",
+        "pb_stage": "PB-031 (Baseband CCA Energy Detect cca_thresh62 & Timing Control INI Tuple)",
+        "description": "Baseband modal INI tuple for 0x00029e00 (BB_timing_controls_1 cca_thresh62) at 0x009c2e88",
+        "target_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+        "segment_index": 3,
+        "segment_base_hex": "0x00983c00",
+        "virtual_address_hex": "0x009c2e88",
+        "segment_relative_offset_int": 258696,
+        "segment_relative_offset_hex": "0x03f288",
+        "patch_length_bytes": 16,
+        "expected_orig_bytes_hex": "009e0200a016721320137213109e0200",
+        "patched_bytes_hex": "009e0200a016721320137613109e0200",
+        "orig_segment_decoded_size": 264164,
+        "patched_segment_decoded_size": 264164,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "c2c60e9bb170b567fa6124f54b805579eb5f7d17905fc46a0e20819cba6ce1c2",
+        "patched_segment_sha256": "906140b9f51f528e60b11530d360a0872ca584c3ec4a0fd6414a37f54ca0e7f3",
+        "repacked_container_size_bytes": 238825,
+        "repacked_container_sha256": "47ac5aeb1e79eaa5e3018fcfd4934657ef34277e93a49a300c4f82358291f2a1",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009810dc",
+          "lit4_target_value_hex": "0x009c2e70",
+          "l32r_imm16_hex": "0x1837",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009ad02d",
+              "insn_bytes_hex": "413718",
+              "mnemonic": "l32r a4, [0x009810dc] ; -> 0x009c2e70"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+        "output_sgmt_sha256": "47ac5aeb1e79eaa5e3018fcfd4934657ef34277e93a49a300c4f82358291f2a1",
+        "output_sgmt_size_bytes": 238825
+      },
+      "PB040-SUB20MHZ-PLL-DIV": {
+        "patch_id": "PB040-SUB20MHZ-PLL-DIV",
+        "pb_stage": "PB-030 (Sub-20 MHz 5/10 MHz Half/Quarter-Rate Clock & Rate Table)",
+        "description": "Sub-20 MHz 5/10 MHz rate/divider table adjustment in .rodata at 0x0040bb80",
+        "target_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040bb80",
+        "segment_relative_offset_int": 2944,
+        "segment_relative_offset_hex": "0x000b80",
+        "patch_length_bytes": 8,
+        "expected_orig_bytes_hex": "060c121824303600",
+        "patched_bytes_hex": "060c121824304800",
+        "orig_segment_decoded_size": 8492,
+        "patched_segment_decoded_size": 8492,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "b7c1f7855fb27b2097b0a82ed0788980f7264e4298346cf3111cf8a1c3a3c687",
+        "patched_segment_sha256": "fc6857979638162c7da18aa4ef7df07c32f89028492af4daf6897cfd1422c9c4",
+        "repacked_container_size_bytes": 234423,
+        "repacked_container_sha256": "12ae398642cde6b4799a01945a3ada0095014a92e6534b7619ab3e49a1c22a9e",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009814e0",
+          "lit4_target_value_hex": "0x0040bb80",
+          "l32r_imm16_hex": "0x1938",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009b62db",
+              "insn_bytes_hex": "b13819",
+              "mnemonic": "l32r a11, [0x009814e0] ; -> 0x0040bb80"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+        "output_sgmt_sha256": "12ae398642cde6b4799a01945a3ada0095014a92e6534b7619ab3e49a1c22a9e",
+        "output_sgmt_size_bytes": 234423
+      }
+    },
+    "athwlan_AR9888v2_ptp_bin": {
+      "PB040-CANARY-RODATA": {
+        "patch_id": "PB040-CANARY-RODATA",
+        "pb_stage": "PB-040 (Step 1 \u2014 Zero-Risk .rodata String Canary)",
+        "description": "ASCII case flip in .rodata 'ubnt_set_power_range' -> 'ubnt_set_power_rangE' at 0x0040b8d3",
+        "target_symbol": "athwlan_AR9888v2_ptp_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040b8d3",
+        "segment_relative_offset_int": 2259,
+        "segment_relative_offset_hex": "0x0008d3",
+        "patch_length_bytes": 1,
+        "expected_orig_bytes_hex": "65",
+        "patched_bytes_hex": "45",
+        "orig_segment_decoded_size": 7104,
+        "patched_segment_decoded_size": 7104,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "8cd0889a06d666f4c997f25eae35bfdd0aa8cb4a7ca6d8d50f4374ecfad0d14b",
+        "patched_segment_sha256": "21fff23b8bb728c4ae935e92b23897c8b4d16da01f347854e10e9413b39182c6",
+        "repacked_container_size_bytes": 215047,
+        "repacked_container_sha256": "16da76422bf15fcf188f44167f8ac87ad6077577982786e9eb782641eda7203d",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x00981040",
+          "lit4_target_value_hex": "0x0040b8c0",
+          "l32r_imm16_hex": "0x1810",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009abe0d",
+              "insn_bytes_hex": "b11018",
+              "mnemonic": "l32r a11, [0x00981040] ; -> 0x0040b8c0"
+            },
+            {
+              "pc_hex": "0x009abe29",
+              "insn_bytes_hex": "b11018",
+              "mnemonic": "l32r a11, [0x00981040] ; -> 0x0040b8c0"
+            },
+            {
+              "pc_hex": "0x009abe46",
+              "insn_bytes_hex": "b11018",
+              "mnemonic": "l32r a11, [0x00981040] ; -> 0x0040b8c0"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+        "output_sgmt_sha256": "16da76422bf15fcf188f44167f8ac87ad6077577982786e9eb782641eda7203d",
+        "output_sgmt_size_bytes": 215047
+      },
+      "PB040-CCA-AGC-OVERRIDE": {
+        "patch_id": "PB040-CCA-AGC-OVERRIDE",
+        "pb_stage": "PB-031 (Baseband CCA Energy Detect cca_thresh62 & Timing Control INI Tuple)",
+        "description": "Baseband modal INI tuple for 0x00029e00 (BB_timing_controls_1 cca_thresh62) at 0x009bd8d8",
+        "target_symbol": "athwlan_AR9888v2_ptp_bin",
+        "segment_index": 3,
+        "segment_base_hex": "0x00983c00",
+        "virtual_address_hex": "0x009bd8d8",
+        "segment_relative_offset_int": 236760,
+        "segment_relative_offset_hex": "0x039cd8",
+        "patch_length_bytes": 16,
+        "expected_orig_bytes_hex": "009e0200a016721320137213109e0200",
+        "patched_bytes_hex": "009e0200a016721320137613109e0200",
+        "orig_segment_decoded_size": 242228,
+        "patched_segment_decoded_size": 242228,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "9b2a3fbf86673857701c435520c9e5797731fb8bafa1024638f4d02ce36245c6",
+        "patched_segment_sha256": "1bee081645c4e640f260090f36037fd48e4b958e43ac6e484079e85788b9e5b8",
+        "repacked_container_size_bytes": 219162,
+        "repacked_container_sha256": "f9460a3d5a28134b7d4335b92d4d81e77dd62d4be8d17d805ac8633092683145",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009810b4",
+          "lit4_target_value_hex": "0x009bd8c0",
+          "l32r_imm16_hex": "0x182d",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009ac255",
+              "insn_bytes_hex": "412d18",
+              "mnemonic": "l32r a4, [0x009810b4] ; -> 0x009bd8c0"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+        "output_sgmt_sha256": "f9460a3d5a28134b7d4335b92d4d81e77dd62d4be8d17d805ac8633092683145",
+        "output_sgmt_size_bytes": 219162
+      },
+      "PB040-SUB20MHZ-PLL-DIV": {
+        "patch_id": "PB040-SUB20MHZ-PLL-DIV",
+        "pb_stage": "PB-030 (Sub-20 MHz 5/10 MHz Half/Quarter-Rate Clock & Rate Table)",
+        "description": "Sub-20 MHz 5/10 MHz rate/divider table adjustment in .rodata at 0x0040ba90",
+        "target_symbol": "athwlan_AR9888v2_ptp_bin",
+        "segment_index": 1,
+        "segment_base_hex": "0x0040b000",
+        "virtual_address_hex": "0x0040ba90",
+        "segment_relative_offset_int": 2704,
+        "segment_relative_offset_hex": "0x000a90",
+        "patch_length_bytes": 8,
+        "expected_orig_bytes_hex": "060c121824303600",
+        "patched_bytes_hex": "060c121824304800",
+        "orig_segment_decoded_size": 7104,
+        "patched_segment_decoded_size": 7104,
+        "segment_length_preserved": true,
+        "entry_point_preserved_hex": "0x00983c00",
+        "orig_segment_sha256": "8cd0889a06d666f4c997f25eae35bfdd0aa8cb4a7ca6d8d50f4374ecfad0d14b",
+        "patched_segment_sha256": "40bf92b9503bba887bed53885615ee8ea966e5bf0af1ba8c74badf799adb7964",
+        "repacked_container_size_bytes": 215046,
+        "repacked_container_sha256": "161315e4aad464b2f1f342c6a4e84b3651a69ae6bdca454470639f07863743fb",
+        "bmi_lz_roundtrip_verified": true,
+        "sibling_addresses": {},
+        "safety_rationale": "Length-preserving surgical patch in volatile RAM (/tmp/firmware-5.bin bind-mount); 0 Flash writes.",
+        "xtensa_litbase_disassembly": {
+          "litbase_sr5_hex": "0x009bb001",
+          "lit4_slot_address_hex": "0x009814dc",
+          "lit4_target_value_hex": "0x0040ba90",
+          "l32r_imm16_hex": "0x1937",
+          "l32r_call_sites": [
+            {
+              "pc_hex": "0x009b483b",
+              "insn_bytes_hex": "b13719",
+              "mnemonic": "l32r a11, [0x009814dc] ; -> 0x0040ba90"
+            }
+          ]
+        },
+        "output_sgmt_file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+        "output_sgmt_sha256": "161315e4aad464b2f1f342c6a4e84b3651a69ae6bdca454470639f07863743fb",
+        "output_sgmt_size_bytes": 215046
+      }
+    }
+  },
+  "generated_sgmt_binaries": [
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+      "profile_id": "PB040-CANARY-RODATA",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "size_bytes": 251839,
+      "sha256": "e2402d644fc85e595d9efca09c65281076d05f839e3f47a94b7e9f8b2c82b415",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 309464
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+      "profile_id": "PB040-CCA-AGC-OVERRIDE",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "size_bytes": 256508,
+      "sha256": "390d8f7f91630de339fbc195277c210a6f906a0ef860317b0e954f59d01a50e9",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 309464
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+      "profile_id": "PB040-SUB20MHZ-PLL-DIV",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "size_bytes": 251838,
+      "sha256": "96a801e933c2ce8b5cb6d82eb5a5599e7f119d66eb0087b1c46363c6bc374d66",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 309464
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_ap_bin",
+      "profile_id": "PB040-ALL3-COMBINED",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "size_bytes": 256665,
+      "sha256": "94e083cc0bcf7f6280252910c325359baba85e87915562e1ec13eb8dbc76c824",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 309464
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+      "profile_id": "PB040-CANARY-RODATA",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "size_bytes": 234424,
+      "sha256": "821db9aaeb828c915dce86791e10a2522ff418e62a5260a6e7f243143686baf4",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 289752
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+      "profile_id": "PB040-CCA-AGC-OVERRIDE",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "size_bytes": 238825,
+      "sha256": "47ac5aeb1e79eaa5e3018fcfd4934657ef34277e93a49a300c4f82358291f2a1",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 289752
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+      "profile_id": "PB040-SUB20MHZ-PLL-DIV",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "size_bytes": 234423,
+      "sha256": "12ae398642cde6b4799a01945a3ada0095014a92e6534b7619ab3e49a1c22a9e",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 289752
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptmp_sta_bin",
+      "profile_id": "PB040-ALL3-COMBINED",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "size_bytes": 238986,
+      "sha256": "ebedfd573c244016093c34771bc0f097e7cdc9b952ad19c53e4672b57b00b15c",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 289752
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptp_bin",
+      "profile_id": "PB040-CANARY-RODATA",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "size_bytes": 215047,
+      "sha256": "16da76422bf15fcf188f44167f8ac87ad6077577982786e9eb782641eda7203d",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 266072
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptp_bin",
+      "profile_id": "PB040-CCA-AGC-OVERRIDE",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "size_bytes": 219162,
+      "sha256": "f9460a3d5a28134b7d4335b92d4d81e77dd62d4be8d17d805ac8633092683145",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 266072
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptp_bin",
+      "profile_id": "PB040-SUB20MHZ-PLL-DIV",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "size_bytes": 215046,
+      "sha256": "161315e4aad464b2f1f342c6a4e84b3651a69ae6bdca454470639f07863743fb",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 266072
+    },
+    {
+      "image_symbol": "athwlan_AR9888v2_ptp_bin",
+      "profile_id": "PB040-ALL3-COMBINED",
+      "path": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "size_bytes": 219307,
+      "sha256": "cdfbef792584a9792500293b0310ab0f016493c1de1504d4477600d2b98fa963",
+      "entry_point_hex": "0x00983c00",
+      "decoded_total_bytes": 266072
+    }
+  ],
+  "ram_loader_script": {
+    "path": "firmware/openwrt/xtensa_ram_patches_stage347a/fmx_xtensa_ram_patch_loader.sh",
+    "sha256": "2740d3e3770350fb913913cb047d29571dc0740b35196216da97033bb6f4400f",
+    "bind_mount_target": "/lib/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin",
+    "volatile_staging_path": "/tmp/firmware-5.bin",
+    "watchdog_timeout_sec": 45,
+    "flash_writes_permitted": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_binary_re": "Disassembled Xtensa LITBASE=0x009bb001 .lit4 Segment 0 pointers and Segment 3 l32r instructions across all 3 AR9888v2 SGMT images",
+    "pillar_b_closed_loop_research": "Linked to PB-040 / PB-031 / PB-030 physical boundary hypotheses",
+    "pillar_c_counterbalanced_harness": "45s non-DFS rollback watchdog in fmx_xtensa_ram_patch_loader.sh",
+    "pillar_d_scientific_validation": "Cryptographic SHA-256 + 12/12 BMI_LZ segment byte-exact round-trip verification",
+    "pillar_e_memory_master": "mm-61aa (id=155369, scope=project:futuramax)"
+  }
+}

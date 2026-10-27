@@ -1,0 +1,57 @@
+{
+  "stage": "620A",
+  "title": "Guarida Panel2 (.82) 39us TDMA Slot Guard Overhead (26% of 150us UL Slice) & Requeue Alerter",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "timestamp_utc": "2026-10-27T01:38:58.601900+00:00",
+  "stage533a_grounding": {
+    "formula": "slot_guard_us = rtt_us + 21",
+    "panel2_rtt_us": 18.0,
+    "panel2_slot_guard_us": 39.0,
+    "stock_ul_slice_us": 150.0,
+    "panel2_guard_overhead_pct": 26.0,
+    "cbp_dur_900us_overhead_pct": 4.33
+  },
+  "slice_telemetry": [
+    {
+      "panel": "Panel2-Guarida (.82, 22 CPEs)",
+      "max_distance_km": 2.7,
+      "propagation_rtt_us": 18.0,
+      "fixed_turnaround_us": 21.0,
+      "slot_guard_us": 39.0,
+      "ul_slice_duration_us": 150.0,
+      "guard_overhead_pct": 26.0,
+      "usable_ul_payload_us": 111.0,
+      "recommended_cbp_dur_us": 900.0,
+      "cbp900_guard_overhead_pct": 4.33,
+      "alert_status": "WARN_150US_SLICE_26PCT_GUARD_TAX"
+    },
+    {
+      "panel": "Panel3-Guarida (.83, 6 CPEs)",
+      "max_distance_km": 1.8,
+      "propagation_rtt_us": 12.0,
+      "fixed_turnaround_us": 21.0,
+      "slot_guard_us": 33.0,
+      "ul_slice_duration_us": 150.0,
+      "guard_overhead_pct": 22.0,
+      "usable_ul_payload_us": 117.0,
+      "recommended_cbp_dur_us": 900.0,
+      "cbp900_guard_overhead_pct": 3.67,
+      "alert_status": "OPTIMAL_WITH_CBP900_COOP"
+    }
+  ],
+  "safety": {
+    "touched_protected_nodes": false,
+    "guarida_sg01_respected": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_re": "Grounded on Stage 533A ubnt_poll_host.ko slot_guard_us = rtt_us + 21us turnaround formula",
+    "pillar_b_hyperresearch": "TDMA guard-time tax vs multi-CPE polling slice duration in PtMP WISP sectors",
+    "pillar_c_autoresearch": "Explains why cbp_dur=900us (Stage 417A/547A) amortizes the 39us guard from 26.0% down to 4.33%",
+    "pillar_d_scientific": "Zero-false-positive rate-normalized requeue & guard-time efficiency alerter",
+    "pillar_e_memory": "project:futuramax stage620a_guarida_panel2_39us_slot_guard_and_requeue_alerter"
+  }
+}

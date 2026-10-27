@@ -1,0 +1,64 @@
+{
+  "stage": "401A",
+  "task_id": "T-S401A-LTU-10ROUND-120WINDOW-CHAMPION-V8",
+  "generated_at": "2026-10-27T00:28:31.002153+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "Linux",
+    "hardware"
+  ],
+  "champion_version": "v8",
+  "script_path": "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh",
+  "script_sha256": "2a7361c5a5014dba2d47fa0c39fed3f6eee1f92ec7f4e6ef87c5d870ba29e8e6",
+  "total_live_campaigns": 10,
+  "total_live_ab_rounds": 30,
+  "total_live_measurement_windows": 120,
+  "supported_boards": [
+    "0xae02",
+    "0xae06",
+    "0xae07",
+    "0xae08",
+    "0xae09",
+    "0xae0b"
+  ],
+  "campaigns_consolidated": [
+    "Stage 185A (Round 1: SMP IRQ 52/63 Affinity, BQL=36288, vm.min_free_kbytes=4096)",
+    "Stage 188A (Round 2: NAPI budget=480, dev_weight=48, somaxconn=512, tcp_limit_output_bytes=65536)",
+    "Stage 218A (Round 3: Head-to-Head Champion vs Stock Verification on .110)",
+    "Stage 247A (Round 4: TCP Pacing 120/200, nf_conntrack_max=16384, Bridge Snooping Bypass)",
+    "Stage 287A (Round 5: Socket Buffers 256KB/512KB, RFS=4096, netdev_max_backlog=3000)",
+    "Stage 299A (Round 6: VoIP UDP Min Buffers 16KB, ping_group_range, FQ-CoDel target=2000us interval=40000us)",
+    "Stage 329A (Round 7: nf_conntrack_tcp_be_liberal=1, nf_conntrack_udp_timeout=30, netdev_budget_usecs=4000, br0/eth0 RPS)",
+    "Stage 341A (Round 8: tcp_fastopen=3, tcp_early_retrans=3 TLP, tcp_ecn=2, DSCP EF preservation)",
+    "Stage 375A (Round 9: sched_rt_runtime_us=980000, sched_min_granularity_ns=1500000, tcp_autocorking=0)",
+    "Stage 397A (Round 10: vm.dirty_ratio=10, vm.dirty_background_ratio=5, vm.vfs_cache_pressure=50, tcp_moderate_rcvbuf=1)"
+  ],
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "has_round1_smp_rps_bql": true,
+    "has_round2_napi_budget": true,
+    "has_round4_tcp_pacing_bridge": true,
+    "has_round5_socket_buffers_rfs": true,
+    "has_round6_voip_udp_fqcodel_2ms": true,
+    "has_round7_conntrack_liberal_budget_usecs": true,
+    "has_round8_tfo_tlp_ecn2": true,
+    "has_round9_rt_runtime_autocorking0": true,
+    "has_round10_vm_dirty_vfs_pressure": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Consolidates 10 live Linux/QCA8337N/HPS sysctl & qdisc campaigns (120 windows) across all 5 LTU CPE boards + Rocket AP",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Integrates Stage 398A BLE/alignment safety & Stage 399A dual-bank NAND mtd10 persistence",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Backed by 30 counterbalanced A1->B1->A2->B2 rounds (120 live measurement windows) on .110",
+    "pillar_d_scientific_pareto_validation": "Coupled with Stage 400A GPS Reuse-1 TDD + Short-Queue NSGA-II Pareto validation",
+    "pillar_e_memory_master_claim_id": "stage401a_ltu_10round_120window_champion_v8"
+  }
+}

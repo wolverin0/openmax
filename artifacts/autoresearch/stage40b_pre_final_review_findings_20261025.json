@@ -1,0 +1,31 @@
+{
+  "task_id": "T-S40B-CODEX-STAGE42A-AIROS6-UNPOLLED-AND-NETDEV-TXQ-STARVATION-VERIFIER",
+  "state": "CHANGES_REQUIRED",
+  "review_kind": "INDEPENDENT_STATIC_NO_IMPORT_OR_PYTEST",
+  "reviewed_module_sha256": "cb6e61bd2eb2d68ddc608f393678b09c0e3b32431b7899f770fc9ca8eac478a4",
+  "reviewed_test_sha256": "f865f7c15c60af10b22b7abdb6242a804caa0c607334596be0945dbb03e01786",
+  "findings": [
+    {
+      "id": "F1",
+      "finding": "Public JSON reader reads before local-path/size boundary; optional wrapper root can be UNC",
+      "repair_contract": "Reject UNC/mixed separators/URI and reparse paths before content read; bounded file size; no-read regressions"
+    },
+    {
+      "id": "F2",
+      "finding": "Present but invalid CPE AQL ignored; AP AQL accepts numerically equal float values",
+      "repair_contract": "Typed exact per-AC dictionaries and role thresholds for every supplied readback; absent CPE fields stay explicit UNKNOWN"
+    },
+    {
+      "id": "F3",
+      "finding": "dd operations and emission tokens checked separately without interleaving",
+      "repair_contract": "Compare the complete ordered five-operation sequence; reordered emitters must not pass layout check"
+    }
+  ],
+  "owner_prior_test_result": {
+    "passed": 66,
+    "exit_code": 0,
+    "console_receipt": "489d0e",
+    "classification": "ENABLING_FIXTURES_NOT_FINAL_ACCEPTANCE"
+  },
+  "device_access_executed": false
+}

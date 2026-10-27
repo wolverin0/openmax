@@ -1,3 +1,34 @@
+<!-- doc-head: October24 physical-boundary source correction -->
+Exact AR9888 descriptors document capture and rich metadata, not working CSI export.
+Normal host API limitations do not prove universal physical impossibility.
+The public UTF selection is an incomplete build graph, not an accepted target image.
+Historical source/firmware findings below retain their original narrower scope.
+No new hardware or target execution; operational capture remains UNKNOWN.
+<!-- /doc-head -->
+
+## 2026-10-24 current source-bound correction
+
+**CONFIRMED descriptor contract:** exact AR9888/v2 headers document
+`bb_capture_channel`, `bb_captured_channel`, `txbf_h_info`, EVM and timestamps.
+`bb_length` describes conditioned baseband-debug length; it is not established as
+the channel/H-dump length. **UNKNOWN:** activation, memory format, calibrated CSI
+and exact installed-firmware export. See the [audited synthesis](QCA988X_PHYSICAL_BOUNDARY_2026.md) and its
+pinned manifest/ranges for both requested commits.
+
+**REFUTED as a universal inference:** absence of a normal ath10k CSI/scheduler API
+proves that CSI or polling is impossible in silicon. Historical “CSI is REFUTED,”
+“can never report actual airtime,” or “replacement rate control is dead” wording
+must be read within the examined normal host/firmware interface, not as a statement
+about every target implementation. The exact descriptor path and retained Ubiquiti
+target-image research justify investigation, not an accepted open replacement.
+Shared ADC/waveform ABIs do not prove exact-target handlers or arbitrary IQ.
+No hardware was contacted; E2 and all physical/recovery gates remain unchanged.
+
+The historical text below is retained byte-for-byte as dated evidence. This
+correction supersedes its universal present-tense interpretations only.
+
+---
+
 # Spectral Analysis and Channel State Information (CSI) on QCA988x / ath10k
 
 > **Status**: CONFIRMED (Source-verified against Linux kernel ath10k, openwrt mac80211 packages, WiFiSpectralJam dataset [arXiv:2608.15728], and Atheros CSI Tool documentation).  

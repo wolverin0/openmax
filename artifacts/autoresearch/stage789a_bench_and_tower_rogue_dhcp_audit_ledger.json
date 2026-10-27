@@ -1,0 +1,303 @@
+{
+  "E2": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 6774,
+      "path": "tools/sim/stage787_792_common.py",
+      "sha256": "6bc28659494946f30b5e45142924c7a456b4262aac94ad5d2d0d98a6be92da90"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    }
+  ],
+  "attribution": "Linux / external offline auditor",
+  "boundary": {
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": false,
+    "producer_execution": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "claim_classification": "UNKNOWN_RUNTIME_ERADICATION",
+  "eradication_verdict": "UNKNOWN_NOT_PROVEN",
+  "implementation": {
+    "bytes": 9947,
+    "path": "tools/observability/build_stage789a_bench_and_tower_rogue_dhcp_audit_ledger.py",
+    "sha256": "04dae8232eac4dfa049c1c4446df96a175b8cad277c4719cca81174e26dda75b"
+  },
+  "method_scope": {
+    "analysis": "Declared finite analytical sensitivity or evidence ledger; pytest validates tooling.",
+    "binary_re": "Held source/receipt analysis only, no new binary execution.",
+    "continuity": "Repository plan/ledger/index and local evidence checkpoint.",
+    "experiment": "No new RF campaign or counterbalanced acquisition.",
+    "literature": "Offline only; no online scholar/web invocation."
+  },
+  "missing_evidence": [
+    "Interface/VLAN-bound native daemon/socket/config/boot readbacks.",
+    "DHCPv4/DHCPv6/RA packet capture with duration and source attribution.",
+    "Persistence and fallback recurrence after reboot/link-down."
+  ],
+  "new_hardware_results": 0,
+  "outputs": {
+    "docs/STAGE789A_BENCH_AND_TOWER_ROGUE_DHCP_AUDIT_LEDGER.md": {
+      "bytes": 3145,
+      "path": "docs/STAGE789A_BENCH_AND_TOWER_ROGUE_DHCP_AUDIT_LEDGER.md",
+      "sha256": "4d3d858f8eef4f0ffc8ed97d14dac9f0250f211d1d5cf84778dc745153ef4672"
+    }
+  },
+  "physical_acceptance": "UNKNOWN_NOT_ASSESSED",
+  "producer_risks": {
+    "actual_fallback_execution": "UNKNOWN",
+    "broad_exception_path": true,
+    "count_can_default_zero": true,
+    "loopback_probe": true,
+    "rtT_literal_defaults": true
+  },
+  "saved_windows": {
+    "all_saved_counts_zero": true,
+    "count": 12,
+    "eradication_proven": false,
+    "native_transcripts_available": false,
+    "windows": [
+      {
+        "count": 0,
+        "round": 1,
+        "status": "SAVED_DECLARATION",
+        "window": "A1"
+      },
+      {
+        "count": 0,
+        "round": 1,
+        "status": "SAVED_DECLARATION",
+        "window": "B1"
+      },
+      {
+        "count": 0,
+        "round": 1,
+        "status": "SAVED_DECLARATION",
+        "window": "A2"
+      },
+      {
+        "count": 0,
+        "round": 1,
+        "status": "SAVED_DECLARATION",
+        "window": "B2"
+      },
+      {
+        "count": 0,
+        "round": 2,
+        "status": "SAVED_DECLARATION",
+        "window": "A1"
+      },
+      {
+        "count": 0,
+        "round": 2,
+        "status": "SAVED_DECLARATION",
+        "window": "B1"
+      },
+      {
+        "count": 0,
+        "round": 2,
+        "status": "SAVED_DECLARATION",
+        "window": "A2"
+      },
+      {
+        "count": 0,
+        "round": 2,
+        "status": "SAVED_DECLARATION",
+        "window": "B2"
+      },
+      {
+        "count": 0,
+        "round": 3,
+        "status": "SAVED_DECLARATION",
+        "window": "A1"
+      },
+      {
+        "count": 0,
+        "round": 3,
+        "status": "SAVED_DECLARATION",
+        "window": "B1"
+      },
+      {
+        "count": 0,
+        "round": 3,
+        "status": "SAVED_DECLARATION",
+        "window": "A2"
+      },
+      {
+        "count": 0,
+        "round": 3,
+        "status": "SAVED_DECLARATION",
+        "window": "B2"
+      }
+    ]
+  },
+  "schema_version": "1.0.0",
+  "scopes": [
+    {
+      "claim_pointer": "/rogue_dhcp_remediation",
+      "helper_hash_matches_receipt": true,
+      "helper_matches_held_producer": true,
+      "offer_capture": "MISSING",
+      "persistence": "UNKNOWN",
+      "runtime_applied": "UNKNOWN",
+      "saved_claim": {
+        "daemons_neutralized": [
+          "dnsmasq (br1)",
+          "udhcpd (br1)"
+        ],
+        "fallback_ip": "192.168.1.20",
+        "interface": "br1",
+        "rogue_leases_emitted": 0
+      },
+      "scope": "LTU110_BR1",
+      "static_patterns": {
+        "apply_gate": true,
+        "default_inspect": true,
+        "literal_healthy_echo": true
+      }
+    },
+    {
+      "claim_pointer": "/lan_dhcp_and_ani_profile",
+      "helper_hash_matches_receipt": true,
+      "helper_matches_held_producer": true,
+      "offer_capture": "MISSING",
+      "persistence": "UNKNOWN",
+      "requirements": {
+        "dhcp_lan_dhcpv4": {
+          "declared": "disabled",
+          "declared_match": true,
+          "required": "disabled"
+        },
+        "dhcp_lan_dhcpv6": {
+          "declared": "disabled",
+          "declared_match": true,
+          "required": "disabled"
+        },
+        "dhcp_lan_ignore": {
+          "declared": "1",
+          "declared_match": true,
+          "required": "1"
+        },
+        "dhcp_lan_ra": {
+          "declared": "disabled",
+          "declared_match": true,
+          "required": "disabled"
+        },
+        "dnsmasq_service": {
+          "declared": "stopped_and_disabled",
+          "declared_match": true,
+          "required": "stopped_and_disabled"
+        },
+        "odhcpd_service": {
+          "declared": "stopped_and_disabled",
+          "declared_match": true,
+          "required": "stopped_and_disabled"
+        }
+      },
+      "runtime_applied": "UNKNOWN",
+      "scope": "OPENWRT_BR_LAN",
+      "static_patterns": {
+        "apply_gate": true,
+        "ignored_command_failures": true,
+        "status_healthy_fallback": true,
+        "uci_commit_text": true
+      }
+    }
+  ],
+  "source_binding_meaning": "Frozen held-byte cutoff only; original mutable paths are diagnostic, not replay inputs.",
+  "stage": "789A",
+  "static_sources": [
+    {
+      "bytes": 1748,
+      "frozen": {
+        "bytes": 1748,
+        "path": "artifacts/verification/stage789a/sources/444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+        "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e"
+      },
+      "origin_path": "artifacts/autoresearch/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+      "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e"
+    },
+    {
+      "bytes": 2156,
+      "frozen": {
+        "bytes": 2156,
+        "path": "artifacts/verification/stage789a/sources/f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe/stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+        "sha256": "f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe"
+      },
+      "origin_path": "artifacts/autoresearch/stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+      "sha256": "f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe"
+    },
+    {
+      "bytes": 6443,
+      "frozen": {
+        "bytes": 6443,
+        "path": "artifacts/verification/stage789a/sources/9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931/stage761a_live_ltu110_round22_264window_autoresearch.json",
+        "sha256": "9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931"
+      },
+      "origin_path": "artifacts/autoresearch/stage761a_live_ltu110_round22_264window_autoresearch.json",
+      "sha256": "9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931"
+    },
+    {
+      "bytes": 5677,
+      "frozen": {
+        "bytes": 5677,
+        "path": "artifacts/verification/stage789a/sources/711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7/build_stage774a_ltu_champion_v20_264window_zero_dhcp_kit.py",
+        "sha256": "711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7"
+      },
+      "origin_path": "tools/firmware/build_stage774a_ltu_champion_v20_264window_zero_dhcp_kit.py",
+      "sha256": "711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7"
+    },
+    {
+      "bytes": 9374,
+      "frozen": {
+        "bytes": 9374,
+        "path": "artifacts/verification/stage789a/sources/176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71/build_stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.py",
+        "sha256": "176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71"
+      },
+      "origin_path": "tools/firmware/build_stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.py",
+      "sha256": "176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71"
+    },
+    {
+      "bytes": 13677,
+      "frozen": {
+        "bytes": 13677,
+        "path": "artifacts/verification/stage789a/sources/72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247/run_stage761a_live_ltu110_round22_264window_autoresearch.py",
+        "sha256": "72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247"
+      },
+      "origin_path": "tools/bench/run_stage761a_live_ltu110_round22_264window_autoresearch.py",
+      "sha256": "72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247"
+    },
+    {
+      "bytes": 1328,
+      "frozen": {
+        "bytes": 1328,
+        "path": "artifacts/verification/stage789a/sources/395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
+        "sha256": "395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae"
+      },
+      "origin_path": "firmware/ltu_safe_kit/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
+      "sha256": "395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae"
+    },
+    {
+      "bytes": 2387,
+      "frozen": {
+        "bytes": 2387,
+        "path": "artifacts/verification/stage789a/sources/748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43/fmx_openwrt_lan_rogue_dhcp_and_ani_guard.sh",
+        "sha256": "748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43"
+      },
+      "origin_path": "firmware/openwrt/common/fmx_openwrt_lan_rogue_dhcp_and_ani_guard.sh",
+      "sha256": "748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43"
+    }
+  ],
+  "status": "QUALIFIED_OFFLINE_DHCP_EVIDENCE_LEDGER",
+  "task_id": "T-S789A-OFFLINE-RESEARCH"
+}

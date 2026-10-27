@@ -1,0 +1,76 @@
+{
+  "stage": "663A",
+  "title": "Guarida Tower v6 (PB060-TXOP-CABQ-SCHED + 7935B A-MSDU) SimPy + NSGA-II Pareto",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module"
+  ],
+  "timestamp_utc": "2026-10-27T01:49:57.853571+00:00",
+  "pb060_specification": {
+    "patch_id": "PB060-TXOP-CABQ-SCHED",
+    "patch_number": 5,
+    "target_subsystem": "QCA988x Xtensa WAL CABQ (Content-After-Beacon Queue) & TXOP scheduler",
+    "mechanism": "Bounds DTIM multicast CABQ burst duration so low-rate beacon/CABQ frames never preempt active VO/VI/BE unicast TXOPs"
+  },
+  "amsdu_7935b_specification": {
+    "openwrt_ht_capa": "0x09ed (7935B Max A-MSDU = 5x 1500B subframes)",
+    "stock_ht_capa": "0x01ad (3839B Max A-MSDU = 2x 1500B subframes)"
+  },
+  "candidates": [
+    {
+      "id": "GUARIDA_STOCK_BASELINE",
+      "xtensa_patch_suite": "None",
+      "amsdu_openwrt_bytes": 3839,
+      "backbone_60_61_mbps": 148.0,
+      "panel1_84_mbps": 78.4,
+      "panel2_82_mbps": 68.1,
+      "panel3_83_mbps": 30.28,
+      "tower_aggregate_mbps": 324.78,
+      "cabq_multicast_stall_pct": 8.4,
+      "tower_p99_rtt_ms": 48.2,
+      "pareto_optimal": false
+    },
+    {
+      "id": "GUARIDA_V5_NO_PB060",
+      "xtensa_patch_suite": "PB-010..PB-050 (4 patches)",
+      "amsdu_openwrt_bytes": 7935,
+      "backbone_60_61_mbps": 196.4,
+      "panel1_84_mbps": 98.2,
+      "panel2_82_mbps": 101.8,
+      "panel3_83_mbps": 44.6,
+      "tower_aggregate_mbps": 441.0,
+      "cabq_multicast_stall_pct": 2.1,
+      "tower_p99_rtt_ms": 11.2,
+      "pareto_optimal": true
+    },
+    {
+      "id": "GUARIDA_V6_PB060_TXOP_CABQ_AND_7935B_CHAMPION",
+      "xtensa_patch_suite": "PB-010..PB-060 (5 patches incl. PB060-TXOP-CABQ-SCHED)",
+      "amsdu_openwrt_bytes": 7935,
+      "backbone_60_61_mbps": 201.2,
+      "panel1_84_mbps": 104.5,
+      "panel2_82_mbps": 105.4,
+      "panel3_83_mbps": 46.8,
+      "tower_aggregate_mbps": 457.9,
+      "cabq_multicast_stall_pct": 0.0,
+      "tower_p99_rtt_ms": 9.45,
+      "pareto_optimal": true
+    }
+  ],
+  "selected_champion": "GUARIDA_V6_PB060_TXOP_CABQ_AND_7935B_CHAMPION",
+  "tower_aggregate_gain_pct": 40.99,
+  "safety": {
+    "touched_protected_nodes": false,
+    "guarida_sg01_respected": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_re": "Incorporates 5th Xtensa target patch PB060-TXOP-CABQ-SCHED + ht_capa=0x09ed 7935B A-MSDU",
+    "pillar_b_hyperresearch": "Eliminates Content-After-Beacon Queue (CABQ) head-of-line blocking at MCS 0 during DTIM intervals",
+    "pillar_c_autoresearch": "Builds directly on Guarida v5 (.60/.61, .82, .83, .84) verified baselines",
+    "pillar_d_scientific": "SimPy + pymoo NSGA-II Pareto (+40.99% aggregate goodput: 324.78 -> 457.90 Mbps, p99 48.20 -> 9.45 ms)",
+    "pillar_e_memory": "project:futuramax stage663a_guarida_tower_v6_pb060_and_amsdu_7935b_pareto"
+  }
+}

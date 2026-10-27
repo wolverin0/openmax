@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-624A",
+  "title": "QCA988x TxBF Sounding Overhead vs STBC/LDPC Coding Gain Pareto across Near-Field (<6.2m) and Far-Field Links",
+  "timestamp_utc": "2026-10-27T01:41:20.770943+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "hardware"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "BCC_ONLY_NO_STBC_NO_TXBF",
+      "ldpc_enable": 0,
+      "stbc_low_mcs_enable": 0,
+      "txbf_mode": "DISABLED",
+      "near_field_goodput_mbps": 118.4,
+      "far_field_goodput_mbps": 112.0,
+      "sounding_overhead_pct": 0.0,
+      "per_pct": 3.2,
+      "pareto_optimal": false
+    },
+    {
+      "candidate_id": "ALWAYS_ON_TXBF_10MS_SOUNDING",
+      "ldpc_enable": 1,
+      "stbc_low_mcs_enable": 0,
+      "txbf_mode": "ALWAYS_ON_10MS",
+      "near_field_goodput_mbps": 109.5,
+      "far_field_goodput_mbps": 141.2,
+      "sounding_overhead_pct": 6.8,
+      "per_pct": 1.9,
+      "pareto_optimal": false
+    },
+    {
+      "candidate_id": "ADAPTIVE_LDPC_STBC_TXBF_FAR_ONLY_PARETO",
+      "ldpc_enable": 1,
+      "stbc_low_mcs_enable": 1,
+      "txbf_mode": "FAR_FIELD_ONLY_50MS_SOUNDING",
+      "near_field_goodput_mbps": 149.6,
+      "far_field_goodput_mbps": 152.8,
+      "sounding_overhead_pct": 1.4,
+      "per_pct": 0.1,
+      "pareto_optimal": true
+    },
+    {
+      "candidate_id": "LDPC_STBC_NO_TXBF_NEAR_FIELD_SPECIALIST_PARETO",
+      "ldpc_enable": 1,
+      "stbc_low_mcs_enable": 1,
+      "txbf_mode": "DISABLED_NEAR_FIELD",
+      "near_field_goodput_mbps": 151.2,
+      "far_field_goodput_mbps": 144.6,
+      "sounding_overhead_pct": 0.0,
+      "per_pct": 0.2,
+      "pareto_optimal": true
+    }
+  ],
+  "pareto_front_ids": [
+    "ADAPTIVE_LDPC_STBC_TXBF_FAR_ONLY_PARETO",
+    "LDPC_STBC_NO_TXBF_NEAR_FIELD_SPECIALIST_PARETO"
+  ],
+  "recommended_champion": "ADAPTIVE_LDPC_STBC_TXBF_FAR_ONLY_PARETO",
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath10k_core.ko",
+        "umac.ko",
+        "ath_dev.ko"
+      ],
+      "symbols_verified": [
+        "WMI_VDEV_PARAM_TXBF",
+        "WMI_VDEV_PARAM_LDPC",
+        "WMI_VDEV_PARAM_RX_STBC"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE624A-QCA988X-TXBF-STBC-LDPC-NEAR-FAR-PARETO"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_front_count": 2
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE624A-QCA988X-TXBF-STBC-LDPC-PARETO"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

@@ -1,0 +1,315 @@
+{
+  "stage": "532A",
+  "task_id": "T-S532A-ATHBOX-VS-UMAC-SCN-STATS-ALIASING-MAP",
+  "generated_at": "2026-10-26T22:20:30-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware"
+  ],
+  "writes_performed": 0,
+  "binaries_verified": {
+    "wa_umac_ko": "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+    "xc_umac_ko": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/lib/modules/2.6.32.68/umac.ko",
+    "wa_athbox": "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/bin/athbox",
+    "xc_athbox": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/bin/athbox",
+    "wa_vs_xc_scn_stats_layout_identical": true
+  },
+  "user_buf_memory_map_0x0310_bytes": {
+    "0x0000..0x020f": "struct wal_dbg_stats (528 B copied by ol_get_wal_dbg_stats @ 0x0bcd30)",
+    "0x0210..0x02ef": "struct ol_ath_radiostats scn->scn_stats (224 B at scn+0x1e170..0x1e24f copied by ol_get_radio_stats @ 0x0b5e20)",
+    "0x02f0..0x030f": "struct aggr_stats (32 B at sp+0x1540..0x155f)"
+  },
+  "summary_counts": {
+    "total_mapped_fields": 25,
+    "genuine_counters": 19,
+    "struct_aliased_or_composite_counters": 3,
+    "unpopulated_always_zero_counters": 3
+  },
+  "scn_stats_field_map": [
+    {
+      "athstats_field": "ast_be_xmit",
+      "athbox_va": "0x00401ea0..0x00401eb4",
+      "athbox_sp_offset": "0x1460..0x1464",
+      "user_buf_offset": "0x0210..0x0214",
+      "scn_stats_offset": "0x0000..0x0004",
+      "scn_offset": "0x1e170..0x1e174",
+      "umac_writer": "ol_get_radio_stats (0x0b5da0..0x0b5e00)",
+      "classification": "GENUINE_HOST_VAP_COUNTER",
+      "semantics": "64-bit sum of VAP data TX packets across active netdevs."
+    },
+    {
+      "athstats_field": "ast_be_nobuf",
+      "athbox_va": "0x00401ec0..0x00401ecc",
+      "athbox_sp_offset": "0x1468",
+      "user_buf_offset": "0x0218",
+      "scn_stats_offset": "0x0008",
+      "scn_offset": "0x1e178",
+      "umac_writer": "ath_attach+0xc0 (0x01c3bc, zeroed on attach)",
+      "classification": "UNPOPULATED_ON_OFFLOAD",
+      "semantics": "Always 0 on QCA988x Offload (wifi0); real ring-full counter is at wal_dbg_stats+0x0150."
+    },
+    {
+      "athstats_field": "ast_tx_buf_count",
+      "athbox_va": "0x00401ed8..0x00401ee4",
+      "athbox_sp_offset": "0x146c",
+      "user_buf_offset": "0x021c",
+      "scn_stats_offset": "0x000c",
+      "scn_offset": "0x1e17c",
+      "umac_writer": "ol_get_radio_stats+0x24 (0x0b5e44: sw $v0, -0x1e84($a0))",
+      "classification": "GENUINE_HOST_DESC_COUNTER",
+      "semantics": "Current host TX descriptor pool allocation count."
+    },
+    {
+      "athstats_field": "ast_tx_packets",
+      "athbox_va": "0x00401eec..0x00401f00",
+      "athbox_sp_offset": "0x1478 + 0x147c",
+      "user_buf_offset": "0x0228 + 0x022c",
+      "scn_stats_offset": "0x0018 + 0x001c",
+      "scn_offset": "0x1e188 + 0x1e18c",
+      "umac_writer": "process_tx_stats+0x7c..0x9c (0x0b57cc..0x0b57ec) + ol_get_radio_stats (0x0bcd68)",
+      "classification": "COMPOSITE_SUM_WITH_ALIASED_MGMT",
+      "semantics": "Adds WDI TX data packets (0x147c) + ast_tx_mgmt (0x1478, which aliases wal_dbg_stats.tx.local_enqued)."
+    },
+    {
+      "athstats_field": "ast_rx_packets",
+      "athbox_va": "0x00401f08..0x00401f14",
+      "athbox_sp_offset": "0x1474",
+      "user_buf_offset": "0x0224",
+      "scn_stats_offset": "0x0014",
+      "scn_offset": "0x1e184",
+      "umac_writer": "process_rx_stats+0x6b8..0x974 (0x0b541c..0x0b56d8: lw/sw -0x1e7c($fp))",
+      "classification": "GENUINE_WDI_COUNTER",
+      "semantics": "Total WDI RX packets (data + mgmt + ctl)."
+    },
+    {
+      "athstats_field": "ast_tx_mgmt",
+      "athbox_va": "0x00401f1c..0x00401f28",
+      "athbox_sp_offset": "0x1478",
+      "user_buf_offset": "0x0228",
+      "scn_stats_offset": "0x0018",
+      "scn_offset": "0x1e188",
+      "umac_writer": "ol_get_radio_stats (0x0bcd68: copies wal_dbg_stats.tx.local_enqued)",
+      "classification": "STRUCT_ALIAS_TARGET_LOCAL_ENQUED",
+      "semantics": "Overwritten 1:1 from wal_dbg_stats.tx.local_enqued (counts target-generated TDMA polls/BARs/nulls, FMX-DISC-46)."
+    },
+    {
+      "athstats_field": "ast_tx_nobuf",
+      "athbox_va": "0x00401f30..0x00401f3c",
+      "athbox_sp_offset": "0x13a0",
+      "user_buf_offset": "0x0150",
+      "scn_stats_offset": "N/A (wal_dbg_stats+0x0150)",
+      "scn_offset": "N/A",
+      "umac_writer": "ol_get_wal_dbg_stats (0x0bcd30)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Target WAL TX ring-full drop counter."
+    },
+    {
+      "athstats_field": "ast_tx_xretries",
+      "athbox_va": "0x00401f44..0x00401f50",
+      "athbox_sp_offset": "0x13c0",
+      "user_buf_offset": "0x0170",
+      "scn_stats_offset": "N/A (wal_dbg_stats+0x0170)",
+      "scn_offset": "N/A",
+      "umac_writer": "ol_get_wal_dbg_stats (0x0bcd30)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Target WAL excess_retries (MPDUs dropped after exhausting swr_limit)."
+    },
+    {
+      "athstats_field": "ast_rx_num_data",
+      "athbox_va": "0x00401f58..0x00401f64",
+      "athbox_sp_offset": "0x1480",
+      "user_buf_offset": "0x0230",
+      "scn_stats_offset": "0x0020",
+      "scn_offset": "0x1e190",
+      "umac_writer": "process_rx_stats+0x6c8..0x6d8 (0x0b542c..0x0b543c: lw/sw -0x1e70($fp))",
+      "classification": "GENUINE_WDI_COUNTER",
+      "semantics": "Total WDI RX data MPDUs."
+    },
+    {
+      "athstats_field": "ast_rx_num_mgmt",
+      "athbox_va": "0x00401f6c..0x00401f78",
+      "athbox_sp_offset": "0x1488",
+      "user_buf_offset": "0x0238",
+      "scn_stats_offset": "0x0028",
+      "scn_offset": "0x1e198",
+      "umac_writer": "process_rx_stats+0x9ac..0x9b8 (0x0b5710..0x0b571c: lw/sw -0x1e68($fp))",
+      "classification": "GENUINE_WDI_COUNTER",
+      "semantics": "Total WDI RX management frames."
+    },
+    {
+      "athstats_field": "ast_rx_num_ctl",
+      "athbox_va": "0x00401f80..0x00401f8c",
+      "athbox_sp_offset": "0x148c",
+      "user_buf_offset": "0x023c",
+      "scn_stats_offset": "0x002c",
+      "scn_offset": "0x1e19c",
+      "umac_writer": "process_rx_stats+0x98c..0x994 (0x0b56f0..0x0b56f8: lw/sw -0x1e64($v1))",
+      "classification": "GENUINE_WDI_COUNTER",
+      "semantics": "Total WDI RX control frames."
+    },
+    {
+      "athstats_field": "ast_tx_rssi",
+      "athbox_va": "0x00401f94..0x00401fa0",
+      "athbox_sp_offset": "0x1490",
+      "user_buf_offset": "0x0240",
+      "scn_stats_offset": "0x0030",
+      "scn_offset": "0x1e1a0",
+      "umac_writer": "ol_get_radio_stats (0x0b5df4)",
+      "classification": "GENUINE_WMI_STAT",
+      "semantics": "Last ACK RSSI reported via WMI stats."
+    },
+    {
+      "athstats_field": "ast_rx_rssi_comb_and_chains",
+      "athbox_va": "0x00401fa8..0x004020d0",
+      "athbox_sp_offset": "0x14e4..0x14f7",
+      "user_buf_offset": "0x0294..0x02a7",
+      "scn_stats_offset": "0x0084..0x0097",
+      "scn_offset": "0x1e1f4..0x1e207",
+      "umac_writer": "process_rx_stats+0x78..0xf0 (0x0b4ddc..0x0b4e54: sb -0x1e08..-0x1df9($s0))",
+      "classification": "GENUINE_WDI_PPDU_RSSI",
+      "semantics": "Combined and per-chain pri20/sec20/sec40/sec80 RSSI from htt_rx_desc->ppdu_start."
+    },
+    {
+      "athstats_field": "ast_rx_bytes",
+      "athbox_va": "0x004020d4..0x004020e0",
+      "athbox_sp_offset": "0x14f8",
+      "user_buf_offset": "0x02a8",
+      "scn_stats_offset": "0x0098",
+      "scn_offset": "0x1e208",
+      "umac_writer": "process_rx_stats+0x6cc..0x970 (0x0b5430..0x0b56d4: lw/sw -0x1df8($fp))",
+      "classification": "GENUINE_WDI_COUNTER_32BIT",
+      "semantics": "32-bit wrapping WDI RX byte counter."
+    },
+    {
+      "athstats_field": "ast_tx_bytes",
+      "athbox_va": "0x004020e8..0x004020f4",
+      "athbox_sp_offset": "0x14fc",
+      "user_buf_offset": "0x02ac",
+      "scn_stats_offset": "0x009c",
+      "scn_offset": "0x1e20c",
+      "umac_writer": "process_tx_stats+0x80..0xa0 (0x0b57d0..0x0b57f0: lw/sw -0x1df4($v0))",
+      "classification": "GENUINE_WDI_COUNTER_32BIT",
+      "semantics": "32-bit wrapping WDI TX byte counter."
+    },
+    {
+      "athstats_field": "tx_compaggr",
+      "athbox_va": "0x004020fc..0x00402108",
+      "athbox_sp_offset": "0x1500",
+      "user_buf_offset": "0x02b0",
+      "scn_stats_offset": "0x00a0",
+      "scn_offset": "0x1e210",
+      "umac_writer": "ol_get_radio_stats (0x0bcda0: copies wal_dbg_stats.tx.comp_aggr)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Completed A-MPDU aggregates."
+    },
+    {
+      "athstats_field": "rx_aggr",
+      "athbox_va": "0x00402110..0x0040211c",
+      "athbox_sp_offset": "0x1504",
+      "user_buf_offset": "0x02b4",
+      "scn_stats_offset": "0x00a4",
+      "scn_offset": "0x1e214",
+      "umac_writer": "process_rx_stats+0x6f8 (0x0b545c: sw $a0, -0x1dec($fp))",
+      "classification": "GENUINE_WDI_COUNTER",
+      "semantics": "WDI RX aggregated MPDU count."
+    },
+    {
+      "athstats_field": "tx_bawadv",
+      "athbox_va": "0x0040214c..0x00402158",
+      "athbox_sp_offset": "0x1508",
+      "user_buf_offset": "0x02b8",
+      "scn_stats_offset": "0x00a8",
+      "scn_offset": "0x1e218",
+      "umac_writer": "NONE (unreferenced in umac.ko)",
+      "classification": "UNPOPULATED_ON_OFFLOAD",
+      "semantics": "Always 0 on QCA988x Offload (BAW tracking happens inside target WAL)."
+    },
+    {
+      "athstats_field": "tx_compunaggr",
+      "athbox_va": "0x00402160..0x0040216c",
+      "athbox_sp_offset": "0x150c",
+      "user_buf_offset": "0x02bc",
+      "scn_stats_offset": "0x00ac",
+      "scn_offset": "0x1e21c",
+      "umac_writer": "ol_get_radio_stats (0x0bcda8: copies wal_dbg_stats.tx.comp_unaggr)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Completed unaggregated singleton MPDUs."
+    },
+    {
+      "athstats_field": "ast_rxorn",
+      "athbox_va": "0x00402174..0x00402180",
+      "athbox_sp_offset": "0x1510",
+      "user_buf_offset": "0x02c0",
+      "scn_stats_offset": "0x00b0",
+      "scn_offset": "0x1e220",
+      "umac_writer": "process_rx_stats+0x2e0..0x308 (0x0b5044..0x0b506c: lw/sw $v0, -0x1de0($fp) on htt_rx_desc->attention.flags & 0x0d)",
+      "classification": "CRITICAL_STRUCT_OFFSET_ALIAS_NORMAL_PPDU_COUNT",
+      "semantics": "Incremented whenever htt_rx_desc->attention.flags & 0x0d != 0 (BIT(0)=first_mpdu | BIT(2)=mcast_bcast | BIT(3)=more_data); tracks 94.3%..97.2% of normal RX PPDUs (230.72M on .61), NOT RX FIFO overrun (FMX-DISC-47)!"
+    },
+    {
+      "athstats_field": "ast_txurn",
+      "athbox_va": "0x00402188..0x00402194",
+      "athbox_sp_offset": "0x13b4",
+      "user_buf_offset": "0x0164",
+      "scn_stats_offset": "N/A (wal_dbg_stats+0x0164)",
+      "scn_offset": "N/A",
+      "umac_writer": "ol_get_wal_dbg_stats (0x0bcd30)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Target WAL TX FIFO underrun counter."
+    },
+    {
+      "athstats_field": "ast_txto",
+      "athbox_va": "0x0040219c..0x004021a8",
+      "athbox_sp_offset": "0x13d8",
+      "user_buf_offset": "0x0188",
+      "scn_stats_offset": "N/A (wal_dbg_stats+0x0188)",
+      "scn_offset": "N/A",
+      "umac_writer": "ol_get_wal_dbg_stats (0x0bcd30)",
+      "classification": "GENUINE_TARGET_WAL_COUNTER",
+      "semantics": "Target WAL PDEV TX timeout counter."
+    },
+    {
+      "athstats_field": "ast_mib",
+      "athbox_va": "0x004021b0..0x004021bc",
+      "athbox_sp_offset": "0x1538",
+      "user_buf_offset": "0x02e8",
+      "scn_stats_offset": "0x00d8",
+      "scn_offset": "0x1e248",
+      "umac_writer": "NONE (unreferenced in umac.ko)",
+      "classification": "UNPOPULATED_ON_OFFLOAD",
+      "semantics": "Always 0 on QCA988x Offload."
+    },
+    {
+      "athstats_field": "ast_rx_badcrypt",
+      "athbox_va": "0x004021c4..0x004021d0",
+      "athbox_sp_offset": "0x1514",
+      "user_buf_offset": "0x02c4",
+      "scn_stats_offset": "0x00b4",
+      "scn_offset": "0x1e224",
+      "umac_writer": "process_rx_stats+0x8ec..0x8f8 (0x0b5650..0x0b565c: lw/sw -0x1ddc($s0))",
+      "classification": "GENUINE_WDI_RX_ERR",
+      "semantics": "CCMP/TKIP decryption failure count."
+    },
+    {
+      "athstats_field": "ast_rx_badmic",
+      "athbox_va": "0x004021d8..0x004021e4",
+      "athbox_sp_offset": "0x1518",
+      "user_buf_offset": "0x02c8",
+      "scn_stats_offset": "0x00b8",
+      "scn_offset": "0x1e228",
+      "umac_writer": "process_rx_stats+0x7f4..0x800 (0x0b5558..0x0b5564: lw/sw -0x1dd8($s0))",
+      "classification": "GENUINE_WDI_RX_ERR",
+      "semantics": "Michael/CCMP MIC failure count."
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Maps all 25 scn_stats/wal_dbg_stats fields in bin/athbox (0x00401e80..0x004023f0) to their exact scn+0x1e170..0x1e24f offsets and umac.ko writer instructions across WA and XC.",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Proves why athstats without -ol (FMX-DISC-44) and ast_rxorn / ast_tx_mgmt with -ol (FMX-DISC-46/47) mislead WISP operators unless decoded via the exact kernel struct layout.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% static ELF + Capstone MIPS32R2 binary audit (0 writes).",
+    "pillar_d_scientific_pareto_validation": "Classifies all 25 fields into 19 genuine counters, 3 aliased/composite fields, and 3 unpopulated fields.",
+    "pillar_e_memory_master_claim_id": "mm-stage532a-athbox-vs-umac-scn-stats-aliasing-map-v1"
+  }
+}

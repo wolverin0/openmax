@@ -1,0 +1,128 @@
+{
+  "stage": "818A",
+  "status": "CONFIRMED",
+  "execution_mode": "OFFLINE_PACKAGING",
+  "claim_scope": "saved RE provenance and DHCP policy model only",
+  "attribution": [
+    "Linux",
+    "proprietary airMAX/LTU module",
+    "external controller"
+  ],
+  "source_evidence": [
+    {
+      "path": "artifacts/autoresearch/stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re.json",
+      "sha256": "e22ea134ca6cfbf88c4c171e2666bdfb8a7e43e3426af5093f17d694822fc676",
+      "bytes": 16253,
+      "producer_executed": false
+    },
+    {
+      "path": "artifacts/autoresearch/stage546a_ltu_tx_power_lut_dpd_and_super4096_helper.json",
+      "sha256": "6cd3abed4ce44e0de557b4d9bf9b26b088b291480e9e078b66d1e65039011cfd",
+      "bytes": 2899,
+      "producer_executed": false
+    }
+  ],
+  "missing_inputs": [],
+  "module_provenance": [
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_core.ko",
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "recorded_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "matches_saved_re": true
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_dev.ko",
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "recorded_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "matches_saved_re": true
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/aflturocket_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_core.ko",
+      "sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "recorded_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "matches_saved_re": true
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/aflturocket_2.4.2/rootfs_extracted/lib/modules/3.14.65/ame_dev.ko",
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "recorded_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "matches_saved_re": true
+    }
+  ],
+  "helper_script": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+  "helper_sha256": "df958c884bf7878f5906a0e272451b40e63f9de3bc840a86b8070459d40426f0",
+  "package_files": [
+    {
+      "path": "artifacts/autoresearch/kits/stage818a/fmx_ltu_4096qam_12x_safe_kit.sh",
+      "sha256": "df958c884bf7878f5906a0e272451b40e63f9de3bc840a86b8070459d40426f0",
+      "bytes": 5501
+    },
+    {
+      "path": "artifacts/autoresearch/kits/stage818a/SHA256SUMS",
+      "sha256": "ea9bf11adae16dfa93710b8fda5be29666664de17d4e137b380ffcb46d243821",
+      "bytes": 346
+    },
+    {
+      "path": "artifacts/autoresearch/kits/stage818a/stage546a_ltu_tx_power_lut_dpd_and_super4096_helper.json",
+      "sha256": "6cd3abed4ce44e0de557b4d9bf9b26b088b291480e9e078b66d1e65039011cfd",
+      "bytes": 2899
+    },
+    {
+      "path": "artifacts/autoresearch/kits/stage818a/stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re.json",
+      "sha256": "e22ea134ca6cfbf88c4c171e2666bdfb8a7e43e3426af5093f17d694822fc676",
+      "bytes": 16253
+    }
+  ],
+  "ltu_features": {
+    "qam4096_12x": "saved static symbol/table evidence",
+    "ldpc": "saved static evidence",
+    "super4096": "saved static symbols; activation UNKNOWN",
+    "modulation_unlocked": false
+  },
+  "rogue_dhcp_remediation": {
+    "interface": "br1",
+    "fallback_ip": "192.168.1.20",
+    "policy": "proposed OUTPUT/FORWARD UDP 67->68 and 547->546 drop on br1 only",
+    "policy_model_verified": true,
+    "unrelated_dhcp_preserved_in_model": true,
+    "rogue_leases_emitted": null,
+    "zero_rogue_dhcp_verified": false,
+    "runtime_acceptance": "UNKNOWN",
+    "apply_available": true,
+    "apply_executed": false,
+    "persistence_verified": false,
+    "apply_guard": "uid0, explicit confirmation, exact br1 address, known backend, own-chain readback and rollback"
+  },
+  "boundary": {
+    "network_access": false,
+    "live_devices_touched": false,
+    "dev_ame_touched": false,
+    "target_commands_executed": false,
+    "protected_partitions_modified": false,
+    "physical_acceptance": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "CONFIRMED",
+      "scope": "local byte provenance only"
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "UNKNOWN",
+      "scope": "offline; no new scholar/research claim"
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "CONFIRMED",
+      "scope": "offline only; A1 B1 A2 B2 and 45s/120s watchdog required before activation"
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "CONFIRMED",
+      "scope": "byte invariants only; no performance inference"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "UNKNOWN",
+      "scope": "project:futuramax",
+      "local_ledger_key": "stage818a",
+      "ingested": false
+    }
+  }
+}

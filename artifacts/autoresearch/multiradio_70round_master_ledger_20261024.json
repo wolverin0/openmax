@@ -1,0 +1,1558 @@
+{
+  "experiment_id": "FMX-STAGE12-MULTIRADIO-70ROUND-MASTER-LEDGER",
+  "timestamp_utc": "2026-10-24T23:38:18Z",
+  "total_paired_rounds": 70,
+  "total_sub_phases_ab_ab": 280,
+  "total_kept": 36,
+  "total_rejected": 34,
+  "kept_round_ids": [
+    "AF4X-R1",
+    "AF4X-R2",
+    "AF4X-R3",
+    "AF4X-R5",
+    "R2AC-R4",
+    "R2AC-R7",
+    "R2AC-R8",
+    "PBM5-R2",
+    "PBM5-R4",
+    "R5AC-R7",
+    "R5AC-R8",
+    "LTU-R2",
+    "LTU-R4",
+    "PBM5-R9",
+    "PBM5-R10",
+    "PBM5-R13",
+    "AF4X-R7",
+    "AF4X-R10",
+    "AF4X-R11",
+    "AF4X-R12",
+    "R5AC-R9",
+    "R5AC-R10",
+    "R2AC-R10",
+    "R2AC-R12",
+    "R2AC-R13",
+    "LTU-R9",
+    "LTU-R10",
+    "LTU-R11",
+    "R2AC-R15",
+    "R2AC-R16",
+    "R2AC-R17",
+    "LTU-R14",
+    "PBM5-R15",
+    "PBM5-R16",
+    "AF4X-R13",
+    "AF4X-R14"
+  ],
+  "rejected_round_ids": [
+    "AF4X-R4",
+    "AF4X-R6",
+    "R2AC-R1",
+    "R2AC-R2",
+    "R2AC-R3",
+    "R2AC-R5",
+    "R2AC-R6",
+    "PBM5-R1",
+    "PBM5-R3",
+    "PBM5-R5",
+    "R5AC-R6",
+    "LTU-R1",
+    "LTU-R3",
+    "LTU-R5",
+    "LTU-R6",
+    "PBM5-R11",
+    "PBM5-R12",
+    "PBM5-R14",
+    "AF4X-R8",
+    "AF4X-R9",
+    "R5AC-R11",
+    "R5AC-R12",
+    "R5AC-R13",
+    "R5AC-R14",
+    "R2AC-R9",
+    "R2AC-R11",
+    "R2AC-R14",
+    "LTU-R7",
+    "LTU-R8",
+    "LTU-R12",
+    "LTU-R13",
+    "LTU-R15",
+    "PBM5-R17",
+    "AF4X-R15"
+  ],
+  "safety_attestation": {
+    "ram_only": true,
+    "cfgmtd_flash_writes": 0,
+    "production_guarida_10_10_100_84_touched": false,
+    "bench_runner_192_168_200_x_touched": false
+  },
+  "by_device_summary": {
+    "af4x_invictus": {
+      "total_rounds": 15,
+      "sub_phases": 60,
+      "kept_count": 10,
+      "rejected_count": 5,
+      "kept_round_ids": [
+        "AF4X-R1",
+        "AF4X-R2",
+        "AF4X-R3",
+        "AF4X-R5",
+        "AF4X-R7",
+        "AF4X-R10",
+        "AF4X-R11",
+        "AF4X-R12",
+        "AF4X-R13",
+        "AF4X-R14"
+      ],
+      "rejected_round_ids": [
+        "AF4X-R4",
+        "AF4X-R6",
+        "AF4X-R8",
+        "AF4X-R9",
+        "AF4X-R15"
+      ],
+      "golden_apply_script": "ifconfig eth0 txqueuelen 256 && ifconfig air0 txqueuelen 256 && sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=2000 net.ipv4.tcp_low_latency=1 >/dev/null && af set stricttiming on >/dev/null 2>&1 && af set framelength 2.5ms >/dev/null 2>&1 && af set flowcntl on >/dev/null 2>&1 && af set dpcntl off >/dev/null 2>&1 && af set cpsel disabled >/dev/null 2>&1 && af set cp 8 >/dev/null 2>&1 && af set shortcp on >/dev/null 2>&1 && af set ber 5 >/dev/null 2>&1",
+      "golden_rollback_script": "ifconfig eth0 txqueuelen 1000 && ifconfig air0 txqueuelen 1000 && sysctl -w net.core.rmem_max=110592 net.core.wmem_max=110592 net.core.netdev_max_backlog=1000 net.ipv4.tcp_low_latency=0 >/dev/null && af set stricttiming off >/dev/null 2>&1 && af set framelength 2.0ms >/dev/null 2>&1 && af set flowcntl off >/dev/null 2>&1 && af set dpcntl on >/dev/null 2>&1 && af set cpsel enabled >/dev/null 2>&1 && af set cp 24 >/dev/null 2>&1 && af set shortcp off >/dev/null 2>&1 && af set ber 6 >/dev/null 2>&1",
+      "golden_verify_script": "cat /sys/class/net/eth0/tx_queue_len && sysctl net.ipv4.tcp_low_latency && af get stricttiming && af get framelength && af get flowcntl && af get dpcntl && af get cpsel && af get cp",
+      "key_findings_summary": "framelength=2.5ms reduces 500Hz->400Hz TDD frame interrupt cadence on the 124 BogoMIPS AM1808 CPU (-16.1% p95 RTT, +15.3% SSH stream); flowcntl=on (+13.6% throughput) and cp=8 with stricttiming=on cut cumulative p95 tail latency by -22.8% (33.25 -> 25.68 ms)."
+    },
+    "ltu_lite_amesoc": {
+      "total_rounds": 15,
+      "sub_phases": 60,
+      "kept_count": 6,
+      "rejected_count": 9,
+      "kept_round_ids": [
+        "LTU-R2",
+        "LTU-R4",
+        "LTU-R9",
+        "LTU-R10",
+        "LTU-R11",
+        "LTU-R14"
+      ],
+      "rejected_round_ids": [
+        "LTU-R1",
+        "LTU-R3",
+        "LTU-R5",
+        "LTU-R6",
+        "LTU-R7",
+        "LTU-R8",
+        "LTU-R12",
+        "LTU-R13",
+        "LTU-R15"
+      ],
+      "golden_apply_script": "sysctl -w net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 >/dev/null && ifconfig eth0 txqueuelen 256 && ifconfig ath0 txqueuelen 256 && echo 8 > /sys/module/ame_core/parameters/sched_max_agg_cnt && echo 0 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable && echo 1 > /sys/module/ame_core/parameters/multi_ack_enable && echo 0 > /sys/module/ame_core/parameters/send_ctrl_in_data && tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn",
+      "golden_rollback_script": "sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=1000 >/dev/null && ifconfig eth0 txqueuelen 1000 && ifconfig ath0 txqueuelen 1000 && echo 5 > /sys/module/ame_core/parameters/sched_max_agg_cnt && echo 1 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable && echo 1 > /sys/module/ame_core/parameters/multi_ack_enable && echo 1 > /sys/module/ame_core/parameters/send_ctrl_in_data && tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn",
+      "golden_verify_script": "cat /sys/module/ame_core/parameters/sched_max_agg_cnt && cat /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable && tc qdisc show dev ath0",
+      "key_findings_summary": "Raising ame_core sched_max_agg_cnt from 5 to 8 eliminated background scan/scheduler tail spikes (-88.5% p95 RTT); full-MTU fq_codel quantum=1514 target=2.5ms on ath0 root cut tail latency by -45.8%, whereas replacing eth0's 8 hardware mq leaves caused transient queueing spikes (LTU-R13 REJECT)."
+    },
+    "r2ac_prism_ap": {
+      "total_rounds": 17,
+      "sub_phases": 68,
+      "kept_count": 9,
+      "rejected_count": 8,
+      "kept_round_ids": [
+        "R2AC-R4",
+        "R2AC-R7",
+        "R2AC-R8",
+        "R2AC-R10",
+        "R2AC-R12",
+        "R2AC-R13",
+        "R2AC-R15",
+        "R2AC-R16",
+        "R2AC-R17"
+      ],
+      "rejected_round_ids": [
+        "R2AC-R1",
+        "R2AC-R2",
+        "R2AC-R3",
+        "R2AC-R5",
+        "R2AC-R6",
+        "R2AC-R9",
+        "R2AC-R11",
+        "R2AC-R14"
+      ],
+      "golden_apply_script": "iwpriv wifi0 ani_enable 1 && echo 0 > /proc/sys/dev/uph_wifi0/daprot && echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit && iwpriv wifi0 nonaggr_swretry 4 && iwpriv wifi0 aggr_swretry 6 && iwpriv ath0 shpreamble 1 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3 && ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && sysctl -w net.ipv4.tcp_low_latency=1 net.core.netdev_budget=600 net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 >/dev/null",
+      "golden_rollback_script": "iwpriv wifi0 ani_enable 1 && echo 0 > /proc/sys/dev/uph_wifi0/daprot && echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit && iwpriv wifi0 nonaggr_swretry 8 && iwpriv wifi0 aggr_swretry 8 && iwpriv ath0 shpreamble 0 && iwpriv wifi0 txchainmask 3 && iwpriv wifi0 rxchainmask 3 && ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && sysctl -w net.ipv4.tcp_low_latency=0 net.core.netdev_budget=300 net.core.rmem_max=131071 net.core.wmem_max=131071 net.core.netdev_max_backlog=1000 >/dev/null",
+      "golden_verify_script": "iwpriv wifi0 get_ani_enable && cat /proc/sys/dev/uph_wifi0/ptp_xmit && iwpriv ath0 get_shpreamble && cat /sys/class/net/ath0/tx_queue_len",
+      "key_findings_summary": "In 2.4 GHz AP mode on a fixed channel (2412 MHz), in-band noise passes through the 20 MHz AirPrism passband so ani_enable=1 MUST remain enabled; combining ani_enable=1 with shpreamble=1 (-54.3% p50), ptp_xmit=1, swretry=4/6, and txqueuelen=256 achieves sub-2ms p50 RTT."
+    },
+    "r5ac_prism_sta": {
+      "total_rounds": 9,
+      "sub_phases": 36,
+      "kept_count": 4,
+      "rejected_count": 5,
+      "kept_round_ids": [
+        "R5AC-R7",
+        "R5AC-R8",
+        "R5AC-R9",
+        "R5AC-R10"
+      ],
+      "rejected_round_ids": [
+        "R5AC-R6",
+        "R5AC-R11",
+        "R5AC-R12",
+        "R5AC-R13",
+        "R5AC-R14"
+      ],
+      "golden_apply_script": "ifconfig airview1 down && iwpriv wifi0 ani_enable 0 && iwpriv wifi0 nonaggr_swretry 4 && iwpriv wifi0 aggr_swretry 6 && ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && sysctl -w net.ipv4.tcp_low_latency=1 net.core.rmem_max=524288 net.core.wmem_max=524288 >/dev/null",
+      "golden_rollback_script": "ifconfig airview1 up && iwpriv wifi0 ani_enable 1 && iwpriv wifi0 nonaggr_swretry 8 && iwpriv wifi0 aggr_swretry 8 && ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && sysctl -w net.ipv4.tcp_low_latency=0 net.core.rmem_max=131071 net.core.wmem_max=131071 >/dev/null",
+      "golden_verify_script": "iwpriv wifi0 get_ani_enable && cat /sys/class/net/ath0/tx_queue_len && sysctl net.ipv4.tcp_low_latency",
+      "key_findings_summary": "Under 5 GHz co-location (5180/5805 MHz) with hardware AirPrism blanking (IRQ 64 at 35-80/s), quiescing airview1 down (without SIGSTOP on ubntspecd), disabling software ANI register polling during multi-channel scan (-60.5% p50), and bounding swretry=4/6 (-67.9% p50) cuts latency to 1.81 ms."
+    },
+    "pbm5_xw_weak_ota": {
+      "total_rounds": 14,
+      "sub_phases": 56,
+      "kept_count": 7,
+      "rejected_count": 7,
+      "kept_round_ids": [
+        "PBM5-R2",
+        "PBM5-R4",
+        "PBM5-R9",
+        "PBM5-R10",
+        "PBM5-R13",
+        "PBM5-R15",
+        "PBM5-R16"
+      ],
+      "rejected_round_ids": [
+        "PBM5-R1",
+        "PBM5-R3",
+        "PBM5-R5",
+        "PBM5-R11",
+        "PBM5-R12",
+        "PBM5-R14",
+        "PBM5-R17"
+      ],
+      "golden_apply_script": "iwpriv wifi0 AMPDUFrames 16 && iwpriv wifi0 AMPDULim 16384 && iwpriv wifi0 distance 150 && echo '15 5' > /proc/sys/dev/ubnt_poll/txop_params && echo 1 > /proc/sys/dev/ubnt_poll/no_ack_rate && iwpriv ath0 protmode 1 && iwpriv ath0 shpreamble 1 && ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.ipv4.tcp_low_latency=1 >/dev/null",
+      "golden_rollback_script": "iwpriv wifi0 AMPDUFrames 32 && iwpriv wifi0 AMPDULim 50000 && iwpriv wifi0 distance 600 && echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate && iwpriv ath0 protmode 0 && iwpriv ath0 shpreamble 0 && ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && sysctl -w net.core.rmem_max=131071 net.core.wmem_max=131071 net.ipv4.tcp_low_latency=0 >/dev/null",
+      "golden_verify_script": "iwpriv wifi0 getAMPDUFrames && iwpriv wifi0 getAMPDULim && iwpriv wifi0 get_distance && cat /proc/sys/dev/ubnt_poll/txop_params && cat /proc/sys/dev/ubnt_poll/no_ack_rate && iwpriv ath0 get_protmode && iwpriv ath0 get_shpreamble",
+      "key_findings_summary": "On a weak -80 dBm 5.805 GHz link with 6 dB chain imbalance (chainrssi=[9, 15]), right-sizing A-MPDU (AMPDUFrames=16, AMPDULim=16384) lifted CCQ from 58% to 94% (-76.3% p95 OTA RTT), while distance=150, txop_params='15 5', and protmode=1 lifted CCQ to 95.5% and AirMAX Quality to 56%."
+    }
+  },
+  "wave5_holdout_rounds": {
+    "r2ac_wave5": [
+      {
+        "round_id": "R2AC-R15",
+        "knob": "uph_wifi0/fixed_frame (Fixed-Frame TDD Mode 1 vs Flexible 0)",
+        "baseline_val": "0",
+        "candidate_val": "1",
+        "apply_cmd": "echo 1 > /proc/sys/dev/uph_wifi0/fixed_frame",
+        "revert_cmd": "echo 0 > /proc/sys/dev/uph_wifi0/fixed_frame",
+        "verify_cmd": "cat /proc/sys/dev/uph_wifi0/fixed_frame",
+        "hypothesis": "Testing fixed_frame=1 vs 0 in ubnt_poll_host on 2.4 GHz Rocket 2AC Prism AP.",
+        "verified_apply_state": "1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0",
+        "final_restored_or_kept_state": "1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0",
+        "A1": {
+          "p50_ms": 2.505,
+          "p95_ms": 22.104,
+          "p99_ms": 22.104,
+          "ssh_stream_mbps": 31.294,
+          "irq64_prism_blanking_per_s": 20.68,
+          "irq75_wifi0_per_s": 49.12,
+          "j_score": 11.387
+        },
+        "B1": {
+          "p50_ms": 1.835,
+          "p95_ms": 25.696,
+          "p99_ms": 25.696,
+          "ssh_stream_mbps": 28.877,
+          "irq64_prism_blanking_per_s": 37.55,
+          "irq75_wifi0_per_s": 68.07,
+          "j_score": 12.9722
+        },
+        "A2": {
+          "p50_ms": 1.675,
+          "p95_ms": 27.435,
+          "p99_ms": 27.435,
+          "ssh_stream_mbps": 28.309,
+          "irq64_prism_blanking_per_s": 29.8,
+          "irq75_wifi0_per_s": 47.18,
+          "j_score": 13.8779
+        },
+        "B2": {
+          "p50_ms": 1.753,
+          "p95_ms": 24.095,
+          "p99_ms": 24.095,
+          "ssh_stream_mbps": 29.871,
+          "irq64_prism_blanking_per_s": 34.93,
+          "irq75_wifi0_per_s": 51.23,
+          "j_score": 11.7097
+        },
+        "summary": {
+          "A_mean_p50_ms": 2.09,
+          "B_mean_p50_ms": 1.794,
+          "A_mean_p95_ms": 24.77,
+          "B_mean_p95_ms": 24.895,
+          "A_mean_ssh_mbps": 29.802,
+          "B_mean_ssh_mbps": 29.374,
+          "A_mean_j_score": 12.6325,
+          "B_mean_j_score": 12.3409,
+          "delta_j_score": -0.2916,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "R2AC-R16",
+        "knob": "ath0 WDS 4-Addr Transparent Bridge Flag (iwpriv ath0 wds 1 vs 0)",
+        "baseline_val": "1",
+        "candidate_val": "1 (verify WDS=1 + bintval=100 stability vs WDS=0)",
+        "apply_cmd": "iwpriv ath0 wds 0",
+        "revert_cmd": "iwpriv ath0 wds 1",
+        "verify_cmd": "iwpriv ath0 get_wds",
+        "hypothesis": "Testing wds=0 vs stock wds=1 on Rocket 2AC Prism AP.",
+        "verified_apply_state": "ath0      get_wds:0",
+        "final_restored_or_kept_state": "ath0      get_wds:0",
+        "A1": {
+          "p50_ms": 12.23,
+          "p95_ms": 24.254,
+          "p99_ms": 24.254,
+          "ssh_stream_mbps": 31.394,
+          "irq64_prism_blanking_per_s": 0.0,
+          "irq75_wifi0_per_s": 9.19,
+          "j_score": 27.2465
+        },
+        "B1": {
+          "p50_ms": 1.643,
+          "p95_ms": 24.58,
+          "p99_ms": 24.58,
+          "ssh_stream_mbps": 31.656,
+          "irq64_prism_blanking_per_s": 20.75,
+          "irq75_wifi0_per_s": 49.28,
+          "j_score": 11.5144
+        },
+        "A2": {
+          "p50_ms": 8.808,
+          "p95_ms": 25.231,
+          "p99_ms": 25.231,
+          "ssh_stream_mbps": 27.345,
+          "irq64_prism_blanking_per_s": 38.89,
+          "irq75_wifi0_per_s": 61.41,
+          "j_score": 23.4285
+        },
+        "B2": {
+          "p50_ms": 1.456,
+          "p95_ms": 21.766,
+          "p99_ms": 21.766,
+          "ssh_stream_mbps": 30.57,
+          "irq64_prism_blanking_per_s": 49.5,
+          "irq75_wifi0_per_s": 74.25,
+          "j_score": 9.741
+        },
+        "summary": {
+          "A_mean_p50_ms": 10.519,
+          "B_mean_p50_ms": 1.55,
+          "A_mean_p95_ms": 24.742,
+          "B_mean_p95_ms": 23.173,
+          "A_mean_ssh_mbps": 29.369,
+          "B_mean_ssh_mbps": 31.113,
+          "A_mean_j_score": 25.3375,
+          "B_mean_j_score": 10.6277,
+          "delta_j_score": -14.7098,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "R2AC-R17",
+        "knob": "Pure KEEP-Only Golden Rocket 2AC Prism Stack (ani=1, daprot=0, ptp_xmit=1, swretry=4/6, shpreamble=1, qlen=256, 512KB)",
+        "baseline_val": "stock defaults (ptp_xmit=0, swretry=8/8, shpreamble=0, txqueuelen=1000, rmem/wmem=131071, tcp_low_latency=0)",
+        "candidate_val": "ani_enable=1, daprot=0, ptp_xmit=1, swretry=4/6, shpreamble=1, txqueuelen=256, rmem/wmem=524288, backlog=2500, tcp_low_latency=1, budget=600",
+        "apply_cmd": "iwpriv wifi0 ani_enable 1 && echo 0 > /proc/sys/dev/uph_wifi0/daprot && echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit && iwpriv wifi0 nonaggr_swretry 4 && iwpriv wifi0 aggr_swretry 6 && iwpriv ath0 shpreamble 1 && ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && sysctl -w net.ipv4.tcp_low_latency=1 net.core.netdev_budget=600 net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 >/dev/null",
+        "revert_cmd": "iwpriv wifi0 ani_enable 1 && echo 0 > /proc/sys/dev/uph_wifi0/daprot && echo 0 > /proc/sys/dev/uph_wifi0/ptp_xmit && iwpriv wifi0 nonaggr_swretry 8 && iwpriv wifi0 aggr_swretry 8 && iwpriv ath0 shpreamble 0 && ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && sysctl -w net.ipv4.tcp_low_latency=0 net.core.netdev_budget=300 net.core.rmem_max=131071 net.core.wmem_max=131071 net.core.netdev_max_backlog=1000 >/dev/null",
+        "verify_cmd": "iwpriv wifi0 get_ani_enable; cat /proc/sys/dev/uph_wifi0/ptp_xmit; iwpriv ath0 get_shpreamble",
+        "hypothesis": "Holdout verification of the pure KEEP-only Golden Stack (excluding rejected ani_enable=0 and daprot=1) on Rocket 2AC Prism.",
+        "verified_apply_state": "wifi0     get_ani_enable:1  \n1\nath0      get_shpreamble:1",
+        "final_restored_or_kept_state": "wifi0     get_ani_enable:1  \n1\nath0      get_shpreamble:1",
+        "A1": {
+          "p50_ms": 13.869,
+          "p95_ms": 25.884,
+          "p99_ms": 25.884,
+          "ssh_stream_mbps": 31.5,
+          "irq64_prism_blanking_per_s": 26.71,
+          "irq75_wifi0_per_s": 53.42,
+          "j_score": 30.6639
+        },
+        "B1": {
+          "p50_ms": 2.328,
+          "p95_ms": 27.179,
+          "p99_ms": 27.179,
+          "ssh_stream_mbps": 31.808,
+          "irq64_prism_blanking_per_s": 9.54,
+          "irq75_wifi0_per_s": 31.0,
+          "j_score": 14.074
+        },
+        "A2": {
+          "p50_ms": 2.239,
+          "p95_ms": 25.879,
+          "p99_ms": 25.879,
+          "ssh_stream_mbps": 27.801,
+          "irq64_prism_blanking_per_s": 60.06,
+          "irq75_wifi0_per_s": 66.73,
+          "j_score": 13.8817
+        },
+        "B2": {
+          "p50_ms": 1.592,
+          "p95_ms": 23.848,
+          "p99_ms": 23.848,
+          "ssh_stream_mbps": 29.454,
+          "irq64_prism_blanking_per_s": 50.68,
+          "irq75_wifi0_per_s": 55.75,
+          "j_score": 11.3951
+        },
+        "summary": {
+          "A_mean_p50_ms": 8.054,
+          "B_mean_p50_ms": 1.96,
+          "A_mean_p95_ms": 25.882,
+          "B_mean_p95_ms": 25.514,
+          "A_mean_ssh_mbps": 29.651,
+          "B_mean_ssh_mbps": 30.631,
+          "A_mean_j_score": 22.2728,
+          "B_mean_j_score": 12.7345,
+          "delta_j_score": -9.5383,
+          "decision": "KEEP"
+        }
+      }
+    ],
+    "ltu_wave5": [
+      {
+        "round_id": "LTU-R13",
+        "knob": "eth0 8-Queue Hardware mq Explicit Handle Replacement (tc qdisc replace handle ${q}0: quantum 1514 target 2.5ms)",
+        "baseline_val": "eth0 :1..:8 quantum 300 target 5.0ms interval 100.0ms",
+        "candidate_val": "eth0 :1..:8 handle ${q}0: quantum 1514 target 2.5ms interval 50.0ms",
+        "apply_cmd": "for q in 1 2 3 4 5 6 7 8; do tc qdisc replace dev eth0 parent :$q handle ${q}0: fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn 2>/dev/null; done",
+        "revert_cmd": "for q in 1 2 3 4 5 6 7 8; do tc qdisc replace dev eth0 parent :$q handle ${q}0: fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn 2>/dev/null; done",
+        "verify_cmd": "tc qdisc show dev eth0 | head -n 3",
+        "hypothesis": "Using explicit handle ${q}0: with tc qdisc replace successfully overrides the unnumbered 0: mq leaves on Linux 3.14.65 SMP PREEMPT RT.",
+        "verified_apply_state": "qdisc mq 0: root \nqdisc fq_codel 0: parent :1 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn \nqdisc fq_codel 0: parent :2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+        "final_restored_or_kept_state": "qdisc mq 0: root \nqdisc fq_codel 0: parent :1 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn \nqdisc fq_codel 0: parent :2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+        "A1": {
+          "p50_ms": 29.606,
+          "p95_ms": 43.384,
+          "p99_ms": 43.384,
+          "ssh_stream_mbps": 13.875,
+          "j_score": 68.7744
+        },
+        "B1": {
+          "p50_ms": 29.603,
+          "p95_ms": 41.109,
+          "p99_ms": 41.109,
+          "ssh_stream_mbps": 13.855,
+          "j_score": 67.4073
+        },
+        "A2": {
+          "p50_ms": 31.417,
+          "p95_ms": 53.768,
+          "p99_ms": 53.768,
+          "ssh_stream_mbps": 13.705,
+          "j_score": 77.7417
+        },
+        "B2": {
+          "p50_ms": 33.257,
+          "p95_ms": 403.1,
+          "p99_ms": 403.1,
+          "ssh_stream_mbps": 13.667,
+          "j_score": 290.1055
+        },
+        "summary": {
+          "A_mean_p50_ms": 30.512,
+          "B_mean_p50_ms": 31.43,
+          "A_mean_p95_ms": 48.576,
+          "B_mean_p95_ms": 222.105,
+          "A_mean_ssh_mbps": 13.79,
+          "B_mean_ssh_mbps": 13.761,
+          "A_mean_j_score": 73.258,
+          "B_mean_j_score": 178.7564,
+          "delta_j_score": 105.4984,
+          "decision": "REJECT"
+        }
+      },
+      {
+        "round_id": "LTU-R14",
+        "knob": "ame_core Piggybacked Control Descriptors (send_ctrl_in_data 1 vs 0)",
+        "baseline_val": "send_ctrl_in_data=1",
+        "candidate_val": "send_ctrl_in_data=0",
+        "apply_cmd": "echo 0 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "revert_cmd": "echo 1 > /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "verify_cmd": "cat /sys/module/ame_core/parameters/send_ctrl_in_data",
+        "hypothesis": "Testing whether disabling send_ctrl_in_data hurts or helps AME SoC host control latency.",
+        "verified_apply_state": "0",
+        "final_restored_or_kept_state": "0",
+        "A1": {
+          "p50_ms": 30.669,
+          "p95_ms": 720.481,
+          "p99_ms": 720.481,
+          "ssh_stream_mbps": 13.934,
+          "j_score": 476.62
+        },
+        "B1": {
+          "p50_ms": 28.032,
+          "p95_ms": 42.145,
+          "p99_ms": 42.145,
+          "ssh_stream_mbps": 13.989,
+          "j_score": 65.6563
+        },
+        "A2": {
+          "p50_ms": 25.635,
+          "p95_ms": 67.776,
+          "p99_ms": 67.776,
+          "ssh_stream_mbps": 13.984,
+          "j_score": 77.44
+        },
+        "B2": {
+          "p50_ms": 30.249,
+          "p95_ms": 43.016,
+          "p99_ms": 43.016,
+          "ssh_stream_mbps": 12.312,
+          "j_score": 69.7057
+        },
+        "summary": {
+          "A_mean_p50_ms": 28.152,
+          "B_mean_p50_ms": 29.14,
+          "A_mean_p95_ms": 394.128,
+          "B_mean_p95_ms": 42.581,
+          "A_mean_ssh_mbps": 13.959,
+          "B_mean_ssh_mbps": 13.151,
+          "A_mean_j_score": 277.03,
+          "B_mean_j_score": 67.681,
+          "delta_j_score": -209.349,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "LTU-R15",
+        "knob": "Pure KEEP-Only Golden LTU-Lite Stack (rmem/wmem=512K, backlog=2500, qlen=256, ath0+eth0 fq_codel quantum=1514, sched_max_agg_cnt=8, cz_backoff=0)",
+        "baseline_val": "stock defaults (rmem/wmem=262144, backlog=1000, qlen=1000, fq_codel quantum=300, sched_max_agg_cnt=5, cz_backoff=1)",
+        "candidate_val": "rmem/wmem=524288, backlog=2500, qlen=256, ath0+eth0 fq_codel quantum=1514 target=2.5ms, sched_max_agg_cnt=8, cz_backoff=0",
+        "apply_cmd": "sysctl -w net.core.rmem_max=524288 net.core.wmem_max=524288 net.core.netdev_max_backlog=2500 >/dev/null && ifconfig eth0 txqueuelen 256 && ifconfig ath0 txqueuelen 256 && echo 8 > /sys/module/ame_core/parameters/sched_max_agg_cnt && echo 0 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable && tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn && for q in 1 2 3 4 5 6 7 8; do tc qdisc replace dev eth0 parent :$q handle ${q}0: fq_codel limit 1024p flows 1024 quantum 1514 target 2500us interval 50000us ecn 2>/dev/null; done",
+        "revert_cmd": "sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=1000 >/dev/null && ifconfig eth0 txqueuelen 1000 && ifconfig ath0 txqueuelen 1000 && echo 5 > /sys/module/ame_core/parameters/sched_max_agg_cnt && echo 1 > /sys/module/ame_core/parameters/cz_cross_frame_backoff_enable && tc qdisc replace dev ath0 root fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn && for q in 1 2 3 4 5 6 7 8; do tc qdisc replace dev eth0 parent :$q handle ${q}0: fq_codel limit 1024p flows 1024 quantum 300 target 5000us interval 100000us ecn 2>/dev/null; done",
+        "verify_cmd": "cat /sys/module/ame_core/parameters/sched_max_agg_cnt; tc qdisc show dev ath0; tc qdisc show dev eth0 | head -n 2",
+        "hypothesis": "Holdout verification of the pure KEEP-only Golden LTU-Lite stack against stock defaults.",
+        "verified_apply_state": "8\nqdisc fq_codel 0: root refcnt 2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn \nqdisc mq 0: root \nqdisc fq_codel 0: parent :1 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+        "final_restored_or_kept_state": "5\nqdisc fq_codel 0: root refcnt 2 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn \nqdisc mq 0: root \nqdisc fq_codel 0: parent :1 limit 1024p flows 1024 quantum 300 target 5.0ms interval 100.0ms ecn",
+        "A1": {
+          "p50_ms": 37.381,
+          "p95_ms": 57.98,
+          "p99_ms": 57.98,
+          "ssh_stream_mbps": 13.888,
+          "j_score": 89.1929
+        },
+        "B1": {
+          "p50_ms": 29.247,
+          "p95_ms": 42.976,
+          "p99_ms": 42.976,
+          "ssh_stream_mbps": 13.648,
+          "j_score": 68.0183
+        },
+        "A2": {
+          "p50_ms": 31.265,
+          "p95_ms": 39.856,
+          "p99_ms": 39.856,
+          "ssh_stream_mbps": 13.862,
+          "j_score": 69.1477
+        },
+        "B2": {
+          "p50_ms": 32.555,
+          "p95_ms": 195.307,
+          "p99_ms": 195.307,
+          "ssh_stream_mbps": 13.839,
+          "j_score": 164.356
+        },
+        "summary": {
+          "A_mean_p50_ms": 34.323,
+          "B_mean_p50_ms": 30.901,
+          "A_mean_p95_ms": 48.918,
+          "B_mean_p95_ms": 119.141,
+          "A_mean_ssh_mbps": 13.875,
+          "B_mean_ssh_mbps": 13.744,
+          "A_mean_j_score": 79.1703,
+          "B_mean_j_score": 116.1872,
+          "delta_j_score": 37.0169,
+          "decision": "REJECT"
+        }
+      }
+    ],
+    "pbm5_wave5": [
+      {
+        "round_id": "PBM5-R15",
+        "knob": "ath0 Short Preamble on -80 dBm Weak 5.805 GHz Link (iwpriv ath0 shpreamble 1 vs 0)",
+        "baseline_val": "shpreamble=0",
+        "candidate_val": "shpreamble=1",
+        "apply_cmd": "iwpriv ath0 shpreamble 1",
+        "revert_cmd": "iwpriv ath0 shpreamble 0",
+        "verify_cmd": "iwpriv ath0 get_shpreamble",
+        "hypothesis": "Testing whether short preamble helps or hurts PLCP sync on the -80 dBm (chainrssi=[9,15]) weak OTA link.",
+        "verified_apply_state": "ath0      get_shpreamble:1",
+        "final_restored_or_kept_state": "ath0      get_shpreamble:1",
+        "A1": {
+          "p50_ms": 12.075,
+          "p95_ms": 17.03,
+          "p99_ms": 17.302,
+          "ota_samples": 26,
+          "ota_loss_pct": 13.33,
+          "ota_kbps": 139.19,
+          "ccq": 89,
+          "signal_dbm": -80,
+          "chainrssi": [
+            11,
+            16
+          ],
+          "airmax_quality": 33,
+          "airmax_capacity": 6,
+          "j_score": 83.8155
+        },
+        "B1": {
+          "p50_ms": 5.233,
+          "p95_ms": 11.33,
+          "p99_ms": 13.214,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 169.43,
+          "ccq": 91,
+          "signal_dbm": -79,
+          "chainrssi": [
+            10,
+            16
+          ],
+          "airmax_quality": 41,
+          "airmax_capacity": 6,
+          "j_score": 5.5515
+        },
+        "A2": {
+          "p50_ms": 8.861,
+          "p95_ms": 15.459,
+          "p99_ms": 16.269,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 177.37,
+          "ccq": 88,
+          "signal_dbm": -79,
+          "chainrssi": [
+            10,
+            17
+          ],
+          "airmax_quality": 35,
+          "airmax_capacity": 6,
+          "j_score": 12.7577
+        },
+        "B2": {
+          "p50_ms": 6.784,
+          "p95_ms": 13.291,
+          "p99_ms": 13.865,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 166.89,
+          "ccq": 91,
+          "signal_dbm": -80,
+          "chainrssi": [
+            12,
+            15
+          ],
+          "airmax_quality": 48,
+          "airmax_capacity": 7,
+          "j_score": 7.5457
+        },
+        "summary": {
+          "A_mean_p50_ms": 10.468,
+          "B_mean_p50_ms": 6.008,
+          "A_mean_p95_ms": 16.245,
+          "B_mean_p95_ms": 12.311,
+          "A_mean_j_score": 48.2866,
+          "B_mean_j_score": 6.5486,
+          "delta_j_score": -41.738,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "PBM5-R16",
+        "knob": "ubnt_poll/no_ack_rate (AirMAX Polling No-ACK Rate Index 1 vs 0)",
+        "baseline_val": "0",
+        "candidate_val": "1",
+        "apply_cmd": "echo 1 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "revert_cmd": "echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "verify_cmd": "cat /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "hypothesis": "Testing /proc/sys/dev/ubnt_poll/no_ack_rate=1 vs 0 over the 30-packet 1400B OTA burst.",
+        "verified_apply_state": "1\t-1",
+        "final_restored_or_kept_state": "1\t-1",
+        "A1": {
+          "p50_ms": 3.256,
+          "p95_ms": 4.882,
+          "p99_ms": 7.563,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 173.66,
+          "ccq": 93,
+          "signal_dbm": -80,
+          "chainrssi": [
+            10,
+            15
+          ],
+          "airmax_quality": 47,
+          "airmax_capacity": 8,
+          "j_score": -1.7623
+        },
+        "B1": {
+          "p50_ms": 5.2,
+          "p95_ms": 10.243,
+          "p99_ms": 11.011,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 173.87,
+          "ccq": 94,
+          "signal_dbm": -80,
+          "chainrssi": [
+            11,
+            16
+          ],
+          "airmax_quality": 47,
+          "airmax_capacity": 7,
+          "j_score": 3.6742
+        },
+        "A2": {
+          "p50_ms": 6.142,
+          "p95_ms": 11.974,
+          "p99_ms": 15.769,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 173.89,
+          "ccq": 95,
+          "signal_dbm": -80,
+          "chainrssi": [
+            10,
+            16
+          ],
+          "airmax_quality": 39,
+          "airmax_capacity": 7,
+          "j_score": 7.4213
+        },
+        "B2": {
+          "p50_ms": 3.198,
+          "p95_ms": 6.685,
+          "p99_ms": 8.943,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 174.61,
+          "ccq": 95,
+          "signal_dbm": -79,
+          "chainrssi": [
+            11,
+            16
+          ],
+          "airmax_quality": 39,
+          "airmax_capacity": 6,
+          "j_score": 0.1262
+        },
+        "summary": {
+          "A_mean_p50_ms": 4.699,
+          "B_mean_p50_ms": 4.199,
+          "A_mean_p95_ms": 8.428,
+          "B_mean_p95_ms": 8.464,
+          "A_mean_j_score": 2.8295,
+          "B_mean_j_score": 1.9002,
+          "delta_j_score": -0.9293,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "PBM5-R17",
+        "knob": "Pure KEEP-Only Golden PowerBeam M5 Weak-Link Rescue Stack (30-pkt 1400B OTA Burst Verification)",
+        "baseline_val": "stock defaults (AMPDUFrames=32, AMPDULim=50000, distance=600, txop=0/0, protmode=0, no_ack_rate=0, qlen=1000)",
+        "candidate_val": "AMPDUFrames=16, AMPDULim=16384, distance=150, txop='15 5', protmode=1, no_ack_rate=1, txqueuelen=256, rmem/wmem=262144, tcp_low_latency=1",
+        "apply_cmd": "iwpriv wifi0 AMPDUFrames 16 && iwpriv wifi0 AMPDULim 16384 && iwpriv wifi0 distance 150 && echo '15 5' > /proc/sys/dev/ubnt_poll/txop_params && echo 1 > /proc/sys/dev/ubnt_poll/no_ack_rate && iwpriv ath0 protmode 1 && ifconfig ath0 txqueuelen 256 && ifconfig eth0 txqueuelen 256 && sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.ipv4.tcp_low_latency=1 >/dev/null",
+        "revert_cmd": "iwpriv wifi0 AMPDUFrames 32 && iwpriv wifi0 AMPDULim 50000 && iwpriv wifi0 distance 600 && echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate && iwpriv ath0 protmode 0 && ifconfig ath0 txqueuelen 1000 && ifconfig eth0 txqueuelen 1000 && sysctl -w net.core.rmem_max=131071 net.core.wmem_max=131071 net.ipv4.tcp_low_latency=0 >/dev/null",
+        "verify_cmd": "iwpriv wifi0 getAMPDUFrames; iwpriv wifi0 get_distance; cat /proc/sys/dev/ubnt_poll/txop_params /proc/sys/dev/ubnt_poll/no_ack_rate",
+        "hypothesis": "Holdout 30-packet 1400B OTA burst verification of the pure KEEP-only PowerBeam M5 weak-link rescue stack (including no_ack_rate=1).",
+        "verified_apply_state": "wifi0     getAMPDUFrames:32  \nwifi0     get_distance:300  \n15\t5\n1\t-1",
+        "final_restored_or_kept_state": "wifi0     getAMPDUFrames:32  \nwifi0     get_distance:300  \n0\t0\n0\t-1",
+        "A1": {
+          "p50_ms": 4.304,
+          "p95_ms": 7.167,
+          "p99_ms": 10.119,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 185.86,
+          "ccq": 96,
+          "signal_dbm": -79,
+          "chainrssi": [
+            10,
+            16
+          ],
+          "airmax_quality": 42,
+          "airmax_capacity": 7,
+          "j_score": 1.4172
+        },
+        "B1": {
+          "p50_ms": 3.655,
+          "p95_ms": 7.903,
+          "p99_ms": 11.022,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 175.58,
+          "ccq": 95,
+          "signal_dbm": -80,
+          "chainrssi": [
+            11,
+            16
+          ],
+          "airmax_quality": 45,
+          "airmax_capacity": 8,
+          "j_score": 1.112
+        },
+        "A2": {
+          "p50_ms": 3.766,
+          "p95_ms": 7.841,
+          "p99_ms": 9.633,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 171.52,
+          "ccq": 95,
+          "signal_dbm": -79,
+          "chainrssi": [
+            9,
+            16
+          ],
+          "airmax_quality": 45,
+          "airmax_capacity": 8,
+          "j_score": 0.8448
+        },
+        "B2": {
+          "p50_ms": 8.312,
+          "p95_ms": 13.178,
+          "p99_ms": 13.642,
+          "ota_samples": 30,
+          "ota_loss_pct": 0.0,
+          "ota_kbps": 166.75,
+          "ccq": 96,
+          "signal_dbm": -80,
+          "chainrssi": [
+            10,
+            15
+          ],
+          "airmax_quality": 45,
+          "airmax_capacity": 7,
+          "j_score": 9.0115
+        },
+        "summary": {
+          "A_mean_p50_ms": 4.035,
+          "B_mean_p50_ms": 5.983,
+          "A_mean_p95_ms": 7.504,
+          "B_mean_p95_ms": 10.54,
+          "A_mean_j_score": 1.131,
+          "B_mean_j_score": 5.0617,
+          "delta_j_score": 3.9307,
+          "decision": "REJECT"
+        }
+      }
+    ],
+    "af4x_wave5": [
+      {
+        "round_id": "AF4X-R13",
+        "knob": "Invictus Dynamic Power Control (af set dpcntl off vs on)",
+        "baseline_val": "on",
+        "candidate_val": "off",
+        "apply_cmd": "af set dpcntl off >/dev/null 2>&1",
+        "revert_cmd": "af set dpcntl on >/dev/null 2>&1",
+        "verify_cmd": "af get dpcntl",
+        "hypothesis": "Testing Invictus dynamic power control (dpcntl off vs on) on AF-4X.",
+        "verified_apply_state": "auto",
+        "final_restored_or_kept_state": "auto",
+        "A1": {
+          "p50_ms": 30.481,
+          "p95_ms": 53.847,
+          "p99_ms": 53.847,
+          "ssh_stream_mbps": 4.873,
+          "j_score": 75.5932
+        },
+        "B1": {
+          "p50_ms": 26.505,
+          "p95_ms": 31.598,
+          "p99_ms": 31.598,
+          "ssh_stream_mbps": 5.543,
+          "j_score": 55.9448
+        },
+        "A2": {
+          "p50_ms": 26.33,
+          "p95_ms": 28.327,
+          "p99_ms": 28.327,
+          "ssh_stream_mbps": 4.283,
+          "j_score": 54.3497
+        },
+        "B2": {
+          "p50_ms": 26.473,
+          "p95_ms": 29.298,
+          "p99_ms": 29.298,
+          "ssh_stream_mbps": 5.679,
+          "j_score": 54.4488
+        },
+        "summary": {
+          "A_mean_p50_ms": 28.405,
+          "B_mean_p50_ms": 26.489,
+          "A_mean_p95_ms": 41.087,
+          "B_mean_p95_ms": 30.448,
+          "A_mean_j_score": 64.9715,
+          "B_mean_j_score": 55.1968,
+          "delta_j_score": -9.7747,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "AF4X-R14",
+        "knob": "Invictus Automatic Cyclic Prefix Selection (af set cpsel disabled vs enabled with cp=8)",
+        "baseline_val": "enabled",
+        "candidate_val": "disabled (lock cp=8)",
+        "apply_cmd": "af set cpsel disabled >/dev/null 2>&1 && af set cp 8 >/dev/null 2>&1",
+        "revert_cmd": "af set cpsel enabled >/dev/null 2>&1",
+        "verify_cmd": "af get cpsel; af get cp",
+        "hypothesis": "Locking cpsel=disabled with cp=8 prevents Invictus from reverting to cp=24 during idle calibration sweeps.",
+        "verified_apply_state": "disabled\n8",
+        "final_restored_or_kept_state": "disabled\n8",
+        "A1": {
+          "p50_ms": 26.817,
+          "p95_ms": 31.058,
+          "p99_ms": 31.058,
+          "ssh_stream_mbps": 5.812,
+          "j_score": 55.9543
+        },
+        "B1": {
+          "p50_ms": 26.618,
+          "p95_ms": 29.905,
+          "p99_ms": 29.905,
+          "ssh_stream_mbps": 5.864,
+          "j_score": 54.938
+        },
+        "A2": {
+          "p50_ms": 26.465,
+          "p95_ms": 28.871,
+          "p99_ms": 28.871,
+          "ssh_stream_mbps": 5.6,
+          "j_score": 54.2201
+        },
+        "B2": {
+          "p50_ms": 26.426,
+          "p95_ms": 30.826,
+          "p99_ms": 30.826,
+          "ssh_stream_mbps": 5.831,
+          "j_score": 55.2191
+        },
+        "summary": {
+          "A_mean_p50_ms": 26.641,
+          "B_mean_p50_ms": 26.522,
+          "A_mean_p95_ms": 29.965,
+          "B_mean_p95_ms": 30.366,
+          "A_mean_j_score": 55.0872,
+          "B_mean_j_score": 55.0785,
+          "delta_j_score": -0.0087,
+          "decision": "KEEP"
+        }
+      },
+      {
+        "round_id": "AF4X-R15",
+        "knob": "Pure KEEP-Only Golden AF-4X Invictus v2 + Kernel Low-Latency Stack Verification",
+        "baseline_val": "stock defaults (txqueuelen=1000, rmem/wmem=110592, tcp_low_latency=0, stricttiming=off, framelength=2.0ms, flowcntl=off, cp=24)",
+        "candidate_val": "txqueuelen=256, rmem/wmem=262144, backlog=2000, tcp_low_latency=1, stricttiming=on, framelength=2.5ms, flowcntl=on, cp=8, shortcp=on, ber=5",
+        "apply_cmd": "ifconfig eth0 txqueuelen 256 && ifconfig air0 txqueuelen 256 && sysctl -w net.core.rmem_max=262144 net.core.wmem_max=262144 net.core.netdev_max_backlog=2000 net.ipv4.tcp_low_latency=1 >/dev/null && af set stricttiming on >/dev/null 2>&1 && af set framelength 2.5ms >/dev/null 2>&1 && af set flowcntl on >/dev/null 2>&1 && af set cp 8 >/dev/null 2>&1 && af set shortcp on >/dev/null 2>&1 && af set ber 5 >/dev/null 2>&1",
+        "revert_cmd": "ifconfig eth0 txqueuelen 1000 && ifconfig air0 txqueuelen 1000 && sysctl -w net.core.rmem_max=110592 net.core.wmem_max=110592 net.core.netdev_max_backlog=1000 net.ipv4.tcp_low_latency=0 >/dev/null && af set stricttiming off >/dev/null 2>&1 && af set framelength 2.0ms >/dev/null 2>&1 && af set flowcntl off >/dev/null 2>&1 && af set cp 24 >/dev/null 2>&1 && af set shortcp off >/dev/null 2>&1 && af set ber 6 >/dev/null 2>&1",
+        "verify_cmd": "cat /sys/class/net/eth0/tx_queue_len; af get stricttiming; af get framelength; af get flowcntl; af get cp",
+        "hypothesis": "Holdout verification of the complete 8-knob KEEP-only Golden AF-4X stack against stock defaults.",
+        "verified_apply_state": "256\non\n2.5ms\non\n8",
+        "final_restored_or_kept_state": "1000\noff\n2.0ms\noff\n24",
+        "A1": {
+          "p50_ms": 26.894,
+          "p95_ms": 28.783,
+          "p99_ms": 28.783,
+          "ssh_stream_mbps": 5.784,
+          "j_score": 54.7188
+        },
+        "B1": {
+          "p50_ms": 26.536,
+          "p95_ms": 27.511,
+          "p99_ms": 27.511,
+          "ssh_stream_mbps": 5.812,
+          "j_score": 53.4046
+        },
+        "A2": {
+          "p50_ms": 26.666,
+          "p95_ms": 27.635,
+          "p99_ms": 27.635,
+          "ssh_stream_mbps": 5.743,
+          "j_score": 53.7085
+        },
+        "B2": {
+          "p50_ms": 27.135,
+          "p95_ms": 28.937,
+          "p99_ms": 28.937,
+          "ssh_stream_mbps": 5.823,
+          "j_score": 55.1532
+        },
+        "summary": {
+          "A_mean_p50_ms": 26.78,
+          "B_mean_p50_ms": 26.836,
+          "A_mean_p95_ms": 28.209,
+          "B_mean_p95_ms": 28.224,
+          "A_mean_j_score": 54.2137,
+          "B_mean_j_score": 54.2789,
+          "delta_j_score": 0.0652,
+          "decision": "REJECT"
+        }
+      }
+    ]
+  },
+  "all_70_rounds_index": [
+    {
+      "global_round_index": 1,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R1",
+      "knob": "netdev.txqueuelen (eth0 & air0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 2,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R2",
+      "knob": "net.core.rmem_max / wmem_max / netdev_max_backlog",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 3,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R3",
+      "knob": "net.ipv4.tcp_low_latency & tcp_rmem/tcp_wmem",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 4,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R4",
+      "knob": "Invictus FPGA mcastfilter (af set mcastfilter)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 5,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R5",
+      "knob": "Invictus FPGA stricttiming (af set stricttiming)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 6,
+      "wave": 1,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R6",
+      "knob": "net.core.netdev_budget & optmem_max",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 7,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R1",
+      "knob": "AirView Spectral Scanner Duty-Cycle Pause (SIGSTOP ubntspecd vs active 20fps scan)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 8,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R2",
+      "knob": "wifi0 AMPDUFrames & AMPDULim (iwpriv wifi0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 9,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R3",
+      "knob": "uph_wifi0/daprot (Dynamic AirMAX Protection)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 10,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R4",
+      "knob": "uph_wifi0/ptp_xmit (PtP Low-Latency Transmit Mode)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 11,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R5",
+      "knob": "netdev txqueuelen (ath0 & eth0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 12,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R6",
+      "knob": "net.core.rmem_max / wmem_max / netdev_max_backlog",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 13,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R7",
+      "knob": "net.ipv4.tcp_low_latency & net.core.netdev_budget",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 14,
+      "wave": 1,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R8",
+      "knob": "wifi0 nonaggr_swretry & aggr_swretry tuning",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 15,
+      "wave": 1,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R1",
+      "knob": "/proc/sys/dev/ubnt_poll/ap_ptp_simplex_opt",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 16,
+      "wave": 1,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R2",
+      "knob": "/proc/sys/dev/ubnt_poll/txop_params",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 17,
+      "wave": 1,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R3",
+      "knob": "iwpriv ath0 burst & shortgi & ampdu",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 18,
+      "wave": 1,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R4",
+      "knob": "ath0/eth0 txqueuelen & sysctl rmem/wmem/backlog",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 19,
+      "wave": 1,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R5",
+      "knob": "/proc/sys/dev/ubnt_poll/ap_act_linger & sta_priority",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 20,
+      "wave": 1,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R6",
+      "knob": "AirView airview1 Monitor VAP State (ifconfig airview1 down vs up)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 21,
+      "wave": 1,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R7",
+      "knob": "wifi0 AMPDUFrames=64, AMPDULim=65535 + uph_wifi0 daprot=1 & ptp_xmit=1",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 22,
+      "wave": 1,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R8",
+      "knob": "sysctl tcp_low_latency=1, rmem/wmem=524288, netdev_budget=600, txqueuelen=256",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 23,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R1",
+      "knob": "netdev txqueuelen (eth0 & ath0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 24,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R2",
+      "knob": "net.core.rmem_max / wmem_max / netdev_max_backlog",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 25,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R3",
+      "knob": "net.ipv4.tcp_low_latency & net.core.netdev_budget",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 26,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R4",
+      "knob": "ath0 fq_codel Quantum & Target Tuning (quantum 1514 target 2.5ms vs quantum 300 target 5.0ms)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 27,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R5",
+      "knob": "Dual-Core SMP IRQ Affinity Split (/proc/irq/63/smp_affinity -> CPU1 for gmac0 vs CPU0 for AME.l2p)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 28,
+      "wave": 2,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R6",
+      "knob": "ame_core SNR_BOOST_EN & SWQ_INTERVAL_EXTEND (/sys/module/ame_core/parameters/)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 29,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R9",
+      "knob": "wifi0 AMPDUFrames & AMPDULim Weak-Link Right-Sizing (16 frames / 16384 B vs 32 / 50000 B)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 30,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R10",
+      "knob": "wifi0 Indoor Bench Distance / ACK Timing Clamp (distance=150m vs auto-multipath 472m)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 31,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R11",
+      "knob": "ubnt_poll/evm_process (EVM-Assisted Rate Adaptation on Weak Multipath Link)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 32,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R12",
+      "knob": "wifi0 ForBiasAuto & ath0 shpreamble (RF Synthesizer ForceBiasAuto=1 + Short Preamble=1)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 33,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R13",
+      "knob": "ath0 RTS/CTS Protection Mode (iwpriv ath0 protmode 1 vs 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 34,
+      "wave": 2,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R14",
+      "knob": "ubnt_poll/aggr_params Custom Aggregation Ceiling (16 16384 0 vs 0 0 0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 35,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R7",
+      "knob": "Invictus FPGA TDD Frame Length (af set framelength 2.5ms vs 2.0ms)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 36,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R8",
+      "knob": "Invictus LNA/ADC Receiver Gain (af set rxgain low vs high)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 37,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R9",
+      "knob": "Invictus TDD DL/UL Duty Cycle (af set dutycycle 67 vs 50)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 38,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R10",
+      "knob": "Invictus EMAC Flow Control (af set flowcntl on vs off)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 39,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R11",
+      "knob": "Invictus OFDM Cyclic Prefix Length (af set cp 8 vs 24)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 40,
+      "wave": 3,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R12",
+      "knob": "Combined AF-4X Invictus + Kernel Low-Latency Profile Verification",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 41,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R9",
+      "knob": "wifi0 Adaptive Noise Immunity (iwpriv wifi0 ani_enable 1 vs 0 under 5 GHz co-location)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 42,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R10",
+      "knob": "wifi0 Software Retry Bounds (nonaggr_swretry=4, aggr_swretry=6 vs 8/8)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 43,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R11",
+      "knob": "wifi0 Dynamic TX Chain Control (iwpriv wifi0 dyntxchain 1 vs 0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 44,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R12",
+      "knob": "uph_wifi0/noack_mode (AirMAX No-ACK Polling Mode)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 45,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R13",
+      "knob": "ath0 & eth0 Queue Depth Tightening (txqueuelen=128 vs 256)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 46,
+      "wave": 3,
+      "device_key": "r5ac_prism_sta",
+      "round_id": "R5AC-R14",
+      "knob": "Combined Rocket Prism 5AC Gen2 Optimal Profile Verification",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 47,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R9",
+      "knob": "wifi0 Adaptive Noise Immunity (iwpriv wifi0 ani_enable 0 vs 1 with HW AirPrism IRQ 64)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 48,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R10",
+      "knob": "airview1 Interface Administrative Quiesce (ifconfig airview1 down vs up without SIGSTOP)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 49,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R11",
+      "knob": "uph_wifi0/daprot (Dynamic AirMAX Protection in AP Mode: Master)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 50,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R12",
+      "knob": "ath0 Short Preamble & 2x2 Chainmask Lock (shpreamble=1, txchainmask=3, rxchainmask=3)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 51,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R13",
+      "knob": "ath0/eth0 Queue Tightening + Socket Buffer Scaling (txqueuelen=256, rmem/wmem=512KB)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 52,
+      "wave": 4,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R14",
+      "knob": "Combined Rocket 2AC Prism Optimal Stack Verification",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 53,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R7",
+      "knob": "eth0 8-Queue Hardware mq fq_codel Tuning (quantum 1514 target 2.5ms interval 50ms on :1..:8)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 54,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R8",
+      "knob": "ame_core Multi-ACK Aggregation (multi_ack_enable 1 vs 0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 55,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R9",
+      "knob": "ame_core Scheduler Max Aggregation Count (sched_max_agg_cnt 8 vs 5)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 56,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R10",
+      "knob": "ame_core Cross-Frame Backoff Control (cz_cross_frame_backoff_enable 0 vs 1)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 57,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R11",
+      "knob": "LTU-Lite Network Backlog & Queue Discipline Tightening (netdev_max_backlog=2500, eth0/ath0 txqueuelen=256)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 58,
+      "wave": 4,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R12",
+      "knob": "Combined LTU-Lite AME SoC + Dual-Interface fq_codel Optimal Profile Verification",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 59,
+      "wave": 5,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R15",
+      "knob": "uph_wifi0/fixed_frame (Fixed-Frame TDD Mode 1 vs Flexible 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 60,
+      "wave": 5,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R16",
+      "knob": "ath0 WDS 4-Addr Transparent Bridge Flag (iwpriv ath0 wds 1 vs 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 61,
+      "wave": 5,
+      "device_key": "r2ac_prism_ap",
+      "round_id": "R2AC-R17",
+      "knob": "Pure KEEP-Only Golden Rocket 2AC Prism Stack (ani=1, daprot=0, ptp_xmit=1, swretry=4/6, shpreamble=1, qlen=256, 512KB)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 62,
+      "wave": 5,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R13",
+      "knob": "eth0 8-Queue Hardware mq Explicit Handle Replacement (tc qdisc replace handle ${q}0: quantum 1514 target 2.5ms)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 63,
+      "wave": 5,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R14",
+      "knob": "ame_core Piggybacked Control Descriptors (send_ctrl_in_data 1 vs 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 64,
+      "wave": 5,
+      "device_key": "ltu_lite_amesoc",
+      "round_id": "LTU-R15",
+      "knob": "Pure KEEP-Only Golden LTU-Lite Stack (rmem/wmem=512K, backlog=2500, qlen=256, ath0+eth0 fq_codel quantum=1514, sched_max_agg_cnt=8, cz_backoff=0)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 65,
+      "wave": 5,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R15",
+      "knob": "ath0 Short Preamble on -80 dBm Weak 5.805 GHz Link (iwpriv ath0 shpreamble 1 vs 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 66,
+      "wave": 5,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R16",
+      "knob": "ubnt_poll/no_ack_rate (AirMAX Polling No-ACK Rate Index 1 vs 0)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 67,
+      "wave": 5,
+      "device_key": "pbm5_xw_weak_ota",
+      "round_id": "PBM5-R17",
+      "knob": "Pure KEEP-Only Golden PowerBeam M5 Weak-Link Rescue Stack (30-pkt 1400B OTA Burst Verification)",
+      "decision": "REJECT"
+    },
+    {
+      "global_round_index": 68,
+      "wave": 5,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R13",
+      "knob": "Invictus Dynamic Power Control (af set dpcntl off vs on)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 69,
+      "wave": 5,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R14",
+      "knob": "Invictus Automatic Cyclic Prefix Selection (af set cpsel disabled vs enabled with cp=8)",
+      "decision": "KEEP"
+    },
+    {
+      "global_round_index": 70,
+      "wave": 5,
+      "device_key": "af4x_invictus",
+      "round_id": "AF4X-R15",
+      "knob": "Pure KEEP-Only Golden AF-4X Invictus v2 + Kernel Low-Latency Stack Verification",
+      "decision": "REJECT"
+    }
+  ]
+}

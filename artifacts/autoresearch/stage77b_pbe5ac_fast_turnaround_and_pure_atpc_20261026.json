@@ -1,0 +1,439 @@
+{
+  "stage": "Stage 77B",
+  "ticket": "T-S77B-PBE5AC-FAST-TURNAROUND-200-200-4000-AND-PURE-ATPC-BENCH",
+  "generated_at": "2026-10-26T13:40:23.780557+00:00",
+  "five_pillars_compliance": {
+    "pillar_a_571knob_and_fullrea": "Evaluated pure symmetric /proc/sys/dev/uph_wifi0/atpc ('1 -62 24 24 24' without swr_limit) and fast turnaround /proc/sys/dev/uph_wifi0/timing ('200 200 4000' -> Down:200, Up:200, Burst:4000) on live WA.v8.7.11 silicon (.241 <-> .242).",
+    "pillar_b_literature_grounding": [
+      "arXiv:2508.18755v2 \u2014 Performance Analysis of IEEE 802.11bn with Coordinated TDMA on Real-Time Applications",
+      "arXiv:1803.10148v1 \u2014 Coupled IEEE 802.11ac and TCP Goodput improvement using Aggregation and Reverse Direction",
+      "arXiv:1803.10657v1 \u2014 Scheduling strategies and throughput optimization for IEEE 802.11ac networks"
+    ],
+    "pillar_c_karpathy_autoresearch_harness": "orchestration/autoresearch/fmx_autoresearch_harness.py (compute_fmx_objective)",
+    "pillar_d_kdense_statistical_analysis": "Counterbalanced A1->B1->A2->B2 crossover (8 windows, 30 RTT samples/arm, p50/p95/p99 + Jain fairness)",
+    "pillar_e_memory_master_scope": "project:futuramax"
+  },
+  "silicon_audit": {
+    "ap_241_dmesg_audit": "[45032.029000] ubnt_poll_host TARGET LOG:\n[45032.029000]  ubnt_poll: Timing params set to Down:200, Up:200, Burst:4000\n[45032.029000] ubnt_poll_host: DAPROT cannot be set right now for radio wifi0\n[45133.280000] ubnt_poll_host: SWR Limit disabled\n[45133.281000] ubnt_poll_host: ATPC enabled (-62/24/24/24) for radio wifi0\n[45133.281000] ubnt_poll_host TARGET LOG:\n[45133.281000]  ubnt_poll: Timing params set to Down:200, Up:200, Burst:4000\n[45133.281000] ubnt_poll_host: wifi0 Timings set to down:200 up:200 burst:4000, noack=0\n[45133.281000] ubnt_poll_host TARGET LOG:\n[45133.281000]  ubnt_poll: Timing params set to Down:200, Up:200, Burst:4000\n[45133.282000] ubnt_poll_host: ATPC disabled (0/0/0/24) for radio wifi0\n[45133.282000] ubnt_poll_host TARGET LOG:\n[45133.282000]  ubnt_poll: Timing params set to Down:200, Up:200, Burst:4000\n[45133.282000] ubnt_poll_host: wifi0 Timings set to down:0 up:0 burst:0, noack=0\n[45133.282000] ubnt_poll_host TARGET LOG:\n[45133.282000]  ubnt_poll: Timing params set to Down:200, Up:200, Burst:6000",
+    "sta_242_iperf_and_dmesg": "tcp        0      0 :::5201                 :::*                    LISTEN      28306/iperf3\ntcp        0      0 :::5202                 :::*                    LISTEN      28308/iperf3\ntcp        0      0 :::5203                 :::*                    LISTEN      28310/iperf3\n[40773.718000] ubnt_poll_host: DAPROT cannot be set right now for radio wifi0\n[40782.635000] ubnt_poll_host: ATPC enabled (0/0/0/24) for radio wifi0\n[40791.647000] ubnt_poll_host: ATPC enabled (0/0/0/24) for radio wifi0\n[40794.025000] ubnt_poll_host: wifi0 Timings set to down:200 up:200 burst:4000, noack=0\n[40794.026000] ubnt_poll_host: DAPROT cannot be set right now for radio wifi0\n[40897.181000] ubnt_poll_host: SWR Limit disabled\n[40897.182000] ubnt_poll_host: ATPC enabled (0/0/0/24) for radio wifi0\n[40897.182000] ubnt_poll_host: wifi0 Timings set to down:0 up:0 burst:0, noack=0",
+    "fast_turnaround_200_200_4000_verified": true,
+    "pure_symmetric_atpc_24_verified": true,
+    "default_200_200_6000_restored": true
+  },
+  "rounds": [
+    {
+      "round_id": "S77B-R1",
+      "title": "PBE5AC_PURE_SYMMETRIC_ATPC_24_NO_SWR_CAP",
+      "hypothesis": "Isolating /proc/sys/dev/uph_wifi0/atpc='1 -62 24 24 24' (symmetric 24/24 dBm lock neutralizing UPH-BUG-05) without touching swr_limit ('0 0 0') on top of Stage 73A Champion v6 preserves full A-MPDU goodput while preventing ATPC min/max power inversion dips.",
+      "candidate_commands": [
+        "echo '0 0 0' > /proc/sys/dev/uph_wifi0/swr_limit",
+        "echo '1 -62 24 24 24' > /proc/sys/dev/uph_wifi0/atpc",
+        "echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit",
+        "echo 2 > /proc/sys/dev/uph_wifi0/daprot",
+        "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+      ],
+      "arm_a_windows": [
+        {
+          "window": "S77B-R1_A1",
+          "elapsed_s": 6.719,
+          "bulk_tcp_mbps": 11.764,
+          "video_tcp_mbps": 8.006,
+          "voip_udp_mbps": 0.991,
+          "aggregate_goodput_mbps": 20.762,
+          "voip_loss_pct": 3.92,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            3.066,
+            1.895,
+            2.102,
+            2.77,
+            2.332,
+            4.469,
+            3.419,
+            2.69,
+            4.845,
+            2.6,
+            3.6,
+            2.438,
+            2.201,
+            2.82,
+            4.063
+          ],
+          "rtt_p50_ms": 2.77,
+          "rtt_p95_ms": 4.469,
+          "rtt_p99_ms": 4.845
+        },
+        {
+          "window": "S77B-R1_A2",
+          "elapsed_s": 6.547,
+          "bulk_tcp_mbps": 13.173,
+          "video_tcp_mbps": 7.882,
+          "voip_udp_mbps": 0.981,
+          "aggregate_goodput_mbps": 22.035,
+          "voip_loss_pct": 0.0,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            3.31,
+            1.776,
+            1.611,
+            2.777,
+            1.974,
+            4.18,
+            3.035,
+            3.396,
+            3.062,
+            3.246,
+            2.458,
+            2.224,
+            1.58,
+            1.712,
+            7.681
+          ],
+          "rtt_p50_ms": 2.777,
+          "rtt_p95_ms": 4.18,
+          "rtt_p99_ms": 7.681
+        }
+      ],
+      "arm_b_windows": [
+        {
+          "window": "S77B-R1_B1",
+          "elapsed_s": 6.609,
+          "bulk_tcp_mbps": 11.968,
+          "video_tcp_mbps": 7.87,
+          "voip_udp_mbps": 0.986,
+          "aggregate_goodput_mbps": 20.824,
+          "voip_loss_pct": 0.0,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            1.575,
+            1.645,
+            2.197,
+            2.141,
+            2.353,
+            1.84,
+            2.587,
+            4.449,
+            1.902,
+            1.89,
+            1.88,
+            2.266,
+            2.348,
+            2.239,
+            8.478
+          ],
+          "rtt_p50_ms": 2.197,
+          "rtt_p95_ms": 4.449,
+          "rtt_p99_ms": 8.478
+        },
+        {
+          "window": "S77B-R1_B2",
+          "elapsed_s": 6.531,
+          "bulk_tcp_mbps": 12.1,
+          "video_tcp_mbps": 7.704,
+          "voip_udp_mbps": 0.981,
+          "aggregate_goodput_mbps": 20.784,
+          "voip_loss_pct": 1.226,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            4.363,
+            1.88,
+            1.596,
+            2.607,
+            1.933,
+            2.121,
+            3.37,
+            7.726,
+            1.941,
+            4.477,
+            2.791,
+            4.532,
+            1.765,
+            8.659,
+            3.159
+          ],
+          "rtt_p50_ms": 2.791,
+          "rtt_p95_ms": 7.726,
+          "rtt_p99_ms": 8.659
+        }
+      ],
+      "arm_a_summary": {
+        "bulk_tcp_mbps": 12.468,
+        "video_tcp_mbps": 7.944,
+        "voip_udp_mbps": 0.986,
+        "aggregate_goodput_mbps": 21.398,
+        "voip_loss_pct": 1.96,
+        "rtt_samples_total": 30,
+        "rtt_p50_ms": 2.774,
+        "rtt_p95_ms": 4.845,
+        "rtt_p99_ms": 7.681,
+        "jain_fairness_index": 0.9532,
+        "fmx_loss": 0.188241,
+        "fmx_score": 0.811759
+      },
+      "arm_b_summary": {
+        "bulk_tcp_mbps": 12.034,
+        "video_tcp_mbps": 7.787,
+        "voip_udp_mbps": 0.984,
+        "aggregate_goodput_mbps": 20.804,
+        "voip_loss_pct": 0.613,
+        "rtt_samples_total": 30,
+        "rtt_p50_ms": 2.252,
+        "rtt_p95_ms": 8.478,
+        "rtt_p99_ms": 8.659,
+        "jain_fairness_index": 0.9561,
+        "fmx_loss": 0.239064,
+        "fmx_score": 0.760936
+      },
+      "deltas": {
+        "aggregate_goodput_delta_pct": -2.78,
+        "bulk_tcp_delta_pct": -3.48,
+        "rtt_p50_delta_pct": -18.82,
+        "rtt_p95_delta_pct": 74.98,
+        "fmx_loss_delta": 0.050823
+      },
+      "verdict": "DISCARD",
+      "closed_loop_reactor_followup": {
+        "round_id": "S77B-R1",
+        "profile_id": "PBE5AC_PURE_SYMMETRIC_ATPC_24_NO_SWR_CAP",
+        "empirical_status": "HW_REFUTED_OR_BOUNDED",
+        "gp_delta_pct": -2.78,
+        "p95_delta_pct": 74.98,
+        "decision": "RETAIN_CURRENT_CHAMPION",
+        "followup_scholar_queries": [
+          "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+          "IGMPv3 fast leave wireless bridge multicast snooping airtime protection"
+        ],
+        "synthesized_next_mechanisms": [
+          {
+            "mechanism_id": "M19",
+            "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+            "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+            "candidate_delta_commands": [
+              "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+            ]
+          },
+          {
+            "mechanism_id": "M20",
+            "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+            "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+            "candidate_delta_commands": [
+              "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+              "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+              "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+              "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "round_id": "S77B-R2",
+      "title": "PBE5AC_FAST_TURNAROUND_TIMING_200_200_4000",
+      "hypothesis": "Preserving fast 200 us DL/UL turnaround slots while tightening burst ceiling from 6000 us to 4000 us (/proc/sys/dev/uph_wifi0/timing='200 200 4000' -> Down:200, Up:200, Burst:4000) on top of Stage 73A Champion v6 reduces loaded p50/p95/p99 RTT without the 10x slot-inflation penalty of 2000 2000 1000.",
+      "candidate_commands": [
+        "echo '200 200 4000' > /proc/sys/dev/uph_wifi0/timing",
+        "echo 1 > /proc/sys/dev/uph_wifi0/ptp_xmit",
+        "echo 2 > /proc/sys/dev/uph_wifi0/daprot",
+        "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+      ],
+      "arm_a_windows": [
+        {
+          "window": "S77B-R2_A1",
+          "elapsed_s": 6.563,
+          "bulk_tcp_mbps": 12.704,
+          "video_tcp_mbps": 7.909,
+          "voip_udp_mbps": 0.982,
+          "aggregate_goodput_mbps": 21.596,
+          "voip_loss_pct": 0.547,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            6.025,
+            1.534,
+            3.326,
+            3.212,
+            2.461,
+            3.872,
+            5.268,
+            1.733,
+            6.544,
+            2.235,
+            2.977,
+            6.423,
+            7.804,
+            2.728,
+            5.316
+          ],
+          "rtt_p50_ms": 3.326,
+          "rtt_p95_ms": 6.544,
+          "rtt_p99_ms": 7.804
+        },
+        {
+          "window": "S77B-R2_A2",
+          "elapsed_s": 6.859,
+          "bulk_tcp_mbps": 10.318,
+          "video_tcp_mbps": 7.493,
+          "voip_udp_mbps": 0.987,
+          "aggregate_goodput_mbps": 18.798,
+          "voip_loss_pct": 0.363,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            3.516,
+            2.338,
+            3.063,
+            2.892,
+            1.844,
+            2.148,
+            1.773,
+            3.03,
+            2.247,
+            2.341,
+            2.698,
+            3.801,
+            4.611,
+            3.499,
+            5.15
+          ],
+          "rtt_p50_ms": 2.892,
+          "rtt_p95_ms": 4.611,
+          "rtt_p99_ms": 5.15
+        }
+      ],
+      "arm_b_windows": [
+        {
+          "window": "S77B-R2_B1",
+          "elapsed_s": 6.594,
+          "bulk_tcp_mbps": 11.781,
+          "video_tcp_mbps": 7.916,
+          "voip_udp_mbps": 0.982,
+          "aggregate_goodput_mbps": 20.679,
+          "voip_loss_pct": 0.287,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            2.801,
+            2.516,
+            2.767,
+            2.419,
+            2.06,
+            2.292,
+            4.091,
+            3.491,
+            2.78,
+            1.876,
+            4.223,
+            2.203,
+            2.084,
+            1.942,
+            15.393
+          ],
+          "rtt_p50_ms": 2.516,
+          "rtt_p95_ms": 4.223,
+          "rtt_p99_ms": 15.393
+        },
+        {
+          "window": "S77B-R2_B2",
+          "elapsed_s": 6.734,
+          "bulk_tcp_mbps": 11.549,
+          "video_tcp_mbps": 7.847,
+          "voip_udp_mbps": 0.978,
+          "aggregate_goodput_mbps": 20.373,
+          "voip_loss_pct": 0.0,
+          "rtt_samples_count": 15,
+          "rtt_samples_ms": [
+            1.667,
+            4.682,
+            2.514,
+            3.357,
+            2.427,
+            2.442,
+            2.497,
+            3.404,
+            3.757,
+            2.008,
+            1.789,
+            6.141,
+            4.204,
+            5.997,
+            1.718
+          ],
+          "rtt_p50_ms": 2.514,
+          "rtt_p95_ms": 5.997,
+          "rtt_p99_ms": 6.141
+        }
+      ],
+      "arm_a_summary": {
+        "bulk_tcp_mbps": 11.511,
+        "video_tcp_mbps": 7.701,
+        "voip_udp_mbps": 0.984,
+        "aggregate_goodput_mbps": 20.197,
+        "voip_loss_pct": 0.455,
+        "rtt_samples_total": 30,
+        "rtt_p50_ms": 3.046,
+        "rtt_p95_ms": 6.544,
+        "rtt_p99_ms": 7.804,
+        "jain_fairness_index": 0.9622,
+        "fmx_loss": 0.223093,
+        "fmx_score": 0.776907
+      },
+      "arm_b_summary": {
+        "bulk_tcp_mbps": 11.665,
+        "video_tcp_mbps": 7.882,
+        "voip_udp_mbps": 0.98,
+        "aggregate_goodput_mbps": 20.526,
+        "voip_loss_pct": 0.143,
+        "rtt_samples_total": 30,
+        "rtt_p50_ms": 2.515,
+        "rtt_p95_ms": 6.141,
+        "rtt_p99_ms": 15.393,
+        "jain_fairness_index": 0.9639,
+        "fmx_loss": 0.259489,
+        "fmx_score": 0.740511
+      },
+      "deltas": {
+        "aggregate_goodput_delta_pct": 1.63,
+        "bulk_tcp_delta_pct": 1.34,
+        "rtt_p50_delta_pct": -17.43,
+        "rtt_p95_delta_pct": -6.16,
+        "fmx_loss_delta": 0.036396
+      },
+      "verdict": "DISCARD",
+      "closed_loop_reactor_followup": {
+        "round_id": "S77B-R2",
+        "profile_id": "PBE5AC_FAST_TURNAROUND_TIMING_200_200_4000",
+        "empirical_status": "HW_REFUTED_OR_BOUNDED",
+        "gp_delta_pct": 1.63,
+        "p95_delta_pct": -6.16,
+        "decision": "RETAIN_CURRENT_CHAMPION",
+        "followup_scholar_queries": [
+          "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+          "IGMPv3 fast leave wireless bridge multicast snooping airtime protection"
+        ],
+        "synthesized_next_mechanisms": [
+          {
+            "mechanism_id": "M19",
+            "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+            "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+            "candidate_delta_commands": [
+              "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+            ]
+          },
+          {
+            "mechanism_id": "M20",
+            "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+            "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+            "candidate_delta_commands": [
+              "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+              "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+              "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+              "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "persistence": {
+    "winning_round_id": "S73A-R1",
+    "ap_241_cfgmtd": "CFGMTD_OK",
+    "sta_242_cfgmtd": "CFGMTD_OK"
+  }
+}

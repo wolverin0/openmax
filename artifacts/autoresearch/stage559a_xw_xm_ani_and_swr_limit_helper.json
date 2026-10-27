@@ -1,0 +1,50 @@
+{
+  "stage": "559A",
+  "task_id": "T-S559A-XW-XM-ANI-AND-SWR-LIMIT-HELPER",
+  "title": "Pillar 1 & Pillar 3 XW/XM (AR934x/AR724x) Adaptive Noise Immunity (ANI) & Software Retry (SWR) Limit Helper",
+  "memory_master_claim": {
+    "code": "mm-b024",
+    "id": 155443
+  },
+  "generated_at": "2026-10-27T01:22:13.664399+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "mac80211",
+    "Linux",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_xw_xm_ani_and_swr_limit_helper.sh",
+    "sha256": "a424e4b2888b9f5c5a3219a31b56f8907c0f9d4c94bbf0e06961e1a37cc88ac7",
+    "size_bytes": 1241,
+    "default_mode": "--status"
+  },
+  "xw_xm_parameters": {
+    "ani_enabled": true,
+    "ani_ofdm_immunity_level": 3,
+    "ani_firstep_level": 2,
+    "swr_short_retry_limit": 7,
+    "swr_long_retry_limit": 4
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "configures_ani_and_retry_7_4": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes AR934x/AR724x (XW/XM) Adaptive Noise Immunity (ANI) & Software Retry (SWR) bounds",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Caps long retries at 4 so a single low-MCS M5 (XW) station cannot monopolize mixed AC+M5 sector airtime",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply uses hitless nl80211 retry configuration",
+    "pillar_d_scientific_pareto_validation": "Protects sector p99 latency when legacy M5 CPEs operate on the same AP",
+    "pillar_e_memory_master_claim_id": "mm-b024 (id=155443)"
+  }
+}

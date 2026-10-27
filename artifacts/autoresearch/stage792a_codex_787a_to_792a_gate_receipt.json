@@ -1,0 +1,896 @@
+{
+  "E2": "NOT_ACCEPTED",
+  "boundary": {
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": false,
+    "producer_execution": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "gaps": [],
+  "independent_reviews": [
+    {
+      "binding": {
+        "bytes": 12026,
+        "path": "artifacts/verification/stage787a/independent_review.json",
+        "sha256": "985b28bc23302dfb7dc0252c0a0f73d702c977be576542e24b7178b10c2e6621"
+      },
+      "drift": [],
+      "missing_bindings": [],
+      "stage": "787A",
+      "status": "PASS_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 8214,
+        "path": "artifacts/verification/stage788a/independent_review.json",
+        "sha256": "d0bd2958e978d80039517871c5d293afeea7aa4df23f3a087d2fa2a3b3c5698b"
+      },
+      "drift": [],
+      "missing_bindings": [],
+      "stage": "788A",
+      "status": "PASS_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 14617,
+        "path": "artifacts/verification/stage789a/independent_review.json",
+        "sha256": "ec7c79d38dc1ae0d9bfe6d924c12482ff1d030f0dd00e451d96147f0e8228df7"
+      },
+      "drift": [],
+      "missing_bindings": [],
+      "stage": "789A",
+      "status": "PASS_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 9849,
+        "path": "artifacts/verification/stage790a/independent_review.json",
+        "sha256": "914444a55af450de6fe22f197a728071c335c229041ddccc4eeb6dc6ffa3d29f"
+      },
+      "drift": [],
+      "missing_bindings": [],
+      "stage": "790A",
+      "status": "PASS_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "binding": {
+        "bytes": 13218,
+        "path": "artifacts/verification/stage791a/independent_review.json",
+        "sha256": "9c5b7d3efb00820d18df7cbfe48e73819274e2b508b6a1672bcfc1739c59a663"
+      },
+      "drift": [],
+      "missing_bindings": [],
+      "stage": "791A",
+      "status": "PASS_REVISION_BOUND_REVIEW",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    }
+  ],
+  "input_drift": [],
+  "junit_coverage": {
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 132,
+      "skipped": 0,
+      "tests": 132
+    },
+    "missing_file_attributes": 0,
+    "missing_suites": [],
+    "suite_files": [
+      "tests/test_stage787a.py",
+      "tests/test_stage787a_to_792a_suite.py",
+      "tests/test_stage788a.py",
+      "tests/test_stage789a.py",
+      "tests/test_stage790a.py",
+      "tests/test_stage791a.py",
+      "tests/test_stage792a.py"
+    ],
+    "unexpected_suites": []
+  },
+  "milestone800_acceptance": "NOT_ACCEPTED",
+  "missing_inputs": [],
+  "new_hardware_results": 0,
+  "origin_diagnostics_after_run": [
+    {
+      "changes": [
+        {
+          "current": {
+            "bytes": 3205,
+            "path": "docs/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+            "sha256": "6a8586dfeeeb0ea8651da67bbbaf4259f282399ae2b62a2d446c18546f2ae9c9"
+          },
+          "path": "docs/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+          "status": "CHANGED_SINCE_FROZEN_CUTOFF"
+        }
+      ],
+      "stage": "787A"
+    },
+    {
+      "changes": [],
+      "stage": "788A"
+    },
+    {
+      "changes": [],
+      "stage": "789A"
+    },
+    {
+      "changes": [],
+      "stage": "790A"
+    },
+    {
+      "changes": [],
+      "stage": "791A"
+    }
+  ],
+  "outputs": {
+    "docs/STAGE792A_CODEX_787A_TO_792A_GATE.md": {
+      "bytes": 3035,
+      "path": "docs/STAGE792A_CODEX_787A_TO_792A_GATE.md",
+      "sha256": "9eeddf8117bfb9525bcd168a65dcbe867f239e6e8077737b7a40b480d44e6b96"
+    }
+  },
+  "physical_acceptance": "UNKNOWN_NOT_ASSESSED",
+  "pytest": {
+    "command": [
+      "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "-o",
+      "addopts=",
+      "-o",
+      "junit_family=xunit1",
+      "tests/test_stage787a.py",
+      "tests/test_stage788a.py",
+      "tests/test_stage789a.py",
+      "tests/test_stage790a.py",
+      "tests/test_stage791a.py",
+      "tests/test_stage792a.py",
+      "tests/test_stage787a_to_792a_suite.py",
+      "--junitxml=G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\verification\\stage792a\\run_002\\pytest.xml"
+    ],
+    "elapsed_seconds": 21.671999999991385,
+    "exit_code": 0,
+    "stderr": "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n",
+    "stdout": "........................................................................ [ 54%]\n............................................................             [100%]\n- generated xml file: G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\verification\\stage792a\\run_002\\pytest.xml -\n132 passed in 20.87s\n",
+    "timed_out": false
+  },
+  "pytest_counts": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 132,
+    "skipped": 0,
+    "tests": 132
+  },
+  "readiness800": "HOLD_EVIDENCE_GAPS",
+  "repo_gate": {
+    "command": [
+      "python",
+      "tools/verify/enforce_5pillar_research_gate.py",
+      "--check-repo"
+    ],
+    "elapsed_seconds": 0.06300000000919681,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\n  \"compliant\": true,\n  \"failures\": []\n}\n",
+    "timed_out": false
+  },
+  "run_directory": "artifacts/verification/stage792a/run_002",
+  "schema_version": "1.0.0",
+  "self_reference": "Final792 receipt excluded from own hash and inner pytest; verify after creation.",
+  "stage": "792A",
+  "stage_evidence": [
+    {
+      "doc": {
+        "initial_paired_head": true,
+        "lines": 45
+      },
+      "frozen_bindings": [
+        {
+          "bytes": 2238,
+          "path": "artifacts/verification/stage787a/frozen_sources.json",
+          "sha256": "781f01a2895644365327f95aabd510f57338a4e3c2c6cd316c5c27fd2bf871b9"
+        },
+        {
+          "bytes": 76573,
+          "path": "artifacts/verification/stage787a/sources/3ceb186b9db7312d5f731942b5f0a27a0f5d734dd68625aafefc1290b9ac212b/stage676a_live_wa_77round_312window_milestone_r74_77.json",
+          "sha256": "3ceb186b9db7312d5f731942b5f0a27a0f5d734dd68625aafefc1290b9ac212b"
+        },
+        {
+          "bytes": 15043,
+          "path": "artifacts/verification/stage787a/sources/7013671fcb9d63b63a93294fcd96866d0d6fd8cc28c02761e08a60422e1527d3/run_stage676a_live_wa_77round_312window_milestone_r74_77.py",
+          "sha256": "7013671fcb9d63b63a93294fcd96866d0d6fd8cc28c02761e08a60422e1527d3"
+        },
+        {
+          "bytes": 50658,
+          "path": "artifacts/verification/stage787a/sources/4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017/run_stage311a_to_316a_wa_megamission.py",
+          "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+        },
+        {
+          "bytes": 3189,
+          "path": "artifacts/verification/stage787a/sources/3a8d4130c94a3159cecbd1b7ac2349d3066c01d2fd23e54a7aed48bd5bff84da/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+          "sha256": "3a8d4130c94a3159cecbd1b7ac2349d3066c01d2fd23e54a7aed48bd5bff84da"
+        }
+      ],
+      "origin_cutoff_bindings": [
+        {
+          "origin_path": "artifacts/autoresearch/stage676a_live_wa_77round_312window_milestone_r74_77.json",
+          "sha256": "3ceb186b9db7312d5f731942b5f0a27a0f5d734dd68625aafefc1290b9ac212b"
+        },
+        {
+          "origin_path": "tools/bench/run_stage676a_live_wa_77round_312window_milestone_r74_77.py",
+          "sha256": "7013671fcb9d63b63a93294fcd96866d0d6fd8cc28c02761e08a60422e1527d3"
+        },
+        {
+          "origin_path": "tools/benchmarks/run_stage311a_to_316a_wa_megamission.py",
+          "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+        },
+        {
+          "origin_path": "docs/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+          "sha256": "3a8d4130c94a3159cecbd1b7ac2349d3066c01d2fd23e54a7aed48bd5bff84da"
+        }
+      ],
+      "origin_diagnostics": [
+        {
+          "current": {
+            "bytes": 3205,
+            "path": "docs/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+            "sha256": "6a8586dfeeeb0ea8651da67bbbaf4259f282399ae2b62a2d446c18546f2ae9c9"
+          },
+          "path": "docs/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+          "status": "CHANGED_SINCE_FROZEN_CUTOFF"
+        }
+      ],
+      "physical_acceptance": "NOT_ASSESSED",
+      "stage": "787A",
+      "status": "QUALIFIED_OFFLINE_SENSITIVITY_MODEL"
+    },
+    {
+      "doc": {
+        "initial_paired_head": true,
+        "lines": 50
+      },
+      "frozen_bindings": [
+        {
+          "bytes": 2335,
+          "path": "artifacts/verification/stage788a/frozen_sources.json",
+          "sha256": "7cafcb73922a934b4393e8e5015b231142ce3d6374700e1568a417b258466094"
+        },
+        {
+          "bytes": 4315,
+          "path": "artifacts/verification/stage788a/sources/4b6c40cb9df6d6c50079fec62c1e003d5ed6ad05c6ac70318af39ab669f17dcb/stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.json",
+          "sha256": "4b6c40cb9df6d6c50079fec62c1e003d5ed6ad05c6ac70318af39ab669f17dcb"
+        },
+        {
+          "bytes": 6071,
+          "path": "artifacts/verification/stage788a/sources/79f460762fcf7774af966d48469da6d769bb9cdf1b9543f4f27049421f0fcd47/audit_stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.py",
+          "sha256": "79f460762fcf7774af966d48469da6d769bb9cdf1b9543f4f27049421f0fcd47"
+        },
+        {
+          "bytes": 12505,
+          "path": "artifacts/verification/stage788a/sources/6e1967bb75293905aad411b894000e96114e128558e197f2f5cd36e3c80e1763/run_stage457a_guarida_backbone_60_61_notch_mitigation_pareto.py",
+          "sha256": "6e1967bb75293905aad411b894000e96114e128558e197f2f5cd36e3c80e1763"
+        },
+        {
+          "bytes": 5894,
+          "path": "artifacts/verification/stage788a/sources/deababeade60b79bb2732efd5f99d6cde63809851d093c01ebec05fdcd782fc0/stage454a_guarida_60_61_subcarrier_notch_and_cinr_gap.json",
+          "sha256": "deababeade60b79bb2732efd5f99d6cde63809851d093c01ebec05fdcd782fc0"
+        }
+      ],
+      "origin_cutoff_bindings": [
+        {
+          "origin_path": "artifacts/autoresearch/stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.json",
+          "sha256": "4b6c40cb9df6d6c50079fec62c1e003d5ed6ad05c6ac70318af39ab669f17dcb"
+        },
+        {
+          "origin_path": "tools/observability/audit_stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.py",
+          "sha256": "79f460762fcf7774af966d48469da6d769bb9cdf1b9543f4f27049421f0fcd47"
+        },
+        {
+          "origin_path": "tools/sim/run_stage457a_guarida_backbone_60_61_notch_mitigation_pareto.py",
+          "sha256": "6e1967bb75293905aad411b894000e96114e128558e197f2f5cd36e3c80e1763"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage454a_guarida_60_61_subcarrier_notch_and_cinr_gap.json",
+          "sha256": "deababeade60b79bb2732efd5f99d6cde63809851d093c01ebec05fdcd782fc0"
+        }
+      ],
+      "origin_diagnostics": [],
+      "physical_acceptance": "NOT_ASSESSED",
+      "stage": "788A",
+      "status": "QUALIFIED_OFFLINE_SHIFT_SENSITIVITY"
+    },
+    {
+      "doc": {
+        "initial_paired_head": true,
+        "lines": 50
+      },
+      "frozen_bindings": [
+        {
+          "bytes": 4360,
+          "path": "artifacts/verification/stage789a/frozen_sources.json",
+          "sha256": "e07ad2dcd4c7cbb646cf545bf99cc7eacacea20a205554e3c96a3c299e03453f"
+        },
+        {
+          "bytes": 1748,
+          "path": "artifacts/verification/stage789a/sources/444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+          "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e"
+        },
+        {
+          "bytes": 2156,
+          "path": "artifacts/verification/stage789a/sources/f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe/stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+          "sha256": "f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe"
+        },
+        {
+          "bytes": 6443,
+          "path": "artifacts/verification/stage789a/sources/9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931/stage761a_live_ltu110_round22_264window_autoresearch.json",
+          "sha256": "9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931"
+        },
+        {
+          "bytes": 5677,
+          "path": "artifacts/verification/stage789a/sources/711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7/build_stage774a_ltu_champion_v20_264window_zero_dhcp_kit.py",
+          "sha256": "711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7"
+        },
+        {
+          "bytes": 9374,
+          "path": "artifacts/verification/stage789a/sources/176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71/build_stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.py",
+          "sha256": "176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71"
+        },
+        {
+          "bytes": 13677,
+          "path": "artifacts/verification/stage789a/sources/72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247/run_stage761a_live_ltu110_round22_264window_autoresearch.py",
+          "sha256": "72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247"
+        },
+        {
+          "bytes": 1328,
+          "path": "artifacts/verification/stage789a/sources/395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
+          "sha256": "395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae"
+        },
+        {
+          "bytes": 2387,
+          "path": "artifacts/verification/stage789a/sources/748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43/fmx_openwrt_lan_rogue_dhcp_and_ani_guard.sh",
+          "sha256": "748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43"
+        }
+      ],
+      "origin_cutoff_bindings": [
+        {
+          "origin_path": "artifacts/autoresearch/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+          "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+          "sha256": "f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage761a_live_ltu110_round22_264window_autoresearch.json",
+          "sha256": "9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931"
+        },
+        {
+          "origin_path": "tools/firmware/build_stage774a_ltu_champion_v20_264window_zero_dhcp_kit.py",
+          "sha256": "711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7"
+        },
+        {
+          "origin_path": "tools/firmware/build_stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.py",
+          "sha256": "176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71"
+        },
+        {
+          "origin_path": "tools/bench/run_stage761a_live_ltu110_round22_264window_autoresearch.py",
+          "sha256": "72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247"
+        },
+        {
+          "origin_path": "firmware/ltu_safe_kit/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
+          "sha256": "395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae"
+        },
+        {
+          "origin_path": "firmware/openwrt/common/fmx_openwrt_lan_rogue_dhcp_and_ani_guard.sh",
+          "sha256": "748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43"
+        }
+      ],
+      "origin_diagnostics": [],
+      "physical_acceptance": "NOT_ASSESSED",
+      "stage": "789A",
+      "status": "QUALIFIED_OFFLINE_DHCP_EVIDENCE_LEDGER"
+    },
+    {
+      "doc": {
+        "initial_paired_head": true,
+        "lines": 52
+      },
+      "frozen_bindings": [
+        {
+          "bytes": 2259,
+          "path": "artifacts/verification/stage790a/frozen_sources.json",
+          "sha256": "dad11615ec214c07c09ca507d4fc9155de68cd6d266012364e331169d8395f4d"
+        },
+        {
+          "bytes": 9799,
+          "path": "artifacts/verification/stage790a/sources/dc2902a53e9eb794569f157773725f3fd7292237e34ba17622ffb52430170c18/stage678a_live_panel1_guarida_84_v12_audit.json",
+          "sha256": "dc2902a53e9eb794569f157773725f3fd7292237e34ba17622ffb52430170c18"
+        },
+        {
+          "bytes": 10182,
+          "path": "artifacts/verification/stage790a/sources/36c9543959ef3320679c2383b30ff73f9813e3e782520e337d867fc28766b600/stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.json",
+          "sha256": "36c9543959ef3320679c2383b30ff73f9813e3e782520e337d867fc28766b600"
+        },
+        {
+          "bytes": 9325,
+          "path": "artifacts/verification/stage790a/sources/29ba7ef08569b12b74d89fd44c53607b1a59b3e7d1f15667738a115dfadfb498/run_stage678a_live_panel1_guarida_84_v12_audit.py",
+          "sha256": "29ba7ef08569b12b74d89fd44c53607b1a59b3e7d1f15667738a115dfadfb498"
+        },
+        {
+          "bytes": 9844,
+          "path": "artifacts/verification/stage790a/sources/6dbc499dfa7830afde70b9f57799f88e4a12759f33aecab4663e371b196544d0/audit_stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.py",
+          "sha256": "6dbc499dfa7830afde70b9f57799f88e4a12759f33aecab4663e371b196544d0"
+        }
+      ],
+      "origin_cutoff_bindings": [
+        {
+          "origin_path": "artifacts/autoresearch/stage678a_live_panel1_guarida_84_v12_audit.json",
+          "sha256": "dc2902a53e9eb794569f157773725f3fd7292237e34ba17622ffb52430170c18"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.json",
+          "sha256": "36c9543959ef3320679c2383b30ff73f9813e3e782520e337d867fc28766b600"
+        },
+        {
+          "origin_path": "tools/bench/run_stage678a_live_panel1_guarida_84_v12_audit.py",
+          "sha256": "29ba7ef08569b12b74d89fd44c53607b1a59b3e7d1f15667738a115dfadfb498"
+        },
+        {
+          "origin_path": "tools/observability/audit_stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.py",
+          "sha256": "6dbc499dfa7830afde70b9f57799f88e4a12759f33aecab4663e371b196544d0"
+        }
+      ],
+      "origin_diagnostics": [],
+      "physical_acceptance": "NOT_ASSESSED",
+      "stage": "790A",
+      "status": "QUALIFIED_OFFLINE_CONDITIONAL_RELIABILITY"
+    },
+    {
+      "doc": {
+        "initial_paired_head": true,
+        "lines": 50
+      },
+      "frozen_bindings": [
+        {
+          "bytes": 3889,
+          "path": "artifacts/verification/stage791a/frozen_sources.json",
+          "sha256": "87d2f8dd772f53e1b04d2e34407f313e0c123fa7c37fb1e726aa1c921745190d"
+        },
+        {
+          "bytes": 35910,
+          "path": "artifacts/verification/stage791a/sources/d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286/stage787a_wa_vht20_78mbps_vs_vht40_channel_efficiency_sim.json",
+          "sha256": "d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286"
+        },
+        {
+          "bytes": 309663,
+          "path": "artifacts/verification/stage791a/sources/28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627/stage788a_guarida_backbone_5210_to_5220_shift_pareto.json",
+          "sha256": "28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627"
+        },
+        {
+          "bytes": 10555,
+          "path": "artifacts/verification/stage791a/sources/1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a/stage789a_bench_and_tower_rogue_dhcp_audit_ledger.json",
+          "sha256": "1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a"
+        },
+        {
+          "bytes": 11111,
+          "path": "artifacts/verification/stage791a/sources/118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d/stage790a_panel1_guarida_84_20h_zero_drop_reliability_model.json",
+          "sha256": "118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d"
+        },
+        {
+          "bytes": 2462113,
+          "path": "artifacts/verification/stage791a/sources/3bcf34974c88e0aa4300640aba0b471fada298a4d32ddf24079657c46c4536ec/stage529a_500stage_cross_lane_artifact_integrity_gate.json",
+          "sha256": "3bcf34974c88e0aa4300640aba0b471fada298a4d32ddf24079657c46c4536ec"
+        },
+        {
+          "bytes": 37023,
+          "path": "artifacts/verification/stage791a/sources/fc517b9f6ac6c25a4dd023eec71c3f1694fdd107eff9018d6f4fe64c81f79d47/stage530a_codex_530stage_master_gate_receipt.json",
+          "sha256": "fc517b9f6ac6c25a4dd023eec71c3f1694fdd107eff9018d6f4fe64c81f79d47"
+        },
+        {
+          "bytes": 446435,
+          "path": "artifacts/verification/stage791a/sources/ee3fb15f0bb33e34d54db9796d8e23c1014c8445061c0ef4af1493b20e8b8209/horizon_inventory.json",
+          "sha256": "ee3fb15f0bb33e34d54db9796d8e23c1014c8445061c0ef4af1493b20e8b8209"
+        }
+      ],
+      "origin_cutoff_bindings": [
+        {
+          "origin_path": "artifacts/autoresearch/stage787a_wa_vht20_78mbps_vs_vht40_channel_efficiency_sim.json",
+          "sha256": "d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage788a_guarida_backbone_5210_to_5220_shift_pareto.json",
+          "sha256": "28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage789a_bench_and_tower_rogue_dhcp_audit_ledger.json",
+          "sha256": "1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage790a_panel1_guarida_84_20h_zero_drop_reliability_model.json",
+          "sha256": "118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d"
+        },
+        {
+          "origin_path": "artifacts/autoresearch/stage529a_500stage_cross_lane_artifact_integrity_gate.json",
+          "sha256": "3bcf34974c88e0aa4300640aba0b471fada298a4d32ddf24079657c46c4536ec"
+        },
+        {
+          "origin_path": "artifacts/verification/stage530a_codex_530stage_master_gate_receipt.json",
+          "sha256": "fc517b9f6ac6c25a4dd023eec71c3f1694fdd107eff9018d6f4fe64c81f79d47"
+        },
+        {
+          "origin_path": "artifacts/verification/stage791a/horizon_inventory.json",
+          "sha256": "ee3fb15f0bb33e34d54db9796d8e23c1014c8445061c0ef4af1493b20e8b8209"
+        }
+      ],
+      "origin_diagnostics": [],
+      "physical_acceptance": "NOT_ASSESSED",
+      "stage": "791A",
+      "status": "QUALIFIED_OFFLINE_HORIZON_AUDIT"
+    }
+  ],
+  "static_sources": [
+    {
+      "bytes": 6740,
+      "path": "tools/sim/run_stage787a_wa_vht20_78mbps_vs_vht40_channel_efficiency_sim.py",
+      "sha256": "cfcb1be51f8fc95c10ba0829365e3c8f6f75f83a638b5bfb9a6802588923c69a"
+    },
+    {
+      "bytes": 35910,
+      "path": "artifacts/autoresearch/stage787a_wa_vht20_78mbps_vs_vht40_channel_efficiency_sim.json",
+      "sha256": "d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286"
+    },
+    {
+      "bytes": 2717,
+      "path": "docs/STAGE787A_WA_VHT20_78MBPS_VS_VHT40_CHANNEL_EFFICIENCY_SIM.md",
+      "sha256": "dea3268411baaa8464ef2a2f973be59503c499ad2abcb069a14d190330b025a7"
+    },
+    {
+      "bytes": 7760,
+      "path": "tools/sim/run_stage788a_guarida_backbone_5210_to_5220_shift_pareto.py",
+      "sha256": "2952bca4b7585d91a12130255cfff1f831c3c208b3885af91cb9103544904f7a"
+    },
+    {
+      "bytes": 309663,
+      "path": "artifacts/autoresearch/stage788a_guarida_backbone_5210_to_5220_shift_pareto.json",
+      "sha256": "28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627"
+    },
+    {
+      "bytes": 3137,
+      "path": "docs/STAGE788A_GUARIDA_BACKBONE_5210_TO_5220_SHIFT_PARETO.md",
+      "sha256": "ad77ceb8fe3058eb471de6b2871a9aeb9e7e742c15a23ecbc7fdb41c750de28a"
+    },
+    {
+      "bytes": 9947,
+      "path": "tools/observability/build_stage789a_bench_and_tower_rogue_dhcp_audit_ledger.py",
+      "sha256": "04dae8232eac4dfa049c1c4446df96a175b8cad277c4719cca81174e26dda75b"
+    },
+    {
+      "bytes": 10555,
+      "path": "artifacts/autoresearch/stage789a_bench_and_tower_rogue_dhcp_audit_ledger.json",
+      "sha256": "1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a"
+    },
+    {
+      "bytes": 3145,
+      "path": "docs/STAGE789A_BENCH_AND_TOWER_ROGUE_DHCP_AUDIT_LEDGER.md",
+      "sha256": "4d3d858f8eef4f0ffc8ed97d14dac9f0250f211d1d5cf84778dc745153ef4672"
+    },
+    {
+      "bytes": 10063,
+      "path": "tools/sim/run_stage790a_panel1_guarida_84_20h_zero_drop_reliability_model.py",
+      "sha256": "3d1a38ad81d1e3eebed87087b0b9a7088aaaea89701a1ab6577eb186452227df"
+    },
+    {
+      "bytes": 11111,
+      "path": "artifacts/autoresearch/stage790a_panel1_guarida_84_20h_zero_drop_reliability_model.json",
+      "sha256": "118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d"
+    },
+    {
+      "bytes": 3350,
+      "path": "docs/STAGE790A_PANEL1_GUARIDA_84_20H_ZERO_DROP_RELIABILITY_MODEL.md",
+      "sha256": "f6bcfa4c5c327f3a3f32af588b8222823a5c3a0ba1c9394940b4ffee0d92d2a6"
+    },
+    {
+      "bytes": 9389,
+      "path": "tools/verify/build_stage791a_800stage_horizon_readiness_audit.py",
+      "sha256": "81a0179e32eda20457d3a8c082551c4106e838349a643048a29040b1bc91e396"
+    },
+    {
+      "bytes": 488135,
+      "path": "artifacts/autoresearch/stage791a_800stage_horizon_readiness_audit.json",
+      "sha256": "0399975bf6cd491ba95f4f946fc8db717b03e6b7401743aef22d41f4f0103b96"
+    },
+    {
+      "bytes": 2997,
+      "path": "docs/STAGE791A_800STAGE_HORIZON_READINESS_AUDIT.md",
+      "sha256": "cd006aa66922868aa0b6df4ea71ac1ede3e014fddd0c5c08be712fd09166c684"
+    },
+    {
+      "bytes": 3386,
+      "path": "tests/test_stage787a.py",
+      "sha256": "a7dc9d103d60f49a71976f69d3b2d7218a579254538965576504c344ca1fdb61"
+    },
+    {
+      "bytes": 2797,
+      "path": "tests/test_stage788a.py",
+      "sha256": "50fc0ea9eb95d0d4f7770376b6898eb8421cffaf73af5ab537898e772be6a242"
+    },
+    {
+      "bytes": 3428,
+      "path": "tests/test_stage789a.py",
+      "sha256": "2f3a9abd0f4b1cffad5a63f14417f6efadfe45f8b09209922e70dcf42a550ebe"
+    },
+    {
+      "bytes": 3722,
+      "path": "tests/test_stage790a.py",
+      "sha256": "3e3e69cfe13a834ba09b677fe8121ed0c90a592b121437521910110ecf7055a7"
+    },
+    {
+      "bytes": 2642,
+      "path": "tests/test_stage791a.py",
+      "sha256": "483f087149096c0293751366c2fd7024c3ffd0452e99aae5666fc01aa943984b"
+    },
+    {
+      "bytes": 8148,
+      "path": "tests/test_stage792a.py",
+      "sha256": "4c88ab88fdcc174e65d3a66878e27e82965ff0f93330824fd5d8c1f67cd86fa9"
+    },
+    {
+      "bytes": 1858,
+      "path": "tests/test_stage787a_to_792a_suite.py",
+      "sha256": "a3ea1bb410aa08178a0d782b7ec826d7e903d2d6381597b341036be03cb4cfe4"
+    },
+    {
+      "bytes": 15796,
+      "path": "tools/verify/verify_stage792a_codex_787a_to_792a_gate.py",
+      "sha256": "3d94d976eb198a43b93c1b66ebd711885bbf5c58552012f57a6199c9b5db44ad"
+    },
+    {
+      "bytes": 3035,
+      "path": "docs/STAGE792A_CODEX_787A_TO_792A_GATE.md",
+      "sha256": "9eeddf8117bfb9525bcd168a65dcbe867f239e6e8077737b7a40b480d44e6b96"
+    },
+    {
+      "bytes": 12508,
+      "path": "tools/verify/run_stage358a_ground_up_regression.py",
+      "sha256": "852acbc83487bc586ca1051b13e3d50f7522ffab19652601697300f7419c1c38"
+    },
+    {
+      "bytes": 8770,
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    },
+    {
+      "bytes": 6774,
+      "path": "tools/sim/stage787_792_common.py",
+      "sha256": "6bc28659494946f30b5e45142924c7a456b4262aac94ad5d2d0d98a6be92da90"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    },
+    {
+      "bytes": 23225,
+      "path": "docs/CURRENT_STATE.md",
+      "sha256": "6450cee7a2a405c61dbbdc7f4d9ecaf4eaf0f320e8d02f8ddbebef26928c4f38"
+    },
+    {
+      "bytes": 32369,
+      "path": "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md",
+      "sha256": "86f267308a7d639544ce1e765676d044f68b770b8aaecc9f413fb563695f968b"
+    },
+    {
+      "bytes": 5347,
+      "path": "docs/BENCH_PLAN.md",
+      "sha256": "f01218866b4eb32699c2aaae285b259b155a11ebd721db28da92d98442fb7bb7"
+    },
+    {
+      "bytes": 3086,
+      "path": "docs/DECISIONS.md",
+      "sha256": "bae154cc3968d46e2a36a419f3b3d9bd4f61be15764045a7b3fe4cf2672093b6"
+    },
+    {
+      "bytes": 3063,
+      "path": "docs/RESEARCH_LEDGER.md",
+      "sha256": "130a46717d0c1f3fe1c929be86d3c84c294f2be6b93e9d37a8cbb802854086b0"
+    },
+    {
+      "bytes": 12026,
+      "path": "artifacts/verification/stage787a/independent_review.json",
+      "sha256": "985b28bc23302dfb7dc0252c0a0f73d702c977be576542e24b7178b10c2e6621"
+    },
+    {
+      "bytes": 8214,
+      "path": "artifacts/verification/stage788a/independent_review.json",
+      "sha256": "d0bd2958e978d80039517871c5d293afeea7aa4df23f3a087d2fa2a3b3c5698b"
+    },
+    {
+      "bytes": 14617,
+      "path": "artifacts/verification/stage789a/independent_review.json",
+      "sha256": "ec7c79d38dc1ae0d9bfe6d924c12482ff1d030f0dd00e451d96147f0e8228df7"
+    },
+    {
+      "bytes": 9849,
+      "path": "artifacts/verification/stage790a/independent_review.json",
+      "sha256": "914444a55af450de6fe22f197a728071c335c229041ddccc4eeb6dc6ffa3d29f"
+    },
+    {
+      "bytes": 13218,
+      "path": "artifacts/verification/stage791a/independent_review.json",
+      "sha256": "9c5b7d3efb00820d18df7cbfe48e73819274e2b508b6a1672bcfc1739c59a663"
+    },
+    {
+      "bytes": 2238,
+      "path": "artifacts/verification/stage787a/frozen_sources.json",
+      "sha256": "781f01a2895644365327f95aabd510f57338a4e3c2c6cd316c5c27fd2bf871b9"
+    },
+    {
+      "bytes": 76573,
+      "path": "artifacts/verification/stage787a/sources/3ceb186b9db7312d5f731942b5f0a27a0f5d734dd68625aafefc1290b9ac212b/stage676a_live_wa_77round_312window_milestone_r74_77.json",
+      "sha256": "3ceb186b9db7312d5f731942b5f0a27a0f5d734dd68625aafefc1290b9ac212b"
+    },
+    {
+      "bytes": 15043,
+      "path": "artifacts/verification/stage787a/sources/7013671fcb9d63b63a93294fcd96866d0d6fd8cc28c02761e08a60422e1527d3/run_stage676a_live_wa_77round_312window_milestone_r74_77.py",
+      "sha256": "7013671fcb9d63b63a93294fcd96866d0d6fd8cc28c02761e08a60422e1527d3"
+    },
+    {
+      "bytes": 50658,
+      "path": "artifacts/verification/stage787a/sources/4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017/run_stage311a_to_316a_wa_megamission.py",
+      "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+    },
+    {
+      "bytes": 3189,
+      "path": "artifacts/verification/stage787a/sources/3a8d4130c94a3159cecbd1b7ac2349d3066c01d2fd23e54a7aed48bd5bff84da/STAGE676A_LIVE_WA_77ROUND_312WINDOW_MILESTONE_R74_77.md",
+      "sha256": "3a8d4130c94a3159cecbd1b7ac2349d3066c01d2fd23e54a7aed48bd5bff84da"
+    },
+    {
+      "bytes": 2335,
+      "path": "artifacts/verification/stage788a/frozen_sources.json",
+      "sha256": "7cafcb73922a934b4393e8e5015b231142ce3d6374700e1568a417b258466094"
+    },
+    {
+      "bytes": 4315,
+      "path": "artifacts/verification/stage788a/sources/4b6c40cb9df6d6c50079fec62c1e003d5ed6ad05c6ac70318af39ab669f17dcb/stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.json",
+      "sha256": "4b6c40cb9df6d6c50079fec62c1e003d5ed6ad05c6ac70318af39ab669f17dcb"
+    },
+    {
+      "bytes": 6071,
+      "path": "artifacts/verification/stage788a/sources/79f460762fcf7774af966d48469da6d769bb9cdf1b9543f4f27049421f0fcd47/audit_stage737a_guarida_backbone_60_61_ampdu_and_shift_preflight.py",
+      "sha256": "79f460762fcf7774af966d48469da6d769bb9cdf1b9543f4f27049421f0fcd47"
+    },
+    {
+      "bytes": 12505,
+      "path": "artifacts/verification/stage788a/sources/6e1967bb75293905aad411b894000e96114e128558e197f2f5cd36e3c80e1763/run_stage457a_guarida_backbone_60_61_notch_mitigation_pareto.py",
+      "sha256": "6e1967bb75293905aad411b894000e96114e128558e197f2f5cd36e3c80e1763"
+    },
+    {
+      "bytes": 5894,
+      "path": "artifacts/verification/stage788a/sources/deababeade60b79bb2732efd5f99d6cde63809851d093c01ebec05fdcd782fc0/stage454a_guarida_60_61_subcarrier_notch_and_cinr_gap.json",
+      "sha256": "deababeade60b79bb2732efd5f99d6cde63809851d093c01ebec05fdcd782fc0"
+    },
+    {
+      "bytes": 4360,
+      "path": "artifacts/verification/stage789a/frozen_sources.json",
+      "sha256": "e07ad2dcd4c7cbb646cf545bf99cc7eacacea20a205554e3c96a3c299e03453f"
+    },
+    {
+      "bytes": 1748,
+      "path": "artifacts/verification/stage789a/sources/444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+      "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e"
+    },
+    {
+      "bytes": 2156,
+      "path": "artifacts/verification/stage789a/sources/f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe/stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+      "sha256": "f73aed633ab74fe7430b72e6e74ff0cf4628a6d5bd003b7c43e40b44e2d647fe"
+    },
+    {
+      "bytes": 6443,
+      "path": "artifacts/verification/stage789a/sources/9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931/stage761a_live_ltu110_round22_264window_autoresearch.json",
+      "sha256": "9d76b7cf12c0d0b390fa6b76e7d58635f54b35e3302061d5d1da9b70d499c931"
+    },
+    {
+      "bytes": 5677,
+      "path": "artifacts/verification/stage789a/sources/711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7/build_stage774a_ltu_champion_v20_264window_zero_dhcp_kit.py",
+      "sha256": "711acbea65f623954c016f0755f8d0daf699690206be5001ba188c25065209e7"
+    },
+    {
+      "bytes": 9374,
+      "path": "artifacts/verification/stage789a/sources/176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71/build_stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.py",
+      "sha256": "176b2a4be3834c0846d9d0bc29c351616b8f6de7af309cf18f71e57618d62f71"
+    },
+    {
+      "bytes": 13677,
+      "path": "artifacts/verification/stage789a/sources/72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247/run_stage761a_live_ltu110_round22_264window_autoresearch.py",
+      "sha256": "72ae3f9be1ff9d7facefb0ba1b8d24d408d1465755cd4c8f6673ca256b308247"
+    },
+    {
+      "bytes": 1328,
+      "path": "artifacts/verification/stage789a/sources/395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
+      "sha256": "395c397fae42ec7024621e41d170e4816760d908539f543bda39795aaae514ae"
+    },
+    {
+      "bytes": 2387,
+      "path": "artifacts/verification/stage789a/sources/748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43/fmx_openwrt_lan_rogue_dhcp_and_ani_guard.sh",
+      "sha256": "748ad305d456699bdd052df190da42e677028738db1a816257e9ff542f9d6e43"
+    },
+    {
+      "bytes": 2259,
+      "path": "artifacts/verification/stage790a/frozen_sources.json",
+      "sha256": "dad11615ec214c07c09ca507d4fc9155de68cd6d266012364e331169d8395f4d"
+    },
+    {
+      "bytes": 9799,
+      "path": "artifacts/verification/stage790a/sources/dc2902a53e9eb794569f157773725f3fd7292237e34ba17622ffb52430170c18/stage678a_live_panel1_guarida_84_v12_audit.json",
+      "sha256": "dc2902a53e9eb794569f157773725f3fd7292237e34ba17622ffb52430170c18"
+    },
+    {
+      "bytes": 10182,
+      "path": "artifacts/verification/stage790a/sources/36c9543959ef3320679c2383b30ff73f9813e3e782520e337d867fc28766b600/stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.json",
+      "sha256": "36c9543959ef3320679c2383b30ff73f9813e3e782520e337d867fc28766b600"
+    },
+    {
+      "bytes": 9325,
+      "path": "artifacts/verification/stage790a/sources/29ba7ef08569b12b74d89fd44c53607b1a59b3e7d1f15667738a115dfadfb498/run_stage678a_live_panel1_guarida_84_v12_audit.py",
+      "sha256": "29ba7ef08569b12b74d89fd44c53607b1a59b3e7d1f15667738a115dfadfb498"
+    },
+    {
+      "bytes": 9844,
+      "path": "artifacts/verification/stage790a/sources/6dbc499dfa7830afde70b9f57799f88e4a12759f33aecab4663e371b196544d0/audit_stage683a_panel1_guarida_84_per_tid_aql_and_atf_20h.py",
+      "sha256": "6dbc499dfa7830afde70b9f57799f88e4a12759f33aecab4663e371b196544d0"
+    },
+    {
+      "bytes": 3889,
+      "path": "artifacts/verification/stage791a/frozen_sources.json",
+      "sha256": "87d2f8dd772f53e1b04d2e34407f313e0c123fa7c37fb1e726aa1c921745190d"
+    },
+    {
+      "bytes": 35910,
+      "path": "artifacts/verification/stage791a/sources/d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286/stage787a_wa_vht20_78mbps_vs_vht40_channel_efficiency_sim.json",
+      "sha256": "d8ed42b1b2927c925c8b8381cf65551b6ecd1f1c8cb1549a2cf186b4b9bef286"
+    },
+    {
+      "bytes": 309663,
+      "path": "artifacts/verification/stage791a/sources/28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627/stage788a_guarida_backbone_5210_to_5220_shift_pareto.json",
+      "sha256": "28b4e49cf65a58dcded8a68f4b45102c9b8c89e97f3a26f5247291e4fbad1627"
+    },
+    {
+      "bytes": 10555,
+      "path": "artifacts/verification/stage791a/sources/1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a/stage789a_bench_and_tower_rogue_dhcp_audit_ledger.json",
+      "sha256": "1113f68cd481e0ae30ea506fc6b336c5dad7b95c9d7716947c33341b7551ab2a"
+    },
+    {
+      "bytes": 11111,
+      "path": "artifacts/verification/stage791a/sources/118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d/stage790a_panel1_guarida_84_20h_zero_drop_reliability_model.json",
+      "sha256": "118ac9606466418dc04ddbdd3b56225200ad1ff7b41fbfe4f94f6520c5e8cf1d"
+    },
+    {
+      "bytes": 2462113,
+      "path": "artifacts/verification/stage791a/sources/3bcf34974c88e0aa4300640aba0b471fada298a4d32ddf24079657c46c4536ec/stage529a_500stage_cross_lane_artifact_integrity_gate.json",
+      "sha256": "3bcf34974c88e0aa4300640aba0b471fada298a4d32ddf24079657c46c4536ec"
+    },
+    {
+      "bytes": 37023,
+      "path": "artifacts/verification/stage791a/sources/fc517b9f6ac6c25a4dd023eec71c3f1694fdd107eff9018d6f4fe64c81f79d47/stage530a_codex_530stage_master_gate_receipt.json",
+      "sha256": "fc517b9f6ac6c25a4dd023eec71c3f1694fdd107eff9018d6f4fe64c81f79d47"
+    },
+    {
+      "bytes": 446435,
+      "path": "artifacts/verification/stage791a/sources/ee3fb15f0bb33e34d54db9796d8e23c1014c8445061c0ef4af1493b20e8b8209/horizon_inventory.json",
+      "sha256": "ee3fb15f0bb33e34d54db9796d8e23c1014c8445061c0ef4af1493b20e8b8209"
+    }
+  ],
+  "status": "PASS_LOCAL_TOOLING_ONLY"
+}

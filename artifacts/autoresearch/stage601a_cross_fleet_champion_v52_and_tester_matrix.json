@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-601A",
+  "title": "Cross-Fleet Champion v52.0 Synthesis & Community Tester Matrix (600 Total Cross-Lane Windows)",
+  "timestamp_utc": "2026-10-27T01:34:48.727438+00:00",
+  "status": "CONFIRMED",
+  "champion_version": "v52.0",
+  "window_totals": {
+    "wa_windows": 228,
+    "multi_radio_windows": 192,
+    "ltu_windows": 180,
+    "total_cross_lane_windows": 600
+  },
+  "radio_families_count": 8,
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "families": {
+    "WA_5GHZ_AC": {
+      "soc_radio": "AR9342 535MHz + QCA9882",
+      "certified_models": [
+        "PBE-5AC-Gen2",
+        "LBE-5AC-Gen2",
+        "LiteAP-AC",
+        "NanoBeam-5AC-Gen2"
+      ],
+      "vht40_certified_mbps": 24.83,
+      "iptv_1316b_loss_pct": 0.0,
+      "wmi_peer_assoc_clean_chwidth_sync": true,
+      "paprd_enable": 1,
+      "clpc_mcs8_9_backoff_db": 1.5
+    },
+    "XC_5GHZ_AC_PRISM": {
+      "soc_radio": "QCA9558 720MHz + QCA9880 + AirPrism",
+      "certified_models": [
+        "RP-5AC-Gen2",
+        "PS-5AC",
+        "IS-5AC"
+      ],
+      "wmi_peer_assoc_clean_chwidth_sync": true,
+      "dynamic_lgi_sgi_threshold_enable": true,
+      "paprd_enable": 1,
+      "clpc_mcs8_9_backoff_db": 1.5
+    },
+    "2WA_2GHZ_AC": {
+      "soc_radio": "AR9342 + 2.4GHz 11ac",
+      "paprd_enable": 1,
+      "clpc_mcs8_9_backoff_db": 1.5,
+      "ani_ofdm_cck_immunity_enable": true
+    },
+    "2XC_2GHZ_AC_PRISM": {
+      "soc_radio": "QCA9558 + 2.4GHz AirPrism",
+      "paprd_enable": 1,
+      "clpc_mcs8_9_backoff_db": 1.5,
+      "ani_ofdm_cck_immunity_enable": true
+    },
+    "XW_M5_AR9342": {
+      "soc_radio": "AR9342 535MHz SoC WiSoC",
+      "paprd_enable": 1,
+      "vht40_asymmetric_mcs2_lgi": true,
+      "daprot": 2,
+      "set_multiq": 3
+    },
+    "XM_M5_AR7241": {
+      "soc_radio": "AR7241 400MHz + AR9280",
+      "tx_queue_len": 1000,
+      "daprot": 2,
+      "set_multiq": 3
+    },
+    "TI_TITANIUM_AR9344": {
+      "soc_radio": "AR9344 560MHz + AR9580",
+      "paprd_enable": 1,
+      "daprot": 2,
+      "set_multiq": 3
+    },
+    "AF_LTU_BEETLE_AME_ASIC0": {
+      "soc_radio": "Beetle + ame_ASIC0 (ame_core.ko + eab_driver.ko)",
+      "bbp_rf_set_super4096": 1,
+      "ame_bbp_set_dpd": 1,
+      "tdma_frame_len_ptp_ms": 2.0,
+      "tdma_frame_len_ptmp_ms": 2.5,
+      "split_freq_delta_mhz": 40,
+      "ame_core_set_bc_dl_symbols": 1,
+      "lbt_enable": 1,
+      "lbt_ed_thresh_dbm": -72,
+      "bbp_rf_set_intf_mitigation": 2
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "umac.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-CHAMPION-V52-CROSS-FLEET-600WINDOWS"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "windows_executed": 192
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "families_covered": 8
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE601A-CROSS-FLEET-CHAMPION-V52-600WINDOWS"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

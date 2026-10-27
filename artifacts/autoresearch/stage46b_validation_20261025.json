@@ -1,0 +1,275 @@
+{
+  "task_id": "T-S46B-CODEX-STAGE50B-LTU-HYBRID-SWQ-AND-MAXBD-OTA-VERIFIER",
+  "validation_version": 1,
+  "status": "PASS_OFFLINE_SOFTWARE_WITH_PLATFORM_SKIP_AND_NATIVE_QUALIFICATIONS",
+  "timestamp_utc": "2026-10-26T02:45:21.181949+00:00",
+  "frozen_owned_sha256": {
+    "controller/stage50b_ltu_hybrid_swq_and_maxbd_verifier.py": "3401416648739bd7eba2c4258f95b24d55b6b6d6179ae3a20972b7c6a5236cfa",
+    "tools/verify_stage50b_ltu_hybrid_swq_and_maxbd.py": "941ce5199274bf3a6c25d84071842bb899ea083b89d7018614146bc54ed17030",
+    "tests/test_stage50b_ltu_hybrid_swq_and_maxbd_verifier.py": "5bec1744640b8f4296545d6f797178274e59dc8f3e7e1ba0a313e6f2495f6c9a",
+    "docs/CURRENT_STATE.md": "ecc7966d9b2326e2a1a642308911c6f59dcf5f6c68e8be915c3c1052bea35355",
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": "57f8007d702481fe8c08003a96ac0c8c666b518c7462ab569125ed63475e134c",
+    "docs/BENCH_PLAN.md": "9436fdfbfbab35b8d5a7320c8736262b593f0b6415a13615980c3e7e6d3b7811",
+    "docs/DECISIONS.md": "b6ed4078ef4e9f0fd4c862248a2a90bb42fdcb3b6b2fa48787d6315787d11c6c",
+    "docs/RESEARCH_LEDGER.md": "2f3fbec854441e7d15816d13aed6625007119ea42d7e24987b1a8298ecf8767e",
+    "artifacts/autoresearch/stage46b_ltu_hybrid_swq_and_maxbd_audit_20261025.json": "b7d567b11b407a77f8069f63fffc62ee098c234aa7bfdcc22de00ce6aabae1f6"
+  },
+  "input_sha256": {
+    "artifacts/autoresearch/stage50b_ltu_hybrid_swq_and_mcs_ceiling_ota_bench_20261025.json": "ab957ed159967f5a74e1804d71ef2365345e5645dcd41626dd3b507fa11ee300",
+    "docs/STAGE50B_LTU_HYBRID_SWQ_AND_MCS_CEILING_OTA_BENCHMARK.md": "092161b50d2b50f1511bc34d41f58d3448d1474c924640480262ff609ee2e3cd",
+    "tools/bench/run_stage50b_ltu_hybrid_swq_and_mcs_ceiling_ota_bench.py": "cd97f7afabae6f2ca53e2b327e878374c26fc3838ce3f97fecca9d661bbef7cf",
+    "tools/bench/deploy_stage40a_ltu_poststart.py": "5b78edd26eabddbdd495f74153409418aa4b4a034ed66c948b7731a0338722b2",
+    "artifacts/autoresearch/stage49b_ltu_pb_boost_and_frame_len_ota_bench_20261025.json": "6fb78a3e1a430951ad1c99c3fbf9391d9e4ecafc3e07d9635b7b5d7a383a93be",
+    "docs/STAGE49B_LTU_PB_BOOST_AND_FRAME_LEN_OTA_BENCHMARK.md": "c6c9f7e19f0749839586c6034ea3923fa4cd7d23ed88c9a0410a2aa4eec11126",
+    "tools/bench/run_stage49b_ltu_pb_boost_and_frame_len_ota_bench.py": "224369feb832b68d7de56422f05900f2b860621d8a064f6bf72761f8475eaf5e",
+    "controller/stage42a_netdev_txq_and_airos6_verifier.py": "5eb30295acd320f0e63c231132ee56c54e3704728ddfd40e61930e1c69bcef70",
+    "controller/stage48b_ltu_ota_triple_play_and_loop_flee_verifier.py": "0e096ee91ac586e247cf3a293665af6af264687fe16d63c98e23481d52ace4ed"
+  },
+  "test_receipts": {
+    "artifacts/autoresearch/stage46b_test_run_1_20261025.json": {
+      "sha256": "1282f443173836bb29b44abba222ab57a2eceb7249362d6da853721e0332031d",
+      "receipt": {
+        "command": "python -m pytest -q -o addopts= tests/test_stage50b_ltu_hybrid_swq_and_maxbd_verifier.py",
+        "exit_code": 0,
+        "output": "python.exe : C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: \r\nPytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nAt line:7 char:15\r\n+ ... estOutput = & python -m pytest -q -o addopts= tests/test_stage50b_ltu ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (C:\\Users\\pauol\\...cope\" is unset.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of \r\npytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop \r\nscope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \r\n\"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n........................................................................ [ 57%]\r\n...........................................s.........                    [100%]\r\n124 passed, 1 skipped in 0.81s\r\n",
+        "module_sha256": "3401416648739bd7eba2c4258f95b24d55b6b6d6179ae3a20972b7c6a5236cfa",
+        "module_sha256_after": "3401416648739bd7eba2c4258f95b24d55b6b6d6179ae3a20972b7c6a5236cfa",
+        "cli_sha256": "941ce5199274bf3a6c25d84071842bb899ea083b89d7018614146bc54ed17030",
+        "test_sha256": "5bec1744640b8f4296545d6f797178274e59dc8f3e7e1ba0a313e6f2495f6c9a",
+        "scope": "LOCAL_OFFLINE_TESTS_AND_DISPOSABLE_LOCAL_CLI_FIXTURES_ONLY",
+        "timestamp_utc": "2026-10-26T02:44:02.7460442Z"
+      }
+    }
+  },
+  "docs": {
+    "docs/CURRENT_STATE.md": {
+      "line_count": 197,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": {
+      "line_count": 192,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/BENCH_PLAN.md": {
+      "line_count": 248,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/DECISIONS.md": {
+      "line_count": 230,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    },
+    "docs/RESEARCH_LEDGER.md": {
+      "line_count": 239,
+      "opening_doc_head_lines": [
+        1
+      ],
+      "closing_doc_head_lines": [
+        5
+      ]
+    }
+  },
+  "audit_summary": {
+    "trials": 9,
+    "reproduced_summary_checks": 39,
+    "findings": [
+      {
+        "code": "STAGE50_DISCRETE_CPE_MCS_CONFLICTS_WITH_STAGE49_SENTINEL32",
+        "native_resolution": "MISSING_DMESG_AND_EXACT_BUILD"
+      },
+      {
+        "code": "MAXBD_RANGE_MATCHES_BUT_EAB_ABI_RESET_AND_HARD_CAP_UNPROVEN"
+      },
+      {
+        "code": "R2_REPORT_BLER_19_TO_21_NOT_IN_SAVED_FRAGMENT_PERCENT_FIELDS",
+        "saved_displayed_percent": [
+          40,
+          46,
+          52
+        ]
+      },
+      {
+        "code": "HYBRID_SUBSET_SELECTION_EXCLUDES_LOWER_SCORING_BASELINE",
+        "scores": {
+          "S50B-R0-STAGE49B-BASELINE": 13.62,
+          "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X": 19.494,
+          "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2": 22.699
+        }
+      },
+      {
+        "code": "R1_LATENCY_GAIN_HAS_THROUGHPUT_AND_IPTV_LOSS_TRADEOFF",
+        "changes_pct": {
+          "mean_bulk_tcp_mbps": -32.7948,
+          "mean_iptv_udp_mbps": 11.1942,
+          "mean_iptv_jitter_ms": -9.0909,
+          "mean_iptv_loss_pct": 222.7273,
+          "mean_voip_jitter_ms": 19.3004,
+          "mean_loaded_ping_p50_ms": -18.314,
+          "mean_loaded_ping_p95_ms": -26.5785,
+          "mean_loaded_ping_p99_ms": -26.5995,
+          "mean_aggregate_dl_mbps": -16.1824,
+          "median_loaded_ping_p50_ms": -20.4716,
+          "median_loaded_ping_p95_ms": -24.8583
+        }
+      }
+    ],
+    "selection": {
+      "formula": "median_trial_p95_ms + 10*mean_trial_IPTV_loss_pct",
+      "scores_all_profiles": {
+        "S50B-R0-STAGE49B-BASELINE": 13.62,
+        "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X": 19.494,
+        "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2": 22.699
+      },
+      "eligible_profiles": [
+        "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X",
+        "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2"
+      ],
+      "recomputed_winner": "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X",
+      "reported_winner": "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X",
+      "global_optimum_or_pareto_improvement_proven": false
+    },
+    "maxbd": {
+      "S50B-R0-STAGE49B-BASELINE": {
+        "values": [
+          9,
+          5,
+          10
+        ],
+        "min": 5,
+        "max": 10
+      },
+      "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X": {
+        "values": [
+          6,
+          5,
+          5
+        ],
+        "min": 5,
+        "max": 6
+      },
+      "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2": {
+        "values": [
+          7,
+          6,
+          5
+        ],
+        "min": 5,
+        "max": 7
+      }
+    },
+    "changes_pct": {
+      "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X": {
+        "mean_bulk_tcp_mbps": -32.7948,
+        "mean_iptv_udp_mbps": 11.1942,
+        "mean_iptv_jitter_ms": -9.0909,
+        "mean_iptv_loss_pct": 222.7273,
+        "mean_voip_jitter_ms": 19.3004,
+        "mean_loaded_ping_p50_ms": -18.314,
+        "mean_loaded_ping_p95_ms": -26.5785,
+        "mean_loaded_ping_p99_ms": -26.5995,
+        "mean_aggregate_dl_mbps": -16.1824,
+        "median_loaded_ping_p50_ms": -20.4716,
+        "median_loaded_ping_p95_ms": -24.8583
+      },
+      "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2": {
+        "mean_bulk_tcp_mbps": -31.0553,
+        "mean_iptv_udp_mbps": 8.6789,
+        "mean_iptv_jitter_ms": 6.9658,
+        "mean_iptv_loss_pct": 256.6845,
+        "mean_voip_jitter_ms": 8.082,
+        "mean_loaded_ping_p50_ms": -42.6115,
+        "mean_loaded_ping_p95_ms": -14.8031,
+        "mean_loaded_ping_p99_ms": -14.6357,
+        "mean_aggregate_dl_mbps": -16.0498,
+        "median_loaded_ping_p50_ms": -42.871,
+        "median_loaded_ping_p95_ms": -5.2733
+      }
+    },
+    "persistence_receipts": {
+      "LTU1": true,
+      "LTU2": true
+    },
+    "native_acceptance": false
+  },
+  "cli_receipt": {
+    "command": "python tools/verify_stage50b_ltu_hybrid_swq_and_maxbd.py",
+    "chunk_id": "c92de1",
+    "wall_time_seconds": 0.5181977,
+    "exit_code": 0,
+    "original_token_count": 62,
+    "output": "{\"status\": \"COMPLETE_WITH_QUALIFICATIONS\", \"output\": \"G:\\\\_OneDrive\\\\OneDrive\\\\Desktop\\\\Py Apps\\\\futuraMAX\\\\artifacts\\\\autoresearch\\\\stage46b_ltu_hybrid_swq_and_maxbd_audit_20261025.json\", \"trials\": 9, \"findings\": 5, \"native_acceptance\": false}\r\n",
+    "scope": "Actual repository export; no native runner or hardware"
+  },
+  "test_disposition": {
+    "final": "124 passed,1 skipped,exit0; first focused run",
+    "platform_skip": "Optional local symlink creation unavailable; real-symlink branch unexecuted. Exact OSError not captured by quiet receipt.",
+    "warning": "Pre-existing pytest-asyncio default loop-scope deprecation retained; no shared services or native benchmarks"
+  },
+  "scope_and_input_roles": {
+    "primary": "Complete Stage50B source/report and9trial bindings",
+    "static_recipe": "Current runner/poststart template inspected as text or identity only; not imported/executed, not historical deployment proof",
+    "prior_stage49": "Pins exact earlier source/report/recipe with conflicting sentinel32 declaration; neither native ABI authenticated",
+    "shared_helpers": "Local JSON/path/number guards and progress rendering only"
+  },
+  "document_maintenance": "CURRENT collapsed12duplicate blank lines only; prior own BENCH Stage45 paragraph reflowed without deleting visible text. Historical entries preserved; no archives rewritten.",
+  "navigation": {
+    "git_head": "0cce9cf",
+    "gitnexus": "No futuramax index listed; scoped rg/source fallback",
+    "serena": "No exposed overview/find_symbol after discovery",
+    "memorymaster": "Scoped project:futuramax query returned unrelated older benchmark context; not used as Stage50B evidence"
+  },
+  "boundary": {
+    "offline_only": true,
+    "hardware_access": false,
+    "ssh": false,
+    "native_runner_executed": false,
+    "config_or_flash": false,
+    "new_rf_measurements": false,
+    "native_acceptance": false,
+    "physical_status": "UNKNOWN",
+    "e2": "NOT_ACCEPTED"
+  },
+  "next_tasks": [],
+  "physical_user_action_required": false,
+  "independent_review": {
+    "status": "PASS_SOFTWARE_CLOSURE_WITH_QUALIFIED_EVIDENCE",
+    "receipt": "artifacts/autoresearch/stage46b_independent_review_20261025.json",
+    "receipt_sha256": "58ee405876663cdcc167e61b6414a5303f96be44d300ba22383b0e0fe678e333",
+    "reviewed_validation_sha256_before_metadata_only_update": "e7a37a012f6340bbddb7ea9c8051ec5fe52e4e91bd138c6ba6a3d45d1e2a7b95",
+    "allowed_post_review_mutations": [
+      "This validation status/review pointer only",
+      "Separate independent review receipt",
+      "Own task card DONE/summary and derived local board view",
+      "Small authorized memory checkpoint note; no registry/database writes"
+    ],
+    "frozen_files_must_remain_unchanged": true
+  },
+  "post_concurrent_doc_guard_receipt": {
+    "command": "python -m pytest -q -o addopts= tests/test_stage50b_ltu_hybrid_swq_and_maxbd_verifier.py::test_current_docs_stay_compact_with_a_single_first_line_doc_head",
+    "chunk_id": "999535",
+    "wall_time_seconds": 1.2794701,
+    "exit_code": 0,
+    "original_token_count": 191,
+    "output": "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytest_asyncio\\plugin.py:208: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\r\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\r\n\r\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\r\n..                                                                       [100%]\r\n2 passed in 0.20s\r\n"
+  },
+  "concurrent_document_change": "Before freeze, shared CURRENT/master received external compaction/campaign additions and became197/192 lines. Stage46B sections and earlier Stage45B/44B qualifications remain. Those unrelated campaign entries were retained, not reaudited by this card. Fresh two-document guards passed against the frozen current documents."
+}

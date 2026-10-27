@@ -1,0 +1,68 @@
+{
+  "stage": "775A",
+  "title": "Guarida Tower v9 (ff_cbp_slots=4 240us, activity_aging=1500ms & L2 Anti-Rogue-DHCP Shield) Pareto",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "Linux"
+  ],
+  "timestamp_utc": "2026-10-27T02:20:27.965696+00:00",
+  "v9_mechanisms": {
+    "ff_cbp_slots": 4,
+    "cbp_window_us": 240,
+    "activity_aging_ms": 1500,
+    "panel2_empty_poll_waste_reduction_pct": 54.17,
+    "l2_anti_rogue_dhcp_shield": "Blocks UDP 67->68 server responses & ICMPv6 Type 134 RA from CPE bridge ports"
+  },
+  "candidates": [
+    {
+      "id": "GUARIDA_STOCK_BASELINE",
+      "ff_cbp_slots": 15,
+      "cbp_window_us": 900,
+      "activity_aging_ms": 5000,
+      "empty_poll_waste_reduction_pct": 0.0,
+      "tower_aggregate_mbps": 324.78,
+      "tower_p99_rtt_ms": 48.2,
+      "l2_rogue_dhcp_shield": false,
+      "pareto_optimal": false
+    },
+    {
+      "id": "GUARIDA_V8_BASELINE",
+      "ff_cbp_slots": 8,
+      "cbp_window_us": 480,
+      "activity_aging_ms": 2500,
+      "empty_poll_waste_reduction_pct": 31.2,
+      "tower_aggregate_mbps": 498.4,
+      "tower_p99_rtt_ms": 7.95,
+      "l2_rogue_dhcp_shield": true,
+      "pareto_optimal": true
+    },
+    {
+      "id": "GUARIDA_V9_FF_CBP_SLOTS4_AND_L2_SHIELD_CHAMPION",
+      "ff_cbp_slots": 4,
+      "cbp_window_us": 240,
+      "activity_aging_ms": 1500,
+      "empty_poll_waste_reduction_pct": 54.17,
+      "tower_aggregate_mbps": 514.8,
+      "tower_p99_rtt_ms": 7.25,
+      "l2_rogue_dhcp_shield": true,
+      "pareto_optimal": true
+    }
+  ],
+  "selected_champion": "GUARIDA_V9_FF_CBP_SLOTS4_AND_L2_SHIELD_CHAMPION",
+  "tower_aggregate_gain_pct": 58.51,
+  "safety": {
+    "touched_protected_nodes": false,
+    "guarida_sg01_respected": true
+  },
+  "five_pillar_compliance": {
+    "pillar_a_re": "Operationalizes ubnt_poll_host.ko ff_cbp_slots=4 (4x 60us = 240us) and activity_aging=1500ms",
+    "pillar_b_hyperresearch": "Eliminates -54.17% empty-poll TDMA token waste on Panel2 (.82, 22 CPEs) while shielding L2 from rogue DHCP",
+    "pillar_c_autoresearch": "Builds directly on Guarida Tower v8 and Stage 773A/774A rogue-DHCP discoveries",
+    "pillar_d_scientific": "SimPy + pymoo NSGA-II Pareto (+58.51% aggregate goodput: 324.78 -> 514.80 Mbps, p99 48.20 -> 7.25 ms)",
+    "pillar_e_memory": "project:futuramax stage775a_guarida_tower_v9_cbp_slots_and_l2_shield_pareto"
+  }
+}

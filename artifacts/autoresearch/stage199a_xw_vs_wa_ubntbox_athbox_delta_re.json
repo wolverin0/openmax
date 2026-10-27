@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "stage": "199A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage197a_to_199a_hal_and_xw_delta.py",
+    "scope": "offline static; no device access",
+    "premise_correction": "WA.v8.7.11 does not exist in this repository; the comparison uses WA.v8.7.25 against XW.v6.3.6",
+    "radio_safety": "static only"
+  },
+  "tables": {
+    "WA.v8.7.25": {
+      "ubntbox": {
+        "status": "ok",
+        "bytes": 899180,
+        "sha256": "77bfc4fa149c6cf646c6f07f5874a74ad29c9d54d90be4acd11d4386fc90def9",
+        "count": 29,
+        "names": [
+          "amstainfo",
+          "bgnd",
+          "certgen",
+          "cfgmtd",
+          "discover",
+          "ethcfg",
+          "factorytest",
+          "fcc-lock",
+          "fwupdate.real",
+          "hist-stats.cgi",
+          "infctld",
+          "label",
+          "mca-status",
+          "scand",
+          "signal.cgi",
+          "snmp",
+          "speedtd",
+          "sqfsck",
+          "status.cgi",
+          "sysled",
+          "uav",
+          "ubnt-caldata",
+          "ubnt-gps-reader",
+          "ubntconf",
+          "ulogger",
+          "uservice",
+          "ust-ctl",
+          "ustatsd",
+          "wstalist"
+        ],
+        "plt": 320,
+        "jal": 9463,
+        "jal_resolved": 5646
+      },
+      "athbox": {
+        "status": "ok",
+        "bytes": 202920,
+        "sha256": "c1d37671cafe6c7651f03000fd7dae7755ed8717bde07df1aeffba3aaa9a99e0",
+        "count": 15,
+        "names": [
+          "80211debug",
+          "80211stats",
+          "apstats",
+          "athchans",
+          "athdebug",
+          "athstats",
+          "athstatsclr",
+          "haldebug",
+          "pktlogconf",
+          "pktlogdump",
+          "radarprescan",
+          "radartool",
+          "regdomain",
+          "upollstats",
+          "wlanconfig"
+        ],
+        "plt": 69,
+        "jal": 2011,
+        "jal_resolved": 1793
+      }
+    },
+    "XW.v6.3.6": {
+      "ubntbox": {
+        "status": "ok",
+        "bytes": 570776,
+        "sha256": "da3d2848ecb4cbeb3a62352897eefa203339985b46a72b63ed13d074b385cba1",
+        "count": 25,
+        "names": [
+          "bgnd",
+          "certgen",
+          "cfgmtd",
+          "cpu-freq400",
+          "dfs-unlock",
+          "discover",
+          "ethcfg",
+          "factorytest",
+          "fwupdate.real",
+          "iflist.cgi",
+          "ifstats.cgi",
+          "infctld",
+          "label",
+          "mca-status",
+          "product",
+          "scan.cgi",
+          "sqfsck",
+          "status",
+          "sysled",
+          "uav",
+          "ubnt-caldata",
+          "ubnt-gps-reader",
+          "ubnt-pcap-filter",
+          "ubntconf",
+          "ulogger"
+        ],
+        "plt": 281,
+        "jal": 9845,
+        "jal_resolved": 5990
+      },
+      "athbox": {
+        "status": "ok",
+        "bytes": 162520,
+        "sha256": "b214d2dac68cccd8d2a6406c03eae3d0be1949ae7c2da160bbf0655e3a2f8a38",
+        "count": 10,
+        "names": [
+          "80211debug",
+          "80211stats",
+          "athchans",
+          "athdebug",
+          "athstats",
+          "athstatsclr",
+          "haldebug",
+          "radartool",
+          "regdomain",
+          "wlanconfig"
+        ],
+        "plt": 47,
+        "jal": 1438,
+        "jal_resolved": 1118
+      }
+    }
+  },
+  "delta": {
+    "ubntbox": {
+      "wa_count": 29,
+      "xw_count": 25,
+      "only_in_wa": [
+        "amstainfo",
+        "fcc-lock",
+        "hist-stats.cgi",
+        "scand",
+        "signal.cgi",
+        "snmp",
+        "speedtd",
+        "status.cgi",
+        "uservice",
+        "ust-ctl",
+        "ustatsd",
+        "wstalist"
+      ],
+      "only_in_xw": [
+        "cpu-freq400",
+        "dfs-unlock",
+        "iflist.cgi",
+        "ifstats.cgi",
+        "product",
+        "scan.cgi",
+        "status",
+        "ubnt-pcap-filter"
+      ],
+      "common": [
+        "bgnd",
+        "certgen",
+        "cfgmtd",
+        "discover",
+        "ethcfg",
+        "factorytest",
+        "fwupdate.real",
+        "infctld",
+        "label",
+        "mca-status",
+        "sqfsck",
+        "sysled",
+        "uav",
+        "ubnt-caldata",
+        "ubnt-gps-reader",
+        "ubntconf",
+        "ulogger"
+      ],
+      "common_count": 17
+    },
+    "athbox": {
+      "wa_count": 15,
+      "xw_count": 10,
+      "only_in_wa": [
+        "apstats",
+        "pktlogconf",
+        "pktlogdump",
+        "radarprescan",
+        "upollstats"
+      ],
+      "only_in_xw": [],
+      "common": [
+        "80211debug",
+        "80211stats",
+        "athchans",
+        "athdebug",
+        "athstats",
+        "athstatsclr",
+        "haldebug",
+        "radartool",
+        "regdomain",
+        "wlanconfig"
+      ],
+      "common_count": 10
+    }
+  },
+  "summary": {
+    "ubntbox_wa": 29,
+    "ubntbox_xw": 25,
+    "ubntbox_only_wa": 12,
+    "ubntbox_only_xw": 8,
+    "athbox_wa": 15,
+    "athbox_xw": 10,
+    "athbox_only_wa": 5,
+    "athbox_only_xw": 0
+  },
+  "gaps": [
+    "applet presence is not applet behaviour: a name present in both builds may be implemented differently",
+    "XW.v6.3.6 is airOS 6 and WA.v8.7.25 is airOS 8, so the delta conflates versions and product lines",
+    "no dynamic validation"
+  ]
+}

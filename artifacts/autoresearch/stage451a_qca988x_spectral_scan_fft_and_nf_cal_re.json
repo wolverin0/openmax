@@ -1,0 +1,443 @@
+{
+  "meta": {
+    "stage": "451A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage451a_qca988x_spectral_scan_fft_and_nf_cal_re.py",
+    "tool_sha256": "ad8c000e3a30ca9401cc145e78e4c9b1ed54ac9975b9e37794a38a93e70fa1c0",
+    "output": "artifacts/autoresearch/stage451a_qca988x_spectral_scan_fft_and_nf_cal_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "method": "string census across the three spectral modules; defined-symbol lookup for the fft/bin-count, nf-cal and scan-enable families; context classification separating FFT bins from firmware blobs",
+    "premise_corrections": [
+      "firmware-2.bin and firmware-5.bin are absent, so no FFT bin layout can be read from a firmware image",
+      "the command names exist but with a VDEV prefix, not PDEV: umac.ko carries WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID and ..._ENABLE_CMDID, and PDEV_SPECTRAL has 0 hits",
+      "bin_ in umac.ko is not an FFT bin: every hit is a firmware blob name (ol_transfer_bin_file, otp_AR9888v2_bin_len, athwlan_..._bin_len)"
+    ],
+    "radio_safety": "static only"
+  },
+  "firmware_images": {
+    "firmware-2.bin": 0,
+    "firmware-5.bin": 0
+  },
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "SPECTRAL": 6,
+        "spectral": 53,
+        "FFT": 0,
+        "fft": 0,
+        "nf_cal": 0,
+        "noise_floor": 6,
+        "scan_enable": 0,
+        "bin_": 9,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 2,
+        "SPECTRAL_SCAN": 2
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 1,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 1
+      },
+      "bin_contexts": [
+        "11_enable......p................qc98xx_verify_checksum..ol_transfer_bin_file...................`...........................$...D...d........",
+        ".vow_config.enable_tx_tcp_cksum.tgdeb.host_80211_enable.ol_transfer_bin_file.ol_ath_iw_attach.target_register_tbl_attach.hif_register_tbl_at",
+        "oext_enabled.ieee80211_scan_entry_remove_reference_dbg.otp_AR9888v2_bin_len.dbglog_set_log_lvl.ieee80211_vap_deliver_event.htt_rx_msdu_has_w",
+        "acl_get.pBasicRateSet.ol_ath_beacon_alloc.athwlan_AR9888v2_ptmp_sta_bin_len.ieee80211_vap_pause.ieee80211_getavgrssi.g_txrx_print_level.wlan"
+      ],
+      "bin_is_firmware_blob": true,
+      "packer_symbols": [],
+      "nfcal_symbols": [
+        "ieee80211_scan_entry_noise_floor",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_ext_noisefloor",
+        "wlan_get_chan_noise_floor",
+        "wlan_get_noise_floor",
+        "wlan_scan_entry_noise_floor"
+      ],
+      "enable_symbols": [
+        "ol_if_spectral_detach"
+      ],
+      "spectral_symbols": [
+        "init_spectral_capability",
+        "ol_if_ic_start_spectral_scan",
+        "ol_if_ic_stop_spectral_scan",
+        "ol_if_is_spectral_active",
+        "ol_if_is_spectral_enabled",
+        "ol_if_spectral_configure_params",
+        "ol_if_spectral_detach",
+        "ol_if_spectral_enable",
+        "ol_if_spectral_get_capability",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_current_channel",
+        "ol_if_spectral_get_ent_mask",
+        "ol_if_spectral_get_ext_noisefloor",
+        "ol_if_spectral_get_extension_channel",
+        "ol_if_spectral_get_macaddr",
+        "ol_if_spectral_get_params",
+        "ol_if_spectral_get_rxfilter",
+        "ol_if_spectral_get_tsf64",
+        "ol_if_spectral_reset_hw"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "SPECTRAL": 5,
+        "spectral": 27,
+        "FFT": 0,
+        "fft": 0,
+        "nf_cal": 0,
+        "noise_floor": 1,
+        "scan_enable": 2,
+        "bin_": 0,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 0,
+        "SPECTRAL_SCAN": 0
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "bin_contexts": [],
+      "bin_is_firmware_blob": false,
+      "packer_symbols": [],
+      "nfcal_symbols": [],
+      "enable_symbols": [],
+      "spectral_symbols": [
+        "ath_dev_start_spectral_scan",
+        "ath_dev_stop_spectral_scan",
+        "ath_init_spectral_ops",
+        "ath_spectral_control",
+        "ath_spectral_filter_init",
+        "ath_spectral_filter_start",
+        "ath_spectral_filter_stop",
+        "ath_spectral_filter_uninit",
+        "ath_spectral_indicate"
+      ]
+    },
+    {
+      "module": "WA:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "2b8526b0d008258c42bbf196ac1f5af9925f16a27827eaa3a74a179b4faf048a",
+      "defined_symbols": 214,
+      "tokens": {
+        "SPECTRAL": 59,
+        "spectral": 71,
+        "FFT": 2,
+        "fft": 8,
+        "nf_cal": 0,
+        "noise_floor": 2,
+        "scan_enable": 4,
+        "bin_": 3,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 0,
+        "SPECTRAL_SCAN": 1
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "bin_contexts": [
+        "ay      : %d..SPECTRAL : ss_nb_tone_thr     : %d..SPECTRAL : ss_str_bin_thr     : %d..SPECTRAL : ss_wb_rpt_mode     : %d..SPECTRAL : ss_rssi",
+        "format      : %d..SPECTRAL : ss_rpt_mode        : %d..SPECTRAL : ss_bin_scale       : %d..SPECTRAL : ss_dBm_adj         : %d..SPECTRAL : ss_",
+        "P_msg.spectral_dump_tlv.stop_current_scan.fix_rssi_inv_only.get_fft_bin_count.spectral_nl_sock.cleanup_module.spectral_dump_fft.spectral_con"
+      ],
+      "bin_is_firmware_blob": false,
+      "packer_symbols": [
+        "dump_search_fft_report",
+        "get_fft_bin_count",
+        "process_search_fft_report",
+        "spectral_dump_fft"
+      ],
+      "nfcal_symbols": [
+        "adjust_rssi_with_nf_dbm",
+        "get_nfc_ctl_rssi",
+        "get_nfc_ext_rssi",
+        "spectral_get_noise_power"
+      ],
+      "enable_symbols": [
+        "spectral_attach",
+        "spectral_detach",
+        "spectral_scan_enable",
+        "spectral_scan_enable_params"
+      ],
+      "spectral_symbols": [
+        "ath_process_spectraldata",
+        "ath_process_spectraldata_with_flowcontrol",
+        "is_spectral_phyerr",
+        "print_spectral_params",
+        "spectral_attach",
+        "spectral_bcast_msg",
+        "spectral_check_hw_capability",
+        "spectral_clear_stats",
+        "spectral_control",
+        "spectral_create_samp_msg",
+        "spectral_debug_level",
+        "spectral_destroy_netlink",
+        "spectral_detach",
+        "spectral_dump_fft",
+        "spectral_dump_header",
+        "spectral_dump_phyerr_data",
+        "spectral_dump_tlv",
+        "spectral_get_noise_power",
+        "spectral_get_thresholds",
+        "spectral_init_dummy_function_table"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "SPECTRAL": 6,
+        "spectral": 53,
+        "FFT": 0,
+        "fft": 0,
+        "nf_cal": 0,
+        "noise_floor": 6,
+        "scan_enable": 0,
+        "bin_": 9,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 2,
+        "SPECTRAL_SCAN": 2
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 1,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 1
+      },
+      "bin_contexts": [
+        "11_enable......p................qc98xx_verify_checksum..ol_transfer_bin_file...................`...........................$...D...d........",
+        ".vow_config.enable_tx_tcp_cksum.tgdeb.host_80211_enable.ol_transfer_bin_file.ol_ath_iw_attach.target_register_tbl_attach.hif_register_tbl_at",
+        "oext_enabled.ieee80211_scan_entry_remove_reference_dbg.otp_AR9888v2_bin_len.dbglog_set_log_lvl.ieee80211_vap_deliver_event.htt_rx_msdu_has_w",
+        "acl_get.pBasicRateSet.ol_ath_beacon_alloc.athwlan_AR9888v2_ptmp_sta_bin_len.ieee80211_vap_pause.ieee80211_getavgrssi.g_txrx_print_level.wlan"
+      ],
+      "bin_is_firmware_blob": true,
+      "packer_symbols": [],
+      "nfcal_symbols": [
+        "ieee80211_scan_entry_noise_floor",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_ext_noisefloor",
+        "wlan_get_chan_noise_floor",
+        "wlan_get_noise_floor",
+        "wlan_scan_entry_noise_floor"
+      ],
+      "enable_symbols": [
+        "ol_if_spectral_detach"
+      ],
+      "spectral_symbols": [
+        "init_spectral_capability",
+        "ol_if_ic_start_spectral_scan",
+        "ol_if_ic_stop_spectral_scan",
+        "ol_if_is_spectral_active",
+        "ol_if_is_spectral_enabled",
+        "ol_if_spectral_configure_params",
+        "ol_if_spectral_detach",
+        "ol_if_spectral_enable",
+        "ol_if_spectral_get_capability",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_current_channel",
+        "ol_if_spectral_get_ent_mask",
+        "ol_if_spectral_get_ext_noisefloor",
+        "ol_if_spectral_get_extension_channel",
+        "ol_if_spectral_get_macaddr",
+        "ol_if_spectral_get_params",
+        "ol_if_spectral_get_rxfilter",
+        "ol_if_spectral_get_tsf64",
+        "ol_if_spectral_reset_hw"
+      ]
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "SPECTRAL": 5,
+        "spectral": 27,
+        "FFT": 0,
+        "fft": 0,
+        "nf_cal": 0,
+        "noise_floor": 1,
+        "scan_enable": 2,
+        "bin_": 0,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 0,
+        "SPECTRAL_SCAN": 0
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "bin_contexts": [],
+      "bin_is_firmware_blob": false,
+      "packer_symbols": [],
+      "nfcal_symbols": [],
+      "enable_symbols": [],
+      "spectral_symbols": [
+        "ath_dev_start_spectral_scan",
+        "ath_dev_stop_spectral_scan",
+        "ath_init_spectral_ops",
+        "ath_spectral_control",
+        "ath_spectral_filter_init",
+        "ath_spectral_filter_start",
+        "ath_spectral_filter_stop",
+        "ath_spectral_filter_uninit",
+        "ath_spectral_indicate"
+      ]
+    },
+    {
+      "module": "XC:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "1503933e0a7491fcda216d03c1287ec754077c60f3f1ee0211311307e3cdacd9",
+      "defined_symbols": 214,
+      "tokens": {
+        "SPECTRAL": 59,
+        "spectral": 71,
+        "FFT": 2,
+        "fft": 8,
+        "nf_cal": 0,
+        "noise_floor": 2,
+        "scan_enable": 4,
+        "bin_": 3,
+        "PDEV_SPECTRAL": 0,
+        "VDEV_SPECTRAL": 0,
+        "SPECTRAL_SCAN": 1
+      },
+      "commands": {
+        "WMI_PDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_PDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "bin_contexts": [
+        "ay      : %d..SPECTRAL : ss_nb_tone_thr     : %d..SPECTRAL : ss_str_bin_thr     : %d..SPECTRAL : ss_wb_rpt_mode     : %d..SPECTRAL : ss_rssi",
+        "format      : %d..SPECTRAL : ss_rpt_mode        : %d..SPECTRAL : ss_bin_scale       : %d..SPECTRAL : ss_dBm_adj         : %d..SPECTRAL : ss_",
+        "P_msg.spectral_dump_tlv.stop_current_scan.fix_rssi_inv_only.get_fft_bin_count.spectral_nl_sock.cleanup_module.spectral_dump_fft.spectral_con"
+      ],
+      "bin_is_firmware_blob": false,
+      "packer_symbols": [
+        "dump_search_fft_report",
+        "get_fft_bin_count",
+        "process_search_fft_report",
+        "spectral_dump_fft"
+      ],
+      "nfcal_symbols": [
+        "adjust_rssi_with_nf_dbm",
+        "get_nfc_ctl_rssi",
+        "get_nfc_ext_rssi",
+        "spectral_get_noise_power"
+      ],
+      "enable_symbols": [
+        "spectral_attach",
+        "spectral_detach",
+        "spectral_scan_enable",
+        "spectral_scan_enable_params"
+      ],
+      "spectral_symbols": [
+        "ath_process_spectraldata",
+        "ath_process_spectraldata_with_flowcontrol",
+        "is_spectral_phyerr",
+        "print_spectral_params",
+        "spectral_attach",
+        "spectral_bcast_msg",
+        "spectral_check_hw_capability",
+        "spectral_clear_stats",
+        "spectral_control",
+        "spectral_create_samp_msg",
+        "spectral_debug_level",
+        "spectral_destroy_netlink",
+        "spectral_detach",
+        "spectral_dump_fft",
+        "spectral_dump_header",
+        "spectral_dump_phyerr_data",
+        "spectral_dump_tlv",
+        "spectral_get_noise_power",
+        "spectral_get_thresholds",
+        "spectral_init_dummy_function_table"
+      ]
+    }
+  ],
+  "summary": {
+    "firmware_images_present": 0,
+    "modules_ok": 6,
+    "spectral_token_hits": 302,
+    "wmi_spectral_name_hits": 6,
+    "pdev_spectral_hits": 0,
+    "vdev_spectral_hits": 4,
+    "pdev_prefix_refuted": 1,
+    "wmi_vdev_command_hits": 4,
+    "wmi_pdev_command_hits": 0,
+    "wmi_spectral_names_absent": false,
+    "packer_symbols": [
+      "dump_search_fft_report",
+      "get_fft_bin_count",
+      "process_search_fft_report",
+      "spectral_dump_fft"
+    ],
+    "packer_symbol_count": 4,
+    "nfcal_symbols": [
+      "adjust_rssi_with_nf_dbm",
+      "get_nfc_ctl_rssi",
+      "get_nfc_ext_rssi",
+      "ieee80211_scan_entry_noise_floor",
+      "ol_if_spectral_get_chain_noise_floor",
+      "ol_if_spectral_get_ctl_noisefloor",
+      "ol_if_spectral_get_ext_noisefloor",
+      "spectral_get_noise_power",
+      "wlan_get_chan_noise_floor",
+      "wlan_get_noise_floor",
+      "wlan_scan_entry_noise_floor"
+    ],
+    "nfcal_symbol_count": 11,
+    "enable_symbols": [
+      "ol_if_spectral_detach",
+      "spectral_attach",
+      "spectral_detach",
+      "spectral_scan_enable",
+      "spectral_scan_enable_params"
+    ],
+    "enable_symbol_count": 5,
+    "modules_with_bin_as_blob": 2,
+    "fft_packer_located": 1,
+    "nf_cal_located": 1,
+    "scan_enable_located": 1,
+    "fft_bin_format_recovered": 0,
+    "nf_cal_table_recovered": 0
+  },
+  "gaps": [
+    "firmware-2.bin and firmware-5.bin are absent, so the FFT bin byte layout cannot be read from the image the stage names",
+    "the spectral commands are per-VDEV, not per-PDEV: the stage's WMI_PDEV_* names have 0 hits while WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID and ..._ENABLE_CMDID are real, so the scan is configured per virtual interface",
+    "get_fft_bin_count is located by name, but its return domain (32/64/128/256/512) was not read; Stage 327A found 32/64/256/512 as immediates and 128 absent",
+    "the NF calibration routines are named, but no dBm offset table or interpolation curve was recovered",
+    "bin_ in umac.ko belongs to firmware download, not to the spectral packer",
+    "no dynamic validation"
+  ]
+}

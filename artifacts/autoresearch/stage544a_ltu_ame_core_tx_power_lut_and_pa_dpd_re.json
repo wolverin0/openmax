@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "stage": "544A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage544a_ltu_ame_core_tx_power_lut_and_pa_dpd_re.py",
+    "tool_sha256": "e0f9893ba3e44d7ef2c83f58138c505fa26222d19728716658dc0cc770351a65",
+    "output": "artifacts/autoresearch/stage544a_ltu_ame_core_tx_power_lut_and_pa_dpd_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the TX-power, DPD, PA, EVM and 4096-QAM vocabularies; defined-symbol lookup for the conversion pair and the instrumentation families; context classification of the backoff hits",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so ame_core.ko and ame_dev.ko are the only readable targets",
+      "`backoff` is not TX EVM backoff: every hit is cz_cross_frame_backoff_*, a cross-frame grouping scheduler knob"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "eab_driver": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "dpd": 9,
+        "DPD": 10,
+        "pa_param": 0,
+        "pa_": 7,
+        "lut": 2,
+        "LUT": 0,
+        "txpower": 8,
+        "tx_power": 5,
+        "evm": 25,
+        "EVM": 10,
+        "backoff": 25,
+        "4096": 18,
+        "qam": 1,
+        "attenuation": 14,
+        "txgain": 7,
+        "calib": 0
+      },
+      "conversion": {
+        "calculate_tx_power_by_attenuation": 2,
+        "calculate_tx_attenuation_by_power": 3
+      },
+      "dpd_iface": {
+        "dpd_load": 0,
+        "dpd_show": 0,
+        "dpd_store": 0
+      },
+      "dpd_symbols": [
+        "ame_bbp_get_dpd",
+        "ame_bbp_set_dpd"
+      ],
+      "pa_symbols": [
+        "ame_bbp_get_pa",
+        "ame_bbp_op_fill_tx_pa_comp",
+        "ame_bbp_op_get_rxTopA_txPower",
+        "ame_bbp_op_reset_pa_comp",
+        "ame_bbp_op_set_rxTopA_txPower",
+        "ame_bbp_op_tx_pa_comp",
+        "ame_bbp_set_pa",
+        "ame_core_get_tx_pa_comp_mode",
+        "ame_core_set_tx_pa_comp_mode",
+        "bbp_mrx_PA_comp",
+        "bbp_mrx_PA_mon",
+        "bbp_mrx_PA_mon_print",
+        "bbp_mrx_util_get_rxTopA_txPower",
+        "bbp_mrx_util_set_rxTopA_txPower",
+        "bbp_mtx_set_pa_gain",
+        "tx_pa_comp_val"
+      ],
+      "txpower_symbols": [
+        "ame_bbp_get_desired_txpower",
+        "ame_bbp_get_txpower",
+        "ame_bbp_op_get_rxTopA_txPower",
+        "ame_bbp_op_rf_force_txpower",
+        "ame_bbp_op_rf_tune_txpower",
+        "ame_bbp_op_set_rxTopA_txPower",
+        "ame_bbp_reset_txpower",
+        "ame_bbp_set_desired_txpower",
+        "ame_bbp_txpower_changed_handler",
+        "bbp_mrx_util_get_rxTopA_txPower",
+        "bbp_mrx_util_set_rxTopA_txPower",
+        "bbp_util_calculate_tx_power_by_attenuation",
+        "ptmp_ap_autopwr_tx_power_adjust_routine",
+        "ptmp_ap_tx_power_adjust_routine",
+        "ptmp_ap_tx_power_adjust_routine_work"
+      ],
+      "evm_symbols": [
+        "__bbp_mrx_evm_next",
+        "ame_bbp_evm_get_cfg",
+        "ame_bbp_evm_get_mode_and_result_r",
+        "ame_bbp_evm_set_r",
+        "ame_bbp_get_evm_dump",
+        "ame_bbp_op_evm",
+        "ame_bbp_op_evm_mcs_map",
+        "ame_bbp_op_evm_peek_symbols",
+        "bbp_mrx_evm_get_cfg",
+        "bbp_mrx_evm_get_mode_and_result",
+        "bbp_mrx_evm_peek_symbols",
+        "bbp_mrx_evm_print",
+        "bbp_mrx_evm_result",
+        "bbp_mrx_evm_set"
+      ],
+      "super_symbols": [
+        "autoMCS_get4096",
+        "autoMCS_set4096",
+        "bbp_rf_get_super4096",
+        "bbp_rf_set_super4096",
+        "startThrd_4096",
+        "stayThrd_4096"
+      ],
+      "calib_symbols": [
+        "ame_bbp_obs_set_txgain",
+        "fty_rf_adjust_step_txgain",
+        "fty_rf_autotune_txgain"
+      ],
+      "backoff_is_crossframe": true,
+      "dpd_size_check": [
+        "s(%d): Inconsistent postModScrmOff...%d[ %ld.%.9ld] [%s/%d] %s(%d): Incorrect dpd(tx) size (%d)!=(%d)....%d[%s/%d] %s(%d): Incorrect dpd(tx) size (%d"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "dpd": 6,
+        "DPD": 0,
+        "pa_param": 1,
+        "pa_": 12,
+        "lut": 0,
+        "LUT": 0,
+        "txpower": 0,
+        "tx_power": 0,
+        "evm": 20,
+        "EVM": 1,
+        "backoff": 0,
+        "4096": 3,
+        "qam": 0,
+        "attenuation": 3,
+        "txgain": 27,
+        "calib": 13
+      },
+      "conversion": {
+        "calculate_tx_power_by_attenuation": 0,
+        "calculate_tx_attenuation_by_power": 0
+      },
+      "dpd_iface": {
+        "dpd_load": 2,
+        "dpd_show": 1,
+        "dpd_store": 1
+      },
+      "dpd_symbols": [
+        "dpd_load",
+        "dpd_show",
+        "dpd_store"
+      ],
+      "pa_symbols": [
+        "pa_load",
+        "pa_show",
+        "pa_store",
+        "rxTopA_txPower_show",
+        "rxTopA_txPower_store",
+        "tx_pa_comp_mode_show",
+        "tx_pa_comp_mode_store"
+      ],
+      "txpower_symbols": [
+        "rxTopA_txPower_show",
+        "rxTopA_txPower_store"
+      ],
+      "evm_symbols": [
+        "evm_avg_show",
+        "evm_avg_store",
+        "evm_ctrl_show",
+        "evm_float_show",
+        "evm_float_store",
+        "evm_now_show",
+        "evm_now_store",
+        "evm_show",
+        "evm_store"
+      ],
+      "super_symbols": [
+        "autoMcs4096_show",
+        "autoMcs4096_store"
+      ],
+      "calib_symbols": [
+        "__ksymtab_ubus_func_call_calibrate",
+        "__ksymtab_ubus_func_call_sync_calibrate",
+        "__ksymtab_ubus_func_register_get_rfic_txgain",
+        "__ksymtab_ubus_func_register_set_rfic_txgain",
+        "calibrate",
+        "callback_func_call_calibrate",
+        "callback_func_call_sync_calibrate",
+        "callback_func_resp_get_rfic_txgain",
+        "callback_func_resp_set_rfic_txgain",
+        "fail_func_get_rfic_txgain",
+        "fail_func_set_rfic_txgain",
+        "handle_func_get_rfic_txgain",
+        "handle_func_set_rfic_txgain",
+        "obs_txgain_show",
+        "obs_txgain_store",
+        "success_func_get_rfic_txgain"
+      ],
+      "backoff_is_crossframe": false,
+      "dpd_size_check": []
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "modules_ok": 2,
+    "conversion_pair_hits": 5,
+    "conversion_pair_named": 1,
+    "dpd_symbols": [
+      "ame_bbp_get_dpd",
+      "ame_bbp_set_dpd",
+      "dpd_load",
+      "dpd_show",
+      "dpd_store"
+    ],
+    "dpd_symbol_count": 5,
+    "dpd_sysfs_interface": [
+      "dpd_load",
+      "dpd_show",
+      "dpd_store"
+    ],
+    "dpd_table_is_variable_length": 1,
+    "pa_symbols": [
+      "ame_bbp_get_pa",
+      "ame_bbp_op_fill_tx_pa_comp",
+      "ame_bbp_op_get_rxTopA_txPower",
+      "ame_bbp_op_reset_pa_comp",
+      "ame_bbp_op_set_rxTopA_txPower",
+      "ame_bbp_op_tx_pa_comp",
+      "ame_bbp_set_pa",
+      "ame_core_get_tx_pa_comp_mode",
+      "ame_core_set_tx_pa_comp_mode",
+      "bbp_mrx_PA_comp"
+    ],
+    "pa_symbol_count": 23,
+    "txpower_symbols": [
+      "ame_bbp_get_desired_txpower",
+      "ame_bbp_get_txpower",
+      "ame_bbp_op_get_rxTopA_txPower",
+      "ame_bbp_op_rf_force_txpower",
+      "ame_bbp_op_rf_tune_txpower",
+      "ame_bbp_op_set_rxTopA_txPower",
+      "ame_bbp_reset_txpower",
+      "ame_bbp_set_desired_txpower",
+      "ame_bbp_txpower_changed_handler",
+      "bbp_mrx_util_get_rxTopA_txPower"
+    ],
+    "txpower_symbol_count": 17,
+    "evm_symbol_count": 23,
+    "evm_symbols": [
+      "__bbp_mrx_evm_next",
+      "ame_bbp_evm_get_cfg",
+      "ame_bbp_evm_get_mode_and_result_r",
+      "ame_bbp_evm_set_r",
+      "ame_bbp_get_evm_dump",
+      "ame_bbp_op_evm",
+      "ame_bbp_op_evm_mcs_map",
+      "ame_bbp_op_evm_peek_symbols",
+      "bbp_mrx_evm_get_cfg",
+      "bbp_mrx_evm_get_mode_and_result"
+    ],
+    "super4096_symbols": [
+      "autoMCS_get4096",
+      "autoMCS_set4096",
+      "autoMcs4096_show",
+      "autoMcs4096_store",
+      "bbp_rf_get_super4096",
+      "bbp_rf_set_super4096",
+      "startThrd_4096",
+      "stayThrd_4096"
+    ],
+    "super4096_named": 1,
+    "calib_symbols": [
+      "__ksymtab_ubus_func_call_calibrate",
+      "__ksymtab_ubus_func_call_sync_calibrate",
+      "__ksymtab_ubus_func_register_get_rfic_txgain",
+      "__ksymtab_ubus_func_register_set_rfic_txgain",
+      "ame_bbp_obs_set_txgain",
+      "calibrate",
+      "callback_func_call_calibrate",
+      "callback_func_call_sync_calibrate"
+    ],
+    "calib_symbol_count": 19,
+    "backoff_is_crossframe_modules": 1,
+    "lut_values_recovered": 0,
+    "dpd_coefficients_recovered": 0,
+    "evm_backoff_db_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the stage's second module has no bytes",
+    "the TX power LUT is a conversion pair (tx_power <-> attenuation), not a readable table: the coefficients live in calibration data that is not in this corpus",
+    "the DPD table is variable-length (enforced by an Incorrect dpd(tx) size log) and is loaded through dpd_store, so its coefficients are runtime data",
+    "no EVM-to-backoff dB mapping was recovered; the EVM family reports symbols and MCS maps, not a backoff curve",
+    "`backoff` has 25 hits and every one is cz_cross_frame_backoff_*, a cross-frame grouping knob; counting it as TX backoff would be a false positive",
+    "4096-QAM is named (bbp_rf_set_super4096, check_4096mimo_ofdm) but the EVM threshold required for 4096-QAM was not found",
+    "no dynamic validation"
+  ]
+}

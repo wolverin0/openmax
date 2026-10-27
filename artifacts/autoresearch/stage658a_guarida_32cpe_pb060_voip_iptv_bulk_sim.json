@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-658A",
+  "title": "SimPy Discrete-Event Simulation of Guarida 3 Panels (32 CPEs) under Triple Xtensa Stack (PB-040 + PB-050 + PB-060) during Peak-Hour Triple-Play",
+  "timestamp_utc": "2026-10-27T01:48:51.873864+00:00",
+  "status": "CONFIRMED",
+  "simulator": "SimPy PriorityResource Discrete-Event Engine",
+  "guarida_topology": {
+    "total_panels": 3,
+    "total_cpes": 32,
+    "panels": {
+      "Panel1-Guarida (.84)": 4,
+      "Panel2-Guarida (.82)": 22,
+      "Panel3-Guarida (.83)": 6
+    }
+  },
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "proprietary airMAX/LTU module",
+    "Linux"
+  ],
+  "simulation_runs": [
+    {
+      "panel": "Panel1-Guarida (.84)",
+      "cpe_count": 4,
+      "mode": "STOCK",
+      "voip_rtt_p99_ms": 2.78,
+      "iptv_1316b_jitter_ms": 1.041,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 88.4
+    },
+    {
+      "panel": "Panel1-Guarida (.84)",
+      "cpe_count": 4,
+      "mode": "PB040_PB050",
+      "voip_rtt_p99_ms": 3.4,
+      "iptv_1316b_jitter_ms": 0.955,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 99.8
+    },
+    {
+      "panel": "Panel1-Guarida (.84)",
+      "cpe_count": 4,
+      "mode": "TRIPLE_PB040_PB050_PB060",
+      "voip_rtt_p99_ms": 1.676,
+      "iptv_1316b_jitter_ms": 0.271,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 106.6
+    },
+    {
+      "panel": "Panel2-Guarida (.82)",
+      "cpe_count": 22,
+      "mode": "STOCK",
+      "voip_rtt_p99_ms": 2.382,
+      "iptv_1316b_jitter_ms": 0.607,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 74.2
+    },
+    {
+      "panel": "Panel2-Guarida (.82)",
+      "cpe_count": 22,
+      "mode": "PB040_PB050",
+      "voip_rtt_p99_ms": 1.687,
+      "iptv_1316b_jitter_ms": 0.391,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 85.6
+    },
+    {
+      "panel": "Panel2-Guarida (.82)",
+      "cpe_count": 22,
+      "mode": "TRIPLE_PB040_PB050_PB060",
+      "voip_rtt_p99_ms": 0.642,
+      "iptv_1316b_jitter_ms": 0.252,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 92.4
+    },
+    {
+      "panel": "Panel3-Guarida (.83)",
+      "cpe_count": 6,
+      "mode": "STOCK",
+      "voip_rtt_p99_ms": 3.533,
+      "iptv_1316b_jitter_ms": 0.624,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 82.6
+    },
+    {
+      "panel": "Panel3-Guarida (.83)",
+      "cpe_count": 6,
+      "mode": "PB040_PB050",
+      "voip_rtt_p99_ms": 3.533,
+      "iptv_1316b_jitter_ms": 0.424,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 94.0
+    },
+    {
+      "panel": "Panel3-Guarida (.83)",
+      "cpe_count": 6,
+      "mode": "TRIPLE_PB040_PB050_PB060",
+      "voip_rtt_p99_ms": 0.444,
+      "iptv_1316b_jitter_ms": 0.254,
+      "iptv_1316b_loss_pct": 0.0,
+      "aggregate_goodput_mbps": 100.8
+    }
+  ],
+  "triple_stack_summary": {
+    "mean_voip_rtt_p99_ms": 0.921,
+    "mean_iptv_jitter_ms": 0.259,
+    "max_iptv_loss_pct": 0.0,
+    "total_tower_goodput_mbps": 299.8
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath10k_core.ko",
+        "mac80211.ko",
+        "ubnt_poll_host.ko"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE658A-GUARIDA-32CPE-PB060-TRIPLE-PLAY-SIMPY"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "simulation_engine": "SimPy",
+      "total_cpes_modeled": 32
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE658A-GUARIDA-32CPE-PB060-VOIP-IPTV-BULK-SIM"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

@@ -1,0 +1,436 @@
+{
+  "stage": "351A",
+  "title": "Universal WA v8 SquashFS Bake Integrating R1..R30 (70.15 Mbps WMM DSCP + GRO Batch + Chain-Imbalance Rescue Daemon)",
+  "claim_status": "CONFIRMED",
+  "attribution": "Linux",
+  "memory_master_claim_id": "mm-91f1",
+  "live_radios_241_242_20_250_touched": false,
+  "output_kit_dir": "firmware/openwrt/wa_universal_kit_v8",
+  "boards_baked_count": 4,
+  "total_images_baked": 16,
+  "integrated_components": {
+    "wa_universal_champion_v4_sha256": "06d5d9ad1ab39bdd175090c24795024ff4a5c98bc0dcbd40791cb3d11b23e055",
+    "wmm_dscp_qos_sha256": "ffeca5d6f18962d79c9f60b2ab0744aa14eefa8585b94682be35fd70daf08072",
+    "chain_imbalance_rescue_daemon_sha256": "7e88ffd3a2c71ba297aec7e6b6d628edd0a6c614e178824214654963a3154538",
+    "xtensa_ram_patch_loader_sha256": "2740d3e3770350fb913913cb047d29571dc0740b35196216da97033bb6f4400f",
+    "mac80211_v3_ko_sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+    "admitter_v2_sha256": "f8c7b054b241b0e6b901abcf96e8a777d62bf30a732e6eb05082ff47339285eb",
+    "gro_normal_batch": 16,
+    "r25_r30_bench_champion_goodput_mbps": 70.15
+  },
+  "squashfs_ap_v8_verification": {
+    "role_tag": "ap_241_v8",
+    "orig_sqfs_sha256": "bad4a62424d250c04c4c01d05455d0845f0dbeb44ffcd818821726cacde9f4fc",
+    "repacked_sqfs_sha256": "9a3fda5463dc1825bc592322f5aeee29e84eca8e09962448081a882e8cca0332",
+    "repacked_sqfs_padded_4k_bytes": 4272128,
+    "superblock_bytes_used": 4270536,
+    "inode_count": 1402,
+    "block_size_bytes": 262144,
+    "verified_embedded_sha256": {
+      "99-fmx-wa-universal-champion": "06d5d9ad1ab39bdd175090c24795024ff4a5c98bc0dcbd40791cb3d11b23e055",
+      "99-fmx-wmm-dscp-qos": "ffeca5d6f18962d79c9f60b2ab0744aa14eefa8585b94682be35fd70daf08072",
+      "99-fmx-pbe5ac-ptp": "46035bae0538b5876888714b1ecbceb75d149f602c163e3a54bd1ee60f3b3b3d",
+      "fmx_chain_imbalance_rescue_daemon.sh": "7e88ffd3a2c71ba297aec7e6b6d628edd0a6c614e178824214654963a3154538",
+      "fmx_xtensa_ram_patch_loader.sh": "2740d3e3770350fb913913cb047d29571dc0740b35196216da97033bb6f4400f",
+      "fmx_ptp_rollback_watchdog.sh": "c171d7202a69c7100daba1e15d9a64b43d9625c25e2fb2e843b427113c346b3e",
+      "fmx_pbe5ac_admitter.sh": "f8c7b054b241b0e6b901abcf96e8a777d62bf30a732e6eb05082ff47339285eb",
+      "mac80211.ko": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+      "rc.local": "de0eacf24b0f3638f6ba871773b2628201e28294c9775194b0221ec265c431b3"
+    }
+  },
+  "squashfs_sta_v8_verification": {
+    "role_tag": "sta_242_v8",
+    "orig_sqfs_sha256": "bad4a62424d250c04c4c01d05455d0845f0dbeb44ffcd818821726cacde9f4fc",
+    "repacked_sqfs_sha256": "dda0372290fe2a598e7645c13a42f915d6fb0fbbc5c10a87dfd951f1be439b73",
+    "repacked_sqfs_padded_4k_bytes": 4272128,
+    "superblock_bytes_used": 4270504,
+    "inode_count": 1402,
+    "block_size_bytes": 262144,
+    "verified_embedded_sha256": {
+      "99-fmx-wa-universal-champion": "06d5d9ad1ab39bdd175090c24795024ff4a5c98bc0dcbd40791cb3d11b23e055",
+      "99-fmx-wmm-dscp-qos": "ffeca5d6f18962d79c9f60b2ab0744aa14eefa8585b94682be35fd70daf08072",
+      "99-fmx-pbe5ac-ptp": "9320e8df9f9223ff9fc521f88bf33dbe5c8c030516a6b6ce47c381e88ee680a6",
+      "fmx_chain_imbalance_rescue_daemon.sh": "7e88ffd3a2c71ba297aec7e6b6d628edd0a6c614e178824214654963a3154538",
+      "fmx_xtensa_ram_patch_loader.sh": "2740d3e3770350fb913913cb047d29571dc0740b35196216da97033bb6f4400f",
+      "fmx_ptp_rollback_watchdog.sh": "0b07d7aa88de0ddb98839336c58a547e949cd86598786ecedb0ca69e2695ca09",
+      "fmx_pbe5ac_admitter.sh": "f8c7b054b241b0e6b901abcf96e8a777d62bf30a732e6eb05082ff47339285eb",
+      "mac80211.ko": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+      "rc.local": "44e4c74efb678844e44dc0ddd7f63d20b156c5851b747ce90574d68f7491a37a"
+    }
+  },
+  "boards": {
+    "powerbeam-5ac-gen2": {
+      "slug": "powerbeam-5ac-gen2",
+      "ubnt_model": "PBE-5AC-Gen2",
+      "sysids": [
+        "0xe3d6"
+      ],
+      "board_id": "ubnt,powerbeam-5ac-gen2",
+      "supported_devices": [
+        "ubnt,powerbeam-5ac-gen2"
+      ],
+      "factory_ap": {
+        "size_bytes": 6947480,
+        "sha256": "7f069f03c32422d43ea2d310d80eafcd0af347112c0563bce7b5ed38158bf3be",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xbe9d3f27",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5898244,
+        "part_rootfs_crc_hex": "0x712017df",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x280184",
+        "deadc0de_offset_hex": "0x6a0184",
+        "ends_offset_hex": "0x6a0190",
+        "filename": "openwrt-24.10.4-powerbeam-5ac-gen2-v8-factory-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-powerbeam-5ac-gen2-v8-factory-ap.bin"
+      },
+      "factory_sta": {
+        "size_bytes": 6947480,
+        "sha256": "86c4b391013406ce447aa86e66ea290bbd6b45b2c168725f375710f48e0e1d35",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xbe9d3f27",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5898244,
+        "part_rootfs_crc_hex": "0x6376bb3a",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x280184",
+        "deadc0de_offset_hex": "0x6a0184",
+        "ends_offset_hex": "0x6a0190",
+        "filename": "openwrt-24.10.4-powerbeam-5ac-gen2-v8-factory-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-powerbeam-5ac-gen2-v8-factory-sta.bin"
+      },
+      "sysupgrade_ap": {
+        "size_bytes": 6947137,
+        "sha256": "7213ceff748f9e14238e181e7ecd315167e00df009b5ef6e43afe10b637cfcbe",
+        "squashfs_offset_hex": "0x280000",
+        "deadc0de_offset_hex": "0x6a0000",
+        "supported_devices": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "fwtool_metadata_crc_hex": "0x8028dcd2",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x71d5bb3d",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-powerbeam-5ac-gen2-v8-sysupgrade-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-powerbeam-5ac-gen2-v8-sysupgrade-ap.bin"
+      },
+      "sysupgrade_sta": {
+        "size_bytes": 6947137,
+        "sha256": "dd0fbf944e8c826d7a60f53361223de467654d996e5d7d1719aacdb78def6f9e",
+        "squashfs_offset_hex": "0x280000",
+        "deadc0de_offset_hex": "0x6a0000",
+        "supported_devices": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,powerbeam-5ac-gen2"
+        ],
+        "fwtool_metadata_crc_hex": "0xe7f0a0e1",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x1965db4",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-powerbeam-5ac-gen2-v8-sysupgrade-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-powerbeam-5ac-gen2-v8-sysupgrade-sta.bin"
+      }
+    },
+    "litebeam-5ac-gen2": {
+      "slug": "litebeam-5ac-gen2",
+      "ubnt_model": "LBE-5AC-Gen2",
+      "sysids": [
+        "0xe7f9",
+        "0xe3d8"
+      ],
+      "board_id": "ubnt,litebeam-ac-gen2",
+      "supported_devices": [
+        "ubnt,litebeam-ac-gen2",
+        "ubnt,litebeam-5ac-gen2"
+      ],
+      "factory_ap": {
+        "size_bytes": 7013016,
+        "sha256": "a28e292fc82f939e8eeddeaf46134b68808eb57cbb27565279060827e508c268",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xd7797466",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5963780,
+        "part_rootfs_crc_hex": "0x389a552d",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x290184",
+        "deadc0de_offset_hex": "0x6b0184",
+        "ends_offset_hex": "0x6b0190",
+        "filename": "openwrt-24.10.4-litebeam-5ac-gen2-v8-factory-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-litebeam-5ac-gen2-v8-factory-ap.bin"
+      },
+      "factory_sta": {
+        "size_bytes": 7013016,
+        "sha256": "aa30d15fefcdfa5d00cb1feb3b900c7277831cdfa4856c37b4d361b80fbb2671",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xd7797466",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5963780,
+        "part_rootfs_crc_hex": "0x2accf9c8",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x290184",
+        "deadc0de_offset_hex": "0x6b0184",
+        "ends_offset_hex": "0x6b0190",
+        "filename": "openwrt-24.10.4-litebeam-5ac-gen2-v8-factory-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-litebeam-5ac-gen2-v8-factory-sta.bin"
+      },
+      "sysupgrade_ap": {
+        "size_bytes": 7013167,
+        "sha256": "e0947cb79235b776d94afbca8f69fee1c28b2017244c88d26fea26f3476677c9",
+        "squashfs_offset_hex": "0x290000",
+        "deadc0de_offset_hex": "0x6b0000",
+        "supported_devices": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "fwtool_metadata_crc_hex": "0x4e309928",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x88068305",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-litebeam-5ac-gen2-v8-sysupgrade-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-litebeam-5ac-gen2-v8-sysupgrade-ap.bin"
+      },
+      "sysupgrade_sta": {
+        "size_bytes": 7013167,
+        "sha256": "343c5d81a2a79f0bc9f0447aa26c904bd9d753ffc97a4f337b01951e1b92ddc8",
+        "squashfs_offset_hex": "0x290000",
+        "deadc0de_offset_hex": "0x6b0000",
+        "supported_devices": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,litebeam-ac-gen2",
+          "ubnt,litebeam-5ac-gen2"
+        ],
+        "fwtool_metadata_crc_hex": "0x5d3c6a07",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x3f7dfec0",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-litebeam-5ac-gen2-v8-sysupgrade-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-litebeam-5ac-gen2-v8-sysupgrade-sta.bin"
+      }
+    },
+    "lap-120": {
+      "slug": "lap-120",
+      "ubnt_model": "LAP-120 (LiteAP AC)",
+      "sysids": [
+        "0xe8e5",
+        "0xe7f5"
+      ],
+      "board_id": "ubnt,lap-120",
+      "supported_devices": [
+        "ubnt,lap-120"
+      ],
+      "factory_ap": {
+        "size_bytes": 6947480,
+        "sha256": "7cc0025bc7ec357736c5bc96bbeb824af5bb7a071c91c930786b3095afc823a8",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xf4a6d9a1",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5898244,
+        "part_rootfs_crc_hex": "0x65d57787",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x280184",
+        "deadc0de_offset_hex": "0x6a0184",
+        "ends_offset_hex": "0x6a0190",
+        "filename": "openwrt-24.10.4-lap-120-v8-factory-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-lap-120-v8-factory-ap.bin"
+      },
+      "factory_sta": {
+        "size_bytes": 6947480,
+        "sha256": "820c933e21da688b957b328ca6eda143a81b41066fb73bbec24998764902efbd",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0xf4a6d9a1",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5898244,
+        "part_rootfs_crc_hex": "0x7783db62",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x280184",
+        "deadc0de_offset_hex": "0x6a0184",
+        "ends_offset_hex": "0x6a0190",
+        "filename": "openwrt-24.10.4-lap-120-v8-factory-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-lap-120-v8-factory-sta.bin"
+      },
+      "sysupgrade_ap": {
+        "size_bytes": 6947115,
+        "sha256": "7dedf4ee0585576eb7f5bc56fe1b9e3ed3d1805a55a56de5bcdec12de4a3f56e",
+        "squashfs_offset_hex": "0x280000",
+        "deadc0de_offset_hex": "0x6a0000",
+        "supported_devices": [
+          "ubnt,lap-120"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,lap-120"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,lap-120"
+        ],
+        "fwtool_metadata_crc_hex": "0x9bfddd71",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x2d4ae6f4",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-lap-120-v8-sysupgrade-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-lap-120-v8-sysupgrade-ap.bin"
+      },
+      "sysupgrade_sta": {
+        "size_bytes": 6947115,
+        "sha256": "cf949ab040b19cb9606b744451fe295bc4fcbaf7ddde2bf66d48c59de9efa1ea",
+        "squashfs_offset_hex": "0x280000",
+        "deadc0de_offset_hex": "0x6a0000",
+        "supported_devices": [
+          "ubnt,lap-120"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,lap-120"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,lap-120"
+        ],
+        "fwtool_metadata_crc_hex": "0x97f10b3d",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x5644d432",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-lap-120-v8-sysupgrade-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-lap-120-v8-sysupgrade-sta.bin"
+      }
+    },
+    "nanostation-ac-loco": {
+      "slug": "nanostation-ac-loco",
+      "ubnt_model": "NS-5ACL (NanoStation 5AC Loco)",
+      "sysids": [
+        "0xe7fa",
+        "0xe7f7"
+      ],
+      "board_id": "ubnt,nanostation-ac-loco",
+      "supported_devices": [
+        "ubnt,nanostation-ac-loco"
+      ],
+      "factory_ap": {
+        "size_bytes": 7013016,
+        "sha256": "d8405f975f1ac69229ec4ef021b741df844b0d9630b6fdec104e2d79e32ada8a",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0x7427a039",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5963780,
+        "part_rootfs_crc_hex": "0xe34c6f5d",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x290184",
+        "deadc0de_offset_hex": "0x6b0184",
+        "ends_offset_hex": "0x6b0190",
+        "filename": "openwrt-24.10.4-nanostation-ac-loco-v8-factory-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-nanostation-ac-loco-v8-factory-ap.bin"
+      },
+      "factory_sta": {
+        "size_bytes": 7013016,
+        "sha256": "afe66d2ea4dbd11564805aff6bbaf8b5797d0fedd9d194c2cfa9aab559699b7f",
+        "open_magic": "OPEN",
+        "version_string": "WA.ar934x.v8.7.4-42.OpenWrt-r28959-29397011cc",
+        "open_header_crc_hex": "0x12d8e382",
+        "open_header_crc_valid": true,
+        "part_kernel_crc_hex": "0x7427a039",
+        "part_kernel_crc_valid": true,
+        "part_rootfs_data_size_bytes": 5963780,
+        "part_rootfs_crc_hex": "0xf11ac3b8",
+        "part_rootfs_crc_valid": true,
+        "squashfs_offset_hex": "0x290184",
+        "deadc0de_offset_hex": "0x6b0184",
+        "ends_offset_hex": "0x6b0190",
+        "filename": "openwrt-24.10.4-nanostation-ac-loco-v8-factory-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-nanostation-ac-loco-v8-factory-sta.bin"
+      },
+      "sysupgrade_ap": {
+        "size_bytes": 7013173,
+        "sha256": "140c61da3fcc46bee1b8e8cb0c16097bc9dd4b913aade5075853868fb41cc7d0",
+        "squashfs_offset_hex": "0x290000",
+        "deadc0de_offset_hex": "0x6b0000",
+        "supported_devices": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "fwtool_metadata_crc_hex": "0x73eadc33",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0xf4c84e00",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-nanostation-ac-loco-v8-sysupgrade-ap.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-nanostation-ac-loco-v8-sysupgrade-ap.bin"
+      },
+      "sysupgrade_sta": {
+        "size_bytes": 7013173,
+        "sha256": "02861d894b22eee4545afb402dc6745abc9a8277dc8b2834b404aef408ed14d2",
+        "squashfs_offset_hex": "0x290000",
+        "deadc0de_offset_hex": "0x6b0000",
+        "supported_devices": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "supported_devices_aliases": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "board_name_in_fwtool": [
+          "ubnt,nanostation-ac-loco"
+        ],
+        "fwtool_metadata_crc_hex": "0xde32e3cc",
+        "fwtool_metadata_crc_valid": true,
+        "fwtool_signature_crc_hex": "0x3a41be06",
+        "fwtool_signature_crc_valid": true,
+        "filename": "openwrt-24.10.4-nanostation-ac-loco-v8-sysupgrade-sta.bin",
+        "path": "firmware/openwrt/wa_universal_kit_v8/openwrt-24.10.4-nanostation-ac-loco-v8-sysupgrade-sta.bin"
+      }
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_binary_re": "Embeds mac80211_teb_4addr_v3_6.6.110.ko (ETH_P_TEB 0x6558 + 4ADDR event) and PB-040 RAM patch loader",
+    "pillar_b_closed_loop_research": "Integrates R1..R30 (70.15 Mbps WMM DSCP + GRO batch=16) and Stage 349A SIMO-TX/2x2-MRC-RX rescue daemon",
+    "pillar_c_counterbalanced_harness": "Includes 45s non-DFS / 120s DFS fmx_ptp_rollback_watchdog.sh inside SquashFS",
+    "pillar_d_scientific_validation": "Cryptographic unsquashfs round-trip verification of all 9 embedded files across 16 firmware images",
+    "pillar_e_memory_master": "mm-91f1 (id=155373, scope=project:futuramax)"
+  }
+}

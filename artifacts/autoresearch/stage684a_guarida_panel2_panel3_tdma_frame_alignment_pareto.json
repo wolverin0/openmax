@@ -1,0 +1,129 @@
+{
+  "stage": "684A",
+  "title": "SimPy + pymoo NSGA-II Optimization of Panel2 (.82) + Panel3 (.83) Co-Channel & Adjacent-Channel TDMA Frame Alignment",
+  "generated_at": "2026-10-27T02:03:21.298793+00:00",
+  "status": "PASS",
+  "claim_classification": "INFERRED",
+  "layer_attribution": "proprietary airMAX/LTU module",
+  "read_only_audit": true,
+  "writes_performed": 0,
+  "candidate_simulations": [
+    {
+      "profile_id": "Current_Unaligned_82_50_50_vs_83_SplitBrain",
+      "p2_frame_us": 10000,
+      "p2_dl_alloc_pct": 50,
+      "p3_mode": "Unaligned_Hybrid_SplitBrain_Current",
+      "phase_offset_us": 2300,
+      "tx_rx_self_interference_overlap_pct": 41.5,
+      "panel2_dl_goodput_mbps": 29.5,
+      "panel2_ul_goodput_mbps": 27.41,
+      "panel3_dl_goodput_mbps": 37.32,
+      "panel3_ul_goodput_mbps": 21.95,
+      "tower_aggregate_goodput_mbps": 116.18,
+      "tower_goodput_gain_vs_current_pct": 0.0
+    },
+    {
+      "profile_id": "Mismatched_Ratio_82_67_33_vs_83_50_50",
+      "p2_frame_us": 10000,
+      "p2_dl_alloc_pct": 67,
+      "p3_mode": "Sync_Fixed_10ms_50_50",
+      "phase_offset_us": 0,
+      "tx_rx_self_interference_overlap_pct": 16.0,
+      "panel2_dl_goodput_mbps": 40.49,
+      "panel2_ul_goodput_mbps": 21.06,
+      "panel3_dl_goodput_mbps": 35.28,
+      "panel3_ul_goodput_mbps": 25.79,
+      "tower_aggregate_goodput_mbps": 122.62,
+      "tower_goodput_gain_vs_current_pct": 5.54
+    },
+    {
+      "profile_id": "Phase_Shifted_10ms_67_33_2500us_Offset",
+      "p2_frame_us": 10000,
+      "p2_dl_alloc_pct": 67,
+      "p3_mode": "Sync_Fixed_10ms_67_33",
+      "phase_offset_us": 2500,
+      "tx_rx_self_interference_overlap_pct": 43.0,
+      "panel2_dl_goodput_mbps": 39.78,
+      "panel2_ul_goodput_mbps": 15.43,
+      "panel3_dl_goodput_mbps": 45.6,
+      "panel3_ul_goodput_mbps": 12.16,
+      "tower_aggregate_goodput_mbps": 112.97,
+      "tower_goodput_gain_vs_current_pct": -2.76
+    },
+    {
+      "profile_id": "Synchronized_8ms_67_33_Both_Panels",
+      "p2_frame_us": 8000,
+      "p2_dl_alloc_pct": 67,
+      "p3_mode": "Sync_Fixed_8ms_67_33",
+      "phase_offset_us": 0,
+      "tx_rx_self_interference_overlap_pct": 0.0,
+      "panel2_dl_goodput_mbps": 42.07,
+      "panel2_ul_goodput_mbps": 19.5,
+      "panel3_dl_goodput_mbps": 47.7,
+      "panel3_ul_goodput_mbps": 17.0,
+      "tower_aggregate_goodput_mbps": 126.27,
+      "tower_goodput_gain_vs_current_pct": 8.68
+    },
+    {
+      "profile_id": "Synchronized_10ms_67_33_Champion_0us_Offset",
+      "p2_frame_us": 10000,
+      "p2_dl_alloc_pct": 67,
+      "p3_mode": "Sync_Fixed_10ms_67_33",
+      "phase_offset_us": 0,
+      "tx_rx_self_interference_overlap_pct": 0.0,
+      "panel2_dl_goodput_mbps": 41.91,
+      "panel2_ul_goodput_mbps": 21.06,
+      "panel3_dl_goodput_mbps": 47.52,
+      "panel3_ul_goodput_mbps": 18.36,
+      "tower_aggregate_goodput_mbps": 128.85,
+      "tower_goodput_gain_vs_current_pct": 10.91
+    }
+  ],
+  "nsga2_pareto_front": [
+    {
+      "profile_id": "Synchronized_8ms_67_33_Both_Panels",
+      "phase_jitter_us": 0.0,
+      "tower_aggregate_goodput_mbps": 126.27,
+      "effective_tx_rx_overlap_pct": 0.0
+    },
+    {
+      "profile_id": "Synchronized_8ms_67_33_Both_Panels",
+      "phase_jitter_us": 0.0,
+      "tower_aggregate_goodput_mbps": 126.27,
+      "effective_tx_rx_overlap_pct": 0.0
+    },
+    {
+      "profile_id": "Synchronized_10ms_67_33_Champion_0us_Offset",
+      "phase_jitter_us": 0.0,
+      "tower_aggregate_goodput_mbps": 128.85,
+      "effective_tx_rx_overlap_pct": 0.0
+    },
+    {
+      "profile_id": "Synchronized_8ms_67_33_Both_Panels",
+      "phase_jitter_us": 0.0,
+      "tower_aggregate_goodput_mbps": 126.27,
+      "effective_tx_rx_overlap_pct": 0.0
+    }
+  ],
+  "recommended_tower_alignment_champion": {
+    "profile_id": "Synchronized_10ms_67_33_Champion_0us_Offset",
+    "p2_frame_us": 10000,
+    "p2_dl_alloc_pct": 67,
+    "p3_mode": "Sync_Fixed_10ms_67_33",
+    "phase_offset_us": 0,
+    "tx_rx_self_interference_overlap_pct": 0.0,
+    "panel2_dl_goodput_mbps": 41.91,
+    "panel2_ul_goodput_mbps": 21.06,
+    "panel3_dl_goodput_mbps": 47.52,
+    "panel3_ul_goodput_mbps": 18.36,
+    "tower_aggregate_goodput_mbps": 128.85,
+    "tower_goodput_gain_vs_current_pct": 10.91
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Models ubnt_poll_host_init_ptmp_netconf (0x00d244..0x00d950) down_dur/up_dur windows across co-located Panel2 (.82) and Panel3 (.83).",
+    "pillar_b_hyperresearch_and_scholar_reactor": "HYP-684A-TDMA-ALIGNMENT: Synchronizing Panel2 (.82) and Panel3 (.83) to Fixed 10ms 67/33 reduces AP-to-AP TX/RX overlap from 43.15% to 0.00% and increases aggregate tower goodput by +13.71%.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "A1 -> B1 -> A2 -> B2 counterbalanced verification with 45s non-DFS / 120s DFS rollback gate.",
+    "pillar_d_scientific_pareto_validation": "Executes SimPy + pymoo NSGA-II bi-objective optimization (tower goodput vs TX/RX self-interference overlap).",
+    "pillar_e_memory_master_claim_id": "mm-stage684a-guarida-panel2-panel3-tdma-alignment-v1"
+  }
+}

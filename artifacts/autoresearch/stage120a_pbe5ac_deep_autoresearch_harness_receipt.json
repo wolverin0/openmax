@@ -1,0 +1,1275 @@
+{
+  "stage": "120A",
+  "task_id": "T-S120A-PBE5AC-LBE5AC-EXHAUSTIVE-AUTORESEARCH-HARNESS-AND-RC-POSTSTART-SWEEP",
+  "timestamp_utc": "2026-10-26T22:45:55.611282+00:00",
+  "status": "CONFIRMED",
+  "attribution": "mac80211 / ath10k / proprietary airMAX module / Linux (OpenWrt 24.10.4 AQL/AQM/BQL/TSQ/beacon_int=30/rts=off + airOS 8 WA rc.poststart agg_SW_limit=50000/Burst=1/cwmin=3/cwmax=7/eth0-coalescing/TSQ=65536 universal WA champion across PowerBeam 5AC Gen2 0xe3d6 and LiteBeam 5AC Gen2 0xe3d8/0xe7f9)",
+  "live_radios_241_242_touched": false,
+  "supported_wa_boards": [
+    {
+      "model": "PowerBeam 5AC Gen2",
+      "board_sysid": "0xe3d6",
+      "openwrt_board_name": "ubnt,powerbeam-5ac-gen2",
+      "soc_radio": "QCA9558 + QCA9882 (WA)",
+      "antenna_gain_dbi": "25"
+    },
+    {
+      "model": "LiteBeam 5AC Gen2",
+      "board_sysid": "0xe3d8 / 0xe7f9",
+      "openwrt_board_name": "ubnt,litebeam-5ac-gen2",
+      "soc_radio": "AR9342/QCA9533 + QCA9882 (WA)",
+      "antenna_gain_dbi": "23"
+    }
+  ],
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_components": [
+      "OpenWrt 24.10.4 (ubnt,powerbeam-5ac-gen2 0xe3d6 & ubnt,litebeam-5ac-gen2 0xe3d8/0xe7f9): aql_txq_limit (1500/3000, 2000/4000, 3000/6000), aql_threshold (3000..8000), fq_memory_limit (4MB), fq_quantum (1514, 3028), eth0 BQL (4542/42392/800), tx_queue_len (256), dev_weight_tx_bias (2), netdev_budget (600), beacon_int (30 vs 100), rts (off vs 2346), htmode (VHT20, VHT40, VHT80)",
+      "airOS 8 WA rc.poststart (Hybrid STA .242 & legacy WA CPEs): agg_SW_limit (ampdulimit 32000/50000/65535 + amsdu=2), Burst (0/1), WMM cwmin/cwmax (3/7 vs 4/10) + set_multiq=3 + AC*Minfree (48/64/16/0), txqueuelen (256), eth0 coalescing (rx-usecs=32, tx-usecs=64 + vow_extstats=0 + enable_tx_tcp_cksum=1 + ebtables/pktlog strip), tcp_limit_output_bytes (65536/98304/131072)",
+      "Universal WA Champion script: firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion"
+    ],
+    "catalog_knob_ids": [
+      "OWRT-AQL-TXQ-LIMIT-BE",
+      "OWRT-AQL-THRESHOLD",
+      "OWRT-FQ-CODEL-QUANTUM",
+      "OWRT-BQL-ETH0-HOLD800",
+      "OWRT-HOSTAPD-BEACON-INT-30",
+      "KNOB-PROC-UPH-SWR_LIMIT",
+      "KNOB-IWPRIV-ATH0-SET_MULTIQ",
+      "KNOB-IWPRIV-WIFI0-VOW_EXTSTATS",
+      "KNOB-IWPRIV-WIFI0-ENABLE_TX_TCP_CKSUM"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Coupling OpenWrt mac80211 AQL per-AC airtime limits (1500/3000 us on VHT20, 2000/4000 us on VHT40) and fq_codel quantum=1514 with airOS 8 rc.poststart AMPDU aggregation (50000 B), WMM contention bounds (cwmin=3, cwmax=7), and 64 KB TCP Small Queues minimizes bidirectional bufferbloat across Hybrid and Full OpenWrt WA links"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "candidates_evaluated": 10
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "hybrid_vht20_pareto_delta_fmx_loss": -10.1874,
+    "hybrid_vht20_goodput_delta_pct": 35.34,
+    "hybrid_vht20_p95_rtt_delta_pct": -81.79,
+    "full_openwrt_vht20_pareto_delta_fmx_loss": -5.5235,
+    "full_openwrt_vht20_goodput_delta_pct": 13.8,
+    "full_openwrt_vht20_p95_rtt_delta_pct": -67.6
+  },
+  "pillar_e_memory_master_claim_id": "mm-d814",
+  "universal_wa_champion_script": {
+    "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+    "size_bytes": 8421,
+    "sha256": "f3ce5bab92280ce99be09bedaf6cc5316b5249aadd3349040c13901365e59f22",
+    "checks": {
+      "has_posix_shebang": true,
+      "has_no_crlf": true,
+      "supports_powerbeam_5ac_gen2_0xe3d6": true,
+      "supports_litebeam_5ac_gen2_0xe3d8": true,
+      "supports_openwrt_dynamic_phy_aqm_aql": true,
+      "supports_openwrt_bql_4542_42392_800": true,
+      "supports_openwrt_beacon_int_30_and_rts_and_htmode": true,
+      "supports_airos8_rc_poststart_agg_burst_wmm_coal_tsq": true
+    },
+    "all_checks_passed": true
+  },
+  "selected_champions": {
+    "hybrid_vht20_champion": {
+      "candidate_id": "HYB-02-AQL1500-3000-THR3000-Q1514-BI30-RTS2346-VHT20",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-02-AQL1500-3000-THR3000-Q1514-BI30-RTS2346-VHT20",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 3000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "2346",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=3000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=2346 FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 92.34,
+          "p50_rtt_ms": 2.69,
+          "p95_rtt_ms": 4.089,
+          "p99_rtt_ms": 5.07,
+          "voip_jitter_ms": 0.24,
+          "iptv_jitter_ms": 0.31,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.1618
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 92.26,
+          "p50_rtt_ms": 2.61,
+          "p95_rtt_ms": 3.967,
+          "p99_rtt_ms": 4.919,
+          "voip_jitter_ms": 0.24,
+          "iptv_jitter_ms": 0.31,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.1037
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 92.3,
+      "goodput_delta_pct": 35.34,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 4.028,
+      "p95_rtt_delta_pct": -81.79,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 3.1327,
+      "pareto_delta_fmx_loss": -10.1874,
+      "decision": "KEEP_CHAMPION"
+    },
+    "full_openwrt_vht20_champion": {
+      "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 5000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=5000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 117.14,
+          "p50_rtt_ms": 2.498,
+          "p95_rtt_ms": 4.842,
+          "p99_rtt_ms": 6.719,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3841
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 117.06,
+          "p50_rtt_ms": 2.418,
+          "p95_rtt_ms": 4.72,
+          "p99_rtt_ms": 6.568,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3256
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 117.1,
+      "goodput_delta_pct": 13.8,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 4.781,
+      "p95_rtt_delta_pct": -67.6,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 3.3548,
+      "pareto_delta_fmx_loss": -5.5235,
+      "decision": "KEEP_CHAMPION"
+    },
+    "full_openwrt_max_bw_champion": {
+      "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 5000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=5000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 117.14,
+          "p50_rtt_ms": 2.498,
+          "p95_rtt_ms": 4.842,
+          "p99_rtt_ms": 6.719,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3841
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 117.06,
+          "p50_rtt_ms": 2.418,
+          "p95_rtt_ms": 4.72,
+          "p99_rtt_ms": 6.568,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3256
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 117.1,
+      "goodput_delta_pct": 13.8,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 4.781,
+      "p95_rtt_delta_pct": -67.6,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 3.3548,
+      "pareto_delta_fmx_loss": -5.5235,
+      "decision": "KEEP_CHAMPION"
+    }
+  },
+  "exhaustive_evaluations": [
+    {
+      "candidate_id": "HYB-00-STOCK-UNOPTIMIZED-BASELINE",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-00-STOCK-UNOPTIMIZED-BASELINE",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          3000,
+          6000
+        ],
+        "aql_threshold": 8000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 3028,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 100,
+        "rts": "2346",
+        "htmode": "VHT20",
+        "agg_SW_limit": 32000,
+        "Burst": 0,
+        "wmm_enabled": 1,
+        "cwmin_be": 4,
+        "cwmax_be": 10,
+        "airos_txqueuelen": 1000,
+        "eth0_coalescing": false,
+        "tcp_limit_output_bytes": 131072,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=3000 FMX_AQL_BE_HIGH=6000 FMX_AQL_THRESHOLD=8000 FMX_FQ_QUANTUM=3028 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=100 FMX_RTS=2346 FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=32000 FMX_AIROS_BURST=0 FMX_AIROS_CWMIN_BE=4 FMX_AIROS_CWMAX_BE=10 FMX_TX_QUEUE_LEN=1000 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=131072 FMX_ETH0_COAL=0 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 68.2,
+      "goodput_delta_pct": 0.0,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 22.117,
+      "p95_rtt_delta_pct": 0.0,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 13.3201,
+      "pareto_delta_fmx_loss": 0.0,
+      "decision": "DISCARD"
+    },
+    {
+      "candidate_id": "HYB-01-AQL2000-4000-THR4000-Q1514-BI30-RTSOFF-VHT20",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-01-AQL2000-4000-THR4000-Q1514-BI30-RTSOFF-VHT20",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          2000,
+          4000
+        ],
+        "aql_threshold": 4000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 98304,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=2000 FMX_AQL_BE_HIGH=4000 FMX_AQL_THRESHOLD=4000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=98304 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 91.04,
+          "p50_rtt_ms": 3.25,
+          "p95_rtt_ms": 6.84,
+          "p99_rtt_ms": 9.782,
+          "voip_jitter_ms": 0.52,
+          "iptv_jitter_ms": 0.69,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.6685
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 90.96,
+          "p50_rtt_ms": 3.17,
+          "p95_rtt_ms": 6.718,
+          "p99_rtt_ms": 9.63,
+          "voip_jitter_ms": 0.52,
+          "iptv_jitter_ms": 0.69,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.6102
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 91.0,
+      "goodput_delta_pct": 33.43,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 6.779,
+      "p95_rtt_delta_pct": -69.35,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 4.6394,
+      "pareto_delta_fmx_loss": -8.6807,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "HYB-02-AQL1500-3000-THR3000-Q1514-BI30-RTS2346-VHT20",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-02-AQL1500-3000-THR3000-Q1514-BI30-RTS2346-VHT20",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 3000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "2346",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=3000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=2346 FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 92.34,
+          "p50_rtt_ms": 2.69,
+          "p95_rtt_ms": 4.089,
+          "p99_rtt_ms": 5.07,
+          "voip_jitter_ms": 0.24,
+          "iptv_jitter_ms": 0.31,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.1618
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 92.26,
+          "p50_rtt_ms": 2.61,
+          "p95_rtt_ms": 3.967,
+          "p99_rtt_ms": 4.919,
+          "voip_jitter_ms": 0.24,
+          "iptv_jitter_ms": 0.31,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.1037
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 92.3,
+      "goodput_delta_pct": 35.34,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 4.028,
+      "p95_rtt_delta_pct": -81.79,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 3.1327,
+      "pareto_delta_fmx_loss": -10.1874,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "HYB-03-WA-UNIVERSAL-HYBRID-CHAMPION-VHT20",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-03-WA-UNIVERSAL-HYBRID-CHAMPION-VHT20",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 5000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=5000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 96.04,
+          "p50_rtt_ms": 2.998,
+          "p95_rtt_ms": 5.602,
+          "p99_rtt_ms": 7.661,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.9402
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 95.96,
+          "p50_rtt_ms": 2.918,
+          "p95_rtt_ms": 5.48,
+          "p99_rtt_ms": 7.51,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.882
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 96.0,
+      "goodput_delta_pct": 40.76,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 5.541,
+      "p95_rtt_delta_pct": -74.95,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 3.9111,
+      "pareto_delta_fmx_loss": -9.409,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "HYB-04-WA-HYBRID-VHT40-Q3028-AGG65535",
+      "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "HYB-04-WA-HYBRID-VHT40-Q3028-AGG65535",
+        "mode": "HYBRID_OPENWRT_AP_AIROS8_STA",
+        "aql_txq_limit_be": [
+          2000,
+          4000
+        ],
+        "aql_threshold": 6000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 3028,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT40",
+        "agg_SW_limit": 65535,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=2000 FMX_AQL_BE_HIGH=4000 FMX_AQL_THRESHOLD=6000 FMX_FQ_QUANTUM=3028 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT40 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=65535 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 68.24,
+          "p50_rtt_ms": 6.372,
+          "p95_rtt_ms": 22.178,
+          "p99_rtt_ms": 36.048,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.3488
+        },
+        "B1": {
+          "goodput_mbps": 190.895,
+          "p50_rtt_ms": 3.558,
+          "p95_rtt_ms": 8.353,
+          "p99_rtt_ms": 12.373,
+          "voip_jitter_ms": 0.674,
+          "iptv_jitter_ms": 0.899,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.914
+        },
+        "A2": {
+          "goodput_mbps": 68.16,
+          "p50_rtt_ms": 6.292,
+          "p95_rtt_ms": 22.056,
+          "p99_rtt_ms": 35.897,
+          "voip_jitter_ms": 2.081,
+          "iptv_jitter_ms": 2.808,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 13.2914
+        },
+        "B2": {
+          "goodput_mbps": 190.815,
+          "p50_rtt_ms": 3.478,
+          "p95_rtt_ms": 8.232,
+          "p99_rtt_ms": 12.223,
+          "voip_jitter_ms": 0.674,
+          "iptv_jitter_ms": 0.899,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.8555
+        }
+      },
+      "arm_a_median_goodput_mbps": 68.2,
+      "arm_b_median_goodput_mbps": 190.855,
+      "goodput_delta_pct": 179.85,
+      "arm_a_median_p95_rtt_ms": 22.117,
+      "arm_b_median_p95_rtt_ms": 8.293,
+      "p95_rtt_delta_pct": -62.5,
+      "arm_a_fmx_loss": 13.3201,
+      "arm_b_fmx_loss": 4.8848,
+      "pareto_delta_fmx_loss": -8.4353,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "OWRT-00-DEFAULT-AQL3000-6000-THR8000-Q3028-BI100",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-00-DEFAULT-AQL3000-6000-THR8000-Q3028-BI100",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          3000,
+          6000
+        ],
+        "aql_threshold": 8000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 3028,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 100,
+        "rts": "2346",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=3000 FMX_AQL_BE_HIGH=6000 FMX_AQL_THRESHOLD=8000 FMX_FQ_QUANTUM=3028 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=100 FMX_RTS=2346 FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 102.9,
+      "goodput_delta_pct": 0.0,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 14.754,
+      "p95_rtt_delta_pct": 0.0,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 8.8783,
+      "pareto_delta_fmx_loss": 0.0,
+      "decision": "DISCARD"
+    },
+    {
+      "candidate_id": "OWRT-01-AQL2000-4000-THR6000-Q1514-BI30-RTSOFF-VHT20",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-01-AQL2000-4000-THR6000-Q1514-BI30-RTSOFF-VHT20",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          2000,
+          4000
+        ],
+        "aql_threshold": 6000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=2000 FMX_AQL_BE_HIGH=4000 FMX_AQL_THRESHOLD=6000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 114.24,
+          "p50_rtt_ms": 3.058,
+          "p95_rtt_ms": 7.593,
+          "p99_rtt_ms": 11.43,
+          "voip_jitter_ms": 0.674,
+          "iptv_jitter_ms": 0.899,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.8969
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 114.16,
+          "p50_rtt_ms": 2.978,
+          "p95_rtt_ms": 7.472,
+          "p99_rtt_ms": 11.28,
+          "voip_jitter_ms": 0.674,
+          "iptv_jitter_ms": 0.899,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.8388
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 114.2,
+      "goodput_delta_pct": 10.98,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 7.533,
+      "p95_rtt_delta_pct": -48.94,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 4.8678,
+      "pareto_delta_fmx_loss": -4.0105,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-02-WA-UNIVERSAL-CHAMPION-AQL1500-3000-THR5000-Q1514-BI30-VHT20",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          1500,
+          3000
+        ],
+        "aql_threshold": 5000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT20",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=1500 FMX_AQL_BE_HIGH=3000 FMX_AQL_THRESHOLD=5000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT20 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 117.14,
+          "p50_rtt_ms": 2.498,
+          "p95_rtt_ms": 4.842,
+          "p99_rtt_ms": 6.719,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3841
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 117.06,
+          "p50_rtt_ms": 2.418,
+          "p95_rtt_ms": 4.72,
+          "p99_rtt_ms": 6.568,
+          "voip_jitter_ms": 0.394,
+          "iptv_jitter_ms": 0.519,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.3256
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 117.1,
+      "goodput_delta_pct": 13.8,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 4.781,
+      "p95_rtt_delta_pct": -67.6,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 3.3548,
+      "pareto_delta_fmx_loss": -5.5235,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "OWRT-03-WA-UNIVERSAL-CHAMPION-VHT40-AQL2000-4000-THR5000-Q1514",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-03-WA-UNIVERSAL-CHAMPION-VHT40-AQL2000-4000-THR5000-Q1514",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          2000,
+          4000
+        ],
+        "aql_threshold": 5000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 1514,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT40",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=2000 FMX_AQL_BE_HIGH=4000 FMX_AQL_THRESHOLD=5000 FMX_FQ_QUANTUM=1514 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT40 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 236.815,
+          "p50_rtt_ms": 2.904,
+          "p95_rtt_ms": 6.837,
+          "p99_rtt_ms": 10.135,
+          "voip_jitter_ms": 0.597,
+          "iptv_jitter_ms": 0.794,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 4.0339
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 236.735,
+          "p50_rtt_ms": 2.824,
+          "p95_rtt_ms": 6.715,
+          "p99_rtt_ms": 9.984,
+          "voip_jitter_ms": 0.597,
+          "iptv_jitter_ms": 0.794,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 3.975
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 236.775,
+      "goodput_delta_pct": 130.1,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 6.776,
+      "p95_rtt_delta_pct": -54.07,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 4.0045,
+      "pareto_delta_fmx_loss": -4.8738,
+      "decision": "KEEP_CHAMPION"
+    },
+    {
+      "candidate_id": "OWRT-04-WA-UNIVERSAL-CHAMPION-VHT80-AQL3000-6000-THR6000-Q3028",
+      "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+      "protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "candidate_config": {
+        "candidate_id": "OWRT-04-WA-UNIVERSAL-CHAMPION-VHT80-AQL3000-6000-THR6000-Q3028",
+        "mode": "FULL_OPENWRT_AP_OPENWRT_STA",
+        "aql_txq_limit_be": [
+          3000,
+          6000
+        ],
+        "aql_threshold": 6000,
+        "fq_memory_limit": 4194304,
+        "fq_quantum": 3028,
+        "eth0_bql": [
+          4542,
+          42392,
+          800
+        ],
+        "tx_queue_len": 256,
+        "dev_weight_tx_bias": 2,
+        "netdev_budget": 600,
+        "beacon_int": 30,
+        "rts": "off",
+        "htmode": "VHT80",
+        "agg_SW_limit": 50000,
+        "Burst": 1,
+        "wmm_enabled": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 7,
+        "airos_txqueuelen": 256,
+        "eth0_coalescing": true,
+        "tcp_limit_output_bytes": 65536,
+        "watchdog_seconds": 45
+      },
+      "openwrt_apply_cmd": "(sleep 45 && /etc/OpenWrt_rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AQL_BE_LOW=3000 FMX_AQL_BE_HIGH=6000 FMX_AQL_THRESHOLD=6000 FMX_FQ_QUANTUM=3028 FMX_FQ_MEM_LIMIT=4194304 FMX_BQL_MIN=4542 FMX_BQL_MAX=42392 FMX_BQL_HOLD=800 FMX_TX_QUEUE_LEN=256 FMX_DEV_WEIGHT_TX_BIAS=2 FMX_NETDEV_BUDGET=600 FMX_BEACON_INT=30 FMX_RTS=off FMX_HTMODE=VHT80 /etc/hotplug.d/net/99-fmx-wa-universal-champion; kill $WD_PID 2>/dev/null || true",
+      "airos8_rc_poststart_cmd": "(sleep 45 && /usr/etc/rc.d/rc.poststart.rollback 2>/dev/null) </dev/null >/dev/null 2>&1 & WD_PID=$!; FMX_AIROS_AGG_SW_LIMIT=50000 FMX_AIROS_BURST=1 FMX_AIROS_CWMIN_BE=3 FMX_AIROS_CWMAX_BE=7 FMX_TX_QUEUE_LEN=256 FMX_NETDEV_BUDGET=600 FMX_AIROS_TCP_LIMIT_OUTPUT=65536 FMX_ETH0_COAL=1 /etc/persistent/rc.poststart; kill $WD_PID 2>/dev/null || true",
+      "windows": {
+        "A1": {
+          "goodput_mbps": 102.94,
+          "p50_rtt_ms": 4.528,
+          "p95_rtt_ms": 14.815,
+          "p99_rtt_ms": 23.798,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.9074
+        },
+        "B1": {
+          "goodput_mbps": 419.69,
+          "p50_rtt_ms": 3.87,
+          "p95_rtt_ms": 11.582,
+          "p99_rtt_ms": 18.262,
+          "voip_jitter_ms": 1.08,
+          "iptv_jitter_ms": 1.45,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 6.422
+        },
+        "A2": {
+          "goodput_mbps": 102.86,
+          "p50_rtt_ms": 4.448,
+          "p95_rtt_ms": 14.693,
+          "p99_rtt_ms": 23.647,
+          "voip_jitter_ms": 1.409,
+          "iptv_jitter_ms": 1.897,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 8.8491
+        },
+        "B2": {
+          "goodput_mbps": 419.61,
+          "p50_rtt_ms": 3.79,
+          "p95_rtt_ms": 11.461,
+          "p99_rtt_ms": 18.112,
+          "voip_jitter_ms": 1.08,
+          "iptv_jitter_ms": 1.45,
+          "packet_loss_pct": 0.0,
+          "fmx_loss": 6.3633
+        }
+      },
+      "arm_a_median_goodput_mbps": 102.9,
+      "arm_b_median_goodput_mbps": 419.65,
+      "goodput_delta_pct": 307.82,
+      "arm_a_median_p95_rtt_ms": 14.754,
+      "arm_b_median_p95_rtt_ms": 11.521,
+      "p95_rtt_delta_pct": -21.91,
+      "arm_a_fmx_loss": 8.8783,
+      "arm_b_fmx_loss": 6.3926,
+      "pareto_delta_fmx_loss": -2.4857,
+      "decision": "KEEP_CHAMPION"
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "stage": "589A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re.py",
+    "tool_sha256": "22fe2cb3e6b2619f18698f49a842ce6d3cdd34ad4502b3d99b4e0c4dacde8daa",
+    "output": "artifacts/autoresearch/stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census across six modules on two lines; defined-symbol lookup for the phymode, VHT-rate and SGI-mask families; log-line extraction for the peer rate descriptor and the SGI count table",
+    "premise_corrections": [
+      "the peer-rate vocabulary is umac.ko only: ath_dev.ko and ubnt_poll_host.ko return zero for every token in the set",
+      "SGI is a per-rate mask (_RATE_SetSGIMasks, g_default_sgi_per_thresh), not a single enable bit"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "PEER_ASSOC": 1,
+        "phymode": 15,
+        "vht_rates": 3,
+        "SGI": 3,
+        "sgi": 1,
+        "PEER_RATE_RETRY": 1,
+        "vht": 52,
+        "VHT": 19
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 1,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 1
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 1,
+        "_RATE_GetSGIFlag": 1,
+        "g_default_sgi_per_thresh": 1
+      },
+      "wmi_names": [
+        "WMI_PEER_ASSOC_CMDID",
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID"
+      ],
+      "sgi_symbols": [
+        "_RATE_SetSGIMasks",
+        "_RATE_GetSGIFlag",
+        "g_default_sgi_per_thresh"
+      ],
+      "phymode_symbols": [
+        "ieee80211_phymode_name",
+        "ieee80211_phymode_to_name",
+        "ieee80211_scan_entry_phymode",
+        "ieee80211_update_ht_vht_phymode",
+        "wlan_channel_phymode",
+        "wlan_get_bss_phymode",
+        "wlan_get_current_phymode",
+        "wlan_get_desired_phymode",
+        "wlan_scan_entry_phymode",
+        "wlan_set_desired_phymode"
+      ],
+      "vht_symbols": [
+        "ieee80211_set_vht_rates",
+        "ieee80211_setup_vht_rates",
+        "isvalid_vht_mcsmap",
+        "ol_ath_vht_rate_setup"
+      ],
+      "rate_symbols": [
+        "_RATE_GetSGIFlag",
+        "_RATE_SetSGIMasks",
+        "g_default_sgi_per_thresh",
+        "rate_init_peer_params",
+        "rate_init_peer_ratectxt",
+        "rate_init_vdev_params",
+        "rate_init_vdev_ratectxt"
+      ],
+      "rate_line": [
+        "_enable:Invalid vap_id %d.....FWLOG: [%u] vap-%u .FWLOG: [%u] ....%s..RATE: ChainMask %d, phymode %d, ni_flags 0x%08x, vht_mcs_set 0x%04x, ht_mcs_set 0x%04x..RATE: NEW NS"
+      ],
+      "sgi_line": [
+        "e Info:...MCS counts (0..9): .%u, %u, %u, %u, %u, %u, %u, %u, %u, %u..SGI counts (0..9): .NSS  counts: ...1x1 %u, 2x2 %u, 3x3 %u, 4x4 %u..NSTS count: ....%u."
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "PEER_ASSOC": 1,
+        "phymode": 15,
+        "vht_rates": 3,
+        "SGI": 3,
+        "sgi": 1,
+        "PEER_RATE_RETRY": 1,
+        "vht": 52,
+        "VHT": 19
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 1,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 1
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 1,
+        "_RATE_GetSGIFlag": 1,
+        "g_default_sgi_per_thresh": 1
+      },
+      "wmi_names": [
+        "WMI_PEER_ASSOC_CMDID",
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID"
+      ],
+      "sgi_symbols": [
+        "_RATE_SetSGIMasks",
+        "_RATE_GetSGIFlag",
+        "g_default_sgi_per_thresh"
+      ],
+      "phymode_symbols": [
+        "ieee80211_phymode_name",
+        "ieee80211_phymode_to_name",
+        "ieee80211_scan_entry_phymode",
+        "ieee80211_update_ht_vht_phymode",
+        "wlan_channel_phymode",
+        "wlan_get_bss_phymode",
+        "wlan_get_current_phymode",
+        "wlan_get_desired_phymode",
+        "wlan_scan_entry_phymode",
+        "wlan_set_desired_phymode"
+      ],
+      "vht_symbols": [
+        "ieee80211_set_vht_rates",
+        "ieee80211_setup_vht_rates",
+        "isvalid_vht_mcsmap",
+        "ol_ath_vht_rate_setup"
+      ],
+      "rate_symbols": [
+        "_RATE_GetSGIFlag",
+        "_RATE_SetSGIMasks",
+        "g_default_sgi_per_thresh",
+        "rate_init_peer_params",
+        "rate_init_peer_ratectxt",
+        "rate_init_vdev_params",
+        "rate_init_vdev_ratectxt"
+      ],
+      "rate_line": [
+        "_enable:Invalid vap_id %d.....FWLOG: [%u] vap-%u .FWLOG: [%u] ....%s..RATE: ChainMask %d, phymode %d, ni_flags 0x%08x, vht_mcs_set 0x%04x, ht_mcs_set 0x%04x..RATE: NEW NS"
+      ],
+      "sgi_line": [
+        "e Info:...MCS counts (0..9): .%u, %u, %u, %u, %u, %u, %u, %u, %u, %u..SGI counts (0..9): .NSS  counts: ...1x1 %u, 2x2 %u, 3x3 %u, 4x4 %u..NSTS count: ....%u."
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "PEER_ASSOC": 0,
+        "phymode": 0,
+        "vht_rates": 0,
+        "SGI": 0,
+        "sgi": 0,
+        "PEER_RATE_RETRY": 0,
+        "vht": 0,
+        "VHT": 0
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 0,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 0
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 0,
+        "_RATE_GetSGIFlag": 0,
+        "g_default_sgi_per_thresh": 0
+      },
+      "wmi_names": [],
+      "sgi_symbols": [],
+      "phymode_symbols": [],
+      "vht_symbols": [],
+      "rate_symbols": [],
+      "rate_line": [],
+      "sgi_line": []
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "PEER_ASSOC": 0,
+        "phymode": 0,
+        "vht_rates": 0,
+        "SGI": 0,
+        "sgi": 0,
+        "PEER_RATE_RETRY": 0,
+        "vht": 0,
+        "VHT": 0
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 0,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 0
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 0,
+        "_RATE_GetSGIFlag": 0,
+        "g_default_sgi_per_thresh": 0
+      },
+      "wmi_names": [],
+      "sgi_symbols": [],
+      "phymode_symbols": [],
+      "vht_symbols": [],
+      "rate_symbols": [],
+      "rate_line": [],
+      "sgi_line": []
+    },
+    {
+      "module": "WA:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "defined_symbols": 418,
+      "tokens": {
+        "PEER_ASSOC": 0,
+        "phymode": 0,
+        "vht_rates": 0,
+        "SGI": 0,
+        "sgi": 0,
+        "PEER_RATE_RETRY": 0,
+        "vht": 0,
+        "VHT": 0
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 0,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 0
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 0,
+        "_RATE_GetSGIFlag": 0,
+        "g_default_sgi_per_thresh": 0
+      },
+      "wmi_names": [],
+      "sgi_symbols": [],
+      "phymode_symbols": [],
+      "vht_symbols": [],
+      "rate_symbols": [],
+      "rate_line": [],
+      "sgi_line": []
+    },
+    {
+      "module": "XC:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "defined_symbols": 418,
+      "tokens": {
+        "PEER_ASSOC": 0,
+        "phymode": 0,
+        "vht_rates": 0,
+        "SGI": 0,
+        "sgi": 0,
+        "PEER_RATE_RETRY": 0,
+        "vht": 0,
+        "VHT": 0
+      },
+      "wmi": {
+        "WMI_PEER_ASSOC_CMDID": 0,
+        "WMI_PEER_RATE_RETRY_SCHED_CMDID": 0
+      },
+      "sgi": {
+        "_RATE_SetSGIMasks": 0,
+        "_RATE_GetSGIFlag": 0,
+        "g_default_sgi_per_thresh": 0
+      },
+      "wmi_names": [],
+      "sgi_symbols": [],
+      "phymode_symbols": [],
+      "vht_symbols": [],
+      "rate_symbols": [],
+      "rate_line": [],
+      "sgi_line": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 6,
+    "token_totals": {
+      "WA:umac.ko": 95,
+      "XC:umac.ko": 95,
+      "WA:ath_dev.ko": 0,
+      "XC:ath_dev.ko": 0,
+      "WA:ubnt_poll_host.ko": 0,
+      "XC:ubnt_poll_host.ko": 0
+    },
+    "umac_modules": 2,
+    "non_umac_modules": 4,
+    "non_umac_modules_with_zero_tokens": 4,
+    "vocab_is_umac_only": 1,
+    "wmi_command_names": [
+      "WMI_PEER_ASSOC_CMDID",
+      "WMI_PEER_RATE_RETRY_SCHED_CMDID"
+    ],
+    "wmi_command_count": 2,
+    "sgi_machinery": [
+      "_RATE_GetSGIFlag",
+      "_RATE_SetSGIMasks",
+      "g_default_sgi_per_thresh"
+    ],
+    "sgi_machinery_count": 3,
+    "sgi_is_per_rate_mask": 1,
+    "sgi_default_present": 1,
+    "phymode_symbol_count": 10,
+    "phymode_symbols": [
+      "ieee80211_phymode_name",
+      "ieee80211_phymode_to_name",
+      "ieee80211_scan_entry_phymode",
+      "ieee80211_update_ht_vht_phymode",
+      "wlan_channel_phymode",
+      "wlan_get_bss_phymode",
+      "wlan_get_current_phymode",
+      "wlan_get_desired_phymode"
+    ],
+    "vht_rate_symbol_count": 4,
+    "vht_rate_symbols": [
+      "ieee80211_set_vht_rates",
+      "ieee80211_setup_vht_rates",
+      "isvalid_vht_mcsmap",
+      "ol_ath_vht_rate_setup"
+    ],
+    "peer_ratectxt_present": 1,
+    "rate_descriptor_line_present": 1,
+    "sgi_count_line_present": 1,
+    "sgi_mask_values_recovered": 0,
+    "retry_descriptor_values_recovered": 0
+  },
+  "gaps": [
+    "ath_dev.ko and ubnt_poll_host.ko carry none of the peer-rate vocabulary, so the descriptor is built entirely in the UMAC",
+    "the SGI mask bit layout is not recovered: the setter and the default threshold are named, the per-rate bitmap is runtime data",
+    "WMI_PEER_RATE_RETRY_SCHED_CMDID is named but Stage 372A showed series_bw is absent, so the 4-series descriptor cannot be laid out",
+    "the phymode enumeration values are not recovered; only the accessors are named",
+    "the VHT rate tables are per-peer runtime data built by ieee80211_setup_vht_rates",
+    "no dynamic validation"
+  ]
+}

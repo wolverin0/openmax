@@ -1,0 +1,90 @@
+{
+  "task_id": "T-S36B-CODEX-IPTV-AC-VI-DMS-AND-HLS-PACING-CONTROLLER-INTEGRATION",
+  "status": "SOFTWARE_VERIFIED_RUNTIME_UNQUALIFIED",
+  "source_bindings": [
+    {
+      "path": "controller/iptv_dms_ac_vi_canary_gate.py",
+      "sha256": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1"
+    },
+    {
+      "path": "tests/test_stage36b_iptv_canary_gate.py",
+      "sha256": "eaa69fd3d346f47f7764556b342a32659383b8a17fc6118ad47170734752ed7c"
+    },
+    {
+      "path": "controller/wisp_iptv_ptmp_sector_optimizer.py",
+      "sha256": "776e10ccd225caa5bea5b803cb24f25a134ac37ce71770605eed131ad8636a15",
+      "role": "concurrent contextual source snapshot, not runtime dispatch authority"
+    },
+    {
+      "path": "controller/openwisp_uisp_unified_canary_provisioner.py",
+      "sha256": "eacef354a5a657d049fa7b81a0aab761f6784cd34fe9039e0ff1838d333745e7"
+    },
+    {
+      "path": "artifacts/autoresearch/stage35a_openwisp_portal_and_m15_5ghz_bench_20261025.json",
+      "sha256": "779d29dc9d6e330a932ff3ecea0b779d73e378fcc8f4a6494239be8d9dc68ebb"
+    },
+    {
+      "path": "artifacts/autoresearch/stage36a_live_iptv_ac_vi_ptmp_bench_20261025.json",
+      "sha256": "90cf485d24bcf77584f5ce2d2e4fe142c15e4ebdd70dffb631fbf8789d9a0f4d",
+      "role": "concurrent contextual source snapshot, not runtime dispatch authority"
+    }
+  ],
+  "focused_pytest": {
+    "command": "python -m pytest tests/test_stage36b_iptv_canary_gate.py -q",
+    "execution": "direct, explicitly operator-authorized, no heavy-slot",
+    "passed": 73,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "duration_s": 1.62,
+    "receipt": "23a946",
+    "warning": "pre-existing pytest_asyncio fixture-loop configuration deprecation"
+  },
+  "aql_targets_us": {
+    "VO": [
+      600,
+      1200
+    ],
+    "VI": [
+      1200,
+      2400
+    ],
+    "BE": [
+      1000,
+      2000
+    ],
+    "BK": [
+      500,
+      1000
+    ]
+  },
+  "known_source_limitations": [
+    "Stage35A v9 is a compound AP+CPE source result, not an AP-only causal gain",
+    "Stage36A S36A-R1 source IPTV jitter worsened26.436% with RETAIN_CURRENT_CHAMPION; not a statement about later rounds",
+    "Stage36C model/unsafe broad helper is not executed",
+    "global AQL restoration requires observed uniform perstation limits and full affected wiphy inventory"
+  ],
+  "rollback": {
+    "lease_s": 60,
+    "meaning": "independent device guard rollback trigger, not completion guarantee",
+    "restore_operation_timeout_s": 5,
+    "snapshot": "exact bridge flags, dynamic parent/port DMS, global and each peer AQL plus preserved threshold/BCMC and identities",
+    "runtime_result": "UNKNOWN"
+  },
+  "physical_acceptance": false,
+  "runtime_dispatch_allowed": false,
+  "device_access": false,
+  "nms_api_writes": false,
+  "cpe_actions": [],
+  "flash_writes": 0,
+  "independent_review": {
+    "status": "PASS_WITH_LIMITS",
+    "open_material_blockers": 0,
+    "fresh_static_checks": 58,
+    "path": "C:\\_tmp\\systemp\\fmx_s36b_independent_review_ya17_pbp\\independent_review.json",
+    "sha256": "73a2609c1301bc94bafd54e56e4e54da391c718c7b336fbe5a77b83398c12eee",
+    "pytest_evidence": "owner direct73PASS console reused, not independently executed"
+  },
+  "context_scope": "Only Stage36A S36A-R1 negative source result is interpreted here; later concurrent rounds are outside this software acceptance."
+}

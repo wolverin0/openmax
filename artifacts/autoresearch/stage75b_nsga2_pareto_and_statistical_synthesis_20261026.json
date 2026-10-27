@@ -1,0 +1,726 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "75B",
+  "task_id": "T-S75B-GLOBAL-NSGA2-PARETO-AND-STATISTICAL-EFFECT-SIZE-SYNTHESIS",
+  "generated_at_utc": "2026-10-26T14:02:12.293944+00:00",
+  "status": "CONFIRMED",
+  "epistemic_label": "CONFIRMED",
+  "protocol": "A1->B1->A2->B2",
+  "watchdog_seconds": 45,
+  "memory_master_claim_id": "mm-stage75b-global-nsga2-pareto-statistical-synthesis-20261026",
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "COMPLIANT",
+    "evidence": "Synthesized empirical performance across 571-Knob Catalog & /fullrea binary patches (OpenWrt ath10k/mac80211, airOS 8 umac.ko/ath_dev.ko/ubnt_poll_host.ko, and AF-LTU ame_core.ko/ame_dev.ko)."
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "COMPLIANT",
+    "verifier_model": "jev-1.14.0",
+    "verified_paper_ids": [
+      "2211.03471v1",
+      "0806.4695v1",
+      "1503.04533v6",
+      "2101.07562v1",
+      "1803.10148v1",
+      "2508.18755v2"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "COMPLIANT",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "COMPLIANT",
+    "pymoo_version": "0.6.2",
+    "scipy_version": "scipy.stats",
+    "objectives": [
+      "Maximize goodput_mbps (-goodput_mbps minimized)",
+      "Minimize p95_rtt_ms",
+      "Minimize voip_loss_or_jitter"
+    ],
+    "reference_point_normalized": [
+      1.1,
+      1.1,
+      1.1
+    ]
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage75b-global-nsga2-pareto-statistical-synthesis-20261026",
+  "layer_attribution": [
+    "proprietary airMAX/LTU module",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "hardware"
+  ],
+  "families": {
+    "family_1_openwrt_ptmp": {
+      "family": "family_1_openwrt_ptmp",
+      "total_candidates_evaluated": 14,
+      "pareto_front_count": 4,
+      "pareto_optimal_solutions": [
+        {
+          "id": "S55A-R2_ARM_A",
+          "stage": "55A",
+          "round_id": "S55A-R2",
+          "role": "control_champion_v18",
+          "goodput_mbps": 40.557,
+          "p95_rtt_ms": 85.539,
+          "voip_loss_or_jitter": 1.697,
+          "promoted": false
+        },
+        {
+          "id": "S55A-R3_ARM_A",
+          "stage": "55A",
+          "round_id": "S55A-R3",
+          "role": "control_champion_v18",
+          "goodput_mbps": 47.205,
+          "p95_rtt_ms": 53.236,
+          "voip_loss_or_jitter": 2.05,
+          "promoted": false
+        },
+        {
+          "id": "S55A-R3_ARM_B",
+          "stage": "55A",
+          "round_id": "S55A-R3",
+          "role": "candidate",
+          "goodput_mbps": 47.672,
+          "p95_rtt_ms": 54.159,
+          "voip_loss_or_jitter": 1.854,
+          "promoted": false
+        },
+        {
+          "id": "S68C-XC-R1_ARM_B",
+          "stage": "68C",
+          "round_id": "S68C-XC-R1",
+          "role": "candidate",
+          "goodput_mbps": 48.32,
+          "p95_rtt_ms": 87.832,
+          "voip_loss_or_jitter": 1.301,
+          "promoted": false
+        }
+      ],
+      "hypervolume_3d_initial": 0.251772,
+      "hypervolume_3d_final": 1.207809,
+      "hypervolume_3d_gain": 0.956037,
+      "nsga2_surrogate_front_hv": 1.194514,
+      "hypervolume_progression": [
+        {
+          "step": 1,
+          "candidate_id": "S55A-R1_ARM_A",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.251772
+        },
+        {
+          "step": 2,
+          "candidate_id": "S55A-R1_ARM_B",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.254093
+        },
+        {
+          "step": 3,
+          "candidate_id": "S55A-R2_ARM_A",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.567574
+        },
+        {
+          "step": 4,
+          "candidate_id": "S55A-R2_ARM_B",
+          "stage": "55A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 0.613946
+        },
+        {
+          "step": 5,
+          "candidate_id": "S55A-R3_ARM_A",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.907797
+        },
+        {
+          "step": 6,
+          "candidate_id": "S55A-R3_ARM_B",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.984311
+        },
+        {
+          "step": 7,
+          "candidate_id": "S68C-XC-R1_ARM_B",
+          "stage": "68C",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 8,
+          "candidate_id": "S68C-XC-R2_ARM_B",
+          "stage": "68C",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 9,
+          "candidate_id": "S68C-OWRT-R1_ARM_B",
+          "stage": "68C",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 10,
+          "candidate_id": "S70C-XC-PURE-MULTIQ-CKSUM-NETDEV800_ARM_B",
+          "stage": "70C",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 11,
+          "candidate_id": "S72A-COUPLED-AP-AQL-XC-V20_ARM_B",
+          "stage": "72A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 12,
+          "candidate_id": "S72A-R2-AP-AQL-1500-3000-THR-4500-XC-V20_ARM_B",
+          "stage": "72A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 13,
+          "candidate_id": "S72A-R3-WARMED-PACED-AP-V19-XC-MULTIQ-CKSUM-BUDGET800-TSQ98304_ARM_B",
+          "stage": "72A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.207809
+        },
+        {
+          "step": 14,
+          "candidate_id": "S72A-R4-WARMED-AP-V19-XC-S70C-CHAMPION-V20_ARM_B",
+          "stage": "72A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.207809
+        }
+      ],
+      "statistical_effect_sizes": {
+        "all_rounds_goodput_mbps": {
+          "n_pairs": 22,
+          "mean_diff": 0.007,
+          "sd_diff": 2.7346,
+          "cohen_dz_signed": 0.0026,
+          "hedges_gz_signed": 0.0025,
+          "ci95_low": -1.2054,
+          "ci95_high": 1.2195,
+          "t_stat": 0.0121,
+          "p_val_two_sided": 0.99047,
+          "shapiro_wilk_p": 0.6868
+        },
+        "all_rounds_p95_rtt_ms": {
+          "n_pairs": 22,
+          "mean_diff": 5.9198,
+          "sd_diff": 25.0153,
+          "cohen_dz_signed": -0.2366,
+          "hedges_gz_signed": -0.2281,
+          "ci95_low": -5.1713,
+          "ci95_high": 17.011,
+          "t_stat": 1.11,
+          "p_val_two_sided": 0.27956,
+          "shapiro_wilk_p": 0.0
+        },
+        "promoted_champions_goodput_mbps": {
+          "n_pairs": 6,
+          "mean_diff": 2.7287,
+          "sd_diff": 2.07,
+          "cohen_dz_signed": 1.3182,
+          "hedges_gz_signed": 1.1101,
+          "ci95_low": 0.5563,
+          "ci95_high": 4.901,
+          "t_stat": 3.2289,
+          "p_val_two_sided": 0.02323,
+          "shapiro_wilk_p": 0.3348
+        },
+        "promoted_champions_p95_rtt_ms": {
+          "n_pairs": 6,
+          "mean_diff": -0.2677,
+          "sd_diff": 9.6253,
+          "cohen_dz_signed": 0.0278,
+          "hedges_gz_signed": 0.0234,
+          "ci95_low": -10.3688,
+          "ci95_high": 9.8334,
+          "t_stat": -0.0681,
+          "p_val_two_sided": 0.94833,
+          "shapiro_wilk_p": 0.1461
+        }
+      }
+    },
+    "family_2_openwrt_ptp": {
+      "family": "family_2_openwrt_ptp",
+      "total_candidates_evaluated": 2,
+      "pareto_front_count": 2,
+      "pareto_optimal_solutions": [
+        {
+          "id": "S55A-R4_ARM_A_CHAMPION_V19",
+          "stage": "55A",
+          "round_id": "S55A-R4",
+          "role": "Champion_v19_Baseline",
+          "goodput_mbps": 46.828,
+          "p95_rtt_ms": 61.078,
+          "voip_loss_or_jitter": 2.675,
+          "promoted": true
+        },
+        {
+          "id": "S55A-R4_ARM_B_M35_PTP_PROFILE",
+          "stage": "55A",
+          "round_id": "S55A-R4",
+          "role": "M35_Dedicated_PtP_Candidate",
+          "goodput_mbps": 46.097,
+          "p95_rtt_ms": 60.851,
+          "voip_loss_or_jitter": 2.173,
+          "promoted": false
+        }
+      ],
+      "hypervolume_3d_initial": 0.011,
+      "hypervolume_3d_final": 0.131,
+      "hypervolume_3d_gain": 0.12,
+      "nsga2_surrogate_front_hv": 0.527746,
+      "hypervolume_progression": [
+        {
+          "step": 1,
+          "candidate_id": "S55A-R4_ARM_A_CHAMPION_V19",
+          "stage": "55A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 0.011
+        },
+        {
+          "step": 2,
+          "candidate_id": "S55A-R4_ARM_B_M35_PTP_PROFILE",
+          "stage": "55A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.131
+        }
+      ],
+      "statistical_effect_sizes": {
+        "all_rounds_goodput_mbps": {
+          "n_pairs": 2,
+          "mean_diff": -0.731,
+          "sd_diff": 1.5471,
+          "cohen_dz_signed": -0.4725,
+          "hedges_gz_signed": -0.4725,
+          "ci95_low": -14.6316,
+          "ci95_high": 13.1696,
+          "t_stat": -0.6682,
+          "p_val_two_sided": 0.62499,
+          "shapiro_wilk_p": null
+        },
+        "all_rounds_p95_rtt_ms": {
+          "n_pairs": 2,
+          "mean_diff": -0.227,
+          "sd_diff": 20.2176,
+          "cohen_dz_signed": 0.0112,
+          "hedges_gz_signed": 0.0112,
+          "ci95_low": -181.8749,
+          "ci95_high": 181.4209,
+          "t_stat": -0.0159,
+          "p_val_two_sided": 0.98989,
+          "shapiro_wilk_p": null
+        },
+        "promoted_champions_goodput_mbps": {
+          "n_pairs": 2,
+          "mean_diff": -0.731,
+          "sd_diff": 1.5471,
+          "cohen_dz_signed": -0.4725,
+          "hedges_gz_signed": -0.4725,
+          "ci95_low": -14.6316,
+          "ci95_high": 13.1696,
+          "t_stat": -0.6682,
+          "p_val_two_sided": 0.62499,
+          "shapiro_wilk_p": null
+        },
+        "promoted_champions_p95_rtt_ms": {
+          "n_pairs": 2,
+          "mean_diff": -0.227,
+          "sd_diff": 20.2176,
+          "cohen_dz_signed": 0.0112,
+          "hedges_gz_signed": 0.0112,
+          "ci95_low": -181.8749,
+          "ci95_high": 181.4209,
+          "t_stat": -0.0159,
+          "p_val_two_sided": 0.98989,
+          "shapiro_wilk_p": null
+        }
+      }
+    },
+    "family_3_airos8_wa_xc_ptp": {
+      "family": "family_3_airos8_wa_xc_ptp",
+      "total_candidates_evaluated": 15,
+      "pareto_front_count": 4,
+      "pareto_optimal_solutions": [
+        {
+          "id": "S62A-R2_ARM_B",
+          "stage": "62A",
+          "round_id": "S62A-R2",
+          "role": "Champion_v4",
+          "goodput_mbps": 25.615,
+          "p95_rtt_ms": 7.438,
+          "voip_loss_or_jitter": 0.195,
+          "promoted": true
+        },
+        {
+          "id": "S68A-R2_ARM_B",
+          "stage": "68A",
+          "round_id": "S68A-R2",
+          "role": "Champion_v5",
+          "goodput_mbps": 22.723,
+          "p95_rtt_ms": 6.164,
+          "voip_loss_or_jitter": 0.026,
+          "promoted": true
+        },
+        {
+          "id": "S70B-R1_ARM_B",
+          "stage": "70B",
+          "round_id": "S70B-R1",
+          "role": "candidate",
+          "goodput_mbps": 18.181,
+          "p95_rtt_ms": 7.757,
+          "voip_loss_or_jitter": 0.0,
+          "promoted": false
+        },
+        {
+          "id": "S70B-R2_ARM_B",
+          "stage": "70B",
+          "round_id": "S70B-R2",
+          "role": "candidate",
+          "goodput_mbps": 18.794,
+          "p95_rtt_ms": 5.598,
+          "voip_loss_or_jitter": 0.428,
+          "promoted": false
+        }
+      ],
+      "hypervolume_3d_initial": 0.359731,
+      "hypervolume_3d_final": 1.233974,
+      "hypervolume_3d_gain": 0.874243,
+      "nsga2_surrogate_front_hv": 1.220351,
+      "hypervolume_progression": [
+        {
+          "step": 1,
+          "candidate_id": "S60A-R1_ARM_B",
+          "stage": "60A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 0.359731
+        },
+        {
+          "step": 2,
+          "candidate_id": "S60A-R2_ARM_B",
+          "stage": "60A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.359731
+        },
+        {
+          "step": 3,
+          "candidate_id": "S60A-R3_ARM_B",
+          "stage": "60A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.362779
+        },
+        {
+          "step": 4,
+          "candidate_id": "S62A-R1_ARM_B",
+          "stage": "62A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.720766
+        },
+        {
+          "step": 5,
+          "candidate_id": "S62A-R2_ARM_B",
+          "stage": "62A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.040041
+        },
+        {
+          "step": 6,
+          "candidate_id": "S62A-R3_ARM_B",
+          "stage": "62A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.040041
+        },
+        {
+          "step": 7,
+          "candidate_id": "S68A-R1_ARM_B",
+          "stage": "68A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.040041
+        },
+        {
+          "step": 8,
+          "candidate_id": "S68A-R2_ARM_B",
+          "stage": "68A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.208793
+        },
+        {
+          "step": 9,
+          "candidate_id": "S68A-R3_ARM_B",
+          "stage": "68A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.208793
+        },
+        {
+          "step": 10,
+          "candidate_id": "S70B-R1_ARM_B",
+          "stage": "70B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.216835
+        },
+        {
+          "step": 11,
+          "candidate_id": "S70B-R2_ARM_B",
+          "stage": "70B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.233974
+        },
+        {
+          "step": 12,
+          "candidate_id": "S72B-R1_ARM_B",
+          "stage": "72B",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.233974
+        },
+        {
+          "step": 13,
+          "candidate_id": "S72B-R2_ARM_B",
+          "stage": "72B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.233974
+        },
+        {
+          "step": 14,
+          "candidate_id": "S73A-R1_ARM_B",
+          "stage": "73A",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 1.233974
+        },
+        {
+          "step": 15,
+          "candidate_id": "S73A-R2_ARM_B",
+          "stage": "73A",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 1.233974
+        }
+      ],
+      "statistical_effect_sizes": {
+        "all_rounds_goodput_mbps": {
+          "n_pairs": 27,
+          "mean_diff": -0.1165,
+          "sd_diff": 4.1603,
+          "cohen_dz_signed": -0.028,
+          "hedges_gz_signed": -0.0272,
+          "ci95_low": -1.7623,
+          "ci95_high": 1.5292,
+          "t_stat": -0.1455,
+          "p_val_two_sided": 0.88542,
+          "shapiro_wilk_p": 0.1668
+        },
+        "all_rounds_p95_rtt_ms": {
+          "n_pairs": 27,
+          "mean_diff": -0.3679,
+          "sd_diff": 7.0146,
+          "cohen_dz_signed": 0.0524,
+          "hedges_gz_signed": 0.0509,
+          "ci95_low": -3.1428,
+          "ci95_high": 2.407,
+          "t_stat": -0.2725,
+          "p_val_two_sided": 0.78738,
+          "shapiro_wilk_p": 0.0
+        },
+        "promoted_champions_goodput_mbps": {
+          "n_pairs": 9,
+          "mean_diff": 0.6652,
+          "sd_diff": 5.1347,
+          "cohen_dz_signed": 0.1296,
+          "hedges_gz_signed": 0.117,
+          "ci95_low": -3.2816,
+          "ci95_high": 4.6121,
+          "t_stat": 0.3887,
+          "p_val_two_sided": 0.70766,
+          "shapiro_wilk_p": 0.3433
+        },
+        "promoted_champions_p95_rtt_ms": {
+          "n_pairs": 9,
+          "mean_diff": -1.1288,
+          "sd_diff": 0.8883,
+          "cohen_dz_signed": 1.2707,
+          "hedges_gz_signed": 1.1478,
+          "ci95_low": -1.8116,
+          "ci95_high": -0.446,
+          "t_stat": -3.8122,
+          "p_val_two_sided": 0.00515,
+          "shapiro_wilk_p": 0.6229
+        }
+      }
+    },
+    "family_4_af_ltu": {
+      "family": "family_4_af_ltu",
+      "total_candidates_evaluated": 7,
+      "pareto_front_count": 5,
+      "pareto_optimal_solutions": [
+        {
+          "id": "S50B-R0-STAGE49B-BASELINE",
+          "stage": "50B",
+          "round_id": "S50B-R0-STAGE49B-BASELINE",
+          "role": "baseline_or_candidate",
+          "goodput_mbps": 23.371,
+          "p95_rtt_ms": 10.437,
+          "voip_loss_or_jitter": 0.829,
+          "promoted": false
+        },
+        {
+          "id": "S63B-P0-STAGE50B-BASELINE",
+          "stage": "63B/64A/68B",
+          "round_id": "S63B-P0-STAGE50B-BASELINE",
+          "role": "candidate",
+          "goodput_mbps": 20.114,
+          "p95_rtt_ms": 7.663,
+          "voip_loss_or_jitter": 0.51,
+          "promoted": false
+        },
+        {
+          "id": "S63B-P1-SMP-IRQ-SPLIT-RPS-MAXBD84",
+          "stage": "63B/64A/68B",
+          "round_id": "S63B-P1-SMP-IRQ-SPLIT-RPS-MAXBD84",
+          "role": "LTU_GroundUp_BinaryPatch_Champion",
+          "goodput_mbps": 20.174,
+          "p95_rtt_ms": 7.165,
+          "voip_loss_or_jitter": 0.91,
+          "promoted": false
+        },
+        {
+          "id": "S63B-P2-12X-4096QAM-SCHED-LEVEL6-UNLOCK",
+          "stage": "63B/64A/68B",
+          "round_id": "S63B-P2-12X-4096QAM-SCHED-LEVEL6-UNLOCK",
+          "role": "candidate",
+          "goodput_mbps": 20.074,
+          "p95_rtt_ms": 7.655,
+          "voip_loss_or_jitter": 0.84,
+          "promoted": false
+        },
+        {
+          "id": "S63B-P3-GROUND-UP-CHAMPION",
+          "stage": "63B/64A/68B",
+          "round_id": "S63B-P3-GROUND-UP-CHAMPION",
+          "role": "LTU_GroundUp_BinaryPatch_Champion",
+          "goodput_mbps": 19.569,
+          "p95_rtt_ms": 7.085,
+          "voip_loss_or_jitter": 1.29,
+          "promoted": true
+        }
+      ],
+      "hypervolume_3d_initial": 0.076013,
+      "hypervolume_3d_final": 0.33805,
+      "hypervolume_3d_gain": 0.262037,
+      "nsga2_surrogate_front_hv": 0.575777,
+      "hypervolume_progression": [
+        {
+          "step": 1,
+          "candidate_id": "S50B-R0-STAGE49B-BASELINE",
+          "stage": "50B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.076013
+        },
+        {
+          "step": 2,
+          "candidate_id": "S50B-R1-HYBRID-AUTOMCS-19-256QAM-8X",
+          "stage": "50B",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 0.118339
+        },
+        {
+          "step": 3,
+          "candidate_id": "S50B-R2-HYBRID-AUTOMCS-15-64QAM-6X-SWQ2",
+          "stage": "50B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.126398
+        },
+        {
+          "step": 4,
+          "candidate_id": "S63B-P0-STAGE50B-BASELINE",
+          "stage": "63B/64A/68B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.307488
+        },
+        {
+          "step": 5,
+          "candidate_id": "S63B-P1-SMP-IRQ-SPLIT-RPS-MAXBD84",
+          "stage": "63B/64A/68B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.337762
+        },
+        {
+          "step": 6,
+          "candidate_id": "S63B-P2-12X-4096QAM-SCHED-LEVEL6-UNLOCK",
+          "stage": "63B/64A/68B",
+          "promoted": false,
+          "cumulative_hypervolume_3d": 0.337812
+        },
+        {
+          "step": 7,
+          "candidate_id": "S63B-P3-GROUND-UP-CHAMPION",
+          "stage": "63B/64A/68B",
+          "promoted": true,
+          "cumulative_hypervolume_3d": 0.33805
+        }
+      ],
+      "statistical_effect_sizes": {
+        "all_rounds_goodput_mbps": {
+          "n_pairs": 7,
+          "mean_diff": -1.1511,
+          "sd_diff": 1.7981,
+          "cohen_dz_signed": -0.6402,
+          "hedges_gz_signed": -0.5567,
+          "ci95_low": -2.8141,
+          "ci95_high": 0.5119,
+          "t_stat": -1.6938,
+          "p_val_two_sided": 0.14125,
+          "shapiro_wilk_p": 0.0018
+        },
+        "all_rounds_p95_rtt_ms": {
+          "n_pairs": 7,
+          "mean_diff": -0.7719,
+          "sd_diff": 1.0403,
+          "cohen_dz_signed": 0.7419,
+          "hedges_gz_signed": 0.6452,
+          "ci95_low": -1.734,
+          "ci95_high": 0.1903,
+          "t_stat": -1.9629,
+          "p_val_two_sided": 0.0973,
+          "shapiro_wilk_p": 0.0396
+        },
+        "promoted_champions_goodput_mbps": {
+          "n_pairs": 2,
+          "mean_diff": -2.1635,
+          "sd_diff": 2.2889,
+          "cohen_dz_signed": -0.9452,
+          "hedges_gz_signed": -0.9452,
+          "ci95_low": -22.7285,
+          "ci95_high": 18.4015,
+          "t_stat": -1.3367,
+          "p_val_two_sided": 0.40889,
+          "shapiro_wilk_p": null
+        },
+        "promoted_champions_p95_rtt_ms": {
+          "n_pairs": 2,
+          "mean_diff": -1.676,
+          "sd_diff": 1.5528,
+          "cohen_dz_signed": 1.0793,
+          "hedges_gz_signed": 1.0793,
+          "ci95_low": -15.6274,
+          "ci95_high": 12.2754,
+          "t_stat": -1.5264,
+          "p_val_two_sided": 0.36922,
+          "shapiro_wilk_p": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1125 @@
+{
+  "meta": {
+    "stage": "113A",
+    "phase": "113A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/audit_stage113a_athbox_15applets_plt_and_ioctl_audit.py",
+    "tool_sha256": "8bdabeefa76c3110b6642c9c082ab7d460365d08f3fc49a16f2eb4e9dcbf748c",
+    "output": "artifacts/autoresearch/stage113a_athbox_15applets_plt_and_ioctl_audit.json",
+    "scope": "offline static analysis; zero network traffic; zero radio contact; no mtd access; .241/.242 never contacted",
+    "method": "ET_EXEC program headers; non-PIC PLT stubs (lui $t7 / lw $t9 / jr $t9 / addiu $t8) resolved through DT_JMPREL; $a1 resolved at each ioctl site by backward slice (li / ori / lui+addiu / move-from-li); jal call graph to depth 2",
+    "ioctl_name_caveat": "SIOC names are attached only when the resolved request matches a known value; the header that defines them was not read from this image, so the mapping is INFERRED while the numeric request itself is CONFIRMED",
+    "radio_safety": "static only; no socket opened, no ioctl issued, no device touched"
+  },
+  "images": [
+    {
+      "image": "WA.v8.7.25",
+      "status": "ok",
+      "bytes": 202920,
+      "sha256": "c1d37671cafe6c7651f03000fd7dae7755ed8717bde07df1aeffba3aaa9a99e0",
+      "plt_stubs": 69,
+      "jal_total": 2011,
+      "jal_resolved": 1793,
+      "imports": 76,
+      "applet_tables": 1,
+      "applet_count": 15,
+      "applets": [
+        {
+          "name": "wlanconfig",
+          "fn": "0x00407144",
+          "entry_va": "0x00430cc0",
+          "extent": "0x00407520",
+          "ioctls": [
+            {
+              "site": "0x00405b4c",
+              "level": 1,
+              "request": null,
+              "request_dec": null,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 13,
+          "radar_strings": [
+            "chan"
+          ]
+        },
+        {
+          "name": "80211debug",
+          "fn": "0x00407eb0",
+          "entry_va": "0x00430cc8",
+          "extent": "0x004081c8",
+          "ioctls": [
+            {
+              "site": "0x00407f98",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x004080f8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00407eec",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "athdebug",
+          "fn": "0x00408390",
+          "entry_va": "0x00430cd0",
+          "extent": "0x004086a8",
+          "ioctls": [
+            {
+              "site": "0x00408478",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x004085d8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004083cc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "haldebug",
+          "fn": "0x00408880",
+          "entry_va": "0x00430cd8",
+          "extent": "0x00408b98",
+          "ioctls": [
+            {
+              "site": "0x00408968",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x00408ac8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004088bc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "regdomain",
+          "fn": "0x0040aac4",
+          "entry_va": "0x00430ce0",
+          "extent": "0x0040b0cc",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 4,
+          "radar_strings": []
+        },
+        {
+          "name": "athchans",
+          "fn": "0x0040c848",
+          "entry_va": "0x00430ce8",
+          "extent": "0x0040c9a4",
+          "ioctls": [
+            {
+              "site": "0x0040c7c8",
+              "level": 1,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x00008be0"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "radartool",
+          "fn": "0x0040dde4",
+          "entry_va": "0x00430cf0",
+          "extent": "0x0040df4c",
+          "ioctls": [
+            {
+              "site": "0x0040df10",
+              "level": 0,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f5"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x0040de3c",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": [
+            "BANG RADAR.......",
+            "bangradar"
+          ]
+        },
+        {
+          "name": "radarprescan",
+          "fn": "0x0040f79c",
+          "entry_va": "0x00430cf8",
+          "extent": "0x0040f87c",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x0040f7fc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "pktlogconf",
+          "fn": "0x00410358",
+          "entry_va": "0x00430d00",
+          "extent": "0x004108c4",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x00410284",
+              "import_": "fopen",
+              "level": 1
+            },
+            {
+              "site": "0x004102b4",
+              "import_": "fopen",
+              "level": 1
+            }
+          ],
+          "file_sink_count": 2,
+          "network_sinks": [],
+          "strings_count": 11,
+          "radar_strings": [
+            "/proc/sys/ath_pktlog/%s/phyerr_thresh"
+          ]
+        },
+        {
+          "name": "pktlogdump",
+          "fn": "0x0041164c",
+          "entry_va": "0x00430d08",
+          "extent": "0x004118e0",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x004117d0",
+              "import_": "fopen",
+              "level": 0
+            },
+            {
+              "site": "0x00411804",
+              "import_": "fopen",
+              "level": 0
+            },
+            {
+              "site": "0x00411830",
+              "import_": "open",
+              "level": 0
+            }
+          ],
+          "file_sink_count": 3,
+          "network_sinks": [],
+          "strings_count": 6,
+          "radar_strings": []
+        },
+        {
+          "name": "athstats",
+          "fn": "0x00401890",
+          "entry_va": "0x00430d10",
+          "extent": "0x00402434",
+          "ioctls": [
+            {
+              "site": "0x00401964",
+              "level": 0,
+              "request": "0x000089f0",
+              "request_dec": 35312,
+              "name": "SIOCGATHSTATS"
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f0"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004018cc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "athstatsclr",
+          "fn": "0x00404180",
+          "entry_va": "0x00430d18",
+          "extent": "0x00404220",
+          "ioctls": [
+            {
+              "site": "0x004041f8",
+              "level": 0,
+              "request": "0x000089f4",
+              "request_dec": 35316,
+              "name": "SIOCSATHRADAR"
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f4"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004041a4",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "80211stats",
+          "fn": "0x00404d18",
+          "entry_va": "0x00430d20",
+          "extent": "0x00404e7c",
+          "ioctls": [
+            {
+              "site": "0x004045d8",
+              "level": 1,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f5"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00404d58",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "apstats",
+          "fn": "0x00415140",
+          "entry_va": "0x00430d28",
+          "extent": "0x004152e0",
+          "ioctls": [
+            {
+              "site": "0x00413aac",
+              "level": 1,
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00413b70",
+              "level": 1,
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00413c4c",
+              "level": 1,
+              "request": "0x000089f6",
+              "request_dec": 35318,
+              "name": null
+            },
+            {
+              "site": "0x00411c1c",
+              "level": 2,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 4,
+          "ioctl_requests": [
+            "0x00008927",
+            "0x000089f5",
+            "0x000089f6"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x004138d8",
+              "import_": "fopen",
+              "level": 1
+            }
+          ],
+          "file_sink_count": 1,
+          "network_sinks": [
+            {
+              "site": "0x00413894",
+              "import_": "socket",
+              "level": 1
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "upollstats",
+          "fn": "0x00415534",
+          "entry_va": "0x00430d30",
+          "extent": "0x00416030",
+          "ioctls": [
+            {
+              "site": "0x00415798",
+              "level": 0,
+              "request": "0x000089f2",
+              "request_dec": 35314,
+              "name": "SIOCGATHSTATS_EXT"
+            },
+            {
+              "site": "0x00415b28",
+              "level": 0,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            },
+            {
+              "site": "0x00416f20",
+              "level": 1,
+              "request": "0x000089fd",
+              "request_dec": 35325,
+              "name": null
+            }
+          ],
+          "ioctl_count": 3,
+          "ioctl_requests": [
+            "0x000089f2",
+            "0x000089f5",
+            "0x000089fd"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00415570",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 3,
+          "radar_strings": []
+        }
+      ],
+      "ioctl_requests": {
+        "0x000089f0": 1,
+        "0x000089f4": 1,
+        "0x000089f2": 1
+      },
+      "ioctl_requests_unnamed": {
+        "0x00008be1": 3,
+        "0x00008be0": 4,
+        "0x000089f5": 4,
+        "0x00008927": 2,
+        "0x000089f6": 1,
+        "0x000089fd": 1
+      },
+      "ioctl_sites": 19,
+      "ioctl_unresolved": 1,
+      "execution_total": 0,
+      "file_sink_total": 6
+    },
+    {
+      "image": "XC.v8.7.25",
+      "status": "ok",
+      "bytes": 202920,
+      "sha256": "c1d37671cafe6c7651f03000fd7dae7755ed8717bde07df1aeffba3aaa9a99e0",
+      "plt_stubs": 69,
+      "jal_total": 2011,
+      "jal_resolved": 1793,
+      "imports": 76,
+      "applet_tables": 1,
+      "applet_count": 15,
+      "applets": [
+        {
+          "name": "wlanconfig",
+          "fn": "0x00407144",
+          "entry_va": "0x00430cc0",
+          "extent": "0x00407520",
+          "ioctls": [
+            {
+              "site": "0x00405b4c",
+              "level": 1,
+              "request": null,
+              "request_dec": null,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 13,
+          "radar_strings": [
+            "chan"
+          ]
+        },
+        {
+          "name": "80211debug",
+          "fn": "0x00407eb0",
+          "entry_va": "0x00430cc8",
+          "extent": "0x004081c8",
+          "ioctls": [
+            {
+              "site": "0x00407f98",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x004080f8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00407eec",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "athdebug",
+          "fn": "0x00408390",
+          "entry_va": "0x00430cd0",
+          "extent": "0x004086a8",
+          "ioctls": [
+            {
+              "site": "0x00408478",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x004085d8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004083cc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "haldebug",
+          "fn": "0x00408880",
+          "entry_va": "0x00430cd8",
+          "extent": "0x00408b98",
+          "ioctls": [
+            {
+              "site": "0x00408968",
+              "level": 0,
+              "request": "0x00008be1",
+              "request_dec": 35809,
+              "name": null
+            },
+            {
+              "site": "0x00408ac8",
+              "level": 0,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 2,
+          "ioctl_requests": [
+            "0x00008be0",
+            "0x00008be1"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004088bc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": []
+        },
+        {
+          "name": "regdomain",
+          "fn": "0x0040aac4",
+          "entry_va": "0x00430ce0",
+          "extent": "0x0040b0cc",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 4,
+          "radar_strings": []
+        },
+        {
+          "name": "athchans",
+          "fn": "0x0040c848",
+          "entry_va": "0x00430ce8",
+          "extent": "0x0040c9a4",
+          "ioctls": [
+            {
+              "site": "0x0040c7c8",
+              "level": 1,
+              "request": "0x00008be0",
+              "request_dec": 35808,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x00008be0"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "radartool",
+          "fn": "0x0040dde4",
+          "entry_va": "0x00430cf0",
+          "extent": "0x0040df4c",
+          "ioctls": [
+            {
+              "site": "0x0040df10",
+              "level": 0,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f5"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x0040de3c",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 2,
+          "radar_strings": [
+            "BANG RADAR.......",
+            "bangradar"
+          ]
+        },
+        {
+          "name": "radarprescan",
+          "fn": "0x0040f79c",
+          "entry_va": "0x00430cf8",
+          "extent": "0x0040f87c",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x0040f7fc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "pktlogconf",
+          "fn": "0x00410358",
+          "entry_va": "0x00430d00",
+          "extent": "0x004108c4",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x00410284",
+              "import_": "fopen",
+              "level": 1
+            },
+            {
+              "site": "0x004102b4",
+              "import_": "fopen",
+              "level": 1
+            }
+          ],
+          "file_sink_count": 2,
+          "network_sinks": [],
+          "strings_count": 11,
+          "radar_strings": [
+            "/proc/sys/ath_pktlog/%s/phyerr_thresh"
+          ]
+        },
+        {
+          "name": "pktlogdump",
+          "fn": "0x0041164c",
+          "entry_va": "0x00430d08",
+          "extent": "0x004118e0",
+          "ioctls": [],
+          "ioctl_count": 0,
+          "ioctl_requests": [],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x004117d0",
+              "import_": "fopen",
+              "level": 0
+            },
+            {
+              "site": "0x00411804",
+              "import_": "fopen",
+              "level": 0
+            },
+            {
+              "site": "0x00411830",
+              "import_": "open",
+              "level": 0
+            }
+          ],
+          "file_sink_count": 3,
+          "network_sinks": [],
+          "strings_count": 6,
+          "radar_strings": []
+        },
+        {
+          "name": "athstats",
+          "fn": "0x00401890",
+          "entry_va": "0x00430d10",
+          "extent": "0x00402434",
+          "ioctls": [
+            {
+              "site": "0x00401964",
+              "level": 0,
+              "request": "0x000089f0",
+              "request_dec": 35312,
+              "name": "SIOCGATHSTATS"
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f0"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004018cc",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "athstatsclr",
+          "fn": "0x00404180",
+          "entry_va": "0x00430d18",
+          "extent": "0x00404220",
+          "ioctls": [
+            {
+              "site": "0x004041f8",
+              "level": 0,
+              "request": "0x000089f4",
+              "request_dec": 35316,
+              "name": "SIOCSATHRADAR"
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f4"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x004041a4",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "80211stats",
+          "fn": "0x00404d18",
+          "entry_va": "0x00430d20",
+          "extent": "0x00404e7c",
+          "ioctls": [
+            {
+              "site": "0x004045d8",
+              "level": 1,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 1,
+          "ioctl_requests": [
+            "0x000089f5"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00404d58",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "apstats",
+          "fn": "0x00415140",
+          "entry_va": "0x00430d28",
+          "extent": "0x004152e0",
+          "ioctls": [
+            {
+              "site": "0x00413aac",
+              "level": 1,
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00413b70",
+              "level": 1,
+              "request": "0x00008927",
+              "request_dec": 35111,
+              "name": null
+            },
+            {
+              "site": "0x00413c4c",
+              "level": 1,
+              "request": "0x000089f6",
+              "request_dec": 35318,
+              "name": null
+            },
+            {
+              "site": "0x00411c1c",
+              "level": 2,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            }
+          ],
+          "ioctl_count": 4,
+          "ioctl_requests": [
+            "0x00008927",
+            "0x000089f5",
+            "0x000089f6"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [
+            {
+              "site": "0x004138d8",
+              "import_": "fopen",
+              "level": 1
+            }
+          ],
+          "file_sink_count": 1,
+          "network_sinks": [
+            {
+              "site": "0x00413894",
+              "import_": "socket",
+              "level": 1
+            }
+          ],
+          "strings_count": 1,
+          "radar_strings": []
+        },
+        {
+          "name": "upollstats",
+          "fn": "0x00415534",
+          "entry_va": "0x00430d30",
+          "extent": "0x00416030",
+          "ioctls": [
+            {
+              "site": "0x00415798",
+              "level": 0,
+              "request": "0x000089f2",
+              "request_dec": 35314,
+              "name": "SIOCGATHSTATS_EXT"
+            },
+            {
+              "site": "0x00415b28",
+              "level": 0,
+              "request": "0x000089f5",
+              "request_dec": 35317,
+              "name": null
+            },
+            {
+              "site": "0x00416f20",
+              "level": 1,
+              "request": "0x000089fd",
+              "request_dec": 35325,
+              "name": null
+            }
+          ],
+          "ioctl_count": 3,
+          "ioctl_requests": [
+            "0x000089f2",
+            "0x000089f5",
+            "0x000089fd"
+          ],
+          "execution": [],
+          "execution_count": 0,
+          "file_sinks": [],
+          "file_sink_count": 0,
+          "network_sinks": [
+            {
+              "site": "0x00415570",
+              "import_": "socket",
+              "level": 0
+            }
+          ],
+          "strings_count": 3,
+          "radar_strings": []
+        }
+      ],
+      "ioctl_requests": {
+        "0x000089f0": 1,
+        "0x000089f4": 1,
+        "0x000089f2": 1
+      },
+      "ioctl_requests_unnamed": {
+        "0x00008be1": 3,
+        "0x00008be0": 4,
+        "0x000089f5": 4,
+        "0x00008927": 2,
+        "0x000089f6": 1,
+        "0x000089fd": 1
+      },
+      "ioctl_sites": 19,
+      "ioctl_unresolved": 1,
+      "execution_total": 0,
+      "file_sink_total": 6
+    }
+  ],
+  "summary": {
+    "images": 2,
+    "images_ok": 2,
+    "applets": 15,
+    "plt_stubs": 69,
+    "jal_resolved": 1793,
+    "jal_total": 2011,
+    "ioctl_sites": 19,
+    "ioctl_distinct_requests": 9,
+    "ioctl_named": 3,
+    "ioctl_unnamed": 6,
+    "ioctl_unresolved": 1,
+    "execution_sites": 0,
+    "file_sink_sites": 6,
+    "applets_with_ioctl": 11,
+    "applets_with_execution": 0,
+    "applets_with_radar_strings": 3
+  },
+  "gaps": [
+    "`$a1` is resolved only when it comes from an immediate or a move-from-immediate; requests loaded from a struct or computed at runtime stay null and are counted in ioctl_unresolved",
+    "the SIOC constant-to-name mapping is INFERRED: it matches known Atheros values but the defining header was not extracted from this image",
+    "depth is capped at 2 in the local jal graph; indirection through function pointers is not followed",
+    "no dynamic validation: no ioctl was issued and no radio was contacted"
+  ]
+}

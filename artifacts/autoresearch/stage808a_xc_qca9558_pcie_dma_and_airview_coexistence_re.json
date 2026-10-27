@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "stage": "808A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage808a_xc_qca9558_pcie_dma_and_airview_coexistence_re.py",
+    "tool_sha256": "b17482e3253b76f6365c1f9bb7dc45fa54d0ee893bf88176828a76c50c4b990a",
+    "output": "artifacts/autoresearch/stage808a_xc_qca9558_pcie_dma_and_airview_coexistence_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "PCIe and DMA token census across three XC modules; daemon discovery and self-name census for the analysis products; explicit probe for AirView in the kernel",
+    "premise_corrections": [
+      "AirView is a userspace binary (bin/airview), not a kernel symbol: the kernel modules return 0 hits for it",
+      "the DMA mass is in ath_dev.ko (43 tokens) while the PCIe mass is in umac.ko (62), so descriptor management and bus configuration are split"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "pci": 7,
+        "PCI": 14,
+        "dma": 36,
+        "DMA": 7,
+        "airview": 0,
+        "AirView": 0,
+        "AIRVIEW": 0,
+        "coexist": 0
+      },
+      "pci_syms": [
+        "ath_pcie_pwrsave_enable",
+        "ath_pcie_pwrsave_enable_on_phystate_change",
+        "pci_read_cachesize"
+      ],
+      "dma_syms": [
+        "ath_descdma_cleanup",
+        "ath_descdma_setup",
+        "ath_edmaAllocRxbufsForFreeList",
+        "ath_edma_attach",
+        "ath_edma_startrecv",
+        "ath_edma_stoprecv",
+        "ath_rx_edma_cleanup",
+        "ath_rx_edma_init",
+        "ath_rx_edma_intr",
+        "ath_rx_edma_requeue",
+        "ath_rx_edma_tasklet",
+        "ath_tx_edma_cleanup",
+        "ath_tx_edma_init",
+        "ath_tx_edma_process",
+        "ath_tx_edma_tasklet",
+        "ath_tx_start_dma"
+      ],
+      "coexist_syms": []
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "pci": 49,
+        "PCI": 13,
+        "dma": 8,
+        "DMA": 6,
+        "airview": 0,
+        "AirView": 0,
+        "AIRVIEW": 0,
+        "coexist": 1
+      },
+      "pci_syms": [
+        "HIF_PCIDeviceProbed",
+        "HIF_PCI_CE_recv_data",
+        "HIF_PCI_CE_send_done",
+        "WAR_PCI_WRITE32",
+        "__mod_pci_device_table",
+        "ath_pci_device_reset",
+        "ath_pci_device_warm_reset",
+        "ath_pci_drv_id",
+        "ath_pci_interrupt_handler",
+        "ath_pci_msi_fw_handler",
+        "ath_pci_targ_is_awake",
+        "ath_pci_targ_is_present"
+      ],
+      "dma_syms": [],
+      "coexist_syms": []
+    },
+    {
+      "module": "XC:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "defined_symbols": 507,
+      "tokens": {
+        "pci": 3,
+        "PCI": 0,
+        "dma": 6,
+        "DMA": 0,
+        "airview": 0,
+        "AirView": 0,
+        "AIRVIEW": 0,
+        "coexist": 0
+      },
+      "pci_syms": [
+        "ar9300_config_pci_power_save",
+        "ath_hal_read_pci_config_space"
+      ],
+      "dma_syms": [
+        "ar9300_abort_tx_dma",
+        "ar9300_dma_reg_dump",
+        "ar9300_start_tx_dma",
+        "ar9300_stop_dma_receive",
+        "ar9300_stop_tx_dma",
+        "ar9300_stop_tx_dma_indv_que"
+      ],
+      "coexist_syms": []
+    }
+  ],
+  "daemons": [
+    {
+      "name": "airview",
+      "present": true,
+      "bytes": 8647,
+      "self_name_hits": 60,
+      "readable": true
+    },
+    {
+      "name": "ubntspecd",
+      "present": true,
+      "bytes": 47192,
+      "self_name_hits": 17,
+      "readable": true
+    },
+    {
+      "name": "dfsprescan",
+      "present": true,
+      "bytes": 4186,
+      "self_name_hits": 0,
+      "readable": true
+    },
+    {
+      "name": "provmode",
+      "present": true,
+      "bytes": 14291,
+      "self_name_hits": 29,
+      "readable": true
+    }
+  ],
+  "summary": {
+    "modules_ok": 3,
+    "kernel_airview_hits": 0,
+    "airview_in_kernel": 0,
+    "airview_is_userspace": 1,
+    "airview_bytes": 8647,
+    "airview_self_name_hits": 60,
+    "ubntspecd_bytes": 47192,
+    "daemons_present": 4,
+    "daemons_readable": 4,
+    "dev_dma_tokens": 43,
+    "umac_dma_tokens": 14,
+    "umac_pci_tokens": 62,
+    "dma_in_device_layer": 1,
+    "pci_in_umac": 1,
+    "coexist_token_hits": 1,
+    "coexist_is_thin": 1,
+    "pci_symbol_count": 17,
+    "dma_symbol_count": 22,
+    "airview_kernel_arbitration_recovered": 0,
+    "dma_descriptor_layout_recovered": 0
+  },
+  "gaps": [
+    "AirView is userspace: the kernel carries 0 hits, so there is no kernel-side AirView arbitration to recover",
+    "coexist has exactly 1 hit, which is consistent with coexistence being handled in userspace rather than in the driver",
+    "the PCIe descriptor layout and ring geometry were not recovered (Stage 713A hit the same limit on the AC side)",
+    "how ubntspecd multiplexes between AirView and airMagic clients was not decoded",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "stage": "166A",
+  "task_id": "T-S166A-XW-XM-ATH9K-UNIVERSAL-CHAMPION-KIT",
+  "timestamp_utc": "2026-10-26T22:58:50.195668+00:00",
+  "status": "CONFIRMED",
+  "attribution": "Linux / mac80211 / hardware (Universal XW AR9342 64 MB RAM & XM AR7241 32 MB RAM OpenWrt ath9k M5 Champion Kit: XW vm.min_free_kbytes=3072 / fq_mem=2.5MB vs XM vm.min_free_kbytes=2048 / fq_mem=1.5MB, ath9k airtime_flags=7, ani=1)",
+  "live_radios_241_242_20_250_touched": false,
+  "xw_xm_champion_script": {
+    "path": "firmware/openwrt/xw_xm_family_universal_kit/99-fmx-xw-xm-ath9k-champion",
+    "sha256": "057874cf0658dd3594c272babc7a24ef296fce693beca5f154acf42a333e57b2",
+    "size_bytes": 3635
+  },
+  "families": {
+    "XW_64MB": {
+      "family": "XW",
+      "soc": "AR9342 535 MHz MIPS 74Kc (ath9k integrated 2x2 M5)",
+      "ram_mb": 64,
+      "vm_min_free_kbytes": 3072,
+      "fq_memory_limit_bytes": 2621440,
+      "fq_limit_packets": 1024,
+      "netdev_max_backlog": 1200,
+      "boards": {
+        "0xe866": "Rocket M5 XW (ubnt,rocket-m-xw)",
+        "0xe805": "NanoStation M5 XW (ubnt,nanostation-m-xw)",
+        "0xe8a5": "NanoStation Loco M5 XW (ubnt,loco-m-xw)",
+        "0xe845": "PowerBeam M5 400 XW (ubnt,powerbeam-m5-400)",
+        "0xe855": "PowerBeam M5 300 XW (ubnt,powerbeam-m5-300)",
+        "0xe885": "LiteBeam M5 23 XW (ubnt,litebeam-m5)"
+      }
+    },
+    "XM_32MB": {
+      "family": "XM",
+      "soc": "AR7241 400 MHz MIPS 24Kc + AR9280 PCIe (ath9k 2x2/1x1 M5)",
+      "ram_mb": 32,
+      "vm_min_free_kbytes": 2048,
+      "fq_memory_limit_bytes": 1572864,
+      "fq_limit_packets": 512,
+      "netdev_max_backlog": 750,
+      "boards": {
+        "0xe005": "NanoStation M5 XM (ubnt,nanostation-m)",
+        "0xe0a5": "NanoStation Loco M5 XM (ubnt,nanostation-loco-m)",
+        "0xe1b5": "Rocket M5 XM (ubnt,rocket-m)",
+        "0xe205": "Bullet M5 XM (ubnt,bullet-m-ar7241)",
+        "0xe245": "AirGrid M5 HP XM (ubnt,airgrid-m)"
+      }
+    }
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_components": [
+      "99-fmx-xw-xm-ath9k-champion (auto-detects MemTotal <= 40960 kB for XM 32 MB vs XW 64 MB)",
+      "ath9k debugfs airtime_flags=7, ani=1, paprd=0, AQL threshold=4000, asymmetric fq_quantum AP=3028/STA=1514"
+    ],
+    "catalog_knob_ids": [
+      "XW-VM-MIN-FREE-KBYTES-3072",
+      "XM-VM-MIN-FREE-KBYTES-2048",
+      "XW-FQ-MEM-LIMIT-2621440",
+      "XM-FQ-MEM-LIMIT-1572864",
+      "ATH9K-AIRTIME-FLAGS-7",
+      "ATH9K-ANI-IMMUNITY-1"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Bounding fq_codel memory_limit to 1.5 MB (1572864 B) with vm.min_free_kbytes=2048 on 32 MB XM AR7241 boards and 2.5 MB (2621440 B) with vm.min_free_kbytes=3072 on 64 MB XW AR9342 boards prevents OOM under heavy PtMP load while preserving ath9k airtime fairness."
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "dfs_watchdog_seconds": 120
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "xw_64mb_profile_verified": true,
+    "xm_32mb_profile_verified": true
+  },
+  "pillar_e_memory_master_claim_id": "mm-1375",
+  "pillar_e_memory_master_numeric_id": 155045
+}

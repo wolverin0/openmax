@@ -1,0 +1,722 @@
+{
+  "schema_version": 1,
+  "stage": "170A",
+  "task_id": "T-S170A-PUBLIC-WA-TESTER-V4",
+  "version": 4,
+  "status": "LOCAL_PUBLIC_WA_V4_CANDIDATES_ONLY",
+  "boards": {
+    "pbe5ac-gen2": {
+      "profile": "ubnt,powerbeam-5ac-gen2",
+      "board_ids": [
+        "0xe3d6"
+      ],
+      "input_sha256": {
+        "factory": "52d25c7f17ffc69dedc66895af090630e913945ac34fcb87288a4c381021f174",
+        "sysupgrade": "c3e17ac02259db08708dfa8250e1b06d7765487923bdd435dc5d52998da301a4"
+      },
+      "board_kernel": {
+        "data_size": 2618212,
+        "header_crc_valid": true,
+        "data_crc_valid": true,
+        "kernel_sha256": "f3d180d1e1d94bb1544d497abce324be4eda8af9f4821b58b3484e47b1f02db9",
+        "dtb_sha256": "03d8236f5fbf665db1596b904dbc1aeb61a97908d5d08477883dfd5d336d812b",
+        "dtb_size_bytes": 8245,
+        "compatible": "ubnt,powerbeam-5ac-gen2",
+        "kernel_prefix_sha256": "6a12e4fba07b8b462ac7514fe0d95da709fcb9b586a03ee24905f0549a554083"
+      },
+      "module": {
+        "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "size_bytes": 815640,
+        "original_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+        "vermagic": "6.6.110 mod_unload MIPS32_R2 32BIT",
+        "module_layout_bytes": 352,
+        "elf": "ELF32 BE MIPS",
+        "changed_bytes": 113,
+        "patch_reproduced": true,
+        "ethertype": "0x6558",
+        "authorized_gated_4addr_event": true,
+        "additional_v3_instruction_count": 13,
+        "hardware_execution_verified": false
+      },
+      "qdisc_dependencies": {
+        "tc_binary_present": false,
+        "sch_fq_module_present": false,
+        "sch_fq_builtin_or_loadable_verified": false,
+        "qdisc_tester_mode_available": "UNKNOWN_REQUIRES_MATCHING_TC_AND_KERNEL_SUPPORT"
+      },
+      "emitted_tar_path": "artifacts/verification/stage170a_build_repro/pbe5ac-gen2/emitted-image.tar",
+      "emitted_tar_sha256": "c5940257c5fab8eb3735d7f8df4046e095f361142f1721dce505e8c82b222a98",
+      "stock_tar_path": "artifacts/verification/stage170a_build_repro/pbe5ac-gen2/stock.tar",
+      "inventory_path": "artifacts/verification/stage170a_build_repro/pbe5ac-gen2/inventory.json",
+      "inventory_sha256": "3350d7c6886351e8d4a2658014104150941cc2051a128c68609145bd9eb809b5",
+      "emitted_rootfs_sha256": "4941b0952e694d8d030a7d494e3b5c875d68c777f682f8c06f60ba57ae982a02",
+      "emitted_rootfs_bytes_used": 4264888,
+      "rootfs_member_count": 1405,
+      "actual_inventory_equal": true
+    },
+    "lbe5ac-gen2": {
+      "profile": "ubnt,litebeam-ac-gen2",
+      "board_ids": [
+        "0xe7f9"
+      ],
+      "input_sha256": {
+        "factory": "dafd701bc80f544fde9368061c86487bc48499d4cc79ec80dbf1a5bbdc33c034",
+        "sysupgrade": "9c014e35de84d663f20e82371165b9f57c37a3b590fe921a9b30cff79b6a549c"
+      },
+      "board_kernel": {
+        "data_size": 2618130,
+        "header_crc_valid": true,
+        "data_crc_valid": true,
+        "kernel_sha256": "48bc37db7e3b1bc1838e23a2ff39211300258c63afa7ba301ac2d574e1e85c7c",
+        "dtb_sha256": "13dc1329eedece4ed840d7a0caa1d3bbf261cdda110e6cad2a03fb8cf2905f26",
+        "dtb_size_bytes": 7843,
+        "compatible": "ubnt,litebeam-ac-gen2",
+        "kernel_prefix_sha256": "af1e50327bf66506bfdd740f6c3b561cfabf84524099a0ee888fc5f34dbe02b3"
+      },
+      "module": {
+        "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "size_bytes": 815640,
+        "original_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+        "vermagic": "6.6.110 mod_unload MIPS32_R2 32BIT",
+        "module_layout_bytes": 352,
+        "elf": "ELF32 BE MIPS",
+        "changed_bytes": 113,
+        "patch_reproduced": true,
+        "ethertype": "0x6558",
+        "authorized_gated_4addr_event": true,
+        "additional_v3_instruction_count": 13,
+        "hardware_execution_verified": false
+      },
+      "qdisc_dependencies": {
+        "tc_binary_present": false,
+        "sch_fq_module_present": false,
+        "sch_fq_builtin_or_loadable_verified": false,
+        "qdisc_tester_mode_available": "UNKNOWN_REQUIRES_MATCHING_TC_AND_KERNEL_SUPPORT"
+      },
+      "emitted_tar_path": "artifacts/verification/stage170a_build_repro/lbe5ac-gen2/emitted-image.tar",
+      "emitted_tar_sha256": "b99f561c9b860b68b7adeb31f7d0231ce25a9ddfb614db4d6196e5592e1bdf85",
+      "stock_tar_path": "artifacts/verification/stage170a_build_repro/lbe5ac-gen2/stock.tar",
+      "inventory_path": "artifacts/verification/stage170a_build_repro/lbe5ac-gen2/inventory.json",
+      "inventory_sha256": "db54163c257808e82e890e55a112fe21d160a6cd18d331d4d90aae44753f61a9",
+      "emitted_rootfs_sha256": "24641e4fd758d9df3c36b5722e72c36cc1b56ad31f4da96eac620e6fd719516f",
+      "emitted_rootfs_bytes_used": 4262744,
+      "rootfs_member_count": 1396,
+      "actual_inventory_equal": true
+    },
+    "lap-120": {
+      "profile": "ubnt,lap-120",
+      "board_ids": [
+        "0xe7f5",
+        "0xe8e5"
+      ],
+      "input_sha256": {
+        "factory": "943d812c40e8f1e6bfb71b32b12395fdd480b62318bc537c7687f8affa9378c0",
+        "sysupgrade": "cc01cbb3e441c8bb801bbae8b64ea6352e571dee0ef6204d95c6bd80e2a975f1"
+      },
+      "board_kernel": {
+        "data_size": 2618128,
+        "header_crc_valid": true,
+        "data_crc_valid": true,
+        "kernel_sha256": "21a6b0c8206ef5688604b513b8e253f589bd5bde73aca6d3ac8375b9ebe31a49",
+        "dtb_sha256": "ac2240514ca30717ea81cdae2860dd93b5d3a9240722a4a9ce8b4a14be19387e",
+        "dtb_size_bytes": 7839,
+        "compatible": "ubnt,lap-120",
+        "kernel_prefix_sha256": "b9e52ae22af377265b8bafc197afce9fe492c534a73ba012faf90f234aad1eec"
+      },
+      "module": {
+        "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "size_bytes": 815640,
+        "original_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+        "vermagic": "6.6.110 mod_unload MIPS32_R2 32BIT",
+        "module_layout_bytes": 352,
+        "elf": "ELF32 BE MIPS",
+        "changed_bytes": 113,
+        "patch_reproduced": true,
+        "ethertype": "0x6558",
+        "authorized_gated_4addr_event": true,
+        "additional_v3_instruction_count": 13,
+        "hardware_execution_verified": false
+      },
+      "qdisc_dependencies": {
+        "tc_binary_present": false,
+        "sch_fq_module_present": false,
+        "sch_fq_builtin_or_loadable_verified": false,
+        "qdisc_tester_mode_available": "UNKNOWN_REQUIRES_MATCHING_TC_AND_KERNEL_SUPPORT"
+      },
+      "emitted_tar_path": "artifacts/verification/stage170a_build_repro/lap-120/emitted-image.tar",
+      "emitted_tar_sha256": "d4af17299efb261bc330f41079e59fd1c8391c44d5986762748c593e9e6dfba4",
+      "stock_tar_path": "artifacts/verification/stage170a_build_repro/lap-120/stock.tar",
+      "inventory_path": "artifacts/verification/stage170a_build_repro/lap-120/inventory.json",
+      "inventory_sha256": "c4629d91e3bde463c44edfa319240667af3dfb9ca3a678c342e50d60db02a98b",
+      "emitted_rootfs_sha256": "ef7363e6d7424a90dcac5e043c61ce4ba384164f1f13209cbef1eb6ebe33f795",
+      "emitted_rootfs_bytes_used": 4363656,
+      "rootfs_member_count": 1428,
+      "actual_inventory_equal": true
+    },
+    "nanostation-ac-loco": {
+      "profile": "ubnt,nanostation-ac-loco",
+      "board_ids": [
+        "0xe7f7",
+        "0xe7fa"
+      ],
+      "input_sha256": {
+        "factory": "a7bb8db87083e04695d757ed6adc5aae481438f4191316c2eb90045f191f6443",
+        "sysupgrade": "390ae90a2d09b0cba27e3853b14a16e739e5e3610d1e2451116d73470106892e"
+      },
+      "board_kernel": {
+        "data_size": 2618136,
+        "header_crc_valid": true,
+        "data_crc_valid": true,
+        "kernel_sha256": "b3b0c2724f7006337d7496c10717f66cabff1a35a29198d166cbe1224763831e",
+        "dtb_sha256": "8ac4ab47a0cabd7a7cee5f9a3046cee205dbb3311f8b9c820e0c4cd87fbcdfa8",
+        "dtb_size_bytes": 7851,
+        "compatible": "ubnt,nanostation-ac-loco",
+        "kernel_prefix_sha256": "d38f731b6ef27073b73f27f278c24acdde96e85744ae9c03692e171d58328ca6"
+      },
+      "module": {
+        "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "size_bytes": 815640,
+        "original_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+        "vermagic": "6.6.110 mod_unload MIPS32_R2 32BIT",
+        "module_layout_bytes": 352,
+        "elf": "ELF32 BE MIPS",
+        "changed_bytes": 113,
+        "patch_reproduced": true,
+        "ethertype": "0x6558",
+        "authorized_gated_4addr_event": true,
+        "additional_v3_instruction_count": 13,
+        "hardware_execution_verified": false
+      },
+      "qdisc_dependencies": {
+        "tc_binary_present": false,
+        "sch_fq_module_present": false,
+        "sch_fq_builtin_or_loadable_verified": false,
+        "qdisc_tester_mode_available": "UNKNOWN_REQUIRES_MATCHING_TC_AND_KERNEL_SUPPORT"
+      },
+      "emitted_tar_path": "artifacts/verification/stage170a_build_repro/nanostation-ac-loco/emitted-image.tar",
+      "emitted_tar_sha256": "4b2cadf2d11b5a5450f3d2f05d38ad1d33f02bc607d822d7c70b551f031c302d",
+      "stock_tar_path": "artifacts/verification/stage170a_build_repro/nanostation-ac-loco/stock.tar",
+      "inventory_path": "artifacts/verification/stage170a_build_repro/nanostation-ac-loco/inventory.json",
+      "inventory_sha256": "b403e1a676a6b771c047a072b3d60fba7c1a360b60701f8cea8a700c1075889f",
+      "emitted_rootfs_sha256": "7ce5ab9bbd1f8649615f9db5866d3bdb38cdd4ecfc09f5e4822a61a251e30a86",
+      "emitted_rootfs_bytes_used": 4363656,
+      "rootfs_member_count": 1428,
+      "actual_inventory_equal": true
+    }
+  },
+  "champion_evidence": {
+    "source_sha256": {
+      "stage123a_live_wa_qca9882_deep_autoresearch.json": "88e98553de6e30d223fbc08479359e00fe544a467423c6e3d7d88a4bf79e535e",
+      "stage135a_live_wa_round4_6_autoresearch.json": "8c1f7f26f8798fbc169c91285aab3f85eb57a80a351e1a9e71ae07b69c6bd81d",
+      "stage139a_live_wa_round7_9_autoresearch.json": "d95c701b67412af06b4b160aeb06f1d8bb5f704fdc45c02b75a8508ba61d37e6",
+      "stage140a_live_wa_round10_12_champion_headtohead.json": "eb3afa4f3e72d4f09a4fc2445ebc89218401a680907c28809a3afe16c703948c",
+      "stage145a_live_wa_round13_15_autoresearch.json": "638f5eb68ee7176c38f94fa8fe54858817707b7d5a3b2d88f4dce921a024e67b",
+      "stage161a_live_wa_round16_18_autoresearch.json": "d3e683317b3bfb17fd0b8ea2c404c6a538b8e79a6f2b700d53ded6973e34bfa7",
+      "stage162a_live_wa_e2e_forwarding_offload_benchmark.json": "e21826d548dad7bc685a04c9a4797c5c35574e1759621f70a265e80152463f4c",
+      "stage163a_cumulative_18round_wa_champion_v2.json": "b60d21699a56ada57ebf2a5251b7a4a99d8945cb40fdf0504574cf41f913759d"
+    },
+    "rf_round_count": 18,
+    "rf_window_count": 72,
+    "e2e_round_count": 1,
+    "e2e_window_count": 4,
+    "total_comparisons": 19,
+    "total_saved_windows": 76,
+    "rf_rounds_r1_r12": [
+      {
+        "round_id": "S123A-R1",
+        "arm_a_mean_goodput_mbps": 55.727,
+        "arm_b_mean_goodput_mbps": 55.931,
+        "arm_a_mean_p95_rtt_ms": 59.574,
+        "arm_b_mean_p95_rtt_ms": 59.243,
+        "arm_a_mean_p99_rtt_ms": 59.88,
+        "arm_b_mean_p99_rtt_ms": 59.243,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S123A-R2",
+        "arm_a_mean_goodput_mbps": 57.675,
+        "arm_b_mean_goodput_mbps": 57.907,
+        "arm_a_mean_p95_rtt_ms": 85.303,
+        "arm_b_mean_p95_rtt_ms": 71.422,
+        "arm_a_mean_p99_rtt_ms": 85.303,
+        "arm_b_mean_p99_rtt_ms": 71.422,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S123A-R3",
+        "arm_a_mean_goodput_mbps": 55.002,
+        "arm_b_mean_goodput_mbps": 54.068,
+        "arm_a_mean_p95_rtt_ms": 65.046,
+        "arm_b_mean_p95_rtt_ms": 73.389,
+        "arm_a_mean_p99_rtt_ms": 65.046,
+        "arm_b_mean_p99_rtt_ms": 73.389,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S135A-R4",
+        "arm_a_mean_goodput_mbps": 55.574,
+        "arm_b_mean_goodput_mbps": 54.107,
+        "arm_a_mean_p95_rtt_ms": 86.239,
+        "arm_b_mean_p95_rtt_ms": 64.926,
+        "arm_a_mean_p99_rtt_ms": 86.239,
+        "arm_b_mean_p99_rtt_ms": 64.926,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S135A-R5",
+        "arm_a_mean_goodput_mbps": 57.531,
+        "arm_b_mean_goodput_mbps": 59.886,
+        "arm_a_mean_p95_rtt_ms": 71.859,
+        "arm_b_mean_p95_rtt_ms": 61.928,
+        "arm_a_mean_p99_rtt_ms": 71.859,
+        "arm_b_mean_p99_rtt_ms": 61.928,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S135A-R6",
+        "arm_a_mean_goodput_mbps": 52.353,
+        "arm_b_mean_goodput_mbps": 57.495,
+        "arm_a_mean_p95_rtt_ms": 65.121,
+        "arm_b_mean_p95_rtt_ms": 74.185,
+        "arm_a_mean_p99_rtt_ms": 65.96,
+        "arm_b_mean_p99_rtt_ms": 74.185,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S139A-R7",
+        "arm_a_mean_goodput_mbps": 51.206,
+        "arm_b_mean_goodput_mbps": 50.359,
+        "arm_a_mean_p95_rtt_ms": 66.963,
+        "arm_b_mean_p95_rtt_ms": 63.005,
+        "arm_a_mean_p99_rtt_ms": 66.963,
+        "arm_b_mean_p99_rtt_ms": 65.262,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S139A-R8",
+        "arm_a_mean_goodput_mbps": 50.664,
+        "arm_b_mean_goodput_mbps": 53.123,
+        "arm_a_mean_p95_rtt_ms": 65.101,
+        "arm_b_mean_p95_rtt_ms": 70.076,
+        "arm_a_mean_p99_rtt_ms": 65.828,
+        "arm_b_mean_p99_rtt_ms": 70.076,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S139A-R9",
+        "arm_a_mean_goodput_mbps": 49.785,
+        "arm_b_mean_goodput_mbps": 46.898,
+        "arm_a_mean_p95_rtt_ms": 62.321,
+        "arm_b_mean_p95_rtt_ms": 70.53,
+        "arm_a_mean_p99_rtt_ms": 80.86,
+        "arm_b_mean_p99_rtt_ms": 70.53,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S140A-R10",
+        "arm_a_mean_goodput_mbps": 43.573,
+        "arm_b_mean_goodput_mbps": 45.749,
+        "arm_a_mean_p95_rtt_ms": 60.084,
+        "arm_b_mean_p95_rtt_ms": 53.767,
+        "arm_a_mean_p99_rtt_ms": 60.084,
+        "arm_b_mean_p99_rtt_ms": 53.767,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S140A-R11",
+        "arm_a_mean_goodput_mbps": 46.453,
+        "arm_b_mean_goodput_mbps": 49.002,
+        "arm_a_mean_p95_rtt_ms": 64.371,
+        "arm_b_mean_p95_rtt_ms": 81.062,
+        "arm_a_mean_p99_rtt_ms": 70.55,
+        "arm_b_mean_p99_rtt_ms": 81.062,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S140A-R12",
+        "arm_a_mean_goodput_mbps": 51.491,
+        "arm_b_mean_goodput_mbps": 56.554,
+        "arm_a_mean_p95_rtt_ms": 65.197,
+        "arm_b_mean_p95_rtt_ms": 90.885,
+        "arm_a_mean_p99_rtt_ms": 75.581,
+        "arm_b_mean_p99_rtt_ms": 90.885,
+        "decision": "RETAIN_ARM_A"
+      }
+    ],
+    "later_rounds": [
+      {
+        "round_id": "S145A-R13",
+        "window_count": 4,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S145A-R14",
+        "window_count": 4,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S145A-R15",
+        "window_count": 4,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S161A-R16",
+        "window_count": 4,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S161A-R17",
+        "window_count": 4,
+        "decision": "PROMOTE_ARM_B"
+      },
+      {
+        "round_id": "S161A-R18",
+        "window_count": 4,
+        "decision": "RETAIN_ARM_A"
+      },
+      {
+        "round_id": "S162A-E2E-R1",
+        "window_count": 4,
+        "decision": "PROMOTE_ARM_B"
+      }
+    ],
+    "requested_profile": {
+      "vm.min_free_kbytes": 4096,
+      "aql_threshold": 4000,
+      "distance": 300,
+      "tcp_pacing_ca_ratio": 110,
+      "tcp_pacing_ss_ratio": 150,
+      "fq_initial_quantum": 3028,
+      "packet_steering": 1,
+      "flow_offloading": 1,
+      "nf_conntrack_max": 16384
+    },
+    "offload_active": "UNKNOWN",
+    "e2e_path_benefit": "UNPROVEN",
+    "qualifications": [
+      "Saved objects are hashed; native acquisition/physical validation is not repeated",
+      "72 RF plus 4 E2E windows are distinct populations, not 18 homogeneous 76-window rounds",
+      "R12 retained stock; cumulative profile regressed tail latency in that saved comparison",
+      "Stage145 R15 retained ArmA; final163 settings do not uniformly reproduce that treatment",
+      "Stage161 attempted initial_quantum on fq_codel with errors suppressed; no valid qdisc getter proves application",
+      "Stage162 runner labels conntrack sizing as flow_offloading; no real flowtable activation is demonstrated",
+      "Stage162 RPS mask1 selects CPU0; it does not establish multi-core parallelism",
+      "Saved Boca auxiliary ping fields use 999 sentinels with samples1; E2E route/RTT benefit is unproven",
+      "Configured/copy getters and final coverage/RTS snippets do not prove all requested settings",
+      "These are experimental public candidates, not universal performance or four-board physical acceptance"
+    ]
+  },
+  "requested_profile": {
+    "vm.min_free_kbytes": 4096,
+    "aql_threshold": 4000,
+    "distance": 300,
+    "tcp_pacing_ca_ratio": 110,
+    "tcp_pacing_ss_ratio": 150,
+    "fq_initial_quantum": 3028,
+    "packet_steering": 1,
+    "flow_offloading": 1,
+    "nf_conntrack_max": 16384
+  },
+  "champion_source_sha256": "62034b4b9abaebdb615f3cb78c2f2ce7410f385e7361c31b0287c52e68a479b1",
+  "champion_public_sha256": "c342315f97c217b084fcdcc4e5582c31cc82467cf7e371f5c510b6470f63f520",
+  "outputs": {
+    "openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-factory.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-factory.bin",
+      "sha256": "c5a3ff30f8ad71b7e0d45f4fbc2c5b8775221e6fd85fd97ad388880c97da8cde",
+      "size_bytes": 6947480
+    },
+    "openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-sysupgrade.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-sysupgrade.bin",
+      "sha256": "ba99389e372c7aa5eec712fd8dab9554f1edad5b169f009d7a6e339c211cf740",
+      "size_bytes": 6947365
+    },
+    "openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-factory.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-factory.bin",
+      "sha256": "4a5d61eafb245f34545bc5c26edb95586ba82845b3787d9dc0620d6975abd2de",
+      "size_bytes": 6947480
+    },
+    "openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-sysupgrade.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-sysupgrade.bin",
+      "sha256": "09a6ead882ed75301a84d0857d92e260528c86b0b820166f48cc839b4491b0be",
+      "size_bytes": 6947361
+    },
+    "openwrt-24.10.4-ubnt-lap-120-openmax-public-factory.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-lap-120-openmax-public-factory.bin",
+      "sha256": "9222c3b1bff1b851b7249fc5f5ae6d621ac669724c97bf41ce2ceb1e0c6ba40e",
+      "size_bytes": 7013016
+    },
+    "openwrt-24.10.4-ubnt-lap-120-openmax-public-sysupgrade.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-lap-120-openmax-public-sysupgrade.bin",
+      "sha256": "6af2b72a1757307f21e0075c0228b91ff94041a971cb93081f3988ed41cdac93",
+      "size_bytes": 7012879
+    },
+    "openwrt-24.10.4-ubnt-nanostation-ac-loco-openmax-public-factory.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-nanostation-ac-loco-openmax-public-factory.bin",
+      "sha256": "54848e7a6d9414defaf929836cd4d8ee151f47596de06d1d365a22f1f7da0fad",
+      "size_bytes": 7013016
+    },
+    "openwrt-24.10.4-ubnt-nanostation-ac-loco-openmax-public-sysupgrade.bin": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/openwrt-24.10.4-ubnt-nanostation-ac-loco-openmax-public-sysupgrade.bin",
+      "sha256": "6fdc7023085a6d31849ec966ab035b72fc7e801052b32d8ea0536eb126be596e",
+      "size_bytes": 7012903
+    },
+    "CHAMPION_V2_EVIDENCE.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/CHAMPION_V2_EVIDENCE.json",
+      "sha256": "c0acfc76b66f272d4e04f853ecb38bfe9800b7d077a41708f65b2708cbd695eb",
+      "size_bytes": 7101
+    },
+    "REQUESTED_PROFILE.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/REQUESTED_PROFILE.json",
+      "sha256": "0081a640c50514c51d3ed885369c919e6226b6b4809024148611b4abd6033605",
+      "size_bytes": 244
+    },
+    "OPENMAX_WA_PUBLIC_V4_TESTER_GUIDE.md": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/OPENMAX_WA_PUBLIC_V4_TESTER_GUIDE.md",
+      "sha256": "20ac85c9af0d5d94214808aaeb60441ecf4b1a1c49363bb2d4e8c8af9b5010c5",
+      "size_bytes": 6416
+    },
+    "sources/package_public_wa_tester_release.py": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/package_public_wa_tester_release.py",
+      "sha256": "9d499d0e2dcbc616a46c62c5752782160cb30abde486cb0a8df5e004b806d49b",
+      "size_bytes": 23431
+    },
+    "sources/build_public_openmax_release.py": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/build_public_openmax_release.py",
+      "sha256": "24639ec3bfa9a6fb53d34c3995477beffbb7529fd433bb39f5624d5c887fe09e",
+      "size_bytes": 52392
+    },
+    "sources/public_assets/wa_champion_openwrt_body.sh": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_assets/wa_champion_openwrt_body.sh",
+      "sha256": "6a6756562eb44889d638ae6079d9632a82e2094287d7f2bf67ab90894a807f2d",
+      "size_bytes": 5174
+    },
+    "sources/public_assets/99-fmx-wa-universal-champion.r1-r12.source.txt": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_assets/99-fmx-wa-universal-champion.r1-r12.source.txt",
+      "sha256": "f3ce5bab92280ce99be09bedaf6cc5316b5249aadd3349040c13901365e59f22",
+      "size_bytes": 8421
+    },
+    "sources/99-fmx-wa-universal-champion.r1-r18.source.txt": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/99-fmx-wa-universal-champion.r1-r18.source.txt",
+      "sha256": "62034b4b9abaebdb615f3cb78c2f2ce7410f385e7361c31b0287c52e68a479b1",
+      "size_bytes": 9752
+    },
+    "sources/COPYING.GPL-2.0": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/COPYING.GPL-2.0",
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+      "size_bytes": 17984
+    },
+    "modules/mac80211_teb_4addr_v3_6.6.110.ko": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/modules/mac80211_teb_4addr_v3_6.6.110.ko",
+      "sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+      "size_bytes": 815640
+    },
+    "DEPENDENCIES.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/DEPENDENCIES.json",
+      "sha256": "3d2613510c515a4571b19c5969f94c03c24686463e00fab8b7dd7857149576d9",
+      "size_bytes": 915
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/uci-defaults/99-openmax-public": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/uci-defaults/99-openmax-public",
+      "sha256": "f8967bd16728ff2378f4b3388b634fd7b064d350db9fddfea80fdd60ca272cae",
+      "size_bytes": 1215
+    },
+    "sources/public_payloads/pbe5ac-gen2/usr/sbin/fmx_pbe5ac_admitter.sh": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/usr/sbin/fmx_pbe5ac_admitter.sh",
+      "sha256": "ae1e1e9d9df17314e7ef5a012ba225d833c9f295d26969a855d13da457299615",
+      "size_bytes": 1318
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/init.d/openmax-admitter": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/init.d/openmax-admitter",
+      "sha256": "0e61342238b59034733078a5c709d6068c8f7f95c7999e90aead5bebd2090f16",
+      "size_bytes": 261
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/openmax/qos-defaults.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/openmax/qos-defaults.conf",
+      "sha256": "b237cd77f1e0d958a64093523d42ba47e5ecf043b0600fb092b8584affe66e83",
+      "size_bytes": 274
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/openmax-release": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/openmax-release",
+      "sha256": "fe714401f331adb7006e7cd8d0c2ee191a40b90aa088587d73f37793727a5560",
+      "size_bytes": 101
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/hotplug.d/net/99-fmx-wa-universal-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/hotplug.d/net/99-fmx-wa-universal-champion",
+      "sha256": "c342315f97c217b084fcdcc4e5582c31cc82467cf7e371f5c510b6470f63f520",
+      "size_bytes": 8025
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/openmax/champion.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/openmax/champion.conf",
+      "sha256": "f5ffcd306fb3488e0437a3be6b72d9f43c447b07dd838485ff60328a420887c2",
+      "size_bytes": 141
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/init.d/openmax-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/init.d/openmax-champion",
+      "sha256": "995958ad5320beb6c41c04d3a6b1bf73256befca8aa91c347b0bcef57234f652",
+      "size_bytes": 107
+    },
+    "sources/public_payloads/pbe5ac-gen2/etc/openmax/champion-v2.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/pbe5ac-gen2/etc/openmax/champion-v2.json",
+      "sha256": "0081a640c50514c51d3ed885369c919e6226b6b4809024148611b4abd6033605",
+      "size_bytes": 244
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/uci-defaults/99-openmax-public": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/uci-defaults/99-openmax-public",
+      "sha256": "f8967bd16728ff2378f4b3388b634fd7b064d350db9fddfea80fdd60ca272cae",
+      "size_bytes": 1215
+    },
+    "sources/public_payloads/lbe5ac-gen2/usr/sbin/fmx_pbe5ac_admitter.sh": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/usr/sbin/fmx_pbe5ac_admitter.sh",
+      "sha256": "ae1e1e9d9df17314e7ef5a012ba225d833c9f295d26969a855d13da457299615",
+      "size_bytes": 1318
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/init.d/openmax-admitter": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/init.d/openmax-admitter",
+      "sha256": "0e61342238b59034733078a5c709d6068c8f7f95c7999e90aead5bebd2090f16",
+      "size_bytes": 261
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/openmax/qos-defaults.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/openmax/qos-defaults.conf",
+      "sha256": "b237cd77f1e0d958a64093523d42ba47e5ecf043b0600fb092b8584affe66e83",
+      "size_bytes": 274
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/openmax-release": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/openmax-release",
+      "sha256": "c0b6cd281625f94d66b6649ec6d18e177c942ae2a0acf28b1a7c5d40a01f3b3c",
+      "size_bytes": 99
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/hotplug.d/net/99-fmx-wa-universal-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/hotplug.d/net/99-fmx-wa-universal-champion",
+      "sha256": "c342315f97c217b084fcdcc4e5582c31cc82467cf7e371f5c510b6470f63f520",
+      "size_bytes": 8025
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/openmax/champion.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/openmax/champion.conf",
+      "sha256": "f5ffcd306fb3488e0437a3be6b72d9f43c447b07dd838485ff60328a420887c2",
+      "size_bytes": 141
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/init.d/openmax-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/init.d/openmax-champion",
+      "sha256": "995958ad5320beb6c41c04d3a6b1bf73256befca8aa91c347b0bcef57234f652",
+      "size_bytes": 107
+    },
+    "sources/public_payloads/lbe5ac-gen2/etc/openmax/champion-v2.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lbe5ac-gen2/etc/openmax/champion-v2.json",
+      "sha256": "0081a640c50514c51d3ed885369c919e6226b6b4809024148611b4abd6033605",
+      "size_bytes": 244
+    },
+    "sources/public_payloads/lap-120/etc/uci-defaults/99-openmax-public": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/uci-defaults/99-openmax-public",
+      "sha256": "f8967bd16728ff2378f4b3388b634fd7b064d350db9fddfea80fdd60ca272cae",
+      "size_bytes": 1215
+    },
+    "sources/public_payloads/lap-120/usr/sbin/fmx_pbe5ac_admitter.sh": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/usr/sbin/fmx_pbe5ac_admitter.sh",
+      "sha256": "ae1e1e9d9df17314e7ef5a012ba225d833c9f295d26969a855d13da457299615",
+      "size_bytes": 1318
+    },
+    "sources/public_payloads/lap-120/etc/init.d/openmax-admitter": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/init.d/openmax-admitter",
+      "sha256": "0e61342238b59034733078a5c709d6068c8f7f95c7999e90aead5bebd2090f16",
+      "size_bytes": 261
+    },
+    "sources/public_payloads/lap-120/etc/openmax/qos-defaults.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/openmax/qos-defaults.conf",
+      "sha256": "b237cd77f1e0d958a64093523d42ba47e5ecf043b0600fb092b8584affe66e83",
+      "size_bytes": 274
+    },
+    "sources/public_payloads/lap-120/etc/openmax-release": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/openmax-release",
+      "sha256": "e280a61b9c258f0556eec95af365c3bea00e2fae2b76fd4c59c388ffbeaee290",
+      "size_bytes": 90
+    },
+    "sources/public_payloads/lap-120/etc/hotplug.d/net/99-fmx-wa-universal-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/hotplug.d/net/99-fmx-wa-universal-champion",
+      "sha256": "c342315f97c217b084fcdcc4e5582c31cc82467cf7e371f5c510b6470f63f520",
+      "size_bytes": 8025
+    },
+    "sources/public_payloads/lap-120/etc/openmax/champion.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/openmax/champion.conf",
+      "sha256": "f5ffcd306fb3488e0437a3be6b72d9f43c447b07dd838485ff60328a420887c2",
+      "size_bytes": 141
+    },
+    "sources/public_payloads/lap-120/etc/init.d/openmax-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/init.d/openmax-champion",
+      "sha256": "995958ad5320beb6c41c04d3a6b1bf73256befca8aa91c347b0bcef57234f652",
+      "size_bytes": 107
+    },
+    "sources/public_payloads/lap-120/etc/openmax/champion-v2.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/lap-120/etc/openmax/champion-v2.json",
+      "sha256": "0081a640c50514c51d3ed885369c919e6226b6b4809024148611b4abd6033605",
+      "size_bytes": 244
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/uci-defaults/99-openmax-public": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/uci-defaults/99-openmax-public",
+      "sha256": "f8967bd16728ff2378f4b3388b634fd7b064d350db9fddfea80fdd60ca272cae",
+      "size_bytes": 1215
+    },
+    "sources/public_payloads/nanostation-ac-loco/usr/sbin/fmx_pbe5ac_admitter.sh": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/usr/sbin/fmx_pbe5ac_admitter.sh",
+      "sha256": "ae1e1e9d9df17314e7ef5a012ba225d833c9f295d26969a855d13da457299615",
+      "size_bytes": 1318
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/init.d/openmax-admitter": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/init.d/openmax-admitter",
+      "sha256": "0e61342238b59034733078a5c709d6068c8f7f95c7999e90aead5bebd2090f16",
+      "size_bytes": 261
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/openmax/qos-defaults.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/openmax/qos-defaults.conf",
+      "sha256": "b237cd77f1e0d958a64093523d42ba47e5ecf043b0600fb092b8584affe66e83",
+      "size_bytes": 274
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/openmax-release": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/openmax-release",
+      "sha256": "1a8ee904a6f69d8bfe019ba99de366690a621201c6a616daf967a89b415e49e5",
+      "size_bytes": 102
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/hotplug.d/net/99-fmx-wa-universal-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/hotplug.d/net/99-fmx-wa-universal-champion",
+      "sha256": "c342315f97c217b084fcdcc4e5582c31cc82467cf7e371f5c510b6470f63f520",
+      "size_bytes": 8025
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/openmax/champion.conf": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/openmax/champion.conf",
+      "sha256": "f5ffcd306fb3488e0437a3be6b72d9f43c447b07dd838485ff60328a420887c2",
+      "size_bytes": 141
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/init.d/openmax-champion": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/init.d/openmax-champion",
+      "sha256": "995958ad5320beb6c41c04d3a6b1bf73256befca8aa91c347b0bcef57234f652",
+      "size_bytes": 107
+    },
+    "sources/public_payloads/nanostation-ac-loco/etc/openmax/champion-v2.json": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/sources/public_payloads/nanostation-ac-loco/etc/openmax/champion-v2.json",
+      "sha256": "0081a640c50514c51d3ed885369c919e6226b6b4809024148611b4abd6033605",
+      "size_bytes": 244
+    },
+    "SHA256SUMS.txt": {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4_repro/SHA256SUMS.txt",
+      "sha256": "864f2a958e1b50e42386a981a6bf16a76484bdf5b942b228cbac4d9467c76752",
+      "size_bytes": 6989
+    }
+  },
+  "sha256sums_verified": {
+    "verified": true,
+    "entry_counts": {
+      "SHA256SUMS.txt": 55,
+      "SHA256SUMS": 56
+    }
+  },
+  "boundaries": {
+    "radios_contacted": [],
+    "flash_executed": false,
+    "published": false,
+    "hardware_acceptance": false,
+    "offload_activation_verified": false,
+    "gpg_verified": false
+  },
+  "five_pillars": {
+    "scope": "Offline source/container/software validation; not new RE, literature, RF acquisition or memory acceptance"
+  }
+}

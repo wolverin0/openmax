@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "stage": "374A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/ubnt_airselect_and_freq_hop_state_machine_re.py",
+    "tool_sha256": "73cce8d70663cee5ce7539333986e861228c6fb7ed277fdd75cf3428bfd61b77",
+    "output": "artifacts/autoresearch/stage374a_ubnt_airselect_state_machine_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "AirSelect vocabulary sweep over the polling modules with string context; shipped help pages parsed for the documented contract; userspace binary directories swept for vocabulary carriers",
+    "premise_corrections": [
+      "XW has no ubnt_poll_host.ko; the 2.6.32.71 tree ships ubnt_poll.ko (529,284 bytes) instead, and that module is the XW data point",
+      "ubnt_poll_host.ko carries no AirSelect vocabulary, so the state machine the stage names is not in the module the stage names"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "tokens": {},
+      "token_count": 0,
+      "airselect_surface": 0
+    },
+    {
+      "module": "XC.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "tokens": {},
+      "token_count": 0,
+      "airselect_surface": 0
+    },
+    {
+      "module": "XW.v6.3.6:ubnt_poll.ko",
+      "status": "ok",
+      "bytes": 529284,
+      "sha256": "7a74d439703ca1da6fdf10b52172eb0870d8710c0b5863cc5fbde277f71f3895",
+      "tokens": {
+        "hop": {
+          "count": 10,
+          "contexts": [
+            {
+              "at": "0x04fddb",
+              "context": "start........%s %s...666.0...%s..fh_list.fh_hops.fh_retries..tx_sync_master..%pI4....query_"
+            },
+            {
+              "at": "0x0500f5",
+              "context": "08X|%04d|%03d|%03d|%03d|.......<3>%s failed hop to freq %u (flags %08x). Channel not found "
+            },
+            {
+              "at": "0x05095f",
+              "context": "enalty %d 2skip %d(max/min %d/%d)....<7>%s: hopping to chanidx %d freq %d penalty %d.....<7"
+            }
+          ]
+        },
+        "announce": {
+          "count": 8,
+          "contexts": [
+            {
+              "at": "0x04fcb7",
+              "context": ".use_ant_array...downlink_mp.fh..fh_time.fh_announce_cnt.tx_sync_mode....tx_sync_udp_port....tx_"
+            },
+            {
+              "at": "0x05126a",
+              "context": "d.....<7>ubnt_poll: STA Drop channel change announce RX from %pM when not associated..<7>ubnt_po"
+            },
+            {
+              "at": "0x0512ba",
+              "context": "ated..<7>ubnt_poll: STA Drop channel change announce RX from %pM..<7>SRIRAM-DEBUG: Channel chang"
+            }
+          ]
+        },
+        "fh_list": {
+          "count": 3,
+          "contexts": [
+            {
+              "at": "0x04fdd0",
+              "context": "ck_rate.sa_start........%s %s...666.0...%s..fh_list.fh_hops.fh_retries..tx_sync_master..%pI4..."
+            },
+            {
+              "at": "0x0646a0",
+              "context": "rq.ieee80211_set_auth_tx_hook.ubnt_poll_set_fh_list.ubnt_poll_sta_calc_tid_demand_ff.add_timer."
+            },
+            {
+              "at": "0x065483",
+              "context": "poll_data_relax_sta_per_entry.ubnt_poll_get_fh_list.ubnt_poll_tx_deauth.ubnt_poll_update_rx_tim"
+            }
+          ]
+        },
+        "fh_hops": {
+          "count": 2,
+          "contexts": [
+            {
+              "at": "0x04fdd8",
+              "context": "sa_start........%s %s...666.0...%s..fh_list.fh_hops.fh_retries..tx_sync_master..%pI4....query_m"
+            },
+            {
+              "at": "0x063c43",
+              "context": ".ubnt_poll_tx_ppdu_process_ff.ubnt_poll_get_fh_hops.ubnt_poll_cpu_hr_timestamp_uninit.ubnt_poll"
+            }
+          ]
+        },
+        "fh_retries": {
+          "count": 2,
+          "contexts": [
+            {
+              "at": "0x04fde0",
+              "context": "........%s %s...666.0...%s..fh_list.fh_hops.fh_retries..tx_sync_master..%pI4....query_mac...gps_gp"
+            },
+            {
+              "at": "0x063851",
+              "context": "er.ubnt_poll_set_debug_params.ubnt_poll_get_fh_retries._11ac_compat_on_vap_open.ubnt_poll_get_capa"
+            }
+          ]
+        },
+        "fh_time": {
+          "count": 3,
+          "contexts": [
+            {
+              "at": "0x04fcac",
+              "context": "....atpc....use_ant_array...downlink_mp.fh..fh_time.fh_announce_cnt.tx_sync_mode....tx_sync_udp"
+            },
+            {
+              "at": "0x062da3",
+              "context": "nt_poll_log_buffer_get_length.ubnt_poll_set_fh_time.snprintf.ubnt_poll_set_timing_params.ubnt_p"
+            },
+            {
+              "at": "0x063a16",
+              "context": "set.ubnt_poll_log_sync_status.ubnt_poll_get_fh_time.ubnt_poll_host_set_scan_ptpmode.ubnt_poll_g"
+            }
+          ]
+        },
+        "fh_announce_cnt": {
+          "count": 3,
+          "contexts": [
+            {
+              "at": "0x04fcb4",
+              "context": "....use_ant_array...downlink_mp.fh..fh_time.fh_announce_cnt.tx_sync_mode....tx_sync_udp_port....tx_sync"
+            },
+            {
+              "at": "0x065378",
+              "context": "._11ac_compat_lmac_on_swbmiss.ubnt_poll_set_fh_announce_cnt.ubnt_poll_pwr_ctrl_war_on_associate.ubnt_po"
+            },
+            {
+              "at": "0x0667f1",
+              "context": ".ubnt_poll_log_query_mac_info.ubnt_poll_get_fh_announce_cnt.ubnt_poll_tx_processq.ubnt_poll_get_baw_agg"
+            }
+          ]
+        },
+        "fh_": {
+          "count": 15,
+          "contexts": [
+            {
+              "at": "0x04c89c",
+              "context": "single_seperate._process_block_ack_direct...fh_select_next_chan.fh_update_chan_stats...._ap"
+            },
+            {
+              "at": "0x04c8b0",
+              "context": "cess_block_ack_direct...fh_select_next_chan.fh_update_chan_stats...._ap_poll_timer.._tx_op_"
+            },
+            {
+              "at": "0x04fcac",
+              "context": "....atpc....use_ant_array...downlink_mp.fh..fh_time.fh_announce_cnt.tx_sync_mode....tx_sync"
+            }
+          ]
+        },
+        "tx_sync_master": {
+          "count": 1,
+          "contexts": [
+            {
+              "at": "0x04fdec",
+              "context": "s...666.0...%s..fh_list.fh_hops.fh_retries..tx_sync_master..%pI4....query_mac...gps_gpio....gps_info.."
+            }
+          ]
+        },
+        "tx_sync_mode": {
+          "count": 1,
+          "contexts": [
+            {
+              "at": "0x04fcc4",
+              "context": "y...downlink_mp.fh..fh_time.fh_announce_cnt.tx_sync_mode....tx_sync_udp_port....tx_sync_down_slot..."
+            }
+          ]
+        },
+        "chanidx": {
+          "count": 4,
+          "contexts": [
+            {
+              "at": "0x050909",
+              "context": "oll: Starting CAC for %d MHz ..<7>%s: stats chanidx %d freq %d tx_pkts %u retries %d penalty %d"
+            },
+            {
+              "at": "0x05096a",
+              "context": "skip %d(max/min %d/%d)....<7>%s: hopping to chanidx %d freq %d penalty %d.....<7>%s:  curr idx "
+            },
+            {
+              "at": "0x0509fb",
+              "context": "d, penalty %d 2skip %d...<7>%s: not leaving chanidx %d freq %d penalty %d....<7>SRIRAM-DEBUG: C"
+            }
+          ]
+        },
+        "hopping to chanidx": {
+          "count": 2,
+          "contexts": [
+            {
+              "at": "0x05095f",
+              "context": "enalty %d 2skip %d(max/min %d/%d)....<7>%s: hopping to chanidx %d freq %d penalty %d.....<7>%s:  curr idx "
+            },
+            {
+              "at": "0x050ad7",
+              "context": "timeout, moving to downlink state....<7>%s: hopping to chanidx %d freq %d....<7>ubnt_poll: STA RX stuck, n"
+            }
+          ]
+        },
+        "failed hop to freq": {
+          "count": 1,
+          "contexts": [
+            {
+              "at": "0x0500ee",
+              "context": "|%08X|%08X|%04d|%03d|%03d|%03d|.......<3>%s failed hop to freq %u (flags %08x). Channel not found in list."
+            }
+          ]
+        },
+        "channel change announce": {
+          "count": 2,
+          "contexts": [
+            {
+              "at": "0x05125b",
+              "context": "%d, received: %d.....<7>ubnt_poll: STA Drop channel change announce RX from %pM when not associated..<7>ubnt_po"
+            },
+            {
+              "at": "0x0512ab",
+              "context": "when not associated..<7>ubnt_poll: STA Drop channel change announce RX from %pM..<7>SRIRAM-DEBUG: Channel chang"
+            }
+          ]
+        }
+      },
+      "token_count": 14,
+      "airselect_surface": 0
+    }
+  ],
+  "xw_expected_module": {
+    "path": "artifacts/firmware_re_xw_m5/xw_636_rootfs/lib/modules/2.6.32.71/ubnt_poll_host.ko",
+    "exists": false
+  },
+  "help_docs": [
+    {
+      "doc": "airselect.html",
+      "status": "ok",
+      "bytes": 452,
+      "integers": [],
+      "text": "airSelect airSelect&reg; is a technology that avoids interference and increases throughput. It dynamically changes the wireless channel by periodically hopping to the least used channel in the Frequency List (user-defined) within a designated time interval (user-defined in milliseconds). airSelect tracks interference levels on each channel used, hopping more frequently to those with the least amou"
+    },
+    {
+      "doc": "airselectacount.html",
+      "status": "ok",
+      "bytes": 691,
+      "integers": [
+        10000,
+        10,
+        1000,
+        100,
+        30
+      ],
+      "text": "Announce Count The number of times between hops that the AP will announce the next hop information (such as frequency) to clients. For example, if the Hop Interval is set to 10000 ms, and the Announce Count is set to 10, then every 1000 ms the AP will send an announcement with upcoming hop information to the clients. The larger the time period between the Announce Count and Hop Interval , the high"
+    },
+    {
+      "doc": "airselectflist.html",
+      "status": "ok",
+      "bytes": 170,
+      "integers": [],
+      "text": "Frequency List Click Edit to select the frequencies that the AP will use for airSelect. Available frequencies are device-dependent."
+    },
+    {
+      "doc": "airselecthopint.html",
+      "status": "ok",
+      "bytes": 178,
+      "integers": [
+        3000
+      ],
+      "text": "Hop Interval The duration (in milliseconds) that the AP will stay on one frequency before moving to the next. The default value is 3000 ms."
+    }
+  ],
+  "userspace_carriers": [
+    {
+      "path": "lib/tinysnmp/ubnt.so",
+      "bytes": 11248,
+      "airselect": 1,
+      "hopint": 0
+    }
+  ],
+  "summary": {
+    "modules_ok": 3,
+    "xw_poll_host_present": false,
+    "kernel_airselect_surface": 0,
+    "modules_with_hop_vocabulary": 1,
+    "hop_token_hits": 10,
+    "help_docs_present": 4,
+    "default_hop_interval_ms": 3000,
+    "announce_example_ms": 1000,
+    "userspace_carriers": 1,
+    "binaries_with_vocabulary": 0,
+    "fh_token_hits": 15,
+    "modules_with_fh_hops": 1,
+    "state_machine_located": 1,
+    "state_machine_recovered": 0
+  },
+  "gaps": [
+    "the AirSelect vocabulary is absent from ubnt_poll_host.ko (WA and XC): zero hits for airselect/hop/hopint. The feature is not named that way in the AC polling module",
+    "on XW the mechanism IS present, under a different name: ubnt_poll.ko carries fh_list, fh_hops, fh_retries, fh_time and fh_announce_cnt, plus 'hopping to chanidx' and 'failed hop to freq' log sites",
+    "located is not decoded: no hop timer value, channel-list walk or announcement schedule was reconstructed, and no transition was traced",
+    "the documented contract (3000 ms default hop interval, announce count dividing the interval) comes from the shipped help pages, not from code",
+    "the userspace implementation was not located by literal name; only a library, the translations and the SNMP MIB carry the airselect vocabulary",
+    "no dynamic validation"
+  ]
+}

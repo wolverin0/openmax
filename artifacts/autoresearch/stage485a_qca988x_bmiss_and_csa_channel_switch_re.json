@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "stage": "485A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage485a_qca988x_bmiss_and_csa_channel_switch_re.py",
+    "tool_sha256": "6569f549b54d86db2e098901f06d3d9b38967cc4fea67efe4980477e8b92d19e",
+    "output": "artifacts/autoresearch/stage485a_qca988x_bmiss_and_csa_channel_switch_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "method": "token census of the bmiss, CSA and roam vocabularies; defined-symbol lookup for the swbmiss timer lifecycle, the CSA/ECSA/UCSA handlers and the connection-SM roam path; WMI chan-switch send/handler lookup",
+    "premise_corrections": [
+      "firmware-2.bin and firmware-5.bin are absent, so no firmware-side bmiss counter can be read",
+      "WMI_VDEV_PARAM_BMISS_COUNT_MAX does not exist as a string; VDEV param names are macros, as in Stages 437A and 451A"
+    ],
+    "radio_safety": "static only"
+  },
+  "firmware_images": {
+    "firmware-2.bin": 0,
+    "firmware-5.bin": 0
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "bmiss": {
+        "bmiss": 36,
+        "BMISS": 2,
+        "beacon_miss": 4,
+        "swbmiss": 28
+      },
+      "csa": {
+        "CSA": 6,
+        "csa_": 4,
+        "E-CSA": 1,
+        "UCSA": 2,
+        "chanswitch": 7,
+        "chan_switch": 4,
+        "channel_switch": 1
+      },
+      "roam": {
+        "roam": 8,
+        "connection_sm": 24
+      },
+      "wmi_param": {
+        "WMI_VDEV_PARAM": 0,
+        "VDEV_PARAM": 0,
+        "BMISS_COUNT_MAX": 0,
+        "max_bmiss": 0
+      },
+      "bmiss_symbols": [
+        "ieee80211_beacon_miss",
+        "ieee80211_mlme_reset_bmiss",
+        "ieee80211_mlme_sta_bmiss_ind",
+        "ieee80211_mlme_sta_swbmiss_timer_alloc_id",
+        "ieee80211_mlme_sta_swbmiss_timer_disable",
+        "ieee80211_mlme_sta_swbmiss_timer_enable",
+        "ieee80211_mlme_sta_swbmiss_timer_free_id",
+        "ieee80211_vap_iter_beacon_miss",
+        "mlme_sta_bmiss_ind",
+        "mlme_sta_reset_bmiss",
+        "mlme_sta_swbmiss_timer_alloc_id",
+        "mlme_sta_swbmiss_timer_attach",
+        "mlme_sta_swbmiss_timer_detach",
+        "mlme_sta_swbmiss_timer_disable",
+        "mlme_sta_swbmiss_timer_enable",
+        "mlme_sta_swbmiss_timer_free_id",
+        "mlme_sta_swbmiss_timer_print_status",
+        "mlme_sta_swbmiss_timer_restart",
+        "mlme_sta_swbmiss_timer_start",
+        "mlme_sta_swbmiss_timer_stop"
+      ],
+      "csa_symbols": [
+        "ieee80211_add_chan_switch_wrp",
+        "ieee80211_add_ubnt_csa",
+        "ieee80211_ioctl_chanswitch",
+        "ieee80211_mlme_chanswitch_continue",
+        "ieee80211_mlme_recv_csa",
+        "ieee80211_process_csa_ecsa_ie",
+        "ieee80211_scan_entry_csa",
+        "ieee80211_scan_entry_ubntcsa",
+        "ieee80211_scan_entry_xcsa",
+        "ieee80211_start_csa",
+        "ieee80211_vap_request_csa",
+        "ol_regdmn_ispublicsafetysku",
+        "wlan_set_chanswitch",
+        "wlan_set_chanswitch_ext",
+        "wmi_unified_chan_switch_handler",
+        "wmi_unified_vdev_chan_switch_send"
+      ],
+      "roam_symbols": [
+        "ieee80211_connection_sm_info",
+        "wlan_connection_sm_create",
+        "wlan_connection_sm_delete",
+        "wlan_connection_sm_get_assoc_sm_handle",
+        "wlan_connection_sm_get_param",
+        "wlan_connection_sm_is_connected",
+        "wlan_connection_sm_is_opportunistic_roam",
+        "wlan_connection_sm_is_running",
+        "wlan_connection_sm_register_event_handlers",
+        "wlan_connection_sm_set_param",
+        "wlan_connection_sm_set_roam_bssid",
+        "wlan_connection_sm_set_scan_channels",
+        "wlan_connection_sm_start",
+        "wlan_connection_sm_stop"
+      ],
+      "wmi_switch_symbols": [
+        "wmi_unified_chan_switch_handler",
+        "wmi_unified_vdev_chan_switch_send"
+      ],
+      "csa_contexts": [
+        "invalid multicast/group management frame cipher; len %u, n %u...%s: CSA new channel = %d, echie=%p, secoffsie=%p, wideie=%p.....%s: E-CSA new channel =",
+        ": CSA new channel = %d, echie=%p, secoffsie=%p, wideie=%p.....%s: E-CSA new channel = %d..%s: wide bandwidth changed new vht chwidth = %d centers %d/%d",
+        "d...%s: HT bandwidth changed new secondary channel offset = %d..%s: UCSA new channel = %d, center1 = %d, width = %d.....%s : Received Bad Chwidth...%s: "
+      ],
+      "bmiss_contexts": [
+        "_iter_get_chan.............ieee80211_send_proberesp........mlme_sta_swbmiss_timer_print_status.mlme_sta_swbmiss_timer_disable..mlme_sta_swbmiss",
+        "_send_proberesp........mlme_sta_swbmiss_timer_print_status.mlme_sta_swbmiss_timer_disable..mlme_sta_swbmiss_timer_enable...mlme_sta_swbmiss_tim"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "bmiss": {
+        "bmiss": 36,
+        "BMISS": 2,
+        "beacon_miss": 4,
+        "swbmiss": 28
+      },
+      "csa": {
+        "CSA": 6,
+        "csa_": 4,
+        "E-CSA": 1,
+        "UCSA": 2,
+        "chanswitch": 7,
+        "chan_switch": 4,
+        "channel_switch": 1
+      },
+      "roam": {
+        "roam": 8,
+        "connection_sm": 24
+      },
+      "wmi_param": {
+        "WMI_VDEV_PARAM": 0,
+        "VDEV_PARAM": 0,
+        "BMISS_COUNT_MAX": 0,
+        "max_bmiss": 0
+      },
+      "bmiss_symbols": [
+        "ieee80211_beacon_miss",
+        "ieee80211_mlme_reset_bmiss",
+        "ieee80211_mlme_sta_bmiss_ind",
+        "ieee80211_mlme_sta_swbmiss_timer_alloc_id",
+        "ieee80211_mlme_sta_swbmiss_timer_disable",
+        "ieee80211_mlme_sta_swbmiss_timer_enable",
+        "ieee80211_mlme_sta_swbmiss_timer_free_id",
+        "ieee80211_vap_iter_beacon_miss",
+        "mlme_sta_bmiss_ind",
+        "mlme_sta_reset_bmiss",
+        "mlme_sta_swbmiss_timer_alloc_id",
+        "mlme_sta_swbmiss_timer_attach",
+        "mlme_sta_swbmiss_timer_detach",
+        "mlme_sta_swbmiss_timer_disable",
+        "mlme_sta_swbmiss_timer_enable",
+        "mlme_sta_swbmiss_timer_free_id",
+        "mlme_sta_swbmiss_timer_print_status",
+        "mlme_sta_swbmiss_timer_restart",
+        "mlme_sta_swbmiss_timer_start",
+        "mlme_sta_swbmiss_timer_stop"
+      ],
+      "csa_symbols": [
+        "ieee80211_add_chan_switch_wrp",
+        "ieee80211_add_ubnt_csa",
+        "ieee80211_ioctl_chanswitch",
+        "ieee80211_mlme_chanswitch_continue",
+        "ieee80211_mlme_recv_csa",
+        "ieee80211_process_csa_ecsa_ie",
+        "ieee80211_scan_entry_csa",
+        "ieee80211_scan_entry_ubntcsa",
+        "ieee80211_scan_entry_xcsa",
+        "ieee80211_start_csa",
+        "ieee80211_vap_request_csa",
+        "ol_regdmn_ispublicsafetysku",
+        "wlan_set_chanswitch",
+        "wlan_set_chanswitch_ext",
+        "wmi_unified_chan_switch_handler",
+        "wmi_unified_vdev_chan_switch_send"
+      ],
+      "roam_symbols": [
+        "ieee80211_connection_sm_info",
+        "wlan_connection_sm_create",
+        "wlan_connection_sm_delete",
+        "wlan_connection_sm_get_assoc_sm_handle",
+        "wlan_connection_sm_get_param",
+        "wlan_connection_sm_is_connected",
+        "wlan_connection_sm_is_opportunistic_roam",
+        "wlan_connection_sm_is_running",
+        "wlan_connection_sm_register_event_handlers",
+        "wlan_connection_sm_set_param",
+        "wlan_connection_sm_set_roam_bssid",
+        "wlan_connection_sm_set_scan_channels",
+        "wlan_connection_sm_start",
+        "wlan_connection_sm_stop"
+      ],
+      "wmi_switch_symbols": [
+        "wmi_unified_chan_switch_handler",
+        "wmi_unified_vdev_chan_switch_send"
+      ],
+      "csa_contexts": [
+        "invalid multicast/group management frame cipher; len %u, n %u...%s: CSA new channel = %d, echie=%p, secoffsie=%p, wideie=%p.....%s: E-CSA new channel =",
+        ": CSA new channel = %d, echie=%p, secoffsie=%p, wideie=%p.....%s: E-CSA new channel = %d..%s: wide bandwidth changed new vht chwidth = %d centers %d/%d",
+        "d...%s: HT bandwidth changed new secondary channel offset = %d..%s: UCSA new channel = %d, center1 = %d, width = %d.....%s : Received Bad Chwidth...%s: "
+      ],
+      "bmiss_contexts": [
+        "_iter_get_chan.............ieee80211_send_proberesp........mlme_sta_swbmiss_timer_print_status.mlme_sta_swbmiss_timer_disable..mlme_sta_swbmiss",
+        "_send_proberesp........mlme_sta_swbmiss_timer_print_status.mlme_sta_swbmiss_timer_disable..mlme_sta_swbmiss_timer_enable...mlme_sta_swbmiss_tim"
+      ]
+    }
+  ],
+  "summary": {
+    "firmware_images_present": 0,
+    "modules_ok": 2,
+    "bmiss_token_hits": 140,
+    "bmiss_symbol_count": 20,
+    "swbmiss_symbols": [
+      "ieee80211_mlme_sta_swbmiss_timer_alloc_id",
+      "ieee80211_mlme_sta_swbmiss_timer_disable",
+      "ieee80211_mlme_sta_swbmiss_timer_enable",
+      "ieee80211_mlme_sta_swbmiss_timer_free_id",
+      "mlme_sta_swbmiss_timer_alloc_id",
+      "mlme_sta_swbmiss_timer_attach",
+      "mlme_sta_swbmiss_timer_detach",
+      "mlme_sta_swbmiss_timer_disable",
+      "mlme_sta_swbmiss_timer_enable",
+      "mlme_sta_swbmiss_timer_free_id",
+      "mlme_sta_swbmiss_timer_print_status",
+      "mlme_sta_swbmiss_timer_restart",
+      "mlme_sta_swbmiss_timer_start",
+      "mlme_sta_swbmiss_timer_stop"
+    ],
+    "swbmiss_lifecycle_named": 1,
+    "bmiss_state_machine_named": 1,
+    "csa_token_hits": 50,
+    "csa_variants": [
+      "CSA",
+      "E-CSA",
+      "UCSA"
+    ],
+    "csa_variant_count": 3,
+    "csa_symbol_count": 16,
+    "csa_symbols": [
+      "ieee80211_add_chan_switch_wrp",
+      "ieee80211_add_ubnt_csa",
+      "ieee80211_ioctl_chanswitch",
+      "ieee80211_mlme_chanswitch_continue",
+      "ieee80211_mlme_recv_csa",
+      "ieee80211_process_csa_ecsa_ie",
+      "ieee80211_scan_entry_csa",
+      "ieee80211_scan_entry_ubntcsa",
+      "ieee80211_scan_entry_xcsa",
+      "ieee80211_start_csa",
+      "ieee80211_vap_request_csa",
+      "ol_regdmn_ispublicsafetysku"
+    ],
+    "csa_state_machine_named": 1,
+    "roam_token_hits": 64,
+    "roam_symbol_count": 14,
+    "roam_symbols": [
+      "ieee80211_connection_sm_info",
+      "wlan_connection_sm_create",
+      "wlan_connection_sm_delete",
+      "wlan_connection_sm_get_assoc_sm_handle",
+      "wlan_connection_sm_get_param",
+      "wlan_connection_sm_is_connected",
+      "wlan_connection_sm_is_opportunistic_roam",
+      "wlan_connection_sm_is_running"
+    ],
+    "roam_state_machine_named": 1,
+    "wmi_switch_symbols": [
+      "wmi_unified_chan_switch_handler",
+      "wmi_unified_vdev_chan_switch_send"
+    ],
+    "wmi_param_name_hits": 0,
+    "bmiss_count_max_present": 0,
+    "bmiss_threshold_recovered": 0,
+    "csa_switch_sequence_recovered": 0
+  },
+  "gaps": [
+    "firmware-2.bin and firmware-5.bin are absent, so the bmiss counter cannot be read from an image",
+    "WMI_VDEV_PARAM_BMISS_COUNT_MAX is a macro: 0 hits, like every other VDEV param name in Stages 437A and 451A",
+    "the swbmiss timer lifecycle is named but its arming argument was not traced, so the threshold value is unknown",
+    "the three CSA variants are distinguished by name and by log string, but the channel-switch sequence (announce count, dwell, switch instant) was not decoded",
+    "roam is a timer inside the connection state machine; the roam decision rule was not recovered",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "stage": "259A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage259a_xw_ath_rate_atheros_re.py",
+    "tool_sha256": "bac8c8532a7588bb47e2711a41aa148384d3d20648088806a5cd34fe22cd69af",
+    "output": "artifacts/autoresearch/stage259a_xw_ath_rate_atheros_re.json",
+    "module": "artifacts/firmware_re_xw_m5/xw_636_rootfs/lib/modules/2.6.32.71/ath_rate_atheros.ko",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": ".rel.data R_MIPS_32 clustering for candidate rate tables; .symtab name classification for rate/PER/retry; addiu $zero,N histogram inside PER and retry functions",
+    "radio_safety": "static only"
+  },
+  "module": {
+    "status": "ok",
+    "bytes": 139128,
+    "sha256": "325e9f7437307ae68ca0e08d9d4b82c8a2b0548955db663636226a4f013c1580",
+    "symbols_total": 152,
+    "defined": 74
+  },
+  "rate": {
+    "symbols": [
+      "ar5416AttachRateTables",
+      "ar5416SetFullRateTable",
+      "ar5416SetHalfRateTable",
+      "ar5416SetQuarterRateTable",
+      "ar5416SetupRateTables",
+      "ar5416_rate_maprix",
+      "ath_rate_attach",
+      "ath_rate_create_vap",
+      "ath_rate_detach",
+      "ath_rate_findrate",
+      "ath_rate_findrateix",
+      "ath_rate_free_vap",
+      "ath_rate_getmaxphyrate",
+      "ath_rate_maprix",
+      "ath_rate_max_tx_chains",
+      "ath_rate_newassoc",
+      "ath_rate_newstate",
+      "ath_rate_node_alloc",
+      "ath_rate_node_cleanup",
+      "ath_rate_node_free",
+      "ath_rate_node_gettxrate",
+      "ath_rate_node_init",
+      "ath_rate_node_update",
+      "ath_rate_query_info",
+      "ath_rate_query_min_ht_rate",
+      "ath_rate_query_tx_rate",
+      "ath_rate_set_flags",
+      "ath_rate_set_mcast_rate",
+      "ath_rate_table_init",
+      "ath_rate_tx_complete",
+      "ath_rate_tx_complete_11n",
+      "rcHalrix2rctlrix",
+      "rcRateFind_11n",
+      "rcRateFind_11nViVo"
+    ],
+    "count": 34
+  },
+  "per": {
+    "symbols": [
+      "__mod_ubnt_ewma_delegate_on44",
+      "__mod_ubnt_ewma_delegate_ontype43",
+      "__param_str_ubnt_ewma_delegate_on",
+      "__param_ubnt_ewma_delegate_on",
+      "ubnt_ewma_delegate_in_use",
+      "ubnt_ewma_delegate_on"
+    ],
+    "count": 6,
+    "constant_histogram": {}
+  },
+  "retry": {
+    "symbols": [],
+    "count": 0,
+    "constant_histogram": {}
+  },
+  "data_arrays": [
+    {
+      "first": "0x0000a0",
+      "last": "0x0000ec",
+      "entries": 20,
+      "span": 20
+    }
+  ],
+  "summary": {
+    "module_present": true,
+    "symbols": 74,
+    "rate_symbols": 34,
+    "per_symbols": 6,
+    "retry_symbols": 0,
+    "per_constants": 0,
+    "retry_constants": 0,
+    "data_arrays": 1,
+    "largest_array_entries": 20
+  },
+  "gaps": [
+    "the rate tables are reported as relocation clusters, not as decoded descriptors: the MCS/rate field layout was not reconstructed",
+    "PER thresholds are a constant histogram inside PER-named functions, not a verified up/down pair",
+    "retry constants are likewise a histogram, not a retry ladder",
+    "no dynamic validation"
+  ]
+}

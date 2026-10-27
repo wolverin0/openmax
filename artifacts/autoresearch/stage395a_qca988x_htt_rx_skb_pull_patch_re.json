@@ -1,0 +1,721 @@
+{
+  "meta": {
+    "stage": "395A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/qca988x_htt_rx_amsdu_pop_skb_pull_patch_re.py",
+    "tool_sha256": "bcb65874780ba20c33c4d70ae83025ba9f25f3fdc8ed302378696e173db64180",
+    "output": "artifacts/autoresearch/stage395a_qca988x_htt_rx_skb_pull_patch_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, no binary patched",
+    "method": "ET_REL relocation walk: every R_MIPS_26 site against skb_pull/pskb_pull/skb_pull_rcsum, filtered to htt_rx_amsdu_pop, with the $a1 length resolved backwards from the call site including the delay slot",
+    "premise_corrections": [
+      "ath10k_core.ko does not exist: 0 files match ath10k*.ko, and no Linux 6.6.110 source tree is present",
+      "ath10k_htt_rx_amsdu_pop and ath10k_htt_rx_h_ppdu therefore cannot be disassembled; the vendor umac.ko htt_rx_amsdu_pop is used instead"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules_found": [],
+  "ath10k_documents_found": [
+    "artifacts/praisonai_aql_ath10k_dossier.md"
+  ],
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 2312,
+      "total_relocs": 50694,
+      "total_pull_relocs": 35,
+      "functions": {
+        "htt_rx_amsdu_pop": {
+          "start": "0x01bee4",
+          "end": "0x01c2cc",
+          "bytes": 1000
+        },
+        "htt_rx_h_ppdu": null,
+        "ath10k_htt_rx_amsdu_pop": null,
+        "ath10k_htt_rx_h_ppdu": null
+      },
+      "pull_sites": [
+        {
+          "call_site": "0x010174",
+          "symbol": "skb_pull",
+          "function": "ccmp_init_blocks",
+          "length": 8,
+          "length_at": "0x010178",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0101dc",
+          "symbol": "skb_pull",
+          "function": "ccmp_init_blocks",
+          "length": 8,
+          "length_at": "0x0101e0",
+          "resolved": true
+        },
+        {
+          "call_site": "0x054a64",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054a88",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054aa0",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054ed4",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054fa0",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x055340",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0573bc",
+          "symbol": "skb_pull",
+          "function": "ieee80211_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x057a10",
+          "symbol": "skb_pull",
+          "function": "ieee80211_input",
+          "length": 2,
+          "length_at": "0x057a14",
+          "resolved": true
+        },
+        {
+          "call_site": "0x05aae0",
+          "symbol": "skb_pull",
+          "function": "ieee80211_fragment",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x05ae78",
+          "symbol": "skb_pull",
+          "function": "ieee80211_defrag",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0be460",
+          "symbol": "skb_pull",
+          "function": "a_netbuf_pull",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0be4a0",
+          "symbol": "skb_pull",
+          "function": "a_netbuf_pull_data",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0c2510",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": 8,
+          "length_at": "0x0c2514",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c2538",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": 4,
+          "length_at": "0x0c2534",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c2594",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0c4e9c",
+          "symbol": "skb_pull",
+          "function": "ol_is_country_allowed",
+          "length": 8,
+          "length_at": "0x0c4ea0",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c53b0",
+          "symbol": "skb_pull",
+          "function": "GetHTCSendPackets",
+          "length": 8,
+          "length_at": "0x0c53b4",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c5b6c",
+          "symbol": "skb_pull",
+          "function": "HTCSendPktsMultiple",
+          "length": 8,
+          "length_at": "0x0c5b70",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c69a8",
+          "symbol": "skb_pull",
+          "function": "HTCRxCompletionHandler",
+          "length": 8,
+          "length_at": "0x0c69ac",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0cd76c",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd920",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd93c",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd960",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cdb70",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": 14,
+          "length_at": "0x0cdb74",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0ce5a0",
+          "symbol": "skb_pull",
+          "function": "ol_rx_frag_tkip_decap",
+          "length": 8,
+          "length_at": "0x0ce5a4",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0ce608",
+          "symbol": "skb_pull",
+          "function": "ol_rx_frag_ccmp_decap",
+          "length": 8,
+          "length_at": "0x0ce60c",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0cef80",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_decap_recombine",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cf0d8",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_nwifi_to_8023",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cf218",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_qos_decap",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0d5dd0",
+          "symbol": "skb_pull",
+          "function": "htt_rx_amsdu_pop_hl",
+          "length": 60,
+          "length_at": "0x0d5dc8",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d5f78",
+          "symbol": "skb_pull",
+          "function": "htt_rx_amsdu_pop_ll",
+          "length": 248,
+          "length_at": "0x0d5f7c",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d691c",
+          "symbol": "skb_pull",
+          "function": "htt_rx_restitch_mpdu_from_msdus",
+          "length": 14,
+          "length_at": "0x0d6920",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d72f4",
+          "symbol": "skb_pull",
+          "function": "htt_t2h_msg_handler",
+          "length": 8,
+          "length_at": "0x0d72f8",
+          "resolved": true
+        }
+      ],
+      "pull_length_histogram": {
+        "2": 1,
+        "4": 1,
+        "8": 10,
+        "14": 2,
+        "60": 1,
+        "248": 1
+      },
+      "unresolved_lengths": 19,
+      "pulls_per_function": {
+        "ol_rx_deliver": 5,
+        "wlan_connection_sm_set_roam_bssid": 3,
+        "ieee80211_amsdu_input": 3,
+        "wmi_control_rx": 3,
+        "ccmp_init_blocks": 2,
+        "ieee80211_input": 2,
+        "ieee80211_fragment": 1,
+        "ieee80211_defrag": 1,
+        "a_netbuf_pull": 1,
+        "a_netbuf_pull_data": 1
+      },
+      "pop_pull_count": 0
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 2312,
+      "total_relocs": 50694,
+      "total_pull_relocs": 35,
+      "functions": {
+        "htt_rx_amsdu_pop": {
+          "start": "0x01bee4",
+          "end": "0x01c2cc",
+          "bytes": 1000
+        },
+        "htt_rx_h_ppdu": null,
+        "ath10k_htt_rx_amsdu_pop": null,
+        "ath10k_htt_rx_h_ppdu": null
+      },
+      "pull_sites": [
+        {
+          "call_site": "0x010174",
+          "symbol": "skb_pull",
+          "function": "ccmp_init_blocks",
+          "length": 8,
+          "length_at": "0x010178",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0101dc",
+          "symbol": "skb_pull",
+          "function": "ccmp_init_blocks",
+          "length": 8,
+          "length_at": "0x0101e0",
+          "resolved": true
+        },
+        {
+          "call_site": "0x054a64",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054a88",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054aa0",
+          "symbol": "skb_pull",
+          "function": "wlan_connection_sm_set_roam_bssid",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054ed4",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x054fa0",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x055340",
+          "symbol": "skb_pull",
+          "function": "ieee80211_amsdu_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0573bc",
+          "symbol": "skb_pull",
+          "function": "ieee80211_input",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x057a10",
+          "symbol": "skb_pull",
+          "function": "ieee80211_input",
+          "length": 2,
+          "length_at": "0x057a14",
+          "resolved": true
+        },
+        {
+          "call_site": "0x05aae0",
+          "symbol": "skb_pull",
+          "function": "ieee80211_fragment",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x05ae78",
+          "symbol": "skb_pull",
+          "function": "ieee80211_defrag",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0be460",
+          "symbol": "skb_pull",
+          "function": "a_netbuf_pull",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0be4a0",
+          "symbol": "skb_pull",
+          "function": "a_netbuf_pull_data",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0c2510",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": 8,
+          "length_at": "0x0c2514",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c2538",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": 4,
+          "length_at": "0x0c2534",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c2594",
+          "symbol": "skb_pull",
+          "function": "wmi_control_rx",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0c4e9c",
+          "symbol": "skb_pull",
+          "function": "ol_is_country_allowed",
+          "length": 8,
+          "length_at": "0x0c4ea0",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c53b0",
+          "symbol": "skb_pull",
+          "function": "GetHTCSendPackets",
+          "length": 8,
+          "length_at": "0x0c53b4",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c5b6c",
+          "symbol": "skb_pull",
+          "function": "HTCSendPktsMultiple",
+          "length": 8,
+          "length_at": "0x0c5b70",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0c69a8",
+          "symbol": "skb_pull",
+          "function": "HTCRxCompletionHandler",
+          "length": 8,
+          "length_at": "0x0c69ac",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0cd76c",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd920",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd93c",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cd960",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cdb70",
+          "symbol": "skb_pull",
+          "function": "ol_rx_deliver",
+          "length": 14,
+          "length_at": "0x0cdb74",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0ce5a0",
+          "symbol": "skb_pull",
+          "function": "ol_rx_frag_tkip_decap",
+          "length": 8,
+          "length_at": "0x0ce5a4",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0ce608",
+          "symbol": "skb_pull",
+          "function": "ol_rx_frag_ccmp_decap",
+          "length": 8,
+          "length_at": "0x0ce60c",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0cef80",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_decap_recombine",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cf0d8",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_nwifi_to_8023",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0cf218",
+          "symbol": "skb_pull",
+          "function": "ol_rx_defrag_qos_decap",
+          "length": null,
+          "length_at": null,
+          "resolved": false
+        },
+        {
+          "call_site": "0x0d5dd0",
+          "symbol": "skb_pull",
+          "function": "htt_rx_amsdu_pop_hl",
+          "length": 60,
+          "length_at": "0x0d5dc8",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d5f78",
+          "symbol": "skb_pull",
+          "function": "htt_rx_amsdu_pop_ll",
+          "length": 248,
+          "length_at": "0x0d5f7c",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d691c",
+          "symbol": "skb_pull",
+          "function": "htt_rx_restitch_mpdu_from_msdus",
+          "length": 14,
+          "length_at": "0x0d6920",
+          "resolved": true
+        },
+        {
+          "call_site": "0x0d72f4",
+          "symbol": "skb_pull",
+          "function": "htt_t2h_msg_handler",
+          "length": 8,
+          "length_at": "0x0d72f8",
+          "resolved": true
+        }
+      ],
+      "pull_length_histogram": {
+        "2": 1,
+        "4": 1,
+        "8": 10,
+        "14": 2,
+        "60": 1,
+        "248": 1
+      },
+      "unresolved_lengths": 19,
+      "pulls_per_function": {
+        "ol_rx_deliver": 5,
+        "wlan_connection_sm_set_roam_bssid": 3,
+        "ieee80211_amsdu_input": 3,
+        "wmi_control_rx": 3,
+        "ccmp_init_blocks": 2,
+        "ieee80211_input": 2,
+        "ieee80211_fragment": 1,
+        "ieee80211_defrag": 1,
+        "a_netbuf_pull": 1,
+        "a_netbuf_pull_data": 1
+      },
+      "pop_pull_count": 0
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 2,
+    "total_pull_relocs": 70,
+    "pull_sites_in_amsdu_pop": 0,
+    "pop_symbol_present": 2,
+    "ppdu_symbol_present": 0,
+    "distinct_pull_lengths": 6,
+    "lengths_histogram": {
+      "2": 2,
+      "4": 2,
+      "8": 20,
+      "14": 4,
+      "60": 2,
+      "248": 2
+    },
+    "length_84_found": 0,
+    "functions_with_pulls": [
+      "GetHTCSendPackets",
+      "HTCRxCompletionHandler",
+      "HTCSendPktsMultiple",
+      "a_netbuf_pull",
+      "a_netbuf_pull_data",
+      "ccmp_init_blocks",
+      "htt_rx_amsdu_pop_hl",
+      "htt_rx_amsdu_pop_ll",
+      "htt_rx_restitch_mpdu_from_msdus",
+      "htt_t2h_msg_handler",
+      "ieee80211_amsdu_input",
+      "ieee80211_defrag",
+      "ieee80211_fragment",
+      "ieee80211_input",
+      "ol_is_country_allowed",
+      "ol_rx_defrag_decap_recombine",
+      "ol_rx_defrag_nwifi_to_8023",
+      "ol_rx_defrag_qos_decap",
+      "ol_rx_deliver",
+      "ol_rx_frag_ccmp_decap",
+      "ol_rx_frag_tkip_decap",
+      "wlan_connection_sm_set_roam_bssid",
+      "wmi_control_rx"
+    ],
+    "pop_calls_skb_pull": 0,
+    "patch_emitted": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so the 84-byte rx_ppdu_end_qca988x descriptor and its skb_pull offset cannot be read from the module the stage names",
+    "the vendor umac.ko has no field names for that descriptor (Stage 371A: 0 hits for rx_ppdu_end/evm_p0/locationing_timestamp), so the bytes discarded there are not proven to be the same 84 bytes",
+    "no patch and no hook were emitted: only call-site offsets and argument values are reported, which is the input a patch would need",
+    "an unresolved length means the argument was loaded from memory rather than materialised as an immediate, and is left as null",
+    "no dynamic validation"
+  ]
+}

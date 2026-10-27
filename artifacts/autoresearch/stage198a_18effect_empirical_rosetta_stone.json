@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "stage": "198A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage197a_to_199a_hal_and_xw_delta.py",
+    "scope": "offline static cross-reference; no device access",
+    "champion": "artifacts/autoresearch/stage163a_cumulative_18round_wa_champion_v2.json",
+    "method": "per-round parameter tokens from the champion title matched against catalogue knob-name tokens; each match is a candidate",
+    "claim_limit": "candidate mappings only; airOS-side effect was not measured, so the equivalence is unproven in both directions",
+    "radio_safety": "static only"
+  },
+  "rounds": [
+    {
+      "round_id": "S123A-R1",
+      "title": "AQL 2000/4000 + FQ 4542 + BQL 3028/65536/1000 vs 99-fmx-wa-universal-champion (AQL 1500/3000 + FQ 1514 + BQL 4542/42392/800 + tx_bias=2 + budget=600)",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 55.931,
+      "arm_b_p95": 59.243,
+      "pareto_delta_pct": 5.71,
+      "token_overlap": [
+        "1000",
+        "1500",
+        "1514",
+        "2000",
+        "3000",
+        "3028",
+        "4000",
+        "42392",
+        "4542",
+        "65536",
+        "bias",
+        "budget",
+        "champion",
+        "universal"
+      ],
+      "airoa_candidates": [
+        "cms_bias"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S123A-R2",
+      "title": "Symmetric fq_quantum=1514 (1xMTU) vs Asymmetric AP fq_quantum=3028 (2xMTU) / CPE fq_quantum=1514 at AQL 1500/3000 + BQL 4542/42392/800",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 57.907,
+      "arm_b_p95": 71.422,
+      "pareto_delta_pct": 13.35,
+      "token_overlap": [
+        "1500",
+        "1514",
+        "1xmtu",
+        "2xmtu",
+        "3000",
+        "3028",
+        "42392",
+        "4542",
+        "asymmetric",
+        "quantum",
+        "symmetric"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S123A-R3",
+      "title": "AQL 1500/3000 (thr=5000, tcp_limit=98304) vs Tight Low-Latency AQL 1200/2400 (thr=4000, tcp_limit=65536) with AP FQ 3028 / CPE FQ 1514",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 54.068,
+      "arm_b_p95": 73.389,
+      "pareto_delta_pct": -8.29,
+      "token_overlap": [
+        "1200",
+        "1500",
+        "1514",
+        "2400",
+        "3000",
+        "3028",
+        "4000",
+        "5000",
+        "65536",
+        "98304",
+        "latency",
+        "limit",
+        "tight",
+        "with"
+      ],
+      "airoa_candidates": [
+        "swr_limit"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S135A-R4",
+      "title": "AC_VO (0) & AC_VI (1) aql_txq_limit: 0:500/1000 + 1:1500/3000 vs 0:300/600 + 1:1000/2000",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 54.107,
+      "arm_b_p95": 64.926,
+      "pareto_delta_pct": 17.37,
+      "token_overlap": [
+        "1000",
+        "1500",
+        "2000",
+        "3000",
+        "limit"
+      ],
+      "airoa_candidates": [
+        "swr_limit"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S135A-R5",
+      "title": "eth0 BQL 4542/42392/800 + tcp_notsent_lowat=16384 vs eth0 BQL 4542/36288/600 + tcp_notsent_lowat=8192",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 59.886,
+      "arm_b_p95": 61.928,
+      "pareto_delta_pct": 8.53,
+      "token_overlap": [
+        "16384",
+        "36288",
+        "42392",
+        "4542",
+        "8192",
+        "eth0",
+        "lowat",
+        "notsent"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S135A-R6",
+      "title": "netdev_budget_usecs=4000 + tx_queue_len=128 vs netdev_budget_usecs=6000 + tx_queue_len=256",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 57.495,
+      "arm_b_p95": 74.185,
+      "pareto_delta_pct": 5.43,
+      "token_overlap": [
+        "4000",
+        "6000",
+        "budget",
+        "netdev",
+        "queue",
+        "usecs"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S139A-R7",
+      "title": "fq_limit=2048 + fq_memory_limit=4MB + aql_threshold=5000 vs fq_limit=1024 + fq_memory_limit=3MB + aql_threshold=4500",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 50.359,
+      "arm_b_p95": 63.005,
+      "pareto_delta_pct": 0.58,
+      "token_overlap": [
+        "1024",
+        "2048",
+        "4500",
+        "5000",
+        "limit",
+        "memory",
+        "threshold"
+      ],
+      "airoa_candidates": [
+        "swr_limit"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S139A-R8",
+      "title": "dev_weight=64 + netdev_budget=600 vs dev_weight=48 + netdev_budget=480 (with dev_weight_tx_bias=2)",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 53.123,
+      "arm_b_p95": 70.076,
+      "pareto_delta_pct": 2.4,
+      "token_overlap": [
+        "bias",
+        "budget",
+        "netdev",
+        "weight",
+        "with"
+      ],
+      "airoa_candidates": [
+        "cms_bias"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S139A-R9",
+      "title": "Symmetric AQL BE=1500/3000 on AP & STA vs Asymmetric AP BE=1500/3000 + STA BE=1000/2000 for Uplink ACK Return",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 46.898,
+      "arm_b_p95": 70.53,
+      "pareto_delta_pct": -12.84,
+      "token_overlap": [
+        "1000",
+        "1500",
+        "2000",
+        "3000",
+        "asymmetric",
+        "return",
+        "symmetric",
+        "uplink"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S140A-R10",
+      "title": "tcp_limit_output_bytes=98304 + netdev_max_backlog=1000 vs tcp_limit_output_bytes=65536 + netdev_max_backlog=1500",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 45.749,
+      "arm_b_p95": 53.767,
+      "pareto_delta_pct": 22.03,
+      "token_overlap": [
+        "1000",
+        "1500",
+        "65536",
+        "98304",
+        "backlog",
+        "bytes",
+        "limit",
+        "netdev",
+        "output"
+      ],
+      "airoa_candidates": [
+        "swr_limit"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S140A-R11",
+      "title": "AC_BK (3) aql_txq_limit=500/1000 vs AC_BK (3) aql_txq_limit=300/600 + coverage_class=0",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 49.002,
+      "arm_b_p95": 81.062,
+      "pareto_delta_pct": -11.06,
+      "token_overlap": [
+        "1000",
+        "class",
+        "coverage",
+        "limit"
+      ],
+      "airoa_candidates": [
+        "coverage_class",
+        "swr_limit"
+      ],
+      "candidate_count": 2
+    },
+    {
+      "round_id": "S140A-R12",
+      "title": "Stock OpenWrt 24.10.4 Defaults (AQL 5000/12000, fq_quantum=300, fq_mem=32MB, BQL=0/65536/1000, tx_bias=1) vs Cumulative R1..R11 WA Universal Champion",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 56.554,
+      "arm_b_p95": 90.885,
+      "pareto_delta_pct": -2.93,
+      "token_overlap": [
+        "1000",
+        "12000",
+        "32mb",
+        "5000",
+        "65536",
+        "bias",
+        "champion",
+        "cumulative",
+        "defaults",
+        "openwrt",
+        "quantum",
+        "stock",
+        "universal"
+      ],
+      "airoa_candidates": [
+        "cms_bias"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S145A-R13",
+      "title": "eth0 fq_codel quantum 1514 target 5ms interval 100ms ecn vs fq_codel quantum 300 target 5ms interval 50ms ecn",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 37.498,
+      "arm_b_p95": 68.365,
+      "pareto_delta_pct": -19.39,
+      "token_overlap": [
+        "100ms",
+        "1514",
+        "50ms",
+        "codel",
+        "eth0",
+        "interval",
+        "quantum",
+        "target"
+      ],
+      "airoa_candidates": [
+        "codel_target_ms",
+        "codel_interval_ms"
+      ],
+      "candidate_count": 2
+    },
+    {
+      "round_id": "S145A-R14",
+      "title": "aql_threshold=4500 vs aql_threshold=4000 under tcp_limit_output_bytes=65536 + netdev_max_backlog=1500",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 38.668,
+      "arm_b_p95": 60.695,
+      "pareto_delta_pct": 43.87,
+      "token_overlap": [
+        "1500",
+        "4000",
+        "4500",
+        "65536",
+        "backlog",
+        "bytes",
+        "limit",
+        "netdev",
+        "output",
+        "threshold",
+        "under"
+      ],
+      "airoa_candidates": [
+        "rts_threshold_bytes",
+        "swr_limit"
+      ],
+      "candidate_count": 2
+    },
+    {
+      "round_id": "S145A-R15",
+      "title": "8-Flow High-Concurrency Stress (--bidir -P 4 + IPTV + VoIP): 4MB fq_mem + 128KB TSQ vs Champion 3MB fq_mem + 64KB TSQ",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 22.611,
+      "arm_b_p95": 201.526,
+      "pareto_delta_pct": -473.7,
+      "token_overlap": [
+        "128kb",
+        "64kb",
+        "bidir",
+        "champion",
+        "concurrency",
+        "flow",
+        "high",
+        "iptv",
+        "stress",
+        "voip"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S161A-R16",
+      "title": "iw phy phy0 set distance 1000m vs distance 300m (Short-Range Slottime/ACK Timeout Floor)",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 48.748,
+      "arm_b_p95": 94.741,
+      "pareto_delta_pct": 173.59,
+      "token_overlap": [
+        "1000m",
+        "300m",
+        "distance",
+        "floor",
+        "phy0",
+        "range",
+        "short",
+        "slottime",
+        "timeout"
+      ],
+      "airoa_candidates": [
+        "distance"
+      ],
+      "candidate_count": 1
+    },
+    {
+      "round_id": "S161A-R17",
+      "title": "8-Flow TCP Pacing & Initial Quantum (ca=120/ss=200/init_q=4542 vs ca=110/ss=150/init_q=3028) with vm.min_free_kbytes=4096",
+      "decision": "PROMOTE_ARM_B",
+      "arm_b_goodput": 38.055,
+      "arm_b_p95": 164.663,
+      "pareto_delta_pct": 35.55,
+      "token_overlap": [
+        "3028",
+        "4096",
+        "4542",
+        "flow",
+        "free",
+        "init",
+        "initial",
+        "kbytes",
+        "pacing",
+        "quantum",
+        "with"
+      ],
+      "airoa_candidates": [],
+      "candidate_count": 0
+    },
+    {
+      "round_id": "S161A-R18",
+      "title": "Synchronous CSA (hostapd switch_chan) & TX Power (20 dBm vs 22 dBm) Rate-Control AMPDU Density",
+      "decision": "RETAIN_ARM_A",
+      "arm_b_goodput": 41.055,
+      "arm_b_p95": 160.575,
+      "pareto_delta_pct": -196.83,
+      "token_overlap": [
+        "ampdu",
+        "chan",
+        "control",
+        "density",
+        "hostapd",
+        "power",
+        "rate",
+        "switch",
+        "synchronous"
+      ],
+      "airoa_candidates": [
+        "ampdu",
+        "get_ampdu"
+      ],
+      "candidate_count": 2
+    }
+  ],
+  "summary": {
+    "rounds": 18,
+    "rounds_with_candidates": 12,
+    "total_candidates": 16,
+    "equivalence_confirmed": 0,
+    "champion_rounds_declared": 18
+  },
+  "gaps": [
+    "the champion records outcomes per round, not per knob: a candidate set is not a mapping",
+    "no airOS-side measurement was performed to confirm any equivalence",
+    "the 18 questions are answered with candidates, not proofs"
+  ]
+}

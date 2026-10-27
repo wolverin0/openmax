@@ -1,0 +1,414 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "78A",
+  "task_id": "T-S78A-INTEGRATE-AEON-REGIME-CLASSIFIER-INTO-STAGE61A-UNIFIED-COLLECTOR",
+  "generated_at_utc": "2026-10-26T13:49:35.546552+00:00",
+  "status": "CONFIRMED",
+  "epistemic_label": "CONFIRMED",
+  "protocol": "A1->B1->A2->B2",
+  "watchdog_seconds": 45,
+  "memory_master_claim_id": "mm-stage78a-live-multigen-regime-classifier-bridge-20261026",
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "COMPLIANT",
+    "evidence": "Bridges 4-generation hardware/driver telemetry from Stage 61A (OpenWrt WA mac80211 AQL/DRR, airOS 8 XC/2XC AirPrism + ubnt_poll_host.ko cms_bias/voip_bias/daprot, airOS 6 XW AR934x, and AF-LTU ame_core.ko/eab_driver.ko maxBD/ulpwrtune) directly into the 6-channel aeon tensor and maps each regime to its exact binary/module remediation knob.",
+    "knob_catalog_path": "orchestration/autoresearch/firmware_knob_candidates.json"
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "COMPLIANT",
+    "evidence": "Grounded in Dempster et al. (2020/2021) ROCKET/MiniRocket multivariate time-series classification and Yeh et al. (2016) Matrix Profile subsequence anomaly detection integrated with Stage 59A/61A zero-false-positive WISP RF observability.",
+    "reactor_queue_path": "artifacts/autoresearch/discovery_to_research_queue.json"
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "COMPLIANT",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "evidence": "Enforces deterministic 2-round sliding-window counter progression (probe_seq, survey_active_time_ms, tx/rx packets) before allowing Uptime Kuma push heartbeats or automated remediation execution."
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "COMPLIANT",
+    "skill_path": ".agents/skills/aeon/SKILL.md",
+    "evidence": "5/5 live bench links across all 4 hardware generations classified as NORMAL_LOAD with 100% accuracy; 5/5 frozen-collector windows suppressed as FROZEN_COLLECTOR_FALSE_ALARM (0.00% false-positive rate); 4/4 fault-injection windows accurately classified with automated remediation playbooks."
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage78a-live-multigen-regime-classifier-bridge-20261026",
+  "layer_attribution": {
+    "external_controller": "Stage 61A/78A Unified Collector Bridge, Prometheus Exporter (:9105), Uptime Kuma Push Gate",
+    "Linux": "fq_codel backlog/memory & BQL inflight telemetry on OpenWrt 24.10.4 / airOS 8",
+    "mac80211": "AQL 1350/2700 us & DRR 768:512:128 station airtime weights on LAP-120 WA",
+    "ath10k": "QCA988x survey_active_time_ms, channel_busy_pct, and per-chain RSSI",
+    "proprietary_airMAX_LTU_module": "ubnt_poll_host.ko (cms_bias/voip_bias/daprot/sta_rx_rssi_th) & LTU ame_core.ko/eab_driver.ko (maxBD=0, ulpwr_enable=0)"
+  },
+  "bridge_summary": {
+    "source_stage61a_artifact": "artifacts/autoresearch/stage61a_unified_multigen_deterministic_rf_collector_20261026.json",
+    "monitored_links_count": 5,
+    "hardware_generations_covered": 4,
+    "channel_names": [
+      "rx_signal_dbm",
+      "channel_busy_pct",
+      "tx_retries_pct",
+      "p95_rtt_ms",
+      "rx_bytes_delta",
+      "max_bd_or_aql_backlog"
+    ],
+    "regime_classes": {
+      "0": "NORMAL_LOAD",
+      "1": "CO_CHANNEL_INTERFERENCE",
+      "2": "BAD_APPLE_AIRTIME_HOG",
+      "3": "LTU_BUG05_LNA_DEAFNESS",
+      "4": "FROZEN_COLLECTOR_FALSE_ALARM"
+    },
+    "all_live_advancing_windows_normal_load": true,
+    "all_frozen_collector_windows_suppressed": true,
+    "all_fault_injection_regimes_matched": true,
+    "false_positive_rf_alarm_rate": 0.0
+  },
+  "live_advancing_window_classifications": {
+    "Loco5AC_WA_OpenWrt": {
+      "link_id": "Loco5AC_WA_OpenWrt",
+      "hardware_generation": "OpenWrt_24.10.4_WA",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 0,
+      "aeon_regime_name": "NORMAL_LOAD",
+      "confidence": 0.611311,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.611311,
+        "CO_CHANNEL_INTERFERENCE": 0.152532,
+        "BAD_APPLE_AIRTIME_HOG": 0.058232,
+        "LTU_BUG05_LNA_DEAFNESS": 0.084929,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.092997
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "Rocket5AC_XC_airOS8": {
+      "link_id": "Rocket5AC_XC_airOS8",
+      "hardware_generation": "airOS8_XC_AirPrism",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 0,
+      "aeon_regime_name": "NORMAL_LOAD",
+      "confidence": 0.610679,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.610679,
+        "CO_CHANNEL_INTERFERENCE": 0.169972,
+        "BAD_APPLE_AIRTIME_HOG": 0.049532,
+        "LTU_BUG05_LNA_DEAFNESS": 0.080004,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.089814
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LiteBeamM5_XW_airOS6": {
+      "link_id": "LiteBeamM5_XW_airOS6",
+      "hardware_generation": "airOS6_XW_AR934x",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 0,
+      "aeon_regime_name": "NORMAL_LOAD",
+      "confidence": 0.720222,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.720222,
+        "CO_CHANNEL_INTERFERENCE": 0.049456,
+        "BAD_APPLE_AIRTIME_HOG": 0.084403,
+        "LTU_BUG05_LNA_DEAFNESS": 0.069283,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.076637
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "Rocket2AC_2XC_airOS8": {
+      "link_id": "Rocket2AC_2XC_airOS8",
+      "hardware_generation": "airOS8_2XC_AirPrism",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 0,
+      "aeon_regime_name": "NORMAL_LOAD",
+      "confidence": 0.67706,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.67706,
+        "CO_CHANNEL_INTERFERENCE": 0.08315,
+        "BAD_APPLE_AIRTIME_HOG": 0.073519,
+        "LTU_BUG05_LNA_DEAFNESS": 0.084993,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.081279
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LTU_Lite_AF_LTU_OTA": {
+      "link_id": "LTU_Lite_AF_LTU_OTA",
+      "hardware_generation": "LTU_v2.3.1_EAB",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 0,
+      "aeon_regime_name": "NORMAL_LOAD",
+      "confidence": 0.675579,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.675579,
+        "CO_CHANNEL_INTERFERENCE": 0.064891,
+        "BAD_APPLE_AIRTIME_HOG": 0.096821,
+        "LTU_BUG05_LNA_DEAFNESS": 0.076622,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.086087
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    }
+  },
+  "frozen_collector_window_classifications": {
+    "Loco5AC_WA_OpenWrt": {
+      "link_id": "Loco5AC_WA_OpenWrt",
+      "hardware_generation": "OpenWrt_24.10.4_WA",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "Rocket5AC_XC_airOS8": {
+      "link_id": "Rocket5AC_XC_airOS8",
+      "hardware_generation": "airOS8_XC_AirPrism",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LiteBeamM5_XW_airOS6": {
+      "link_id": "LiteBeamM5_XW_airOS6",
+      "hardware_generation": "airOS6_XW_AR934x",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "Rocket2AC_2XC_airOS8": {
+      "link_id": "Rocket2AC_2XC_airOS8",
+      "hardware_generation": "airOS8_2XC_AirPrism",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LTU_Lite_AF_LTU_OTA": {
+      "link_id": "LTU_Lite_AF_LTU_OTA",
+      "hardware_generation": "LTU_v2.3.1_EAB",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    }
+  },
+  "fault_injection_regime_verifications": {
+    "Rocket5AC_XC_airOS8_CO_CHANNEL_INTERFERENCE": {
+      "link_id": "Rocket5AC_XC_airOS8",
+      "hardware_generation": "airOS8_XC_AirPrism",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 1,
+      "aeon_regime_name": "CO_CHANNEL_INTERFERENCE",
+      "confidence": 0.678887,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.094185,
+        "CO_CHANNEL_INTERFERENCE": 0.678887,
+        "BAD_APPLE_AIRTIME_HOG": 0.062379,
+        "LTU_BUG05_LNA_DEAFNESS": 0.079559,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.084989
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "APPLY_STAGE71B_ORTHOGONAL_SUBBAND_AND_FIXED_FRAME: Migrate sector to orthogonal 20 MHz sub-band (>=225 MHz guard band within AirPrism 50 MHz Stage 1 filter) and enable GPS 8 ms 67/33 Fixed Frame + daprot=2.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LiteBeamM5_XW_airOS6_BAD_APPLE_AIRTIME_HOG": {
+      "link_id": "LiteBeamM5_XW_airOS6",
+      "hardware_generation": "airOS6_XW_AR934x",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 2,
+      "aeon_regime_name": "BAD_APPLE_AIRTIME_HOG",
+      "confidence": 0.546404,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.109015,
+        "CO_CHANNEL_INTERFERENCE": 0.145196,
+        "BAD_APPLE_AIRTIME_HOG": 0.546404,
+        "LTU_BUG05_LNA_DEAFNESS": 0.093813,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.105572
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "APPLY_STAGE73B_HOG_ISOLATION_AND_BNG_CAKE: Set uph_wifi0 cms_bias=6, voip_bias=6, daprot=2, sta_rx_rssi_th=-78 (or OpenWrt AQL 1350/2700 us + DRR 768:512:128) and clamp subscriber rate in Almafuerte-BNG CAKE.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "LTU_Lite_AF_LTU_OTA_LTU_BUG05_LNA_DEAFNESS": {
+      "link_id": "LTU_Lite_AF_LTU_OTA",
+      "hardware_generation": "LTU_v2.3.1_EAB",
+      "deterministic_monitor_status": "UP",
+      "deterministic_kuma_push_allowed": true,
+      "aeon_regime_id": 3,
+      "aeon_regime_name": "LTU_BUG05_LNA_DEAFNESS",
+      "confidence": 0.64868,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.08984,
+        "CO_CHANNEL_INTERFERENCE": 0.084399,
+        "BAD_APPLE_AIRTIME_HOG": 0.088308,
+        "LTU_BUG05_LNA_DEAFNESS": 0.64868,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 0.088772
+      },
+      "kuma_push_allowed": true,
+      "is_false_alarm_suppressed": false,
+      "recommended_remediation": "APPLY_STAGE63B_64A_LTU_FIXES: Set ulpwr_enable=0 before writing ulpwrtune=-75 and load Stage 64A/68B patched ame_core.ko + ame_dev.ko.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    },
+    "Loco5AC_WA_OpenWrt_FROZEN_COLLECTOR": {
+      "link_id": "Loco5AC_WA_OpenWrt",
+      "hardware_generation": "OpenWrt_24.10.4_WA",
+      "deterministic_monitor_status": "MONITOR_STALE_ERROR",
+      "deterministic_kuma_push_allowed": false,
+      "aeon_regime_id": 4,
+      "aeon_regime_name": "FROZEN_COLLECTOR_FALSE_ALARM",
+      "confidence": 1.0,
+      "class_probabilities": {
+        "NORMAL_LOAD": 0.0,
+        "CO_CHANNEL_INTERFERENCE": 0.0,
+        "BAD_APPLE_AIRTIME_HOG": 0.0,
+        "LTU_BUG05_LNA_DEAFNESS": 0.0,
+        "FROZEN_COLLECTOR_FALSE_ALARM": 1.0
+      },
+      "kuma_push_allowed": false,
+      "is_false_alarm_suppressed": true,
+      "recommended_remediation": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session.",
+      "window_shape": [
+        1,
+        6,
+        60
+      ]
+    }
+  },
+  "remediation_catalog": {
+    "NORMAL_LOAD": "NO_ACTION_REQUIRED: Maintain active Champion profile (OpenWrt Champion v20 / airOS 8 PtP v6 / LTU binary patch).",
+    "CO_CHANNEL_INTERFERENCE": "APPLY_STAGE71B_ORTHOGONAL_SUBBAND_AND_FIXED_FRAME: Migrate sector to orthogonal 20 MHz sub-band (>=225 MHz guard band within AirPrism 50 MHz Stage 1 filter) and enable GPS 8 ms 67/33 Fixed Frame + daprot=2.",
+    "BAD_APPLE_AIRTIME_HOG": "APPLY_STAGE73B_HOG_ISOLATION_AND_BNG_CAKE: Set uph_wifi0 cms_bias=6, voip_bias=6, daprot=2, sta_rx_rssi_th=-78 (or OpenWrt AQL 1350/2700 us + DRR 768:512:128) and clamp subscriber rate in Almafuerte-BNG CAKE.",
+    "LTU_BUG05_LNA_DEAFNESS": "APPLY_STAGE63B_64A_LTU_FIXES: Set ulpwr_enable=0 before writing ulpwrtune=-75 and load Stage 64A/68B patched ame_core.ko + ame_dev.ko.",
+    "FROZEN_COLLECTOR_FALSE_ALARM": "SUPPRESS_RF_FALSE_ALARM_RESTART_COLLECTOR_ONLY: Do NOT page RF on-call or reboot radio; mark collector MONITOR_STALE_ERROR, block Uptime Kuma push heartbeat, and refresh SSH/SNMP collector session."
+  },
+  "prometheus_regime_metrics_text": "# HELP fmx_aeon_regime_id Active aeon multivariate time-series RF regime ID (0=NORMAL, 1=CCI, 2=HOG, 3=LTU_BUG05, 4=FROZEN_COLLECTOR)\n# TYPE fmx_aeon_regime_id gauge\n# HELP fmx_aeon_regime_confidence Softmax confidence score [0..1] for active aeon RF regime classification\n# TYPE fmx_aeon_regime_confidence gauge\n# HELP fmx_aeon_false_alarm_suppressed Whether stale/frozen collector false-positive RF alarm was suppressed (1=yes, 0=no)\n# TYPE fmx_aeon_false_alarm_suppressed gauge\nfmx_aeon_regime_id{link=\"Loco5AC_WA_OpenWrt\",gen=\"OpenWrt_24.10.4_WA\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_confidence{link=\"Loco5AC_WA_OpenWrt\",gen=\"OpenWrt_24.10.4_WA\",regime=\"NORMAL_LOAD\"} 0.611311\nfmx_aeon_false_alarm_suppressed{link=\"Loco5AC_WA_OpenWrt\",gen=\"OpenWrt_24.10.4_WA\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_id{link=\"Rocket5AC_XC_airOS8\",gen=\"airOS8_XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_confidence{link=\"Rocket5AC_XC_airOS8\",gen=\"airOS8_XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0.610679\nfmx_aeon_false_alarm_suppressed{link=\"Rocket5AC_XC_airOS8\",gen=\"airOS8_XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_id{link=\"LiteBeamM5_XW_airOS6\",gen=\"airOS6_XW_AR934x\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_confidence{link=\"LiteBeamM5_XW_airOS6\",gen=\"airOS6_XW_AR934x\",regime=\"NORMAL_LOAD\"} 0.720222\nfmx_aeon_false_alarm_suppressed{link=\"LiteBeamM5_XW_airOS6\",gen=\"airOS6_XW_AR934x\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_id{link=\"Rocket2AC_2XC_airOS8\",gen=\"airOS8_2XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_confidence{link=\"Rocket2AC_2XC_airOS8\",gen=\"airOS8_2XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0.67706\nfmx_aeon_false_alarm_suppressed{link=\"Rocket2AC_2XC_airOS8\",gen=\"airOS8_2XC_AirPrism\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_id{link=\"LTU_Lite_AF_LTU_OTA\",gen=\"LTU_v2.3.1_EAB\",regime=\"NORMAL_LOAD\"} 0\nfmx_aeon_regime_confidence{link=\"LTU_Lite_AF_LTU_OTA\",gen=\"LTU_v2.3.1_EAB\",regime=\"NORMAL_LOAD\"} 0.675579\nfmx_aeon_false_alarm_suppressed{link=\"LTU_Lite_AF_LTU_OTA\",gen=\"LTU_v2.3.1_EAB\",regime=\"NORMAL_LOAD\"} 0\n"
+}

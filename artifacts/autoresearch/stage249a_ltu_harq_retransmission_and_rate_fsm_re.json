@@ -1,0 +1,443 @@
+{
+  "stage": "249A",
+  "task_id": "T-S249A-LTU-HARQ-RETRANSMISSION-AND-RATE-FSM-BINARY-RE",
+  "generated_at": "2026-10-26T23:32:14.599141+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "afltu_ame_core_ko_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "aflturocket_ame_core_ko_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+    "afltu_cds_mac_mod_ko_sha256": "2e1562f0aceaf62df765120df5754ce1eb053ed37fea6e5b58ef5cd03827811b"
+  },
+  "modulation_rate_fsm_and_timers": {
+    "rate_adaptation_thresholds_extracted": {
+      "startThrd_4096_pct": 97,
+      "stayThrd_4096_pct": 90,
+      "mcsUpThrd_1024_pct": 93,
+      "mcsUpThrd_256_pct": 96,
+      "mcsUpThrd_lowqam_pct": 95,
+      "ackmcsUpThrd_pct": 98,
+      "ack_ratio_thr_pct": 90,
+      "avgWeight": 20,
+      "startThrd_siso_pct": 60,
+      "stayThrd_siso_pct": 0,
+      "ptmpUlPMHighBandThrSht": 3,
+      "ptmpUlPMLowBandThrSht": 0,
+      "mcsUpThreshold": 7,
+      "mcsDownThreshold": 10,
+      "mcsUpThreshold_timer": 90,
+      "mcsDnThreshold_timer": 1,
+      "cont1024Threshold": 1,
+      "penaltyThreshold": 60,
+      "penaltyTime": 4,
+      "ackAccuulateCnt": 25,
+      "smallTrafficTimer": 1,
+      "ra_offset_table_db": [
+        0,
+        9,
+        18,
+        25,
+        30
+      ],
+      "cpeTxBler_scale": 10000,
+      "cpeRxBler_scale": 10000
+    },
+    "upshift_and_downshift_mechanics": {
+      "4096_qam_12x_entry_exit": "Requires codeword pass rate >= 97% at 1024-QAM (MCS 23) over cont1024Threshold=1 intervals to enter MCS 31 (4096-QAM), and holds 4096-QAM while pass rate >= 90%.",
+      "1024_and_256_qam_upshift": "mcsUpThrd_1024=93%, mcsUpThrd_256=96%, mcsUpThrd_lowqam=95%.",
+      "timers_and_penalty_box": {
+        "mcsUpThreshold": 7,
+        "mcsDownThreshold": 10,
+        "mcsUpThreshold_timer": 90,
+        "mcsDnThreshold_timer": 1,
+        "penaltyThreshold": 60,
+        "penaltyTime": 4,
+        "smallTrafficTimer": 1
+      }
+    }
+  },
+  "harq_block_ack_retransmission_architecture": {
+    "multi_ack_enable_knob": "/sys/module/ame_core/parameters/multi_ack_enable (default 1)",
+    "send_ctrl_in_data_knob": "/sys/module/ame_core/parameters/send_ctrl_in_data (default 0)",
+    "sched_max_agg_cnt_knob": "/sys/module/ame_core/parameters/sched_max_agg_cnt (default 8)",
+    "mechanism": "LTU segments IP frames into deterministic LDPC codewords scheduled per 2.0 MHz OFDMA subchannel. When a burst multipath fade corrupts a subset of codewords inside an 80-symbol (2.0 ms) superframe, the receiver returns a per-codeword Block-ACK bitmap (gated by ack_ratio_thr=90% and ackAccuulateCnt=25) so ONLY failed codewords are retransmitted in the very next 2.0 ms superframe without stalling or re-sending the entire aggregate MPDU.",
+    "harq_and_ack_symbols_count": 127,
+    "harq_and_ack_symbols_top": [
+      {
+        "name": "AME_EAB_GetLoopbackTempBuf",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x113628",
+        "size_bytes": 8
+      },
+      {
+        "name": "AME_EAB_GetTxACKInfo",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x120c44",
+        "size_bytes": 32
+      },
+      {
+        "name": "AME_EAB_SetTxAckDelayCheck",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1274e4",
+        "size_bytes": 448
+      },
+      {
+        "name": "AME_GEM_GetPacketByte",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x13a6b0",
+        "size_bytes": 116
+      },
+      {
+        "name": "AME_GEM_GetPacketCnt",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x13a724",
+        "size_bytes": 116
+      },
+      {
+        "name": "AME_HFE_CleanAirPacketByte",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x11c4fc",
+        "size_bytes": 216
+      },
+      {
+        "name": "AME_HFE_GetAirPacketByte",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x11c434",
+        "size_bytes": 200
+      },
+      {
+        "name": "AME_HFE_GetAirPacketCnt",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x11c3b8",
+        "size_bytes": 124
+      },
+      {
+        "name": "BBEA_track_tcxo_routine",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0xa5770",
+        "size_bytes": 12
+      },
+      {
+        "name": "BBEA_track_tcxo_work",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xdb4",
+        "size_bytes": 16
+      },
+      {
+        "name": "CtrlSendAlivePacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x720e0",
+        "size_bytes": 144
+      },
+      {
+        "name": "CtrlSendCmnRspPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x70ba4",
+        "size_bytes": 132
+      },
+      {
+        "name": "CtrlSendFrameOpPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x70c28",
+        "size_bytes": 140
+      },
+      {
+        "name": "CtrlSendQueueOpPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x724e4",
+        "size_bytes": 752
+      },
+      {
+        "name": "CtrlSendULPgyPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x732b4",
+        "size_bytes": 228
+      },
+      {
+        "name": "CtrlSendULReqPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x70cb4",
+        "size_bytes": 720
+      },
+      {
+        "name": "Ctrl_GetCurrBackoffDelay",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x70b34",
+        "size_bytes": 56
+      },
+      {
+        "name": "Ctrl_ISR_SendPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x706b4",
+        "size_bytes": 68
+      },
+      {
+        "name": "Ctrl_IsPiggyBackSupport",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x727d4",
+        "size_bytes": 524
+      },
+      {
+        "name": "Ctrl_SendPiggyback",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x73210",
+        "size_bytes": 76
+      },
+      {
+        "name": "DeliverPkt2Stack",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x827c0",
+        "size_bytes": 260
+      },
+      {
+        "name": "GetAckInfo_rcv",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ab88",
+        "size_bytes": 112
+      },
+      {
+        "name": "GetAckInfo_snd",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5abf8",
+        "size_bytes": 24
+      },
+      {
+        "name": "IF_Ctrl2Driv_GetCurrentBackoffDelay",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x792a0",
+        "size_bytes": 12
+      },
+      {
+        "name": "IF_Ctrl2Driv_SendPacket",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x79240",
+        "size_bytes": 12
+      },
+      {
+        "name": "PrepareAckInfo_rcv",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ab1c",
+        "size_bytes": 52
+      },
+      {
+        "name": "PrepareAckInfo_snd",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ab50",
+        "size_bytes": 56
+      },
+      {
+        "name": "ResetAckInfo_rcv",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5aacc",
+        "size_bytes": 40
+      },
+      {
+        "name": "ResetAckInfo_snd",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5aaf4",
+        "size_bytes": 40
+      },
+      {
+        "name": "Sched_choose_ack_symbol_mcs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x60cfc",
+        "size_bytes": 380
+      }
+    ],
+    "fsm_and_timer_symbols_count": 204,
+    "fsm_and_timer_symbols_top": [
+      {
+        "name": "AME_EAB_Get_Mcs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x11fce8",
+        "size_bytes": 84
+      },
+      {
+        "name": "AME_Modem_state_without_interrupt",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x42da0",
+        "size_bytes": 348
+      },
+      {
+        "name": "AME_SchedAutoMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5dd00",
+        "size_bytes": 80
+      },
+      {
+        "name": "AME_SchedUpdateMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5d5b4",
+        "size_bytes": 888
+      },
+      {
+        "name": "AME_SchedUpdateSysMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5e1f8",
+        "size_bytes": 652
+      },
+      {
+        "name": "AME_Sched_MixMcs_Default_portion",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5bd90",
+        "size_bytes": 72
+      },
+      {
+        "name": "AME_Sched_MixMcs_get_cfg",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5de28",
+        "size_bytes": 460
+      },
+      {
+        "name": "AME_Sched_MixMcs_init",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5c358",
+        "size_bytes": 168
+      },
+      {
+        "name": "AME_Sched_MixMcs_normalQ_portion",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5bf60",
+        "size_bytes": 616
+      },
+      {
+        "name": "AME_Sched_MixMcs_set_cfg",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5c400",
+        "size_bytes": 648
+      },
+      {
+        "name": "AME_Sched_MixMcs_superQ_portion",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5beb8",
+        "size_bytes": 168
+      },
+      {
+        "name": "AME_Sched_MixMcs_update",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5c1c8",
+        "size_bytes": 400
+      },
+      {
+        "name": "AME_Scheduler_AutoMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e88c",
+        "size_bytes": 84
+      },
+      {
+        "name": "AME_Scheduler_AutoMCS_GetPtmpCpeRateWithTraffic",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e910",
+        "size_bytes": 40
+      },
+      {
+        "name": "AME_Scheduler_AutoMCS_GetPtmpDLCeiling",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e938",
+        "size_bytes": 100
+      },
+      {
+        "name": "AME_Scheduler_AutoMCS_Restart",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e8e0",
+        "size_bytes": 28
+      },
+      {
+        "name": "AME_Scheduler_AutoMCS_UpdatePtmpCpeRateWithTraffic",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e8fc",
+        "size_bytes": 20
+      },
+      {
+        "name": "Ctrl_GetCpeWaitTimerCnt",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6f6f4",
+        "size_bytes": 48
+      },
+      {
+        "name": "Ctrl_GetCurrState",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x70b18",
+        "size_bytes": 28
+      },
+      {
+        "name": "Ctrl_GetCurrStateToStr",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x76ab8",
+        "size_bytes": 184
+      },
+      {
+        "name": "Ctrl_GetMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6f74c",
+        "size_bytes": 40
+      },
+      {
+        "name": "Ctrl_GetMixMcsPortion",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6f7cc",
+        "size_bytes": 40
+      },
+      {
+        "name": "Ctrl_TimerHandler",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x77030",
+        "size_bytes": 1472
+      },
+      {
+        "name": "EDSM_State",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x4eb70",
+        "size_bytes": 8
+      },
+      {
+        "name": "IF_Ctrl2Driv_GetCurrState",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x79294",
+        "size_bytes": 12
+      },
+      {
+        "name": "L2BugTimerExpire",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x150878",
+        "size_bytes": 256
+      },
+      {
+        "name": "L2bugTimer",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x152fcc",
+        "size_bytes": 588
+      },
+      {
+        "name": "Sched_FindCpeDLSubdLstByMcsLvl",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ba18",
+        "size_bytes": 40
+      },
+      {
+        "name": "Sched_choose_ack_symbol_mcs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x60cfc",
+        "size_bytes": 380
+      },
+      {
+        "name": "Sched_fetch_ack_mcs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5afd0",
+        "size_bytes": 68
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s249a-ltu-harq-retransmission-rate-fsm-re"
+  }
+}

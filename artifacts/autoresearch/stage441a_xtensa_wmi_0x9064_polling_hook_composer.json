@@ -1,0 +1,437 @@
+{
+  "stage": "441A",
+  "task_id": "T-S441A-XTENSA-WMI-0X9064-POLLING-HOOK-COMPOSER",
+  "title": "Pillar 3 Xtensa WMI 0x9064 51-Entry Jump Table (0x009b2037) & 32-Slot Target Polling Hook Composer (0x0040f688)",
+  "generated_at": "2026-10-27T01:02:01.438712+00:00",
+  "status": "CONFIRMED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k"
+  ],
+  "memory_master_claim_id": "mm-831f",
+  "prior_stages_reconciled": {
+    "stage387a_receipt": "artifacts/autoresearch/stage387a_qca988x_wmi_0x9064_jump_table_re.json",
+    "stage423a_receipt": "artifacts/autoresearch/stage423a_qca988x_xtensa_target_polling_hooks_re.json",
+    "root_cause_of_raw_offset_shortfall": "Stages 387A and 423A measured raw compressed SGMT length (197,537 B -> 0x009b03a1) without invoking BMI_LZ decompression (file_flags=1). After BMI_LZ decompression, IE 3 Segment 3 spans 216,724 B (0x00983c00..0x009b8a94) and umac.ko AP Segment 3 spans 283,604 B (0x00983c00..0x009c8fd4), both containing 0x009b2037 and 0x009b5c02."
+  },
+  "decompressed_sgmt_validation": {
+    "openwrt_qca988x_hw20_firmware_2_ct_bin": {
+      "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+      "ie3_seg3_vaddr_range": [
+        "0x00983c00",
+        "0x009b8a94"
+      ],
+      "ie3_seg3_decoded_bytes": 216724,
+      "ie3_contains_0x009b2037": true,
+      "ie3_contains_0x009b5c02": true,
+      "ie4_seg2_vaddr_range": [
+        "0x0040b1a0",
+        "0x00411df1"
+      ],
+      "ie4_contains_0x0040f688": true
+    },
+    "athwlan_AR9888v2_ptmp_ap_bin": {
+      "seg2_vaddr_range": [
+        "0x0040d140",
+        "0x0040fbb0"
+      ],
+      "seg2_decoded_bytes": 10864,
+      "wmi_0x9064_opcode_vaddr_hex": "0x0040fb54",
+      "wmi_0x9064_opcode_value_hex": "0x00009064",
+      "words_at_0x0040f688_count": 32,
+      "words_at_0x0040f688_first8": [
+        "0x00000001",
+        "0x00000000",
+        "0x0040bec0",
+        "0x0014ffea",
+        "0x0013ffe9",
+        "0x0012ffe8",
+        "0x0011ffe7",
+        "0x0010ffe6"
+      ],
+      "seg3_vaddr_range": [
+        "0x00983c00",
+        "0x009c8fd4"
+      ],
+      "seg3_decoded_bytes": 283604,
+      "jump_table_0x009b2037_bytes_hex": "46250086e10186d80106230046220006",
+      "case_0x17_0x009b207c_bytes_hex": "063e01461300461f01c61100",
+      "handler_0x009b5c02_bytes_hex": "a2c164abb392030992450c82243e0c2c"
+    }
+  },
+  "iram_station_queue_telemetry_descriptors": {
+    "iram_base_hex": "0x00981a00",
+    "iram_end_hex": "0x00981c00",
+    "station_slots": 32,
+    "bytes_per_descriptor": 16,
+    "total_ring_bytes": 512,
+    "descriptors": [
+      {
+        "station_slot": 0,
+        "iram_address_hex": "0x00981a00",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 1514,
+        "tid5_vi_backlog_bytes": 1316,
+        "tid6_vo_backlog_bytes": 160,
+        "head_sojourn_us": 850,
+        "wmi_magic_tag_hex": "0x90640000",
+        "encoded_hex": "ea0500002405a0005203000000006490"
+      },
+      {
+        "station_slot": 1,
+        "iram_address_hex": "0x00981a10",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 3028,
+        "tid5_vi_backlog_bytes": 1316,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 970,
+        "wmi_magic_tag_hex": "0x90640001",
+        "encoded_hex": "d40b000124050000ca03000001006490"
+      },
+      {
+        "station_slot": 2,
+        "iram_address_hex": "0x00981a20",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 4542,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 1090,
+        "wmi_magic_tag_hex": "0x90640002",
+        "encoded_hex": "be110002000000004204000002006490"
+      },
+      {
+        "station_slot": 3,
+        "iram_address_hex": "0x00981a30",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 6056,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 1210,
+        "wmi_magic_tag_hex": "0x90640003",
+        "encoded_hex": "a817000300000000ba04000003006490"
+      },
+      {
+        "station_slot": 4,
+        "iram_address_hex": "0x00981a40",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640004",
+        "encoded_hex": "00000004000000000000000004006490"
+      },
+      {
+        "station_slot": 5,
+        "iram_address_hex": "0x00981a50",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640005",
+        "encoded_hex": "00000005000000000000000005006490"
+      },
+      {
+        "station_slot": 6,
+        "iram_address_hex": "0x00981a60",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640006",
+        "encoded_hex": "00000006000000000000000006006490"
+      },
+      {
+        "station_slot": 7,
+        "iram_address_hex": "0x00981a70",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640007",
+        "encoded_hex": "00000007000000000000000007006490"
+      },
+      {
+        "station_slot": 8,
+        "iram_address_hex": "0x00981a80",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640008",
+        "encoded_hex": "00000008000000000000000008006490"
+      },
+      {
+        "station_slot": 9,
+        "iram_address_hex": "0x00981a90",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640009",
+        "encoded_hex": "00000009000000000000000009006490"
+      },
+      {
+        "station_slot": 10,
+        "iram_address_hex": "0x00981aa0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000a",
+        "encoded_hex": "0000000a00000000000000000a006490"
+      },
+      {
+        "station_slot": 11,
+        "iram_address_hex": "0x00981ab0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000b",
+        "encoded_hex": "0000000b00000000000000000b006490"
+      },
+      {
+        "station_slot": 12,
+        "iram_address_hex": "0x00981ac0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000c",
+        "encoded_hex": "0000000c00000000000000000c006490"
+      },
+      {
+        "station_slot": 13,
+        "iram_address_hex": "0x00981ad0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000d",
+        "encoded_hex": "0000000d00000000000000000d006490"
+      },
+      {
+        "station_slot": 14,
+        "iram_address_hex": "0x00981ae0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000e",
+        "encoded_hex": "0000000e00000000000000000e006490"
+      },
+      {
+        "station_slot": 15,
+        "iram_address_hex": "0x00981af0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064000f",
+        "encoded_hex": "0000000f00000000000000000f006490"
+      },
+      {
+        "station_slot": 16,
+        "iram_address_hex": "0x00981b00",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640010",
+        "encoded_hex": "00000010000000000000000010006490"
+      },
+      {
+        "station_slot": 17,
+        "iram_address_hex": "0x00981b10",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640011",
+        "encoded_hex": "00000011000000000000000011006490"
+      },
+      {
+        "station_slot": 18,
+        "iram_address_hex": "0x00981b20",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640012",
+        "encoded_hex": "00000012000000000000000012006490"
+      },
+      {
+        "station_slot": 19,
+        "iram_address_hex": "0x00981b30",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640013",
+        "encoded_hex": "00000013000000000000000013006490"
+      },
+      {
+        "station_slot": 20,
+        "iram_address_hex": "0x00981b40",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640014",
+        "encoded_hex": "00000014000000000000000014006490"
+      },
+      {
+        "station_slot": 21,
+        "iram_address_hex": "0x00981b50",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640015",
+        "encoded_hex": "00000015000000000000000015006490"
+      },
+      {
+        "station_slot": 22,
+        "iram_address_hex": "0x00981b60",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640016",
+        "encoded_hex": "00000016000000000000000016006490"
+      },
+      {
+        "station_slot": 23,
+        "iram_address_hex": "0x00981b70",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640017",
+        "encoded_hex": "00000017000000000000000017006490"
+      },
+      {
+        "station_slot": 24,
+        "iram_address_hex": "0x00981b80",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640018",
+        "encoded_hex": "00000018000000000000000018006490"
+      },
+      {
+        "station_slot": 25,
+        "iram_address_hex": "0x00981b90",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x90640019",
+        "encoded_hex": "00000019000000000000000019006490"
+      },
+      {
+        "station_slot": 26,
+        "iram_address_hex": "0x00981ba0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001a",
+        "encoded_hex": "0000001a00000000000000001a006490"
+      },
+      {
+        "station_slot": 27,
+        "iram_address_hex": "0x00981bb0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001b",
+        "encoded_hex": "0000001b00000000000000001b006490"
+      },
+      {
+        "station_slot": 28,
+        "iram_address_hex": "0x00981bc0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001c",
+        "encoded_hex": "0000001c00000000000000001c006490"
+      },
+      {
+        "station_slot": 29,
+        "iram_address_hex": "0x00981bd0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001d",
+        "encoded_hex": "0000001d00000000000000001d006490"
+      },
+      {
+        "station_slot": 30,
+        "iram_address_hex": "0x00981be0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001e",
+        "encoded_hex": "0000001e00000000000000001e006490"
+      },
+      {
+        "station_slot": 31,
+        "iram_address_hex": "0x00981bf0",
+        "descriptor_size_bytes": 16,
+        "tid0_be_backlog_bytes": 0,
+        "tid5_vi_backlog_bytes": 0,
+        "tid6_vo_backlog_bytes": 0,
+        "head_sojourn_us": 0,
+        "wmi_magic_tag_hex": "0x9064001f",
+        "encoded_hex": "0000001f00000000000000001f006490"
+      }
+    ]
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Reconciles Stages 387A & 423A by BMI_LZ-decompressing SGMT segments to expose 0x009b2037, 0x009b5c02, 0x0040f688, and 0x0040fb54",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Maps WMI 0x9064 (PB040-WMI-DISPATCH-0x9064) and IRAM scratch window 0x00981a00..0x00981bff",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Pairs with Stage 347A RAM bind-mount loader and Stage 409A WMI 0x9044/0x9064 hook loader",
+    "pillar_d_scientific_pareto_validation": "Provides 512-byte 32-station queue backlog & sojourn descriptors for zero-overhead airtime scheduling",
+    "pillar_e_memory_master_claim_id": "mm-831f"
+  }
+}

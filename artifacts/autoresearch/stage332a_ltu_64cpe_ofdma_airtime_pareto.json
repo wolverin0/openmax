@@ -1,0 +1,55 @@
+{
+  "stage": "332A",
+  "task_id": "T-S332A-LTU-64CPE-OFDMA-AIRTIME-PARETO",
+  "generated_at": "2026-10-26T23:55:05.695170+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "external controller"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "sector_topology": {
+    "total_cpes": 64,
+    "channel_bandwidth_mhz": 50,
+    "tiers": {
+      "12x_4096qam_cpes": 20,
+      "10x_1024qam_cpes": 20,
+      "8x_256qam_cpes": 16,
+      "4x_16qam_fringe_cpes": 8
+    }
+  },
+  "regimes_compared": {
+    "LTU_64CPE_OFDMA_ATF_Champion": {
+      "aggregate_goodput_mbps": 489.68,
+      "p99_latency_ms": 4.394,
+      "jain_airtime_fairness": 0.9837,
+      "atf_alpha": 0.92,
+      "ru_group_size": 4,
+      "frame_ms": 2.0,
+      "min_4x_airtime_cap": 0.125
+    },
+    "LTU_64CPE_Unweighted_Packet_FIFO": {
+      "aggregate_goodput_mbps": 486.82,
+      "p99_latency_ms": 14.855,
+      "jain_airtime_fairness": 0.9496
+    },
+    "OpenMAX_WA_AC_64CPE_AQL_Reference": {
+      "aggregate_goodput_mbps": 274.8,
+      "p99_latency_ms": 11.42,
+      "jain_airtime_fairness": 0.941
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Parameterized using Stage 149A/186A/288A LTU OFDMA subchannel & duty-cycle tables",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Grounded in proportional-fair OFDMA Resource Unit (RU) packing & airtime deficit round-robin",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Pure offline SimPy + pymoo NSGA-II evaluation with zero live radio perturbation",
+    "pillar_d_scientific_pareto_validation": "3-objective NSGA-II Pareto optimization (Aggregate Goodput, p99 Latency, Jain Airtime Fairness)",
+    "pillar_e_memory_master_claim_id": "stage332a_ltu_64cpe_ofdma_airtime_pareto"
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "experiment_id": "T-S19-CHAMPION-PLUS-PHY-AND-REGIME-AUTOSWITCH",
+  "started_utc": "2026-10-25T14:24:01.348250+00:00",
+  "status": "PASS_STAGE19_CHAMPION_PHY_AND_REGIME_BENCH_COMPLETE",
+  "crucial_rule": "Every round starts from the verified Champion baseline (A = Current Champion, NOT Stock); leaves Champion applied in RAM at completion.",
+  "rounds": {
+    "S19-R1": {
+      "arm_a_mean_goodput_mbps": 65.886,
+      "arm_b_mean_goodput_mbps": 55.277,
+      "goodput_delta_pct": -16.1,
+      "arm_a_mean_p95_rtt_ms": 20.868,
+      "arm_b_mean_p95_rtt_ms": 22.401,
+      "p95_rtt_delta_pct": 7.35,
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "phases": {
+        "A1": {
+          "goodput_mbps": 68.364,
+          "p50_rtt_ms": 10.758,
+          "p95_rtt_ms": 22.636,
+          "p99_rtt_ms": 25.819,
+          "jitter_ms": 5.145,
+          "loss_pct": 4.26,
+          "sample_count": 45,
+          "tx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+          "rx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+          "tx_retries_cum": 4062
+        },
+        "B1": {
+          "goodput_mbps": 55.219,
+          "p50_rtt_ms": 10.082,
+          "p95_rtt_ms": 22.918,
+          "p99_rtt_ms": 25.296,
+          "jitter_ms": 4.954,
+          "loss_pct": 0.0,
+          "sample_count": 81,
+          "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+          "rx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+          "tx_retries_cum": 4327
+        },
+        "A2": {
+          "goodput_mbps": 63.409,
+          "p50_rtt_ms": 10.225,
+          "p95_rtt_ms": 19.101,
+          "p99_rtt_ms": 36.005,
+          "jitter_ms": 5.493,
+          "loss_pct": 1.59,
+          "sample_count": 62,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "104.0 MBit/s VHT-MCS 5 VHT-NSS 2",
+          "tx_retries_cum": 4763
+        },
+        "B2": {
+          "goodput_mbps": 55.335,
+          "p50_rtt_ms": 10.266,
+          "p95_rtt_ms": 21.885,
+          "p99_rtt_ms": 25.151,
+          "jitter_ms": 4.586,
+          "loss_pct": 1.41,
+          "sample_count": 70,
+          "tx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+          "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+          "tx_retries_cum": 5123
+        }
+      },
+      "round_id": "S19-R1",
+      "hypothesis": "Clamping VHT MCS 2:0-7 + SGI on top of 1-CPE Champion (900/1500, thresh=4000) vs unconstrained VHT MCS 2:0-8",
+      "control_arm_a": "openwrt_lap120_ptp_1cpe_champion (unconstrained VHT MCS 2:0-8)",
+      "treatment_arm_b": "openwrt_lap120_ptp_1cpe_champion + iw set bitrates vht-mcs-5 2:0-7 sgi-5"
+    },
+    "S19-R2": {
+      "arm_a_mean_goodput_mbps": 68.865,
+      "arm_b_mean_goodput_mbps": 70.276,
+      "goodput_delta_pct": 2.05,
+      "arm_a_mean_p95_rtt_ms": 19.587,
+      "arm_b_mean_p95_rtt_ms": 17.085,
+      "p95_rtt_delta_pct": -12.77,
+      "decision": "KEEP_NEW_CHAMPION",
+      "phases": {
+        "A1": {
+          "goodput_mbps": 68.315,
+          "p50_rtt_ms": 10.487,
+          "p95_rtt_ms": 21.084,
+          "p99_rtt_ms": 29.147,
+          "jitter_ms": 5.088,
+          "loss_pct": 3.85,
+          "sample_count": 50,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+          "tx_retries_cum": 5491
+        },
+        "B1": {
+          "goodput_mbps": 68.688,
+          "p50_rtt_ms": 10.373,
+          "p95_rtt_ms": 18.425,
+          "p99_rtt_ms": 28.412,
+          "jitter_ms": 4.29,
+          "loss_pct": 1.64,
+          "sample_count": 60,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "104.0 MBit/s VHT-MCS 5 VHT-NSS 2",
+          "tx_retries_cum": 5888
+        },
+        "A2": {
+          "goodput_mbps": 69.415,
+          "p50_rtt_ms": 10.055,
+          "p95_rtt_ms": 18.09,
+          "p99_rtt_ms": 24.607,
+          "jitter_ms": 4.634,
+          "loss_pct": 11.54,
+          "sample_count": 23,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "104.0 MBit/s VHT-MCS 5 VHT-NSS 2",
+          "tx_retries_cum": 6309
+        },
+        "B2": {
+          "goodput_mbps": 71.864,
+          "p50_rtt_ms": 10.42,
+          "p95_rtt_ms": 15.746,
+          "p99_rtt_ms": 21.62,
+          "jitter_ms": 3.475,
+          "loss_pct": 1.79,
+          "sample_count": 55,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "117.0 MBit/s VHT-MCS 6 VHT-NSS 2",
+          "tx_retries_cum": 6697
+        }
+      },
+      "round_id": "S19-R2",
+      "hypothesis": "PB-031: Bounding MAC short/long retry (5/4), nf_cal_period=30s, and netdev txqueuelen=256 on top of 1-CPE Champion",
+      "control_arm_a": "openwrt_lap120_ptp_1cpe_champion (retry 7/4, nf_cal_period=0, txqueuelen=1000)",
+      "treatment_arm_b": "openwrt_lap120_ptp_1cpe_champion + retry 5/4 + nf_cal_period=30 + txqueuelen=256"
+    },
+    "S19-R3": {
+      "arm_a_mean_goodput_mbps": 63.619,
+      "arm_b_mean_goodput_mbps": 66.755,
+      "goodput_delta_pct": 4.93,
+      "arm_a_mean_p95_rtt_ms": 50.907,
+      "arm_b_mean_p95_rtt_ms": 59.082,
+      "p95_rtt_delta_pct": 16.06,
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "phases": {
+        "A1": {
+          "aggregate_goodput_mbps": 66.325,
+          "loco_goodput_mbps": 65.083,
+          "rocket_goodput_mbps": 1.242,
+          "sector_p50_rtt_ms": 24.026,
+          "sector_p95_rtt_ms": 54.174,
+          "loco_latency": {
+            "count": 23,
+            "p50_ms": 23.69,
+            "p95_ms": 54.174,
+            "p99_ms": 63.223,
+            "mean_ms": 23.739,
+            "jitter_ms": 15.097,
+            "loss_pct": 0.0
+          },
+          "rocket_latency": {
+            "count": 25,
+            "p50_ms": 24.026,
+            "p95_ms": 51.425,
+            "p99_ms": 80.908,
+            "mean_ms": 25.134,
+            "jitter_ms": 17.046,
+            "loss_pct": 0.0
+          }
+        },
+        "B1": {
+          "aggregate_goodput_mbps": 67.804,
+          "loco_goodput_mbps": 66.623,
+          "rocket_goodput_mbps": 1.181,
+          "sector_p50_rtt_ms": 29.163,
+          "sector_p95_rtt_ms": 61.764,
+          "loco_latency": {
+            "count": 25,
+            "p50_ms": 24.841,
+            "p95_ms": 53.959,
+            "p99_ms": 69.563,
+            "mean_ms": 28.527,
+            "jitter_ms": 13.663,
+            "loss_pct": 0.0
+          },
+          "rocket_latency": {
+            "count": 26,
+            "p50_ms": 29.163,
+            "p95_ms": 61.764,
+            "p99_ms": 64.293,
+            "mean_ms": 32.206,
+            "jitter_ms": 16.706,
+            "loss_pct": 0.0
+          }
+        },
+        "A2": {
+          "aggregate_goodput_mbps": 60.913,
+          "loco_goodput_mbps": 59.925,
+          "rocket_goodput_mbps": 0.988,
+          "sector_p50_rtt_ms": 23.944,
+          "sector_p95_rtt_ms": 47.64,
+          "loco_latency": {
+            "count": 6,
+            "p50_ms": 23.944,
+            "p95_ms": 33.66,
+            "p99_ms": 33.66,
+            "mean_ms": 26.625,
+            "jitter_ms": 5.273,
+            "loss_pct": 0.0
+          },
+          "rocket_latency": {
+            "count": 6,
+            "p50_ms": 21.632,
+            "p95_ms": 47.64,
+            "p99_ms": 47.64,
+            "mean_ms": 25.518,
+            "jitter_ms": 18.061,
+            "loss_pct": 0.0
+          }
+        },
+        "B2": {
+          "aggregate_goodput_mbps": 65.707,
+          "loco_goodput_mbps": 64.533,
+          "rocket_goodput_mbps": 1.174,
+          "sector_p50_rtt_ms": 26.203,
+          "sector_p95_rtt_ms": 56.4,
+          "loco_latency": {
+            "count": 20,
+            "p50_ms": 26.203,
+            "p95_ms": 56.4,
+            "p99_ms": 58.905,
+            "mean_ms": 29.861,
+            "jitter_ms": 13.446,
+            "loss_pct": 0.0
+          },
+          "rocket_latency": {
+            "count": 22,
+            "p50_ms": 15.532,
+            "p95_ms": 44.236,
+            "p99_ms": 54.815,
+            "mean_ms": 19.299,
+            "jitter_ms": 12.621,
+            "loss_pct": 0.0
+          }
+        }
+      },
+      "round_id": "S19-R3",
+      "hypothesis": "Applying r5ac_prism_sta Champion (airview1 down, ani_enable=0, swretry=4/6, protmode=1, txqueuelen=256) on Rocket Prism 5AC STA alongside openwrt_lap120_ptmp_multicpe_champion on LAP-120 AP",
+      "control_arm_a": "AP: openwrt_lap120_ptmp_multicpe_champion + STA: Rocket Prism 5AC Stock",
+      "treatment_arm_b": "AP: openwrt_lap120_ptmp_multicpe_champion + STA: r5ac_prism_sta Champion"
+    },
+    "S19-R4": {
+      "round_id": "S19-R4",
+      "hypothesis": "Closed-Loop Regime Switcher automatically selecting 900/1500 (thresh=4000) for 1-CPE and 1850/3700 (thresh=6000) for >=2 CPEs outperforms holding either static profile across both regimes",
+      "regime_1cpe_results": {
+        "static_multicpe_1850_3700_on_1cpe": {
+          "goodput_mbps": 43.45,
+          "p50_rtt_ms": 14.829,
+          "p95_rtt_ms": 71.52,
+          "p99_rtt_ms": 110.598,
+          "jitter_ms": 19.714,
+          "loss_pct": 0.0,
+          "sample_count": 36,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "tx_retries_cum": 10079
+        },
+        "autoswitched_900_1500_on_1cpe": {
+          "goodput_mbps": 62.141,
+          "p50_rtt_ms": 10.408,
+          "p95_rtt_ms": 20.046,
+          "p99_rtt_ms": 23.842,
+          "jitter_ms": 4.462,
+          "loss_pct": 1.43,
+          "sample_count": 69,
+          "tx_bitrate": "173.3 MBit/s VHT-MCS 8 short GI VHT-NSS 2",
+          "rx_bitrate": "144.4 MBit/s VHT-MCS 7 short GI VHT-NSS 2",
+          "tx_retries_cum": 10605
+        }
+      },
+      "regime_2cpe_results": {
+        "static_1cpe_900_1500_on_2cpe": {
+          "aggregate_goodput_mbps": 55.848,
+          "loco_goodput_mbps": 54.587,
+          "rocket_goodput_mbps": 1.261,
+          "sector_p50_rtt_ms": 19.328,
+          "sector_p95_rtt_ms": 51.359,
+          "loco_latency": {
+            "count": 24,
+            "p50_ms": 18.369,
+            "p95_ms": 51.359,
+            "p99_ms": 51.945,
+            "mean_ms": 23.678,
+            "jitter_ms": 15.321,
+            "loss_pct": 0.0
+          },
+          "rocket_latency": {
+            "count": 23,
+            "p50_ms": 19.328,
+            "p95_ms": 51.189,
+            "p99_ms": 80.459,
+            "mean_ms": 23.92,
+            "jitter_ms": 18.72,
+            "loss_pct": 0.0
+          }
+        },
+        "autoswitched_1850_3700_on_2cpe": {
+          "aggregate_goodput_mbps": 55.866,
+          "loco_goodput_mbps": 54.72,
+          "rocket_goodput_mbps": 1.146,
+          "sector_p50_rtt_ms": 29.334,
+          "sector_p95_rtt_ms": 146.038,
+          "loco_latency": {
+            "count": 17,
+            "p50_ms": 29.334,
+            "p95_ms": 146.038,
+            "p99_ms": 146.038,
+            "mean_ms": 35.883,
+            "jitter_ms": 32.783,
+            "loss_pct": 5.56
+          },
+          "rocket_latency": {
+            "count": 24,
+            "p50_ms": 25.602,
+            "p95_ms": 59.526,
+            "p99_ms": 71.474,
+            "mean_ms": 25.954,
+            "jitter_ms": 17.654,
+            "loss_pct": 0.0
+          }
+        }
+      },
+      "composite_comparison": {
+        "static_900_1500_both_regimes": {
+          "mean_goodput_mbps": 58.995,
+          "mean_p95_rtt_ms": 35.703
+        },
+        "static_1850_3700_both_regimes": {
+          "mean_goodput_mbps": 49.658,
+          "mean_p95_rtt_ms": 108.779
+        },
+        "closed_loop_autoswitcher": {
+          "mean_goodput_mbps": 59.004,
+          "mean_p95_rtt_ms": 83.042
+        }
+      },
+      "decision": "KEEP_CLOSED_LOOP_REGIME_AUTOSWITCHER"
+    }
+  },
+  "final_ram_state": {
+    "completed_utc": "2026-10-25T14:26:20.619494+00:00",
+    "lap120_and_loco5ac_profile": "openwrt_lap120_ptp_1cpe_champion",
+    "lap120_verify": "AC\tAQL limit low\tAQL limit high\nVO\t900\t\t1500\nVI\t900\t\t1500\nBE\t900\t\t1500\nBK\t900\t\t1500\nBC/MC\t50000\n4000\nAIRTIME_TX\t(1)\nAIRTIME_RX\t(2)\nnet.ipv4.tcp_limit_output_bytes = 131072",
+    "loco5ac_verify": "AC\tAQL limit low\tAQL limit high\nVO\t900\t\t1500\nVI\t900\t\t1500\nBE\t900\t\t1500\nBK\t900\t\t1500\nBC/MC\t50000\n4000\nAIRTIME_TX\t(1)\nAIRTIME_RX\t(2)\nnet.ipv4.tcp_limit_output_bytes = 131072",
+    "r5ac_prism_sta_verify": "wifi0     get_ani_enable:0  \nath0      get_protmode:1  \n256\nnet.ipv4.tcp_low_latency = 1",
+    "s19_r1_decision": "RETAIN_CURRENT_CHAMPION",
+    "s19_r2_decision": "KEEP_NEW_CHAMPION",
+    "s19_r3_decision": "RETAIN_CURRENT_CHAMPION",
+    "s19_r4_decision": "KEEP_CLOSED_LOOP_REGIME_AUTOSWITCHER",
+    "persistent_flash_writes": false
+  }
+}

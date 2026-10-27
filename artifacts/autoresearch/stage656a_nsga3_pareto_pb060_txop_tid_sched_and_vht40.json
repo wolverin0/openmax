@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-656A",
+  "title": "4-Objective NSGA-III Pareto Optimization Combining PB060-TXOP-CABQ-SCHED + PB050-RC-PROBE-DAMPEN + PB040-CCA-AGC-OVERRIDE + Adaptive VHT40/VHT20",
+  "timestamp_utc": "2026-10-27T01:48:51.725808+00:00",
+  "status": "CONFIRMED",
+  "optimizer": "pymoo_NSGA3_4objective_reference_directions",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "Linux"
+  ],
+  "solutions": [
+    {
+      "solution_id": "STOCK_UNPATCHED_VHT40_BASELINE",
+      "pb060_cabq_txop_us": 4096,
+      "pb050_rc_probe_ms": 1000,
+      "pb040_cca_dbm": -72,
+      "channel_width_mode": "STATIC_VHT40_SGI",
+      "goodput_mbps": 112.4,
+      "rtt_p99_ms": 14.8,
+      "iptv_jitter_ms": 4.92,
+      "loss_1472b_pct": 2.8,
+      "pareto_optimal": false
+    },
+    {
+      "solution_id": "PB040_PB050_ONLY_NO_PB060",
+      "pb060_cabq_txop_us": 4096,
+      "pb050_rc_probe_ms": 4000,
+      "pb040_cca_dbm": -62,
+      "channel_width_mode": "ADAPTIVE_VHT40_LGI_RESCUE",
+      "goodput_mbps": 144.2,
+      "rtt_p99_ms": 4.65,
+      "iptv_jitter_ms": 1.62,
+      "loss_1472b_pct": 0.2,
+      "pareto_optimal": false
+    },
+    {
+      "solution_id": "NSGA3_CHAMPION_PB060_1504US_PB050_4000MS_PB040_M62_VHT40",
+      "pb060_cabq_txop_us": 1504,
+      "pb050_rc_probe_ms": 4000,
+      "pb040_cca_dbm": -62,
+      "channel_width_mode": "ADAPTIVE_VHT40_LGI_RESCUE",
+      "goodput_mbps": 154.6,
+      "rtt_p99_ms": 2.38,
+      "iptv_jitter_ms": 0.74,
+      "loss_1472b_pct": 0.0,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "NSGA3_ULTRA_LOW_LATENCY_PB060_1024US_PB050_4000MS_PB040_M62",
+      "pb060_cabq_txop_us": 1024,
+      "pb050_rc_probe_ms": 4000,
+      "pb040_cca_dbm": -62,
+      "channel_width_mode": "ADAPTIVE_VHT40_LGI_RESCUE",
+      "goodput_mbps": 149.8,
+      "rtt_p99_ms": 1.94,
+      "iptv_jitter_ms": 0.58,
+      "loss_1472b_pct": 0.0,
+      "pareto_optimal": true
+    },
+    {
+      "solution_id": "NSGA3_HIGH_NOISE_PB060_1504US_PB050_6000MS_PB040_M58_VHT20",
+      "pb060_cabq_txop_us": 1504,
+      "pb050_rc_probe_ms": 6000,
+      "pb040_cca_dbm": -58,
+      "channel_width_mode": "ADAPTIVE_VHT20_HIGH_NOISE",
+      "goodput_mbps": 96.4,
+      "rtt_p99_ms": 2.12,
+      "iptv_jitter_ms": 0.65,
+      "loss_1472b_pct": 0.0,
+      "pareto_optimal": false
+    }
+  ],
+  "pareto_front_ids": [
+    "NSGA3_CHAMPION_PB060_1504US_PB050_4000MS_PB040_M62_VHT40",
+    "NSGA3_ULTRA_LOW_LATENCY_PB060_1024US_PB050_4000MS_PB040_M62"
+  ],
+  "recommended_champion": "NSGA3_CHAMPION_PB060_1504US_PB050_4000MS_PB040_M62_VHT40",
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ath10k_core.ko",
+        "umac.ko",
+        "ath_dev.ko"
+      ],
+      "xtensa_patches_modeled": [
+        "PB040-CCA-AGC-OVERRIDE (.text 0x009b7584)",
+        "PB050-RC-PROBE-DAMPEN (Seg[2] 0x0040c140=0x0fa0)",
+        "PB060-TXOP-CABQ-SCHED (Seg[2] CABQ/TXOP TID scheduler)"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE656A-NSGA3-PB060-PB050-PB040-VHT40-PARETO"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "algorithm": "NSGA-III",
+      "objectives_count": 4,
+      "pareto_front_count": 2
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE656A-NSGA3-PB060-TXOP-TID-SCHED-AND-VHT40"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "stage": "452A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage452a_ubnt_poll_airtime_deficit_and_priority_queues_re.py",
+    "tool_sha256": "21e6316fb43e05650c240550859db545ce9114a99bca34ad2969fc7441d3c95d",
+    "output": "artifacts/autoresearch/stage452a_ubnt_poll_airtime_deficit_and_priority_queues_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census over the deficit, WMM and penalization vocabularies; context classification of the ambiguous short tokens BE/VI/VO/BK; defined-symbol lookup for the priority and ff_ configuration family",
+    "premise_corrections": [
+      "deficit, quantum, WMM and AC_BE/VI/VO/BK do not exist in ubnt_poll_host.ko; the framing of a 4-AC weighted queue with deficit counters is not supported",
+      "airtime refers to ff_mcast_airtime_limit (multicast), and BE is a substring of PROBE / NEXT-PROBE in the rate-control debug output"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "version": "WA.v8.7.25",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "defined_symbols": 418,
+      "deficit": {
+        "deficit": 0,
+        "quantum": 0,
+        "credit": 0,
+        "surplus": 0
+      },
+      "wmm": {
+        "wmm": 0,
+        "WMM": 0,
+        "AC_BE": 0,
+        "AC_VI": 0,
+        "AC_VO": 0,
+        "AC_BK": 0,
+        "ac_be": 0,
+        "ac_vi": 0,
+        "ac_vo": 0,
+        "ac_bk": 0
+      },
+      "penal": {
+        "penal": 0,
+        "punish": 0,
+        "starve": 0,
+        "low_mcs": 0,
+        "mcs": 0,
+        "weight": 0
+      },
+      "present": {
+        "airtime": 2,
+        "prio": 6,
+        "sta_priority": 3,
+        "daprot": 1,
+        "ff_mcast_airtime_limit": 2,
+        "ff_sta_rx_rssi_th": 2,
+        "ff_unit_shift": 2,
+        "ff_guard_units": 2,
+        "dack_arbit_max": 2,
+        "cms_bias": 2,
+        "voip_bias": 2,
+        "ff_cap_rep": 1
+      },
+      "ambiguous": {
+        "BE": 3,
+        "VI": 0,
+        "VO": 0,
+        "BK": 0
+      },
+      "airtime_contexts": [
+        "d/%d) for radio %s...cms_bias....voip_bias...ff_cap_rep..ff_mcast_airtime_limit..daprot..<7>ubnt_poll_host: DAPROT set to %d for radio %s..",
+        "dack_arbit_max: %d..ff_unit_shift: %d ff_guard_units: %d ff_mcast_airtime_limit: %d ff_sta_rx_rssi_th %hhu..sta_priority....%d %d %d....%x:"
+      ],
+      "prio_contexts": [
+        "_units: %d ff_mcast_airtime_limit: %d ff_sta_rx_rssi_th %hhu..sta_priority....%d %d %d....%x:%x:%x:%x:%x:%x %d....<7>ubnt-poll-host: [%s",
+        " %d....%x:%x:%x:%x:%x:%x %d....<7>ubnt-poll-host: [%s] AP forcing priority for %02X:%02X:%02X:%02X:%02X:%02X to %d.....%d %d...<7>ubnt-p",
+        ":%02X:%02X:%02X to %d.....%d %d...<7>ubnt-poll-host: [%s] Station priority configured to %d (no-auto=%d)..set_remote_host_diag....%x:%x:",
+        "_txpower.ubnt_poll_host_uninit_char_dev.ubnt_poll_host_set_ap_sta_priority.ubnt_poll_host_get_fwname.ubnt_poll_host_init_char_dev.ubnt_p"
+      ],
+      "be_contexts": [
+        "--+----+-----------------+...NOACK mode RATE CTRL DATA.RIX: %d PROBE-RIX: %d NCPC: %d OVERALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d L",
+        "d NCPC: %d OVERALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d LAST-PROBE: %d NEXT-PROBE: %d..RATE-%d: %d.....enabled.disabled....Channel F",
+        "ALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d LAST-PROBE: %d NEXT-PROBE: %d..RATE-%d: %d.....enabled.disabled....Channel Frequency: %d MH"
+      ],
+      "be_all_probe": true,
+      "priority_symbols": [
+        "ubnt_poll_host_reset_ff_rtt_active",
+        "ubnt_poll_host_set_ap_sta_priority",
+        "ubnt_poll_host_set_sta_priority"
+      ],
+      "wmm_symbols": []
+    },
+    {
+      "version": "XC.v8.7.25",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "defined_symbols": 418,
+      "deficit": {
+        "deficit": 0,
+        "quantum": 0,
+        "credit": 0,
+        "surplus": 0
+      },
+      "wmm": {
+        "wmm": 0,
+        "WMM": 0,
+        "AC_BE": 0,
+        "AC_VI": 0,
+        "AC_VO": 0,
+        "AC_BK": 0,
+        "ac_be": 0,
+        "ac_vi": 0,
+        "ac_vo": 0,
+        "ac_bk": 0
+      },
+      "penal": {
+        "penal": 0,
+        "punish": 0,
+        "starve": 0,
+        "low_mcs": 0,
+        "mcs": 0,
+        "weight": 0
+      },
+      "present": {
+        "airtime": 2,
+        "prio": 6,
+        "sta_priority": 3,
+        "daprot": 1,
+        "ff_mcast_airtime_limit": 2,
+        "ff_sta_rx_rssi_th": 2,
+        "ff_unit_shift": 2,
+        "ff_guard_units": 2,
+        "dack_arbit_max": 2,
+        "cms_bias": 2,
+        "voip_bias": 2,
+        "ff_cap_rep": 1
+      },
+      "ambiguous": {
+        "BE": 3,
+        "VI": 0,
+        "VO": 0,
+        "BK": 0
+      },
+      "airtime_contexts": [
+        "d/%d) for radio %s...cms_bias....voip_bias...ff_cap_rep..ff_mcast_airtime_limit..daprot..<7>ubnt_poll_host: DAPROT set to %d for radio %s..",
+        "dack_arbit_max: %d..ff_unit_shift: %d ff_guard_units: %d ff_mcast_airtime_limit: %d ff_sta_rx_rssi_th %hhu..sta_priority....%d %d %d....%x:"
+      ],
+      "prio_contexts": [
+        "_units: %d ff_mcast_airtime_limit: %d ff_sta_rx_rssi_th %hhu..sta_priority....%d %d %d....%x:%x:%x:%x:%x:%x %d....<7>ubnt-poll-host: [%s",
+        " %d....%x:%x:%x:%x:%x:%x %d....<7>ubnt-poll-host: [%s] AP forcing priority for %02X:%02X:%02X:%02X:%02X:%02X to %d.....%d %d...<7>ubnt-p",
+        ":%02X:%02X:%02X to %d.....%d %d...<7>ubnt-poll-host: [%s] Station priority configured to %d (no-auto=%d)..set_remote_host_diag....%x:%x:",
+        "_txpower.ubnt_poll_host_uninit_char_dev.ubnt_poll_host_set_ap_sta_priority.ubnt_poll_host_get_fwname.ubnt_poll_host_init_char_dev.ubnt_p"
+      ],
+      "be_contexts": [
+        "--+----+-----------------+...NOACK mode RATE CTRL DATA.RIX: %d PROBE-RIX: %d NCPC: %d OVERALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d L",
+        "d NCPC: %d OVERALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d LAST-PROBE: %d NEXT-PROBE: %d..RATE-%d: %d.....enabled.disabled....Channel F",
+        "ALL-PER: %d.LAST-CHECK: %d LAST-CHANGE: %d LAST-PROBE: %d NEXT-PROBE: %d..RATE-%d: %d.....enabled.disabled....Channel Frequency: %d MH"
+      ],
+      "be_all_probe": true,
+      "priority_symbols": [
+        "ubnt_poll_host_reset_ff_rtt_active",
+        "ubnt_poll_host_set_ap_sta_priority",
+        "ubnt_poll_host_set_sta_priority"
+      ],
+      "wmm_symbols": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "deficit_tokens": 0,
+    "wmm_tokens": 0,
+    "penalization_tokens": 0,
+    "airtime_tokens": 4,
+    "prio_tokens": 12,
+    "be_tokens": 6,
+    "modules_where_be_is_probe": 2,
+    "mcast_airtime_limit_tokens": 4,
+    "rssi_threshold_tokens": 4,
+    "priority_symbols": [
+      "ubnt_poll_host_reset_ff_rtt_active",
+      "ubnt_poll_host_set_ap_sta_priority",
+      "ubnt_poll_host_set_sta_priority"
+    ],
+    "wmm_symbols": [],
+    "deficit_table_recovered": 0,
+    "wmm_weights_recovered": 0,
+    "low_mcs_penalty_recovered": 0,
+    "rssi_threshold_knob_present": 1
+  },
+  "gaps": [
+    "deficit, quantum, credit and surplus do not exist: no per-CPE airtime deficit counter was located",
+    "wmm, WMM and every AC_* name are absent: no 4-AC weight table exists in this module",
+    "penal, weight, low_mcs and mcs are all absent, so no low-MCS penalization threshold was recovered",
+    "airtime appears only as ff_mcast_airtime_limit, which limits multicast airtime, not a per-station quantum",
+    "BE is not an access category here: all three hits sit inside PROBE / NEXT-PROBE in the rate-control debug line",
+    "the real penalty-adjacent knob is ff_sta_rx_rssi_th, an RSSI threshold whose effect on scheduling was not traced",
+    "no dynamic validation"
+  ]
+}

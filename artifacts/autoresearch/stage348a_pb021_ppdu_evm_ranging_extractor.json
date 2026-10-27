@@ -1,0 +1,666 @@
+{
+  "stage": "348A",
+  "title": "PB-021 Ground-Up Per-PPDU 16-Pilot EVM & 12.5 ns Hardware Ranging Extractor (rx_ppdu_end_qca988x)",
+  "claim_status": "CONFIRMED",
+  "attribution": "hardware",
+  "memory_master_claim_id": "mm-22d6",
+  "source_evidence": {
+    "rx_desc_h_path": "tools/research/srccache/ath10k-ct/ath10k-7.2/rx_desc.h",
+    "rx_desc_h_sha256": "341e5f657343e3e83839acfffdeb3d2b58f04dd10e7b18b9f427c95a3986f5ac",
+    "htt_rx_c_path": "tools/research/srccache/ath10k-ct/ath10k-7.2/htt_rx.c",
+    "htt_rx_c_sha256": "66e44106230fd819e5544c32b9bb8c184c55a74ca2427789e7fdc3036c01be4c",
+    "htt_h_path": "tools/research/srccache/ath10k-ct/ath10k-7.2/htt.h",
+    "htt_h_sha256": "5a9dd5a60913e0bdb8360e944c5798a5d4d3762595f9e88eeca86fb7a49e16d5",
+    "hook_function": "ath10k_htt_rx_amsdu_pop (htt_rx.c:397-408 prior to skb_pull)"
+  },
+  "struct_rx_ppdu_end_qca988x_specification": {
+    "total_size_bytes": 84,
+    "total_dwords": 21,
+    "common_size_bytes": 72,
+    "qca988x_tail_size_bytes": 12,
+    "mac_clock_mhz": 80.0,
+    "locationing_tick_ns": 12.5,
+    "one_way_spatial_step_m": 3.7474,
+    "rtt_two_way_spatial_step_m": 1.8737,
+    "dword_layout": [
+      {
+        "dword_index": 0,
+        "byte_offset": 0,
+        "byte_offset_hex": "0x00",
+        "field_name": "evm_p0",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_0_stream0_evm_db",
+          "[15:8]": "pilot_0_stream1_evm_db",
+          "[23:16]": "pilot_0_stream2_evm_db",
+          "[31:24]": "pilot_0_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 0 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 1,
+        "byte_offset": 4,
+        "byte_offset_hex": "0x04",
+        "field_name": "evm_p1",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_1_stream0_evm_db",
+          "[15:8]": "pilot_1_stream1_evm_db",
+          "[23:16]": "pilot_1_stream2_evm_db",
+          "[31:24]": "pilot_1_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 1 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 2,
+        "byte_offset": 8,
+        "byte_offset_hex": "0x08",
+        "field_name": "evm_p2",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_2_stream0_evm_db",
+          "[15:8]": "pilot_2_stream1_evm_db",
+          "[23:16]": "pilot_2_stream2_evm_db",
+          "[31:24]": "pilot_2_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 2 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 3,
+        "byte_offset": 12,
+        "byte_offset_hex": "0x0c",
+        "field_name": "evm_p3",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_3_stream0_evm_db",
+          "[15:8]": "pilot_3_stream1_evm_db",
+          "[23:16]": "pilot_3_stream2_evm_db",
+          "[31:24]": "pilot_3_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 3 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 4,
+        "byte_offset": 16,
+        "byte_offset_hex": "0x10",
+        "field_name": "evm_p4",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_4_stream0_evm_db",
+          "[15:8]": "pilot_4_stream1_evm_db",
+          "[23:16]": "pilot_4_stream2_evm_db",
+          "[31:24]": "pilot_4_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 4 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 5,
+        "byte_offset": 20,
+        "byte_offset_hex": "0x14",
+        "field_name": "evm_p5",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_5_stream0_evm_db",
+          "[15:8]": "pilot_5_stream1_evm_db",
+          "[23:16]": "pilot_5_stream2_evm_db",
+          "[31:24]": "pilot_5_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 5 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 6,
+        "byte_offset": 24,
+        "byte_offset_hex": "0x18",
+        "field_name": "evm_p6",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_6_stream0_evm_db",
+          "[15:8]": "pilot_6_stream1_evm_db",
+          "[23:16]": "pilot_6_stream2_evm_db",
+          "[31:24]": "pilot_6_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 6 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 7,
+        "byte_offset": 28,
+        "byte_offset_hex": "0x1c",
+        "field_name": "evm_p7",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_7_stream0_evm_db",
+          "[15:8]": "pilot_7_stream1_evm_db",
+          "[23:16]": "pilot_7_stream2_evm_db",
+          "[31:24]": "pilot_7_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 7 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 8,
+        "byte_offset": 32,
+        "byte_offset_hex": "0x20",
+        "field_name": "evm_p8",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_8_stream0_evm_db",
+          "[15:8]": "pilot_8_stream1_evm_db",
+          "[23:16]": "pilot_8_stream2_evm_db",
+          "[31:24]": "pilot_8_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 8 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 9,
+        "byte_offset": 36,
+        "byte_offset_hex": "0x24",
+        "field_name": "evm_p9",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_9_stream0_evm_db",
+          "[15:8]": "pilot_9_stream1_evm_db",
+          "[23:16]": "pilot_9_stream2_evm_db",
+          "[31:24]": "pilot_9_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 9 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 10,
+        "byte_offset": 40,
+        "byte_offset_hex": "0x28",
+        "field_name": "evm_p10",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_10_stream0_evm_db",
+          "[15:8]": "pilot_10_stream1_evm_db",
+          "[23:16]": "pilot_10_stream2_evm_db",
+          "[31:24]": "pilot_10_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 10 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 11,
+        "byte_offset": 44,
+        "byte_offset_hex": "0x2c",
+        "field_name": "evm_p11",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_11_stream0_evm_db",
+          "[15:8]": "pilot_11_stream1_evm_db",
+          "[23:16]": "pilot_11_stream2_evm_db",
+          "[31:24]": "pilot_11_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 11 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 12,
+        "byte_offset": 48,
+        "byte_offset_hex": "0x30",
+        "field_name": "evm_p12",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_12_stream0_evm_db",
+          "[15:8]": "pilot_12_stream1_evm_db",
+          "[23:16]": "pilot_12_stream2_evm_db",
+          "[31:24]": "pilot_12_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 12 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 13,
+        "byte_offset": 52,
+        "byte_offset_hex": "0x34",
+        "field_name": "evm_p13",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_13_stream0_evm_db",
+          "[15:8]": "pilot_13_stream1_evm_db",
+          "[23:16]": "pilot_13_stream2_evm_db",
+          "[31:24]": "pilot_13_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 13 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 14,
+        "byte_offset": 56,
+        "byte_offset_hex": "0x38",
+        "field_name": "evm_p14",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_14_stream0_evm_db",
+          "[15:8]": "pilot_14_stream1_evm_db",
+          "[23:16]": "pilot_14_stream2_evm_db",
+          "[31:24]": "pilot_14_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 14 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 15,
+        "byte_offset": 60,
+        "byte_offset_hex": "0x3c",
+        "field_name": "evm_p15",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[7:0]": "pilot_15_stream0_evm_db",
+          "[15:8]": "pilot_15_stream1_evm_db",
+          "[23:16]": "pilot_15_stream2_evm_db",
+          "[31:24]": "pilot_15_stream3_evm_db"
+        },
+        "description": "EVM for OFDM/VHT pilot 15 across spatial streams 0..3 (signed int8 dB / 0x80 unused sentinel)"
+      },
+      {
+        "dword_index": 16,
+        "byte_offset": 64,
+        "byte_offset_hex": "0x40",
+        "field_name": "tsf_timestamp_and_tx_antenna_status",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[31:0]": "tsf_timestamp (Receive TSF sampled on rising edge of rx_clear; paired with tx_antenna_mask / rx_ok status in QCA988x DMA)"
+        },
+        "description": "32-bit TSF timestamp at rx_clear rising edge (dword 16)"
+      },
+      {
+        "dword_index": 17,
+        "byte_offset": 68,
+        "byte_offset_hex": "0x44",
+        "field_name": "wb_timestamp",
+        "sub_struct": "rx_ppdu_end_common",
+        "bit_fields": {
+          "[31:0]": "wb_timestamp_us (1 us free-running WLAN/BT clock unaffected by beacon TSF updates)"
+        },
+        "description": "32-bit 1-us resolution monotonic WLAN/BT timestamp (dword 17)"
+      },
+      {
+        "dword_index": 18,
+        "byte_offset": 72,
+        "byte_offset_hex": "0x48",
+        "field_name": "locationing_timestamp_phy_err_flags",
+        "sub_struct": "rx_ppdu_end_qca988x",
+        "bit_fields": {
+          "[7:0]": "locationing_timestamp (0..79 @ 80 MHz = 12.5 ns fractional us -> 1.8737 m RTT / 3.7474 m one-way resolution)",
+          "[15:8]": "phy_err_code (QCA988x baseband PHY error code when RX_PPDU_END_FLAGS_PHY_ERR is set)",
+          "[31:16]": "flags (BIT(0)=PHY_ERR, BIT(1)=RX_LOCATION, BIT(2)=TXBF_H_INFO)"
+        },
+        "description": "Sub-microsecond 80 MHz (12.5 ns) hardware ranging timestamp + PHY error code + PPDU flags (dword 18)"
+      },
+      {
+        "dword_index": 19,
+        "byte_offset": 76,
+        "byte_offset_hex": "0x4c",
+        "field_name": "info0_rx_antenna_and_ack",
+        "sub_struct": "rx_ppdu_end_qca988x",
+        "bit_fields": {
+          "[23:0]": "rx_antenna_mask (RX_PPDU_END_INFO0_RX_ANTENNA_MASK = 0x00ffffff)",
+          "[24]": "tx_ht_vht_ack (BIT(24) HT/VHT Ack or BlockAck transmitted in response)",
+          "[25]": "bb_captured_channel (BIT(25) Baseband H-matrix channel dump captured)"
+        },
+        "description": "Receive antenna mask, HT/VHT Ack status, and baseband channel capture bit (dword 19)"
+      },
+      {
+        "dword_index": 20,
+        "byte_offset": 80,
+        "byte_offset_hex": "0x50",
+        "field_name": "bb_length_and_info1_peer_done",
+        "sub_struct": "rx_ppdu_end_qca988x",
+        "bit_fields": {
+          "[15:0]": "bb_length (Baseband debug/CSI payload byte length when preamble_type in 0x80..0xFF)",
+          "[16]": "bb_data (BIT(0) of info1)",
+          "[17]": "peer_idx_valid (BIT(1) of info1)",
+          "[28:18]": "peer_idx (info1 & 0x1ffc >> 2)",
+          "[31]": "ppdu_done (BIT(15) of info1 \u2014 hardware DMA completion gate)"
+        },
+        "description": "Baseband payload length, peer index, and PPDU DMA completion flag (dword 20)"
+      }
+    ]
+  },
+  "c_extractor_header": {
+    "path": "firmware/openwrt/common/fmx_pb021_ppdu_evm_ranging_extractor.h",
+    "sha256": "554d9c678530e5b8de6ee68e49d89d81db0f64d8b9f6830ae024e88c4564bc03"
+  },
+  "verification_vectors": {
+    "healthy_vht80_2x2_ppdu": {
+      "size_bytes": 84,
+      "dwords_count": 21,
+      "evm_pilots": [
+        {
+          "pilot_index": 0,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 1,
+          "dword_hex": "0x8080e1e1",
+          "stream0_db": -31,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 2,
+          "dword_hex": "0x8080e2e2",
+          "stream0_db": -30,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 3,
+          "dword_hex": "0x8080e1e0",
+          "stream0_db": -32,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 4,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 5,
+          "dword_hex": "0x8080e1e1",
+          "stream0_db": -31,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 6,
+          "dword_hex": "0x8080e2e2",
+          "stream0_db": -30,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 7,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 8,
+          "dword_hex": "0x8080e1e0",
+          "stream0_db": -32,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 9,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 10,
+          "dword_hex": "0x8080e2e2",
+          "stream0_db": -30,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 11,
+          "dword_hex": "0x8080e1e1",
+          "stream0_db": -31,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 12,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 13,
+          "dword_hex": "0x8080e1e0",
+          "stream0_db": -32,
+          "stream1_db": -31,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 14,
+          "dword_hex": "0x8080e2e1",
+          "stream0_db": -31,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 15,
+          "dword_hex": "0x8080e2e2",
+          "stream0_db": -30,
+          "stream1_db": -30,
+          "stream2_db": null,
+          "stream3_db": null
+        }
+      ],
+      "evm_summary": {
+        "active_pilots_stream0": 16,
+        "active_pilots_stream1": 16,
+        "stream0_mean_evm_db": -30.938,
+        "stream1_mean_evm_db": -30.375,
+        "stream_evm_delta_db": 0.562,
+        "stream0_pilot_std_db": 0.658
+      },
+      "timestamps_and_ranging": {
+        "tsf_timestamp_u32": 305419896,
+        "wb_timestamp_us": 2500000,
+        "locationing_timestamp_tick_80mhz": 34,
+        "fractional_time_ns": 425.0,
+        "composite_timestamp_ns": 2500000425.0,
+        "mac_clock_mhz": 80.0,
+        "tick_resolution_ns": 12.5,
+        "one_way_spatial_step_m": 3.7474,
+        "rtt_two_way_spatial_step_m": 1.8737,
+        "fractional_one_way_range_m": 127.4118,
+        "fractional_rtt_range_m": 63.7059
+      },
+      "phy_and_mac_status": {
+        "phy_err_flag": false,
+        "rx_location_flag": true,
+        "txbf_h_info_flag": false,
+        "phy_err_code": 0,
+        "rx_antenna_mask_hex": "0x000003",
+        "tx_ht_vht_ack": true,
+        "bb_captured_channel": false,
+        "bb_length_bytes": 0,
+        "bb_data_flag": false,
+        "peer_idx_valid": true,
+        "peer_idx": 3,
+        "ppdu_done": true
+      }
+    },
+    "multipath_fresnel_degraded_ppdu": {
+      "size_bytes": 84,
+      "dwords_count": 21,
+      "evm_pilots": [
+        {
+          "pilot_index": 0,
+          "dword_hex": "0x8080ebe3",
+          "stream0_db": -29,
+          "stream1_db": -21,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 1,
+          "dword_hex": "0x8080ece4",
+          "stream0_db": -28,
+          "stream1_db": -20,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 2,
+          "dword_hex": "0x8080ede6",
+          "stream0_db": -26,
+          "stream1_db": -19,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 3,
+          "dword_hex": "0x8080efe8",
+          "stream0_db": -24,
+          "stream1_db": -17,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 4,
+          "dword_hex": "0x8080f1ea",
+          "stream0_db": -22,
+          "stream1_db": -15,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 5,
+          "dword_hex": "0x8080f2ec",
+          "stream0_db": -20,
+          "stream1_db": -14,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 6,
+          "dword_hex": "0x8080f3ed",
+          "stream0_db": -19,
+          "stream1_db": -13,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 7,
+          "dword_hex": "0x8080f4ee",
+          "stream0_db": -18,
+          "stream1_db": -12,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 8,
+          "dword_hex": "0x8080f4ee",
+          "stream0_db": -18,
+          "stream1_db": -12,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 9,
+          "dword_hex": "0x8080f3ed",
+          "stream0_db": -19,
+          "stream1_db": -13,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 10,
+          "dword_hex": "0x8080f2eb",
+          "stream0_db": -21,
+          "stream1_db": -14,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 11,
+          "dword_hex": "0x8080f0e9",
+          "stream0_db": -23,
+          "stream1_db": -16,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 12,
+          "dword_hex": "0x8080eee7",
+          "stream0_db": -25,
+          "stream1_db": -18,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 13,
+          "dword_hex": "0x8080ede5",
+          "stream0_db": -27,
+          "stream1_db": -19,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 14,
+          "dword_hex": "0x8080ece4",
+          "stream0_db": -28,
+          "stream1_db": -20,
+          "stream2_db": null,
+          "stream3_db": null
+        },
+        {
+          "pilot_index": 15,
+          "dword_hex": "0x8080ebe3",
+          "stream0_db": -29,
+          "stream1_db": -21,
+          "stream2_db": null,
+          "stream3_db": null
+        }
+      ],
+      "evm_summary": {
+        "active_pilots_stream0": 16,
+        "active_pilots_stream1": 16,
+        "stream0_mean_evm_db": -23.5,
+        "stream1_mean_evm_db": -16.5,
+        "stream_evm_delta_db": 7.0,
+        "stream0_pilot_std_db": 3.905
+      },
+      "timestamps_and_ranging": {
+        "tsf_timestamp_u32": 305419896,
+        "wb_timestamp_us": 2500120,
+        "locationing_timestamp_tick_80mhz": 61,
+        "fractional_time_ns": 762.5,
+        "composite_timestamp_ns": 2500120762.5,
+        "mac_clock_mhz": 80.0,
+        "tick_resolution_ns": 12.5,
+        "one_way_spatial_step_m": 3.7474,
+        "rtt_two_way_spatial_step_m": 1.8737,
+        "fractional_one_way_range_m": 228.5917,
+        "fractional_rtt_range_m": 114.2959
+      },
+      "phy_and_mac_status": {
+        "phy_err_flag": false,
+        "rx_location_flag": true,
+        "txbf_h_info_flag": false,
+        "phy_err_code": 0,
+        "rx_antenna_mask_hex": "0x000003",
+        "tx_ht_vht_ack": true,
+        "bb_captured_channel": false,
+        "bb_length_bytes": 0,
+        "bb_data_flag": false,
+        "peer_idx_valid": true,
+        "peer_idx": 3,
+        "ppdu_done": true
+      }
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_binary_re": "Exact 21-dword (84-byte) dissection of rx_ppdu_end_common + rx_ppdu_end_qca988x before skb_pull in ath10k_htt_rx_amsdu_pop",
+    "pillar_b_closed_loop_research": "Validates PB-021 hardware ranging (80 MHz = 12.5 ns) and per-pilot EVM observability",
+    "pillar_c_counterbalanced_harness": "Zero-overhead ring-buffer capture gated on RX_PPDU_END_INFO1_PPDU_DONE (BIT(15))",
+    "pillar_d_scientific_validation": "Pilot-level EVM standard deviation separates flat thermal noise from frequency-selective Fresnel multipath",
+    "pillar_e_memory_master": "mm-22d6 (id=155370, scope=project:futuramax)"
+  }
+}

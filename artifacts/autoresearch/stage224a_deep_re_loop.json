@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "stage": "224A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; no device access",
+    "axis": "platform: WA vs XC at the same version",
+    "premise_correction": "WA.v8.7.11 / XC.v8.7.11 do not exist in this repository; the pair available is 8.7.25",
+    "radio_safety": "static only"
+  },
+  "pairs": {
+    "umac.ko": {
+      "status": "ok",
+      "left_bytes": 2356432,
+      "right_bytes": 2358768,
+      "identical": false,
+      "differing_bytes": 978907,
+      "differing_pct": 41.5419,
+      "left_sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "right_sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a"
+    },
+    "ath_dev.ko": {
+      "status": "ok",
+      "left_bytes": 287216,
+      "right_bytes": 287216,
+      "identical": false,
+      "differing_bytes": 164,
+      "differing_pct": 0.0571,
+      "left_sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "right_sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf"
+    },
+    "ubnt_poll_host.ko": {
+      "status": "ok",
+      "left_bytes": 189880,
+      "right_bytes": 189880,
+      "identical": false,
+      "differing_bytes": 7,
+      "differing_pct": 0.0037,
+      "left_sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "right_sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9"
+    }
+  },
+  "summary": {
+    "pairs": 3,
+    "pairs_ok": 3,
+    "identical": 0,
+    "total_differing_bytes": 979078
+  }
+}

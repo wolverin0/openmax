@@ -1,0 +1,480 @@
+version: "1.0.0"
+phase: "Phase 0 — Physical-Boundary Research & Safe Bench Architecture"
+updated_utc: "2026-10-24T17:56:00Z"
+gates:
+  - id: "PB-000"
+    title: "Exact-family evidence audit and binary/register inventory"
+    hypothesis: "All QCA988x/AR9888 physical-boundary claims can be partitioned into exact-silicon facts, shared-header possibilities, and refuted myths with reproducible file/symbol anchors."
+    branch_unlocked: "Unlocks static firmware RE (PB-010..PB-011), UTF read-only qualification (PB-020), and channel-dump path analysis (PB-021)."
+    branch_killed: "Kills unanchored speculation that treats QCA99x0/QCA9984/LTU/ath9k capabilities as confirmed QCA988x primitives."
+    prerequisites: []
+    required_hardware:
+      - "Offline analysis workstation (no live radio access)"
+    required_software:
+      - "Python 3.12 static inventory & ELF/SGMT/header audit suite"
+    safety_level: "L0"
+    brick_risk: "None"
+    regulatory_risk: "None (offline static analysis only)"
+    execution_mode: "offline"
+    primary_metrics:
+      - "exact_claim_coverage_pct"
+      - "unanchored_claim_count"
+    secondary_metrics:
+      - "verified_file_symbol_references"
+    acceptance_criteria: "100% of physical-boundary claims classified as CONFIRMED, INFERRED, POSSIBLE, UNKNOWN, or REFUTED with exact file/symbol provenance."
+    falsification_criteria: "Any core architectural claim lacks exact-family header, binary, or measurement evidence."
+    rollback_condition: "N/A (offline read-only static audit)."
+    artifacts_expected:
+      - "docs/QCA988X_PHYSICAL_BOUNDARY_EVIDENCE_MATRIX.md"
+      - "research/physical_boundary/claim_registry.yaml"
+    status: "READY_FOR_BENCH"
+    automatic_execution_allowed: true
+
+  - id: "PB-001"
+    title: "Metric width-fix and paired-gatekeeper null-replay validation"
+    hypothesis: "Enforcing explicit channel_width_mhz in {5, 10, 20, 40, 80} and paired A/B/A/B block permutation inference eliminates the 40 MHz normalization bias and bounds A/A false positives to <= alpha (0.05)."
+    branch_unlocked: "Unlocks all quantitative bench experiments (PB-020..PB-070) and autonomous safe policy search (PB-060)."
+    branch_killed: "Kills unpaired 2-sample t-test promotion and hard-coded 40 MHz goodput_per_mhz scoring."
+    prerequisites:
+      - "PB-000"
+    required_hardware:
+      - "Offline workstation with historical and synthetic A/A replay datasets"
+    required_software:
+      - "analysis/metrics/schema.py"
+      - "analysis/regression_gate/gatekeeper.py"
+    safety_level: "L0"
+    brick_risk: "None"
+    regulatory_risk: "None (offline statistical replay)"
+    execution_mode: "offline"
+    primary_metrics:
+      - "aa_null_false_positive_rate"
+      - "channel_width_validation_coverage"
+    secondary_metrics:
+      - "paired_bootstrap_ci_width_pct"
+    acceptance_criteria: "Zero silent 40 MHz fallback on missing width; A/A null replay false-positive rate <= 0.05 across >= 300 Monte Carlo trials; lexicographic p99 -> p95 -> fairness -> goodput_per_mhz enforced."
+    falsification_criteria: "A/A null replay produces > 5% false-positive promotions or any sample without explicit/metadata width computes a biased goodput_per_mhz."
+    rollback_condition: "Revert gatekeeper changes if existing deterministic test suite regresses."
+    artifacts_expected:
+      - "analysis/metrics/schema.py"
+      - "analysis/regression_gate/gatekeeper.py"
+      - "tests/test_pb_metrics_schema_width.py"
+      - "tests/test_pb_gatekeeper_paired_aa.py"
+    status: "PASSED"
+    automatic_execution_allowed: true
+
+  - id: "PB-010"
+    title: "Static firmware/module symbol and WMI/HTT dispatch map"
+    hypothesis: "Static cross-referencing of Ubiquiti airOS WMI opcodes (0x9064/0x9070 poll, 0x9044/0x9045 rate schedule), HTT RX completion builders, and UTF handlers isolates exact target addresses and call graphs."
+    branch_unlocked: "Unlocks SGMT/Xtensa loader safety analysis (PB-011), channel-dump path tracing (PB-021), and scheduler timer mapping (PB-050)."
+    branch_killed: "Kills blind binary patching or guessing WMI command payload layouts without handler disassembly."
+    prerequisites:
+      - "PB-000"
+    required_hardware:
+      - "Offline RE workstation with held firmware/module corpus"
+    required_software:
+      - "Static Xtensa/ELF/SGMT disassembler and call-graph analyzer"
+    safety_level: "L0"
+    brick_risk: "None"
+    regulatory_risk: "None (offline binary inspection)"
+    execution_mode: "offline"
+    primary_metrics:
+      - "resolved_wmi_htt_handlers_count"
+      - "rx_ppdu_end_strip_sites_mapped"
+    secondary_metrics:
+      - "callgraph_xref_confidence"
+    acceptance_criteria: "Exact handler entry points and payload structures documented for WMI polling/rate opcodes and HTT RX PPDU completion stripping sites."
+    falsification_criteria: "Target binaries lack identifiable dispatch tables or strip sites cannot be located in loaded DRAM/IRAM segments."
+    rollback_condition: "N/A (offline read-only binary analysis)."
+    artifacts_expected:
+      - "docs/FIRMWARE_RE_TARGET_MAP.md"
+      - "artifacts/qca988x/pb_010_wmi_htt_strip_map.json"
+    status: "PASSED"
+    automatic_execution_allowed: true
+
+  - id: "PB-011"
+    title: "SGMT/Xtensa loader, relocation and checksum/signature boundary"
+    hypothesis: "The Ubiquiti/QCA SGMT firmware container format, load addresses, checksums, and any signature verification checks can be fully specified offline before any target binary mutation is attempted."
+    branch_unlocked: "Unlocks minimal reversible target-firmware instrumentation (PB-040)."
+    branch_killed: "Kills unsafe unvalidated binary edits on target firmware images."
+    prerequisites:
+      - "PB-010"
+    required_hardware:
+      - "Offline RE workstation; sacrificial board with serial console for later PB-040 verification"
+    required_software:
+      - "SGMT container parser and checksum verifier"
+    safety_level: "L0"
+    brick_risk: "None"
+    regulatory_risk: "None (offline container verification)"
+    execution_mode: "offline"
+    primary_metrics:
+      - "sgmt_segment_parse_completeness_pct"
+      - "checksum_reproduction_exact_match"
+    secondary_metrics:
+      - "xtensa_core_config_constraints_identified"
+    acceptance_criteria: "Bit-exact parsing and header/segment checksum verification of held SGMT/firmware images with explicit classification of signature checks."
+    falsification_criteria: "Cryptographic signature enforcement in ROM rejects any modified target segment without private keys."
+    rollback_condition: "N/A (offline parser/validator)."
+    artifacts_expected:
+      - "docs/FIRMWARE_RE_TARGET_MAP.md"
+      - "artifacts/qca988x/pb_011_sgmt_container_audit.json"
+    status: "PASSED"
+    automatic_execution_allowed: true
+
+  - id: "PB-020"
+    title: "Exact AR9888 UTF read-only boot and capability enumeration"
+    hypothesis: "A sacrificial QCA988x board on a cabled/terminated RF bench can boot exact AR9888 UTF testmode firmware, respond to read-only version/status/capability queries, and cleanly reload production WLAN firmware."
+    branch_unlocked: "Unlocks ADCCAPTURE/GENWAVEFORM/PHYDBGDUMP qualification (PB-023), 5/10 MHz cabled loop (PB-030), and LDPC/BCC/STBC/SGI matrix (PB-031)."
+    branch_killed: "Kills unverified assumptions about which shared TLV2 commands are compiled into the exact AR9888 UTF binary."
+    prerequisites:
+      - "PB-000"
+      - "PB-001"
+      - "PB-010"
+    required_hardware:
+      - "Sacrificial QCA988x radio (LAP-120 or Loco5AC bench unit)"
+      - "Serial console + verified TFTP/power-cycle recovery harness"
+      - "50-ohm RF terminations or >= 50 dB cabled attenuator path"
+    required_software:
+      - "ath10k testmode / UTF read-only runner with watchdog rollback"
+    safety_level: "L2"
+    brick_risk: "Medium"
+    regulatory_risk: "Low (RF ports terminated into 50-ohm dummy loads / cabled attenuator; zero TX commands issued)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "utf_boot_success_rate"
+      - "Enumerated_tlv_command_bitmap"
+      - "wlan_reload_recovery_time_s"
+    secondary_metrics:
+      - "host_interest_debug_state"
+    acceptance_criteria: "100% repeatable read-only UTF boot and GET_VERSION/status response across >= 5 cycles, producing an exact AR9888 supported-command table and clean return to production firmware within 30s."
+    falsification_criteria: "UTF binary fails to boot after board-data/ABI alignment or cannot cleanly return to normal WLAN operation without manual bootloader intervention."
+    rollback_condition: "Immediate watchdog unload of testmode and cold power-cycle restoration to stock/OpenWrt production firmware if command timeout > 5s or unexpected RF state occurs."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_020_utf_readonly_capability_report.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-021"
+    title: "bb_capture_channel / bb_captured_channel / bb_length qualification"
+    hypothesis: "Setting bb_capture_channel in the AR9888 RX path produces packet-correlated bb_captured_channel=1 assertions and non-zero bb_length values pointing to a readable target/BB channel-dump buffer."
+    branch_unlocked: "Unlocks internal vs external 2x2 H validation (PB-024) and channel-state-informed scheduling."
+    branch_killed: "If negative across both production and UTF targets with verified descriptor preservation, sharply weakens the internal on-chip CSI branch."
+    prerequisites:
+      - "PB-001"
+      - "PB-010"
+    required_hardware:
+      - "Cabled QCA988x pair (LAP-120 + Loco5AC) with 50-60 dB inline 5 GHz coaxial attenuation"
+    required_software:
+      - "HTT RX descriptor inspector + target DRAM/BB memory diff collector"
+    safety_level: "L2"
+    brick_risk: "Medium"
+    regulatory_risk: "Low (cabled coaxial bench with fixed attenuators)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "bb_captured_channel_hit_rate"
+      - "bb_length_byte_distribution"
+      - "packet_correlated_memory_diff_bytes"
+    secondary_metrics:
+      - "rx_ppdu_end_evm_db"
+    acceptance_criteria: "Repeatable packet-correlated bb_captured_channel=1 indicator and deterministic target/BB memory blob whose content changes predictably with cabled attenuation/phase shifts."
+    falsification_criteria: "After verified descriptor bit activation and pre-stripped HTT inspection, bb_captured_channel never asserts or mapped memory shows zero packet-correlated variation."
+    rollback_condition: "Restore unpatched ath10k/firmware state if RX ring stalls, firmware crashes, or packet loss exceeds 5%."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_021_channel_dump_qualification.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-022"
+    title: "txbf_h_info and compressed-V / SVD debug qualification"
+    hypothesis: "Triggering VHT sounding/NDPA or TXBF debug flags on QCA988x populates txbf_h_info or compressed-V/SVD DMA buffers that serve as a 2x2 rank/condition-number oracle."
+    branch_unlocked: "Unlocks MIMO rank/eigenvalue link classification without external SDR."
+    branch_killed: "Kills reliance on TXBF debug fields if QCA9882 2x2 firmware omits or disables H-info/SVD export."
+    prerequisites:
+      - "PB-021"
+    required_hardware:
+      - "Cabled 2x2 QCA988x pair with controllable chain attenuation/phase cables"
+    required_software:
+      - "RXPPDUEnd txbf_h_info and SVD/CV descriptor probe"
+    safety_level: "L2"
+    brick_risk: "Medium"
+    regulatory_risk: "Low (cabled coaxial bench)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "txbf_h_info_non_null_rate"
+      - "svd_rank_correlation_with_cabled_matrix"
+    secondary_metrics:
+      - "sounding_frame_overhead_pct"
+    acceptance_criteria: "Non-empty H-info or compressed-V buffer recovered and monotonically correlated with induced cabled rank-1 vs rank-2 channel conditioning."
+    falsification_criteria: "Confirmed sounding/debug trigger produces zero H-info/V payload across tested firmware families."
+    rollback_condition: "Disable sounding/TXBF debug flags immediately upon target assert or DMA timeout."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_022_txbf_h_info_probe.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-023"
+    title: "ADCCAPTURE / GENWAVEFORM / PHYDBGDUMP existence and sample-memory test"
+    hypothesis: "Exact AR9888 UTF either implements callable handlers for ADCCAPTURE (ID 59), GENWAVEFORM (ID 61), or PHYDBGDUMP exposing raw/post-DFE sample RAM, or definitively rejects them."
+    branch_unlocked: "If positive, unlocks offline neural/learned receiver analysis on real QCA988x ADC captures and feeds PB-070."
+    branch_killed: "If negative, closes the on-chip raw-IQ capture branch through the standard manufacturing TLV ABI."
+    prerequisites:
+      - "PB-010"
+      - "PB-020"
+    required_hardware:
+      - "Sacrificial QCA988x radio on cabled bench with known tone/signal source and 50-ohm termination"
+    required_software:
+      - "Bounded UTF TLV command probe for IDs 59, 61, and PHYDBGDUMP"
+    safety_level: "L2"
+    brick_risk: "Medium"
+    regulatory_risk: "Low (cabled/terminated RF input only)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "handler_response_status"
+      - "captured_iq_snr_tone_correlation"
+    secondary_metrics:
+      - "sample_buffer_length_samples"
+    acceptance_criteria: "Captured sample buffer scales in frequency/phase/amplitude with an externally injected cabled test tone, proving true ADC/sample-RAM readout."
+    falsification_criteria: "Static link-map absence combined with explicit unsupported/no-op response in AR9888 UTF falsifies raw-IQ capture via this ABI."
+    rollback_condition: "Unload UTF and power-cycle radio if command hangs target > 3s."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_023_adccapture_genwaveform_probe.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-024"
+    title: "Internal channel-dump vs external coherent 2x2 SDR ground-truth validation"
+    hypothesis: "Decoded per-tone complex channel estimates from QCA988x internal dump correlate in singular-value ratio and phase slope with simultaneous phase-coherent 2x2 SDR measurements."
+    branch_unlocked: "Establishes calibrated internal 2x2 MIMO capacity estimation on QCA988x."
+    branch_killed: "Prevents misinterpreting uncalibrated debug counters as true complex CSI."
+    prerequisites:
+      - "PB-021"
+    required_hardware:
+      - "Cabled QCA988x pair + directional couplers + dual-channel phase-coherent SDR (e.g., USRP B210/X310/N320)"
+    required_software:
+      - "Coherent 2x2 VHT-LTF channel estimator + internal dump decoder"
+    safety_level: "L2"
+    brick_risk: "Low"
+    regulatory_risk: "Low (cabled RF setup with inline couplers and attenuators)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "singular_value_ratio_pearson_r"
+      - "subcarrier_phase_slope_rmse_rad"
+    secondary_metrics:
+      - "shannon_2x2_capacity_gap_bits_per_s_hz"
+    acceptance_criteria: "Pearson correlation r >= 0.90 between internal dump condition number (sigma_1/sigma_2) and external coherent SDR across >= 5 cabled 2x2 attenuation/phase matrices."
+    falsification_criteria: "Internal dump fails to track known cabled phase/attenuation changes verified by the external coherent SDR."
+    rollback_condition: "Revert to standard RX completion path if capture degrades throughput or stability."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_024_internal_vs_sdr_2x2_validation.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-030"
+    title: "5/10 MHz exact-family cabled loop and goodput/MHz characterization"
+    hypothesis: "QCA988x half-rate (10 MHz) and quarter-rate (5 MHz) modes can form a complete bidirectional link between two exact-family endpoints on a cabled bench, achieving equal or superior spectral efficiency (goodput/MHz) at high attenuation."
+    branch_unlocked: "Unlocks narrow-channel high-selectivity/long-range mode selection under explicit goodput_per_mhz scoring."
+    branch_killed: "Kills assumptions that 5/10 MHz factory TX modes automatically work as production bidirectional PtMP links without endpoint qualification."
+    prerequisites:
+      - "PB-001"
+      - "PB-020"
+    required_hardware:
+      - "Cabled QCA988x pair with step attenuator (50..85 dB) + spectrum/SDR observer"
+    required_software:
+      - "5/10 MHz clock/channel configuration harness + width-validated schema"
+    safety_level: "L2"
+    brick_risk: "Low-Medium"
+    regulatory_risk: "Low (strictly cabled coaxial bench; never OTA without regulatory band/mask verification)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "occupied_bandwidth_mhz"
+      - "goodput_per_mhz"
+      - "p99_latency_ms"
+    secondary_metrics:
+      - "min_operational_snr_db"
+    acceptance_criteria: "External spectrum verifies 5/10 MHz occupied bandwidth, bidirectional packets decode cleanly, and paired A/B/A/B evaluation records exact goodput_per_mhz across attenuation steps."
+    falsification_criteria: "Endpoints fail to synchronize/decode bidirectional frames in 5/10 MHz mode or firmware rejects non-20/40/80 operational association."
+    rollback_condition: "Restore 20 MHz cabled baseline immediately after test block."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_030_sub20mhz_cabled_loop.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-031"
+    title: "Controlled LDPC/BCC/STBC/SGI/CCA/AGC parameter response-surface experiments"
+    hypothesis: "Allowlisted standard PHY/BB parameters (LDPC vs BCC, STBC, SGI, and bounded CCA/correlator thresholds) exhibit quantifiable SNR/interference regimes where PER and airtime per delivered bit improve without p99 regression."
+    branch_unlocked: "Unlocks evidence-backed per-link PHY mode & CCA policy selection in PB-060."
+    branch_killed: "Kills blind global toggling of SGI/LDPC/CCA thresholds outside their verified SNR/interference regime."
+    prerequisites:
+      - "PB-001"
+      - "PB-020"
+    required_hardware:
+      - "Cabled/shielded QCA988x pair with calibrated step attenuator and controlled interferer injection"
+    required_software:
+      - "Paired A/B/A/B response-surface runner + RegressionGatekeeper"
+    safety_level: "L2"
+    brick_risk: "Low"
+    regulatory_risk: "Medium if CCA modified OTA; strictly restricted to cabled/shielded RF enclosure"
+    execution_mode: "shielded_ota"
+    primary_metrics:
+      - "goodput_per_mhz"
+      - "airtime_per_delivered_bit_ns"
+      - "p99_latency_ms"
+    secondary_metrics:
+      - "per_vs_snr_curve_db"
+    acceptance_criteria: "Statistically significant (paired permutation p <= adjusted_alpha, >= 6 blocks) improvement in goodput_per_mhz or airtime efficiency in a bounded SNR/interferer regime with zero p99/fairness violation."
+    falsification_criteria: "No SNR/interferer regime shows repeatable gain on holdout blocks, or CCA tweaks cause hidden-node collision collapse."
+    rollback_condition: "Reset all PHY/BB knobs to factory defaults after every block and immediately on any PER spike > 10%."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_031_phy_parameter_response_surface.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-040"
+    title: "Minimal reversible target-firmware instrumentation proof (one inert command/event)"
+    hypothesis: "A sacrificial QCA988x unit with serial console and verified TFTP recovery can load a target firmware image containing a single inert read-only instrumentation change (altered version/debug string or no-op WMI echo) and pass repeated boot/recovery cycles."
+    branch_unlocked: "Unlocks custom target-level telemetry export, pre-stripped RX descriptor forwarding, and target-resident sub-ms scheduler prototyping (PB-051)."
+    branch_killed: "If blocked by hardware/ROM signature checks or irreconcilable toolchain gaps, confines openMAX to host/driver/WMI policy layers."
+    prerequisites:
+      - "PB-010"
+      - "PB-011"
+      - "PB-020"
+    required_hardware:
+      - "Sacrificial QCA988x unit with wired UART serial console, PoE relay, and verified TFTP recovery"
+    required_software:
+      - "SGMT/UTF builder or binary patcher + checksum validator + automated recovery watchdog"
+    safety_level: "L3"
+    brick_risk: "High"
+    regulatory_risk: "Low (no RF/PHY register changes; cabled/terminated RF)"
+    execution_mode: "sacrificial_pair"
+    primary_metrics:
+      - "inert_mutation_response_verified"
+      - "consecutive_clean_boot_recovery_cycles"
+    secondary_metrics:
+      - "target_dram_free_bytes"
+    acceptance_criteria: "Target boots modified RAM image, returns the expected inert instrumentation marker over WMI/testmode, passes >= 10 consecutive boot/unload/reload cycles, and recovers cleanly to stock firmware."
+    falsification_criteria: "Target ROM/loader rejects modified segment despite valid SGMT checksums or target crashes before host-interest handshake."
+    rollback_condition: "Automatic RAM-only load (never flashed to SPI NOR); power-cycle reverts immediately to unmodified flash firmware."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_040_minimal_target_instrumentation_receipt.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-050"
+    title: "Host queue-gating vs target timer-resolution benchmark"
+    hypothesis: "External RF/SDR timing measurements will quantify the exact TX-edge jitter gap between Linux/ath10k host queue gating (millisecond scale) and QCA988x target TSF/timer-driven scheduling (microsecond scale)."
+    branch_unlocked: "Establishes the physical guard-time floor for host Soft-TDMA vs target-resident TDMA (PB-051)."
+    branch_killed: "Kills claims of sub-millisecond TDMA slot precision from pure Linux host WMI/TXQ calls."
+    prerequisites:
+      - "PB-001"
+      - "PB-010"
+    required_hardware:
+      - "Cabled/shielded QCA988x AP + 2 CPEs + external SDR receiver (>= 20 MS/s timestamped IQ)"
+    required_software:
+      - "Host queue-gating pacer + SDR burst-edge timing analyzer"
+    safety_level: "L1"
+    brick_risk: "Low"
+    regulatory_risk: "Low (cabled/shielded bench)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "tx_start_jitter_p99_us"
+      - "minimum_safe_guard_interval_us"
+      - "hidden_node_goodput_per_mhz"
+    secondary_metrics:
+      - "unscheduled_csma_leakage_rate"
+    acceptance_criteria: "Calibrated cumulative distribution of TX burst start jitter (p50/p95/p99 in microseconds) measured externally by SDR for both host queue gating and target polling."
+    falsification_criteria: "Host queue gating achieves sub-100us p99 jitter (refuting need for target timer) OR target polling exhibits millisecond jitter indistinguishable from host."
+    rollback_condition: "Revert host TXQ/AQL pacer to baseline after measurement block."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_050_scheduler_timing_jitter_benchmark.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-051"
+    title: "Target-resident scheduler feasibility gate"
+    hypothesis: "Using target TSF timers and peer queue gating proved in PB-040 and PB-050, a minimal 1-AP / 2-CPE target-resident slot scheduler can enforce bounded TX windows with lower guard overhead and zero out-of-slot CSMA collisions."
+    branch_unlocked: "Unlocks Stage 5 custom target-resident PtMP MAC development."
+    branch_killed: "If jitter or internal firmware retry queues bypass slot boundaries, restricts openMAX scheduling to host-assisted ACK-clocking / hybrid airMAX modes."
+    prerequisites:
+      - "PB-040"
+      - "PB-050"
+    required_hardware:
+      - "Sacrificial QCA988x AP + 2 CPEs on cabled hidden-node combiner bench + SDR timing observer"
+    required_software:
+      - "Minimal target-resident slot gate prototype + external SDR slot-compliance verifier"
+    safety_level: "L3"
+    brick_risk: "High"
+    regulatory_risk: "Low (cabled hidden-node bench)"
+    execution_mode: "sacrificial_pair"
+    primary_metrics:
+      - "out_of_slot_tx_violation_rate"
+      - "slot_boundary_jitter_p99_us"
+      - "hidden_node_p99_latency_ms"
+    secondary_metrics:
+      - "aggregate_goodput_per_mhz"
+    acceptance_criteria: "Out-of-slot TX leakage < 0.5%, p99 slot edge jitter < 250 us on external SDR, and paired A/B/A/B hidden-node goodput_per_mhz + p99 latency beat pure CSMA with holdout replication."
+    falsification_criteria: "Hardware retry queues or beacon/management tasks persistently transmit across slot boundaries or trigger target watchdog resets."
+    rollback_condition: "RAM-only target image unload and immediate power-cycle restore to stock firmware on any target assert."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_051_target_scheduler_feasibility.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-060"
+    title: "Safe autonomous MAC/PHY-parameter search pilot with holdout replication"
+    hypothesis: "An autonomous controller constrained to allowlisted L1/L2 reversible parameters and gated by the repaired paired-block RegressionGatekeeper can discover a multi-link configuration that improves goodput_per_mhz without violating p99, p95, or fairness on an unseen holdout block."
+    branch_unlocked: "Unlocks closed-loop canary optimization for stationary PtMP sectors."
+    branch_killed: "Kills unconstrained reward-hacking search loops that trade away tail latency, starve weak peers, or fail holdout replication."
+    prerequisites:
+      - "PB-001"
+      - "PB-031"
+      - "PB-050"
+    required_hardware:
+      - "Multi-link cabled/shielded PtMP bench (1 AP + >= 2 CPEs with near/far attenuation)"
+    required_software:
+      - "Stage 12 unified controller + paired RegressionGatekeeper with Holm-Sidak alpha spending"
+    safety_level: "L1"
+    brick_risk: "Low"
+    regulatory_risk: "Low (allowlisted legal parameters only)"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "holdout_goodput_per_mhz_delta_pct"
+      - "holdout_p99_latency_delta_pct"
+      - "holdout_jain_fairness"
+    secondary_metrics:
+      - "false_discovery_rate_on_negative_controls"
+    acceptance_criteria: "Candidate reaches PROMOTE verdict (>= 6 paired blocks, paired permutation p <= adjusted_alpha, 95% CI > 0, zero safety/p99/p95/fairness violations) and replicates on an independent holdout time block."
+    falsification_criteria: "Candidates passing initial search fail holdout replication or violate worst-peer/p99 constraints."
+    rollback_condition: "Automatic per-block rollback on any firmware reset, loss > 10%, or p99 latency regression > 10%."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_060_safe_autonomous_search_pilot.json"
+    status: "NOT_STARTED"
+    automatic_execution_allowed: false
+
+  - id: "PB-070"
+    title: "Custom PHY / learned-waveform eligibility gate"
+    hypothesis: "Custom constellations, learned pilot layouts, non-standard FEC, or neural on-chip receivers on QCA988x are eligible for engineering investment ONLY if PB-023 and PB-040 prove writable mapper/pilot/FEC tables or usable raw sample TX/RX injection."
+    branch_unlocked: "If and only if proven, unlocks experimental sub-symbol/constellation/waveform research on QCA988x."
+    branch_killed: "If prerequisites are negative, formally locks out on-chip custom-waveform/constellation/FEC work and concentrates 100% of R&D on MAC scheduling, queueing, rate/retry policy, and MIMO channel state."
+    prerequisites:
+      - "PB-023"
+      - "PB-031"
+      - "PB-040"
+    required_hardware:
+      - "Sacrificial QCA988x pair + calibrated VSA / coherent wideband SDR"
+    required_software:
+      - "UTF/target mapper/table probe + external VSA constellation/EVM verifier"
+    safety_level: "L3"
+    brick_risk: "High"
+    regulatory_risk: "High if radiated; strictly restricted to cabled coaxial path into VSA/dummy load"
+    execution_mode: "cabled_bench"
+    primary_metrics:
+      - "writable_mapper_or_iq_injection_proven"
+      - "external_vsa_constellation_verification"
+    secondary_metrics:
+      - "sample_transfer_bandwidth_msps"
+    acceptance_criteria: "All three conditions proven on cabled hardware: (1) writable mapper/pilot/FEC table or arbitrary IQ sample injection/capture at usable rate, (2) modified target execution (PB-040), and (3) external VSA/SDR verification of the modified waveform."
+    falsification_criteria: "Absence of writable mapper/pilot/FEC tables and absence of arbitrary IQ TX/RX paths in exact AR9888 silicon/firmware permanently closes the custom-PHY waveform branch on QCA988x."
+    rollback_condition: "Immediate power-cycle restore to stock firmware; keep custom-PHY branch LOCKED unless all three eligibility criteria pass."
+    artifacts_expected:
+      - "artifacts/pb_bench/pb_070_custom_phy_eligibility_verdict.json"
+    status: "BLOCKED"
+    automatic_execution_allowed: false

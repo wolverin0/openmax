@@ -1,0 +1,80 @@
+{
+  "stage": "34C",
+  "task_id": "T-S34C-GEM2-OPENWRT-WIKI-SAFE-DIFF-PUBLISHER-AND-OPENWISP-UI-PANEL",
+  "generated_at_utc": "2026-10-26T14:21:00Z",
+  "max_section_lines_budget": 25,
+  "pages_count": 5,
+  "all_idempotent_verified": true,
+  "dokuwiki_merges": {
+    "toh:ubiquiti:liteap_ac": {
+      "wiki_page_id": "toh:ubiquiti:liteap_ac",
+      "canonical_url": "https://openwrt.org/toh/ubiquiti/liteap_ac",
+      "section_heading": "===== AirOS 8 WDS (0x6558) Interoperability & Optimal AQL/fq_codel Tuning =====",
+      "edit_summary": "Add verified AirOS 8 4-addr WDS ETH_P_TEB (0x6558) interop & AR9342+QCA9882 AQL/fq_codel tuning (-38% p95 RTT)",
+      "section_line_count": 14,
+      "max_line_budget": 25,
+      "first_pass_action": "INSERTED_NEW_SECTION",
+      "first_pass_changed": true,
+      "second_pass_action": "UNCHANGED_IDEMPOTENT",
+      "second_pass_changed": false,
+      "merged_sha256": "539f33c3405161ea6848bf3b6a582f8a53b50dad73132d9fe7a4aa82c0e5302c",
+      "unified_diff": "--- a/toh/ubiquiti/liteap_ac.txt\n+++ b/toh/ubiquiti/liteap_ac.txt\n@@ -2,5 +2,20 @@\n ^ Architecture ^ MIPS 74Kc ^\n | Bootloader | U-Boot |\n \n+===== AirOS 8 WDS (0x6558) Interoperability & Optimal AQL/fq_codel Tuning =====\n+Stock **airOS 8** (''WA.v8.7.x'') stations in 4-address WDS mode encapsulate inner Ethernet frames with ''ETH_P_TEB'' (''0x6558'') and require airMAX vendor IEs unless ''allow_80211=1'' and ''ubnt_op_mode=0'' are set:\n+  * **OpenWrt AP ''mac80211'' Patch (''net/mac80211/util.c'')**: In ''ieee80211_data_to_8023_exthdr()'', strip the inner ''0x6558'' header when ''hdr.h_proto == htons(ETH_P_TEB)'' via ''skb_pull(skb, sizeof(struct ethhdr))''.\n+  * **Stock airOS 8 CPE Runtime Toggle**: Set ''echo 1 > /proc/sys/dev/uph/allow_80211'' and ''echo 0 > /proc/sys/dev/uph/ubnt_op_mode'' (scope any ''/etc/sysinit/radio.conf'' edit strictly to ''/op_mode/s/1/0/'').\n+  * **SPI NOR Unlock Note**: Use OpenWrt ''23.05.3+'' or ''24.10.3+'' (''Linux 6.6.103+'') so Macronix ''MX25L12805D'' ''SR_BP*'' block-protection bits are unlocked on boot.\n+\n+Hardware-benchmarked ''AR9342'' (''535.0 MHz'') + ''QCA9882'' (''0777:e8e5'', ''caldata'' ''0x3e2d'') queue tuning (-38% loaded p95 RTT):\n+<code bash>\n+PHY=/sys/kernel/debug/ieee80211/phy0\n+echo 5000 > $PHY/aql_threshold\n+for ac in 0 1 2 3; do echo \"$ac 1000 2000\" > $PHY/aql_txq_limit; done\n+tc qdisc replace dev phy0-ap0 root fq_codel limit 2048 target 8ms interval 50ms quantum 3028 flows 1024 ecn\n+tc qdisc replace dev eth0 root fq_codel limit 2048 target 5ms interval 50ms quantum 3028 flows 1024 ecn\n+</code>\n+\n ===== External links =====\n   * https://ui.com"
+    },
+    "toh:ubiquiti:nanostation_5ac_loco": {
+      "wiki_page_id": "toh:ubiquiti:nanostation_5ac_loco",
+      "canonical_url": "https://openwrt.org/toh/ubiquiti/nanostation_ac_loco",
+      "section_heading": "===== Hardware Notes (535 MHz Clock) & Optimal STA/PtP Queue Tuning =====",
+      "edit_summary": "Clarify 535 MHz AR9342 clock, 0xe7fa caldata 0x2292, and optimal STA/AP AQL + fq_codel tuning",
+      "section_line_count": 13,
+      "max_line_budget": 25,
+      "first_pass_action": "INSERTED_NEW_SECTION",
+      "first_pass_changed": true,
+      "second_pass_action": "UNCHANGED_IDEMPOTENT",
+      "second_pass_changed": false,
+      "merged_sha256": "ad2c428c8b915367320dac237bf38532928ea1e2b53ee460927b7fedc6e1ef8f",
+      "unified_diff": "--- a/toh/ubiquiti/nanostation_5ac_loco.txt\n+++ b/toh/ubiquiti/nanostation_5ac_loco.txt\n@@ -1,3 +1,17 @@\n ====== Ubiquiti NanoStation 5AC Loco ======\n ^ Model ^ NS-5ACL ^\n | Flash | 16 MiB |\n+\n+===== Hardware Notes (535 MHz Clock) & Optimal STA/PtP Queue Tuning =====\n+  * **Verified Clock & Radio IDs**: The ''AR9342'' rev 2 SoC runs at **''535.000 MHz''** CPU / ''400 MHz'' DDR / ''200 MHz'' AHB in ''dmesg'' (not ''560 MHz''). Primary 5 GHz radio is ''QCA9882'' PCIe ''[0777:11ac]'' sub ''0777:e7fa'' (''qc98xx_verify_checksum: 0x2292'', ''board-2.bin'' CRC32 ''bebc7c08''); secondary 2.4 GHz management radio is ''AR9340'' Rev 2 (''irq=47'', ''PAPRD'' auto-disables).\n+  * **SPI NOR Flash**: Macronix ''MX25L12805D'' (''16 MiB''); requires OpenWrt ''23.05.3+'' or ''24.10.3+'' to clear U-Boot ''SR_BP*'' write-protection bits.\n+  * **AirOS 8 WDS Interoperability**: Stock airOS 8 4-addr WDS frames use inner ''ETH_P_TEB'' (''0x6558''); strip ''sizeof(struct ethhdr)'' in ''ieee80211_data_to_8023_exthdr()'' on the AP or set ''allow_80211=1'' + ''ubnt_op_mode=0'' on stock CPEs.\n+\n+Optimal ''ath10k'' AQL + 1-MTU uplink ''fq_codel'' tuning on ''NS-5ACL'' (eliminates ~200 ms upload bufferbloat without exhausting the ''535 MHz'' CPU):\n+<code bash>\n+PHY=/sys/kernel/debug/ieee80211/phy0\n+echo 4000 > $PHY/aql_threshold\n+for ac in 0 1 2 3; do echo \"$ac 900 1500\" > $PHY/aql_txq_limit; done\n+tc qdisc replace dev phy0-sta0 root fq_codel limit 2048 target 10ms interval 50ms quantum 1514 flows 1024 ecn\n+sysctl -w net.ipv4.tcp_limit_output_bytes=131072 net.ipv4.tcp_notsent_lowat=16384 net.core.netdev_budget=600\n+</code>"
+    },
+    "toh:ubiquiti:litebeam_5ac_gen2": {
+      "wiki_page_id": "toh:ubiquiti:litebeam_5ac_gen2",
+      "canonical_url": "https://openwrt.org/toh/ubiquiti/litebeam_5ac_gen2",
+      "section_heading": "===== U-Boot TFTP Load Address & Optimal AQL/fq_codel Tuning =====",
+      "edit_summary": "Add U-Boot 0x82000000 LZMA load note, 0xe7f9 caldata 0x13b5, and optimal AQL/fq_codel tuning",
+      "section_line_count": 13,
+      "max_line_budget": 25,
+      "first_pass_action": "INSERTED_NEW_SECTION",
+      "first_pass_changed": true,
+      "second_pass_action": "UNCHANGED_IDEMPOTENT",
+      "second_pass_changed": false,
+      "merged_sha256": "859d55c464f362a22e2fa24515bc07839f2a4cbbc6f5a88ec807abf7b549ebc7",
+      "unified_diff": "--- a/toh/ubiquiti/litebeam_5ac_gen2.txt\n+++ b/toh/ubiquiti/litebeam_5ac_gen2.txt\n@@ -1,3 +1,17 @@\n ====== Ubiquiti LiteBeam 5AC Gen2 ======\n ===== Installation =====\n Use TFTP recovery (`urescue`).\n+\n+===== U-Boot TFTP Load Address & Optimal AQL/fq_codel Tuning =====\n+  * **U-Boot ''bootm'' LZMA Load Address**: When booting OpenWrt ''23.05+'' / ''24.10+'' initramfs images over serial/TFTP on ''LBE-5AC-Gen2'' (''AR9342-BL1A'' rev 3 ''535 MHz'', ''0777:e7f9'', ''caldata'' ''0x13b5'', ''board-2.bin'' ''bebc7c08''), load to ''0x82000000'' (''tftpboot 0x82000000 <image>; bootm 0x82000000'') to avoid ''LZMA ERROR 1'' self-overwrite at ''0x81000000''.\n+  * **SPI NOR Flash**: Macronix ''MX25L12805D'' (''16 MiB''); use OpenWrt ''23.05.3+'' or ''24.10.3+'' so ''SR_BP*'' protection bits are unlocked before mounting ''overlayfs''.\n+  * **AirOS 8 WDS Interoperability**: Strip inner ''ETH_P_TEB'' (''0x6558'') in ''mac80211'' ''ieee80211_data_to_8023_exthdr()'' when bridging with stock airOS 8 WDS peers.\n+\n+Hardware-verified ''ath10k'' AQL + ''fq_codel'' configuration for low-jitter PtP/PtMP operation (-38% loaded p95 latency):\n+<code bash>\n+PHY=/sys/kernel/debug/ieee80211/phy0\n+echo 4000 > $PHY/aql_threshold\n+for ac in 0 1 2 3; do echo \"$ac 900 1500\" > $PHY/aql_txq_limit; done\n+tc qdisc replace dev phy0-sta0 root fq_codel limit 2048 target 10ms interval 50ms quantum 1514 flows 1024 ecn\n+sysctl -w net.ipv4.tcp_limit_output_bytes=131072 net.ipv4.tcp_notsent_lowat=16384 net.core.netdev_budget=600\n+</code>"
+    },
+    "toh:ubiquiti:rocket_5ac_prism": {
+      "wiki_page_id": "toh:ubiquiti:rocket_5ac_prism",
+      "canonical_url": "https://openwrt.org/toh/ubiquiti/rocket_ac",
+      "section_heading": "===== Rocket Prism 5AC Gen2 (XC 0xe7f9) & Rocket 2AC Prism (2XC 0xe7f7) Hardware Specs =====",
+      "edit_summary": "Document XC/2XC QCA9558 720 MHz, 128 MiB RAM, 3-radio (wifi0+wifi1+airview1), and AirPrism IRQ 64 specs",
+      "section_line_count": 9,
+      "max_line_budget": 25,
+      "first_pass_action": "INSERTED_NEW_SECTION",
+      "first_pass_changed": true,
+      "second_pass_action": "UNCHANGED_IDEMPOTENT",
+      "second_pass_changed": false,
+      "merged_sha256": "c1ba5a76e175f80a123622622cffee31372e074ddb4a78fb70442eccb468441c",
+      "unified_diff": "--- a/toh/ubiquiti/rocket_5ac_prism.txt\n+++ b/toh/ubiquiti/rocket_5ac_prism.txt\n@@ -1,2 +1,12 @@\n ====== Ubiquiti Rocket 5AC ======\n Currently documents Rocket 5AC Lite.\n+\n+===== Rocket Prism 5AC Gen2 (XC 0xe7f9) & Rocket 2AC Prism (2XC 0xe7f7) Hardware Specs =====\n+Unlike the **Rocket 5AC Lite** (''AR9342'' ''535 MHz'', ''64 MiB'' RAM), **Rocket Prism 5AC Gen2** (''XC'') and **Rocket 2AC Prism** (''2XC'') use the ''720 MHz'' ''QCA9558'' platform with three radio interfaces and hardware **AirPrism** active band-pass filtering:\n+\n+^ Model ^ Board / SysID ^ SoC & RAM / Flash ^ Primary Data Radio (''wifi0'') ^ Active RF Filter ^ Aux Radios ^\n+| **Rocket Prism 5AC Gen2** | ''XC'' / ''0xe7f9'' (''0xe7e9'') | ''QCA9558'' ''720 MHz'', ''128 MiB'' DDR2, ''16 MiB'' NOR | ''QCA9880'' v2 (''0777:e7f9'', PCIe IRQ 75, 5 GHz 2x2) | **Dual-Stage AirPrism** (SPI + GPIO 13..16 + IRQ 64 blanking) | ''wifi1'' (2.4 GHz mgmt WMAC, IRQ 2) + ''airview1'' scanner + GPS |\n+| **Rocket 2AC Prism** | ''2XC'' / ''0xe7f7'' (''0xe7f5'') | ''QCA9558'' ''720 MHz'', ''128 MiB'' DDR2, ''16 MiB'' NOR | ''QCA9880'' v2 + 2.4 GHz RF downconverter (256-QAM) | **2.4 GHz AirPrism** (>35.5 dB OOB rejection, IRQ 64 blanking) | ''wifi1'' (2.4 GHz mgmt WMAC) + ''airview1'' scanner + GPS |\n+\n+  * **16 MiB SPI NOR Partition Map**: ''mtd0'' ''u-boot'' (256k), ''mtd1'' ''u-boot-env'' (64k), ''mtd2'' ''kernel'' (1024k), ''mtd3'' ''rootfs'' (14720k), ''mtd4'' ''cfg'' (256k), ''mtd5'' ''EEPROM'' (64k @ ''0xff0000'' storing ART + AirPrism calibration tables).\n+  * **Quiescing ''airview1'' Scanner Spikes**: Running ''ifconfig airview1 down'' (without sending ''SIGSTOP'' to ''ubntspecd'') eliminates off-channel scan jitter (-36% p95 RTT) while keeping hardware watchdogs intact."
+    },
+    "toh:ubiquiti:start": {
+      "wiki_page_id": "toh:ubiquiti:start",
+      "canonical_url": "https://openwrt.org/toh/ubiquiti/start",
+      "section_heading": "===== Ubiquiti LTU Architecture (Cyclone V SoC FPGA) & PowerBeam M5 XW Ethernet Note =====",
+      "edit_summary": "Clarify Ubiquiti LTU Cyclone V SoC + ame_core FPGA architecture and PowerBeam M5-400 vs M5-300 Ethernet PHY split",
+      "section_line_count": 3,
+      "max_line_budget": 25,
+      "first_pass_action": "INSERTED_NEW_SECTION",
+      "first_pass_changed": true,
+      "second_pass_action": "UNCHANGED_IDEMPOTENT",
+      "second_pass_changed": false,
+      "merged_sha256": "9f896d83f84b27f773eb6d1c68b8b3bcd090b0b04dcfe2f9d240246b62f11faa",
+      "unified_diff": "--- a/toh/ubiquiti/start.txt\n+++ b/toh/ubiquiti/start.txt\n@@ -1,2 +1,6 @@\n ====== Ubiquiti ======\n Overview of Ubiquiti devices supported by OpenWrt.\n+\n+===== Ubiquiti LTU Architecture (Cyclone V SoC FPGA) & PowerBeam M5 XW Ethernet Note =====\n+  * **Ubiquiti LTU Family (''LTU-Lite'' ''0xae08''/''0xae02'', ''LTU-Rocket'' ''0xeb00'')**: Built on an **Altera/Intel Cyclone V SoC FPGA** (Dual-Core ''ARM Cortex-A9'' HPS running ''Linux 3.14.65-rt'' + custom FPGA bitstream ''/lib/firmware/ame_soc.rbf'' and proprietary ''ame_core.ko'' 4096-QAM baseband with 8-queue ''eth0 mq'' DMA). LTU devices are **not** Qualcomm/Atheros ''ath79''/''QCA988x'' hardware and cannot use ''ath10k''. On ''LTU-Lite'' (''0xae08''), ''ame_core.ko'' natively supports ''role=ap'' (''wireless_mode=ptp'' and ''ptmp'' Short-Queue ''SQ'' mode for ''ptmp_max_cpe <= 16'').\n+  * **PowerBeam M5 (''XW'') Ethernet PHY Split**: **PBE-M5-400** (''0xe4e5'') uses an external ''AR8035'' Gigabit PHY (use ''ubnt_powerbeam-m5-xw''), whereas **PBE-M5-300** (''0xe3e5'') uses the internal ''AR9342'' ''ATHRS27'' FastEthernet (100M) switch (must use ''ubnt_nanobeam-m5-xw'' DTS so ''eth0'' links up)."
+    }
+  }
+}

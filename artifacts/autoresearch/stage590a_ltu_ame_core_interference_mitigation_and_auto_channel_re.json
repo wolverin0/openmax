@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "stage": "590A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage590a_ltu_ame_core_interference_mitigation_and_auto_channel_re.py",
+    "tool_sha256": "c523e2afdc596c3b3c66709b5ce95ac6110693dfb1b5eb565a00afc851962fd0",
+    "output": "artifacts/autoresearch/stage590a_ltu_ame_core_interference_mitigation_and_auto_channel_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, nothing transmitted",
+    "method": "token census of the LBT, interference and auto-frequency vocabularies; defined-symbol lookup for the LBT API, the four config parameters, the detection counters and the interference detectors; sysfs show/store pair detection",
+    "premise_corrections": [
+      "`mitigat` has 0 hits in either module: the mechanism is detection plus LBT plus auto-frequency, and is reported under those names",
+      "LBT is integrated with the frame scheduler through lbt_cfg_pause_txframe, not layered above it"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "lbt": 19,
+        "LBT": 63,
+        "interference": 5,
+        "mitigat": 0,
+        "freq_list": 1,
+        "auto_freq": 0,
+        "smart_scan": 0,
+        "spectral": 0,
+        "noise": 8,
+        "dfs": 24
+      },
+      "lbt_api": {
+        "lbt_init": 1,
+        "lbt_enable": 2,
+        "lbt_is_enable": 1,
+        "lbt_set_cfg": 2,
+        "lbt_get_cfg": 1,
+        "is_lbt_required": 1
+      },
+      "lbt_cfg": {
+        "lbt_cfg_listen_window": 2,
+        "lbt_cfg_pause_txframe": 1,
+        "lbt_cfg_threshold": 2,
+        "lbt_cfg_reset": 2
+      },
+      "lbt_counter": {
+        "lbt_incr_detect_cnt": 1,
+        "lbt_get_detect_cnt": 1
+      },
+      "interf": {
+        "interference_det_init": 1,
+        "interference_det_deinit": 1,
+        "get_rf_interference_avg": 1,
+        "get_rf_interference_curr": 1
+      },
+      "sysfs": {
+        "lbt_cfg": {
+          "show": 0,
+          "store": 0
+        },
+        "lbt_detects": {
+          "show": 0,
+          "store": 0
+        },
+        "lbt_enable": {
+          "show": 0,
+          "store": 0
+        },
+        "lbt_reset": {
+          "show": 0,
+          "store": 0
+        }
+      },
+      "auto": {
+        "freq_list_enabled": 0,
+        "auto_freq_list": 0,
+        "auto_freq_mode": 0,
+        "smart_scan": 0,
+        "prefer_work_txfreq": 0,
+        "prefer_work_rxfreq": 0,
+        "reg_obey": 0
+      },
+      "lbt_cfg_stores": {
+        "window": 0,
+        "threshold": 0,
+        "pauselen": 0
+      },
+      "lbt_symbols": [
+        "ame_bbp_rt_lbt",
+        "ame_core_is_lbt_required",
+        "ame_core_lbt_cfg_listen_window",
+        "ame_core_lbt_cfg_pause_txframe",
+        "ame_core_lbt_cfg_reset",
+        "ame_core_lbt_cfg_threshold",
+        "ame_core_lbt_enable",
+        "ame_core_lbt_get_cfg",
+        "ame_core_lbt_get_detect_cnt",
+        "ame_core_lbt_incr_detect_cnt",
+        "ame_core_lbt_init",
+        "ame_core_lbt_is_enable",
+        "ame_core_lbt_set_cfg",
+        "bbp_mrx_printLBT"
+      ],
+      "interf_symbols": [
+        "ame_core_get_rf_interference_avg",
+        "ame_core_get_rf_interference_curr",
+        "ame_core_interference_det_deinit",
+        "ame_core_interference_det_init",
+        "ame_rf_interference_det_fn",
+        "pRfInterference"
+      ],
+      "freq_symbols": [
+        "ame_freq_list"
+      ],
+      "interf_contexts": [
+        "p_mrx_setLBT..bbp_mrx_topB_setAES.bbp_mrx_init_PwrMon.RX_POWER_HIGH_INTERF_STABLE_PWR_HIGH....RX_POWER_HIGH_INTERF_STABLE_PWR_LOW.RX_POWER_TAR",
+        "x_init_PwrMon.RX_POWER_HIGH_INTERF_STABLE_PWR_HIGH....RX_POWER_HIGH_INTERF_STABLE_PWR_LOW.RX_POWER_TARGET_NOISE_VAL_THD...pb_ratio_thr....bbp_"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "lbt": 16,
+        "LBT": 1,
+        "interference": 0,
+        "mitigat": 0,
+        "freq_list": 2,
+        "auto_freq": 2,
+        "smart_scan": 1,
+        "spectral": 0,
+        "noise": 0,
+        "dfs": 6
+      },
+      "lbt_api": {
+        "lbt_init": 0,
+        "lbt_enable": 3,
+        "lbt_is_enable": 0,
+        "lbt_set_cfg": 0,
+        "lbt_get_cfg": 0,
+        "is_lbt_required": 0
+      },
+      "lbt_cfg": {
+        "lbt_cfg_listen_window": 0,
+        "lbt_cfg_pause_txframe": 0,
+        "lbt_cfg_threshold": 2,
+        "lbt_cfg_reset": 0
+      },
+      "lbt_counter": {
+        "lbt_incr_detect_cnt": 0,
+        "lbt_get_detect_cnt": 0
+      },
+      "interf": {
+        "interference_det_init": 0,
+        "interference_det_deinit": 0,
+        "get_rf_interference_avg": 0,
+        "get_rf_interference_curr": 0
+      },
+      "sysfs": {
+        "lbt_cfg": {
+          "show": 1,
+          "store": 0
+        },
+        "lbt_detects": {
+          "show": 1,
+          "store": 1
+        },
+        "lbt_enable": {
+          "show": 1,
+          "store": 1
+        },
+        "lbt_reset": {
+          "show": 1,
+          "store": 1
+        }
+      },
+      "auto": {
+        "freq_list_enabled": 1,
+        "auto_freq_list": 1,
+        "auto_freq_mode": 1,
+        "smart_scan": 1,
+        "prefer_work_txfreq": 1,
+        "prefer_work_rxfreq": 1,
+        "reg_obey": 3
+      },
+      "lbt_cfg_stores": {
+        "window": 1,
+        "threshold": 1,
+        "pauselen": 1
+      },
+      "lbt_symbols": [
+        "lbt_cfg_pauselen_store",
+        "lbt_cfg_show",
+        "lbt_cfg_threshold_store",
+        "lbt_cfg_window_store",
+        "lbt_detects_show",
+        "lbt_detects_store",
+        "lbt_enable_show",
+        "lbt_enable_store",
+        "lbt_reset_show",
+        "lbt_reset_store"
+      ],
+      "interf_symbols": [],
+      "freq_symbols": [],
+      "interf_contexts": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "lbt_symbol_count": 24,
+    "lbt_symbols": [
+      "ame_bbp_rt_lbt",
+      "ame_core_is_lbt_required",
+      "ame_core_lbt_cfg_listen_window",
+      "ame_core_lbt_cfg_pause_txframe",
+      "ame_core_lbt_cfg_reset",
+      "ame_core_lbt_cfg_threshold",
+      "ame_core_lbt_enable",
+      "ame_core_lbt_get_cfg",
+      "ame_core_lbt_get_detect_cnt",
+      "ame_core_lbt_incr_detect_cnt",
+      "ame_core_lbt_init",
+      "ame_core_lbt_is_enable"
+    ],
+    "lbt_api_controls": [
+      "lbt_init",
+      "lbt_enable",
+      "lbt_is_enable",
+      "lbt_set_cfg",
+      "lbt_get_cfg",
+      "is_lbt_required"
+    ],
+    "lbt_api_count": 6,
+    "lbt_cfg_params": [
+      "lbt_cfg_listen_window",
+      "lbt_cfg_pause_txframe",
+      "lbt_cfg_threshold",
+      "lbt_cfg_reset"
+    ],
+    "lbt_cfg_count": 4,
+    "lbt_counters": [
+      "lbt_incr_detect_cnt",
+      "lbt_get_detect_cnt"
+    ],
+    "lbt_counter_count": 2,
+    "lbt_has_listen_window": 1,
+    "lbt_has_pause_txframe": 1,
+    "lbt_has_detect_counter": 1,
+    "interference_symbols": [
+      "ame_core_get_rf_interference_avg",
+      "ame_core_get_rf_interference_curr",
+      "ame_core_interference_det_deinit",
+      "ame_core_interference_det_init",
+      "ame_rf_interference_det_fn",
+      "pRfInterference"
+    ],
+    "interference_controls": [
+      "interference_det_init",
+      "interference_det_deinit",
+      "get_rf_interference_avg",
+      "get_rf_interference_curr"
+    ],
+    "interference_detection_named": 1,
+    "sysfs_lbt_pairs": [
+      "lbt_detects",
+      "lbt_enable",
+      "lbt_reset"
+    ],
+    "sysfs_pair_count": 3,
+    "lbt_cfg_store_variants": [
+      "pauselen",
+      "threshold",
+      "window"
+    ],
+    "lbt_cfg_has_split_store": 1,
+    "auto_channel_keys": [
+      "freq_list_enabled",
+      "auto_freq_list",
+      "auto_freq_mode",
+      "smart_scan",
+      "prefer_work_txfreq",
+      "prefer_work_rxfreq",
+      "reg_obey"
+    ],
+    "auto_channel_key_count": 7,
+    "auto_channel_hooks_named": 1,
+    "freq_list_symbols": [
+      "ame_freq_list"
+    ],
+    "mitigation_word_hits": 0,
+    "mitigation_word_absent": 1,
+    "lbt_threshold_recovered": 0,
+    "auto_channel_policy_recovered": 0,
+    "spectral_scan_hook_recovered": 0
+  },
+  "gaps": [
+    "`mitigat` does not exist as a token: the stage's interference mitigation is implemented as detection (interference_det_*) plus LBT plus auto-frequency",
+    "the LBT threshold, listen-window and pause-frame values are runtime data behind sysfs; no defaults were recovered",
+    "the interference detectors expose avg and curr RF interference but the decision that consumes them was not decoded",
+    "auto_freq_mode and smart_scan are configuration keys; the selection policy behind them was not recovered",
+    "no spectral-scan hook appears by that name in these two modules; Stage 327A found the spectral surface in ath_spectral.ko on the AC side",
+    "no dynamic validation"
+  ]
+}

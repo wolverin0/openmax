@@ -1,0 +1,195 @@
+{
+  "stage": "Stage 583A",
+  "timestamp": "2026-10-27T01:50:20.620299+00:00",
+  "elapsed_seconds": 134.2,
+  "status": "CONFIRMED",
+  "attribution": "QCA firmware + ath10k + mac80211 + Linux",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "vht40_clean_associated": true,
+  "champion_v3_knobs": {
+    "htmode": "VHT40",
+    "width_mhz": 40,
+    "bw_idx": 1,
+    "ap_nss": 1,
+    "ap_mcs": 2,
+    "sta_nss": 0,
+    "sta_mcs": 2,
+    "pktlog_filter": "0x0",
+    "nf_cal_period": 120,
+    "bb_timing_0x29e00": "0x13761320",
+    "tcp_notsent_lowat": 131072,
+    "tcp_comp_sack_delay_ns": 250000,
+    "tx_queue_len": 1000,
+    "aql_be_low_high": [
+      1500,
+      2000
+    ],
+    "htt_max_amsdu_ampdu": "3 64"
+  },
+  "windows": [
+    {
+      "window": "A1",
+      "arm": "A",
+      "htmode": "VHT40",
+      "width_mhz": 40,
+      "ping_64b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 1.435,
+        "p50_ms": 1.575,
+        "p95_ms": 2.016,
+        "p99_ms": 2.016,
+        "max_ms": 2.016
+      },
+      "ping_1472b": {
+        "count": 7,
+        "loss_pct": 12.0,
+        "min_ms": 2.02,
+        "p50_ms": 2.964,
+        "p95_ms": 22.233,
+        "p99_ms": 22.233,
+        "max_ms": 22.233
+      },
+      "dl_mbps": 10.62,
+      "ul_mbps": 5.61,
+      "aggregate_mbps": 16.23
+    },
+    {
+      "window": "B1",
+      "arm": "B",
+      "htmode": "VHT40",
+      "width_mhz": 40,
+      "ping_64b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 1.464,
+        "p50_ms": 1.609,
+        "p95_ms": 2.106,
+        "p99_ms": 2.106,
+        "max_ms": 2.106
+      },
+      "ping_1472b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 21.911,
+        "p50_ms": 22.02,
+        "p95_ms": 62.456,
+        "p99_ms": 62.456,
+        "max_ms": 62.456
+      },
+      "dl_mbps": 16.96,
+      "ul_mbps": 8.51,
+      "aggregate_mbps": 25.47
+    },
+    {
+      "window": "A2",
+      "arm": "A",
+      "htmode": "VHT40",
+      "width_mhz": 40,
+      "ping_64b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 1.423,
+        "p50_ms": 1.514,
+        "p95_ms": 2.389,
+        "p99_ms": 2.389,
+        "max_ms": 2.389
+      },
+      "ping_1472b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 2.219,
+        "p50_ms": 22.092,
+        "p95_ms": 22.642,
+        "p99_ms": 22.642,
+        "max_ms": 22.642
+      },
+      "dl_mbps": 14.62,
+      "ul_mbps": 7.76,
+      "aggregate_mbps": 22.38
+    },
+    {
+      "window": "B2",
+      "arm": "B",
+      "htmode": "VHT40",
+      "width_mhz": 40,
+      "ping_64b": {
+        "count": 8,
+        "loss_pct": 0.0,
+        "min_ms": 1.407,
+        "p50_ms": 1.452,
+        "p95_ms": 3.297,
+        "p99_ms": 3.297,
+        "max_ms": 3.297
+      },
+      "ping_1472b": {
+        "count": 7,
+        "loss_pct": 12.0,
+        "min_ms": 2.399,
+        "p50_ms": 22.02,
+        "p95_ms": 22.959,
+        "p99_ms": 22.959,
+        "max_ms": 22.959
+      },
+      "dl_mbps": 14.46,
+      "ul_mbps": 8.44,
+      "aggregate_mbps": 22.9
+    }
+  ],
+  "summary": {
+    "arm_a_mean_dl_mbps": 12.62,
+    "arm_a_mean_ul_mbps": 6.69,
+    "arm_a_mean_aggregate_mbps": 19.3,
+    "arm_a_mean_1472b_loss_pct": 6.0,
+    "arm_b_mean_dl_mbps": 15.71,
+    "arm_b_mean_ul_mbps": 8.47,
+    "arm_b_mean_aggregate_mbps": 24.18,
+    "arm_b_peak_aggregate_mbps": 25.47,
+    "arm_b_mean_1472b_loss_pct": 6.0
+  },
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "modules_analyzed": [
+        "firmware-2.bin",
+        "ath10k_core.ko",
+        "mac80211.ko"
+      ],
+      "functions_decompiled": [
+        "ath10k_write_set_rate_override",
+        "ath10k_debug_pktlog_filter_write",
+        "ar9888_reset_bb_timing_controls_1_0x29e00"
+      ],
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json",
+      "total_knobs": 571
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py",
+      "queue_ref": "artifacts/autoresearch/discovery_to_research_queue.json"
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "pymoo",
+        "simpy",
+        "hypothesis-generation",
+        "statistical-analysis",
+        "scientific-critical-thinking"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S583A-01"
+      ]
+    }
+  }
+}

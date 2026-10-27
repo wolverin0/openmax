@@ -1,0 +1,386 @@
+{
+  "analysis_dependencies": [
+    {
+      "bytes": 2225,
+      "path": "tools/autoresearch/stage525_530_common.py",
+      "sha256": "eeb6de4cc1724797c687688c509081510c3f96fcde61f58783e7fcbe2e0296f0"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    }
+  ],
+  "boundary": {
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": false,
+    "target_access": false,
+    "target_commands_executed": false
+  },
+  "cross_topology_effect_combination_allowed": false,
+  "gaps": [
+    "No native SSH exit/transcript, packet capture, route/interface proof or binary/build-bound acquisition chain is retained for487.",
+    "VHT80 flag is unconditional; ping alone does not prove width negotiation or the WPA handshake.",
+    "487 DL+UL are sequential interface-rate sums and its20MHz reference is hardcoded in the producer.",
+    "AirOS22.80/3.60 reference occurs in prose only, not the487 JSON; width/topology/workload differ.",
+    "403 getter text is dropped by the measurement serializer; configured values are not observed getter success.",
+    "R45 has two windows per arm with large A1/A2 variation and a p50 regression; no causal transfer to PBE is established."
+  ],
+  "implementation": {
+    "bytes": 13415,
+    "path": "tools/autoresearch/build_stage525a_pbe5ac_vht40_25mbps_and_pktlog_zero_reconciler.py",
+    "sha256": "1ab420c16612267b4d0c93dc5fa13e63bb7ce93cf7f3d274047d3d60550f507b"
+  },
+  "outputs": {
+    "docs/STAGE525A_PBE5AC_VHT40_25MBPS_AND_PKTLOG_ZERO_RECONCILER.md": {
+      "bytes": 3077,
+      "path": "docs/STAGE525A_PBE5AC_VHT40_25MBPS_AND_PKTLOG_ZERO_RECONCILER.md",
+      "sha256": "2c5ab0e40c9e05cef4753224698f32919994e93b7e503577b06d34265b0c6d3f"
+    }
+  },
+  "pbe5ac": {
+    "champion": {
+      "aggregate_mbps": 24.83,
+      "computed_aggregate_mbps": 24.83,
+      "conditional_iid_95pct_loss_upper_bound": 0.31234397806636793,
+      "dl_mbps": 16.74,
+      "id": "vht40_ap_nss2_mcs2_sta_nss1_mcs2",
+      "ping_1472b": {
+        "count": 8,
+        "loss_pct": 0.0
+      },
+      "producer_ap_nss_override_index": 1,
+      "producer_intended_ap_streams": 2,
+      "runtime_nss_verified": false,
+      "source_pointer": "/profiles/2",
+      "source_role": "SAVED_SWEEP_SUMMARY",
+      "ul_mbps": 8.09,
+      "width_mhz": 40
+    },
+    "loss_bound_assumption": "Conditional on n transmitted IID Bernoulli trials with zero loss; saved count is replies, raw transmitted count absent.",
+    "measurement_basis": "Sequential DL/UL interface RX byte deltas over truncated uptime, not simultaneous application throughput",
+    "peak_ul": {
+      "aggregate_mbps": 20.77,
+      "computed_aggregate_mbps": 20.77,
+      "conditional_iid_95pct_loss_upper_bound": 0.31234397806636793,
+      "dl_mbps": 10.81,
+      "id": "vht40_ap_nss2_mcs3_sta_nss1_mcs2",
+      "ping_1472b": {
+        "count": 8,
+        "loss_pct": 0.0
+      },
+      "producer_ap_nss_override_index": 1,
+      "producer_intended_ap_streams": 2,
+      "runtime_nss_verified": false,
+      "source_pointer": "/profiles/3",
+      "source_role": "SAVED_SWEEP_SUMMARY",
+      "ul_mbps": 9.96,
+      "width_mhz": 40
+    },
+    "profiles": [
+      {
+        "aggregate_mbps": 22.46,
+        "computed_aggregate_mbps": 22.46,
+        "conditional_iid_95pct_loss_upper_bound": 0.2588655508930523,
+        "dl_mbps": 15.23,
+        "id": "vht20_ap_nss2_mcs3_sta_nss1_mcs2",
+        "ping_1472b": {
+          "count": 10,
+          "loss_pct": 0.0
+        },
+        "producer_ap_nss_override_index": 1,
+        "producer_intended_ap_streams": 2,
+        "runtime_nss_verified": false,
+        "source_pointer": "/profiles/0",
+        "source_role": "HARDCODED_REFERENCE_IN_PRODUCER",
+        "ul_mbps": 7.23,
+        "width_mhz": 20
+      },
+      {
+        "aggregate_mbps": 18.95,
+        "computed_aggregate_mbps": 18.95,
+        "conditional_iid_95pct_loss_upper_bound": 0.31234397806636793,
+        "dl_mbps": 10.76,
+        "id": "vht40_ap_nss2_mcs2_sta_nss1_mcs1",
+        "ping_1472b": {
+          "count": 8,
+          "loss_pct": 0.0
+        },
+        "producer_ap_nss_override_index": 1,
+        "producer_intended_ap_streams": 2,
+        "runtime_nss_verified": false,
+        "source_pointer": "/profiles/1",
+        "source_role": "SAVED_SWEEP_SUMMARY",
+        "ul_mbps": 8.19,
+        "width_mhz": 40
+      },
+      {
+        "aggregate_mbps": 24.83,
+        "computed_aggregate_mbps": 24.83,
+        "conditional_iid_95pct_loss_upper_bound": 0.31234397806636793,
+        "dl_mbps": 16.74,
+        "id": "vht40_ap_nss2_mcs2_sta_nss1_mcs2",
+        "ping_1472b": {
+          "count": 8,
+          "loss_pct": 0.0
+        },
+        "producer_ap_nss_override_index": 1,
+        "producer_intended_ap_streams": 2,
+        "runtime_nss_verified": false,
+        "source_pointer": "/profiles/2",
+        "source_role": "SAVED_SWEEP_SUMMARY",
+        "ul_mbps": 8.09,
+        "width_mhz": 40
+      },
+      {
+        "aggregate_mbps": 20.77,
+        "computed_aggregate_mbps": 20.77,
+        "conditional_iid_95pct_loss_upper_bound": 0.31234397806636793,
+        "dl_mbps": 10.81,
+        "id": "vht40_ap_nss2_mcs3_sta_nss1_mcs2",
+        "ping_1472b": {
+          "count": 8,
+          "loss_pct": 0.0
+        },
+        "producer_ap_nss_override_index": 1,
+        "producer_intended_ap_streams": 2,
+        "runtime_nss_verified": false,
+        "source_pointer": "/profiles/3",
+        "source_role": "SAVED_SWEEP_SUMMARY",
+        "ul_mbps": 9.96,
+        "width_mhz": 40
+      }
+    ],
+    "selection_policy": "PRODUCER_LOSS_LE10_THEN_REPORTED_AGGREGATE_NOT_ACCEPTANCE",
+    "sta_vht80_capability_proof": "UNSUPPORTED_UNCONDITIONAL_PRODUCER_TRUE_LITERAL",
+    "summary_conflicts": [],
+    "topology": "REPORTED_PBE5AC_192.168.100.241_TO_242_NOT_REACQUIRED",
+    "vht40_association_proof": "PING_MARKER_ONLY_NO_SAVED_IW_OR_WPA_TRANSCRIPT"
+  },
+  "pktlog": {
+    "attribution": "ath10k/host and QCA firmware hypothesis; no CE DMA causal isolation",
+    "deltas": {
+      "app_mbps": 27.65515264440306,
+      "goodput_mbps": 27.65515264440306,
+      "ota_mbps": 33.23341326938447,
+      "p50_ms": 8.044575511824403,
+      "p95_ms": -2.9093810035492162,
+      "p99_ms": -2.9093810035492162,
+      "voip_jitter_ms": -51.63123346722838
+    },
+    "layer_metrics": {
+      "application_and_ota_recomputed_separately": true,
+      "definition": "max(application TCP+IPTV+VoIP sum, OTA interface byte rate)",
+      "is_pure_application_goodput": false
+    },
+    "means": {
+      "A": {
+        "app_mbps": 55.815999999999995,
+        "goodput_mbps": 55.816,
+        "ota_mbps": 50.04,
+        "p50_ms": 17.633000000000003,
+        "p95_ms": 61.422000000000004,
+        "p99_ms": 61.422000000000004,
+        "voip_jitter_ms": 5.1035
+      },
+      "B": {
+        "app_mbps": 71.25200000000001,
+        "goodput_mbps": 71.25200000000001,
+        "ota_mbps": 66.66999999999999,
+        "p50_ms": 19.0515,
+        "p95_ms": 59.635000000000005,
+        "p99_ms": 59.635000000000005,
+        "voip_jitter_ms": 2.4684999999999997
+      }
+    },
+    "pair_goodput_changes_pct": [
+      91.43791388453823,
+      -3.1964805486516368
+    ],
+    "round_id": "S403A-R45",
+    "rows": [
+      {
+        "arm": "A",
+        "configured_pktlog_filter": "0x40",
+        "getter_status": "NOT_RETAINED_CONFIGURED_VALUES_ONLY",
+        "goodput_layer": "app",
+        "metrics": {
+          "app_mbps": 36.393,
+          "goodput_mbps": 36.393,
+          "ota_mbps": 31.694,
+          "p50_ms": 15.364,
+          "p95_ms": 53.917,
+          "p99_ms": 53.917,
+          "voip_jitter_ms": 3.931
+        },
+        "window": "A1"
+      },
+      {
+        "arm": "B",
+        "configured_pktlog_filter": "0x0",
+        "getter_status": "NOT_RETAINED_CONFIGURED_VALUES_ONLY",
+        "goodput_layer": "app",
+        "metrics": {
+          "app_mbps": 69.67,
+          "goodput_mbps": 69.67,
+          "ota_mbps": 64.829,
+          "p50_ms": 16.248,
+          "p95_ms": 53.856,
+          "p99_ms": 53.856,
+          "voip_jitter_ms": 3.271
+        },
+        "window": "B1"
+      },
+      {
+        "arm": "A",
+        "configured_pktlog_filter": "0x40",
+        "getter_status": "NOT_RETAINED_CONFIGURED_VALUES_ONLY",
+        "goodput_layer": "app",
+        "metrics": {
+          "app_mbps": 75.23899999999999,
+          "goodput_mbps": 75.239,
+          "ota_mbps": 68.386,
+          "p50_ms": 19.902,
+          "p95_ms": 68.927,
+          "p99_ms": 68.927,
+          "voip_jitter_ms": 6.276
+        },
+        "window": "A2"
+      },
+      {
+        "arm": "B",
+        "configured_pktlog_filter": "0x0",
+        "getter_status": "NOT_RETAINED_CONFIGURED_VALUES_ONLY",
+        "goodput_layer": "app",
+        "metrics": {
+          "app_mbps": 72.834,
+          "goodput_mbps": 72.834,
+          "ota_mbps": 68.511,
+          "p50_ms": 21.855,
+          "p95_ms": 65.414,
+          "p99_ms": 65.414,
+          "voip_jitter_ms": 1.666
+        },
+        "window": "B2"
+      }
+    ],
+    "summary_conflicts": [],
+    "tail_qualification": "Mean per-window quantiles, not pooled RTT quantiles; p95/p99 equal in all saved windows.",
+    "topology": "REPORTED_WA_192.168.100.20_TO_250_NOT_PBE_PAIR"
+  },
+  "producer_anchors": [
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            198
+          ],
+          "token": "\"sta_vht80_cap_unlock_verified\": True"
+        },
+        {
+          "line_numbers": [
+            94
+          ],
+          "token": "vht40_assoc ="
+        },
+        {
+          "line_numbers": [
+            174
+          ],
+          "token": "vht20_ref ="
+        },
+        {
+          "line_numbers": [
+            119,
+            136
+          ],
+          "token": "DL_B="
+        }
+      ],
+      "bytes": 9226,
+      "path": "tools/benchmarks/run_stage487a_live_pbe5ac_sta_vht80_cap_and_vht40_unlock.py",
+      "sha256": "2ba5f7ff39833674df0caa78106cf95232f9fc4e9ca6cc0951f046ce62341ab1"
+    },
+    {
+      "anchors": [
+        {
+          "line_numbers": [
+            397
+          ],
+          "token": "goodput_mbps = round(max(app_mbps, ota_mbps), 3)"
+        },
+        {
+          "line_numbers": [
+            437
+          ],
+          "token": "\"knob_readback\": cfg"
+        }
+      ],
+      "bytes": 50658,
+      "path": "tools/benchmarks/run_stage311a_to_316a_wa_megamission.py",
+      "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+    }
+  ],
+  "promotion_contract": {
+    "R45_window_tcp_streams": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "post_promotion_application_proof": "NOT_RETAINED_WINNER_DICT_IS_NOT_APPLY_PROOF",
+    "promoted_tcp_streams": 2
+  },
+  "source_binding_meaning": "Held current bytes, not authenticated historical executed-source or native acquisition provenance.",
+  "stage": "525A",
+  "static_sources": [
+    {
+      "bytes": 3686,
+      "path": "artifacts/autoresearch/stage487a_live_pbe5ac_sta_vht80_cap_and_vht40_unlock.json",
+      "sha256": "4660a7d33f288ec1cfa325d9fafe766ff13b6a1befda2ae4c60e37cd3d817976"
+    },
+    {
+      "bytes": 58543,
+      "path": "artifacts/autoresearch/stage403a_live_wa_pb040_ram_canary_and_nfcal_r43_45.json",
+      "sha256": "28e0405e144942056dbaf15b79665aa6d099616b113c99ec78120f0e57f83a7d"
+    },
+    {
+      "bytes": 9226,
+      "path": "tools/benchmarks/run_stage487a_live_pbe5ac_sta_vht80_cap_and_vht40_unlock.py",
+      "sha256": "2ba5f7ff39833674df0caa78106cf95232f9fc4e9ca6cc0951f046ce62341ab1"
+    },
+    {
+      "bytes": 13508,
+      "path": "tools/benchmarks/run_stage403a_live_wa_pb040_ram_canary_and_nfcal_r43_45.py",
+      "sha256": "f13ccb00a254e01afcaf59dfe8863b79918ff4c48240ab369571960bd3c568e9"
+    },
+    {
+      "bytes": 50658,
+      "path": "tools/benchmarks/run_stage311a_to_316a_wa_megamission.py",
+      "sha256": "4f08eb4ef3ec91e753c3889ad5c5f56c58f9c39e74dbc45dca3279e432391017"
+    },
+    {
+      "bytes": 3344,
+      "path": "docs/STAGE487A_LIVE_PBE5AC_STA_VHT80_CAP_AND_VHT40_UNLOCK.md",
+      "sha256": "b38fc155990db3ec3a777c84b12d77ff9dab2d4c2ee33ca036a8e6798cd8f8d9"
+    },
+    {
+      "bytes": 4034,
+      "path": "docs/STAGE403A_LIVE_WA_PB040_RAM_CANARY_AND_NFCAL_R43_45.md",
+      "sha256": "e22d9fad830db471ec2b92dfb131a82988f2e48a6d421d818b08bd02703b2063"
+    }
+  ],
+  "status": "QUALIFIED_SAVED_ARITHMETIC_WITH_PROVENANCE_GAPS",
+  "summary": {
+    "new_hardware_results": 0,
+    "pbe_profiles": 4,
+    "pktlog_windows": 4
+  },
+  "task_id": "T-S525A-OFFLINE-RECONCILIATION"
+}

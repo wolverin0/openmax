@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "stage": "326A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/ath_dev_bmiss_and_reset_recovery_re.py",
+    "tool_sha256": "bfebbe3c4f21d966cb485794def752b53136925e3f0209d20056dd1436b489d4",
+    "output": "artifacts/autoresearch/stage326a_ath_dev_bmiss_hang_recovery_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": ".symtab classification into bmiss/hang/reset/bbmac/watchdog buckets; direct lookup of the ath_hw_hang_check family; addiu $zero,N histogram inside bmiss- and watchdog-named functions",
+    "note": "XW.v6.3.6 uses kernel ABI 2.6.32.71, the AC images use 2.6.32.68",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "image": "WA.v8.7.25",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "abi": "2.6.32.68",
+      "defined": 445,
+      "buckets": {
+        "bmiss": {
+          "count": 17,
+          "symbols": [
+            "ath_beacon_alloc",
+            "ath_beacon_attach",
+            "ath_beacon_config",
+            "ath_beacon_detach",
+            "ath_beacon_free",
+            "ath_beacon_return",
+            "ath_beacon_sync",
+            "ath_beacon_tasklet",
+            "ath_beaconq_setup",
+            "ath_bmiss_tasklet",
+            "ath_get_hwbeaconproc_active",
+            "ath_hw_beacon_rssi",
+            "ath_hw_beacon_rssi_reset",
+            "ath_hw_beacon_rssi_threshold_disable",
+            "ath_hw_beacon_rssi_threshold_enable",
+            "ath_hwbeaconproc_disable",
+            "ath_hwbeaconproc_enable"
+          ]
+        },
+        "hang": {
+          "count": 5,
+          "symbols": [
+            "ath_bstuck_tasklet",
+            "ath_chan_change",
+            "ath_hw_hang_check",
+            "ath_hw_phystate_change",
+            "ath_pcie_pwrsave_enable_on_phystate_change"
+          ]
+        },
+        "reset": {
+          "count": 8,
+          "symbols": [
+            "ath_hw_beacon_rssi_reset",
+            "ath_internal_reset",
+            "ath_reset_dev",
+            "ath_reset_draintxq",
+            "ath_reset_dynack",
+            "ath_reset_end",
+            "ath_reset_paused_tid",
+            "ath_reset_start"
+          ]
+        },
+        "bbmac": {
+          "count": 4,
+          "symbols": [
+            "ath_clear_mib_counters",
+            "ath_get_mib_cyclecounts",
+            "ath_get_mib_macstats",
+            "ath_update_mib_macstats"
+          ]
+        },
+        "watchdog": {
+          "count": 10,
+          "symbols": [
+            "ath_addba_cancel_timers",
+            "ath_cancel_timer",
+            "ath_distance2acktimeout",
+            "ath_free_timer_int",
+            "ath_initialize_timer_int",
+            "ath_initialize_timer_module",
+            "ath_set_timer_period",
+            "ath_start_timer",
+            "ath_timer_is_active",
+            "ath_timer_is_initialized"
+          ]
+        }
+      },
+      "hang_check_symbols": [
+        "ath_hw_hang_check"
+      ],
+      "bmiss_thresholds": {
+        "histogram": {
+          "1": 42,
+          "2": 10,
+          "3": 2,
+          "5": 2,
+          "6": 3,
+          "7": 8,
+          "15": 5,
+          "16": 5,
+          "31": 2,
+          "35": 3,
+          "47": 2,
+          "50": 1,
+          "53": 1,
+          "60": 2,
+          "100": 2,
+          "255": 6,
+          "768": 1
+        },
+        "distinct": 17,
+        "total": 97
+      },
+      "watchdog_thresholds": {
+        "histogram": {
+          "1": 19,
+          "5": 3,
+          "33": 1,
+          "34": 1
+        },
+        "distinct": 4,
+        "total": 24
+      }
+    },
+    {
+      "image": "XC.v8.7.25",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "abi": "2.6.32.68",
+      "defined": 445,
+      "buckets": {
+        "bmiss": {
+          "count": 17,
+          "symbols": [
+            "ath_beacon_alloc",
+            "ath_beacon_attach",
+            "ath_beacon_config",
+            "ath_beacon_detach",
+            "ath_beacon_free",
+            "ath_beacon_return",
+            "ath_beacon_sync",
+            "ath_beacon_tasklet",
+            "ath_beaconq_setup",
+            "ath_bmiss_tasklet",
+            "ath_get_hwbeaconproc_active",
+            "ath_hw_beacon_rssi",
+            "ath_hw_beacon_rssi_reset",
+            "ath_hw_beacon_rssi_threshold_disable",
+            "ath_hw_beacon_rssi_threshold_enable",
+            "ath_hwbeaconproc_disable",
+            "ath_hwbeaconproc_enable"
+          ]
+        },
+        "hang": {
+          "count": 5,
+          "symbols": [
+            "ath_bstuck_tasklet",
+            "ath_chan_change",
+            "ath_hw_hang_check",
+            "ath_hw_phystate_change",
+            "ath_pcie_pwrsave_enable_on_phystate_change"
+          ]
+        },
+        "reset": {
+          "count": 8,
+          "symbols": [
+            "ath_hw_beacon_rssi_reset",
+            "ath_internal_reset",
+            "ath_reset_dev",
+            "ath_reset_draintxq",
+            "ath_reset_dynack",
+            "ath_reset_end",
+            "ath_reset_paused_tid",
+            "ath_reset_start"
+          ]
+        },
+        "bbmac": {
+          "count": 4,
+          "symbols": [
+            "ath_clear_mib_counters",
+            "ath_get_mib_cyclecounts",
+            "ath_get_mib_macstats",
+            "ath_update_mib_macstats"
+          ]
+        },
+        "watchdog": {
+          "count": 10,
+          "symbols": [
+            "ath_addba_cancel_timers",
+            "ath_cancel_timer",
+            "ath_distance2acktimeout",
+            "ath_free_timer_int",
+            "ath_initialize_timer_int",
+            "ath_initialize_timer_module",
+            "ath_set_timer_period",
+            "ath_start_timer",
+            "ath_timer_is_active",
+            "ath_timer_is_initialized"
+          ]
+        }
+      },
+      "hang_check_symbols": [
+        "ath_hw_hang_check"
+      ],
+      "bmiss_thresholds": {
+        "histogram": {
+          "1": 42,
+          "2": 10,
+          "3": 2,
+          "5": 2,
+          "6": 3,
+          "7": 8,
+          "15": 5,
+          "16": 5,
+          "31": 2,
+          "35": 3,
+          "47": 2,
+          "50": 1,
+          "53": 1,
+          "60": 2,
+          "100": 2,
+          "255": 6,
+          "768": 1
+        },
+        "distinct": 17,
+        "total": 97
+      },
+      "watchdog_thresholds": {
+        "histogram": {
+          "1": 19,
+          "5": 3,
+          "33": 1,
+          "34": 1
+        },
+        "distinct": 4,
+        "total": 24
+      }
+    },
+    {
+      "image": "XW.v6.3.6",
+      "status": "ok",
+      "bytes": 414408,
+      "sha256": "c95d10fec7b5480c53ffa63329657e8638dcdca1420267a84ab61766b04ce855",
+      "abi": "2.6.32.71",
+      "defined": 567,
+      "buckets": {
+        "bmiss": {
+          "count": 10,
+          "symbols": [
+            "ath_beacon_alloc",
+            "ath_beacon_attach",
+            "ath_beacon_config",
+            "ath_beacon_detach",
+            "ath_beacon_free",
+            "ath_beacon_return",
+            "ath_beacon_sync",
+            "ath_beacon_tasklet",
+            "ath_beaconq_setup",
+            "ath_bmiss_tasklet"
+          ]
+        },
+        "hang": {
+          "count": 16,
+          "symbols": [
+            "ath_bslot_info_notify_change",
+            "ath_bstuck_tasklet",
+            "ath_chan_change",
+            "ath_channel_change_begin_hook",
+            "ath_channel_change_end_hook",
+            "ath_country_change_begin_hook",
+            "ath_country_change_end_hook",
+            "ath_hw_hang_check",
+            "ath_hw_phystate_change",
+            "ath_pcie_pwrsave_enable_on_phystate_change",
+            "ath_qstuck_tasklet",
+            "ath_set_channel_change_begin_hook",
+            "ath_set_channel_change_end_hook",
+            "ath_set_country_change_begin_hook",
+            "ath_set_country_change_end_hook",
+            "get_dfs_hang_war_timeout"
+          ]
+        },
+        "reset": {
+          "count": 11,
+          "symbols": [
+            "ath_internal_reset",
+            "ath_rb_reset",
+            "ath_reset",
+            "ath_reset_begin_hook",
+            "ath_reset_draintxq",
+            "ath_reset_dynack",
+            "ath_reset_end",
+            "ath_reset_end_hook",
+            "ath_reset_start",
+            "ath_set_reset_begin_hook",
+            "ath_set_reset_end_hook"
+          ]
+        },
+        "bbmac": {
+          "count": 3,
+          "symbols": [
+            "ath_netif_flowmac_pause",
+            "ath_process_phy_error_hook",
+            "ath_set_process_phy_error_hook"
+          ]
+        },
+        "watchdog": {
+          "count": 12,
+          "symbols": [
+            "ath_addba_cancel_timers",
+            "ath_cancel_timer",
+            "ath_distance2acktimeout",
+            "ath_free_timer_int",
+            "ath_initialize_timer_int",
+            "ath_initialize_timer_module",
+            "ath_netif_set_wdtimeout",
+            "ath_set_timer_period",
+            "ath_start_timer",
+            "ath_timer_is_active",
+            "ath_timer_is_initialized",
+            "get_dfs_hang_war_timeout"
+          ]
+        }
+      },
+      "hang_check_symbols": [
+        "ath_hw_hang_check"
+      ],
+      "bmiss_thresholds": {
+        "histogram": {
+          "1": 29,
+          "2": 9,
+          "3": 2,
+          "6": 2,
+          "8": 2,
+          "10": 2,
+          "16": 2,
+          "52": 1,
+          "53": 1,
+          "100": 1,
+          "112": 1,
+          "217": 2,
+          "255": 6,
+          "768": 1
+        },
+        "distinct": 14,
+        "total": 61
+      },
+      "watchdog_thresholds": {
+        "histogram": {
+          "1": 15,
+          "2": 1,
+          "3": 1,
+          "10": 1,
+          "17": 1,
+          "21": 1,
+          "30": 1,
+          "33": 1,
+          "34": 1,
+          "61": 2,
+          "62": 2,
+          "127": 1,
+          "148": 1,
+          "150": 1
+        },
+        "distinct": 14,
+        "total": 30
+      }
+    }
+  ],
+  "summary": {
+    "images_ok": 3,
+    "bmiss_symbols": 17,
+    "hang_symbols": 16,
+    "reset_symbols": 11,
+    "bbmac_symbols": 4,
+    "watchdog_symbols": 12,
+    "hang_check_found": 3,
+    "bmiss_threshold_values": 17,
+    "watchdog_threshold_values": 14
+  },
+  "gaps": [
+    "a named ath_hw_hang_check may be absent while the behaviour exists under another name; absence is reported, not interpreted as no hang detection",
+    "bmiss and watchdog immediates are candidate thresholds, not verified miss counts or timer values",
+    "no BB/MAC hang recovery state machine was decoded",
+    "the deaf-state reset path was not traced",
+    "no dynamic validation"
+  ]
+}

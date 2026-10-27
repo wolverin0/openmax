@@ -1,0 +1,64 @@
+{
+  "stage": "378A",
+  "task_id": "T-S378A-LTU-SUBBAND-PUNCTURING-PARETO",
+  "generated_at": "2026-10-27T00:18:17.085993+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "external controller"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "channel_scenario": {
+    "channel_bandwidth_mhz": 80,
+    "subbands": 8,
+    "subband_width_mhz": 10.0,
+    "clean_subbands_count": 7,
+    "clean_subbands_cinr_db": 39.2,
+    "interfered_subband_index": 3,
+    "interfered_subband_cinr_db": 16.5
+  },
+  "regimes_compared": {
+    "LTU_8Subband_Adaptive_Puncturing_Champion": {
+      "aggregate_goodput_mbps": 782.0,
+      "p99_latency_ms": 2.74,
+      "ldpc_block_error_pct": 0.255,
+      "punctured_subbands": [
+        3
+      ],
+      "active_12x_subbands": 7,
+      "puncture_threshold_cinr_db": 20.0,
+      "frame_ms": 2.0
+    },
+    "LTU_8Subband_Unpunctured_LowSubband": {
+      "aggregate_goodput_mbps": 803.02,
+      "p99_latency_ms": 3.827,
+      "ldpc_block_error_pct": 2.23,
+      "punctured_subbands": [],
+      "active_12x_subbands": 7,
+      "puncture_threshold_cinr_db": 12.0,
+      "frame_ms": 2.0
+    },
+    "Wideband_FullChannel_StepDown_80211ac_Style": {
+      "aggregate_goodput_mbps": 362.58,
+      "p99_latency_ms": 5.258,
+      "ldpc_block_error_pct": 3.65,
+      "punctured_subbands": [],
+      "active_12x_subbands": 0,
+      "frame_ms": 2.5
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Parameterized directly from Stage 376A (2048-FFT FPGA pipeline) and Stage 377A (8-subband CINR slicer)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models OFDMA selective subband notching vs wideband LDPC codeword contamination",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Offline SimPy + pymoo NSGA-II evaluation with zero live radio perturbation",
+    "pillar_d_scientific_pareto_validation": "3-objective NSGA-II Pareto optimization (Aggregate Goodput, p99 Latency, LDPC Block Error %)",
+    "pillar_e_memory_master_claim_id": "stage378a_ltu_subband_puncturing_pareto"
+  }
+}

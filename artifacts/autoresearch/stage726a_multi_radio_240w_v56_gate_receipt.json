@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-726A",
+  "title": "240-Window Multi-Radio & Cross-Fleet Champion v56.0 Verification Gate (Stages 721A..725A)",
+  "timestamp_utc": "2026-10-27T02:03:25.281565+00:00",
+  "status": "CONFIRMED",
+  "all_stages_passed": true,
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "stage_checks": [
+    {
+      "stage_id": "STAGE-721A",
+      "json_path": "artifacts/autoresearch/stage721a_multi_radio_240w_milestone_campaign.json",
+      "doc_path": "docs/STAGE721A_MULTI_RADIO_240W_MILESTONE_CAMPAIGN.md",
+      "test_path": "tests/test_stage721a.py",
+      "doc_lines": 22,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-722A",
+      "json_path": "artifacts/autoresearch/stage722a_nsga3_pareto_pcie_ce_rings_and_ack_timeout.json",
+      "doc_path": "docs/STAGE722A_NSGA3_PARETO_PCIE_CE_RINGS_AND_ACK_TIMEOUT.md",
+      "test_path": "tests/test_stage722a.py",
+      "doc_lines": 23,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-723A",
+      "json_path": "artifacts/autoresearch/stage723a_cross_fleet_champion_v56_bundle.json",
+      "doc_path": "docs/STAGE723A_CROSS_FLEET_CHAMPION_V56_BUNDLE.md",
+      "test_path": "tests/test_stage723a.py",
+      "doc_lines": 23,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-724A",
+      "json_path": "artifacts/autoresearch/stage724a_ptmp_mixed_openwrt_vs_airos8_amsdu_airtime_sim.json",
+      "doc_path": "docs/STAGE724A_PTMP_MIXED_OPENWRT_VS_AIROS8_AMSDU_AIRTIME_SIM.md",
+      "test_path": "tests/test_stage724a.py",
+      "doc_lines": 22,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-725A",
+      "json_path": "artifacts/autoresearch/stage725a_memorymaster_240w_v56_ledger.json",
+      "doc_path": "docs/STAGE725A_MEMORYMASTER_240W_V56_LEDGER.md",
+      "test_path": "tests/test_stage725a.py",
+      "doc_lines": 21,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "umac.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE726A-MULTI-RADIO-240W-V56-GATE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "windows_executed": 240
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "stages_verified": 5
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE726A-MULTI-RADIO-240W-V56-GATE"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

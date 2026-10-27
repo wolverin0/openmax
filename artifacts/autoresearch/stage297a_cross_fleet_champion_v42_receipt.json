@@ -1,0 +1,568 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-297A",
+  "task_id": "T-S297A-CROSS-FLEET-MODE-B-AND-MODE-A-CHAMPION-MATRIX-V42",
+  "master_version": "v42.0",
+  "generated_at_utc": "2026-10-26T23:48:28.047940+00:00",
+  "status": "PASS",
+  "evidence_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_20_or_250": false,
+    "touched_production_guarida": false,
+    "flash_writes": 0,
+    "guarida_3_panels_32_cpes_preserved": {
+      "panel1_guarida_cpes": 4,
+      "panel2_guarida_cpes": 22,
+      "panel3_guarida_cpes": 6,
+      "total_guarida_cpes": 32
+    }
+  },
+  "families_consolidated": [
+    "WA",
+    "XC",
+    "2XC",
+    "XW",
+    "XM",
+    "LTU"
+  ],
+  "cross_fleet_matrix_v42": {
+    "WA": {
+      "family_id": "WA",
+      "soc_and_radio": "QCA9558/AR9342 + QCA9882 (64 MB DDR2)",
+      "mode_a_openwrt_champion": {
+        "os": "OpenWrt 24.10.4 (Linux 6.6.110)",
+        "script_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+        "script_sha256": "2af815fe9ea6dacfd33bba24ea24da75fc25710283f7ca15822f7df9a60fbb76",
+        "mac80211_v3_ko_sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "knobs": {
+          "vm_min_free_kbytes": 2048,
+          "ap_fq_quantum": 3028,
+          "sta_fq_quantum": 1514,
+          "aql_threshold": 4500,
+          "eth0_bql": "4542/36288/600",
+          "tx_queue_len": 256,
+          "netdev_budget": 480,
+          "dev_weight": 48,
+          "tcp_limit_output_bytes": 98304
+        }
+      },
+      "mode_b_airos_champion": {
+        "family": "WA",
+        "ram_mb": 64,
+        "min_free_kbytes": 2048,
+        "vfs_cache_pressure": 120,
+        "netdev_budget": 480,
+        "dev_weight": 48,
+        "netdev_max_backlog": 1024,
+        "tcp_limit_output_bytes": 65536,
+        "tcp_tso_win_divisor": 8,
+        "txqueuelen": 192,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "swr_limit": 3,
+        "ff_cap_rep": 2,
+        "cms_bias": 6,
+        "voip_bias": 6,
+        "ac_minfree": [
+          0,
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    "XC": {
+      "family_id": "XC",
+      "soc_and_radio": "QCA9558 + QCA9880 + AirPrism HSR (128 MB DDR2, .198 XC.v8.7.25)",
+      "mode_b_airos_champion_v42": {
+        "netdev_budget": 480,
+        "dev_weight": 48,
+        "tx_queue_len": 192,
+        "tcp_limit_output_bytes": 65536,
+        "eth_coal_rx_usecs": 24,
+        "eth_coal_tx_usecs": 48,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "swr_limit": 3,
+        "ff_cap_rep": 2,
+        "vm_min_free_kbytes": 4096,
+        "vm_vfs_cache_pressure": 150,
+        "nf_conntrack_max": 16384,
+        "bridge_nf_call_iptables": 0,
+        "br0_forward_delay": 0
+      },
+      "scorecard_24window": {
+        "family": "XC_198",
+        "campaigns_count": 6,
+        "selected_champion_rounds_count": 6,
+        "selected_champion_windows_count": 24,
+        "cumulative_subrounds_count": 18,
+        "cumulative_physical_windows_count": 72,
+        "mean_arm_a_goodput_mbps": 195.897,
+        "mean_arm_b_goodput_mbps": 191.82,
+        "mean_arm_a_p95_rtt_ms": 0.573,
+        "mean_arm_b_p95_rtt_ms": 0.54,
+        "mean_arm_a_jitter_ms": 0.095,
+        "mean_arm_b_jitter_ms": 0.082,
+        "campaign_rounds_24window": [
+          {
+            "campaign_round_index": 1,
+            "stage": "STAGE-151A",
+            "round_id": "S151A-R3",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 223.923,
+            "arm_b_mean_goodput_mbps": 221.48,
+            "arm_a_mean_p95_rtt_ms": 0.413,
+            "arm_b_mean_p95_rtt_ms": 0.528,
+            "arm_a_mean_jitter_ms": 0.034,
+            "arm_b_mean_jitter_ms": 0.082,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "f2557a45a5529cdc47fa3d72239d17c7504d6d04c85668eded224fe14945fdeb"
+          },
+          {
+            "campaign_round_index": 2,
+            "stage": "STAGE-182A",
+            "round_id": "S182A-R6",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 211.5,
+            "arm_b_mean_goodput_mbps": 238.673,
+            "arm_a_mean_p95_rtt_ms": 0.817,
+            "arm_b_mean_p95_rtt_ms": 0.535,
+            "arm_a_mean_jitter_ms": 0.173,
+            "arm_b_mean_jitter_ms": 0.083,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "5e76b5b823fd4d2150e4fd896645da76c0217f8041ffb7ea35bf83670f88e8a0"
+          },
+          {
+            "campaign_round_index": 3,
+            "stage": "STAGE-200A",
+            "round_id": "S200A-R9",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 238.28,
+            "arm_b_mean_goodput_mbps": 204.479,
+            "arm_a_mean_p95_rtt_ms": 0.379,
+            "arm_b_mean_p95_rtt_ms": 0.841,
+            "arm_a_mean_jitter_ms": 0.025,
+            "arm_b_mean_jitter_ms": 0.189,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "637b37f841bd25de9a557dede10d795f8facbe741018ea2beed1a32c5bd3835e"
+          },
+          {
+            "campaign_round_index": 4,
+            "stage": "STAGE-215A",
+            "round_id": "S215A-R12",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 182.142,
+            "arm_b_mean_goodput_mbps": 164.493,
+            "arm_a_mean_p95_rtt_ms": 0.934,
+            "arm_b_mean_p95_rtt_ms": 0.386,
+            "arm_a_mean_jitter_ms": 0.225,
+            "arm_b_mean_jitter_ms": 0.028,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "24e618cea10a051047414a9ced03fa49813c725fc7a21aa73c1a1b99375c4bee"
+          },
+          {
+            "campaign_round_index": 5,
+            "stage": "STAGE-269A",
+            "round_id": "S269A-R15",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 153.606,
+            "arm_b_mean_goodput_mbps": 166.477,
+            "arm_a_mean_p95_rtt_ms": 0.418,
+            "arm_b_mean_p95_rtt_ms": 0.478,
+            "arm_a_mean_jitter_ms": 0.039,
+            "arm_b_mean_jitter_ms": 0.06,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "f699565f810547f5a402aecbdb1b561ec657f1812bf328d45255cb273f99e450"
+          },
+          {
+            "campaign_round_index": 6,
+            "stage": "STAGE-293A",
+            "round_id": "S293A-R18",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 165.933,
+            "arm_b_mean_goodput_mbps": 155.316,
+            "arm_a_mean_p95_rtt_ms": 0.479,
+            "arm_b_mean_p95_rtt_ms": 0.474,
+            "arm_a_mean_jitter_ms": 0.073,
+            "arm_b_mean_jitter_ms": 0.051,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "b0fd28b639980eff54e26e0c0bb59313e15494e929a5488724116ae491f1c1d4"
+          }
+        ]
+      }
+    },
+    "2XC": {
+      "family_id": "2XC",
+      "soc_and_radio": "QCA9558 + 2.4 GHz AirPrism (128 MB DDR2, .253 2XC.v8.7.11)",
+      "mode_b_airos_champion_v42": {
+        "swr_limit": 3,
+        "ff_cap_rep": 2,
+        "cms_bias": 6,
+        "voip_bias": 6,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "vm_min_free_kbytes": 4096,
+        "netdev_max_backlog": 1024,
+        "netdev_budget": 480,
+        "dev_weight": 48,
+        "rmem_max": 262144,
+        "wmem_max": 262144,
+        "tcp_rmem": "4096 65536 262144",
+        "tcp_wmem": "4096 32768 262144",
+        "eth_coal_rx_usecs": 24,
+        "eth_coal_tx_usecs": 48,
+        "tcp_limit_output_bytes": 65536,
+        "tcp_tso_win_divisor": 8
+      },
+      "dualband_nlos_failover_policy_v42": {
+        "rssi_failover_thresh_dbm": -73.25,
+        "phy_retry_thresh_pct": 14.02,
+        "hysteresis_holddown_s": 34.83,
+        "airtime_floor_24ghz_pct": 30.69,
+        "aggregate_goodput_mbps": 203.625,
+        "nlos_cpe_p99_rtt_ms": 1.45,
+        "failover_flap_rate_per_hour": 30.0,
+        "composite_loss": -22.51
+      },
+      "scorecard_24window": {
+        "family": "2XC_253",
+        "campaigns_count": 6,
+        "selected_champion_rounds_count": 6,
+        "selected_champion_windows_count": 24,
+        "cumulative_subrounds_count": 18,
+        "cumulative_physical_windows_count": 72,
+        "mean_arm_a_goodput_mbps": 194.766,
+        "mean_arm_b_goodput_mbps": 193.515,
+        "mean_arm_a_p95_rtt_ms": 0.642,
+        "mean_arm_b_p95_rtt_ms": 0.506,
+        "mean_arm_a_jitter_ms": 0.13,
+        "mean_arm_b_jitter_ms": 0.07,
+        "campaign_rounds_24window": [
+          {
+            "campaign_round_index": 1,
+            "stage": "STAGE-151A",
+            "round_id": "S151A-R3",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 223.923,
+            "arm_b_mean_goodput_mbps": 221.48,
+            "arm_a_mean_p95_rtt_ms": 0.413,
+            "arm_b_mean_p95_rtt_ms": 0.528,
+            "arm_a_mean_jitter_ms": 0.034,
+            "arm_b_mean_jitter_ms": 0.082,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "f2557a45a5529cdc47fa3d72239d17c7504d6d04c85668eded224fe14945fdeb"
+          },
+          {
+            "campaign_round_index": 2,
+            "stage": "STAGE-182A",
+            "round_id": "S182A-R6",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 211.5,
+            "arm_b_mean_goodput_mbps": 238.673,
+            "arm_a_mean_p95_rtt_ms": 0.817,
+            "arm_b_mean_p95_rtt_ms": 0.535,
+            "arm_a_mean_jitter_ms": 0.173,
+            "arm_b_mean_jitter_ms": 0.083,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "5e76b5b823fd4d2150e4fd896645da76c0217f8041ffb7ea35bf83670f88e8a0"
+          },
+          {
+            "campaign_round_index": 3,
+            "stage": "STAGE-200A",
+            "round_id": "S200A-R9",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 238.28,
+            "arm_b_mean_goodput_mbps": 204.479,
+            "arm_a_mean_p95_rtt_ms": 0.379,
+            "arm_b_mean_p95_rtt_ms": 0.841,
+            "arm_a_mean_jitter_ms": 0.025,
+            "arm_b_mean_jitter_ms": 0.189,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "637b37f841bd25de9a557dede10d795f8facbe741018ea2beed1a32c5bd3835e"
+          },
+          {
+            "campaign_round_index": 4,
+            "stage": "STAGE-215A",
+            "round_id": "S215A-R12",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 182.142,
+            "arm_b_mean_goodput_mbps": 164.493,
+            "arm_a_mean_p95_rtt_ms": 0.934,
+            "arm_b_mean_p95_rtt_ms": 0.386,
+            "arm_a_mean_jitter_ms": 0.225,
+            "arm_b_mean_jitter_ms": 0.028,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "24e618cea10a051047414a9ced03fa49813c725fc7a21aa73c1a1b99375c4bee"
+          },
+          {
+            "campaign_round_index": 5,
+            "stage": "STAGE-270A",
+            "round_id": "S270A-R15",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 177.344,
+            "arm_b_mean_goodput_mbps": 179.905,
+            "arm_a_mean_p95_rtt_ms": 0.598,
+            "arm_b_mean_p95_rtt_ms": 0.349,
+            "arm_a_mean_jitter_ms": 0.139,
+            "arm_b_mean_jitter_ms": 0.015,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "79a5442a8128166cb0d487b2387208972609e757f00c8c67cec5181e71199327"
+          },
+          {
+            "campaign_round_index": 6,
+            "stage": "STAGE-294A",
+            "round_id": "S294A-R18",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 135.406,
+            "arm_b_mean_goodput_mbps": 152.059,
+            "arm_a_mean_p95_rtt_ms": 0.714,
+            "arm_b_mean_p95_rtt_ms": 0.398,
+            "arm_a_mean_jitter_ms": 0.181,
+            "arm_b_mean_jitter_ms": 0.025,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "1f2a987f76011c6a8ea5d7322d1897f9e02636b1523eb097a9b19041800ab033"
+          }
+        ]
+      }
+    },
+    "XW": {
+      "family_id": "XW",
+      "soc_and_radio": "AR9342 + AR938x M5 (64 MB DDR2, airOS 6 XW.v6.x)",
+      "mode_b_airos_champion": {
+        "family": "XW",
+        "ram_mb": 64,
+        "min_free_kbytes": 2048,
+        "netdev_budget": 300,
+        "dev_weight": 48,
+        "netdev_max_backlog": 768,
+        "tcp_limit_output_bytes": 65536,
+        "txqueuelen": 64,
+        "ampdu_frames": 28,
+        "ampdu_lim": 40960,
+        "ubnt_ewma_delegate_on": 1,
+        "ac_minfree": [
+          0,
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    "XM": {
+      "family_id": "XM",
+      "soc_and_radio": "AR7241 + AR928x M5 (32 MB SDRAM, 192.168.1.20 XM.v6.1.12)",
+      "mode_b_airos_champion_v42": {
+        "vm_min_free_kbytes_32mb_xm": 1536,
+        "tcp_rmem": "4096 32768 131072",
+        "tcp_wmem": "4096 16384 65536",
+        "tcp_limit_output_bytes": 32768,
+        "tcp_tso_win_divisor": 8,
+        "txqueuelen": 48,
+        "netdev_max_backlog": 512,
+        "dev_weight": 32,
+        "netdev_budget": 256,
+        "AMPDUFrames": 28,
+        "AMPDULim": 40960,
+        "ACVOMinfree": 0,
+        "ACVIMinfree": 16,
+        "ACBEMinfree": 32,
+        "ACBKMinfree": 64,
+        "ubnt_ewma_delegate_on": 1
+      },
+      "scorecard_24window": {
+        "family": "XM_1_20",
+        "campaigns_count": 6,
+        "selected_champion_rounds_count": 6,
+        "selected_champion_windows_count": 24,
+        "cumulative_subrounds_count": 18,
+        "cumulative_physical_windows_count": 72,
+        "mean_arm_a_goodput_mbps": 28.364,
+        "mean_arm_b_goodput_mbps": 28.12,
+        "mean_arm_a_p95_rtt_ms": 0.955,
+        "mean_arm_b_p95_rtt_ms": 0.888,
+        "mean_arm_a_jitter_ms": 0.098,
+        "mean_arm_b_jitter_ms": 0.073,
+        "campaign_rounds_24window": [
+          {
+            "campaign_round_index": 1,
+            "stage": "STAGE-152A",
+            "round_id": "S152A-R3",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.034,
+            "arm_b_mean_goodput_mbps": 28.335,
+            "arm_a_mean_p95_rtt_ms": 0.429,
+            "arm_b_mean_p95_rtt_ms": 0.361,
+            "arm_a_mean_jitter_ms": 0.042,
+            "arm_b_mean_jitter_ms": 0.026,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "cda56db482cae1be21a6ac7844783acf387bad650f650a401bd3360920da2d87"
+          },
+          {
+            "campaign_round_index": 2,
+            "stage": "STAGE-183A",
+            "round_id": "S183A-R6",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.529,
+            "arm_b_mean_goodput_mbps": 28.636,
+            "arm_a_mean_p95_rtt_ms": 1.166,
+            "arm_b_mean_p95_rtt_ms": 1.273,
+            "arm_a_mean_jitter_ms": 0.116,
+            "arm_b_mean_jitter_ms": 0.13,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "87ae076876fc6c28fed422cd45d94dbe8b1e075c32c5496855103939066edf4f"
+          },
+          {
+            "campaign_round_index": 3,
+            "stage": "STAGE-201A",
+            "round_id": "S201A-R9",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.438,
+            "arm_b_mean_goodput_mbps": 27.414,
+            "arm_a_mean_p95_rtt_ms": 1.3,
+            "arm_b_mean_p95_rtt_ms": 1.287,
+            "arm_a_mean_jitter_ms": 0.158,
+            "arm_b_mean_jitter_ms": 0.135,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "16c7f68d9fdc5a370af2a0d5ba5ee6275d2053c771cf22d3d8d803fd40d5bb0b"
+          },
+          {
+            "campaign_round_index": 4,
+            "stage": "STAGE-216A",
+            "round_id": "S216A-R12",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.303,
+            "arm_b_mean_goodput_mbps": 28.299,
+            "arm_a_mean_p95_rtt_ms": 0.744,
+            "arm_b_mean_p95_rtt_ms": 0.697,
+            "arm_a_mean_jitter_ms": 0.048,
+            "arm_b_mean_jitter_ms": 0.037,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "427e854965dd5a50b0de6d65f357a0adcccd57a76ce579c8150f115535ff0212"
+          },
+          {
+            "campaign_round_index": 5,
+            "stage": "STAGE-271A",
+            "round_id": "S271A-R15",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.367,
+            "arm_b_mean_goodput_mbps": 27.762,
+            "arm_a_mean_p95_rtt_ms": 1.409,
+            "arm_b_mean_p95_rtt_ms": 1.058,
+            "arm_a_mean_jitter_ms": 0.189,
+            "arm_b_mean_jitter_ms": 0.094,
+            "decision": "PROMOTE_ARM_B",
+            "receipt_sha256": "d0487ecb2e9e25329387716b1d337648fc24e73818deda912d3ba144e0476645"
+          },
+          {
+            "campaign_round_index": 6,
+            "stage": "STAGE-295A",
+            "round_id": "S295A-R18",
+            "windows_count": 4,
+            "arm_a_mean_goodput_mbps": 28.515,
+            "arm_b_mean_goodput_mbps": 28.276,
+            "arm_a_mean_p95_rtt_ms": 0.683,
+            "arm_b_mean_p95_rtt_ms": 0.654,
+            "arm_a_mean_jitter_ms": 0.033,
+            "arm_b_mean_jitter_ms": 0.019,
+            "decision": "KEEP_ARM_A",
+            "receipt_sha256": "a9dc174238bd9a9837866231824559c7aa83945e75e9d8fbf174d41d1abad744"
+          }
+        ]
+      }
+    },
+    "LTU": {
+      "family_id": "LTU",
+      "soc_and_radio": "AF-LTU Beetle + ame_ASIC0 + eab_driver.ko (128 MB DDR3, LTU v2.3.1)",
+      "mode_b_ltu_tail_guard_champion": {
+        "family": "LTU",
+        "ram_mb": 128,
+        "min_free_kbytes": 4096,
+        "netdev_budget": 300,
+        "dev_weight": 48,
+        "netdev_max_backlog": 1000,
+        "tcp_limit_output_bytes": 131072,
+        "txqueuelen": 256,
+        "tail_guard_s102e": 1
+      }
+    }
+  },
+  "upstream_stage_receipts": {
+    "stage293a_sha256": "b0fd28b639980eff54e26e0c0bb59313e15494e929a5488724116ae491f1c1d4",
+    "stage294a_sha256": "1f2a987f76011c6a8ea5d7322d1897f9e02636b1523eb097a9b19041800ab033",
+    "stage295a_sha256": "a9dc174238bd9a9837866231824559c7aa83945e75e9d8fbf174d41d1abad744",
+    "stage296a_sha256": "43a6460e4f7b64e3ce074a69a882b24f9ad9a5487ed95bbc3f6c0d9099fdac44",
+    "stage273a_sha256": "15bb66ce2cfe1e3a420b16d2eb6146f6f85229fb0c1da406312650d28debf064"
+  },
+  "repo_deterministic_gates": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "families_covered": [
+        "WA",
+        "XC",
+        "2XC",
+        "XW",
+        "XM",
+        "LTU"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-11-UPH-SHARED-64B-VECTOR-DAPROT-BEFORE-MCAST",
+        "FMX-DISC-16-XW-XM-MCS0-WARMUP-AND-EWMA-DELEGATE",
+        "FMX-DISC-33-WA-XC-SOFTIRQ-AND-ATOMIC-SKB-RESERVE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "chained_stages": [
+        "STAGE-293A",
+        "STAGE-294A",
+        "STAGE-295A",
+        "STAGE-296A",
+        "STAGE-297A"
+      ]
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "p95_rtt_ms",
+        "jitter_ms",
+        "cpu_softirq_pct"
+      ]
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE297A-CROSS-FLEET-CHAMPION-V42"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

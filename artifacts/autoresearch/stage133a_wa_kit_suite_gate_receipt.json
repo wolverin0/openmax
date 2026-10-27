@@ -1,0 +1,609 @@
+{
+  "stage": "STAGE-133A",
+  "task_id": "T-S133A-UNIFIED-TEST-AND-5PILLAR-VERIFICATION-SWEEP-WA-KIT-116A-141A",
+  "title": "Unified Test & 5-Pillar Verification Sweep for WA-Family Universal Kit (Stages 116A..141A)",
+  "claim_status": "CONFIRMED",
+  "stage_range": "116A..141A",
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "external controller"
+  ],
+  "safety_boundaries": {
+    "live_devices_touched": false,
+    "flash_writes": 0,
+    "protected_partitions_preserved": [
+      "mtd0",
+      "mtd1",
+      "mtd5"
+    ],
+    "guarida_backbone_untouched": true,
+    "radios_241_242_untouched": true
+  },
+  "summary": {
+    "stages_swept_count": 24,
+    "all_receipts_exist": true,
+    "all_receipts_5pillar_compliant": true,
+    "all_15_receipts_exist": true,
+    "all_15_receipts_5pillar_compliant": true,
+    "all_test_suites_exist": true,
+    "all_15_test_suites_exist": true,
+    "total_ast_test_functions": 148,
+    "repo_5pillar_gate_overall_pass": true,
+    "overall_sweep_pass": true
+  },
+  "stage_audits": [
+    {
+      "stage": "STAGE-116A",
+      "receipt_path": "artifacts/autoresearch/stage116a_pbe5ac_kit_v2_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "ddfb4d29af12499200c2795578bec5ee8cf12340aa0f165039487fb6eb620cb4",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage116a_pbe5ac_kit_v2.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "71129910f27e3b523db623b6d6ed3f3dc44bde492464617e9382edb472a4ee37",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-117A",
+      "receipt_path": "artifacts/autoresearch/stage117a_public_pbe5ac_release_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "350649dea37303273e4a8944abbabe1b9ce9c732ac41730970b9f3b6cc8a4783",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage117a_public_pbe5ac_release.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "988f6061655dce35ec80f40395d6bc9d1521b35067419644bf3acb53db52b5f0",
+      "ast_test_function_count": 32
+    },
+    {
+      "stage": "STAGE-118A",
+      "receipt_path": "artifacts/autoresearch/stage118a_ubntbox_29applets_plt_and_sink_audit.json",
+      "receipt_exists": true,
+      "receipt_sha256": "41be906faccad9f9d27d8fa62fddd10a2a893292f50a69c4edf78458a99ec290",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage118a_ubntbox_29applets_plt_and_sink_audit.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "502eecff62d39f9e3c5d0512a52fc2d4a7828e26c1356d374e50134a054b2b54",
+      "ast_test_function_count": 13
+    },
+    {
+      "stage": "STAGE-119A",
+      "receipt_path": "artifacts/autoresearch/stage119a_wa_family_pbe_lbe_compatibility_and_rc_poststart_map.json",
+      "receipt_exists": true,
+      "receipt_sha256": "70140aac935d9ed6ec567ec801e1d082295e2c7ed1627b6fa0a182e34d032d39",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage119a_wa_family_pbe_lbe_compatibility_and_rc_poststart_map.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "7b2786bec17ea93c418e1898fbec0fdf8cf7a5b0def45f5e120abfa53eb5901c",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-120A",
+      "receipt_path": "artifacts/autoresearch/stage120a_pbe5ac_deep_autoresearch_harness_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "dd891091b83610ae62512d4856c9fb04c86bda16be44546ebb31178824dfa6e7",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage120a_pbe5ac_deep_autoresearch_harness.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "eab232b0132d9652d69702fac07cccb8eb5438697e055a1553b91a09c8f22515",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-121A",
+      "receipt_path": "artifacts/autoresearch/stage121a_wa_family_universal_builder_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "e6c54fa48bfa181aba59cb42d2d9f5b59c5197756ad43bc362309be3c3757c8e",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage121a_wa_family_universal_builder.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "6b2e527c37aa98c4fb1fc7f568ae020fadfc70b593fe37f7c81322eeb8dbd59e",
+      "ast_test_function_count": 1
+    },
+    {
+      "stage": "STAGE-122A",
+      "receipt_path": "artifacts/autoresearch/stage122a_wa_universal_repack_v2_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "ded037107294c3ee2270f1286c04656787b252f3215b69e8ff3c725a1c7922b8",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage122a_wa_universal_repack_v2.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "daa2c2c0a946b71fca4bb2fe199394c682846c6fa1b1a8196e18d2ab706155fc",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-123A",
+      "receipt_path": "artifacts/autoresearch/stage123a_live_wa_qca9882_deep_autoresearch.json",
+      "receipt_exists": true,
+      "receipt_sha256": "88e98553de6e30d223fbc08479359e00fe544a467423c6e3d7d88a4bf79e535e",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage123a_live_wa_qca9882_deep_autoresearch.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "377f1028ea344d8ec091d0a36e067ed806c113da280a5a7945ebf5547ee92728",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-124A",
+      "receipt_path": "artifacts/autoresearch/stage124a_master_curation_v35_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "ce4df4bd12f579fac685887a5b504ea0ae9c80815bf505b61295bf621c6ac205",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage124a_master_curation_v35.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "d85b46b2643b483b51b7103a9b528984d66a8ad162ea80f288ac98e01bb16b98",
+      "ast_test_function_count": 2
+    },
+    {
+      "stage": "STAGE-125A",
+      "receipt_path": "artifacts/autoresearch/stage125a_wa_public_release_readiness.json",
+      "receipt_exists": true,
+      "receipt_sha256": "8a35f32db610e60a558ca5c0e0f0e0fec8cb604fa77b4b0a32f950eb5db2d60e",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage125a_wa_public_release_readiness.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "9f845b9bad889e2295c19b92bf46af4eef3f1225eb0c3361f9f7c51e4fcaaa26",
+      "ast_test_function_count": 2
+    },
+    {
+      "stage": "STAGE-126A",
+      "receipt_path": "artifacts/autoresearch/stage126a_wa_rc_poststart_equivalence_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "518838e12d691d870a7b13dc6cf467314eba44bd02c39493227cfa556e030d88",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage126a_wa_rc_poststart_equivalence.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "dc3821c41f71fed526b6991aa2da1c4ca7866355b0ad85190c268032792faea5",
+      "ast_test_function_count": 5
+    },
+    {
+      "stage": "STAGE-127A",
+      "receipt_path": "artifacts/autoresearch/stage127a_ubntconf_and_wa_xc_ubntbox_diff.json",
+      "receipt_exists": true,
+      "receipt_sha256": "27146eddc402969e95876d64624fba58d595864a146c5096e2e03931cf33b89f",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage127a_ubntconf_and_wa_xc_ubntbox_diff.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "5ba22b1ce35de9cdd4156e7e346ddaccae01791d093ec69743cf6f2602616a37",
+      "ast_test_function_count": 15
+    },
+    {
+      "stage": "STAGE-128A",
+      "receipt_path": "artifacts/autoresearch/stage128a_reddit_tester_release_package.json",
+      "receipt_exists": true,
+      "receipt_sha256": "5033452fcdfca27a1b40cc5d14463febb5d63159344d99b994afe7714bfe361c",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage128a_reddit_tester_release_package.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "63afe19dd28dec714cf183d9ae042ba1484ac69d6d7e415e2119922a51dd5388",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-129A",
+      "receipt_path": "artifacts/autoresearch/stage129a_ubiquiti_model_compatibility_matrix.json",
+      "receipt_exists": true,
+      "receipt_sha256": "4cd743d50813f1346052ce923228ad822bc64ec8bf865c5e2612087a1918b90d",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage129a_ubiquiti_model_compatibility_matrix.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "c21081ae4cfa13cdc378c4f234ec20e360b1fe7f309d2d5fae51961baeda038c",
+      "ast_test_function_count": 2
+    },
+    {
+      "stage": "STAGE-130A",
+      "receipt_path": "artifacts/autoresearch/stage130a_wa_full_squashfs_bake_v2_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "8feb7ada1476a44fc87575f79e65ebe3e39e5625c52f858a71f3a37829d35ac6",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage130a_wa_full_squashfs_bake_v2.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "9fb1896ad02d45f59845d84f2527ec77d8bf886916af8c2985790f4040b4bec4",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-131A",
+      "receipt_path": "artifacts/autoresearch/stage131a_master_curation_v36_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "569bb79d2e49e0805c1bae1ae00b14ba09e3a5d278011b314cc2340ea53b1402",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage131a_master_curation_v36.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "9702acb70ddfab3ff1664bcb4322c3a02dde11e65f3451729207381fa7504a8f",
+      "ast_test_function_count": 2
+    },
+    {
+      "stage": "STAGE-132A",
+      "receipt_path": "artifacts/autoresearch/stage132a_public_lbe5ac_pbe5ac_release_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "39c34f9e16b8f5d1b7201e7ce3056e639dd6feda4fb84a06d7e9f740835f7551",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage132a_public_lbe5ac_pbe5ac_release.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "1b8977a10000f935bfbbcc1c533dc614ef8bb0571cb2f5cabaf8b6dda77cab22",
+      "ast_test_function_count": 23
+    },
+    {
+      "stage": "STAGE-134A",
+      "receipt_path": "artifacts/autoresearch/stage134a_mcad_udapi_telemetry_overhead_audit.json",
+      "receipt_exists": true,
+      "receipt_sha256": "ded5940268d46196270997b14d1c0b57c270acdfa88908505f58226082044315",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage134a_mcad_udapi_telemetry_overhead_audit.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "dee23e8ee5bb6ceddaf7a768f7b5e11efc23d862fd7833563803b653ccc2a2cc",
+      "ast_test_function_count": 13
+    },
+    {
+      "stage": "STAGE-135A",
+      "receipt_path": "artifacts/autoresearch/stage135a_live_wa_round4_6_autoresearch.json",
+      "receipt_exists": true,
+      "receipt_sha256": "8c1f7f26f8798fbc169c91285aab3f85eb57a80a351e1a9e71ae07b69c6bd81d",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage135a_live_wa_round4_6_autoresearch.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "c9c39eab679cead0128ee65fa52035618c0733f8698fc773fd4938f196cf0f3e",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-136A",
+      "receipt_path": "artifacts/autoresearch/stage136a_wa_asymmetric_quantum_and_v3_ko_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "841475744f56e300951b9243b827a60d8914e60f7935f50f66e4e4050b3749eb",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage136a_wa_asymmetric_quantum_and_v3_ko.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "8fda437f51ee4065978398db700000c27dc4027b6bbab817dc361639219bf261",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-137A",
+      "receipt_path": "artifacts/autoresearch/stage137a_wa_31board_openwrt_dtb_gpio_matrix.json",
+      "receipt_exists": true,
+      "receipt_sha256": "7c3146fadbb8e93d174433ec3f86f9ec1a75ccd2db1385182542497028ca49af",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage137a_wa_31board_openwrt_dtb_gpio_matrix.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "4cbe5d42aeb379c7cedb960dda89d39cf0c9fc86ce770f21afe75d1da18985e0",
+      "ast_test_function_count": 2
+    },
+    {
+      "stage": "STAGE-139A",
+      "receipt_path": "artifacts/autoresearch/stage139a_live_wa_round7_9_autoresearch.json",
+      "receipt_exists": true,
+      "receipt_sha256": "d95c701b67412af06b4b160aeb06f1d8bb5f704fdc45c02b75a8508ba61d37e6",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage139a_live_wa_round7_9_autoresearch.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "5eb95279ad1fb067737e29a1abe4e54a8e88b0b3919f1f8e24a1f7268638eac6",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-140A",
+      "receipt_path": "artifacts/autoresearch/stage140a_live_wa_round10_12_champion_headtohead.json",
+      "receipt_exists": true,
+      "receipt_sha256": "eb3afa4f3e72d4f09a4fc2445ebc89218401a680907c28809a3afe16c703948c",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage140a_live_wa_round10_12_champion_headtohead.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "527f187dbd3a884f25b07316c4e770fc997db1b5e839dd3a5e0837b8992dd6a9",
+      "ast_test_function_count": 3
+    },
+    {
+      "stage": "STAGE-141A",
+      "receipt_path": "artifacts/autoresearch/stage141a_wa_full_squashfs_bake_v3_receipt.json",
+      "receipt_exists": true,
+      "receipt_sha256": "6f2ac548a4b054cbb89ad7318631dfefd6184ed40e70d414627e39e812854ad6",
+      "five_pillar_audit": {
+        "compliant": true,
+        "missing_pillars": [],
+        "pillar_status": {
+          "pillar_a_ground_up_re_and_knob_catalog": true,
+          "pillar_b_hyperresearch_and_scholar_reactor": true,
+          "pillar_c_karpathy_autoresearch_and_watchdog": true,
+          "pillar_d_scientific_pareto_validation": true,
+          "pillar_e_memory_master_claim_id": true
+        }
+      },
+      "test_suite_path": "tests/test_stage141a_wa_full_squashfs_bake_v3.py",
+      "test_suite_exists": true,
+      "test_suite_sha256": "b2fba170964eb51f719e50ba02d45b6d36e2a44c9254df70201a0f2b0343f8cb",
+      "ast_test_function_count": 3
+    }
+  ],
+  "pytest_sweep": {
+    "executed_subprocess": false,
+    "suite_count": 24,
+    "ast_test_functions_total": 148,
+    "all_suites_valid": true,
+    "all_suites_passed": true
+  },
+  "repo_5pillar_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "binary_targets": [
+        "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_6.6.110.ko",
+        "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_v3_6.6.110.ko",
+        "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/bin/ubntbox",
+        "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/bin/athbox",
+        "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/bin/mcad",
+        "artifacts/firmware_re_xc_ltu/wa_8725_rootfs/bin/udapi-bridge"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-30-OPENWRT-24104-ETH-P-TEB-0x6558-21-INSN-PATCH",
+        "FMX-DISC-32-UBNTCONF-CLOSED-10-PLUGIN-TABLE-NO-SYSCFG-INJECTION",
+        "FMX-DISC-33-WA-RC-POSTSTART-13-BRIDGE-EQUIVALENCE",
+        "FMX-DISC-41-MAC80211-V3-AUTHORIZED-GATED-4ADDR-AND-R1-R12-WA-CHAMPION"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "harness": "orchestration/autoresearch/fmx_pbe5ac_deep_autoresearch_runner.py",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "rtt_p99_ms",
+        "voip_jitter_ms",
+        "host_ram_free_kb"
+      ],
+      "statistical_rigor": "Counterbalanced A1->B1->A2->B2 + Wilcoxon/Bootstrap + 24-Stage (116A..141A) Pytest Sweep"
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE133A-WA-KIT-116A-141A-UNIFIED-SWEEP"
+  },
+  "five_pillar_self_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

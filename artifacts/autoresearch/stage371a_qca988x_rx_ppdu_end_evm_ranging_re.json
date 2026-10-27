@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "stage": "371A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/qca988x_rx_ppdu_end_84byte_evm_ranging_re.py",
+    "tool_sha256": "d69fcdb59d6635bb725ca18cbed70a5403c3a9f279b4e741f27e45abef2ea435",
+    "output": "artifacts/autoresearch/stage371a_qca988x_rx_ppdu_end_evm_ranging_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "premise_corrections": [
+      "ath10k_core.ko does not exist under artifacts/ (glob ath10k*.ko = 0); the AC images ship the vendor umac.ko + ath_dev.ko",
+      "the descriptor field names are absent: rx_ppdu_end, evm_p0, evm_p15, locationing_timestamp and ppdu_end all count 0 in every module"
+    ],
+    "present_evidence": "htt_rx_amsdu_pop is present in umac.ko (4 raw hits), so the discard path the task describes is real even though the descriptor is not the ath10k one",
+    "radio_safety": "static only"
+  },
+  "ath10k_modules_found": [],
+  "modules": [
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "field_string_hits": {
+        "rx_ppdu_end": 0,
+        "evm_p0": 0,
+        "evm_p15": 0,
+        "locationing_timestamp": 0,
+        "ppdu_end": 0,
+        "htt_rx_amsdu_pop": 4
+      },
+      "defined": 2311,
+      "amsdu_pop_symbols": [
+        "htt_rx_amsdu_pop",
+        "htt_rx_amsdu_pop_hl",
+        "htt_rx_amsdu_pop_ll"
+      ],
+      "evm_ppdu_symbols": [
+        "htt_t2h_tx_ppdu_log_print",
+        "ieee80211_getavgrssi",
+        "ieee80211_notify_beacon_rssi",
+        "ieee80211_scan_entry_rssi",
+        "ieee80211_vap_iter_notify_beacon_rssi",
+        "wlan_getrssi",
+        "wlan_node_getrssi",
+        "wlan_scan_entry_rssi",
+        "wlan_send_rssi"
+      ],
+      "geometry": {
+        "histogram": {},
+        "sites": []
+      }
+    },
+    {
+      "module": "WA.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "field_string_hits": {
+        "rx_ppdu_end": 0,
+        "evm_p0": 0,
+        "evm_p15": 0,
+        "locationing_timestamp": 0,
+        "ppdu_end": 0,
+        "htt_rx_amsdu_pop": 0
+      },
+      "defined": 445,
+      "amsdu_pop_symbols": [],
+      "evm_ppdu_symbols": [
+        "ath_brssi_tasklet",
+        "ath_get_noderssi",
+        "ath_hw_beacon_rssi",
+        "ath_hw_beacon_rssi_reset",
+        "ath_hw_beacon_rssi_threshold_disable",
+        "ath_hw_beacon_rssi_threshold_enable"
+      ],
+      "geometry": {
+        "histogram": {},
+        "sites": []
+      }
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "field_string_hits": {
+        "rx_ppdu_end": 0,
+        "evm_p0": 0,
+        "evm_p15": 0,
+        "locationing_timestamp": 0,
+        "ppdu_end": 0,
+        "htt_rx_amsdu_pop": 4
+      },
+      "defined": 2311,
+      "amsdu_pop_symbols": [
+        "htt_rx_amsdu_pop",
+        "htt_rx_amsdu_pop_hl",
+        "htt_rx_amsdu_pop_ll"
+      ],
+      "evm_ppdu_symbols": [
+        "htt_t2h_tx_ppdu_log_print",
+        "ieee80211_getavgrssi",
+        "ieee80211_notify_beacon_rssi",
+        "ieee80211_scan_entry_rssi",
+        "ieee80211_vap_iter_notify_beacon_rssi",
+        "wlan_getrssi",
+        "wlan_node_getrssi",
+        "wlan_scan_entry_rssi",
+        "wlan_send_rssi"
+      ],
+      "geometry": {
+        "histogram": {},
+        "sites": []
+      }
+    },
+    {
+      "module": "XC.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "field_string_hits": {
+        "rx_ppdu_end": 0,
+        "evm_p0": 0,
+        "evm_p15": 0,
+        "locationing_timestamp": 0,
+        "ppdu_end": 0,
+        "htt_rx_amsdu_pop": 0
+      },
+      "defined": 445,
+      "amsdu_pop_symbols": [],
+      "evm_ppdu_symbols": [
+        "ath_brssi_tasklet",
+        "ath_get_noderssi",
+        "ath_hw_beacon_rssi",
+        "ath_hw_beacon_rssi_reset",
+        "ath_hw_beacon_rssi_threshold_disable",
+        "ath_hw_beacon_rssi_threshold_enable"
+      ],
+      "geometry": {
+        "histogram": {},
+        "sites": []
+      }
+    }
+  ],
+  "ranging_math": {
+    "sample_rate_mhz": 80.0,
+    "sample_ns": 12.5,
+    "metres_per_ns": 0.149896,
+    "round_trip_metres": 1.8737,
+    "note": "12.5 ns at c/2 gives 1.874 m; matches the 1.87 m in the task"
+  },
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 4,
+    "modules_with_field_names": 2,
+    "modules_with_amsdu_pop": 2,
+    "amsdu_pop_hits": 4,
+    "evm_symbol_count": 9,
+    "geometry_constants": 0,
+    "evm_table_recovered": 0
+  },
+  "gaps": [
+    "the 84-byte rx_ppdu_end descriptor with evm_p0..evm_p15 is an ath10k structure and is not present in the vendor modules: zero field-name hits",
+    "no EVM table was recovered and none is claimed",
+    "the dword-18 locationing timestamp field was not located; the 72-byte offset constant may not exist in this stack",
+    "the ranging arithmetic is reported as a constant, not as a decoded field",
+    "no dynamic validation"
+  ]
+}

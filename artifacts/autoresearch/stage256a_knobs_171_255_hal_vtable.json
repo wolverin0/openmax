@@ -1,0 +1,1884 @@
+{
+  "meta": {
+    "stage": "256A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage256a_knobs_171_255_hal_vtable.py",
+    "tool_sha256": "6df6e745391bc3510bcd554e5ce43e95d40089c963082a2b1514f7ef6c8faf04",
+    "output": "artifacts/autoresearch/stage256a_knobs_171_255_hal_vtable.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "slice": {
+      "boundary": "airOS_UMAC_UPH",
+      "lo": 170,
+      "hi": 255,
+      "count": 85
+    },
+    "method": "knob literal -> .rodata hit -> lui/addiu materialisation site -> enclosing prologue -> lw+jalr slots inside that function",
+    "vtable_offsets_from_253a": [
+      4,
+      8,
+      156,
+      160,
+      164,
+      204,
+      208,
+      296,
+      300,
+      396,
+      520
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "name": "get_vhtmcs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "name": "get_wds",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "name": "get_wdsdetect",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "name": "get_wepkeycache",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "name": "get_wmm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "name": "get_wpa",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "name": "getchaninfo",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "name": "getchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "name": "getdbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "name": "getdbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "name": "getiebuf",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "name": "getmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "name": "getoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "name": "getparam",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "name": "getwmmparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "name": "hbrparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "name": "hbrtimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "name": "hide_ssid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "name": "ht40intol",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "name": "htweptkip",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "name": "ignore11d",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "name": "inact",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "name": "inact_auth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "name": "inact_init",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "name": "ips_pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "name": "keymgtalgs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "name": "kickmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "name": "ldpc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "name": "maccmd",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "name": "markdfs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "name": "maxampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "name": "maxscanentry",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "name": "maxsta",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "name": "mcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "name": "mcastcipher",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "name": "mcastenhance",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "name": "mcastkeylen",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "name": "me_adddeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "name": "me_cleardeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "name": "me_length",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "name": "me_showdeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "name": "medebug",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "name": "medropmcast",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "name": "medump",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "name": "medump_dummy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "name": "metimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "name": "metimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "name": "mfptest",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "name": "mode",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x000496",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "name": "no_disassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "name": "no_wradar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "name": "noackpolicy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_nss_b574",
+          "name": "nss",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "name": "opmode_notify",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "name": "powersave",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "name": "privacy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "name": "protmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "name": "pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "name": "pureg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "name": "puren",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "name": "qosnull",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "name": "rc_mode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "name": "rc_retries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "name": "reset",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x00023f",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrm_b274",
+          "name": "rrm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "name": "rrmdbg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "name": "rrmslwin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "name": "rrmstats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "name": "rsncaps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "name": "rtparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "name": "rx_stbc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "name": "rxtimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "name": "s_scan_flush",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "name": "scanband",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "name": "scanentryage",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "name": "scanvalid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "name": "senddeauth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "name": "sendmgmt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "name": "set11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "name": "set11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "name": "set_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "name": "set_multiq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "name": "setaddbaoper",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "name": "setchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "name": "setfilter",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 2,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "WA.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "name": "get_vhtmcs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "name": "get_wds",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "name": "get_wdsdetect",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "name": "get_wepkeycache",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "name": "get_wmm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "name": "get_wpa",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "name": "getchaninfo",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "name": "getchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "name": "getdbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "name": "getdbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "name": "getiebuf",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "name": "getmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "name": "getoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "name": "getparam",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x001717",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "name": "getwmmparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "name": "hbrparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "name": "hbrtimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "name": "hide_ssid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "name": "ht40intol",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "name": "htweptkip",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "name": "ignore11d",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "name": "inact",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "name": "inact_auth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "name": "inact_init",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "name": "ips_pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "name": "keymgtalgs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "name": "kickmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "name": "ldpc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "name": "maccmd",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "name": "markdfs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "name": "maxampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "name": "maxscanentry",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "name": "maxsta",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "name": "mcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "name": "mcastcipher",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "name": "mcastenhance",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "name": "mcastkeylen",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "name": "me_adddeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "name": "me_cleardeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "name": "me_length",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "name": "me_showdeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "name": "medebug",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "name": "medropmcast",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "name": "medump",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "name": "medump_dummy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "name": "metimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "name": "metimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "name": "mfptest",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "name": "mode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00009a",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "name": "no_disassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "name": "no_wradar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "name": "noackpolicy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_nss_b574",
+          "name": "nss",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "name": "opmode_notify",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "name": "powersave",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x001d30",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "name": "privacy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "name": "protmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "name": "pspoll",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00166a",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "name": "pureg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "name": "puren",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "name": "qosnull",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00020e",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "name": "rc_mode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "name": "rc_retries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "name": "reset",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x001c90",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrm_b274",
+          "name": "rrm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "name": "rrmdbg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "name": "rrmslwin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "name": "rrmstats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "name": "rsncaps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "name": "rtparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "name": "rx_stbc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "name": "rxtimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "name": "s_scan_flush",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "name": "scanband",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "name": "scanentryage",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "name": "scanvalid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "name": "senddeauth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "name": "sendmgmt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "name": "set11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "name": "set11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "name": "set_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "name": "set_multiq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "name": "setaddbaoper",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "name": "setchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "name": "setfilter",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 6,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "XC.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "name": "get_vhtmcs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "name": "get_wds",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "name": "get_wdsdetect",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "name": "get_wepkeycache",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "name": "get_wmm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "name": "get_wpa",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "name": "getchaninfo",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "name": "getchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "name": "getdbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "name": "getdbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "name": "getiebuf",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "name": "getmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "name": "getoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "name": "getparam",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "name": "getwmmparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "name": "hbrparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "name": "hbrtimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "name": "hide_ssid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "name": "ht40intol",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "name": "htweptkip",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "name": "ignore11d",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "name": "inact",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "name": "inact_auth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "name": "inact_init",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "name": "ips_pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "name": "keymgtalgs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "name": "kickmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "name": "ldpc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "name": "maccmd",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "name": "markdfs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "name": "maxampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "name": "maxscanentry",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "name": "maxsta",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "name": "mcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "name": "mcastcipher",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "name": "mcastenhance",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "name": "mcastkeylen",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "name": "me_adddeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "name": "me_cleardeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "name": "me_length",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "name": "me_showdeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "name": "medebug",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "name": "medropmcast",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "name": "medump",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "name": "medump_dummy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "name": "metimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "name": "metimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "name": "mfptest",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "name": "mode",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x000496",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "name": "no_disassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "name": "no_wradar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "name": "noackpolicy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_nss_b574",
+          "name": "nss",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "name": "opmode_notify",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "name": "powersave",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "name": "privacy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "name": "protmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "name": "pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "name": "pureg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "name": "puren",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "name": "qosnull",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "name": "rc_mode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "name": "rc_retries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "name": "reset",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x00023f",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrm_b274",
+          "name": "rrm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "name": "rrmdbg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "name": "rrmslwin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "name": "rrmstats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "name": "rsncaps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "name": "rtparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "name": "rx_stbc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "name": "rxtimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "name": "s_scan_flush",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "name": "scanband",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "name": "scanentryage",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "name": "scanvalid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "name": "senddeauth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "name": "sendmgmt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "name": "set11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "name": "set11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "name": "set_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "name": "set_multiq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "name": "setaddbaoper",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "name": "setchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "name": "setfilter",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 2,
+      "knobs_reaching_vtable": 0
+    },
+    {
+      "module": "XC.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "knobs": [
+        {
+          "id": "wa_8_7_25_wext_get_vhtmcs_b55c",
+          "name": "get_vhtmcs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wds_a68c",
+          "name": "get_wds",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wdsdetect_af44",
+          "name": "get_wdsdetect",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wepkeycache_af14",
+          "name": "get_wepkeycache",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wmm_a35c",
+          "name": "get_wmm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_get_wpa_a2cc",
+          "name": "get_wpa",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchaninfo_9e1c",
+          "name": "getchaninfo",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getchanlist_9e04",
+          "name": "getchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_ae84",
+          "name": "getdbgLVL",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getdbglvl_high_aeb4",
+          "name": "getdbgLVL_high",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getiebuf_a8b4",
+          "name": "getiebuf",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getmac_9dbc",
+          "name": "getmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getoptie_9d2c",
+          "name": "getoptie",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getparam_9ffc",
+          "name": "getparam",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x001717",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_getwmmparams_9e7c",
+          "name": "getwmmparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrparams_ad64",
+          "name": "hbrparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hbrtimer_acd4",
+          "name": "hbrtimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_hide_ssid_a374",
+          "name": "hide_ssid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ht40intol_b0dc",
+          "name": "ht40intol",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_htweptkip_af5c",
+          "name": "htweptkip",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ignore11d_afd4",
+          "name": "ignore11d",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_a3d4",
+          "name": "inact",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_auth_a404",
+          "name": "inact_auth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_inact_init_a434",
+          "name": "inact_init",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ips_pspoll_a794",
+          "name": "ips_pspoll",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_keymgtalgs_a1c4",
+          "name": "keymgtalgs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_kickmac_9dd4",
+          "name": "kickmac",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_ldpc_b5a4",
+          "name": "ldpc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maccmd_a314",
+          "name": "maccmd",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_markdfs_a7f4",
+          "name": "markdfs",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxampdu_aa94",
+          "name": "maxampdu",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxscanentry_b7b4",
+          "name": "maxscanentry",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_maxsta_b424",
+          "name": "maxsta",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcast_rate_a6d4",
+          "name": "mcast_rate",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastcipher_a0d4",
+          "name": "mcastcipher",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastenhance_ab54",
+          "name": "mcastenhance",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mcastkeylen_a104",
+          "name": "mcastkeylen",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_adddeny_ad7c",
+          "name": "me_adddeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_cleardeny_acbc",
+          "name": "me_cleardeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_length_abe4",
+          "name": "me_length",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_me_showdeny_aca4",
+          "name": "me_showdeny",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medebug_abb4",
+          "name": "medebug",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medropmcast_ac74",
+          "name": "medropmcast",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_ab9c",
+          "name": "medump",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_medump_dummy_ab84",
+          "name": "medump_dummy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimeout_ac44",
+          "name": "metimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_metimer_ac14",
+          "name": "metimer",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mfptest_b1fc",
+          "name": "mfptest",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_mode_9e34",
+          "name": "mode",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00009a",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_disassoc_b3f4",
+          "name": "no_disassoc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_no_wradar_aecc",
+          "name": "no_wradar",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_noackpolicy_9fb4",
+          "name": "noackpolicy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_nss_b574",
+          "name": "nss",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_opmode_notify_b634",
+          "name": "opmode_notify",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_powersave_a8e4",
+          "name": "powersave",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x001d30",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_privacy_a224",
+          "name": "privacy",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_protmode_a0a4",
+          "name": "protmode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pspoll_a77c",
+          "name": "pspoll",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00166a",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_pureg_a614",
+          "name": "pureg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_puren_af8c",
+          "name": "puren",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_qosnull_a764",
+          "name": "qosnull",
+          "literal_present": true,
+          "rodata_section": ".rodata",
+          "rodata_offset": "0x00020e",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_mode_b88c",
+          "name": "rc_mode",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rc_retries_b6dc",
+          "name": "rc_retries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_reset_aaf4",
+          "name": "reset",
+          "literal_present": true,
+          "rodata_section": ".rodata.str1.4",
+          "rodata_offset": "0x001c90",
+          "text_sites": [],
+          "function": null,
+          "vtable_slots": [],
+          "reaches_253a_vtable": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrm_b274",
+          "name": "rrm",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmdbg_b304",
+          "name": "rrmdbg",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmslwin_b2d4",
+          "name": "rrmslwin",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rrmstats_b2a4",
+          "name": "rrmstats",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rsncaps_a1f4",
+          "name": "rsncaps",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rtparams_ad4c",
+          "name": "rtparams",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rx_stbc_b604",
+          "name": "rx_stbc",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_rxtimeout_adc4",
+          "name": "rxtimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_s_scan_flush_b37c",
+          "name": "s_scan_flush",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanband_b454",
+          "name": "scanband",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanentryage_b7e4",
+          "name": "scanentryage",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_scanvalid_ad94",
+          "name": "scanvalid",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_senddeauth_b484",
+          "name": "senddeauth",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_sendmgmt_b334",
+          "name": "sendmgmt",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nrates_ae0c",
+          "name": "set11NRates",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set11nretries_ae3c",
+          "name": "set11NRetries",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_cactimeout_b67c",
+          "name": "set_cactimeout",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_set_multiq_b85c",
+          "name": "set_multiq",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setaddbaoper_adf4",
+          "name": "setaddbaoper",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setchanlist_9dec",
+          "name": "setchanlist",
+          "literal_present": false
+        },
+        {
+          "id": "wa_8_7_25_wext_setfilter_a8cc",
+          "name": "setfilter",
+          "literal_present": false
+        }
+      ],
+      "knobs_with_literal": 6,
+      "knobs_reaching_vtable": 0
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "knobs": 85,
+    "knobs_with_literal": 6,
+    "knobs_reaching_vtable": 0,
+    "slot_histogram": {}
+  },
+  "gaps": [
+    "a knob whose literal was not found in .rodata is reported absent, not guessed",
+    "the function is attributed from the first lui/addiu match; a knob referenced from several functions is represented by one",
+    "reaching a 253A slot means the enclosing function dispatches through the HAL vtable, not that this knob is the argument",
+    "the low-half literal-to-site join is unsound as an identifier, so zero attribution is a method limit and not evidence about the knob",
+    "no dynamic validation"
+  ]
+}

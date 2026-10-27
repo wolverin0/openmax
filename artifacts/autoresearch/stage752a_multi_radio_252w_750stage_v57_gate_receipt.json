@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-752A",
+  "title": "252-Window Multi-Radio, 750-Stage Milestone & Cross-Fleet Champion v57.0 Verification Gate (Stages 747A..751A)",
+  "timestamp_utc": "2026-10-27T02:10:01.177784+00:00",
+  "status": "CONFIRMED",
+  "all_stages_passed": true,
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "stage_checks": [
+    {
+      "stage_id": "STAGE-747A",
+      "json_path": "artifacts/autoresearch/stage747a_multi_radio_252w_and_750stage_milestone.json",
+      "doc_path": "docs/STAGE747A_MULTI_RADIO_252W_AND_750STAGE_MILESTONE.md",
+      "test_path": "tests/test_stage747a.py",
+      "doc_lines": 21,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-748A",
+      "json_path": "artifacts/autoresearch/stage748a_nsga3_pareto_spectral_phyerr_and_thermal_pa.json",
+      "doc_path": "docs/STAGE748A_NSGA3_PARETO_SPECTRAL_PHYERR_AND_THERMAL_PA.md",
+      "test_path": "tests/test_stage748a.py",
+      "doc_lines": 23,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-749A",
+      "json_path": "artifacts/autoresearch/stage749a_cross_fleet_champion_v57_bundle.json",
+      "doc_path": "docs/STAGE749A_CROSS_FLEET_CHAMPION_V57_BUNDLE.md",
+      "test_path": "tests/test_stage749a.py",
+      "doc_lines": 22,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-750A",
+      "json_path": "artifacts/autoresearch/stage750a_750stage_grand_milestone_dossier.json",
+      "doc_path": "docs/STAGE750A_750STAGE_GRAND_MILESTONE_DOSSIER.md",
+      "test_path": "tests/test_stage750a.py",
+      "doc_lines": 23,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    },
+    {
+      "stage_id": "STAGE-751A",
+      "json_path": "artifacts/autoresearch/stage751a_memorymaster_750stage_v57_ledger.json",
+      "doc_path": "docs/STAGE751A_MEMORYMASTER_750STAGE_V57_LEDGER.md",
+      "test_path": "tests/test_stage751a.py",
+      "doc_lines": 21,
+      "doc_heads": 1,
+      "five_pillar_compliant": true,
+      "passed": true
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "umac.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-STAGE752A-MULTI-RADIO-252W-750STAGE-V57-GATE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "windows_executed": 252
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "stages_verified": 5
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE752A-MULTI-RADIO-252W-750STAGE-V57-GATE"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

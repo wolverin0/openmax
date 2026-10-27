@@ -1,0 +1,570 @@
+{
+  "meta": {
+    "stage": "727A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re.py",
+    "tool_sha256": "147167d7bc0296a675f1c33b67bf96fb4ac669c0b0d92be18de7f7e17dd22d47",
+    "output": "artifacts/autoresearch/stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "message_method": "token census across eight modules on two lines; PHYERR lifecycle, per-generation processor and regulatory tool extraction; spectral control surface enumeration",
+    "premise_corrections": [
+      "ath10k_core.ko is absent, so ATH10K_PHYERR_SPECTRAL and ATH10K_PHYERR_RADAR cannot be read; they are ath10k macros in any case",
+      "the PHYERR dispatch is not one parser: ath_dfs.ko carries five processors, four of them named after Atheros silicon generations"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules": 0,
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "PHYERR": 7,
+        "phyerr": 27,
+        "SPECTRAL": 6,
+        "spectral": 53,
+        "RADAR": 0,
+        "radar": 37,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 2,
+        "ol_ath_phyerr_detach": 2,
+        "ol_ath_phyerr_enable": 2,
+        "ol_ath_phyerr_disable": 2
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 1,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 1
+      },
+      "predicate": 0,
+      "phyerr_symbols": [
+        "ol_ath_phyerr_attach",
+        "ol_ath_phyerr_detach",
+        "ol_ath_phyerr_disable",
+        "ol_ath_phyerr_enable"
+      ],
+      "spectral_symbols": [
+        "init_spectral_capability",
+        "ol_if_ic_start_spectral_scan",
+        "ol_if_ic_stop_spectral_scan",
+        "ol_if_is_spectral_active",
+        "ol_if_is_spectral_enabled",
+        "ol_if_spectral_configure_params",
+        "ol_if_spectral_detach",
+        "ol_if_spectral_enable",
+        "ol_if_spectral_get_capability",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_current_channel",
+        "ol_if_spectral_get_ent_mask",
+        "ol_if_spectral_get_ext_noisefloor",
+        "ol_if_spectral_get_extension_channel",
+        "ol_if_spectral_get_macaddr"
+      ],
+      "radar_symbols": [
+        "dfs_etsi_radars",
+        "dfs_etsi_radars_full",
+        "dfs_fcc_radars",
+        "dfs_korea_radars",
+        "dfs_mkk4_radars",
+        "ieee80211_dfs_notify_radar",
+        "ieee80211_scan_entry_is_radar_detected_period",
+        "ieee80211_scan_entry_set_radar_detected_timestamp",
+        "ieee80211_send_ubnt_action_radar",
+        "ieee80211_unmark_radar",
+        "ubnt_radar_mode"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "PHYERR": 7,
+        "phyerr": 27,
+        "SPECTRAL": 6,
+        "spectral": 53,
+        "RADAR": 0,
+        "radar": 37,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 2,
+        "ol_ath_phyerr_detach": 2,
+        "ol_ath_phyerr_enable": 2,
+        "ol_ath_phyerr_disable": 2
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 1,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 1
+      },
+      "predicate": 0,
+      "phyerr_symbols": [
+        "ol_ath_phyerr_attach",
+        "ol_ath_phyerr_detach",
+        "ol_ath_phyerr_disable",
+        "ol_ath_phyerr_enable"
+      ],
+      "spectral_symbols": [
+        "init_spectral_capability",
+        "ol_if_ic_start_spectral_scan",
+        "ol_if_ic_stop_spectral_scan",
+        "ol_if_is_spectral_active",
+        "ol_if_is_spectral_enabled",
+        "ol_if_spectral_configure_params",
+        "ol_if_spectral_detach",
+        "ol_if_spectral_enable",
+        "ol_if_spectral_get_capability",
+        "ol_if_spectral_get_chain_noise_floor",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_if_spectral_get_current_channel",
+        "ol_if_spectral_get_ent_mask",
+        "ol_if_spectral_get_ext_noisefloor",
+        "ol_if_spectral_get_extension_channel",
+        "ol_if_spectral_get_macaddr"
+      ],
+      "radar_symbols": [
+        "dfs_etsi_radars",
+        "dfs_etsi_radars_full",
+        "dfs_fcc_radars",
+        "dfs_korea_radars",
+        "dfs_mkk4_radars",
+        "ieee80211_dfs_notify_radar",
+        "ieee80211_scan_entry_is_radar_detected_period",
+        "ieee80211_scan_entry_set_radar_detected_timestamp",
+        "ieee80211_send_ubnt_action_radar",
+        "ieee80211_unmark_radar",
+        "ubnt_radar_mode"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 4,
+        "SPECTRAL": 5,
+        "spectral": 27,
+        "RADAR": 0,
+        "radar": 1,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 1,
+      "phyerr_symbols": [
+        "ath_process_phyerr"
+      ],
+      "spectral_symbols": [
+        "ath_dev_start_spectral_scan",
+        "ath_dev_stop_spectral_scan",
+        "ath_init_spectral_ops",
+        "ath_spectral_control",
+        "ath_spectral_filter_init",
+        "ath_spectral_filter_start",
+        "ath_spectral_filter_stop",
+        "ath_spectral_filter_uninit",
+        "ath_spectral_indicate"
+      ],
+      "radar_symbols": []
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 4,
+        "SPECTRAL": 5,
+        "spectral": 27,
+        "RADAR": 0,
+        "radar": 1,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 1,
+      "phyerr_symbols": [
+        "ath_process_phyerr"
+      ],
+      "spectral_symbols": [
+        "ath_dev_start_spectral_scan",
+        "ath_dev_stop_spectral_scan",
+        "ath_init_spectral_ops",
+        "ath_spectral_control",
+        "ath_spectral_filter_init",
+        "ath_spectral_filter_start",
+        "ath_spectral_filter_stop",
+        "ath_spectral_filter_uninit",
+        "ath_spectral_indicate"
+      ],
+      "radar_symbols": []
+    },
+    {
+      "module": "WA:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "2b8526b0d008258c42bbf196ac1f5af9925f16a27827eaa3a74a179b4faf048a",
+      "defined_symbols": 214,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 6,
+        "SPECTRAL": 59,
+        "spectral": 71,
+        "RADAR": 3,
+        "radar": 1,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 2,
+      "phyerr_symbols": [
+        "is_spectral_phyerr",
+        "spectral_dump_phyerr_data",
+        "spectral_process_phyerr"
+      ],
+      "spectral_symbols": [
+        "ath_process_spectraldata",
+        "ath_process_spectraldata_with_flowcontrol",
+        "is_spectral_phyerr",
+        "print_spectral_params",
+        "spectral_attach",
+        "spectral_bcast_msg",
+        "spectral_check_hw_capability",
+        "spectral_clear_stats",
+        "spectral_control",
+        "spectral_create_samp_msg",
+        "spectral_debug_level",
+        "spectral_destroy_netlink",
+        "spectral_detach",
+        "spectral_dump_fft",
+        "spectral_dump_header",
+        "spectral_dump_phyerr_data"
+      ],
+      "radar_symbols": []
+    },
+    {
+      "module": "XC:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "1503933e0a7491fcda216d03c1287ec754077c60f3f1ee0211311307e3cdacd9",
+      "defined_symbols": 214,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 6,
+        "SPECTRAL": 59,
+        "spectral": 71,
+        "RADAR": 3,
+        "radar": 1,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 0,
+        "dfs_process_phyerr_bb_tlv": 0,
+        "dfs_process_phyerr_merlin": 0,
+        "dfs_process_phyerr_owl": 0,
+        "dfs_process_phyerr_sowl": 0
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 0,
+        "fcc_radartool_alow": 0
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 2,
+      "phyerr_symbols": [
+        "is_spectral_phyerr",
+        "spectral_dump_phyerr_data",
+        "spectral_process_phyerr"
+      ],
+      "spectral_symbols": [
+        "ath_process_spectraldata",
+        "ath_process_spectraldata_with_flowcontrol",
+        "is_spectral_phyerr",
+        "print_spectral_params",
+        "spectral_attach",
+        "spectral_bcast_msg",
+        "spectral_check_hw_capability",
+        "spectral_clear_stats",
+        "spectral_control",
+        "spectral_create_samp_msg",
+        "spectral_debug_level",
+        "spectral_destroy_netlink",
+        "spectral_detach",
+        "spectral_dump_fft",
+        "spectral_dump_header",
+        "spectral_dump_phyerr_data"
+      ],
+      "radar_symbols": []
+    },
+    {
+      "module": "WA:ath_dfs.ko",
+      "status": "ok",
+      "bytes": 203796,
+      "sha256": "63d7a3404d40576a98963dff0157c99735e283baf52123e87b72a3bd7f5b8650",
+      "defined_symbols": 668,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 19,
+        "SPECTRAL": 0,
+        "spectral": 0,
+        "RADAR": 9,
+        "radar": 43,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 9,
+        "dfs_process_phyerr_bb_tlv": 2,
+        "dfs_process_phyerr_merlin": 1,
+        "dfs_process_phyerr_owl": 1,
+        "dfs_process_phyerr_sowl": 2
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 1,
+        "fcc_radartool_alow": 1
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 0,
+      "phyerr_symbols": [
+        "dfs_process_phyerr",
+        "dfs_process_phyerr_bb_tlv",
+        "dfs_process_phyerr_merlin",
+        "dfs_process_phyerr_owl",
+        "dfs_process_phyerr_sowl"
+      ],
+      "spectral_symbols": [],
+      "radar_symbols": [
+        "dfs_init_radar_filters",
+        "dfs_print_formatted_row__radar_pulse_report",
+        "dfs_process_radarevent",
+        "dfs_radar_disable",
+        "dfs_radar_enable",
+        "dfs_reset_radarq",
+        "etsi_radartool_alow",
+        "fcc_radartool_alow"
+      ]
+    },
+    {
+      "module": "XC:ath_dfs.ko",
+      "status": "ok",
+      "bytes": 203796,
+      "sha256": "110dbebfbfd63844353b2b8f3198400b54e5e81b84a8dbf672833e82de8ec1be",
+      "defined_symbols": 668,
+      "tokens": {
+        "PHYERR": 0,
+        "phyerr": 19,
+        "SPECTRAL": 0,
+        "spectral": 0,
+        "RADAR": 9,
+        "radar": 43,
+        "ATH10K": 0
+      },
+      "lifecycle": {
+        "ol_ath_phyerr_attach": 0,
+        "ol_ath_phyerr_detach": 0,
+        "ol_ath_phyerr_enable": 0,
+        "ol_ath_phyerr_disable": 0
+      },
+      "processors": {
+        "dfs_process_phyerr": 9,
+        "dfs_process_phyerr_bb_tlv": 2,
+        "dfs_process_phyerr_merlin": 1,
+        "dfs_process_phyerr_owl": 1,
+        "dfs_process_phyerr_sowl": 2
+      },
+      "regulatory": {
+        "etsi_radartool_alow": 1,
+        "fcc_radartool_alow": 1
+      },
+      "wmi": {
+        "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID": 0,
+        "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID": 0
+      },
+      "predicate": 0,
+      "phyerr_symbols": [
+        "dfs_process_phyerr",
+        "dfs_process_phyerr_bb_tlv",
+        "dfs_process_phyerr_merlin",
+        "dfs_process_phyerr_owl",
+        "dfs_process_phyerr_sowl"
+      ],
+      "spectral_symbols": [],
+      "radar_symbols": [
+        "dfs_init_radar_filters",
+        "dfs_print_formatted_row__radar_pulse_report",
+        "dfs_process_radarevent",
+        "dfs_radar_disable",
+        "dfs_radar_enable",
+        "dfs_reset_radarq",
+        "etsi_radartool_alow",
+        "fcc_radartool_alow"
+      ]
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 8,
+    "phyerr_lifecycle": [
+      "ol_ath_phyerr_attach",
+      "ol_ath_phyerr_detach",
+      "ol_ath_phyerr_enable",
+      "ol_ath_phyerr_disable"
+    ],
+    "phyerr_lifecycle_count": 4,
+    "phyerr_handler_named": 1,
+    "phyerr_processor_count": 5,
+    "phyerr_processors": [
+      "dfs_process_phyerr",
+      "dfs_process_phyerr_bb_tlv",
+      "dfs_process_phyerr_merlin",
+      "dfs_process_phyerr_owl",
+      "dfs_process_phyerr_sowl"
+    ],
+    "chip_generations": [
+      "tlv",
+      "merlin",
+      "owl",
+      "sowl"
+    ],
+    "chip_generation_count": 4,
+    "per_generation_dispatch": 1,
+    "regulatory_radar_tools": [
+      "etsi_radartool_alow",
+      "fcc_radartool_alow"
+    ],
+    "regulatory_tool_count": 2,
+    "spectral_predicate_modules": [
+      "WA:ath_dev.ko",
+      "XC:ath_dev.ko",
+      "WA:ath_spectral.ko",
+      "XC:ath_spectral.ko"
+    ],
+    "spectral_predicate_present": 1,
+    "wmi_spectral_commands": [
+      "WMI_VDEV_SPECTRAL_SCAN_CONFIGURE_CMDID",
+      "WMI_VDEV_SPECTRAL_SCAN_ENABLE_CMDID"
+    ],
+    "wmi_command_count": 2,
+    "phyerr_symbol_count": 13,
+    "spectral_symbol_count": 41,
+    "radar_symbol_count": 19,
+    "phyerr_code_table_recovered": 0,
+    "spectral_bin_format_recovered": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so ATH10K_PHYERR_SPECTRAL and ATH10K_PHYERR_RADAR cannot be read; the vendor stack has no equivalent numeric PHY-error enum by name",
+    "the PHYERR code table was not recovered: the processors are named, the codes they switch on are not",
+    "the FFT bin format remains unrecovered (Stage 451A established the same limit)",
+    "the per-generation processors are named but the payload format of each was not decoded",
+    "is_spectral_phyerr lives in ath_spectral.ko, not umac.ko, so a single-module sweep would miss it",
+    "no dynamic validation"
+  ]
+}

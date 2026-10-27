@@ -1,0 +1,57 @@
+{
+  "stage": "709A",
+  "task_id": "T-S709A-QCA-WMI-VDEV-START-AND-PHYMODE-GUARD",
+  "title": "QCA988x WMI_SERVICE_READY & WMI_VDEV_START Resource & Phymode Guard",
+  "memory_master_claim": {
+    "code": "mm-7013",
+    "id": 155468
+  },
+  "generated_at": "2026-10-27T02:04:01.758625+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "QCA firmware",
+    "ath10k",
+    "mac80211",
+    "Linux",
+    "hardware"
+  ],
+  "helper_script": {
+    "path": "firmware/openwrt/common/fmx_qca_wmi_vdev_start_guard.sh",
+    "sha256": "cb631efb22548b1799ee8a09964bfc97a359f6220c8ac5010846b2b4a2d0a484",
+    "size_bytes": 2289,
+    "default_mode": "--status"
+  },
+  "wmi_vdev_profile": {
+    "service_ready_event": "WMI_SERVICE_READY_EVENTID",
+    "vdev_start_cmd": "WMI_VDEV_START_REQUEST_CMDID",
+    "dynamic_phy_candidates": [
+      "phy0",
+      "phy1",
+      "phy2"
+    ],
+    "iram_max_peers_budget": 32,
+    "iram_max_vdevs_budget": 4,
+    "pktlog_filter_enforced": "0x0"
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "default_mode_is_status": true,
+    "resolves_dynamic_phy0_phy1_phy2": true,
+    "covers_wmi_service_ready_and_vdev_start": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 693A RE of WMI_SERVICE_READY_EVENTID and WMI_VDEV_START_REQUEST_CMDID + dynamic phy* resolution",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Protects QCA988x Xtensa IRAM resource pool (max_peers=32, max_vdevs=4, pktlog_filter=0x0) across single- and dual-radio boards",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Default --status mode is 100% read-only; --apply dynamically targets phy0/phy1/phy2",
+    "pillar_d_scientific_pareto_validation": "Guarantees zero silent debugfs miss on XC dual-radio or re-enumerated PCIe topologies",
+    "pillar_e_memory_master_claim_id": "mm-7013 (id=155468)"
+  }
+}

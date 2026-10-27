@@ -1,0 +1,37 @@
+{
+  "stage": "284A",
+  "task_id": "T-S284A-FMX-DISC-43-44-CURATION",
+  "generated_at": "2026-10-26T20:55:00-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "writes_performed": 0,
+  "curated_doc": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+  "curated_doc_line_count": 154,
+  "discoveries_added": [
+    {
+      "id": "FMX-DISC-43",
+      "title": "WA.v8.7.25 IRQ 33 (ath-spectral-filter) 4.53 Billion Unmasked GPIO Interrupt Storm & Zero-Touch /etc/persistent/rc.poststart Neutralization",
+      "status": "CONFIRMED",
+      "attribution": "proprietary airMAX/LTU module + hardware",
+      "total_interrupts_4_radios": 4532825836
+    },
+    {
+      "id": "FMX-DISC-44",
+      "title": "WA.v8.7.25 SIOCGATHSTATS (0x89f0) struct ol_ath_stats vs struct ath_stats ABI Aliasing (no tx buffer == xmit filtered 1.85B Lockstep) & True athstats -ol wal_dbg_stats Isolation",
+      "status": "CONFIRMED",
+      "attribution": "proprietary airMAX/LTU module + ath10k / QCA firmware",
+      "aliased_q1_sent_total": 1852520415,
+      "aliased_q1_compl_total": 1852520403,
+      "panel2_82_true_mpdus_requed": 139634216,
+      "panel3_83_true_excess_retries": 9506061
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Codifies FMX-DISC-43 (ath_dev.ko 0x27be0/0x27c00 IRQ 33 storm) and FMX-DISC-44 (bin/athbox 0x401930/0x402468 & umac.ko 0xbcc40/0xd31f0/0xd3414 SIOCGATHSTATS ABI aliasing).",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Updates master historical discovery ledger to 44 confirmed discoveries while keeping line count < 220 lines.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Preserves all SG-01..05 safety gates and read-only verification provenance.",
+    "pillar_d_scientific_pareto_validation": "Separates userland ABI aliasing artifacts from true QCA9882 WAL requeues (20.33% on .82) and CSMA excess retries (15.11% on .83).",
+    "pillar_e_memory_master_claim_id": "mm-stage284a-fmx-disc-43-44-curation-v1"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "stage": "116A",
+  "task_id": "T-S116A-PBE5AC-GEN2-OPENWRT-KIT-V2-AND-DYNAMIC-PHY-ADMITTER-VALIDATOR",
+  "timestamp_utc": "2026-10-26T22:45:51.853963+00:00",
+  "status": "CONFIRMED",
+  "attribution": "mac80211 / Linux / external controller (OpenWrt 24.10.4 Linux 6.6.110 mac80211_teb_6.6.110.ko ETH_P_TEB 0x6558 decapsulation + fmx_pbe5ac_admitter.sh dynamic hostapd.phy*-ap0 resolution across phy0..phy3 + beacon_int=30 TU + 65s IE-free Normal-AP window)",
+  "live_radios_241_242_touched": false,
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_components": [
+      "fmx_pbe5ac_admitter.sh v2: resolve_obj() dynamic ubus list 'hostapd.phy*-ap0' + /sys/class/net/phy*-ap0 fallback + runtime listener rebind when mac80211_teb_6.6.110.ko reload renumbers phy0 -> phy1/phy2/phy3",
+      "fmx_pbe5ac_admitter.sh & 99-fmx-pbe5ac-ptp-ap(-241): beacon_int=30 (30.72 ms) + 65s IE-free Normal-AP window (next_pulse=t_now+65) + 45s IE pulse window (clear_at=t_now+45) + 600ms probe delay before clearing Vendor IE",
+      "mac80211_teb_6.6.110.ko (SHA-256 3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868): 21-instruction MIPS32 BE patch at .text+0x033c18..0x033c68 stripping 14-byte inner 0x6558 (ETH_P_TEB) header using skb->data offset 0xa8 and module_layout=352B"
+    ],
+    "catalog_knob_ids": [
+      "FMX-DISC-35",
+      "FMX-DISC-36",
+      "FMX-DISC-38",
+      "OWRT-AQL-TXQ-LIMIT-BE",
+      "OWRT-BQL-ETH0-HOLD800",
+      "OWRT-HOSTAPD-BEACON-INT-30"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Reloading mac80211.ko on OpenWrt 24.10.4 increments the wiphy index (phy0 -> phy1/phy2/phy3), requiring dynamic ubus hostapd.phy*-ap0 and sysfs /sys/class/net/phy*-ap0.sta* resolution in the Vendor-IE admitter and AQL/AQM hotplug scripts",
+      "Combining a 30 TU (30.72 ms) beacon interval with a 65-second IE-free Normal-AP window (> 37s stock airOS 8 full passive scan cycle) guarantees deterministic 4-address WDS association without triggering uph.ko TDMA state-machine lockouts"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 180,
+    "simulated_phy_renumbering_rounds": 4
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "fmx_loss_hardcoded_phy0_after_ko_reload": 1.0,
+    "fmx_loss_dynamic_phy_wildcard_v2": 0.0,
+    "pareto_delta_admitter_rebind_reliability_pct": 100.0
+  },
+  "pillar_e_memory_master_claim_id": "mm-54f1",
+  "admitter_v2_verification": {
+    "name": "fmx_pbe5ac_admitter.sh",
+    "exists": true,
+    "size_bytes": 6195,
+    "sha256": "f8c7b054b241b0e6b901abcf96e8a777d62bf30a732e6eb05082ff47339285eb",
+    "checks": {
+      "has_posix_shebang": true,
+      "has_no_crlf": true,
+      "has_resolve_obj_fn": true,
+      "uses_ubus_wildcard_phy_ap0": true,
+      "uses_sysfs_wildcard_phy_ap0": true,
+      "uses_wds_wildcard_phy_ap0_sta": true,
+      "has_runtime_listener_rebind_on_phy_change": true,
+      "has_beacon_int_30_enforcer": true,
+      "has_65s_ie_free_window": true,
+      "has_45s_ie_open_window": true,
+      "has_600ms_probe_sleep": true,
+      "has_immediate_auth_clear": true,
+      "has_dual_bssid_vendor_ie": true,
+      "ie_c2_len_120_hex_60_bytes": true,
+      "ie_c3_len_120_hex_60_bytes": true
+    },
+    "all_checks_passed": true,
+    "simulated_dynamic_phy_transitions": [
+      {
+        "phy_index": "0",
+        "resolved_ubus_obj": "hostapd.phy0-ap0",
+        "resolved_ap_if": "phy0-ap0",
+        "sysfs_address_glob": "/sys/class/net/phy0-ap0/address",
+        "wds_sta_glob": "/sys/class/net/phy0-ap0.sta*"
+      },
+      {
+        "phy_index": "1",
+        "resolved_ubus_obj": "hostapd.phy1-ap0",
+        "resolved_ap_if": "phy1-ap0",
+        "sysfs_address_glob": "/sys/class/net/phy1-ap0/address",
+        "wds_sta_glob": "/sys/class/net/phy1-ap0.sta*"
+      },
+      {
+        "phy_index": "2",
+        "resolved_ubus_obj": "hostapd.phy2-ap0",
+        "resolved_ap_if": "phy2-ap0",
+        "sysfs_address_glob": "/sys/class/net/phy2-ap0/address",
+        "wds_sta_glob": "/sys/class/net/phy2-ap0.sta*"
+      },
+      {
+        "phy_index": "3",
+        "resolved_ubus_obj": "hostapd.phy3-ap0",
+        "resolved_ap_if": "phy3-ap0",
+        "sysfs_address_glob": "/sys/class/net/phy3-ap0/address",
+        "wds_sta_glob": "/sys/class/net/phy3-ap0.sta*"
+      }
+    ]
+  },
+  "uci_and_hotplug_verification": {
+    "99-fmx-pbe5ac-ptp-ap": {
+      "name": "99-fmx-pbe5ac-ptp-ap",
+      "exists": true,
+      "size_bytes": 3426,
+      "sha256": "4e6568c39beba3ac89bc0cedcf302aa9b11620d4ca413659c4b8ec1fa88421d1",
+      "checks": {
+        "has_no_crlf": true,
+        "has_dynamic_phy_debugfs_loop": true,
+        "has_dynamic_phy_tx_queue_len_glob": true,
+        "has_champion_v20_bql": true,
+        "has_wds_1": true,
+        "has_beacon_int_30": true
+      },
+      "all_checks_passed": true
+    },
+    "99-fmx-pbe5ac-ptp-ap-241": {
+      "name": "99-fmx-pbe5ac-ptp-ap-241",
+      "exists": true,
+      "size_bytes": 3094,
+      "sha256": "a0066d326252163edecd80fc9b6ec6b585eeb9659c21c84e202bc663e6ac91f3",
+      "checks": {
+        "has_no_crlf": true,
+        "has_dynamic_phy_debugfs_loop": true,
+        "has_dynamic_phy_tx_queue_len_glob": true,
+        "has_champion_v20_bql": true,
+        "has_wds_1": true,
+        "has_beacon_int_30": true
+      },
+      "all_checks_passed": true
+    },
+    "99-fmx-pbe5ac-ptp-sta": {
+      "name": "99-fmx-pbe5ac-ptp-sta",
+      "exists": true,
+      "size_bytes": 3420,
+      "sha256": "fddbae1ca298b6fa87c8bd898d3f06c28617a8edd4775f9800c605b0a96c9804",
+      "checks": {
+        "has_no_crlf": true,
+        "has_dynamic_phy_debugfs_loop": true,
+        "has_dynamic_phy_tx_queue_len_glob": true,
+        "has_champion_v20_bql": true,
+        "has_wds_1": true
+      },
+      "all_checks_passed": true
+    },
+    "99-fmx-pbe5ac-ptp-sta-242": {
+      "name": "99-fmx-pbe5ac-ptp-sta-242",
+      "exists": true,
+      "size_bytes": 3061,
+      "sha256": "bedda554463161dab97bfa9bf8ffe0d1d817c379ecada9219b442cdcd1d02ff8",
+      "checks": {
+        "has_no_crlf": true,
+        "has_dynamic_phy_debugfs_loop": true,
+        "has_dynamic_phy_tx_queue_len_glob": true,
+        "has_champion_v20_bql": true,
+        "has_wds_1": true
+      },
+      "all_checks_passed": true
+    }
+  },
+  "mac80211_teb_patch_verification": {
+    "rom_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+    "patched_sha256": "3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868",
+    "matches_expected_teb_sha256": true,
+    "teb_4addr_preserve_event_sha256": "c65dc2e2a87274e3073debf4c507606422a5ea1b08cbfe2e40beed58263e81cc",
+    "matches_expected_teb_4addr_v2_sha256": true,
+    "teb_4addr_direct_0x3757c_sha256": "ebf9818eaf66eab8779ba960caab27792831277451c0c32c74870ab4d57426ca",
+    "teb_4addr_v3_authorized_gated_sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+    "teb_241_v3_sha256": "e43115c06316ce2d1b643d1900deb41839f7e07aba50f1537e6ed7a17b45e2f5",
+    "matches_expected_teb_241_v3_sha256": true,
+    "text_file_offset": 112,
+    "patch_file_offset_start": 212104,
+    "patch_file_offset_end": 212188,
+    "module_layout_size_bytes": 352,
+    "skb_data_offset_hex": "0xa8",
+    "rx_drop_monitor_4addr_words_hex": [
+      "0x0c000000",
+      "0x24a5076c",
+      "0x1000f819",
+      "0x3c140002"
+    ],
+    "rx_4addr_preserve_event_patched_words_hex": {
+      "0x037598": "0x14400006",
+      "0x0375b4": "0x1000f91c",
+      "0x0375b8": "0x24070004"
+    },
+    "rx_4addr_direct_0x3757c_patched_words_hex": {
+      "0x03757c": "0x1000f92a",
+      "0x037580": "0x24070004"
+    },
+    "rx_4addr_v3_authorized_gated_patched_words_hex": {
+      "0x037580": "0x30640008",
+      "0x037584": "0x1080000b",
+      "0x037588": "0x3c010008",
+      "0x03758c": "0x00612025",
+      "0x037590": "0xe0440074",
+      "0x037594": "0x1080fff9",
+      "0x037598": "0x7c6304c0",
+      "0x03759c": "0x14600005",
+      "0x0375a0": "0x2445076c",
+      "0x0375a4": "0x8e22000c",
+      "0x0375b0": "0x24060820",
+      "0x0375b4": "0x1000f91c",
+      "0x0375b8": "0x24070004"
+    },
+    "rx_4addr_241_v3_patched_words_hex": {
+      "0x037578": "0x24070004",
+      "0x03757c": "0x8c430074",
+      "0x037580": "0x30640008",
+      "0x037584": "0x1080f928",
+      "0x037588": "0x3c010008",
+      "0x03758c": "0x00612024",
+      "0x037590": "0x1480f925",
+      "0x037594": "0x00611825",
+      "0x037598": "0xac430074",
+      "0x0375b4": "0x1000f91c",
+      "0x0375b8": "0x24070004"
+    },
+    "rom_ko_file": {
+      "name": "mac80211_rom_241.ko",
+      "exists": true,
+      "size_bytes": 815640,
+      "sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5"
+    },
+    "teb_ko_file": {
+      "name": "mac80211_teb_6.6.110.ko",
+      "exists": true,
+      "size_bytes": 815640,
+      "sha256": "3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868"
+    },
+    "cfg80211_ko_file": {
+      "name": "cfg80211_rom_241.ko",
+      "exists": true,
+      "size_bytes": 392132,
+      "sha256": "4ebd05adba6cd02d0d995b8604c950b4fabe13d944f32cf508eeea44af779359"
+    }
+  },
+  "kit_images_and_watchdogs": {
+    "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-factory-ap-241.bin": {
+      "name": "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-factory-ap-241.bin",
+      "exists": true,
+      "size_bytes": 6947480,
+      "sha256": "77295d869a44668470be46af60daa9968bbd20ee2cbf8a9af8dff9914745ad45"
+    },
+    "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-factory-sta-242.bin": {
+      "name": "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-factory-sta-242.bin",
+      "exists": true,
+      "size_bytes": 6947480,
+      "sha256": "3cc580c9723ebe426d4fca0ee015cdc991789274d3c08c2984058df0dab8cf0e"
+    },
+    "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-sysupgrade-ap-241.bin": {
+      "name": "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-sysupgrade-ap-241.bin",
+      "exists": true,
+      "size_bytes": 6947137,
+      "sha256": "85e21cd5cae6adda53990c4731175837ce34b138cae61c163f8095e6631ff40b"
+    },
+    "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-sysupgrade-sta-242.bin": {
+      "name": "openwrt-24.10.4-ubnt_powerbeam-5ac-gen2-squashfs-sysupgrade-sta-242.bin",
+      "exists": true,
+      "size_bytes": 6947137,
+      "sha256": "ba285328d7d6fef315c50f6deefe3e0fa39c6ac61b5bc1d86716cb3304c38596"
+    },
+    "sysupgrade-overlay-pbe5ac-ptp-ap-241.tar.gz": {
+      "name": "sysupgrade-overlay-pbe5ac-ptp-ap-241.tar.gz",
+      "exists": true,
+      "size_bytes": 1791,
+      "sha256": "b89c1e29d4efd329aa44a9597333482a9f85a374b83e78c40b268a80b2f7c964"
+    },
+    "sysupgrade-overlay-pbe5ac-ptp-sta-242.tar.gz": {
+      "name": "sysupgrade-overlay-pbe5ac-ptp-sta-242.tar.gz",
+      "exists": true,
+      "size_bytes": 1809,
+      "sha256": "a8f606204f19329185a3abca26f69dea511dab17e68a7963b203fd2cfdd69aba"
+    },
+    "fmx_ptp_rollback_watchdog.sh": {
+      "name": "fmx_ptp_rollback_watchdog.sh",
+      "exists": true,
+      "size_bytes": 2383,
+      "sha256": "0b07d7aa88de0ddb98839336c58a547e949cd86598786ecedb0ca69e2695ca09"
+    },
+    "fmx_ptp_rollback_watchdog_ap_241.sh": {
+      "name": "fmx_ptp_rollback_watchdog_ap_241.sh",
+      "exists": true,
+      "size_bytes": 2383,
+      "sha256": "c171d7202a69c7100daba1e15d9a64b43d9625c25e2fb2e843b427113c346b3e"
+    },
+    "fmx_ptp_rollback_watchdog_sta_242.sh": {
+      "name": "fmx_ptp_rollback_watchdog_sta_242.sh",
+      "exists": true,
+      "size_bytes": 2383,
+      "sha256": "0b07d7aa88de0ddb98839336c58a547e949cd86598786ecedb0ca69e2695ca09"
+    }
+  },
+  "conversion_kit_manifest": {
+    "name": "conversion_kit_manifest.json",
+    "exists": true,
+    "size_bytes": 3021,
+    "sha256": "3a8154122f78e2fc9015b448cc05f211542b2c883e31a03526c3623ded75387a"
+  },
+  "all_kit_v2_checks_passed": true
+}

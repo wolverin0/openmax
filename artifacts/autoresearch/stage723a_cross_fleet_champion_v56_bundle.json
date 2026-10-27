@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-723A",
+  "title": "Cross-Fleet Champion v56.0 Bundle Unifying WA Champion v12 (316w), Multi-Radio v56 (240w), LTU Champion v18 (240w), and PtP Champion v4 (25.47 Mbps)",
+  "timestamp_utc": "2026-10-27T02:03:25.046990+00:00",
+  "status": "CONFIRMED",
+  "champion_version": "v56.0",
+  "unified_sub_champions": {
+    "wa_champion": "v12.0 (316 windows, PB-040 + PB-050 + PB-060 + PCIe CE pktlog_filter=0x0 + Distance ACK/Slot)",
+    "multi_radio_champion": "v56.0 (240 windows across XC .198 97.4 Mbps, 2XC .253 97.0 Mbps, XM/XW .20 89.7 Mbps)",
+    "ltu_champion": "v18.0 (240 windows, super4096 + DPD + 2.0/2.5ms TDMA + 40MHz Split + LBT -72dBm + ToF CP 1/8)",
+    "ptp_champion": "v4.0 (25.47 Mbps VHT40 + 0.0% 1316B IPTV Loss + 9us IFS_SLOT / 22us ACK_TIMEOUT)",
+    "guarida_tower_champion": "v6.0 (457.90 Mbps aggregate Guarida capacity + progressive 7935B A-MSDU OpenWrt CPE density scaling)"
+  },
+  "ptp_champion_v4_vht40_mbps": 25.47,
+  "window_totals": {
+    "wa_windows": 316,
+    "multi_radio_windows": 240,
+    "ltu_windows": 240,
+    "total_cross_lane_windows": 796
+  },
+  "radio_families_count": 8,
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "modules_analyzed": [
+        "ubnt_poll_host.ko",
+        "umac.ko",
+        "ath_dev.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko",
+        "ame_core.ko",
+        "eab_driver.ko"
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-CHAMPION-V56-UNIFIED-796WINDOWS-PTP-V4-25M47"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "windows_executed": 240
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "families_covered": 8
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE723A-CROSS-FLEET-CHAMPION-V56-BUNDLE"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "stage": "728A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage728a_ltu_ame_core_thermal_and_pa_bias_cal_re.py",
+    "tool_sha256": "5b666e4a0fb2a99149f10581d6f59f667cc6e9d7219ea7ab291b4fe2bf61c9b8",
+    "output": "artifacts/autoresearch/stage728a_ltu_ame_core_thermal_and_pa_bias_cal_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the thermal, bias, tx-gain and calibration vocabularies; defined-symbol lookup for the temperature readers, the fetch/apply gain pair, the autotune step and the power-cal compensation; context classification of the compensate hits",
+    "premise_corrections": [
+      "thermal, pa_bias and bias all return 0: the mechanism is named with temperature and tx_gain, not with the stage's vocabulary",
+      "compensat is a trap: one hit is sched_airtime_compensate_by_l2bps (airtime scheduling) and the other is the power-calibration routine"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "thermal": 0,
+        "THERMAL": 0,
+        "temp": 2,
+        "TEMP": 1,
+        "temperature": 2,
+        "pa_bias": 0,
+        "bias": 0,
+        "BIAS": 0,
+        "txgain": 7,
+        "tx_gain": 4,
+        "calib": 0,
+        "compensat": 2
+      },
+      "temps": {
+        "bbp_rf_get_temperature": 1,
+        "fty_rf_get_temperature": 1
+      },
+      "gain": {
+        "ame_bbp_get_tx_gain": 1,
+        "ame_bbp_set_tx_gain": 1,
+        "bbp_rf_fetch_tx_gain": 1,
+        "bbp_rf_apply_tx_gain": 1,
+        "ame_bbp_obs_set_txgain": 1
+      },
+      "autotune": {
+        "fty_rf_autotune_txgain": 1,
+        "fty_rf_adjust_step_txgain": 1
+      },
+      "powcal": 1,
+      "loopback": 1,
+      "ubus": {
+        "calibrate": 0,
+        "set_rfic_txgain": 0,
+        "get_rfic_txgain": 0
+      },
+      "airtime": 1,
+      "temp_symbols": [
+        "AME_EAB_GetLoopbackTempBuf",
+        "bbp_rf_get_temperature",
+        "fty_rf_get_temperature"
+      ],
+      "gain_symbols": [
+        "ame_bbp_get_tx_gain",
+        "ame_bbp_obs_set_txgain",
+        "ame_bbp_set_tx_gain",
+        "bbp_rf_apply_tx_gain",
+        "bbp_rf_fetch_tx_gain",
+        "fty_rf_adjust_step_txgain",
+        "fty_rf_autotune_txgain"
+      ],
+      "calib_symbols": [
+        "bbp_mrx_foe_CFOCompensate",
+        "bbp_ulpwr_fftpwr_cal_compensate"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "thermal": 0,
+        "THERMAL": 0,
+        "temp": 1,
+        "TEMP": 0,
+        "temperature": 0,
+        "pa_bias": 0,
+        "bias": 0,
+        "BIAS": 0,
+        "txgain": 27,
+        "tx_gain": 3,
+        "calib": 13,
+        "compensat": 0
+      },
+      "temps": {
+        "bbp_rf_get_temperature": 0,
+        "fty_rf_get_temperature": 0
+      },
+      "gain": {
+        "ame_bbp_get_tx_gain": 0,
+        "ame_bbp_set_tx_gain": 0,
+        "bbp_rf_fetch_tx_gain": 0,
+        "bbp_rf_apply_tx_gain": 0,
+        "ame_bbp_obs_set_txgain": 0
+      },
+      "autotune": {
+        "fty_rf_autotune_txgain": 0,
+        "fty_rf_adjust_step_txgain": 0
+      },
+      "powcal": 0,
+      "loopback": 0,
+      "ubus": {
+        "calibrate": 13,
+        "set_rfic_txgain": 10,
+        "get_rfic_txgain": 10
+      },
+      "airtime": 0,
+      "temp_symbols": [],
+      "gain_symbols": [
+        "__ksymtab_ubus_func_register_get_rfic_txgain",
+        "__ksymtab_ubus_func_register_set_rfic_txgain",
+        "callback_func_resp_get_rfic_txgain",
+        "callback_func_resp_set_rfic_txgain",
+        "fail_func_get_rfic_txgain",
+        "fail_func_set_rfic_txgain",
+        "handle_func_get_rfic_txgain",
+        "handle_func_set_rfic_txgain",
+        "obs_txgain_show",
+        "obs_txgain_store",
+        "success_func_get_rfic_txgain",
+        "success_func_set_rfic_txgain",
+        "tx_gain_show",
+        "tx_gain_store",
+        "txgain_show",
+        "txgain_store"
+      ],
+      "calib_symbols": [
+        "__ksymtab_ubus_func_call_calibrate",
+        "__ksymtab_ubus_func_call_sync_calibrate",
+        "calibrate",
+        "callback_func_call_calibrate",
+        "callback_func_call_sync_calibrate",
+        "ubus_func_call_calibrate",
+        "ubus_func_call_sync_calibrate"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "thermal_word_hits": 0,
+    "thermal_word_absent": 1,
+    "pa_bias_hits": 0,
+    "pa_bias_absent": 1,
+    "temperature_tokens": 6,
+    "temperature_readers": [
+      "bbp_rf_get_temperature",
+      "fty_rf_get_temperature"
+    ],
+    "temperature_reader_count": 2,
+    "two_temperature_paths": 1,
+    "txgain_tokens": 41,
+    "tx_gain_controls": [
+      "ame_bbp_get_tx_gain",
+      "ame_bbp_set_tx_gain",
+      "bbp_rf_fetch_tx_gain",
+      "bbp_rf_apply_tx_gain",
+      "ame_bbp_obs_set_txgain"
+    ],
+    "tx_gain_control_count": 5,
+    "fetch_apply_split": 1,
+    "autotune_controls": [
+      "fty_rf_autotune_txgain",
+      "fty_rf_adjust_step_txgain"
+    ],
+    "autotune_present": 1,
+    "autotune_has_step": 1,
+    "power_cal_compensate": 1,
+    "loopback_temp_buf": 1,
+    "ubus_hooks": [
+      "calibrate",
+      "set_rfic_txgain",
+      "get_rfic_txgain"
+    ],
+    "ubus_calibration": 1,
+    "compensate_is_airtime": 1,
+    "temp_to_gain_curve_recovered": 0,
+    "pa_bias_value_recovered": 0
+  },
+  "gaps": [
+    "thermal, pa_bias and bias do not exist as identifiers: the module names the mechanism with temperature and tx_gain instead",
+    "the temperature-to-gain curve was not recovered: two readers and an autotune step are named, the mapping between them is not",
+    "compensat is ambiguous: sched_airtime_compensate_by_l2bps is airtime, bbp_ulpwr_fftpwr_cal_compensate is power calibration; neither is thermal",
+    "the PA bias value and its temperature coefficient were not found",
+    "factory calibration is externally triggered over ubus, so no internal schedule was recovered",
+    "no dynamic validation"
+  ]
+}

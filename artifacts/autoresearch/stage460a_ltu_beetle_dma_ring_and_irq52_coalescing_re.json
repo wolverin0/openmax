@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "stage": "460A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage460a_ltu_beetle_dma_ring_and_irq52_coalescing_re.py",
+    "tool_sha256": "6b749fe91313faa04aedbdce9dc1e7507410f7ee6d2516736233d46c6ec57a06",
+    "output": "artifacts/autoresearch/stage460a_ltu_beetle_dma_ring_and_irq52_coalescing_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the coalescing, ring, pool, fabric and liveness vocabularies; context extraction of the irq and ring sites; defined-symbol lookup for the ring/pool/ISR families",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so ame_core.ko is the only readable target",
+      "coalesc, dma_ring, desc, recycl, buf_pool, napi and asic0 all have 0 hits; the module names ring_init/ring_push/ring_pop and pkt_pool_* instead"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "eab_driver.ko": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "coalesce": {
+        "coalesc": 0,
+        "coalesce": 0,
+        "irq52": 0,
+        "napi": 0
+      },
+      "incidental": {
+        "budget": 8,
+        "moder": 2
+      },
+      "ring_primitives": {
+        "ring_init": 3,
+        "ring_push": 5,
+        "ring_pop": 1
+      },
+      "pool_primitives": {
+        "pkt_pool_init": 1,
+        "pkt_pool_get": 1
+      },
+      "incidental_contexts": {
+        "budget": [
+          "d] %s(%d): checkpoint1 %u checkpoint2 %u checkpoint3 %u scheduler_budget_us:%u symbol_budget_us:%u......%d[%s/%d] %s(%d): checkpoint1 %u c",
+          "t1 %u checkpoint2 %u checkpoint3 %u scheduler_budget_us:%u symbol_budget_us:%u......%d[%s/%d] %s(%d): checkpoint1 %u checkpoint2 %u checkp"
+        ],
+        "moder": [
+          " flow %d(%s)....%d[ %ld.%.9ld] [%s/%d] %s(%d): AP doesn't support modern atuo scanning!!!...%d[%s/%d] %s(%d): AP doesn't support modern a",
+          "rt modern atuo scanning!!!...%d[%s/%d] %s(%d): AP doesn't support modern atuo scanning!!!....%d[ %ld.%.9ld] [%s/%d] %s(%d): Restart for s"
+        ]
+      },
+      "ring": {
+        "ring": 41,
+        "dma_ring": 0,
+        "desc": 0,
+        "ring_push": 5,
+        "ring_pop": 1,
+        "ring_init": 3
+      },
+      "pool": {
+        "pkt_pool": 5,
+        "pkt_pool_get": 1,
+        "pkt_pool_init": 1,
+        "recycl": 0,
+        "buf_pool": 0,
+        "free_list": 0
+      },
+      "fabric": {
+        "asic0": 0,
+        "beetle": 0,
+        "BEETLE": 0,
+        "ame_asic": 0,
+        "irq": 12
+      },
+      "liveness": {
+        "complet": 10,
+        "Not completed yet": 4,
+        "timeout": 42,
+        "stall": 12
+      },
+      "irq_contexts": [
+        "eq_jump_info.ame_core_freq_jump_check....ame_core_freq_jump_check_irq....ame_core_freq_jump_set..ame_core_check_freq_jump.....> N.U.]Hq",
+        ".ame_add_DeInit..ame_add_Init....test_dbg_get_interval...test_dbg_irq_symbol_analyz..test_dbg_time_analyz....AME_Test_Entry..show_sched",
+        "odem_autolink_cb_reset.ptmp_autopwr_get_dl_dgain_enable.ptp_sched_irq_entry.CtrlSendCmnRspPacket.test_bbp_entry.fty_bbp_log_bler_cz.ame",
+        "tChannelsInfo.gBDHandleOnce.AME_SchedUpdateAuthCfg.ame_core_dump_airq_info.ame_bbp_get_sync_sfn_count.cpe_id_mac_map.ap_sched_tx_isr.am",
+        "_ptmp.ame_log_level_get.Sched_fetch_rate.ame_core_freq_jump_check_irq.ame_phy_read.ame_hal_submit_symbol.bbp_mrx_util_get_rxChEparam2.e"
+      ],
+      "ring_contexts": [
+        "ap....ap_sched_tx_isr.ap_sched_rx_isr.pmut_bd_handler.iset_add....ring_push...ut_state_dump...ring_pop....pkt_pool_get....waitFrameINT_.",
+        "ed_rx_isr.pmut_bd_handler.iset_add....ring_push...ut_state_dump...ring_pop....pkt_pool_get....waitFrameINT_...hfe_efinfo_expected_change",
+        "..hsm_queue_enabled...ut_state_init...gen_macs....pkt_pool_init...ring_init...03..............l2p_setup_hcam..hfe_config_rule...........",
+        " %d ...Sched_cdr_%03u...%d[ %ld.%.9ld] [%s/%d] %s(%d): Not registering CDR_%03d as it was terminated...core.....%d[%s/%d] %s(%d): Not re",
+        "%03d as it was terminated...core.....%d[%s/%d] %s(%d): Not registering CDR_%03d as it was terminated....OK..failed...%d[ %ld.%.9ld] [%s/"
+      ],
+      "completion_contexts": [
+        " tx_symbols:%03x tx_gap:%u TA:%u...%d[ %ld.%.9ld] [%s/%d] %s(%d): Not completed yet (%u)...%d[%s/%d] %s(%d): Not completed yet (%u)....%d[ %ld.%.9ld]",
+        "%.9ld] [%s/%d] %s(%d): Not completed yet (%u)...%d[%s/%d] %s(%d): Not completed yet (%u)....%d[ %ld.%.9ld] [%s/%d] %s(%d): Not completed yet (%u), (%"
+      ],
+      "ring_symbols": [],
+      "pool_symbols": [
+        "free_pkt_from_pkt_pool"
+      ],
+      "isr_symbols": [
+        "Ctrl_ISR_SendPacket",
+        "__ame_core_hook_hcam_isr_register",
+        "__ame_core_hook_hfe_isr_register",
+        "__ame_core_hook_isr_register",
+        "ame_bbp_debug_fetch_isr_symbol",
+        "ame_bbp_isr_print_info",
+        "ame_bbp_rt_rx_isr",
+        "ame_bbp_rt_rx_isr_periodic_work",
+        "ame_bbp_rt_tx_isr",
+        "ame_bbp_util_freq_analyze_isr",
+        "ame_core_dump_isr_history",
+        "ame_core_dump_isr_info",
+        "ame_core_eng_isr_data",
+        "ame_core_fill_delay_isr_history",
+        "ame_core_fill_isr_history",
+        "ame_core_freq_jump_check_irq",
+        "ame_core_get_isr_giveup",
+        "ame_core_isr_checker",
+        "ame_core_isr_giveup_region_calc",
+        "ame_core_log_isr_info",
+        "ame_core_log_isr_info_dump",
+        "ame_core_log_isr_info_str",
+        "ame_core_print_isr_history",
+        "ame_core_register_l2p_symbol_isr"
+      ],
+      "dma_symbols": [
+        "AME_EAB_EnableDMAMonitor",
+        "AME_HSM_ConfigQ_OFDMA",
+        "AME_SchedMaxFragCFG",
+        "__ksymtab_bbp_util_rf_dma_capture_and_save",
+        "ame_bbp_get_ofdma_subband0_hdrIdx",
+        "ame_bbp_get_ofdma_subbands",
+        "ame_bbp_set_ofdma_en",
+        "ame_bbp_set_ofdma_subband0_hdrIdx",
+        "ame_bbp_set_ofdma_subband_type",
+        "ame_bbp_set_ofdma_subbands",
+        "ame_check_hw_NoOFDMA",
+        "bbp_base_set_ofdma_subband_type",
+        "bbp_mrx_band_ofdma_subbands",
+        "bbp_mrx_set_ofdma_subband0_hdrIdx",
+        "bbp_mtx_set_ofdma_subband0_hdrIdx",
+        "bbp_util_rf_dma_capture_and_save",
+        "bbp_util_rf_dma_capture_and_wait",
+        "eab_ofdma_cnt",
+        "eab_ofdma_dat_cnt",
+        "eab_ofdma_e"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 1,
+    "eab_driver_present": false,
+    "coalescing_tokens": 0,
+    "incidental_tokens": 10,
+    "ring_primitives": [
+      "ring_init",
+      "ring_pop",
+      "ring_push"
+    ],
+    "pool_primitives": [
+      "pkt_pool_get",
+      "pkt_pool_init"
+    ],
+    "irq52_literal": 0,
+    "ring_token_hits": 41,
+    "pkt_pool_token_hits": 5,
+    "ring_symbols": [],
+    "pool_symbols": [
+      "free_pkt_from_pkt_pool"
+    ],
+    "isr_symbols": [
+      "Ctrl_ISR_SendPacket",
+      "__ame_core_hook_hcam_isr_register",
+      "__ame_core_hook_hfe_isr_register",
+      "__ame_core_hook_isr_register",
+      "ame_bbp_debug_fetch_isr_symbol",
+      "ame_bbp_isr_print_info",
+      "ame_bbp_rt_rx_isr",
+      "ame_bbp_rt_rx_isr_periodic_work",
+      "ame_bbp_rt_tx_isr",
+      "ame_bbp_util_freq_analyze_isr",
+      "ame_core_dump_isr_history",
+      "ame_core_dump_isr_info",
+      "ame_core_eng_isr_data",
+      "ame_core_fill_delay_isr_history",
+      "ame_core_fill_isr_history",
+      "ame_core_freq_jump_check_irq",
+      "ame_core_get_isr_giveup",
+      "ame_core_isr_checker",
+      "ame_core_isr_giveup_region_calc",
+      "ame_core_log_isr_info",
+      "ame_core_log_isr_info_dump",
+      "ame_core_log_isr_info_str",
+      "ame_core_print_isr_history",
+      "ame_core_register_l2p_symbol_isr"
+    ],
+    "dma_symbols": [
+      "AME_EAB_EnableDMAMonitor",
+      "AME_HSM_ConfigQ_OFDMA",
+      "AME_SchedMaxFragCFG",
+      "__ksymtab_bbp_util_rf_dma_capture_and_save",
+      "ame_bbp_get_ofdma_subband0_hdrIdx",
+      "ame_bbp_get_ofdma_subbands",
+      "ame_bbp_set_ofdma_en",
+      "ame_bbp_set_ofdma_subband0_hdrIdx"
+    ],
+    "completion_messages": 4,
+    "dma_ring_named": 1,
+    "buffer_recycling_named": 1,
+    "beacon_irq_named": 1,
+    "interrupt_coalescing_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the stage's second module has no bytes",
+    "no coalescing token exists: coalesc, coalesce, irq52 and napi all have 0 hits, so no interrupt moderation parameter was recovered",
+    "the incidental hits are not moderation: budget appears only as scheduler_budget_us / symbol_budget_us, and moder only inside 'modern atuo scanning'",
+    "IRQ 52 is a routing constant, not a string; no irq52 literal exists, so the specific vector claim cannot be verified by name",
+    "dma_ring, desc and recycl are absent; the ring is named ring_init/ring_push/ring_pop and the pool is pkt_pool_get/pkt_pool_init",
+    "a ring with push/pop is a descriptor queue, not a demonstration of coalescing",
+    "`Not completed yet (%u)` proves completion tracking, not a recycling policy",
+    "no dynamic validation"
+  ]
+}

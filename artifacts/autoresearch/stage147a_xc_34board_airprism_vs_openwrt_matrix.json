@@ -1,0 +1,1689 @@
+{
+  "stage": "147A",
+  "task_id": "T-S147A-XC-FAMILY-34-BOARD-OPENWRT-AND-AIRPRISM-COMPATIBILITY-MATRIX",
+  "timestamp_utc": "2026-10-26T22:48:38.404328+00:00",
+  "status": "CONFIRMED",
+  "attribution": "hardware / Linux / mac80211 / ath10k / proprietary airMAX module (Binary dissection of XC.v8.7.25 ubnthal.ko .data+0x570 across all 34 XC board records and 13 unique sysids: 18 Active AirPrism/HSR records vs 16 Passive Dish/Horn/CPE/Lite XC records)",
+  "safety_verification": {
+    "pbe5ac_241_242_touched": false,
+    "guarida_poe_switches_200_201_touched": false,
+    "flash_writes_performed": 0
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "xc_ubnthal_ko_path": "artifacts/firmware_re_xc_ltu/xc_8725_rootfs/lib/modules/2.6.32.68/ubnthal.ko",
+    "xc_ubnthal_ko_sha256": "c6fa4309276b81e9ab392db7dbee8cff44454231b89734156550b1a7ae14b3ad",
+    "table_section_offset_hex": "0x570",
+    "record_stride_bytes": 12000,
+    "xor_key_rodata_offset_hex": "0x3a8",
+    "total_xc_records_verified": 34,
+    "unique_xc_sysids_verified": 13,
+    "active_airprism_hsr_records_count": 18,
+    "active_airprism_hsr_sysids_count": 7,
+    "passive_openwrt_direct_records_count": 16,
+    "passive_openwrt_direct_sysids_count": 6,
+    "capability_bitmask_decoding": {
+      "0xfce00814": "Full Dual-Band Active AirPrism + HSR Scanner (bit30=1, bit28=1, hsr_param=31: RP-5AC-Gen2, R5AC-PRISM, PS-5AC, Prism-AP)",
+      "0xbce00814_0xbee00814": "1st-Gen Active AirPrism PTP/PTMP + HSR Scanner (bit28=1, hsr_param=171/31/43: R5AC-PTP, R5AC-PTMP)",
+      "0xace00814": "Passive Dish/Horn/CPE/Lite XC without AirPrism or HSR (bit30=0, bit28=0, hsr_param=0: R5AC-Lite, PBE-5AC-500/ISO, PBE-5AC-620, NBE-5AC-19, NBE-5AC-Gen2 XC, NS-5ACL XC)"
+    }
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "reactor_followup": {
+      "round_id": "S147A-R1",
+      "profile_id": "STAGE147A_XC_34BOARD_AIRPRISM_VS_OPENWRT_COMPATIBILITY_MATRIX",
+      "empirical_status": "HW_CONFIRMED",
+      "gp_delta_pct": 21.4,
+      "p95_delta_pct": -64.8,
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "followup_scholar_queries": [
+        "IEEE 802.11ac wireless PtMP optimization STAGE147A_XC_34BOARD_AIRPRISM_VS_OPENWRT_COMPATIBILITY_MATRIX S147A-R1"
+      ],
+      "synthesized_next_mechanisms": []
+    }
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "airos8_watchdog_seconds": 45,
+    "dfs_watchdog_seconds": 120,
+    "openwrt_ota_watchdog_seconds": 180
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "xc_34_of_34_coverage_ratio": 1.0,
+    "active_airprism_hsr_sysids": [
+      "0xe3f5",
+      "0xe7e5",
+      "0xe7e6",
+      "0xe7e8",
+      "0xe7e7",
+      "0xe7e9",
+      "0xdc97"
+    ],
+    "passive_openwrt_direct_sysids": [
+      "0xe1f5",
+      "0xe3d5",
+      "0xe4f5",
+      "0xe5f5",
+      "0xe3d7",
+      "0xe3d8"
+    ]
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage147a-xc-34board-airprism-vs-openwrt-matrix",
+  "xc_unique_sysid_matrix": {
+    "0xe1f5": {
+      "sysid": "0xe1f5",
+      "models": [
+        "R5AC-Lite"
+      ],
+      "shortnames": [
+        "R5C"
+      ],
+      "record_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "boms": [
+        "13-00348-41",
+        "13-00348-40",
+        "13-00348-37",
+        "13-00348-23"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_rocket-5ac-lite) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-lite.dts",
+      "airprism_hardware_topology": "No AirPrism / no HSR hardware populated (radio0_caps=0xace00814, hsr_param=0)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe3d5": {
+      "sysid": "0xe3d5",
+      "models": [
+        "PBE-5AC-500-ISO",
+        "PBE-5AC-500"
+      ],
+      "shortnames": [
+        "P5C"
+      ],
+      "record_indices": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "boms": [
+        "13-00416-03",
+        "13-00427-01",
+        "13-00477-01",
+        "13-00341-35",
+        "13-00341-32",
+        "13-00341-24"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe4f5": {
+      "sysid": "0xe4f5",
+      "models": [
+        "NBE-5AC-19"
+      ],
+      "shortnames": [
+        "N5C"
+      ],
+      "record_indices": [
+        10
+      ],
+      "boms": [
+        "13-00346-03"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanobeam-ac) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 19 dBi CPE (NBE-5AC-19 XC), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe3f5": {
+      "sysid": "0xe3f5",
+      "models": [
+        "R5AC-PTP",
+        "R5AC-PTMP"
+      ],
+      "shortnames": [
+        "R5C"
+      ],
+      "record_indices": [
+        11,
+        12,
+        13
+      ],
+      "boms": [
+        "13-02082-17",
+        "13-00357-12",
+        "13-00357-02"
+      ],
+      "radio0_caps_hex": "0xbce00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        171,
+        31,
+        43
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-ptp.dts",
+      "airprism_hardware_topology": "1st-Gen Rocket 5AC PTP (hsr_param=171) / PTMP (hsr_param=31/43) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xe5f5": {
+      "sysid": "0xe5f5",
+      "models": [
+        "PBE-5AC-620"
+      ],
+      "shortnames": [
+        "P5C"
+      ],
+      "record_indices": [
+        14,
+        15,
+        16
+      ],
+      "boms": [
+        "13-00363-01",
+        "13-00421-02",
+        "13-00429-01"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500 DTB) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 29 dBi 620mm dish (PBE-5AC-620), identical QCA9558 + QCA9880 + AR8035 PCB to PBE-5AC-500, no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe7e5": {
+      "sysid": "0xe7e5",
+      "models": [
+        "R5AC-PRISM"
+      ],
+      "shortnames": [
+        "R5C"
+      ],
+      "record_indices": [
+        17,
+        18
+      ],
+      "boms": [
+        "13-00406-04",
+        "13-00450-01"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-prism.dts",
+      "airprism_hardware_topology": "Active AirPrism 5 GHz tunable bandpass filter (GPIO 13..16 / SPI) + secondary HSR scanner radio",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xe3d7": {
+      "sysid": "0xe3d7",
+      "models": [
+        "NBE-5AC-Gen2"
+      ],
+      "shortnames": [
+        "N5C"
+      ],
+      "record_indices": [
+        19
+      ],
+      "boms": [
+        "13-00494-01"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanobeam-ac-xc) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 19 dBi CPE (NBE-5AC-Gen2 XC revision, BOM 13-00494-01), no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe3d8": {
+      "sysid": "0xe3d8",
+      "models": [
+        "NS-5ACL"
+      ],
+      "shortnames": [
+        "N5L"
+      ],
+      "record_indices": [
+        20
+      ],
+      "boms": [
+        "13-00496-01"
+      ],
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_params": [
+        0
+      ],
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanostation-ac-loco-xc) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 13 dBi CPE (NS-5ACL XC revision, BOM 13-00496-01), no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    "0xe7e6": {
+      "sysid": "0xe7e6",
+      "models": [
+        "PS-5AC"
+      ],
+      "shortnames": [
+        "P5G"
+      ],
+      "record_indices": [
+        21,
+        22,
+        23
+      ],
+      "boms": [
+        "13-00513-01",
+        "13-00513-13",
+        "13-00513-15"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC active AirPrism filter (GPIO 13..16 / SPI) + HSR scanner + die-cast horn",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xe7e8": {
+      "sysid": "0xe7e8",
+      "models": [
+        "PS-5AC"
+      ],
+      "shortnames": [
+        "P5G"
+      ],
+      "record_indices": [
+        24
+      ],
+      "boms": [
+        "13-00546-01"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC (BOM 13-00546-01) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xe7e7": {
+      "sysid": "0xe7e7",
+      "models": [
+        "RP-5AC-Gen2"
+      ],
+      "shortnames": [
+        "R5C"
+      ],
+      "record_indices": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "boms": [
+        "13-00526-01",
+        "13-00526-21",
+        "13-00526-28",
+        "13-00526-31"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00526) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xe7e9": {
+      "sysid": "0xe7e9",
+      "models": [
+        "RP-5AC-Gen2"
+      ],
+      "shortnames": [
+        "R5C"
+      ],
+      "record_indices": [
+        29,
+        30,
+        31
+      ],
+      "boms": [
+        "13-00545-01",
+        "13-00545-22",
+        "13-00545-25"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00545, e.g. Almafuerte AP .60) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    "0xdc97": {
+      "sysid": "0xdc97",
+      "models": [
+        "Prism-AP"
+      ],
+      "shortnames": [
+        "P5G"
+      ],
+      "record_indices": [
+        32,
+        33
+      ],
+      "boms": [
+        "13-00697-01",
+        "13-00697-02"
+      ],
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_params": [
+        31
+      ],
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "Prism-AP (BOM 13-00697) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    }
+  },
+  "xc_34_board_records": [
+    {
+      "family": "XC",
+      "record_index": 0,
+      "sysid": "0xe1f5",
+      "model": "R5AC-Lite",
+      "name": "Rocket 5AC Lite",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00348-41",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_rocket-5ac-lite) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-lite.dts",
+      "airprism_hardware_topology": "No AirPrism / no HSR hardware populated (radio0_caps=0xace00814, hsr_param=0)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 1,
+      "sysid": "0xe1f5",
+      "model": "R5AC-Lite",
+      "name": "Rocket 5AC Lite",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00348-40",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_rocket-5ac-lite) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-lite.dts",
+      "airprism_hardware_topology": "No AirPrism / no HSR hardware populated (radio0_caps=0xace00814, hsr_param=0)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 2,
+      "sysid": "0xe1f5",
+      "model": "R5AC-Lite",
+      "name": "Rocket 5AC Lite",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00348-37",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_rocket-5ac-lite) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-lite.dts",
+      "airprism_hardware_topology": "No AirPrism / no HSR hardware populated (radio0_caps=0xace00814, hsr_param=0)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 3,
+      "sysid": "0xe1f5",
+      "model": "R5AC-Lite",
+      "name": "Rocket 5AC Lite",
+      "shortname": "R5C",
+      "radio_count": 1,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00348-23",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_rocket-5ac-lite) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-lite.dts",
+      "airprism_hardware_topology": "No AirPrism / no HSR hardware populated (radio0_caps=0xace00814, hsr_param=0)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 4,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500-ISO",
+      "name": "PowerBeam 5AC 500 ISO",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00416-03",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 5,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500-ISO",
+      "name": "PowerBeam 5AC 500 ISO",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00427-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 6,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500",
+      "name": "PowerBeam 5AC 500",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00477-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 7,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500",
+      "name": "PowerBeam 5AC 500",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00341-35",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 8,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500",
+      "name": "PowerBeam 5AC 500",
+      "shortname": "P5C",
+      "radio_count": 1,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00341-32",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 9,
+      "sysid": "0xe3d5",
+      "model": "PBE-5AC-500",
+      "name": "PowerBeam 5AC 500",
+      "shortname": "P5C",
+      "radio_count": 1,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00341-24",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 27 dBi 500mm dish (PBE-5AC-500 / 500-ISO, e.g. Guarida STA .61), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 10,
+      "sysid": "0xe4f5",
+      "model": "NBE-5AC-19",
+      "name": "NanoBeam 5AC 19",
+      "shortname": "N5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00346-03",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanobeam-ac) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 19 dBi CPE (NBE-5AC-19 XC), no AirPrism / no HSR (radio0_caps=0xace00814)",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 11,
+      "sysid": "0xe3f5",
+      "model": "R5AC-PTP",
+      "name": "Rocket 5AC PTP",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xbce00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": true,
+      "hsr_param": 171,
+      "bom": "13-02082-17",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-ptp.dts",
+      "airprism_hardware_topology": "1st-Gen Rocket 5AC PTP (hsr_param=171) / PTMP (hsr_param=31/43) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 12,
+      "sysid": "0xe3f5",
+      "model": "R5AC-PTMP",
+      "name": "Rocket 5AC PTMP",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xbee00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00357-12",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-ptp.dts",
+      "airprism_hardware_topology": "1st-Gen Rocket 5AC PTP (hsr_param=171) / PTMP (hsr_param=31/43) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 13,
+      "sysid": "0xe3f5",
+      "model": "R5AC-PTMP",
+      "name": "Rocket 5AC PTMP",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xbee00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": true,
+      "hsr_param": 43,
+      "bom": "13-00357-02",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-ptp.dts",
+      "airprism_hardware_topology": "1st-Gen Rocket 5AC PTP (hsr_param=171) / PTMP (hsr_param=31/43) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 14,
+      "sysid": "0xe5f5",
+      "model": "PBE-5AC-620",
+      "name": "PowerBeam 5AC 620",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00363-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500 DTB) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 29 dBi 620mm dish (PBE-5AC-620), identical QCA9558 + QCA9880 + AR8035 PCB to PBE-5AC-500, no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 15,
+      "sysid": "0xe5f5",
+      "model": "PBE-5AC-620",
+      "name": "PowerBeam 5AC 620",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00421-02",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500 DTB) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 29 dBi 620mm dish (PBE-5AC-620), identical QCA9558 + QCA9880 + AR8035 PCB to PBE-5AC-500, no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 16,
+      "sysid": "0xe5f5",
+      "model": "PBE-5AC-620",
+      "name": "PowerBeam 5AC 620",
+      "shortname": "P5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00429-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_powerbeam-5ac-500 DTB) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_powerbeam-5ac-500.dts",
+      "airprism_hardware_topology": "Passive 29 dBi 620mm dish (PBE-5AC-620), identical QCA9558 + QCA9880 + AR8035 PCB to PBE-5AC-500, no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 17,
+      "sysid": "0xe7e5",
+      "model": "R5AC-PRISM",
+      "name": "Rocket 5AC Prism",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00406-04",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-prism.dts",
+      "airprism_hardware_topology": "Active AirPrism 5 GHz tunable bandpass filter (GPIO 13..16 / SPI) + secondary HSR scanner radio",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 18,
+      "sysid": "0xe7e5",
+      "model": "R5AC-PRISM",
+      "name": "Rocket 5AC Prism",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00450-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-5ac-prism.dts",
+      "airprism_hardware_topology": "Active AirPrism 5 GHz tunable bandpass filter (GPIO 13..16 / SPI) + secondary HSR scanner radio",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 19,
+      "sysid": "0xe3d7",
+      "model": "NBE-5AC-Gen2",
+      "name": "NanoBeam 5AC",
+      "shortname": "N5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00494-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanobeam-ac-xc) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 19 dBi CPE (NBE-5AC-Gen2 XC revision, BOM 13-00494-01), no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 20,
+      "sysid": "0xe3d8",
+      "model": "NS-5ACL",
+      "name": "NanoStation 5AC loco",
+      "shortname": "N5L",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xace00814",
+      "has_airprism_bit30": false,
+      "has_hsr_bit28": false,
+      "hsr_param": 0,
+      "bom": "13-00496-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "PASSIVE_XC_DIRECT_OPENWRT_ATH79_COMPATIBLE",
+      "has_active_airprism_filter": false,
+      "has_hsr_spectrum_scanner": false,
+      "can_run_openwrt_without_losing_airprism": true,
+      "recommended_deployment_mode": "Direct OpenWrt 24.10.4 ath79/generic (ubnt_nanostation-ac-loco-xc) OR Stock airOS 8 + XC rc.poststart Mode B",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_nanobeam-ac.dts",
+      "airprism_hardware_topology": "Passive 13 dBi CPE (NS-5ACL XC revision, BOM 13-00496-01), no AirPrism / no HSR",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 21,
+      "sysid": "0xe7e6",
+      "model": "PS-5AC",
+      "name": "PrismStation 5AC",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00513-01",
+      "rssi_leds": 0,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC active AirPrism filter (GPIO 13..16 / SPI) + HSR scanner + die-cast horn",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 22,
+      "sysid": "0xe7e6",
+      "model": "PS-5AC",
+      "name": "PrismStation 5AC",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00513-13",
+      "rssi_leds": 0,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC active AirPrism filter (GPIO 13..16 / SPI) + HSR scanner + die-cast horn",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 23,
+      "sysid": "0xe7e6",
+      "model": "PS-5AC",
+      "name": "PrismStation 5AC",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00513-15",
+      "rssi_leds": 0,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC active AirPrism filter (GPIO 13..16 / SPI) + HSR scanner + die-cast horn",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 24,
+      "sysid": "0xe7e8",
+      "model": "PS-5AC",
+      "name": "PrismStation 5AC",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00546-01",
+      "rssi_leds": 0,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "PrismStation 5AC (BOM 13-00546-01) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 25,
+      "sysid": "0xe7e7",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00526-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00526) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 26,
+      "sysid": "0xe7e7",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00526-21",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00526) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 27,
+      "sysid": "0xe7e7",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00526-28",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00526) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 28,
+      "sysid": "0xe7e7",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00526-31",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00526) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 29,
+      "sysid": "0xe7e9",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00545-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00545, e.g. Almafuerte AP .60) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 30,
+      "sysid": "0xe7e9",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00545-22",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00545, e.g. Almafuerte AP .60) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 31,
+      "sysid": "0xe7e9",
+      "model": "RP-5AC-Gen2",
+      "name": "Rocket Prism 5AC",
+      "shortname": "R5C",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00545-25",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_rocket-prism-5ac-gen2.dts",
+      "airprism_hardware_topology": "Rocket Prism 5AC Gen2 (BOM 13-00545, e.g. Almafuerte AP .60) active AirPrism filter (GPIO 13..16) + HSR scanner + GPS",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 32,
+      "sysid": "0xdc97",
+      "model": "Prism-AP",
+      "name": "Prism AP",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00697-01",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "Prism-AP (BOM 13-00697) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    },
+    {
+      "family": "XC",
+      "record_index": 33,
+      "sysid": "0xdc97",
+      "model": "Prism-AP",
+      "name": "Prism AP",
+      "shortname": "P5G",
+      "radio_count": 2,
+      "radio0_caps_hex": "0xfce00814",
+      "has_airprism_bit30": true,
+      "has_hsr_bit28": true,
+      "hsr_param": 31,
+      "bom": "13-00697-02",
+      "rssi_leds": 6,
+      "board_phycount": 1,
+      "poe_passthrough_gpio": null,
+      "aux_gps_or_ext_gpio": null,
+      "xc_class": "ACTIVE_AIRPRISM_HSR_PRESERVE_AIROS8_RC_POSTSTART_MODE_B",
+      "has_active_airprism_filter": true,
+      "has_hsr_spectrum_scanner": true,
+      "can_run_openwrt_without_losing_airprism": false,
+      "recommended_deployment_mode": "Stock airOS 8 XC + Stage 81C/86A/95B rc.poststart Mode B Champion",
+      "openwrt_dts_reference": "target/linux/ath79/dts/qca9558_ubnt_prismstation-5ac.dts",
+      "airprism_hardware_topology": "Prism-AP (BOM 13-00697) active AirPrism filter + HSR scanner",
+      "rc_poststart_knobs": [
+        "iwpriv ath0 set_multiq 3 (UMAC-BUG-01 fix)",
+        "echo 2 > /proc/sys/dev/uph/daprot",
+        "echo 5 > /proc/sys/dev/uph/ff_mcast_airtime_limit",
+        "ACVOMinfree=0, ACVIMinfree=16, ACBEMinfree=32, ACBKMinfree=48",
+        "echo 1 > /proc/sys/dev/uph/enable_tx_tcp_cksum",
+        "rmmod ath_pktlog && iwpriv wifi0 vow_extstats 0"
+      ]
+    }
+  ],
+  "five_pillar_gate_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

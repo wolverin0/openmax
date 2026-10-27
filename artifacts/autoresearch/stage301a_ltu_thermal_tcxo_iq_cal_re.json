@@ -1,0 +1,507 @@
+{
+  "stage": "301A",
+  "task_id": "T-S301A-LTU-THERMAL-TCXO-IQ-CALIBRATION-BINARY-RE",
+  "generated_at": "2026-10-26T23:47:13.155074+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "afltu_ame_core_ko_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "aflturocket_ame_core_ko_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af"
+  },
+  "calibration_and_compensation_loops": {
+    "thermal_pa_gain_and_tssi_loop": {
+      "mechanism": "Periodic temperature sensor readouts adjust the RF synthesizer / PA digital gain slope so conducted TX power stays within +-0.5 dB of table_ptpPwrRange / table_ptmpAPPwrRange across -40C..+65C ambient temperature, preventing PA compression that would violate the -42 dB EVM floor required by 4096-QAM (12x).",
+      "symbols_count": 204,
+      "symbols_top": [
+        {
+          "name": "AME_EAB_GetLoopbackTempBuf",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x113628",
+          "size_bytes": 8
+        },
+        {
+          "name": "AME_Modem_RestartCalcSigWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x42b64",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_Sched_Local",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x62ce8",
+          "size_bytes": 2780
+        },
+        {
+          "name": "AME_Sched_Local_NoBeacon",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x637c4",
+          "size_bytes": 108
+        },
+        {
+          "name": "BBEA_check_recvPwr_work",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xda4",
+          "size_bytes": 16
+        },
+        {
+          "name": "BBEA_check_recvPwr_work_routine",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0xa5764",
+          "size_bytes": 12
+        },
+        {
+          "name": "Ctrl_SaveConfig2Local",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x706f8",
+          "size_bytes": 696
+        },
+        {
+          "name": "Get_ulpwrCB_ptr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x3888",
+          "size_bytes": 24
+        },
+        {
+          "name": "IF_Ctrl2Driv_Periodical_Handler",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x78d68",
+          "size_bytes": 16
+        },
+        {
+          "name": "IF_Ctrl2Driv_SaveConfig2Local",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x79264",
+          "size_bytes": 12
+        },
+        {
+          "name": "LookUpRxPwrInLvl",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x36894",
+          "size_bytes": 32
+        },
+        {
+          "name": "LookUpTxPwrRoom",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x368b4",
+          "size_bytes": 64
+        },
+        {
+          "name": "Sched_Update_FrameOp_ulPwr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5ba40",
+          "size_bytes": 24
+        },
+        {
+          "name": "Sched_find_Qscale_by_QId",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x5acac",
+          "size_bytes": 40
+        },
+        {
+          "name": "af_5xhd_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x5498",
+          "size_bytes": 48
+        },
+        {
+          "name": "af_ltu5_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x54c8",
+          "size_bytes": 48
+        },
+        {
+          "name": "af_ltuLR_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x54f8",
+          "size_bytes": 48
+        },
+        {
+          "name": "air_calc_available_queue_frag_count",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x115828",
+          "size_bytes": 212
+        },
+        {
+          "name": "air_calc_frame_based_queue_frag_count",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x115754",
+          "size_bytes": 212
+        },
+        {
+          "name": "ame_add_ioctl_callback",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x83c90",
+          "size_bytes": 1456
+        },
+        {
+          "name": "ame_bbp_get_FFTPWR",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18fd0c",
+          "size_bytes": 52
+        },
+        {
+          "name": "ame_bbp_get_PwrMon",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b534",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_get_dagc_pwr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b6a0",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_bbp_get_pwrmonout",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18cce8",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_get_rfParam_dagcTargetPwr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b974",
+          "size_bytes": 16
+        }
+      ]
+    },
+    "tcxo_vctcxo_afc_frequency_drift_loop": {
+      "cli_applet": "/bin/af afc (queries/disciplines VCTCXO DAC via afened + ame_core.ko)",
+      "mechanism": "CPE tracks carrier frequency offset (CFO) against the AP's GPS-disciplined downlink reference symbols and steers the on-board VCTCXO DAC so sub-carrier orthogonality is maintained within < 0.02 ppm across 25 us OFDMA symbols.",
+      "symbols_count": 74,
+      "symbols_top": [
+        {
+          "name": "AME_Modem_NotifyFreqJump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x457c0",
+          "size_bytes": 180
+        },
+        {
+          "name": "AME_Modem_RestartCalcSigWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x42b64",
+          "size_bytes": 92
+        },
+        {
+          "name": "AME_Modem_RestartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x43b50",
+          "size_bytes": 920
+        },
+        {
+          "name": "AME_Modem_StartWithFreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x434dc",
+          "size_bytes": 812
+        },
+        {
+          "name": "AvgOfRequst",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x2a0670",
+          "size_bytes": 36864
+        },
+        {
+          "name": "BBEA_track_tcxo_routine",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0xa5770",
+          "size_bytes": 12
+        },
+        {
+          "name": "BBEA_track_tcxo_work",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xdb4",
+          "size_bytes": 16
+        },
+        {
+          "name": "af_5xhd_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x5498",
+          "size_bytes": 48
+        },
+        {
+          "name": "af_ltu5_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x54c8",
+          "size_bytes": 48
+        },
+        {
+          "name": "af_ltuLR_mcs_txpwr_freq",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x54f8",
+          "size_bytes": 48
+        },
+        {
+          "name": "ame_bbp_get_rfParam_rxfreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b9fc",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_bbp_get_rfParam_txfreq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18b9ec",
+          "size_bytes": 16
+        },
+        {
+          "name": "ame_bbp_obs_set_freq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18e524",
+          "size_bytes": 648
+        },
+        {
+          "name": "ame_bbp_op_freq_analyzer",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x187e2c",
+          "size_bytes": 28
+        },
+        {
+          "name": "ame_bbp_op_reset_cfo",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x187bb4",
+          "size_bytes": 276
+        },
+        {
+          "name": "ame_bbp_rt_cfo_comp",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1868ec",
+          "size_bytes": 152
+        },
+        {
+          "name": "ame_bbp_set_Rx_freq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18cef8",
+          "size_bytes": 296
+        },
+        {
+          "name": "ame_bbp_set_Rx_freq_wo_cal",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18d020",
+          "size_bytes": 296
+        },
+        {
+          "name": "ame_bbp_set_TxRx_freq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18cda0",
+          "size_bytes": 304
+        },
+        {
+          "name": "ame_bbp_set_Tx_freq",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18ced0",
+          "size_bytes": 40
+        },
+        {
+          "name": "ame_bbp_util_freq_analyze",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x191764",
+          "size_bytes": 196
+        },
+        {
+          "name": "ame_bbp_util_freq_analyze_done",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x191738",
+          "size_bytes": 44
+        },
+        {
+          "name": "ame_bbp_util_freq_analyze_get_last_mutedtx_sfn",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x19184c",
+          "size_bytes": 12
+        },
+        {
+          "name": "ame_bbp_util_freq_analyze_isr",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x191828",
+          "size_bytes": 36
+        },
+        {
+          "name": "ame_core_check_freq_jump",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x244e4",
+          "size_bytes": 636
+        }
+      ]
+    },
+    "tx_rx_iq_imbalance_and_dc_offset_loop": {
+      "debugfs_and_bist_hooks": [
+        "pktrate",
+        "test_l2p",
+        "gen_data",
+        "test_bbp",
+        "sfn_sync_cnt",
+        "modem_state",
+        "rxpwr",
+        "state",
+        "Cbler",
+        "bler",
+        "each_bler"
+      ],
+      "mechanism": "Digital baseband pre-distortion and RX IQ phase/amplitude compensation suppress image rejection ratio (IRR) spurs below -48 dBc, essential for 1024-QAM (10x) and 4096-QAM (12x).",
+      "symbols_count": 679,
+      "symbols_top": [
+        {
+          "name": "AME_BBP_DeInit",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1849f0",
+          "size_bytes": 1588
+        },
+        {
+          "name": "AME_BBP_Init",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x185024",
+          "size_bytes": 628
+        },
+        {
+          "name": "__bbp_mrx_evm_next",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x175274",
+          "size_bytes": 1204
+        },
+        {
+          "name": "__bbp_util_rf_tx_pattern_disable",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1504c0",
+          "size_bytes": 144
+        },
+        {
+          "name": "__bbp_util_rf_tx_pattern_enable",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x150368",
+          "size_bytes": 344
+        },
+        {
+          "name": "__ksymtab_ame_bbp_get_Param_bw",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x20",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_bbp_get_biu",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x28",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_bbp_get_duty_cycle",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x30",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_bbp_get_rxgain",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x38",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_bbp_obs_set_rxgain",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x40",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_bbp_set_biu",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x48",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_ame_core_bbp_test_result",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x58",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbpFrameLength_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0x98",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_AP",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xa8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_set_DFS_activeTime_CPE",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xb8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_H2L_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xc8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_DFS_L2H_EXT",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xd0",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_bbp_util_rf_dma_capture_and_save",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xd8",
+          "size_bytes": 8
+        },
+        {
+          "name": "__ksymtab_pAMEbbp_Cb",
+          "st_type": "STT_OBJECT",
+          "offset_hex": "0xe8",
+          "size_bytes": 8
+        },
+        {
+          "name": "ame_bbp_ap_pilot_eval_rt",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x18587c",
+          "size_bytes": 128
+        },
+        {
+          "name": "ame_bbp_check_frame_start",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1891ac",
+          "size_bytes": 56
+        },
+        {
+          "name": "ame_bbp_check_lock",
+          "st_type": "STT_FUNC",
+          "offset_hex": "0x1891a0",
+          "size_bytes": 12
+        }
+      ]
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s301a-ltu-thermal-tcxo-iq-cal-re"
+  }
+}

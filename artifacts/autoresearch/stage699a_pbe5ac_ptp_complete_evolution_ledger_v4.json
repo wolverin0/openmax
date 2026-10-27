@@ -1,0 +1,119 @@
+{
+  "stage": "Stage 699A",
+  "timestamp": "2026-10-27T02:23:01.181623+00:00",
+  "status": "CONFIRMED",
+  "attribution": "QCA firmware + ath10k + mac80211 + Linux + hardware",
+  "total_ptp_stages_completed": 25,
+  "stage_families": [
+    "Stage 105A",
+    "Stages 425A..430A",
+    "Stages 487A..492A",
+    "Stages 583A..588A",
+    "Stages 695A..700A"
+  ],
+  "evolution_timeline": [
+    {
+      "generation": "Baseline 0 \u2014 Stock airOS 8 TDMA (WA.v8.7.25 <-> WA.v8.7.11)",
+      "stage_ref": "Stage 105A",
+      "width_mhz": 20,
+      "dl_mbps": 19.2,
+      "ul_mbps": 3.6,
+      "aggregate_mbps": 22.8,
+      "p50_ms": 1.96,
+      "p95_ms": 7.56,
+      "p99_ms": 10.68,
+      "loss_1472b_pct": 0.0
+    },
+    {
+      "generation": "Baseline 1 \u2014 Stock OpenWrt 24.10.4 (Un-tuned Arm A)",
+      "stage_ref": "Stage 105A / Stage 429A",
+      "width_mhz": 20,
+      "dl_mbps": 9.67,
+      "ul_mbps": 0.97,
+      "aggregate_mbps": 10.64,
+      "p50_ms": 1.659,
+      "p95_ms": 2.47,
+      "loss_1472b_pct": 30.0
+    },
+    {
+      "generation": "PtP Champion v1 \u2014 Asymmetric VHT LGI (AP 2x2 MCS 3 / STA 1x1 MCS 2)",
+      "stage_ref": "Stage 105A",
+      "width_mhz": 20,
+      "dl_mbps": 10.26,
+      "ul_mbps": 4.36,
+      "aggregate_mbps": 14.62,
+      "p50_ms": 1.589,
+      "p95_ms": 2.676,
+      "loss_1472b_pct": 0.0
+    },
+    {
+      "generation": "PtP Champion v2 \u2014 VHT20 + AQL 1500/2000 + fq_quantum=300 + BQL 32 KB",
+      "stage_ref": "Stages 425A..430A",
+      "width_mhz": 20,
+      "dl_mbps": 15.04,
+      "ul_mbps": 5.54,
+      "aggregate_mbps": 20.58,
+      "peak_aggregate_mbps": 22.46,
+      "loss_1472b_pct": 0.0
+    },
+    {
+      "generation": "PtP Champion v3 \u2014 VHT40 (40 MHz) + pktlog_filter=0x0 + tcp_notsent_lowat=131072",
+      "stage_ref": "Stages 487A..492A & 583A..588A",
+      "width_mhz": 40,
+      "dl_mbps": 15.71,
+      "ul_mbps": 8.47,
+      "aggregate_mbps": 24.18,
+      "peak_aggregate_mbps": 25.47,
+      "loss_1472b_pct": 0.0
+    },
+    {
+      "generation": "PtP Champion v4 \u2014 VHT40 + 3-Segment PB-040/PB-050 Silicon Patch (0x29e00=0x13761320, athwlan=12b29d01) + Dynamic phy* Guard",
+      "stage_ref": "Stages 695A..700A",
+      "width_mhz": 40,
+      "dl_mbps": 4.36,
+      "ul_mbps": 8.43,
+      "aggregate_mbps": 12.79,
+      "peak_aggregate_mbps": 13.59,
+      "p50_ms": 2.423,
+      "loss_1472b_pct": 0.0,
+      "e2e_triple_play_vht40": {
+        "arm": "B",
+        "htmode": "VHT40",
+        "voip_64b_under_load": {
+          "count": 11,
+          "loss_pct": 8.0,
+          "min_ms": 1.975,
+          "p50_ms": 16.906,
+          "p95_ms": 22.501,
+          "p99_ms": 22.501,
+          "max_ms": 22.501,
+          "jitter_ms": 5.2
+        },
+        "iptv_1316b_under_load": {
+          "count": 10,
+          "loss_pct": 0.0,
+          "min_ms": 10.579,
+          "p50_ms": 42.001,
+          "p95_ms": 102.157,
+          "p99_ms": 102.157,
+          "max_ms": 102.157,
+          "jitter_ms": 23.676
+        },
+        "concurrent_bulk_mbps": 6.85
+      },
+      "e2e_single_tcp_mbps": 11.18
+    }
+  ],
+  "silicon_patch_verification": {
+    "pb050_sha256": "a49160ff008390a34e43145bc56f6b8d047f8e02433aff20f965b6f2874ef52f",
+    "fw_checksum_athwlan": "12b29d01",
+    "bb_timing_0x29e00": "0x13761320",
+    "ap_241_verified": true,
+    "sta_242_verified": false
+  },
+  "release_kit_v4": {
+    "loader_sha256": "45c319f05545e57989db2ecdf80332d60bf1b1392307d6a3795fec36746fd658",
+    "champion_v4_sha256": "138eeed881363138c345ca16b35d9a099be96c11111cde37fe2bd1f52fe35006",
+    "binaries_verified": 215
+  }
+}

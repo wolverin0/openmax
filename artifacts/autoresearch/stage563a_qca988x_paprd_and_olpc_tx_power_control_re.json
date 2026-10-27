@@ -1,0 +1,585 @@
+{
+  "meta": {
+    "stage": "563A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage563a_qca988x_paprd_and_olpc_tx_power_control_re.py",
+    "tool_sha256": "b4fe6b94fd4cd72cab089c0b80855bebce9ac674f99217b31111f84c204930b9",
+    "output": "artifacts/autoresearch/stage563a_qca988x_paprd_and_olpc_tx_power_control_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, nothing transmitted",
+    "method": "token census across seven modules on three lines; defined-symbol lookup for the PAPRD pipeline stages, the TPC/CTL loop controls and the thermal/greentx interactions",
+    "premise_corrections": [
+      "olpc, clpc, open_loop and closed_loop do not exist as tokens; the loop distinction is carried by tpc (enable_tpc) and ctl (ctl_chan_nf)",
+      "the PAPRD pipeline is split between ath_hal.ko (curve and table) and ath_dev.ko (transmit, completion, queue management)"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 507,
+      "tokens": {
+        "paprd": 13,
+        "PAPRD": 1,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 5,
+        "TPC": 1,
+        "ctl_": 2,
+        "CTL_": 0,
+        "target_power": 1,
+        "thermal": 1,
+        "greentx": 2,
+        "target_power_from_eeprom": 1,
+        "txctl_cap": 0,
+        "get_ctl_by_country": 0
+      },
+      "loop": {
+        "enable_tpc": 1,
+        "get_tpc_tables": 1,
+        "get_ctl_chan_nf": 1,
+        "update_loc_ctl_reg": 1,
+        "get_rate_tpc": 0,
+        "get_ctl_by_country": 0
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [
+        "ar9300_enable_paprd",
+        "ar9300_is_skip_paprd_by_greentx",
+        "ar9300_paprd_create_curve",
+        "ar9300_paprd_dec_tx_pwr",
+        "ar9300_paprd_init_table",
+        "ar9300_paprd_is_done",
+        "ar9300_paprd_setup_gain_table",
+        "ar9300_paprd_thermal_send",
+        "ar9300_populate_paprd_single_table",
+        "ar9300_set_paprd_tx_desc",
+        "ar9300_swizzle_paprd_entries"
+      ],
+      "tpc_symbols": [
+        "ar9300_disp_tpc_tables",
+        "ar9300_enable_tpc",
+        "ar9300_get_tpc_tables",
+        "ath_hal_display_tpctables"
+      ],
+      "ctl_symbols": [
+        "ar9300_get_ctl_chan_nf",
+        "ar9300_update_loc_ctl_reg",
+        "ath_hal_getctl",
+        "findCTLByCountryCode"
+      ],
+      "thermal_symbols": [
+        "ar9300_paprd_thermal_send"
+      ],
+      "greentx_symbols": [
+        "ar9300_hwgreentx_set_pal_spare",
+        "ar9300_is_skip_paprd_by_greentx"
+      ]
+    },
+    {
+      "module": "XC:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "defined_symbols": 507,
+      "tokens": {
+        "paprd": 13,
+        "PAPRD": 1,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 5,
+        "TPC": 1,
+        "ctl_": 2,
+        "CTL_": 0,
+        "target_power": 1,
+        "thermal": 1,
+        "greentx": 2,
+        "target_power_from_eeprom": 1,
+        "txctl_cap": 0,
+        "get_ctl_by_country": 0
+      },
+      "loop": {
+        "enable_tpc": 1,
+        "get_tpc_tables": 1,
+        "get_ctl_chan_nf": 1,
+        "update_loc_ctl_reg": 1,
+        "get_rate_tpc": 0,
+        "get_ctl_by_country": 0
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [
+        "ar9300_enable_paprd",
+        "ar9300_is_skip_paprd_by_greentx",
+        "ar9300_paprd_create_curve",
+        "ar9300_paprd_dec_tx_pwr",
+        "ar9300_paprd_init_table",
+        "ar9300_paprd_is_done",
+        "ar9300_paprd_setup_gain_table",
+        "ar9300_paprd_thermal_send",
+        "ar9300_populate_paprd_single_table",
+        "ar9300_set_paprd_tx_desc",
+        "ar9300_swizzle_paprd_entries"
+      ],
+      "tpc_symbols": [
+        "ar9300_disp_tpc_tables",
+        "ar9300_enable_tpc",
+        "ar9300_get_tpc_tables",
+        "ath_hal_display_tpctables"
+      ],
+      "ctl_symbols": [
+        "ar9300_get_ctl_chan_nf",
+        "ar9300_update_loc_ctl_reg",
+        "ath_hal_getctl",
+        "findCTLByCountryCode"
+      ],
+      "thermal_symbols": [
+        "ar9300_paprd_thermal_send"
+      ],
+      "greentx_symbols": [
+        "ar9300_hwgreentx_set_pal_spare",
+        "ar9300_is_skip_paprd_by_greentx"
+      ]
+    },
+    {
+      "module": "XW:ath_hal.ko",
+      "status": "ok",
+      "bytes": 503892,
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "defined_symbols": 948,
+      "tokens": {
+        "paprd": 3,
+        "PAPRD": 5,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 3,
+        "TPC": 7,
+        "ctl_": 0,
+        "CTL_": 0,
+        "target_power": 0,
+        "thermal": 0,
+        "greentx": 2,
+        "target_power_from_eeprom": 0,
+        "txctl_cap": 0,
+        "get_ctl_by_country": 0
+      },
+      "loop": {
+        "enable_tpc": 0,
+        "get_tpc_tables": 0,
+        "get_ctl_chan_nf": 0,
+        "update_loc_ctl_reg": 0,
+        "get_rate_tpc": 0,
+        "get_ctl_by_country": 0
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [
+        "ar9300PAPRDCreateCurve",
+        "ar9300PAPRDThermalSend",
+        "ar9300PAPRDisDone",
+        "ar9300PaprdSetupGainTable",
+        "ar9300PopulatePaprdSingleTable",
+        "ar9300SetPAPRDTxDesc",
+        "ar9300_is_skip_paprd_by_greentx",
+        "ar9300_paprd_dec_tx_pwr"
+      ],
+      "tpc_symbols": [
+        "ar9300AbortPcuReceive",
+        "ar9300DispTPCTables",
+        "ar9300EnableTPC",
+        "ar9300SetPCUConfig",
+        "ar9300StartPcuReceive",
+        "ar9300_selfgen_tpc_reg_write",
+        "ath_hal_display_tpctables"
+      ],
+      "ctl_symbols": [
+        "ar9300GetCtlChanNF",
+        "ath_hal_getctl",
+        "findCTLByCountryCode"
+      ],
+      "thermal_symbols": [
+        "ar9300PAPRDThermalSend"
+      ],
+      "greentx_symbols": [
+        "ar9300_hwgreentx_set_pal_spare",
+        "ar9300_is_skip_paprd_by_greentx"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "paprd": 32,
+        "PAPRD": 16,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 2,
+        "TPC": 0,
+        "ctl_": 2,
+        "CTL_": 0,
+        "target_power": 0,
+        "thermal": 0,
+        "greentx": 0,
+        "target_power_from_eeprom": 0,
+        "txctl_cap": 0,
+        "get_ctl_by_country": 0
+      },
+      "loop": {
+        "enable_tpc": 0,
+        "get_tpc_tables": 0,
+        "get_ctl_chan_nf": 0,
+        "update_loc_ctl_reg": 0,
+        "get_rate_tpc": 0,
+        "get_ctl_by_country": 0
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [
+        "ath_apply_paprd_table",
+        "ath_paprd_cal",
+        "ath_paprd_get_enable",
+        "ath_paprd_getrate",
+        "ath_paprd_send",
+        "ath_paprd_set_enable",
+        "ath_paprd_setrate",
+        "ath_sendpaprd_single",
+        "ath_tx_paprd_cleanup",
+        "ath_tx_paprd_complete",
+        "ath_tx_paprd_draintxq",
+        "ath_tx_paprd_init"
+      ],
+      "tpc_symbols": [],
+      "ctl_symbols": [
+        "ath_ioctl_debug"
+      ],
+      "thermal_symbols": [],
+      "greentx_symbols": []
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "paprd": 32,
+        "PAPRD": 16,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 2,
+        "TPC": 0,
+        "ctl_": 2,
+        "CTL_": 0,
+        "target_power": 0,
+        "thermal": 0,
+        "greentx": 0,
+        "target_power_from_eeprom": 0,
+        "txctl_cap": 0,
+        "get_ctl_by_country": 0
+      },
+      "loop": {
+        "enable_tpc": 0,
+        "get_tpc_tables": 0,
+        "get_ctl_chan_nf": 0,
+        "update_loc_ctl_reg": 0,
+        "get_rate_tpc": 0,
+        "get_ctl_by_country": 0
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [
+        "ath_apply_paprd_table",
+        "ath_paprd_cal",
+        "ath_paprd_get_enable",
+        "ath_paprd_getrate",
+        "ath_paprd_send",
+        "ath_paprd_set_enable",
+        "ath_paprd_setrate",
+        "ath_sendpaprd_single",
+        "ath_tx_paprd_cleanup",
+        "ath_tx_paprd_complete",
+        "ath_tx_paprd_draintxq",
+        "ath_tx_paprd_init"
+      ],
+      "tpc_symbols": [],
+      "ctl_symbols": [
+        "ath_ioctl_debug"
+      ],
+      "thermal_symbols": [],
+      "greentx_symbols": []
+    },
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "paprd": 0,
+        "PAPRD": 1,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 9,
+        "TPC": 3,
+        "ctl_": 40,
+        "CTL_": 8,
+        "target_power": 0,
+        "thermal": 0,
+        "greentx": 0,
+        "target_power_from_eeprom": 0,
+        "txctl_cap": 1,
+        "get_ctl_by_country": 1
+      },
+      "loop": {
+        "enable_tpc": 1,
+        "get_tpc_tables": 0,
+        "get_ctl_chan_nf": 0,
+        "update_loc_ctl_reg": 0,
+        "get_rate_tpc": 1,
+        "get_ctl_by_country": 1
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [],
+      "tpc_symbols": [
+        "ath_net80211_enable_tpc",
+        "tpc_config_disp_tables",
+        "tpc_config_get_rate_tpc",
+        "wmi_unified_pdev_get_tpc_config",
+        "wmi_unified_pdev_tpc_config_event_handler"
+      ],
+      "ctl_symbols": [
+        "ath_cwm_ioctl",
+        "ath_ioctl_ethtool",
+        "ieee80211_ioctl",
+        "ieee80211_ioctl_chanswitch",
+        "ieee80211_ioctl_chn_n_widthswitch",
+        "ieee80211_ioctl_get_htc_stats",
+        "ieee80211_ioctl_getmode",
+        "ieee80211_ioctl_getparam",
+        "ieee80211_ioctl_send_action_frame_cb",
+        "ieee80211_ioctl_vattach",
+        "ieee80211_ioctl_vdetach",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_regdmn_findCTLByCountryCode",
+        "osif_ioctl_create_vap",
+        "osif_ioctl_delete_vap",
+        "osif_ioctl_eacs"
+      ],
+      "thermal_symbols": [],
+      "greentx_symbols": []
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "paprd": 0,
+        "PAPRD": 1,
+        "olpc": 0,
+        "OLPC": 0,
+        "clpc": 0,
+        "CLPC": 0,
+        "tpc": 9,
+        "TPC": 3,
+        "ctl_": 40,
+        "CTL_": 8,
+        "target_power": 0,
+        "thermal": 0,
+        "greentx": 0,
+        "target_power_from_eeprom": 0,
+        "txctl_cap": 1,
+        "get_ctl_by_country": 1
+      },
+      "loop": {
+        "enable_tpc": 1,
+        "get_tpc_tables": 0,
+        "get_ctl_chan_nf": 0,
+        "update_loc_ctl_reg": 0,
+        "get_rate_tpc": 1,
+        "get_ctl_by_country": 1
+      },
+      "assumed": {
+        "olpc": 0,
+        "clpc": 0,
+        "open_loop": 0,
+        "closed_loop": 0
+      },
+      "paprd_symbols": [],
+      "tpc_symbols": [
+        "ath_net80211_enable_tpc",
+        "tpc_config_disp_tables",
+        "tpc_config_get_rate_tpc",
+        "wmi_unified_pdev_get_tpc_config",
+        "wmi_unified_pdev_tpc_config_event_handler"
+      ],
+      "ctl_symbols": [
+        "ath_cwm_ioctl",
+        "ath_ioctl_ethtool",
+        "ieee80211_ioctl",
+        "ieee80211_ioctl_chanswitch",
+        "ieee80211_ioctl_chn_n_widthswitch",
+        "ieee80211_ioctl_get_htc_stats",
+        "ieee80211_ioctl_getmode",
+        "ieee80211_ioctl_getparam",
+        "ieee80211_ioctl_send_action_frame_cb",
+        "ieee80211_ioctl_vattach",
+        "ieee80211_ioctl_vdetach",
+        "ol_if_spectral_get_ctl_noisefloor",
+        "ol_regdmn_findCTLByCountryCode",
+        "osif_ioctl_create_vap",
+        "osif_ioctl_delete_vap",
+        "osif_ioctl_eacs"
+      ],
+      "thermal_symbols": [],
+      "greentx_symbols": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 7,
+    "paprd_symbol_count": 29,
+    "paprd_symbols": [
+      "ar9300PAPRDCreateCurve",
+      "ar9300PAPRDThermalSend",
+      "ar9300PAPRDisDone",
+      "ar9300PaprdSetupGainTable",
+      "ar9300PopulatePaprdSingleTable",
+      "ar9300SetPAPRDTxDesc",
+      "ar9300_enable_paprd",
+      "ar9300_is_skip_paprd_by_greentx",
+      "ar9300_paprd_create_curve",
+      "ar9300_paprd_dec_tx_pwr",
+      "ar9300_paprd_init_table",
+      "ar9300_paprd_is_done",
+      "ar9300_paprd_setup_gain_table",
+      "ar9300_paprd_thermal_send",
+      "ar9300_populate_paprd_single_table",
+      "ar9300_set_paprd_tx_desc",
+      "ar9300_swizzle_paprd_entries",
+      "ath_apply_paprd_table",
+      "ath_paprd_cal",
+      "ath_paprd_get_enable",
+      "ath_paprd_getrate",
+      "ath_paprd_send",
+      "ath_paprd_set_enable",
+      "ath_paprd_setrate",
+      "ath_sendpaprd_single",
+      "ath_tx_paprd_cleanup",
+      "ath_tx_paprd_complete",
+      "ath_tx_paprd_draintxq",
+      "ath_tx_paprd_init"
+    ],
+    "paprd_pipeline_stages": [
+      "create_curve",
+      "init_table",
+      "populate_paprd",
+      "swizzle",
+      "setup_gain_table",
+      "set_paprd_tx_desc",
+      "is_done"
+    ],
+    "paprd_pipeline_complete_of_7": 7,
+    "paprd_pipeline_named": 1,
+    "paprd_has_transmit_path": 1,
+    "paprd_dev_side": 1,
+    "thermal_link": 1,
+    "green_tx_skips_paprd": 1,
+    "target_power_from_eeprom": 1,
+    "tpc_symbol_count": 15,
+    "tpc_symbols": [
+      "ar9300AbortPcuReceive",
+      "ar9300DispTPCTables",
+      "ar9300EnableTPC",
+      "ar9300SetPCUConfig",
+      "ar9300StartPcuReceive",
+      "ar9300_disp_tpc_tables",
+      "ar9300_enable_tpc",
+      "ar9300_get_tpc_tables",
+      "ar9300_selfgen_tpc_reg_write",
+      "ath_hal_display_tpctables"
+    ],
+    "ctl_symbol_count": 22,
+    "ctl_symbols": [
+      "ar9300GetCtlChanNF",
+      "ar9300_get_ctl_chan_nf",
+      "ar9300_update_loc_ctl_reg",
+      "ath_cwm_ioctl",
+      "ath_hal_getctl",
+      "ath_ioctl_debug",
+      "ath_ioctl_ethtool",
+      "findCTLByCountryCode",
+      "ieee80211_ioctl",
+      "ieee80211_ioctl_chanswitch"
+    ],
+    "loop_controls_present": [
+      "enable_tpc",
+      "get_ctl_by_country",
+      "get_ctl_chan_nf",
+      "get_rate_tpc",
+      "get_tpc_tables",
+      "update_loc_ctl_reg"
+    ],
+    "loop_control_count": 6,
+    "assumed_loop_token_hits": 0,
+    "olpc_clpc_literals_absent": 1,
+    "ctl_by_country": 1,
+    "txctl_cap": 1,
+    "paprd_table_values_recovered": 0,
+    "tpc_tables_recovered": 0,
+    "thermal_curve_recovered": 0
+  },
+  "gaps": [
+    "olpc and clpc do not exist as tokens: the open/closed-loop distinction is tpc and ctl, so a grep for the stage's names returns zero and must not be read as absence of the mechanism",
+    "the PAPRD calibration curve and the per-rate correction table are runtime artefacts built by create_curve during a training transmit; no coefficients are in the module",
+    "the TPC tables are per-rate and per-country (get_rate_tpc, ctl_by_country) and were not extracted",
+    "target power comes from EEPROM (set_target_power_from_eeprom), so it is per-unit calibration data",
+    "the thermal link is named (paprd_thermal_send) but the compensation curve was not recovered",
+    "GreenTX can skip PAPRD entirely (is_skip_paprd_by_greentx); the condition was not decoded",
+    "no dynamic validation"
+  ]
+}

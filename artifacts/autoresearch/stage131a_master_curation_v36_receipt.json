@@ -1,0 +1,242 @@
+{
+  "stage_id": "Stage 131A",
+  "task_id": "T-S131A-MAC80211-V3-AUTHORIZED-GATED-4ADDR-AP-VLAN-TRIGGER-AND-MASTER-CURATION-V36",
+  "curation_version": "v36.0",
+  "timestamp_utc": "2026-10-26T22:45:57.632028+00:00",
+  "claim_status": "CONFIRMED",
+  "attribution": "mac80211, Linux, ath10k, proprietary airMAX/LTU module, external controller",
+  "hardware_safety": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_guarida_poe_switches_200_201": false,
+    "flash_writes": 0
+  },
+  "discoveries_reconciled": {
+    "FMX-DISC-41": {
+      "claim_status": "CONFIRMED",
+      "attribution": "mac80211 + Linux + proprietary airMAX/LTU module",
+      "rom_sha256": "8566fb1c104b61bdb645fc17ba28d6c0ea1bd738e2d05dc8a935464d872a1ce5",
+      "teb_sha256": "3e3d812ff0d4a2fd1a1f9c1257a9356058ac439108e3c27ef6b11d944b696868",
+      "v2_preserve_event_sha256": "c65dc2e2a87274e3073debf4c507606422a5ea1b08cbfe2e40beed58263e81cc",
+      "direct_0x3757c_sha256": "ebf9818eaf66eab8779ba960caab27792831277451c0c32c74870ab4d57426ca",
+      "v3_authorized_gated_sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+      "v3_module_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_v3_6.6.110.ko",
+      "v2_module_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_6.6.110.ko",
+      "direct_module_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_direct_6.6.110.ko",
+      "rel_text_cfg80211_rx_unexpected_4addr_frame_offset_hex": "0x03753c",
+      "file_offset_cfg80211_rx_unexpected_4addr_frame_hex": "0x0375ac",
+      "wlan_sta_authorized_bit": 3,
+      "wlan_sta_authorized_mask_hex": "0x0008",
+      "wlan_sta_4addr_event_bit": 19,
+      "wlan_sta_4addr_event_mask_hex": "0x00080000",
+      "v3_site_words_0x03757c_to_0x0375b8": {
+        "0x03757c": "0xc0430074",
+        "0x037580": "0x30640008",
+        "0x037584": "0x1080000b",
+        "0x037588": "0x3c010008",
+        "0x03758c": "0x00612025",
+        "0x037590": "0xe0440074",
+        "0x037594": "0x1080fff9",
+        "0x037598": "0x7c6304c0",
+        "0x03759c": "0x14600005",
+        "0x0375a0": "0x2445076c",
+        "0x0375a4": "0x8e22000c",
+        "0x0375a8": "0x8c44044c",
+        "0x0375ac": "0x0c000000",
+        "0x0375b0": "0x24060820",
+        "0x0375b4": "0x1000f91c",
+        "0x0375b8": "0x24070004"
+      },
+      "v3_patched_offsets_count": 13
+    },
+    "Stage_123A_Live_QCA9882_Bench": {
+      "claim_status": "CONFIRMED",
+      "attribution": "mac80211 + ath10k + Linux",
+      "promoted_candidate_id": "S123A-C03",
+      "tcp_delta_pct": 3.43,
+      "refuted_candidates": [
+        "S123A-C01 (tight AQL 1000/2000)",
+        "S123A-C02 (tight BQL 3028/24576/600ms)"
+      ]
+    },
+    "Stage_126A_127A_Equivalence_And_Ubntconf": {
+      "claim_status": "CONFIRMED",
+      "attribution": "proprietary airMAX/LTU module + Linux + mac80211",
+      "rc_poststart_equivalent_groups": "13/13",
+      "ubntconf_plugin_count": 25,
+      "wa_vs_xc_ubntbox_delta_bytes": 4096
+    },
+    "Stage_122A_125A_128A_130A_WA_Universal_Release": {
+      "claim_status": "CONFIRMED",
+      "attribution": "Linux + mac80211 + hardware",
+      "total_images_baked": 16,
+      "secret_leak_hits_count": 0,
+      "reddit_docs_verified": 6
+    }
+  },
+  "stages_synchronized": {
+    "stage122a": {
+      "path": "artifacts/autoresearch/stage122a_wa_universal_repack_v2_receipt.json",
+      "sha256": "ded037107294c3ee2270f1286c04656787b252f3215b69e8ff3c725a1c7922b8",
+      "compliant_5pillar": true
+    },
+    "stage123a": {
+      "path": "artifacts/autoresearch/stage123a_live_wa_qca9882_deep_autoresearch.json",
+      "sha256": "88e98553de6e30d223fbc08479359e00fe544a467423c6e3d7d88a4bf79e535e",
+      "compliant_5pillar": true
+    },
+    "stage124a": {
+      "path": "artifacts/autoresearch/stage124a_master_curation_v35_receipt.json",
+      "sha256": "ce4df4bd12f579fac685887a5b504ea0ae9c80815bf505b61295bf621c6ac205",
+      "compliant_5pillar": true
+    },
+    "stage125a": {
+      "path": "artifacts/autoresearch/stage125a_wa_public_release_readiness.json",
+      "sha256": "8a35f32db610e60a558ca5c0e0f0e0fec8cb604fa77b4b0a32f950eb5db2d60e",
+      "compliant_5pillar": true
+    },
+    "stage126a": {
+      "path": "artifacts/autoresearch/stage126a_wa_rc_poststart_equivalence_receipt.json",
+      "sha256": "518838e12d691d870a7b13dc6cf467314eba44bd02c39493227cfa556e030d88",
+      "compliant_5pillar": true
+    },
+    "stage127a": {
+      "path": "artifacts/autoresearch/stage127a_ubntconf_and_wa_xc_ubntbox_diff.json",
+      "sha256": "27146eddc402969e95876d64624fba58d595864a146c5096e2e03931cf33b89f",
+      "compliant_5pillar": true
+    },
+    "stage128a": {
+      "path": "artifacts/autoresearch/stage128a_reddit_tester_release_package.json",
+      "sha256": "5033452fcdfca27a1b40cc5d14463febb5d63159344d99b994afe7714bfe361c",
+      "compliant_5pillar": true
+    },
+    "stage130a": {
+      "path": "artifacts/autoresearch/stage130a_wa_full_squashfs_bake_v2_receipt.json",
+      "sha256": "8feb7ada1476a44fc87575f79e65ebe3e39e5625c52f858a71f3a37829d35ac6",
+      "compliant_5pillar": true
+    }
+  },
+  "master_curation_v36_docs": {
+    "master_index": {
+      "path": "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md",
+      "line_count": 212,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_41": true,
+      "has_v3_sha256_prefix": true,
+      "has_wlan_sta_authorized_gate": true,
+      "has_s123a_c03": true
+    },
+    "curated_discoveries": {
+      "path": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+      "line_count": 150,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_41": true,
+      "has_v3_sha256_prefix": true,
+      "has_wlan_sta_authorized_gate": true,
+      "has_s123a_c03": true
+    },
+    "current_state": {
+      "path": "docs/CURRENT_STATE.md",
+      "line_count": 212,
+      "under_215_lines": true,
+      "doc_head_count": 1,
+      "starts_with_doc_head": true,
+      "has_fmx_disc_41": true,
+      "has_v3_sha256_prefix": true,
+      "has_wlan_sta_authorized_gate": true,
+      "has_s123a_c03": true
+    }
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "tool": "firmware/openwrt/pbe5ac_gen2_ptp_kit/patch_mac80211_teb.py",
+    "binaries_dissected": [
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_rom_241.ko (815,640B, SHA-256 8566fb1c...)",
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_6.6.110.ko (815,640B, SHA-256 3e3d812f...)",
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_6.6.110.ko (v2, SHA-256 c65dc2e2...)",
+      "firmware/openwrt/pbe5ac_gen2_ptp_kit/mac80211_teb_4addr_v3_6.6.110.ko (v3 Authorized-Gated, SHA-256 fe4f730f...)",
+      "bin/ubntbox (/sbin/ubntconf 25-plugin dispatcher in WA 899,180B vs XC 895,084B)"
+    ],
+    "knob_ids_linked": [
+      "FMX-DISC-38",
+      "FMX-DISC-41",
+      "OWRT-AQL-TXQ-LIMIT-BE",
+      "OWRT-BQL-ETH0-HOLD800",
+      "OWRT-FQ-QUANTUM-4542",
+      "OWRT-FQ-TARGET-4000US"
+    ],
+    "catalog_size": 571
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_script": "tools/research/closed_loop_research_reactor.py",
+    "queue_path": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "reactor_event": {
+      "timestamp_utc": "2026-10-26T22:45:57Z",
+      "round_id": "Stage 131A",
+      "profile_id": "WA-family OpenWrt 24.10.4 (Linux 6.6.110 MIPS32 BE mac80211.ko <-> Stock airOS 8 4-address WDS)",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 0.0,
+      "gp_candidate_mbps": 0.0,
+      "gp_delta_pct": 0.0,
+      "p95_champion_ms": 0.0,
+      "p95_candidate_ms": 0.0,
+      "p95_delta_pct": 0.0,
+      "pareto_score_delta_pct": 0.0,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_Stage_131A.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 4-address WDS EAPOL-Key 4-way handshake race condition with NL80211_CMD_UNEXPECTED_4ADDR_FRAME and WLAN_STA_AUTHORIZED",
+        "MIPS32 LL/SC atomic test_and_set_bit state machine gating in Linux mac80211 ieee80211_rx_h_data AP_VLAN dynamic interface creation",
+        "IEEE 802.11ac wireless PtMP optimization WA-family OpenWrt 24.10.4 (Linux 6.6.110 MIPS32 BE mac80211.ko <-> Stock airOS 8 4-address WDS) Stage 131A"
+      ],
+      "synthesized_next_mechanisms": []
+    },
+    "scholar_verified_references": [
+      "IEEE 802.11 4-address WDS EAPOL-Key 4-way handshake race condition with NL80211_CMD_UNEXPECTED_4ADDR_FRAME and WLAN_STA_AUTHORIZED",
+      "MIPS32 LL/SC atomic test_and_set_bit state machine gating in Linux mac80211 ieee80211_rx_h_data AP_VLAN dynamic interface creation"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "harness_path": "orchestration/autoresearch/fmx_autoresearch_harness.py",
+    "counterbalanced_design": "A1 -> B1 -> A2 -> B2",
+    "rollback_watchdog": {
+      "non_dfs_seconds": 45,
+      "dfs_seconds": 120,
+      "ota_ptp_watchdog_seconds": 180,
+      "rule": "FMX-DISC-24"
+    }
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "curated_discoveries_total": 41,
+    "wa_images_verified_count": 16,
+    "mac80211_4addr_variants_verified_count": 3,
+    "s123a_c03_tcp_goodput_delta_pct": 3.43,
+    "rc_poststart_equivalent_groups": 13,
+    "ubntconf_plugins_verified": 25
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage131a-mac80211-v3-authorized-gated-4addr-v36-20261026",
+  "five_pillar_gate_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

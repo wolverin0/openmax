@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "Stage 570A",
+  "generated_at_utc": "2026-10-27T01:37:35.823318+00:00",
+  "status": "CONFIRMED",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "total_counterbalanced_rounds": 63,
+  "total_live_windows_including_stage162a_e2e": 256,
+  "milestone_63_rounds_256_windows_achieved": true,
+  "watchdog_seconds": 45,
+  "attribution": "QCA firmware + ath10k + mac80211 + Linux + hardware",
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "panel1_guarida_zero_rf_disconnect": true
+  },
+  "audited_receipts": {
+    "stage565a_live_wa_pb050_v2_and_pacing_r57_59.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage566a_live_wa_256window_milestone_r60_63.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage567a_live_wa_mk1_251_e2e_v10_milestone.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage568a_live_panel1_guarida_84_v10_rollout_audit.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    },
+    "stage569a_cumulative_63round_256window_wa_champion_v10.json": {
+      "status": "CONFIRMED",
+      "compliant": true,
+      "failures": []
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "modules_analyzed": [
+        "firmware-2.bin",
+        "umac.ko",
+        "mac80211.ko",
+        "ath10k_core.ko",
+        "ath10k_pci.ko"
+      ],
+      "functions_decompiled": [
+        "rc_update_ht",
+        "whalSetCcaThreshold",
+        "ath10k_bmi_fast_download",
+        "ieee80211_txq_airtime_check",
+        "tcp_update_pacing_rate"
+      ],
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json",
+      "total_knobs": 571
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py",
+      "queue_ref": "artifacts/autoresearch/discovery_to_research_queue.json",
+      "scholar_queries": [
+        "QCA988x Xtensa SGMT BMI_LZ RAM firmware patch rate control probe dampening CCA AGC",
+        "IEEE 802.11ac 256-window counterbalanced autoresearch Pareto frontier"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "pymoo",
+        "simpy",
+        "hypothesis-generation",
+        "statistical-analysis",
+        "scientific-critical-thinking"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S565A-01",
+        "FMX-S566A-01",
+        "FMX-S567A-01",
+        "FMX-S568A-01",
+        "FMX-S569A-01"
+      ]
+    }
+  }
+}

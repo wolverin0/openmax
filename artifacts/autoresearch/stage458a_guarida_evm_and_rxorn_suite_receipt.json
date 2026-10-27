@@ -1,0 +1,106 @@
+{
+  "stage": "458A",
+  "task_id": "T-S458A-GUARIDA-EVM-AND-RXORN-SUITE",
+  "generated_at": "2026-10-26T22:04:00-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "hardware"
+  ],
+  "writes_performed": 0,
+  "curated_discoveries_verified": {
+    "FMX-DISC-47": true,
+    "FMX-DISC-48": true
+  },
+  "stage_receipt_audits": [
+    {
+      "stage": "453A",
+      "artifact": "artifacts/autoresearch/stage453a_guarida_bh_230m_ast_rxorn_and_pcie_ce_ring_re.json",
+      "status": "COMPLETED",
+      "claim_status": "CONFIRMED",
+      "writes_performed": 0,
+      "five_pillar_gate_passed": true
+    },
+    {
+      "stage": "454A",
+      "artifact": "artifacts/autoresearch/stage454a_guarida_60_61_subcarrier_notch_and_cinr_gap.json",
+      "status": "COMPLETED",
+      "claim_status": "CONFIRMED",
+      "writes_performed": 0,
+      "five_pillar_gate_passed": true
+    },
+    {
+      "stage": "455A",
+      "artifact": "artifacts/autoresearch/stage455a_ubnt_poll_UL_slot_starvation_and_requeue_re.json",
+      "status": "COMPLETED",
+      "claim_status": "CONFIRMED",
+      "writes_performed": 0,
+      "five_pillar_gate_passed": true
+    },
+    {
+      "stage": "456A",
+      "artifact": "artifacts/autoresearch/stage456a_blind_rssi_vs_64subcarrier_evm_false_negative_matrix.json",
+      "status": "COMPLETED",
+      "claim_status": "CONFIRMED",
+      "writes_performed": 0,
+      "five_pillar_gate_passed": true
+    },
+    {
+      "stage": "457A",
+      "artifact": "artifacts/autoresearch/stage457a_guarida_backbone_60_61_notch_mitigation_pareto.json",
+      "status": "COMPLETED",
+      "claim_status": "CONFIRMED",
+      "writes_performed": 0,
+      "five_pillar_gate_passed": true
+    }
+  ],
+  "markdown_doc_audits": [
+    {
+      "doc": "docs/STAGE453A_GUARIDA_BH_230M_AST_RXORN_AND_PCIE_CE_RING_RE.md",
+      "line_count": 39,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    },
+    {
+      "doc": "docs/STAGE454A_GUARIDA_60_61_SUBCARRIER_NOTCH_AND_CINR_GAP.md",
+      "line_count": 32,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    },
+    {
+      "doc": "docs/STAGE455A_UBNT_POLL_UL_SLOT_STARVATION_AND_REQUEUE_RE.md",
+      "line_count": 42,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    },
+    {
+      "doc": "docs/STAGE456A_BLIND_RSSI_VS_64SUBCARRIER_EVM_FALSE_NEGATIVE_MATRIX.md",
+      "line_count": 49,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    },
+    {
+      "doc": "docs/STAGE457A_GUARIDA_BACKBONE_60_61_NOTCH_MITIGATION_PARETO.md",
+      "line_count": 39,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    },
+    {
+      "doc": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+      "line_count": 158,
+      "under_220_lines": true,
+      "doc_head_count": 1
+    }
+  ],
+  "all_checks_passed": true,
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Verifies binary RE across umac.ko:process_rx_stats (0x0b5044..0x0b506c), bin/athbox (0x00402174), ubnt_poll_host_on_rx_evm_meas (0x00a3c4 -> 0x006b60), and tx_bd_ExchangeHandler (0x0099b8d4).",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Synthesizes FMX-DISC-47 and FMX-DISC-48 into the curated discovery index with full physical attribution.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Enforces 0 writes across all 6 stages (453A..458A) on production radios .60/.61/.82/.83/.84.",
+    "pillar_d_scientific_pareto_validation": "Validates 5-snapshot temporal invariance (22.32 s), 50.0% RSSI false-negative matrix, and NSGA-II Pareto notch mitigation (+7.99 dB Chain 0 EVM recovery, +17.17 Mbps goodput).",
+    "pillar_e_memory_master_claim_id": "mm-stage458a-guarida-evm-and-rxorn-suite-v1"
+  }
+}

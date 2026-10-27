@@ -1,8 +1,8 @@
 """Post-flash and operational health monitoring for Ubiquiti airMAX AC hardware.
 
 Summary: Audits kernel dmesg, memory headroom, MTD write-protect flags, and wireless
-radio interface readiness to detect crashes, OOM conditions, or hardware failures
-and determine whether an immediate rollback is required (AGENTS.md §4).
+radio interface readiness to detect crashes, OOM conditions, or missing evidence.
+An unhealthy result blocks acceptance; it never authorizes a rollback by itself.
 Keywords: health check, post-boot audit, kernel oops, ath10k crash, memory headroom.
 """
 
@@ -16,7 +16,7 @@ from typing import Dict, List, Optional, Tuple
 PANIC_PATTERNS = [
     r"kernel\s+panic",
     r"oops:\s+\d+",
-    r"out\s+of\s+memory:\s+kill\s+process",
+    r"out\s+of\s+memory:\s+kill(?:ed)?\s+process",
     r"ath10k.*device\s+halted",
     r"ath10k.*firmware\s+crashed",
     r"ath10k.*failed\s+to\s+ping\s+firmware",
@@ -50,48 +50,52 @@ class SystemHealthMonitor:
 
     @classmethod
     def check_memory(cls, meminfo_text: str, min_headroom_kb: int = 8192) -> Tuple[bool, int, Optional[str]]:
-        """Verifies that available memory (MemFree + Buffers + Cached) >= min_headroom_kb."""
-        mem_free = 0
-        buffers = 0
-        cached = 0
+        """Use kernel MemAvailable, or conservative MemFree on legacy kernels.
 
-        for line in meminfo_text.splitlines():
-            m_free = re.search(r"MemFree:\s+(\d+)\s+kB", line)
-            if m_free:
-                mem_free = int(m_free.group(1))
-            m_buf = re.search(r"Buffers:\s+(\d+)\s+kB", line)
-            if m_buf:
-                buffers = int(m_buf.group(1))
-            m_cach = re.search(r"Cached:\s+(\d+)\s+kB", line)
-            if m_cach:
-                cached = int(m_cach.group(1))
-
-        available_kb = mem_free + buffers + cached
+        Cached includes tmpfs; adding it can count a staged image as free RAM.
+        """
+        fields = dict(re.findall(r"^(MemAvailable|MemFree):\s+(\d+)\s+kB\s*$", meminfo_text, re.MULTILINE))
+        if not fields or type(min_headroom_kb) is not int or min_headroom_kb <= 0:
+            return False, 0, "Missing memory evidence or invalid headroom threshold"
+        available_kb = int(fields.get("MemAvailable", fields.get("MemFree", "0")))
         if available_kb < min_headroom_kb:
             return False, available_kb, f"Insufficient memory headroom: {available_kb} kB available (min: {min_headroom_kb} kB)"
         return True, available_kb, None
 
     @classmethod
-    def check_wireless_interface(cls, iw_dev_text: str, ifconfig_text: str) -> Tuple[bool, Optional[str]]:
-        """Verifies that the primary wireless interface (wlan0) is active and UP."""
-        has_wlan0 = "wlan0" in iw_dev_text or "ath0" in iw_dev_text
-        if not has_wlan0:
-            return False, "Primary wireless interface (wlan0/ath0) not found in 'iw dev'"
+    def check_wireless_interface(
+        cls, iw_dev_text: str, ifconfig_text: str,
+        expected_interfaces: Tuple[str, ...] = ("wlan0", "ath0"),
+    ) -> Tuple[bool, Optional[str]]:
+        """Check the expected interface's own flags, using the caller's verified names."""
+        interfaces = set(re.findall(r"^\s*Interface\s+(\S+)\s*$", iw_dev_text, re.MULTILINE)) & set(expected_interfaces)
+        if not interfaces:
+            return False, "Expected wireless interface not found in 'iw dev'"
 
-        is_up = ("UP" in ifconfig_text and "wlan0" in ifconfig_text) or ("UP" in ifconfig_text and "ath0" in ifconfig_text)
+        blocks = re.split(r"(?m)(?=^\S)", ifconfig_text)
+        is_up = any(
+            re.match(r"^(?:" + "|".join(re.escape(name) for name in sorted(interfaces)) + r")(?:\s|:)", block)
+            and re.search(r"\bUP\b", block)
+            for block in blocks
+        )
         if not is_up:
             return False, "Wireless interface exists but is not marked UP in ifconfig"
 
         return True, None
 
     @classmethod
-    def check_mtd_write_protection(cls, mtd_flags: Dict[str, int]) -> Tuple[bool, List[str]]:
-        """Verifies that mtd0 (u-boot) and mtd5 (ART) are NOT write-unlocked in operational mode."""
-        # Linux MTD flags: MTD_WRITEABLE = 0x800
-        # If writeable flag is set on protected partitions, flag as warning or failure
+    def check_mtd_write_protection(
+        cls, mtd_flags: Dict[str, int], protected_partitions: Optional[Tuple[str, ...]] = None,
+    ) -> Tuple[bool, List[str]]:
+        """Require protection evidence for a caller-supplied, verified partition map."""
+        if not protected_partitions:
+            return False, ["Verified protected-partition map is missing"]
         violations: List[str] = []
-        for mtd, flags in mtd_flags.items():
-            if mtd in ("mtd0", "mtd5") and (flags & 0x800):
+        for mtd in protected_partitions:
+            flags = mtd_flags.get(mtd)
+            if type(flags) is not int or flags < 0:
+                violations.append(f"Protection evidence missing or invalid for {mtd}")
+            elif flags & 0x800:
                 violations.append(f"CRITICAL: Protected partition {mtd} has writeable flag set (flags=0x{flags:x})")
         return len(violations) == 0, violations
 
@@ -104,6 +108,9 @@ class SystemHealthMonitor:
         ifconfig_text: str,
         mtd_flags: Optional[Dict[str, int]] = None,
         min_headroom_kb: int = 8192,
+        protected_partitions: Optional[Tuple[str, ...]] = None,
+        dmesg_returncode: Optional[int] = None,
+        expected_interfaces: Tuple[str, ...] = ("wlan0", "ath0"),
     ) -> HealthCheckResult:
         """Runs the complete suite of system health checks."""
         failures: List[str] = []
@@ -113,6 +120,12 @@ class SystemHealthMonitor:
         # 1. dmesg check
         dmesg_fails = cls.check_dmesg(dmesg_text)
         failures.extend(dmesg_fails)
+        if not dmesg_text.strip():
+            failures.append("Kernel log evidence is missing")
+        if type(dmesg_returncode) is not int or dmesg_returncode != 0:
+            failures.append("Successful kernel log acquisition is not evidenced")
+        if re.search(r"(?im)^dmesg:.*(?:fail|denied|not permitted)", dmesg_text):
+            failures.append("Kernel log acquisition returned an error")
 
         # 2. memory check
         mem_ok, avail_kb, mem_err = cls.check_memory(meminfo_text, min_headroom_kb)
@@ -121,14 +134,13 @@ class SystemHealthMonitor:
             failures.append(mem_err)
 
         # 3. wireless interface check
-        wl_ok, wl_err = cls.check_wireless_interface(iw_dev_text, ifconfig_text)
+        wl_ok, wl_err = cls.check_wireless_interface(iw_dev_text, ifconfig_text, expected_interfaces)
         if not wl_ok and wl_err:
             failures.append(wl_err)
 
         # 4. MTD protection check
-        if mtd_flags:
-            mtd_ok, mtd_errs = cls.check_mtd_write_protection(mtd_flags)
-            failures.extend(mtd_errs)
+        _, mtd_errs = cls.check_mtd_write_protection(mtd_flags or {}, protected_partitions)
+        failures.extend(mtd_errs)
 
         is_healthy = len(failures) == 0
 

@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "stage": "424A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage424a_ltu_arria10_fpga_subband_mask_re.py",
+    "tool_sha256": "834867d9a4ef61d11e2d5f4e6f0946b22ac8efa0bba2fd140517fa4936627cb8",
+    "output": "artifacts/autoresearch/stage424a_ltu_arria10_fpga_subband_mask_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "absence inventory for the named tree, driver, library and bitstreams; token sweep of ame_core.ko with context; EAB symbol extraction; cross-reference of the Stage 376A FPGA mailbox receipt",
+    "premise_corrections": [
+      "eab_driver.ko, libltu and any af-ltu tree are absent; the EAB interface is compiled into ame_core.ko, which carries 359 eab tokens",
+      "no FPGA bitstream exists (.rbf 0, .sof 0), so no mask register can be read from a fabric image"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "names": {
+      "eab_driver.ko": 0,
+      "libltu": 0,
+      "af-ltu": 0
+    },
+    "af_ltu_paths": 36,
+    "af_ltu_dirs": 0,
+    "af_ltu_config_files": 36,
+    "af_ltu_tokens": {
+      "subband": 0,
+      "fpga": 0,
+      "mask": 116,
+      "tone": 0,
+      "eab": 0,
+      "arria": 0
+    },
+    "bitstreams": {
+      "*.rbf": 0,
+      "*.sof": 0
+    }
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "eab": 359,
+        "EAB": 208,
+        "subband": 17,
+        "ofdma_subband_type": 6,
+        "punctur": 0,
+        "mask": 2,
+        "tone": 0,
+        "null": 11,
+        "notch": 0,
+        "arria": 0,
+        "fpga": 0,
+        "ioctl": 8,
+        "gem": 100
+      },
+      "contexts": {
+        "subband": [
+          "Pwr adj_cnt = %d ...%d[ %ld.%.9ld] [%s/%d] %s(%d): ofdma_en:%d, ofdma_subband_type:%d, ofdma_start:%d, ofdma_len:%d.....%d[%s/%d] %s(%d): ofdma_en:",
+          "ofdma_start:%d, ofdma_len:%d.....%d[%s/%d] %s(%d): ofdma_en:%d, ofdma_subband_type:%d, ofdma_start:%d, ofdma_len:%d.....cir_lock_shift = ...%d.....",
+          "Pwr adj_cnt = %d ...%d[ %ld.%.9ld] [%s/%d] %s(%d): ofdma_en:%d, ofdma_subband_type:%d, ofdma_start:%d, ofdma_len:%d.....%d[%s/%d] %s(%d): ofdma_en:"
+        ],
+        "mask": [
+          "M queue intr status.....%d[ %ld.%.9ld] [%s/%d] %s(%d): GEM queue intr mask..%d[%s/%d] %s(%d): GEM queue intr mask...%d[ %ld.%.9ld] [%s/%d] %s(%d",
+          "[%s/%d] %s(%d): GEM queue intr mask..%d[%s/%d] %s(%d): GEM queue intr mask...%d[ %ld.%.9ld] [%s/%d] %s(%d): GEM screening registers..%d[%s/%d] %"
+        ],
+        "null": [
+          " ULResrcMngtQ[%u].resrcReq(%d) <= 0....%d[ %ld.%.9ld] [%s/%d] %s(%d): null cpe %u qid %u sym %d last_cpe_null %u...%d[%s/%d] %s(%d): null cpe %u",
+          "....%d[ %ld.%.9ld] [%s/%d] %s(%d): null cpe %u qid %u sym %d last_cpe_null %u...%d[%s/%d] %s(%d): null cpe %u qid %u sym %d last_cpe_null %u....",
+          "s(%d): null cpe %u qid %u sym %d last_cpe_null %u...%d[%s/%d] %s(%d): null cpe %u qid %u sym %d last_cpe_null %u....%d[ %ld.%.9ld] [%s/%d] %s(%d"
+        ],
+        "eab": [
+          "_enable...send_ctrl_in_data...lost_track_thold....lost_track_reset....eab_txcmd_dump..ame_core_ptmp_cdr_resreq....ame_core_ptmp_cdr_housekeepin",
+          "cel_routine_sync.SWQ_INTERVAL_EXTEND.ame_core_ioctls_callback....dump_eab_framestop_info.alltx_tx_isr....ame_core_l2_error_handlr....nxn_tx_isr",
+          "BufPoolDeinit..ame_ctrl_deinit.mc_table_add....mc_table_dump...update_eab_mc...set_multiast_table..multicast_init..multicast_check_expire..mult"
+        ]
+      },
+      "eab_symbols": [
+        "air_data_handler_test_eab_many_cpes",
+        "ame_core_dump_eab_qstatus",
+        "ame_core_eab_get_total_frag_num_in_tx_q_w_lock",
+        "ame_core_eab_read_tx_resend_w_lock",
+        "ame_modem_bbp_eab_testmode_handler",
+        "bbp_eab_rx_isr",
+        "bbp_eab_sched_test_entry",
+        "bbp_eab_test_entry",
+        "bbp_eab_tx_isr",
+        "eab_direct_loopback_enable_hw",
+        "eab_direct_loopback_perf",
+        "eab_loopback_with_data_handler",
+        "eab_loopback_with_symbol_handler",
+        "eab_ofdma_cnt",
+        "eab_ofdma_dat_cnt",
+        "eab_ofdma_e",
+        "eab_ofdma_mgn_cnt",
+        "eab_ofdma_s",
+        "eab_profile",
+        "pAMEeab_Cb",
+        "symbol_handler_test_eab_symbol_loss_loss",
+        "symbol_handler_test_eab_symbol_loss_normal",
+        "unittest_eab"
+      ],
+      "no_tone_nullion": {
+        "tone": 0,
+        "notch": 0,
+        "punctur": 0
+      }
+    }
+  ],
+  "prior_art": {
+    "path": "artifacts/autoresearch/stage376a_ltu_rocket_arria10_fpga_mailbox_re.json",
+    "mailbox_symbol_count": 195,
+    "fabric": "Beetle / Arria-class FPGA fabric (air_fpga + part05_fpga.bin) coupled over AXI-HPS-to-FPGA bridge",
+    "partition_blobs": 12
+  },
+  "summary": {
+    "eab_driver_present": false,
+    "libltu_present": false,
+    "af_ltu_tree_present": false,
+    "af_ltu_config_files": 36,
+    "af_ltu_subband_keys": 0,
+    "af_ltu_fpga_keys": 0,
+    "bitstreams": 0,
+    "module_ok": 1,
+    "eab_tokens": 359,
+    "eab_upper_tokens": 208,
+    "subband_tokens": 17,
+    "ofdma_subband_type": 6,
+    "mask_tokens": 2,
+    "null_tokens": 11,
+    "tone_tokens": 0,
+    "puncture_tokens": 0,
+    "arria_tokens": 0,
+    "fpga_tokens": 0,
+    "eab_symbol_count": 23,
+    "eab_symbols_sample": [
+      "air_data_handler_test_eab_many_cpes",
+      "ame_core_dump_eab_qstatus",
+      "ame_core_eab_get_total_frag_num_in_tx_q_w_lock",
+      "ame_core_eab_read_tx_resend_w_lock",
+      "ame_modem_bbp_eab_testmode_handler",
+      "bbp_eab_rx_isr",
+      "bbp_eab_sched_test_entry",
+      "bbp_eab_test_entry",
+      "bbp_eab_tx_isr",
+      "eab_direct_loopback_enable_hw",
+      "eab_direct_loopback_perf",
+      "eab_loopback_with_data_handler"
+    ],
+    "prior_mailbox_symbols": 195,
+    "subband_mask_registers_recovered": 0,
+    "tone_null_ioctl_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko does not exist, so the stage's named ioctl entry point has no bytes",
+    "no FPGA bitstream exists, so no Arria 10 subband mask register can be read",
+    "subband in ame_core.ko is OFDMA (ofdma_subband_type beside ofdma_en/start/len), not a puncturing mask",
+    "the two mask hits are GEM interrupt masks; the eleven null hits are null-CPE scheduling, not tone nulling",
+    "tone, notch and punctur appear 0 times in ame_core.ko",
+    "the real fabric control surface is the EAB ISR/helper family in ame_core.ko and the 195 FPGA mailbox symbols recorded by Stage 376A, which this stage does not re-derive",
+    "no dynamic validation"
+  ]
+}

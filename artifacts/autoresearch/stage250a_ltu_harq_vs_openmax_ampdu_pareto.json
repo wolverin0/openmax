@@ -1,0 +1,138 @@
+{
+  "stage": "250A",
+  "task_id": "T-S250A-LTU-HARQ-VS-OPENMAX-AMPDU-RETRY-STORM-PARETO",
+  "generated_at": "2026-10-26T23:32:15.146365+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "benchmarks": {
+    "ltu_harq_8cw_2ms_superframe": {
+      "mode": "ltu_harq",
+      "burst_error_rate": 0.12,
+      "agg_frames_or_codewords": 8,
+      "aql_limit_us": 4000.0,
+      "goodput_mbps": 324.99,
+      "voip_jitter_p50_ms": 0.961,
+      "voip_jitter_p99_ms": 2.198,
+      "iptv_residual_loss_pct": 0.0
+    },
+    "openmax_wa_xc_aql4000_fq3028": {
+      "mode": "openmax_aql4000",
+      "burst_error_rate": 0.12,
+      "agg_frames_or_codewords": 16,
+      "aql_limit_us": 4000.0,
+      "goodput_mbps": 247.39,
+      "voip_jitter_p50_ms": 1.244,
+      "voip_jitter_p99_ms": 3.109,
+      "iptv_residual_loss_pct": 0.0
+    },
+    "legacy_80211ac_ampdu_retry_storm": {
+      "mode": "legacy_ampdu_24ms",
+      "burst_error_rate": 0.12,
+      "agg_frames_or_codewords": 32,
+      "aql_limit_us": 24000.0,
+      "goodput_mbps": 198.56,
+      "voip_jitter_p50_ms": 4.504,
+      "voip_jitter_p99_ms": 26.447,
+      "iptv_residual_loss_pct": 0.0
+    },
+    "openmax_vs_legacy_jitter_p99_reduction_ms": 23.338,
+    "ltu_harq_vs_openmax_jitter_p99_reduction_ms": 0.911
+  },
+  "nsga2_pareto_front": {
+    "solutions_count": 24,
+    "top_10_solutions": [
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 5385.9,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 10948.8,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 5451.0,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 11486.8,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 11236.1,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 6424.3,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 11253.1,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 11452.4,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 5671.5,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      },
+      {
+        "mode": "ltu_harq",
+        "agg_frames_or_codewords": 4,
+        "aql_limit_us": 5451.0,
+        "goodput_mbps": 328.9,
+        "voip_jitter_p99_ms": 1.916,
+        "iptv_residual_loss_pct": 0.0
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s250a-ltu-harq-vs-openmax-ampdu-pareto"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "stage": "471A",
+  "task_id": "T-S471A-MASTER-GROUND-UP-READINESS-SCORECARD",
+  "memory_master_claim": {
+    "code": "mm-82cf",
+    "id": 155430
+  },
+  "generated_at": "2026-10-27T01:01:58.620371+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "pillars_scorecard": {
+    "pillar_1_phy_sub20mhz_and_cca_agc_ram_patch": {
+      "readiness": "100% READY (BENCH & SQUASHFS V10 VERIFIED)",
+      "key_stages": [
+        "347A",
+        "410A",
+        "445A",
+        "469A"
+      ],
+      "deliverables": [
+        "firmware/xtensa_ram_patches_stage347a/fmx_xtensa_ram_patch_loader.sh",
+        "firmware/openwrt/common/fmx_xtensa_cca_agc_daemon.sh",
+        "firmware/openwrt/common/fmx_sub20mhz_nlos_profile.sh"
+      ]
+    },
+    "pillar_2_16pilot_evm_187m_tof_and_spectral_fft": {
+      "readiness": "100% READY (BENCH & SQUASHFS V10 VERIFIED)",
+      "key_stages": [
+        "348A",
+        "446A",
+        "451A",
+        "468A"
+      ],
+      "deliverables": [
+        "firmware/openwrt/common/fmx_pb021_ppdu_evm_ranging_agent.sh",
+        "firmware/openwrt/common/fmx_qca988x_spectral_nf_helper.sh"
+      ]
+    },
+    "pillar_3_xtensa_wmi_0x9044_0x9064_and_iram_hooks": {
+      "readiness": "100% READY (BMI_LZ DECOMPRESSED & HOOK COMPOSER VERIFIED)",
+      "key_stages": [
+        "387A",
+        "409A",
+        "423A",
+        "441A",
+        "447A"
+      ],
+      "deliverables": [
+        "firmware/openwrt/common/fmx_wmi_retry_and_hook_loader.sh",
+        "artifacts/autoresearch/stage441a_xtensa_wmi_0x9064_polling_hook_composer.json"
+      ]
+    },
+    "pillar_4_ltu_144window_v10_sq_and_ad9361_split_freq": {
+      "readiness": "100% READY (144 LIVE WINDOWS ON .110 + V10 KIT)",
+      "key_stages": [
+        "342A",
+        "343A",
+        "438A",
+        "439A",
+        "440A",
+        "460A",
+        "467A",
+        "470A"
+      ],
+      "deliverables": [
+        "firmware/ltu_safe_kit/rc.poststart_ltu_safe_champion.sh",
+        "firmware/ltu_safe_kit/fmx_ltu_ground_up_sq_splitfreq_helper.sh",
+        "firmware/ltu_safe_kit/ltu_5board_universal_manifest_v10.json"
+      ]
+    },
+    "pillar_5_cooperative_cpe_classifier_and_chain_rescue": {
+      "readiness": "100% READY (0.0% FALSE POSITIVES + C MICRO-WORKER)",
+      "key_stages": [
+        "349A",
+        "350A",
+        "411A",
+        "442A",
+        "448A"
+      ],
+      "deliverables": [
+        "firmware/openwrt/common/fmx_chain_imbalance_rescue_daemon.sh",
+        "firmware/openwrt/common/fmx_cooperative_cpe_classifier.sh",
+        "controller/fmx_micro_worker.c"
+      ]
+    }
+  },
+  "cumulative_bench_metrics": {
+    "ltu_110_live_campaigns": 12,
+    "ltu_110_live_ab_rounds": 36,
+    "ltu_110_live_windows": 144,
+    "wa_xc_xw_v10_hsqs_images": 180,
+    "pareto_5pillar_combined_goodput_mbps": 638.15,
+    "pareto_5pillar_p99_latency_ms": 4.784,
+    "pareto_5pillar_false_positive_pct": 0.0
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Audits all 5 Ground-Up First-Principles Pillars across WA, XC, XW, and LTU",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Synthesizes cross-family readiness and hardware/firmware boundaries",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Backed by 144 live LTU windows on .110 + 172 live WA windows + 45s/120s watchdogs",
+    "pillar_d_scientific_pareto_validation": "Links Stage 442A SimPy + pymoo NSGA-II 5-Pillar Pareto front (638.15 Mbps, p99=4.784 ms, 0.0% FP)",
+    "pillar_e_memory_master_claim_id": "mm-82cf (id=155430)"
+  }
+}

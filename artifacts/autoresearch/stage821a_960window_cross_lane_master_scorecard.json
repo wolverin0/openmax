@@ -1,0 +1,277 @@
+{
+  "stage": "821A",
+  "status": "CONFIRMED",
+  "execution_mode": "OFFLINE_SCORECARD",
+  "claim_scope": "local reconciliation only; imported claims are not independently accepted",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "radio_commands_executed": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN",
+    "new_live_windows": 0
+  },
+  "lanes": [
+    {
+      "lane": "wa",
+      "reported_cumulative_max": 344,
+      "reported_distinct_window_ids": [],
+      "duplicate_window_ids_removed": 0,
+      "accepted_live_windows": null,
+      "physical_evidence_status": "UNKNOWN",
+      "sources": [
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage773a_wa_champion_v13_344window_field_rollout_kit.json",
+            "status": "PINNED",
+            "sha256": "550e3920737af5425beadf70236f17da4ad1dd25d22691bb8d77711525456666",
+            "bytes": 1552
+          },
+          "count_path": [
+            "cumulative_wa_windows"
+          ],
+          "classification": "REPORTED_UNVERIFIED",
+          "reported_windows": 344,
+          "source_execution_mode": "UNSPECIFIED"
+        },
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage801a_live_wa_mk1_251_e2e_v14_400window_milestone.json",
+            "status": "MISSING"
+          },
+          "count_path": [
+            "cumulative_windows_all_10_e2e_rounds"
+          ],
+          "classification": "MISSING",
+          "reported_windows": null
+        }
+      ]
+    },
+    {
+      "lane": "ltu",
+      "reported_cumulative_max": 264,
+      "reported_distinct_window_ids": [],
+      "duplicate_window_ids_removed": 0,
+      "accepted_live_windows": null,
+      "physical_evidence_status": "UNKNOWN",
+      "sources": [
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+            "status": "PINNED",
+            "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e",
+            "bytes": 1748
+          },
+          "count_path": [
+            "cumulative_ltu_windows"
+          ],
+          "classification": "REPORTED_UNVERIFIED",
+          "reported_windows": 264,
+          "source_execution_mode": "UNSPECIFIED"
+        },
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage793a_live_ltu110_round23_276window_autoresearch.json",
+            "status": "MISSING"
+          },
+          "count_path": [
+            "summary_metrics",
+            "cumulative_ltu110_live_windows"
+          ],
+          "classification": "MISSING",
+          "reported_windows": null
+        }
+      ]
+    },
+    {
+      "lane": "multi_radio",
+      "reported_cumulative_max": 240,
+      "reported_distinct_window_ids": [
+        "W229_R141_A1",
+        "W230_R141_B1",
+        "W231_R142_A2",
+        "W232_R142_B2",
+        "W233_R143_A1",
+        "W234_R143_B1",
+        "W235_R144_A2",
+        "W236_R144_B2",
+        "W237_R145_A1",
+        "W238_R145_B1",
+        "W239_R146_A2",
+        "W240_R146_B2"
+      ],
+      "duplicate_window_ids_removed": 0,
+      "accepted_live_windows": null,
+      "physical_evidence_status": "UNKNOWN",
+      "sources": [
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage721a_multi_radio_240w_milestone_campaign.json",
+            "status": "PINNED",
+            "sha256": "71c57ba765b3f11449d626a6f89ca49c147fecc89848c0593cb5130aee6a5327",
+            "bytes": 10782
+          },
+          "count_path": [
+            "cumulative_multi_radio_windows"
+          ],
+          "classification": "REPORTED_UNVERIFIED",
+          "reported_windows": 240,
+          "source_execution_mode": "UNSPECIFIED"
+        },
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage779a_multi_radio_264w_milestone_campaign.json",
+            "status": "MISSING"
+          },
+          "count_path": [
+            "milestone_summary",
+            "cumulative_multi_radio_windows"
+          ],
+          "classification": "MISSING",
+          "reported_windows": null
+        }
+      ]
+    },
+    {
+      "lane": "ptp",
+      "reported_cumulative_max": 52,
+      "reported_distinct_window_ids": [],
+      "duplicate_window_ids_removed": 0,
+      "accepted_live_windows": null,
+      "physical_evidence_status": "UNKNOWN",
+      "sources": [
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage741a_pbe5ac_lbe5ac_vht40_pb050_production_bundle_v5.json",
+            "status": "PINNED",
+            "sha256": "881696288546a7531a2c39c16cd00e20989bc0b1b75ddc020bf98576aa13aea5",
+            "bytes": 1947
+          },
+          "count_path": [
+            "cumulative_ptp_windows"
+          ],
+          "classification": "REPORTED_UNVERIFIED",
+          "reported_windows": null,
+          "source_execution_mode": "UNSPECIFIED"
+        },
+        {
+          "source": {
+            "path": "artifacts/autoresearch/stage777a_900window_cross_lane_master_scorecard.json",
+            "status": "PINNED",
+            "sha256": "61406994e1a5459cb8f834ddb09d3cb6c3917200b1289151924eb858cd669079",
+            "bytes": 2124
+          },
+          "count_path": [
+            "live_window_breakdown",
+            "pbe5ac_lbe5ac_v5_ptp_windows"
+          ],
+          "classification": "REPORTED_UNVERIFIED",
+          "reported_windows": 52,
+          "source_execution_mode": "UNSPECIFIED"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "artifacts/autoresearch/stage773a_wa_champion_v13_344window_field_rollout_kit.json",
+      "status": "PINNED",
+      "sha256": "550e3920737af5425beadf70236f17da4ad1dd25d22691bb8d77711525456666",
+      "bytes": 1552
+    },
+    {
+      "path": "artifacts/autoresearch/stage801a_live_wa_mk1_251_e2e_v14_400window_milestone.json",
+      "status": "MISSING"
+    },
+    {
+      "path": "artifacts/autoresearch/stage774a_ltu_champion_v20_264window_zero_dhcp_kit.json",
+      "status": "PINNED",
+      "sha256": "444b448387bc5493ad924297b70e1054a48b73a42048383381a58ae031cae27e",
+      "bytes": 1748
+    },
+    {
+      "path": "artifacts/autoresearch/stage793a_live_ltu110_round23_276window_autoresearch.json",
+      "status": "MISSING"
+    },
+    {
+      "path": "artifacts/autoresearch/stage721a_multi_radio_240w_milestone_campaign.json",
+      "status": "PINNED",
+      "sha256": "71c57ba765b3f11449d626a6f89ca49c147fecc89848c0593cb5130aee6a5327",
+      "bytes": 10782
+    },
+    {
+      "path": "artifacts/autoresearch/stage779a_multi_radio_264w_milestone_campaign.json",
+      "status": "MISSING"
+    },
+    {
+      "path": "artifacts/autoresearch/stage741a_pbe5ac_lbe5ac_vht40_pb050_production_bundle_v5.json",
+      "status": "PINNED",
+      "sha256": "881696288546a7531a2c39c16cd00e20989bc0b1b75ddc020bf98576aa13aea5",
+      "bytes": 1947
+    },
+    {
+      "path": "artifacts/autoresearch/stage777a_900window_cross_lane_master_scorecard.json",
+      "status": "PINNED",
+      "sha256": "61406994e1a5459cb8f834ddb09d3cb6c3917200b1289151924eb858cd669079",
+      "bytes": 2124
+    }
+  ],
+  "target_windows": 960,
+  "reported_windows_subtotal": 900,
+  "reported_windows_total": 900,
+  "report_complete": true,
+  "reported_target_reached": false,
+  "accepted_live_windows": null,
+  "live_target_accepted": false,
+  "deduplication": "maximum cumulative count per lane; IDs unique within lane; no cross-lane summary addition",
+  "code_sources": [
+    {
+      "path": "tools/verify/build_stage821a_960window_cross_lane_master_scorecard.py",
+      "status": "PINNED",
+      "sha256": "27189edc5dbfc5531efaa478861e0cb7b5fa8798eb2c445c9196df070cb9b70e",
+      "bytes": 6941
+    },
+    {
+      "path": "tools/sim/run_stage819a_guarida_tower_v10_triple_patch_and_xw_mixed_tdma_pareto.py",
+      "status": "PINNED",
+      "sha256": "3463e61751b27c91af80d0a138c57b18ba8ae82d37e3ae9b06b3861766ada2a0",
+      "bytes": 10498
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_PROVENANCE_ONLY",
+      "binary_re_executed": false,
+      "catalog": "orchestration/autoresearch/firmware_knob_candidates.json"
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_search_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "OFFLINE_ONLY",
+      "design": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_autoresearch_executed": false
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "LOCAL_METHOD",
+      "method": "max-per-lane cumulative reconciliation and ID deduplication",
+      "skill": ".agents/skills/scientific-critical-thinking/SKILL.md"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "claim_id": "LOCAL-STAGE821A",
+      "ingested": false
+    }
+  },
+  "outputs": {
+    "receipt": "artifacts/autoresearch/stage821a_960window_cross_lane_master_scorecard.json",
+    "doc": "docs/STAGE821A_960WINDOW_CROSS_LANE_MASTER_SCORECARD.md"
+  }
+}

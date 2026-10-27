@@ -1,0 +1,51 @@
+{
+  "stage": "558A",
+  "task_id": "T-S558A-LTU-SUPER4096-DPD-EVM-GUARD",
+  "title": "Pillar 4 LTU Super-4096-QAM (12x) Digital Predistortion (DPD) & PA EVM Backoff Guard",
+  "memory_master_claim": {
+    "code": "mm-1204",
+    "id": 155442
+  },
+  "generated_at": "2026-10-27T01:22:13.609256+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "guard_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_super4096_dpd_evm_guard.sh",
+    "sha256": "cf5001d6dd63f1875f1b892808310f2818c9e2de2ff03a028188eabe7f0fa0a6",
+    "size_bytes": 1202,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "super4096_phy_thresholds": {
+    "modulation_order": "4096-QAM (12x, 12 bits/symbol)",
+    "required_tx_evm_db": -38.0,
+    "required_rx_cinr_db": 36.0,
+    "optimal_pa_backoff_db": 4.0,
+    "thermal_derating_threshold_mc": 65000
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "models_4096qam_minus38db_evm": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Models LTU Beetle / AD9361 Super-4096-QAM (12x) PA linear backoff and DPD EVM (-38 dB) envelope",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Prevents self-inflicted TX EVM compression when operators set excessive EIRP on short links attempting 12x",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Identifies the exact +4 dB PA backoff knee that maximizes 4096-QAM constellation fidelity",
+    "pillar_e_memory_master_claim_id": "mm-1204 (id=155442)"
+  }
+}

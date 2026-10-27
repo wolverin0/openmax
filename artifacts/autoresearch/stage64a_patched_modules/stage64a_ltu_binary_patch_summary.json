@@ -1,0 +1,1061 @@
+{
+  "stage": "Stage 64A",
+  "patcher": "tools/ltu/patch_ltu_ame_core_binary.py",
+  "Status": "CONFIRMED",
+  "zero_relocation_corruption_verified": true,
+  "modules_patched": {
+    "afltu_2.4.2_ame_core": {
+      "module": "ame_core.ko",
+      "orig_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\afltu_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_core.ko",
+      "out_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_core_fmx_afltu_2.4.2.ko",
+      "orig_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "patched_sha256": "875fe24dcfabedb2e8f833adc1b06b0a4b851bd5fa7cc224229757e7a0ccc16c",
+      "size_bytes": 3282052,
+      "ldpc_4096qam_thresholds": {
+        "startThrd_4096": {
+          "rodata_offset": "0xd4c0",
+          "file_offset": "0x1a3f54",
+          "before": 97,
+          "after": 90
+        },
+        "stayThrd_4096": {
+          "rodata_offset": "0xd4c4",
+          "file_offset": "0x1a3f58",
+          "before": 90,
+          "after": 82
+        }
+      },
+      "table_ptpPwrRange_unlock": {
+        "data_offset": "0x1ec",
+        "file_offset": "0x1ff694",
+        "entries_patched": 12,
+        "sample_entries": [
+          {
+            "profile": 0,
+            "bandwidth": "60MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x23e",
+            "file_offset": "0x1ff6e6",
+            "before_half_dbm": [
+              10,
+              86
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 0,
+            "bandwidth": "80MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x24c",
+            "file_offset": "0x1ff6f4",
+            "before_half_dbm": [
+              10,
+              85
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 0,
+            "bandwidth": "100MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x25a",
+            "file_offset": "0x1ff702",
+            "before_half_dbm": [
+              10,
+              83
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "60MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2ae",
+            "file_offset": "0x1ff756",
+            "before_half_dbm": [
+              8,
+              84
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "80MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2bc",
+            "file_offset": "0x1ff764",
+            "before_half_dbm": [
+              8,
+              83
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "100MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2ca",
+            "file_offset": "0x1ff772",
+            "before_half_dbm": [
+              8,
+              82
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          }
+        ]
+      },
+      "autoMcsCeiling_no_reset_patch": {
+        "symbol": "ame_bbp_set_autoMcsCeiling",
+        "symbol_text_offset": "0x1919b8",
+        "patched_text_offset": "0x1919cc",
+        "patched_file_offset": "0x191a00",
+        "before_hex": "2000a0e3",
+        "before_asm": "mov r0, #0x20",
+        "after_hex": "000000ea",
+        "after_asm": "b +8 (jumps to +28: mov r0, #0; pop {r3, pc}, bypassing bl ame_bbp_set_Param_mcs)",
+        "rel_text_overlapped": false
+      },
+      "automcsUpDown_rodata_oops_fix": {
+        "symbol": "ame_core_set_automcsUpDown",
+        "symbol_text_offset": "0x72ac",
+        "patches": [
+          {
+            "target_rodata_symbol": "mcsUpThrd_1024",
+            "patched_text_offset": "0x72ec",
+            "patched_file_offset": "0x7320",
+            "before_hex": "002083e5",
+            "before_asm": "str r2, [r3]  ; BUG: writes to .rodata mcsUpThrd_1024 -> Kernel Permission Fault 0x80f",
+            "after_hex": "0000a0e1",
+            "after_asm": "mov r0, r0 (nop)",
+            "rel_text_overlapped": false
+          },
+          {
+            "target_rodata_symbol": "avgWeight",
+            "patched_text_offset": "0x730c",
+            "patched_file_offset": "0x7340",
+            "before_hex": "0020c3e5",
+            "before_asm": "strb r2, [r3] ; BUG: writes to .rodata avgWeight -> Kernel Permission Fault 0x80f",
+            "after_hex": "0000a0e1",
+            "after_asm": "mov r0, r0 (nop)",
+            "rel_text_overlapped": false
+          }
+        ],
+        "rel_text_overlapped": false
+      },
+      "eab_maxBD_default_in_data": 84,
+      "elf_verify_patch": {
+        "orig_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\afltu_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_core.ko",
+        "patched_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_core_fmx_afltu_2.4.2.ko",
+        "orig_size": 3282052,
+        "patched_size": 3282052,
+        "size_preserved": true,
+        "orig_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+        "patched_sha256": "875fe24dcfabedb2e8f833adc1b06b0a4b851bd5fa7cc224229757e7a0ccc16c",
+        "orig_md5": "12ba72a3fb0875439e05be32dcc1d630",
+        "patched_md5": "162972cd507df022be51a5a237b7f387",
+        "diff_span_count": 18,
+        "diff_spans": [
+          {
+            "file_offset_start": 29473,
+            "file_offset_end": 29476,
+            "length": 3,
+            "in_text_section": true,
+            "text_offset_start": 29421,
+            "enclosing_symbol": "ame_core_set_automcsUpDown+65",
+            "orig_bytes_dec": [
+              32,
+              131,
+              229
+            ],
+            "patched_bytes_dec": [
+              0,
+              160,
+              225
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 29505,
+            "file_offset_end": 29508,
+            "length": 3,
+            "in_text_section": true,
+            "text_offset_start": 29453,
+            "enclosing_symbol": "ame_core_set_automcsUpDown+97",
+            "orig_bytes_dec": [
+              32,
+              195,
+              229
+            ],
+            "patched_bytes_dec": [
+              0,
+              160,
+              225
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1645056,
+            "file_offset_end": 1645057,
+            "length": 1,
+            "in_text_section": true,
+            "text_offset_start": 1645004,
+            "enclosing_symbol": "ame_bbp_set_autoMcsCeiling+20",
+            "orig_bytes_dec": [
+              32
+            ],
+            "patched_bytes_dec": [
+              0
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1645058,
+            "file_offset_end": 1645060,
+            "length": 2,
+            "in_text_section": true,
+            "text_offset_start": 1645006,
+            "enclosing_symbol": "ame_bbp_set_autoMcsCeiling+22",
+            "orig_bytes_dec": [
+              160,
+              227
+            ],
+            "patched_bytes_dec": [
+              0,
+              234
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1720148,
+            "file_offset_end": 1720149,
+            "length": 1,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              97
+            ],
+            "patched_bytes_dec": [
+              90
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1720152,
+            "file_offset_end": 1720153,
+            "length": 1,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              90
+            ],
+            "patched_bytes_dec": [
+              82
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094822,
+            "file_offset_end": 2094824,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              86
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094836,
+            "file_offset_end": 2094838,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              85
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094850,
+            "file_offset_end": 2094852,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              83
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094934,
+            "file_offset_end": 2094936,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              84
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094948,
+            "file_offset_end": 2094950,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              83
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2094962,
+            "file_offset_end": 2094964,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              82
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095046,
+            "file_offset_end": 2095048,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              80
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095060,
+            "file_offset_end": 2095062,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              78
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095074,
+            "file_offset_end": 2095076,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              76
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095158,
+            "file_offset_end": 2095160,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              79
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095172,
+            "file_offset_end": 2095174,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              77
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2095186,
+            "file_offset_end": 2095188,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              75
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          }
+        ],
+        "total_overlapped_relocations": 0
+      }
+    },
+    "aflturocket_2.4.2_ame_core": {
+      "module": "ame_core.ko",
+      "orig_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\aflturocket_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_core.ko",
+      "out_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_core_fmx_aflturocket_2.4.2.ko",
+      "orig_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "patched_sha256": "4c41f6a9cdbb89a1d58d7b01317adca1c859315e8810fcab65f2d963c80279dc",
+      "size_bytes": 3318764,
+      "ldpc_4096qam_thresholds": {
+        "startThrd_4096": {
+          "rodata_offset": "0xd5dc",
+          "file_offset": "0x1a91b0",
+          "before": 97,
+          "after": 90
+        },
+        "stayThrd_4096": {
+          "rodata_offset": "0xd5e0",
+          "file_offset": "0x1a91b4",
+          "before": 90,
+          "after": 82
+        }
+      },
+      "table_ptpPwrRange_unlock": {
+        "data_offset": "0x1f8",
+        "file_offset": "0x2056d0",
+        "entries_patched": 12,
+        "sample_entries": [
+          {
+            "profile": 0,
+            "bandwidth": "60MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x24a",
+            "file_offset": "0x205722",
+            "before_half_dbm": [
+              10,
+              86
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 0,
+            "bandwidth": "80MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x258",
+            "file_offset": "0x205730",
+            "before_half_dbm": [
+              10,
+              85
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 0,
+            "bandwidth": "100MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x266",
+            "file_offset": "0x20573e",
+            "before_half_dbm": [
+              10,
+              83
+            ],
+            "after_half_dbm": [
+              20,
+              50
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "60MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2ba",
+            "file_offset": "0x205792",
+            "before_half_dbm": [
+              8,
+              84
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "80MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2c8",
+            "file_offset": "0x2057a0",
+            "before_half_dbm": [
+              8,
+              83
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          },
+          {
+            "profile": 1,
+            "bandwidth": "100MHz",
+            "modulation": "4096QAM(12x)",
+            "data_section_offset": "0x2d6",
+            "file_offset": "0x2057ae",
+            "before_half_dbm": [
+              8,
+              82
+            ],
+            "after_half_dbm": [
+              20,
+              55
+            ]
+          }
+        ]
+      },
+      "autoMcsCeiling_no_reset_patch": {
+        "symbol": "ame_bbp_set_autoMcsCeiling",
+        "symbol_text_offset": "0x196af0",
+        "patched_text_offset": "0x196b04",
+        "patched_file_offset": "0x196b38",
+        "before_hex": "2000a0e3",
+        "before_asm": "mov r0, #0x20",
+        "after_hex": "000000ea",
+        "after_asm": "b +8 (jumps to +28: mov r0, #0; pop {r3, pc}, bypassing bl ame_bbp_set_Param_mcs)",
+        "rel_text_overlapped": false
+      },
+      "automcsUpDown_rodata_oops_fix": {
+        "symbol": "ame_core_set_automcsUpDown",
+        "symbol_text_offset": "0x84d8",
+        "patches": [
+          {
+            "target_rodata_symbol": "mcsUpThrd_1024",
+            "patched_text_offset": "0x8518",
+            "patched_file_offset": "0x854c",
+            "before_hex": "002083e5",
+            "before_asm": "str r2, [r3]  ; BUG: writes to .rodata mcsUpThrd_1024 -> Kernel Permission Fault 0x80f",
+            "after_hex": "0000a0e1",
+            "after_asm": "mov r0, r0 (nop)",
+            "rel_text_overlapped": false
+          },
+          {
+            "target_rodata_symbol": "avgWeight",
+            "patched_text_offset": "0x8538",
+            "patched_file_offset": "0x856c",
+            "before_hex": "0020c3e5",
+            "before_asm": "strb r2, [r3] ; BUG: writes to .rodata avgWeight -> Kernel Permission Fault 0x80f",
+            "after_hex": "0000a0e1",
+            "after_asm": "mov r0, r0 (nop)",
+            "rel_text_overlapped": false
+          }
+        ],
+        "rel_text_overlapped": false
+      },
+      "eab_maxBD_default_in_data": 4289265665,
+      "elf_verify_patch": {
+        "orig_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\aflturocket_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_core.ko",
+        "patched_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_core_fmx_aflturocket_2.4.2.ko",
+        "orig_size": 3318764,
+        "patched_size": 3318764,
+        "size_preserved": true,
+        "orig_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+        "patched_sha256": "4c41f6a9cdbb89a1d58d7b01317adca1c859315e8810fcab65f2d963c80279dc",
+        "orig_md5": "92d1e1e3babacf57f291e7af774892c3",
+        "patched_md5": "5db99e27c4aa0bfdfc5d93df3bad0785",
+        "diff_span_count": 18,
+        "diff_spans": [
+          {
+            "file_offset_start": 34125,
+            "file_offset_end": 34128,
+            "length": 3,
+            "in_text_section": true,
+            "text_offset_start": 34073,
+            "enclosing_symbol": "ame_core_set_automcsUpDown+65",
+            "orig_bytes_dec": [
+              32,
+              131,
+              229
+            ],
+            "patched_bytes_dec": [
+              0,
+              160,
+              225
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 34157,
+            "file_offset_end": 34160,
+            "length": 3,
+            "in_text_section": true,
+            "text_offset_start": 34105,
+            "enclosing_symbol": "ame_core_set_automcsUpDown+97",
+            "orig_bytes_dec": [
+              32,
+              195,
+              229
+            ],
+            "patched_bytes_dec": [
+              0,
+              160,
+              225
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1665848,
+            "file_offset_end": 1665849,
+            "length": 1,
+            "in_text_section": true,
+            "text_offset_start": 1665796,
+            "enclosing_symbol": "ame_bbp_set_autoMcsCeiling+20",
+            "orig_bytes_dec": [
+              32
+            ],
+            "patched_bytes_dec": [
+              0
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1665850,
+            "file_offset_end": 1665852,
+            "length": 2,
+            "in_text_section": true,
+            "text_offset_start": 1665798,
+            "enclosing_symbol": "ame_bbp_set_autoMcsCeiling+22",
+            "orig_bytes_dec": [
+              160,
+              227
+            ],
+            "patched_bytes_dec": [
+              0,
+              234
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1741232,
+            "file_offset_end": 1741233,
+            "length": 1,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              97
+            ],
+            "patched_bytes_dec": [
+              90
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 1741236,
+            "file_offset_end": 1741237,
+            "length": 1,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              90
+            ],
+            "patched_bytes_dec": [
+              82
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119458,
+            "file_offset_end": 2119460,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              86
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119472,
+            "file_offset_end": 2119474,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              85
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119486,
+            "file_offset_end": 2119488,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              83
+            ],
+            "patched_bytes_dec": [
+              20,
+              50
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119570,
+            "file_offset_end": 2119572,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              84
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119584,
+            "file_offset_end": 2119586,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              83
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119598,
+            "file_offset_end": 2119600,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              82
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119682,
+            "file_offset_end": 2119684,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              80
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119696,
+            "file_offset_end": 2119698,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              78
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119710,
+            "file_offset_end": 2119712,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              10,
+              76
+            ],
+            "patched_bytes_dec": [
+              20,
+              55
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119794,
+            "file_offset_end": 2119796,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              79
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119808,
+            "file_offset_end": 2119810,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              77
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          },
+          {
+            "file_offset_start": 2119822,
+            "file_offset_end": 2119824,
+            "length": 2,
+            "in_text_section": false,
+            "text_offset_start": null,
+            "enclosing_symbol": "non-.text",
+            "orig_bytes_dec": [
+              8,
+              75
+            ],
+            "patched_bytes_dec": [
+              20,
+              52
+            ],
+            "overlapped_relocations": []
+          }
+        ],
+        "total_overlapped_relocations": 0
+      }
+    },
+    "afltu_2.4.2_ame_dev": {
+      "module": "ame_dev.ko",
+      "orig_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\afltu_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_dev.ko",
+      "out_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_dev_fmx_afltu_2.4.2.ko",
+      "orig_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "patched_sha256": "37eea1f7ee1b29bcdf59648191cabe729110377898413fb4a930a46c236daec2",
+      "size_bytes": 298760,
+      "frame_len_store_hook_fix": {
+        "symbol": "frame_len_store",
+        "symbol_text_offset": "0x1233c",
+        "patched_text_offset": "0x1236c",
+        "patched_file_offset": "0x123a0",
+        "before_hex": "543092e5",
+        "before_asm": "ldr r3, [r2, #0x54]  ; BUG: calls g_core_hooks->ame_bbp_set_duty_cycle",
+        "after_hex": "5c3092e5",
+        "after_asm": "ldr r3, [r2, #0x5c]  ; FIX: calls g_core_hooks->ame_bbp_set_frame_len",
+        "rel_text_overlapped": false
+      },
+      "elf_verify_patch": {
+        "orig_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\afltu_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_dev.ko",
+        "patched_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_dev_fmx_afltu_2.4.2.ko",
+        "orig_size": 298760,
+        "patched_size": 298760,
+        "size_preserved": true,
+        "orig_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+        "patched_sha256": "37eea1f7ee1b29bcdf59648191cabe729110377898413fb4a930a46c236daec2",
+        "orig_md5": "29041f81e93edce956a4d96b595056b1",
+        "patched_md5": "7e4b4f0c7827a4dcd8dfbe929263c51b",
+        "diff_span_count": 1,
+        "diff_spans": [
+          {
+            "file_offset_start": 74656,
+            "file_offset_end": 74657,
+            "length": 1,
+            "in_text_section": true,
+            "text_offset_start": 74604,
+            "enclosing_symbol": "frame_len_store+48",
+            "orig_bytes_dec": [
+              84
+            ],
+            "patched_bytes_dec": [
+              92
+            ],
+            "overlapped_relocations": []
+          }
+        ],
+        "total_overlapped_relocations": 0
+      }
+    },
+    "aflturocket_2.4.2_ame_dev": {
+      "module": "ame_dev.ko",
+      "orig_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\aflturocket_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_dev.ko",
+      "out_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_dev_fmx_aflturocket_2.4.2.ko",
+      "orig_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "patched_sha256": "37eea1f7ee1b29bcdf59648191cabe729110377898413fb4a930a46c236daec2",
+      "size_bytes": 298760,
+      "frame_len_store_hook_fix": {
+        "symbol": "frame_len_store",
+        "symbol_text_offset": "0x1233c",
+        "patched_text_offset": "0x1236c",
+        "patched_file_offset": "0x123a0",
+        "before_hex": "543092e5",
+        "before_asm": "ldr r3, [r2, #0x54]  ; BUG: calls g_core_hooks->ame_bbp_set_duty_cycle",
+        "after_hex": "5c3092e5",
+        "after_asm": "ldr r3, [r2, #0x5c]  ; FIX: calls g_core_hooks->ame_bbp_set_frame_len",
+        "rel_text_overlapped": false
+      },
+      "elf_verify_patch": {
+        "orig_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\aflturocket_2.4.2\\rootfs_extracted\\lib\\modules\\3.14.65\\ame_dev.ko",
+        "patched_file": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\ame_dev_fmx_aflturocket_2.4.2.ko",
+        "orig_size": 298760,
+        "patched_size": 298760,
+        "size_preserved": true,
+        "orig_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+        "patched_sha256": "37eea1f7ee1b29bcdf59648191cabe729110377898413fb4a930a46c236daec2",
+        "orig_md5": "29041f81e93edce956a4d96b595056b1",
+        "patched_md5": "7e4b4f0c7827a4dcd8dfbe929263c51b",
+        "diff_span_count": 1,
+        "diff_spans": [
+          {
+            "file_offset_start": 74656,
+            "file_offset_end": 74657,
+            "length": 1,
+            "in_text_section": true,
+            "text_offset_start": 74604,
+            "enclosing_symbol": "frame_len_store+48",
+            "orig_bytes_dec": [
+              84
+            ],
+            "patched_bytes_dec": [
+              92
+            ],
+            "overlapped_relocations": []
+          }
+        ],
+        "total_overlapped_relocations": 0
+      }
+    }
+  },
+  "rc_poststart_guard_script_path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\autoresearch\\stage64a_patched_modules\\rc.poststart.ltu_stage64a_guard.sh"
+}

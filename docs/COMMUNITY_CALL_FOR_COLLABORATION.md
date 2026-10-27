@@ -1,3 +1,6 @@
+<!-- doc-head: COMMUNITY_CALL_FOR_COLLABORATION.md preserved document content -->
+<!-- /doc-head -->
+
 # Community Call for Collaboration: The openMAX Open Knowledge Hub
 
 > **"We are doing this without knowing a single thing of kernel programming beyond being an everyday WISP provider with real towers and roofs—teaming up with autonomous AI agents to research, verify, and test every physical limit of this hardware in the open."**

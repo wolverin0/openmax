@@ -1,0 +1,493 @@
+{
+  "stage": "398A",
+  "task_id": "T-S398A-LTU-BLE-GATT-PROVISIONING-RE",
+  "generated_at": "2026-10-27T00:24:03.350302+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "Linux",
+    "hardware"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "ble_and_provisioning_architecture": {
+    "transport_interface": "HCI UART / SPI auxiliary management controller + amecli align mode",
+    "alignment_beep_and_ble_telemetry_cadence_ms": 250,
+    "ame_drv_align_hooks": {
+      "enter_align": "ame_drv.sh align <timeout> -> f_stop -> f_start -> amecli align 1 $1",
+      "exit_align": "ame_drv.sh dealign -> amecli align 0 -> f_stop -> f_start",
+      "warning": "Triggering ame_drv.sh align/dealign restarts the entire RF driver (f_stop + f_start), dropping the PtMP link for ~6 seconds!"
+    },
+    "uart_gpio_irq_isolation": {
+      "serial_console_irq": "IRQ 63 (ttyS0 / UART0 pinned to CPU0 mask=1 in Champion v8 while softirqs run on CPU1)",
+      "gpio_spi_debug_overhead": "dbg_ame_debug_level=5 on spi32766.0 logs verbose SPI messages if not rate-limited"
+    }
+  },
+  "ble_uart_gpio_symbol_count": 2298,
+  "ble_uart_gpio_symbols_sample": [
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "__rt_spin_lock_init",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "local_bh_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "local_bh_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "migrate_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "migrate_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "rt_spin_lock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_ipt.ko",
+      "name": "rt_spin_unlock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "__rt_spin_lock_init",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "local_bh_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "local_bh_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "migrate_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "migrate_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "rt_spin_lock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_mirred.ko",
+      "name": "rt_spin_unlock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "__rt_spin_lock_init",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "local_bh_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "local_bh_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "migrate_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "migrate_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "rt_spin_lock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_police.ko",
+      "name": "rt_spin_unlock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "__rt_spin_lock_init",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "local_bh_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "local_bh_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "migrate_disable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "migrate_enable",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "rt_spin_lock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:act_skbedit.ko",
+      "name": "rt_spin_unlock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_EAB_EnableDMAMonitor",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x128188",
+      "size_bytes": 4
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_EAB_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x127a94",
+      "size_bytes": 1612
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_EAB_MC_Enable",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x122870",
+      "size_bytes": 408
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_GEM_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x138404",
+      "size_bytes": 1544
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_HCAM_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x10f860",
+      "size_bytes": 108
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_HFE_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1233a8",
+      "size_bytes": 352
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_HFE_EnablePTNRule",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x124c14",
+      "size_bytes": 680
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_HFE_EnablePort",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x123508",
+      "size_bytes": 672
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_HSM_enable_disable_Q",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x19568c",
+      "size_bytes": 168
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_L2P_EnableCpyEng",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x126fd4",
+      "size_bytes": 4
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_Modem_DoRFAlign",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x42bc0",
+      "size_bytes": 420
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "AME_TRX_EnableHW",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x13d754",
+      "size_bytes": 4
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "CheckSpecialTunnelBufFilled",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x729e0",
+      "size_bytes": 56
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "Ctrl_IsPiggyBackSupport",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x727d4",
+      "size_bytes": 524
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "HW_lookupMCtable",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x9bdb4",
+      "size_bytes": 80
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "__bbp_util_rf_tx_pattern_disable",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1504c0",
+      "size_bytes": 144
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "__bbp_util_rf_tx_pattern_enable",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x150368",
+      "size_bytes": 344
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "__rt_spin_lock_init",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_raw_spin_lock_irq",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_raw_spin_lock_irqsave",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_raw_spin_trylock",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_raw_spin_unlock_irq",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_raw_spin_unlock_irqrestore",
+      "st_type": "STT_NOTYPE",
+      "offset_hex": "0x0",
+      "size_bytes": 0
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "_spi_duration_us",
+      "st_type": "STT_OBJECT",
+      "offset_hex": "0x2b6940",
+      "size_bytes": 4
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "air_calc_available_queue_frag_count",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x115828",
+      "size_bytes": 212
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_detect_preamble",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x1891e4",
+      "size_bytes": 8
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_enable_power_monitor",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18ebf4",
+      "size_bytes": 1396
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_get_bler",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18b51c",
+      "size_bytes": 12
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_get_bler_cz",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x18b528",
+      "size_bytes": 12
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_get_cable_loss",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x191394",
+      "size_bytes": 20
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_op_L1L2_FIFO_enable",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x187b58",
+      "size_bytes": 92
+    },
+    {
+      "module": "cpe:ame_core.ko",
+      "name": "ame_bbp_op_enable_mrx_util_modules",
+      "st_type": "STT_FUNC",
+      "offset_hex": "0x188a80",
+      "size_bytes": 312
+    }
+  ],
+  "rootfs_config_references_sample": [
+    "adjtimex: _ITM_registerTMCloneTable",
+    "adjtimex: _ITM_deregisterTMCloneTable",
+    "af_cal: _ITM_deregisterTMCloneTable",
+    "af_cal: _ITM_registerTMCloneTable",
+    "af_cal: nl_socket_disable_seq_check",
+    "af_cal: disable",
+    "af_cal: enable",
+    "af_cal: CalData: cableloss(%d) freq(%.2f/%.2f)",
+    "af_cal: Disabled",
+    "af_cal: Enabled",
+    "af_cal: Calibration data not available",
+    "af_cal: No data available",
+    "af_cal: ERROR#Unable to allocate netlink message",
+    "af_cal: ERROR#Unable to write genl header",
+    "af_cal: ERROR#Unable to add attribute: %s",
+    "af_cal: ERROR#Unable to send message: %s",
+    "af_cal: ERROR#Unable to set socket to non-blocking.",
+    "af_cal: ERROR#Unable to modify valid message callback",
+    "af_cal: ERROR#Unable to modify error message callback",
+    "air_fpga: _ITM_deregisterTMCloneTable",
+    "air_fpga: bufferevent_enable",
+    "air_fpga: _ITM_registerTMCloneTable",
+    "air_fpga: nl_socket_disable_seq_check",
+    "air_fpga: [%s:%d]%*s****IMPOSSIBLE!!****",
+    "air_fpga: [%s/%u] %s(%d) ****IMPOSSIBLE!!****",
+    "air_fpga: <%d> [ %ld.%.9ld] [%s/%d] %s(%d): ****IMPOSSIBLE!!****",
+    "air_fpga: <%d> [%s/%d] %s(%d): ****IMPOSSIBLE!!****",
+    "air_fpga: rf_alignment",
+    "air_fpga: enable",
+    "air_fpga: [%s:%d]%*sregister function rf_alignment failed."
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Dissected BLE/UART/GPIO/alignment symbols and /bin/ame_drv.sh f_align/f_dealign state machine",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Identified link-drop hazard in ame_drv.sh f_align (calls f_stop + f_start)",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Strictly offline binary RE with zero live radio disruption",
+    "pillar_d_scientific_pareto_validation": "Quantifies UART/SPI/alignment interrupt isolation in Champion v8",
+    "pillar_e_memory_master_claim_id": "stage398a_ltu_ble_gatt_provisioning_re"
+  }
+}

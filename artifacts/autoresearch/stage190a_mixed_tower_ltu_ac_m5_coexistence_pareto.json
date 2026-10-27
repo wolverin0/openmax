@@ -1,0 +1,143 @@
+{
+  "stage": "190A",
+  "task_id": "T-S190A-MIXED-TOWER-LTU-AC-M5-COEXISTENCE-NSGA3-PARETO",
+  "generated_at": "2026-10-26T23:13:33.240552+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "benchmarks": {
+    "unsynced_5mhz_guard_baseline": {
+      "guard_band_ltu_ac_mhz": 5.0,
+      "guard_band_ac_m5_mhz": 5.0,
+      "gps_sync_enabled": false,
+      "shared_duty_permille": 670,
+      "ltu_12x_goodput_mbps": 390.09,
+      "openmax_ac_8x_goodput_mbps": 177.21,
+      "airmax_m5_goodput_mbps": 44.29,
+      "tower_aggregate_goodput_mbps": 611.59,
+      "tower_p99_latency_ms": 29.156,
+      "cosite_sinr_loss_db": 52.4,
+      "total_spectrum_footprint_mhz": 110.0
+    },
+    "gps_synced_25_20mhz_guard_champion": {
+      "guard_band_ltu_ac_mhz": 25.0,
+      "guard_band_ac_m5_mhz": 20.0,
+      "gps_sync_enabled": true,
+      "shared_duty_permille": 670,
+      "ltu_12x_goodput_mbps": 572.55,
+      "openmax_ac_8x_goodput_mbps": 329.87,
+      "airmax_m5_goodput_mbps": 78.96,
+      "tower_aggregate_goodput_mbps": 981.38,
+      "tower_p99_latency_ms": 5.163,
+      "cosite_sinr_loss_db": 3.132,
+      "total_spectrum_footprint_mhz": 145.0
+    },
+    "tower_aggregate_goodput_gain_pct": 60.46,
+    "p99_latency_reduction_ms": 23.993
+  },
+  "nsga3_pareto_front": {
+    "algorithm": "NSGA-III (das-dennis 4-objective reference directions)",
+    "solutions_count": 8,
+    "top_10_solutions": [
+      {
+        "guard_band_ltu_ac_mhz": 34.8,
+        "guard_band_ac_m5_mhz": 34.6,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 3.89,
+        "openmax_aql_us": 2549.1,
+        "tower_aggregate_goodput_mbps": 978.05,
+        "tower_p99_latency_ms": 3.249,
+        "cosite_sinr_loss_db": 0.0,
+        "total_spectrum_footprint_mhz": 169.5
+      },
+      {
+        "guard_band_ltu_ac_mhz": 20.2,
+        "guard_band_ac_m5_mhz": 29.6,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 3.9,
+        "openmax_aql_us": 2531.4,
+        "tower_aggregate_goodput_mbps": 978.05,
+        "tower_p99_latency_ms": 4.159,
+        "cosite_sinr_loss_db": 2.183,
+        "total_spectrum_footprint_mhz": 149.8
+      },
+      {
+        "guard_band_ltu_ac_mhz": 28.0,
+        "guard_band_ac_m5_mhz": 32.4,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 4.37,
+        "openmax_aql_us": 4438.2,
+        "tower_aggregate_goodput_mbps": 978.05,
+        "tower_p99_latency_ms": 4.375,
+        "cosite_sinr_loss_db": 0.825,
+        "total_spectrum_footprint_mhz": 160.4
+      },
+      {
+        "guard_band_ltu_ac_mhz": 18.6,
+        "guard_band_ac_m5_mhz": 22.1,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 3.9,
+        "openmax_aql_us": 3697.3,
+        "tower_aggregate_goodput_mbps": 978.05,
+        "tower_p99_latency_ms": 5.231,
+        "cosite_sinr_loss_db": 3.59,
+        "total_spectrum_footprint_mhz": 140.7
+      },
+      {
+        "guard_band_ltu_ac_mhz": 19.8,
+        "guard_band_ac_m5_mhz": 5.1,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 4.12,
+        "openmax_aql_us": 2580.3,
+        "tower_aggregate_goodput_mbps": 978.05,
+        "tower_p99_latency_ms": 5.86,
+        "cosite_sinr_loss_db": 6.184,
+        "total_spectrum_footprint_mhz": 124.9
+      },
+      {
+        "guard_band_ltu_ac_mhz": 9.6,
+        "guard_band_ac_m5_mhz": 32.8,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 3.89,
+        "openmax_aql_us": 2505.1,
+        "tower_aggregate_goodput_mbps": 896.54,
+        "tower_p99_latency_ms": 4.543,
+        "cosite_sinr_loss_db": 3.124,
+        "total_spectrum_footprint_mhz": 142.4
+      },
+      {
+        "guard_band_ltu_ac_mhz": 17.2,
+        "guard_band_ac_m5_mhz": 30.1,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 4.14,
+        "openmax_aql_us": 3469.3,
+        "tower_aggregate_goodput_mbps": 896.54,
+        "tower_p99_latency_ms": 4.669,
+        "cosite_sinr_loss_db": 2.477,
+        "total_spectrum_footprint_mhz": 147.3
+      },
+      {
+        "guard_band_ltu_ac_mhz": 7.6,
+        "guard_band_ac_m5_mhz": 7.4,
+        "gps_sync_enabled": true,
+        "ltu_tx_backoff_db": 3.81,
+        "openmax_aql_us": 6559.8,
+        "tower_aggregate_goodput_mbps": 865.23,
+        "tower_p99_latency_ms": 7.983,
+        "cosite_sinr_loss_db": 7.332,
+        "total_spectrum_footprint_mhz": 115.0
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s190a-mixed-tower-ltu-ac-m5-nsga3"
+  }
+}

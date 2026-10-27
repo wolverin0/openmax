@@ -1,0 +1,498 @@
+{
+  "meta": {
+    "stage": "327A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/ubnt_spectral_scan_fft_bin_format_re.py",
+    "tool_sha256": "e28022e29356a8ab57242cd90483f6295cf85002a98aa480bbb99c06fe36617d",
+    "output": "artifacts/autoresearch/stage327a_ubnt_spectral_fft_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": ".symtab classification into fft/noise/shm/radar/channel buckets; addiu $zero,N histogram inside fft- and noise-named functions split into 32/64/128/256/512 bin-count candidates; .rodata sweep for specd/spectral/fft/noise/radar",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "2b8526b0d008258c42bbf196ac1f5af9925f16a27827eaa3a74a179b4faf048a",
+      "defined": 113,
+      "buckets": {
+        "fft": {
+          "count": 38,
+          "symbols": [
+            "ath_process_spectraldata",
+            "ath_process_spectraldata_with_flowcontrol",
+            "dump_adc_report",
+            "dump_search_fft_report",
+            "get_fft_bin_count",
+            "is_spectral_phyerr",
+            "print_spectral_params",
+            "process_search_fft_report",
+            "spectral_attach",
+            "spectral_bcast_msg",
+            "spectral_check_hw_capability",
+            "spectral_clear_stats",
+            "spectral_control",
+            "spectral_create_samp_msg",
+            "spectral_debug_level",
+            "spectral_destroy_netlink",
+            "spectral_detach",
+            "spectral_dump_fft",
+            "spectral_dump_header",
+            "spectral_dump_phyerr_data",
+            "spectral_dump_tlv",
+            "spectral_get_noise_power",
+            "spectral_get_thresholds",
+            "spectral_init_dummy_function_table",
+            "spectral_init_netlink",
+            "spectral_nl_data_ready",
+            "spectral_nl_sock",
+            "spectral_prep_skb",
+            "spectral_process_phyerr",
+            "spectral_register_funcs",
+            "spectral_round",
+            "spectral_scan_enable",
+            "spectral_scan_enable_params",
+            "spectral_send_intf_found_msg",
+            "spectral_send_tlv_to_host",
+            "spectral_set_thresholds",
+            "spectral_unicast_msg",
+            "start_spectral_scan"
+          ]
+        },
+        "noise": {
+          "count": 5,
+          "symbols": [
+            "adjust_rssi_with_nf_dbm",
+            "fix_rssi_inv_only",
+            "get_nfc_ctl_rssi",
+            "get_nfc_ext_rssi",
+            "spectral_get_noise_power"
+          ]
+        },
+        "shm": {
+          "count": 0,
+          "symbols": []
+        },
+        "radar": {
+          "count": 4,
+          "symbols": [
+            "dbg_print_SAMP_msg",
+            "dbg_print_SAMP_param",
+            "print_buf",
+            "print_spectral_params"
+          ]
+        },
+        "channel": {
+          "count": 0,
+          "symbols": []
+        }
+      },
+      "fft_bin_candidates": {
+        "32": 5,
+        "64": 2,
+        "256": 1,
+        "512": 5
+      },
+      "fft_bin_total": 13,
+      "noise_constants": {
+        "1": 4,
+        "3": 3,
+        "5": 2,
+        "24": 2,
+        "22": 2,
+        "150": 2,
+        "16": 2,
+        "84": 2,
+        "1072": 1,
+        "1079": 1,
+        "1084": 1,
+        "1117": 1,
+        "1154": 1,
+        "1178": 1,
+        "100": 1,
+        "1184": 1,
+        "1203": 1,
+        "11": 1,
+        "1284": 1,
+        "1289": 1
+      },
+      "spectral_strings": [
+        "%s NULL pointers (spectral=%d) (sock=%d) ",
+        "%s: sc_spectral is NULL",
+        "%s[%d]: noise pwr done - reports_recv=%d",
+        "%s[%d]: noise pwr done but only %d/%d reports_recv",
+        "%s[%d]: spectral already active - cancel",
+        "<6>SPECTRAL module built on %s %s",
+        "HAL_CAP_RADAR   : Capable",
+        "HAL_CAP_SPECTRAL_SCAN : Capable",
+        "Need to fix the capablity check for RADAR",
+        "Need to fix the capablity check for SPECTRAL",
+        "SPECTRAL : %s (%s : %d)",
+        "SPECTRAL : %s : %d Not yet implemented",
+        "SPECTRAL : %s not registered",
+        "SPECTRAL : ADC REPORT",
+        "SPECTRAL : Extension channel scan is not supported",
+        "SPECTRAL : FFT Length is 0x%x (%d)",
+        "SPECTRAL : HEADER A 0x%x (%d)",
+        "SPECTRAL : HEADER B 0x%x (%d)",
+        "SPECTRAL : INVALID TLV",
+        "SPECTRAL : Memory allocation failed",
+        "SPECTRAL : Module dosen't exist",
+        "SPECTRAL : Module removed (spectral = %p)",
+        "SPECTRAL : No ADVANCED SPECTRAL SUPPORT",
+        "SPECTRAL : No PHYDIAG support",
+        "SPECTRAL : No RADAR support",
+        "SPECTRAL : No SPECTRAL SUPPORT",
+        "SPECTRAL : SEARCH FFT REPORT",
+        "SPECTRAL : SPECTRAL SUMMARY REPORT",
+        "SPECTRAL : Spectral is NULL",
+        "SPECTRAL : Spectral is NUll  (%s)",
+        "SPECTRAL : TLV Length is 0x%x (%d)",
+        "SPECTRAL : Unexpected TLV length %d for Spectral Summary Report! Hexdump follows",
+        "SPECTRAL : module already attached",
+        "SPECTRAL : radar threshold    : %d",
+        "SPECTRAL : ss_auto_frames     : %d",
+        "SPECTRAL : ss_auto_scan       : %d",
+        "SPECTRAL : ss_bin_scale       : %d",
+        "SPECTRAL : ss_chn_mask        : %d",
+        "SPECTRAL : ss_count           : %d",
+        "SPECTRAL : ss_dBm_adj         : %d"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ath_spectral.ko",
+      "status": "ok",
+      "bytes": 37656,
+      "sha256": "1503933e0a7491fcda216d03c1287ec754077c60f3f1ee0211311307e3cdacd9",
+      "defined": 113,
+      "buckets": {
+        "fft": {
+          "count": 38,
+          "symbols": [
+            "ath_process_spectraldata",
+            "ath_process_spectraldata_with_flowcontrol",
+            "dump_adc_report",
+            "dump_search_fft_report",
+            "get_fft_bin_count",
+            "is_spectral_phyerr",
+            "print_spectral_params",
+            "process_search_fft_report",
+            "spectral_attach",
+            "spectral_bcast_msg",
+            "spectral_check_hw_capability",
+            "spectral_clear_stats",
+            "spectral_control",
+            "spectral_create_samp_msg",
+            "spectral_debug_level",
+            "spectral_destroy_netlink",
+            "spectral_detach",
+            "spectral_dump_fft",
+            "spectral_dump_header",
+            "spectral_dump_phyerr_data",
+            "spectral_dump_tlv",
+            "spectral_get_noise_power",
+            "spectral_get_thresholds",
+            "spectral_init_dummy_function_table",
+            "spectral_init_netlink",
+            "spectral_nl_data_ready",
+            "spectral_nl_sock",
+            "spectral_prep_skb",
+            "spectral_process_phyerr",
+            "spectral_register_funcs",
+            "spectral_round",
+            "spectral_scan_enable",
+            "spectral_scan_enable_params",
+            "spectral_send_intf_found_msg",
+            "spectral_send_tlv_to_host",
+            "spectral_set_thresholds",
+            "spectral_unicast_msg",
+            "start_spectral_scan"
+          ]
+        },
+        "noise": {
+          "count": 5,
+          "symbols": [
+            "adjust_rssi_with_nf_dbm",
+            "fix_rssi_inv_only",
+            "get_nfc_ctl_rssi",
+            "get_nfc_ext_rssi",
+            "spectral_get_noise_power"
+          ]
+        },
+        "shm": {
+          "count": 0,
+          "symbols": []
+        },
+        "radar": {
+          "count": 4,
+          "symbols": [
+            "dbg_print_SAMP_msg",
+            "dbg_print_SAMP_param",
+            "print_buf",
+            "print_spectral_params"
+          ]
+        },
+        "channel": {
+          "count": 0,
+          "symbols": []
+        }
+      },
+      "fft_bin_candidates": {
+        "32": 5,
+        "64": 2,
+        "256": 1,
+        "512": 5
+      },
+      "fft_bin_total": 13,
+      "noise_constants": {
+        "1": 4,
+        "3": 3,
+        "5": 2,
+        "24": 2,
+        "22": 2,
+        "150": 2,
+        "16": 2,
+        "84": 2,
+        "1072": 1,
+        "1079": 1,
+        "1084": 1,
+        "1117": 1,
+        "1154": 1,
+        "1178": 1,
+        "100": 1,
+        "1184": 1,
+        "1203": 1,
+        "11": 1,
+        "1284": 1,
+        "1289": 1
+      },
+      "spectral_strings": [
+        "%s NULL pointers (spectral=%d) (sock=%d) ",
+        "%s: sc_spectral is NULL",
+        "%s[%d]: noise pwr done - reports_recv=%d",
+        "%s[%d]: noise pwr done but only %d/%d reports_recv",
+        "%s[%d]: spectral already active - cancel",
+        "<6>SPECTRAL module built on %s %s",
+        "HAL_CAP_RADAR   : Capable",
+        "HAL_CAP_SPECTRAL_SCAN : Capable",
+        "Need to fix the capablity check for RADAR",
+        "Need to fix the capablity check for SPECTRAL",
+        "SPECTRAL : %s (%s : %d)",
+        "SPECTRAL : %s : %d Not yet implemented",
+        "SPECTRAL : %s not registered",
+        "SPECTRAL : ADC REPORT",
+        "SPECTRAL : Extension channel scan is not supported",
+        "SPECTRAL : FFT Length is 0x%x (%d)",
+        "SPECTRAL : HEADER A 0x%x (%d)",
+        "SPECTRAL : HEADER B 0x%x (%d)",
+        "SPECTRAL : INVALID TLV",
+        "SPECTRAL : Memory allocation failed",
+        "SPECTRAL : Module dosen't exist",
+        "SPECTRAL : Module removed (spectral = %p)",
+        "SPECTRAL : No ADVANCED SPECTRAL SUPPORT",
+        "SPECTRAL : No PHYDIAG support",
+        "SPECTRAL : No RADAR support",
+        "SPECTRAL : No SPECTRAL SUPPORT",
+        "SPECTRAL : SEARCH FFT REPORT",
+        "SPECTRAL : SPECTRAL SUMMARY REPORT",
+        "SPECTRAL : Spectral is NULL",
+        "SPECTRAL : Spectral is NUll  (%s)",
+        "SPECTRAL : TLV Length is 0x%x (%d)",
+        "SPECTRAL : Unexpected TLV length %d for Spectral Summary Report! Hexdump follows",
+        "SPECTRAL : module already attached",
+        "SPECTRAL : radar threshold    : %d",
+        "SPECTRAL : ss_auto_frames     : %d",
+        "SPECTRAL : ss_auto_scan       : %d",
+        "SPECTRAL : ss_bin_scale       : %d",
+        "SPECTRAL : ss_chn_mask        : %d",
+        "SPECTRAL : ss_count           : %d",
+        "SPECTRAL : ss_dBm_adj         : %d"
+      ]
+    },
+    {
+      "module": "WA.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined": 445,
+      "buckets": {
+        "fft": {
+          "count": 9,
+          "symbols": [
+            "ath_dev_start_spectral_scan",
+            "ath_dev_stop_spectral_scan",
+            "ath_init_spectral_ops",
+            "ath_spectral_control",
+            "ath_spectral_filter_init",
+            "ath_spectral_filter_start",
+            "ath_spectral_filter_stop",
+            "ath_spectral_filter_uninit",
+            "ath_spectral_indicate"
+          ]
+        },
+        "noise": {
+          "count": 6,
+          "symbols": [
+            "ath_brssi_tasklet",
+            "ath_get_noderssi",
+            "ath_hw_beacon_rssi",
+            "ath_hw_beacon_rssi_reset",
+            "ath_hw_beacon_rssi_threshold_disable",
+            "ath_hw_beacon_rssi_threshold_enable"
+          ]
+        },
+        "shm": {
+          "count": 0,
+          "symbols": []
+        },
+        "radar": {
+          "count": 4,
+          "symbols": [
+            "ath_dprintf",
+            "ath_print_tbf_usage",
+            "ath_rc_rate_maprix",
+            "ath_txq_burst_update"
+          ]
+        },
+        "channel": {
+          "count": 4,
+          "symbols": [
+            "ath_chan_change",
+            "ath_hw_phystate_change",
+            "ath_pcie_pwrsave_enable_on_phystate_change",
+            "ath_set_channel"
+          ]
+        }
+      },
+      "fft_bin_candidates": {
+        "32": 1,
+        "64": 1
+      },
+      "fft_bin_total": 2,
+      "noise_constants": {
+        "35": 3,
+        "1": 3,
+        "295": 1,
+        "5": 1
+      },
+      "spectral_strings": [
+        "%d.%03d | %s: channel %u/%x noise_floor=%d",
+        "%s SPECTRAL attach failed, HW may not be spectral capable",
+        "%s: rs_phyer=0x%x not a radar error",
+        "%s: spectral_scan__enable failed, HW may not be spectral capable ",
+        "<3>IRQ free for SPECTRAL-XMIT-FILTER successful",
+        "<3>IRQ request for SPECTRAL-XMIT-FILTER successful",
+        "<3>unable to request IRQ for SPECTRAL-XMIT-FILTER GPIO",
+        "GetNoiseImmLvl",
+        "NoiseImmLvl",
+        "SPECTRAL : module attached",
+        "ath-spectral-filter",
+        "ath_attach_spectral",
+        "ath_dev_stop_spectral_scan"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined": 445,
+      "buckets": {
+        "fft": {
+          "count": 9,
+          "symbols": [
+            "ath_dev_start_spectral_scan",
+            "ath_dev_stop_spectral_scan",
+            "ath_init_spectral_ops",
+            "ath_spectral_control",
+            "ath_spectral_filter_init",
+            "ath_spectral_filter_start",
+            "ath_spectral_filter_stop",
+            "ath_spectral_filter_uninit",
+            "ath_spectral_indicate"
+          ]
+        },
+        "noise": {
+          "count": 6,
+          "symbols": [
+            "ath_brssi_tasklet",
+            "ath_get_noderssi",
+            "ath_hw_beacon_rssi",
+            "ath_hw_beacon_rssi_reset",
+            "ath_hw_beacon_rssi_threshold_disable",
+            "ath_hw_beacon_rssi_threshold_enable"
+          ]
+        },
+        "shm": {
+          "count": 0,
+          "symbols": []
+        },
+        "radar": {
+          "count": 4,
+          "symbols": [
+            "ath_dprintf",
+            "ath_print_tbf_usage",
+            "ath_rc_rate_maprix",
+            "ath_txq_burst_update"
+          ]
+        },
+        "channel": {
+          "count": 4,
+          "symbols": [
+            "ath_chan_change",
+            "ath_hw_phystate_change",
+            "ath_pcie_pwrsave_enable_on_phystate_change",
+            "ath_set_channel"
+          ]
+        }
+      },
+      "fft_bin_candidates": {
+        "32": 1,
+        "64": 4
+      },
+      "fft_bin_total": 5,
+      "noise_constants": {
+        "35": 3,
+        "1": 3,
+        "295": 1,
+        "5": 1
+      },
+      "spectral_strings": [
+        "%d.%03d | %s: channel %u/%x noise_floor=%d",
+        "%s SPECTRAL attach failed, HW may not be spectral capable",
+        "%s: rs_phyer=0x%x not a radar error",
+        "%s: spectral_scan__enable failed, HW may not be spectral capable ",
+        "<3>IRQ free for SPECTRAL-XMIT-FILTER successful",
+        "<3>IRQ request for SPECTRAL-XMIT-FILTER successful",
+        "<3>unable to request IRQ for SPECTRAL-XMIT-FILTER GPIO",
+        "GetNoiseImmLvl",
+        "NoiseImmLvl",
+        "SPECTRAL : module attached",
+        "ath-spectral-filter",
+        "ath_attach_spectral",
+        "ath_dev_stop_spectral_scan"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 4,
+    "spectral_modules": 2,
+    "fft_symbols": 38,
+    "noise_symbols": 5,
+    "shm_symbols": 0,
+    "radar_symbols": 4,
+    "channel_symbols": 0,
+    "bin_candidate_values": 4,
+    "bin_candidate_sites": 13,
+    "spectral_strings": 40
+  },
+  "gaps": [
+    "a 64/128/256 immediate inside an FFT-named function is a candidate bin count, not the bin width or the descriptor layout",
+    "no FFT bin format was decoded: neither the dB encoding nor the byte stride",
+    "no ubntspecd shared-memory struct was laid out; only symbol and string presence is reported",
+    "noise-floor calibration constants are a histogram, not a calibration table",
+    "no dynamic validation"
+  ]
+}

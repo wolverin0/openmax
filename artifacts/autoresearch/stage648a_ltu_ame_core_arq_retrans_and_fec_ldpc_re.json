@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "stage": "648A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage648a_ltu_ame_core_arq_retrans_and_fec_ldpc_re.py",
+    "tool_sha256": "bf6482fcb6a7a4571d7e7193031bedea138daeece613969904ae15f8ac2d578c",
+    "output": "artifacts/autoresearch/stage648a_ltu_ame_core_arq_retrans_and_fec_ldpc_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the ARQ/HARQ, BLER, LDPC and retry vocabularies; defined-symbol lookup for the bler and ldpc families; retry-descriptor log extraction; sysfs pair detection",
+    "premise_corrections": [
+      "arq, harq, retrans and nack all return 0: no retransmission state machine is named in these modules",
+      "the retransmission evidence that does exist is BLER telemetry plus a queue retry descriptor, not an ARQ object"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "arq": 0,
+        "ARQ": 0,
+        "harq": 0,
+        "HARQ": 0,
+        "retrans": 0,
+        "RETRANS": 0,
+        "nack": 0,
+        "NACK": 0,
+        "bler": 25,
+        "BLER": 5,
+        "ldpc": 10,
+        "LDPC": 8,
+        "fec": 0,
+        "FEC": 0,
+        "retry": 2
+      },
+      "assumed": {
+        "arq": 0,
+        "harq": 0,
+        "retrans": 0,
+        "nack": 0,
+        "retransmission": 0
+      },
+      "bler": {
+        "ame_bbp_get_bler": 2,
+        "ame_bbp_set_bler_clear": 1,
+        "cpeRxBler": 1,
+        "cpeTxBler": 1,
+        "autoMCS_get_each_bler": 1,
+        "check_cbler_decode": 2
+      },
+      "ldpc": {
+        "ldpcIteration": 4,
+        "ame_check_hw_NoLDPC": 1,
+        "No ldpc supported": 6
+      },
+      "sysfs": {
+        "bler": {
+          "show": 0,
+          "store": 0
+        },
+        "c_bler": {
+          "show": 0,
+          "store": 0
+        },
+        "each_bler": {
+          "show": 0,
+          "store": 0
+        },
+        "ldpc_iteration": {
+          "show": 0,
+          "store": 0
+        }
+      },
+      "retry_line": 2,
+      "bler_symbols": [
+        "ame_bbp_get_bler",
+        "ame_bbp_get_bler_cz",
+        "ame_bbp_set_bler_clear",
+        "autoMCS_get_each_bler",
+        "autoMCS_reset_each_bler",
+        "bbp_show_bler",
+        "bbp_show_bler_cz",
+        "check_cbler_decode",
+        "cpeRxBler",
+        "cpeTxBler",
+        "emacDisableRx",
+        "emacEnableRx",
+        "fty_bbp_log_bler",
+        "fty_bbp_log_bler_cz"
+      ],
+      "ldpc_symbols": [
+        "ame_bbp_op_get_rxTopB_ldpcIteration",
+        "ame_bbp_op_set_rxTopB_ldpcIteration",
+        "ame_check_hw_NoLDPC",
+        "bbp_mrx_util_get_rxTopB_ldpcIteration",
+        "bbp_mrx_util_set_rxTopB_ldpcIteration"
+      ],
+      "retry_contexts": [
+        " 0x%08x (len=%u)....%d[ %ld.%.9ld] [%s/%d] %s(%d): Q[%d] tail=%d, reIdx=%d, retry=%d....%d[%s/%d] %s(%d): Q[%d] tail=%d, reIdx=%d, retry=",
+        "] tail=%d, reIdx=%d, retry=%d....%d[%s/%d] %s(%d): Q[%d] tail=%d, reIdx=%d, retry=%d.....%d[ %ld.%.9ld] [%s/%d] %s(%d): L2 Status0 = 0x%0"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "arq": 0,
+        "ARQ": 0,
+        "harq": 0,
+        "HARQ": 0,
+        "retrans": 0,
+        "RETRANS": 0,
+        "nack": 0,
+        "NACK": 0,
+        "bler": 9,
+        "BLER": 3,
+        "ldpc": 3,
+        "LDPC": 1,
+        "fec": 1,
+        "FEC": 0,
+        "retry": 0
+      },
+      "assumed": {
+        "arq": 0,
+        "harq": 0,
+        "retrans": 0,
+        "nack": 0,
+        "retransmission": 0
+      },
+      "bler": {
+        "ame_bbp_get_bler": 0,
+        "ame_bbp_set_bler_clear": 0,
+        "cpeRxBler": 0,
+        "cpeTxBler": 0,
+        "autoMCS_get_each_bler": 0,
+        "check_cbler_decode": 0
+      },
+      "ldpc": {
+        "ldpcIteration": 0,
+        "ame_check_hw_NoLDPC": 0,
+        "No ldpc supported": 0
+      },
+      "sysfs": {
+        "bler": {
+          "show": 3,
+          "store": 3
+        },
+        "c_bler": {
+          "show": 1,
+          "store": 1
+        },
+        "each_bler": {
+          "show": 1,
+          "store": 1
+        },
+        "ldpc_iteration": {
+          "show": 1,
+          "store": 1
+        }
+      },
+      "retry_line": 0,
+      "bler_symbols": [
+        "bler_show",
+        "bler_store",
+        "c_bler_show",
+        "c_bler_store",
+        "each_bler_show",
+        "each_bler_store"
+      ],
+      "ldpc_symbols": [
+        "ldpc_iteration_show",
+        "ldpc_iteration_store"
+      ],
+      "retry_contexts": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "assumed_token_hits": 0,
+    "arq_harq_absent": 1,
+    "bler_token_hits": 42,
+    "bler_symbol_count": 20,
+    "bler_symbols": [
+      "ame_bbp_get_bler",
+      "ame_bbp_get_bler_cz",
+      "ame_bbp_set_bler_clear",
+      "autoMCS_get_each_bler",
+      "autoMCS_reset_each_bler",
+      "bbp_show_bler",
+      "bbp_show_bler_cz",
+      "bler_show",
+      "bler_store",
+      "c_bler_show"
+    ],
+    "cpe_rx_tx_bler_pair": 1,
+    "each_bler_present": 1,
+    "coded_bler_present": 1,
+    "ldpc_token_hits": 22,
+    "ldpc_symbol_count": 7,
+    "ldpc_iteration_controls": 4,
+    "ldpc_capability_check": 1,
+    "no_ldpc_message": 6,
+    "ldpc_iteration_tunable": 1,
+    "retry_descriptor_lines": 2,
+    "retry_descriptor_present": 1,
+    "sysfs_pairs": [
+      "bler",
+      "c_bler",
+      "each_bler",
+      "ldpc_iteration"
+    ],
+    "sysfs_pair_count": 4,
+    "arq_state_machine_recovered": 0,
+    "harq_combining_recovered": 0,
+    "fec_block_table_recovered": 0
+  },
+  "gaps": [
+    "arq, harq, retrans and nack do not exist as identifiers: the retransmission state machine is not a named object in these modules",
+    "BLER is the retransmission evidence that exists, and it is per-CPE (cpeRxBler / cpeTxBler) with a coded variant (check_cbler_decode) and a per-MCS variant (autoMCS_get_each_bler)",
+    "the LDPC iteration count is settable but the mapping from iterations to correction strength was not recovered",
+    "the retry descriptor is a queue-level triple (tail, reIdx, retry), not a per-packet structure",
+    "no HARQ soft-combining buffer or redundancy-version field was found",
+    "no dynamic validation"
+  ]
+}

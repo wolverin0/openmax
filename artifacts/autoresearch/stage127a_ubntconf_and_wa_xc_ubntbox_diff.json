@@ -1,0 +1,280 @@
+{
+  "meta": {
+    "stage": "127A",
+    "phase": "127A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/audit_stage127a_ubntconf_and_wa_xc_ubntbox_diff.py",
+    "tool_sha256": "0fbb88d054dae4d5dd4c2872f3d4dc2b2bf92bdaae79afea62efd6b48db1a0e5",
+    "output": "artifacts/autoresearch/stage127a_ubntconf_and_wa_xc_ubntbox_diff.json",
+    "scope": "offline static analysis; zero network traffic; zero radio contact; no mtd access; .241/.242 never contacted",
+    "method": "non-PIC PLT resolution for imports; backward lui/addiu slice for path templates; pointer-array walk from .rodata; byte-level diff",
+    "version_correction": [
+      "WA.v8.7.11 and XC.v8.7.11 rootfs trees do not exist in this repository",
+      "8.7.11 material present: fwupdate.real.wa8711 and 2xc_8711_modules/*.ko, with no ubntbox binary",
+      "audited images are WA.v8.7.25 and XC.v8.7.25"
+    ],
+    "premise_correction": "the task states WA == XC for ubntbox and asks why; the binaries differ in 7.18% of their bytes. It is athbox that is byte-identical across the two images.",
+    "radio_safety": "static only; no socket opened, no device touched"
+  },
+  "ubntconf": {
+    "fn": "0x0040cf24",
+    "extent": "0x0040d16c",
+    "size": 584,
+    "path_sinks": [
+      {
+        "site": "0x0040d018",
+        "import_": "stat"
+      },
+      {
+        "site": "0x0040d09c",
+        "import_": "unlink"
+      },
+      {
+        "site": "0x0040d0ec",
+        "import_": "stat"
+      }
+    ],
+    "path_sink_count": 3,
+    "templates": {
+      "0x004b64e8": "/etc/startup.list",
+      "0x004b64fc": "/etc/sysinit",
+      "0x004b650c": "/tmp/diff.sh",
+      "0x004b651c": "/etc/default.cfg",
+      "0x004b684c": "/usr/lib/cs",
+      "0x004b6858": "/etc/%s",
+      "0x004b6860": "/etc/persistent/rc.%s",
+      "0x004b6ce0": "presysinit"
+    },
+    "name_array": {
+      "start": "0x004b6ce0",
+      "end": "0x004b6dc0",
+      "entries": [
+        "presysinit",
+        "postsysinit",
+        "prestart",
+        "poststart",
+        "prestop",
+        "poststop"
+      ],
+      "count": 6
+    },
+    "syscfg_strings_in_binary": 24,
+    "syscfg_strings_in_ubntconf": 0,
+    "verdict": {
+      "path_provenance": ".rodata string table + fixed templates",
+      "user_controlled": "NO",
+      "basis": "the %s slot is filled from a stack array of pointers seeded from 0x4b6ce0, whose targets are the literal hook names presysinit / postsysinit / prestart / poststart / prestop / poststop; no /tmp/system.cfg key is read on this path",
+      "label": "REFUTED as a user-controlled path traversal",
+      "residual": "the templates interpolate a name, so a compromise of the .rodata table itself or of the pointer array would matter; neither is writable from userland on this evidence"
+    }
+  },
+  "binary_diff": {
+    "ubntbox": {
+      "identical": false,
+      "size": 899180,
+      "differing_bytes": 64575,
+      "differing_pct": 7.1815,
+      "first_diff": "0x0000ee6",
+      "last_diff": "0x00db65b",
+      "cluster_count": 411,
+      "clusters": [
+        {
+          "offset": "0x0000ee6",
+          "va": "0x00400ee6",
+          "end_offset": "0x0000ee7",
+          "length": 2,
+          "preview": ".@"
+        },
+        {
+          "offset": "0x0000f03",
+          "va": "0x00400f03",
+          "end_offset": "0x0000f43",
+          "length": 65,
+          "preview": "..J...............................N............................."
+        },
+        {
+          "offset": "0x0000f63",
+          "va": "0x00400f63",
+          "end_offset": "0x0000f67",
+          "length": 5,
+          "preview": "..J.."
+        },
+        {
+          "offset": "0x0000f92",
+          "va": "0x00400f92",
+          "end_offset": "0x0000fa3",
+          "length": 18,
+          "preview": "...A.0...H........"
+        },
+        {
+          "offset": "0x0000fc2",
+          "va": "0x00400fc2",
+          "end_offset": "0x0000fd3",
+          "length": 18,
+          "preview": ".................8"
+        },
+        {
+          "offset": "0x0000ff3",
+          "va": "0x00400ff3",
+          "end_offset": "0x0000ff3",
+          "length": 1,
+          "preview": "."
+        },
+        {
+          "offset": "0x0001013",
+          "va": "0x00401013",
+          "end_offset": "0x0001013",
+          "length": 1,
+          "preview": "p"
+        },
+        {
+          "offset": "0x0001033",
+          "va": "0x00401033",
+          "end_offset": "0x0001037",
+          "length": 5,
+          "preview": "..J.."
+        },
+        {
+          "offset": "0x0001053",
+          "va": "0x00401053",
+          "end_offset": "0x0001053",
+          "length": 1,
+          "preview": "."
+        },
+        {
+          "offset": "0x0001072",
+          "va": "0x00401072",
+          "end_offset": "0x0001073",
+          "length": 2,
+          "preview": ".."
+        },
+        {
+          "offset": "0x00010a6",
+          "va": "0x004010a6",
+          "end_offset": "0x00010a7",
+          "length": 2,
+          "preview": ".."
+        },
+        {
+          "offset": "0x00010c3",
+          "va": "0x004010c3",
+          "end_offset": "0x00010d3",
+          "length": 17,
+          "preview": "f.E.............&"
+        },
+        {
+          "offset": "0x00010f6",
+          "va": "0x004010f6",
+          "end_offset": "0x00010f7",
+          "length": 2,
+          "preview": ".."
+        },
+        {
+          "offset": "0x0001122",
+          "va": "0x00401122",
+          "end_offset": "0x0001143",
+          "length": 34,
+          "preview": ".P.E.....D.......;.J.4...L.......8"
+        },
+        {
+          "offset": "0x0001172",
+          "va": "0x00401172",
+          "end_offset": "0x0001173",
+          "length": 2,
+          "preview": ".."
+        },
+        {
+          "offset": "0x0001192",
+          "va": "0x00401192",
+          "end_offset": "0x00011a3",
+          "length": 18,
+          "preview": ".................."
+        },
+        {
+          "offset": "0x00011c2",
+          "va": "0x004011c2",
+          "end_offset": "0x00011c3",
+          "length": 2,
+          "preview": ".K"
+        },
+        {
+          "offset": "0x00011f2",
+          "va": "0x004011f2",
+          "end_offset": "0x0001203",
+          "length": 18,
+          "preview": ".................Y"
+        },
+        {
+          "offset": "0x0001216",
+          "va": "0x00401216",
+          "end_offset": "0x0001217",
+          "length": 2,
+          "preview": ".L"
+        },
+        {
+          "offset": "0x0001242",
+          "va": "0x00401242",
+          "end_offset": "0x0001243",
+          "length": 2,
+          "preview": ".*"
+        }
+      ],
+      "wa_sha256": "77bfc4fa149c6cf646c6f07f5874a74ad29c9d54d90be4acd11d4386fc90def9",
+      "xc_sha256": "f090ff02d198f2f5556fd43a41bf57406f07ac6940a42589c735f4edd4e157a4",
+      "wa_bytes": 899180,
+      "xc_bytes": 899180
+    },
+    "athbox": {
+      "identical": true,
+      "differing_bytes": 0,
+      "clusters": [],
+      "wa_sha256": "c1d37671cafe6c7651f03000fd7dae7755ed8717bde07df1aeffba3aaa9a99e0",
+      "xc_sha256": "c1d37671cafe6c7651f03000fd7dae7755ed8717bde07df1aeffba3aaa9a99e0",
+      "wa_bytes": 202920,
+      "xc_bytes": 202920
+    }
+  },
+  "summary": {
+    "ubntconf_path_sinks": 3,
+    "ubntconf_templates": 8,
+    "ubntconf_name_entries": 6,
+    "ubntconf_reads_system_cfg": 0,
+    "ubntbox_identical": false,
+    "ubntbox_differing_bytes": 64575,
+    "ubntbox_differing_pct": 7.1815,
+    "ubntbox_clusters": 411,
+    "athbox_identical": true
+  },
+  "gaps": [
+    "the pointer array is filled by a branch-guarded loop; the guard condition was read but not symbolically evaluated, so the exact iteration count is INFERRED",
+    "ubntconf's callees are included only through the import calls listed here; deeper local helpers were not re-walked for this stage",
+    "the byte diff localises changes but does not attribute them to a source change",
+    "no dynamic validation: nothing was executed"
+  ],
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "VERIFIED",
+    "binary_targets": [
+      "ubntbox (WA.v8.7.25 vs XC.v8.7.25)",
+      "athbox (WA.v8.7.25 vs XC.v8.7.25)"
+    ],
+    "knob_catalog_count": 571
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "VERIFIED",
+    "scholar_claims_verified": [
+      "FMX-DISC-32-UBNTCONF-CLOSED-10-PLUGIN-TABLE-NO-SYSCFG-INJECTION"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "VERIFIED",
+    "counterbalanced_protocol": "A1->B1->A2->B2",
+    "watchdog_non_dfs_s": 45,
+    "watchdog_dfs_s": 120
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "VERIFIED",
+    "statistical_rigor": "Deterministic MIPS32 non-PIC PLT and .rodata pointer table static disassembly"
+  },
+  "pillar_e_memory_master_claim_id": "MM-STAGE127A-UBNTCONF-WA-XC-DIFF"
+}

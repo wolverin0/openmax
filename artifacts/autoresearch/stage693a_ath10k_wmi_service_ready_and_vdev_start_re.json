@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "stage": "693A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage693a_ath10k_wmi_service_ready_and_vdev_start_re.py",
+    "tool_sha256": "50c124f9af1e33ef8da1fd78dced3404310b343d0a35ba191ef6404141e8dc15",
+    "output": "artifacts/autoresearch/stage693a_ath10k_wmi_service_ready_and_vdev_start_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "WMI name-table extraction for the three identifiers and their neighbours; host-side send/receive symbol lookup; phymode enumeration extraction from the ioctl name strings",
+    "premise_corrections": [
+      "ath10k_core.ko is absent, so the ath10k side of the WMI sequence cannot be read; the vendor umac.ko carries all three identifiers",
+      "the phymode enum has a directional 40 MHz pair (11ACVHT40PLUS and 11ACVHT40MINUS), not a single VHT40 value"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules": 0,
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "wmi": {
+        "WMI_SERVICE_READY_EVENTID": 1,
+        "WMI_VDEV_START_REQUEST_CMDID": 1,
+        "WMI_VDEV_UP_CMDID": 1,
+        "WMI_VDEV_RESTART_REQUEST_CMDID": 1,
+        "WMI_VDEV_START_RESP_EVENTID": 1,
+        "WMI_VDEV_STOPPED_EVENTID": 1,
+        "WMI_VDEV_CREATE_CMDID": 1
+      },
+      "path_syms": {
+        "ol_ath_service_ready_event": 2,
+        "wmi_service_ready_event_rx": 1,
+        "wmi_ready_event_rx": 1,
+        "wmi_unified_vdev_start_send": 2,
+        "wmi_unified_vdev_start_chan_send": 2,
+        "wmi_unified_vdev_restart_send": 2,
+        "wmi_unified_vdev_up_send": 2
+      },
+      "phymode": {
+        "11ACVHT20": 1,
+        "11ACVHT40PLUS": 1,
+        "11ACVHT40MINUS": 1,
+        "11ACVHT40": 3,
+        "11ACVHT80": 1
+      },
+      "cap": {
+        "HT20": 8,
+        "HT40": 13,
+        "VHT20": 2,
+        "VHT40": 4,
+        "VHT80": 2,
+        "HTDUP": 1
+      },
+      "wmi_names": [
+        "WMI_SERVICE_READY_EVENTID",
+        "WMI_VDEV_START_REQUEST_CMDID",
+        "WMI_VDEV_UP_CMDID",
+        "WMI_VDEV_RESTART_REQUEST_CMDID",
+        "WMI_VDEV_START_RESP_EVENTID",
+        "WMI_VDEV_STOPPED_EVENTID",
+        "WMI_VDEV_CREATE_CMDID"
+      ],
+      "path_found": [
+        "ol_ath_service_ready_event",
+        "wmi_service_ready_event_rx",
+        "wmi_ready_event_rx",
+        "wmi_unified_vdev_start_send",
+        "wmi_unified_vdev_start_chan_send",
+        "wmi_unified_vdev_restart_send",
+        "wmi_unified_vdev_up_send"
+      ],
+      "phymode_found": [
+        "11ACVHT20",
+        "11ACVHT40PLUS",
+        "11ACVHT40MINUS",
+        "11ACVHT40",
+        "11ACVHT80"
+      ],
+      "send_symbols": [
+        "ol_ath_service_ready_event",
+        "wmi_unified_vdev_restart_send",
+        "wmi_unified_vdev_start_chan_send",
+        "wmi_unified_vdev_start_send",
+        "wmi_unified_vdev_up_send"
+      ],
+      "ready_contexts": [
+        "_EVENTID....WMI_RTT_MEASUREMENT_REPORT_EVENTID..WMI_SCAN_EVENTID....WMI_SERVICE_READY_EVENTID...WMI_SLOT_TIME_READ_EVENTID..WMI_TBTTOFFSET_UPDATE_EVENTID"
+      ],
+      "vht_contexts": [
+        "HT40MINUS...11NGHT40PLUS....11NGHT40MINUS...11NGHT40....11NAHT40....11ACVHT20...11ACVHT40PLUS...11ACVHT40MINUS..11ACVHT40...11ACVHT80...SIOCG80"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "wmi": {
+        "WMI_SERVICE_READY_EVENTID": 1,
+        "WMI_VDEV_START_REQUEST_CMDID": 1,
+        "WMI_VDEV_UP_CMDID": 1,
+        "WMI_VDEV_RESTART_REQUEST_CMDID": 1,
+        "WMI_VDEV_START_RESP_EVENTID": 1,
+        "WMI_VDEV_STOPPED_EVENTID": 1,
+        "WMI_VDEV_CREATE_CMDID": 1
+      },
+      "path_syms": {
+        "ol_ath_service_ready_event": 2,
+        "wmi_service_ready_event_rx": 1,
+        "wmi_ready_event_rx": 1,
+        "wmi_unified_vdev_start_send": 2,
+        "wmi_unified_vdev_start_chan_send": 2,
+        "wmi_unified_vdev_restart_send": 2,
+        "wmi_unified_vdev_up_send": 2
+      },
+      "phymode": {
+        "11ACVHT20": 1,
+        "11ACVHT40PLUS": 1,
+        "11ACVHT40MINUS": 1,
+        "11ACVHT40": 3,
+        "11ACVHT80": 1
+      },
+      "cap": {
+        "HT20": 8,
+        "HT40": 13,
+        "VHT20": 2,
+        "VHT40": 4,
+        "VHT80": 2,
+        "HTDUP": 1
+      },
+      "wmi_names": [
+        "WMI_SERVICE_READY_EVENTID",
+        "WMI_VDEV_START_REQUEST_CMDID",
+        "WMI_VDEV_UP_CMDID",
+        "WMI_VDEV_RESTART_REQUEST_CMDID",
+        "WMI_VDEV_START_RESP_EVENTID",
+        "WMI_VDEV_STOPPED_EVENTID",
+        "WMI_VDEV_CREATE_CMDID"
+      ],
+      "path_found": [
+        "ol_ath_service_ready_event",
+        "wmi_service_ready_event_rx",
+        "wmi_ready_event_rx",
+        "wmi_unified_vdev_start_send",
+        "wmi_unified_vdev_start_chan_send",
+        "wmi_unified_vdev_restart_send",
+        "wmi_unified_vdev_up_send"
+      ],
+      "phymode_found": [
+        "11ACVHT20",
+        "11ACVHT40PLUS",
+        "11ACVHT40MINUS",
+        "11ACVHT40",
+        "11ACVHT80"
+      ],
+      "send_symbols": [
+        "ol_ath_service_ready_event",
+        "wmi_unified_vdev_restart_send",
+        "wmi_unified_vdev_start_chan_send",
+        "wmi_unified_vdev_start_send",
+        "wmi_unified_vdev_up_send"
+      ],
+      "ready_contexts": [
+        "_EVENTID....WMI_RTT_MEASUREMENT_REPORT_EVENTID..WMI_SCAN_EVENTID....WMI_SERVICE_READY_EVENTID...WMI_SLOT_TIME_READ_EVENTID..WMI_TBTTOFFSET_UPDATE_EVENTID"
+      ],
+      "vht_contexts": [
+        "HT40MINUS...11NGHT40PLUS....11NGHT40MINUS...11NGHT40....11NAHT40....11ACVHT20...11ACVHT40PLUS...11ACVHT40MINUS..11ACVHT40...11ACVHT80...SIOCG80"
+      ]
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 2,
+    "wmi_names": [
+      "WMI_SERVICE_READY_EVENTID",
+      "WMI_VDEV_CREATE_CMDID",
+      "WMI_VDEV_RESTART_REQUEST_CMDID",
+      "WMI_VDEV_START_REQUEST_CMDID",
+      "WMI_VDEV_START_RESP_EVENTID",
+      "WMI_VDEV_STOPPED_EVENTID",
+      "WMI_VDEV_UP_CMDID"
+    ],
+    "wmi_name_count": 7,
+    "required_three_present": 1,
+    "vdev_sequence_complete": 1,
+    "restart_variant_present": 1,
+    "host_path_symbols": [
+      "ol_ath_service_ready_event",
+      "wmi_ready_event_rx",
+      "wmi_service_ready_event_rx",
+      "wmi_unified_vdev_restart_send",
+      "wmi_unified_vdev_start_chan_send",
+      "wmi_unified_vdev_start_send",
+      "wmi_unified_vdev_up_send"
+    ],
+    "host_path_count": 7,
+    "channel_start_variant": 1,
+    "phymode_strings": [
+      "11ACVHT20",
+      "11ACVHT40",
+      "11ACVHT40MINUS",
+      "11ACVHT40PLUS",
+      "11ACVHT80"
+    ],
+    "phymode_count": 5,
+    "vht40_directional": 1,
+    "capability_table_neighbours": [
+      "HT20",
+      "HT40",
+      "VHT20",
+      "VHT40",
+      "VHT80",
+      "HTDUP"
+    ],
+    "send_symbol_count": 5,
+    "resource_limits_recovered": 0,
+    "service_ready_payload_recovered": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so the ath10k WMI implementation cannot be compared to the vendor one",
+    "the three identifiers are present as strings but their CMDID values were not recovered; no numeric id table was located",
+    "the target resource limits the stage asks about are carried in the service-ready payload, which is runtime data; the module names the message, not its content",
+    "the phymode enum is recovered from ioctl name strings, not from the WMI payload field, so the wire encoding of the phymode remains unknown",
+    "no dynamic validation"
+  ]
+}

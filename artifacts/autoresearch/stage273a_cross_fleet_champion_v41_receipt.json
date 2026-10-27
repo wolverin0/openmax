@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-273A",
+  "task_id": "T-S273A-CROSS-FLEET-MODE-B-AND-MODE-A-CHAMPION-MATRIX-V41",
+  "master_version": "v41.0",
+  "generated_at_utc": "2026-10-26T23:37:48.066618+00:00",
+  "status": "PASS",
+  "evidence_status": "CONFIRMED",
+  "attribution": [
+    "external controller",
+    "Linux",
+    "mac80211",
+    "ath10k",
+    "QCA firmware",
+    "proprietary airMAX/LTU module",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_20_or_250": false,
+    "touched_production_guarida": false,
+    "flash_writes": 0,
+    "guarida_3_panels_32_cpes_preserved": {
+      "panel1_guarida_cpes": 4,
+      "panel2_guarida_cpes": 22,
+      "panel3_guarida_cpes": 6,
+      "total_guarida_cpes": 32
+    }
+  },
+  "families_consolidated": [
+    "WA",
+    "XC",
+    "2XC",
+    "XW",
+    "XM",
+    "LTU"
+  ],
+  "dualband_nlos_steering_policy": {
+    "rssi_failover_thresh_dbm": -73.25,
+    "phy_retry_thresh_pct": 14.02,
+    "hysteresis_holddown_s": 34.83,
+    "airtime_floor_24ghz_pct": 30.69,
+    "aggregate_goodput_mbps": 203.625,
+    "nlos_cpe_p99_rtt_ms": 1.45,
+    "failover_flap_rate_per_hour": 30.0,
+    "composite_loss": -22.51
+  },
+  "cross_fleet_matrix_v41": {
+    "WA": {
+      "family_id": "WA",
+      "soc_and_radio": "QCA9558/AR9342 + QCA9882 (64 MB DDR2)",
+      "mode_a_openwrt_champion": {
+        "os": "OpenWrt 24.10.4 (Linux 6.6.110)",
+        "script_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+        "script_sha256": "2af815fe9ea6dacfd33bba24ea24da75fc25710283f7ca15822f7df9a60fbb76",
+        "mac80211_v3_ko_sha256": "fe4f730fccaa68848a70c952e40c0438b32d413993f22887a0e72fed5eebaae6",
+        "knobs": {
+          "vm_min_free_kbytes": 2048,
+          "ap_fq_quantum": 3028,
+          "sta_fq_quantum": 1514,
+          "aql_threshold": 4500,
+          "eth0_bql": "4542/36288/600",
+          "tx_queue_len": 256,
+          "netdev_budget": 480,
+          "dev_weight": 48,
+          "tcp_limit_output_bytes": 98304
+        }
+      },
+      "mode_b_airos_champion": {
+        "family": "WA",
+        "ram_mb": 64,
+        "min_free_kbytes": 2048,
+        "vfs_cache_pressure": 120,
+        "netdev_budget": 480,
+        "dev_weight": 48,
+        "netdev_max_backlog": 1024,
+        "tcp_limit_output_bytes": 65536,
+        "tcp_tso_win_divisor": 8,
+        "txqueuelen": 192,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "swr_limit": 3,
+        "ff_cap_rep": 2,
+        "cms_bias": 6,
+        "voip_bias": 6,
+        "ac_minfree": [
+          0,
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    "XC": {
+      "family_id": "XC",
+      "soc_and_radio": "QCA9558 + QCA9880 + AirPrism HSR (128 MB DDR2, .198 XC.v8.7.25)",
+      "mode_b_airos_champion_v41": {
+        "netdev_budget": 480,
+        "dev_weight": 48,
+        "tx_queue_len": 192,
+        "tcp_limit_output_bytes": 65536,
+        "eth_coal_rx_usecs": 24,
+        "eth_coal_tx_usecs": 48,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "swr_limit": 3,
+        "ff_cap_rep": 2
+      },
+      "round5_source": "artifacts/autoresearch/stage269a_live_xc198_round5_autoresearch.json",
+      "round5_sha256": "f699565f810547f5a402aecbdb1b561ec657f1812bf328d45255cb273f99e450"
+    },
+    "2XC": {
+      "family_id": "2XC",
+      "soc_and_radio": "QCA9558 + 2.4 GHz AirPrism (128 MB DDR2, .253 2XC.v8.7.11)",
+      "mode_b_airos_champion_v41": {
+        "swr_limit": 3,
+        "ff_cap_rep": 2,
+        "cms_bias": 6,
+        "voip_bias": 6,
+        "daprot": 2,
+        "ff_mcast_airtime_limit": 5,
+        "vm_min_free_kbytes": 4096,
+        "netdev_max_backlog": 1024,
+        "netdev_budget": 480,
+        "dev_weight": 48
+      },
+      "dualband_nlos_failover_policy_v41": {
+        "rssi_failover_thresh_dbm": -73.25,
+        "phy_retry_thresh_pct": 14.02,
+        "hysteresis_holddown_s": 34.83,
+        "airtime_floor_24ghz_pct": 30.69,
+        "aggregate_goodput_mbps": 203.625,
+        "nlos_cpe_p99_rtt_ms": 1.45,
+        "failover_flap_rate_per_hour": 30.0,
+        "composite_loss": -22.51
+      },
+      "round5_source": "artifacts/autoresearch/stage270a_live_2xc253_round5_autoresearch.json",
+      "round5_sha256": "79a5442a8128166cb0d487b2387208972609e757f00c8c67cec5181e71199327"
+    },
+    "XW": {
+      "family_id": "XW",
+      "soc_and_radio": "AR9342 + AR938x M5 (64 MB DDR2, airOS 6 XW.v6.x)",
+      "mode_b_airos_champion": {
+        "family": "XW",
+        "ram_mb": 64,
+        "min_free_kbytes": 2048,
+        "netdev_budget": 300,
+        "dev_weight": 48,
+        "netdev_max_backlog": 768,
+        "tcp_limit_output_bytes": 65536,
+        "txqueuelen": 64,
+        "ampdu_frames": 28,
+        "ampdu_lim": 40960,
+        "ubnt_ewma_delegate_on": 1,
+        "ac_minfree": [
+          0,
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    "XM": {
+      "family_id": "XM",
+      "soc_and_radio": "AR7241 + AR928x M5 (32 MB SDRAM, 192.168.1.20 XM.v6.1.12)",
+      "mode_b_airos_champion_v41": {
+        "vm_min_free_kbytes_32mb_xm": 1536,
+        "AMPDUFrames": 28,
+        "AMPDULim": 40960,
+        "ACVOMinfree": 0,
+        "ACVIMinfree": 16,
+        "ACBEMinfree": 32,
+        "ACBKMinfree": 64,
+        "txqueuelen": 48,
+        "ubnt_ewma_delegate_on": 1,
+        "cwmin_be": 3,
+        "cwmax_be": 6,
+        "tcp_limit_output_bytes": 32768,
+        "netdev_max_backlog": 512,
+        "dev_weight": 32,
+        "netdev_budget": 256
+      },
+      "round5_source": "artifacts/autoresearch/stage271a_live_xm20_round5_autoresearch.json",
+      "round5_sha256": "d0487ecb2e9e25329387716b1d337648fc24e73818deda912d3ba144e0476645"
+    },
+    "LTU": {
+      "family_id": "LTU",
+      "soc_and_radio": "AF-LTU Beetle + ame_ASIC0 + eab_driver.ko (128 MB DDR3, LTU v2.3.1)",
+      "mode_b_ltu_tail_guard_champion": {
+        "family": "LTU",
+        "ram_mb": 128,
+        "min_free_kbytes": 4096,
+        "netdev_budget": 300,
+        "dev_weight": 48,
+        "netdev_max_backlog": 1000,
+        "tcp_limit_output_bytes": 131072,
+        "txqueuelen": 256,
+        "tail_guard_s102e": 1
+      }
+    }
+  },
+  "upstream_stage_receipts": {
+    "stage269a_sha256": "f699565f810547f5a402aecbdb1b561ec657f1812bf328d45255cb273f99e450",
+    "stage270a_sha256": "79a5442a8128166cb0d487b2387208972609e757f00c8c67cec5181e71199327",
+    "stage271a_sha256": "d0487ecb2e9e25329387716b1d337648fc24e73818deda912d3ba144e0476645",
+    "stage272a_sha256": "785a86a26ef0bcb0908c760cd9c6e7a5cc2ce9f4d1a5a182ecfa226266d9f2d5",
+    "stage217a_sha256": "3c0c41b953e0557054aec40c85968e59eca7ce8daedb90635e87e8cbde8b1230"
+  },
+  "repo_deterministic_gates": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "families_covered": [
+        "WA",
+        "XC",
+        "2XC",
+        "XW",
+        "XM",
+        "LTU"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-11-UPH-SHARED-64B-VECTOR-DAPROT-BEFORE-MCAST",
+        "FMX-DISC-16-XW-XM-MCS0-WARMUP-AND-EWMA-DELEGATE",
+        "FMX-DISC-33-WA-XC-SOFTIRQ-AND-ATOMIC-SKB-RESERVE"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "chained_stages": [
+        "STAGE-269A",
+        "STAGE-270A",
+        "STAGE-271A",
+        "STAGE-272A",
+        "STAGE-273A"
+      ]
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "p95_rtt_ms",
+        "nlos_cpe_p99_rtt_ms",
+        "jitter_ms",
+        "cpu_softirq_pct",
+        "failover_flap_rate_per_hour"
+      ]
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE273A-CROSS-FLEET-CHAMPION-V41"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

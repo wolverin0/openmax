@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "104A",
+  "task_id": "T-S104A-MASTER-CURATION-V32-S103-WAVE-SYNC",
+  "curation_version": "v32.0",
+  "generated_at_utc": "2026-10-26T19:32:28.449437+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller + Linux + mac80211 + ath10k + QCA firmware + proprietary airMAX/LTU module",
+  "synchronized_receipts": {
+    "fmx_disc_35_ubntbox_and_w4d": {
+      "discovery_id": "FMX-DISC-35",
+      "ubntbox_gpio_flock_set_va": "0x40c2a0",
+      "ubntbox_rsa_ends_gate_offset": "0x9fec (VA 0x409fec -> sub_40c060 -> EVP_VerifyFinal 0x0040cb54)",
+      "w4d_receipt_path": "artifacts/autoresearch/stage81a_w4d_wa_xc_standalone_elfs.json",
+      "w4d_images_audited": 2,
+      "w4d_targets_requested": 6,
+      "w4d_targets_elf": 2,
+      "w4d_xc_zero_byte_files": 249
+    },
+    "stage103a_wa_xc_untested_knobs": {
+      "receipt_path": "artifacts/autoresearch/stage103a_wa_xc_untested_knobs_bench.json",
+      "kernel_boundary_laws_count": 3,
+      "kernel_boundary_law_ids": [
+        "FMX-S103A-KB-01",
+        "FMX-S103A-KB-02",
+        "FMX-S103A-KB-03"
+      ],
+      "arm_a_goodput_mbps": 33.801,
+      "arm_b_goodput_mbps": 28.616,
+      "wa250_p95_rtt_arm_a_ms": 77.65,
+      "wa250_p95_rtt_arm_b_ms": 41.221,
+      "wa250_p95_rtt_delta_pct": -46.93,
+      "wa250_jitter_delta_pct": -52.74,
+      "sector_p95_rtt_delta_pct": -3.38,
+      "pareto_delta_pct": 0.36,
+      "decision": "PROMOTE_NEW_CHAMPION"
+    },
+    "stage103d_mkt_bidirectional_rfc2544_soak": {
+      "receipt_path": "artifacts/autoresearch/stage103d_mkt_bidirectional_framesize_soak.json",
+      "frame_sizes_bytes": [
+        64,
+        512,
+        1400
+      ],
+      "arm_a_goodput_mbps": 39.42,
+      "arm_b_goodput_mbps": 41.848,
+      "goodput_delta_pct": 6.159,
+      "frame_64b_voice_p50_delta_pct": -28.51,
+      "frame_64b_voice_p99_delta_pct": -15.34,
+      "frame_1400b_be_p95_delta_pct": -7.78,
+      "voip_jitter_delta_pct": -57.944,
+      "pareto_delta_pct": 6.3373
+    },
+    "stage103e_pbe5ac_to_mkt_e2e_bench": {
+      "receipt_path": "artifacts/autoresearch/stage103e_pbe5ac_to_mkt_e2e_bench.json",
+      "e2e_path": "PBE-5AC .242 STA -> 5200 MHz Air -> PBE-5AC .241 AP (Boca 3 gi3) -> EdgeSwitch 10XP -> LAP-120 (.20 / VLAN 107) -> MK1-251 (.15.150 Boca 7 gi7)",
+      "frequency_mhz": 5200,
+      "arm_a_goodput_mbps": 9.973,
+      "arm_b_goodput_mbps": 8.927,
+      "arm_b_e2e_sta242_to_mk1_p50_ms": 2.609,
+      "arm_b_e2e_sta242_to_mk1_p95_ms": 4.707,
+      "voip_jitter_delta_pct": -46.46,
+      "arm_b_e2e_mk1_loss_pct": 0.0,
+      "pareto_delta_pct": 1.84,
+      "decision": "PROMOTE_NEW_CHAMPION"
+    },
+    "stage103f_ltu_dual_and_2xc_bench": {
+      "receipt_path": "artifacts/autoresearch/stage103f_ltu_dual_and_2xc_bench.json",
+      "ltu_soc_bulk_tcp_arm_b_median_mbps": 166.017,
+      "ltu_soc_iptv_udp_arm_b_median_mbps": 9.503,
+      "ltu_soc_iptv_jitter_arm_b_median_ms": 0.288,
+      "ltu_gmac0_p95_rtt_arm_a_median_ms": 7.443,
+      "ltu_gmac0_p95_rtt_arm_b_median_ms": 6.905,
+      "ltu_scheduler_giveup_max": 0,
+      "ltu_symbol_giveup_max": 0,
+      "r2ac_soc_bulk_tcp_arm_b_peak_mbps": 263.295,
+      "r2ac_soc_iptv_udp_arm_b_median_mbps": 18.798,
+      "r2ac_p95_rtt_arm_a_median_ms": 8.489,
+      "r2ac_p95_rtt_arm_b_median_ms": 6.357,
+      "r2ac_wifi1_irq_delta_total": 0
+    }
+  },
+  "doc_audits": {
+    "MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md": {
+      "path": "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md",
+      "line_count": 214,
+      "max_lines_budget": 215,
+      "within_line_budget": true,
+      "doc_head_count": 1,
+      "missing_tokens": [],
+      "passed": true
+    },
+    "CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md": {
+      "path": "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+      "line_count": 142,
+      "max_lines_budget": 215,
+      "within_line_budget": true,
+      "doc_head_count": 1,
+      "missing_tokens": [],
+      "passed": true
+    },
+    "CURRENT_STATE.md": {
+      "path": "docs/CURRENT_STATE.md",
+      "line_count": 214,
+      "max_lines_budget": 215,
+      "within_line_budget": true,
+      "doc_head_count": 1,
+      "missing_tokens": [],
+      "passed": true
+    }
+  },
+  "all_docs_passed": true,
+  "closed_loop_reactor_event": {
+    "timestamp_utc": "2026-10-26T19:32:28Z",
+    "round_id": "STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC",
+    "profile_id": "master_curation_v32_fmx_disc_35_s103a_s103d_s103e_s103f",
+    "empirical_status": "HW_REFUTED_OR_BOUNDED",
+    "decision": "PASS_MASTER_CURATION_V32_SYNC",
+    "gp_champion_mbps": 39.42,
+    "gp_candidate_mbps": 41.848,
+    "gp_delta_pct": 6.159,
+    "p95_champion_ms": 46.802,
+    "p95_candidate_ms": 46.564,
+    "p95_delta_pct": -0.509,
+    "pareto_score_delta_pct": 6.3373,
+    "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC.md",
+    "followup_scholar_queries": [
+      "IEEE 802.11ac wireless PtMP optimization master_curation_v32_fmx_disc_35_s103a_s103d_s103e_s103f STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC"
+    ],
+    "synthesized_next_mechanisms": []
+  },
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "curated_discoveries_count": 35,
+    "latest_discovery_id": "FMX-DISC-35",
+    "ubntbox_gpio_flock_set_va": "0x40c2a0",
+    "ubntbox_rsa_ends_gate_offset": "0x9fec",
+    "s103a_kernel_boundary_laws": [
+      "FMX-S103A-KB-01",
+      "FMX-S103A-KB-02",
+      "FMX-S103A-KB-03"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "closed_loop_reactor_event": {
+      "timestamp_utc": "2026-10-26T19:32:28Z",
+      "round_id": "STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC",
+      "profile_id": "master_curation_v32_fmx_disc_35_s103a_s103d_s103e_s103f",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "PASS_MASTER_CURATION_V32_SYNC",
+      "gp_champion_mbps": 39.42,
+      "gp_candidate_mbps": 41.848,
+      "gp_delta_pct": 6.159,
+      "p95_champion_ms": 46.802,
+      "p95_candidate_ms": 46.564,
+      "p95_delta_pct": -0.509,
+      "pareto_score_delta_pct": 6.3373,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11ac wireless PtMP optimization master_curation_v32_fmx_disc_35_s103a_s103d_s103e_s103f STAGE104A-MASTER-CURATION-V32-S103-WAVE-SYNC"
+      ],
+      "synthesized_next_mechanisms": []
+    }
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "promoted_champions": [
+      "Stage 103A WA/XC Untested UPH Latency Profile (FMX-S103A-KB-01..03)",
+      "Stage 103D Bidirectional RFC 2544 4-Tin DiffServ4 (overhead 38 mpu 84 nat) Champion",
+      "Stage 103E Cross-Switch PBE-5AC PtP (Boca 3) -> MK1-251 (Boca 7) VLAN 107 E2E Champion",
+      "Stage 103F Dual LTU-Lite (500 Hz Superframe + LDPC-12 + OFDMA) & Rocket 2AC Prism (2XC Boca 8 MultiQ + swr_limit=2)"
+    ],
+    "watchdog_seconds": 45
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "stage103a_pareto_delta_pct": 0.36,
+    "stage103d_pareto_delta_pct": 6.3373,
+    "stage103e_pareto_delta_pct": 1.84,
+    "stage103f_r2ac_p95_rtt_delta_ms": -2.132
+  },
+  "pillar_e_memory_master_claim_id": "mm-stage104a-master-curation-v32-s103-wave-sync-20261026",
+  "memory_master_claim_id": "mm-stage104a-master-curation-v32-s103-wave-sync-20261026",
+  "five_pillar_compliance": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

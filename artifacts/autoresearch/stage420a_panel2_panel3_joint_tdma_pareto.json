@@ -1,0 +1,245 @@
+{
+  "stage": "420A",
+  "task_id": "T-S420A-PANEL2-PANEL3-JOINT-TDMA-PARETO",
+  "generated_at": "2026-10-26T21:36:15-03:00",
+  "protocol": "A1 -> B1 -> A2 -> B2",
+  "status": "COMPLETED",
+  "claim_status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "external controller"
+  ],
+  "writes_performed": 0,
+  "baseline_current_guarida_state": {
+    "knobs": {
+      "panel2_cbp_dur_us": 180.0,
+      "panel2_dl_ratio_pct": 50.0,
+      "panel3_polling_aligned": 0,
+      "freq_guard_mhz": 30.0,
+      "sta_priority_isolation": 0
+    },
+    "metrics": {
+      "panel2_goodput_mbps": 83.14,
+      "panel3_goodput_mbps": 26.02,
+      "joint_goodput_mbps": 109.16,
+      "panel2_mpdus_requed_pct": 20.31,
+      "panel2_deferred_events_per_400ms": 16.8,
+      "panel3_local_enqued_pct": 78.44,
+      "joint_p99_latency_ms": 89.58
+    }
+  },
+  "recommended_pareto_knee": {
+    "knobs": {
+      "panel2_cbp_dur_us": 900.0,
+      "panel2_dl_ratio_pct": 75.0,
+      "panel3_polling_aligned": 1,
+      "freq_guard_mhz": 100.0,
+      "sta_priority_isolation": 2
+    },
+    "metrics": {
+      "panel2_goodput_mbps": 93.11,
+      "panel3_goodput_mbps": 62.41,
+      "joint_goodput_mbps": 155.52,
+      "panel2_mpdus_requed_pct": 4.68,
+      "panel2_deferred_events_per_400ms": 0.0,
+      "panel3_local_enqued_pct": 10.06,
+      "joint_p99_latency_ms": 19.44
+    }
+  },
+  "deltas_vs_baseline": {
+    "joint_goodput_gain_mbps": 46.36,
+    "panel2_mpdus_requed_reduction_pct_points": 15.63,
+    "panel3_local_enqued_reduction_pct_points": 68.38,
+    "joint_p99_latency_reduction_ms": 70.14
+  },
+  "pareto_front_top10": [
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 900.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 93.11,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 155.52,
+        "panel2_mpdus_requed_pct": 4.68,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 19.44
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 780.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 94.23,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 156.64,
+        "panel2_mpdus_requed_pct": 4.91,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 20.08
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 760.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 94.41,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 156.82,
+        "panel2_mpdus_requed_pct": 4.96,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 20.21
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 720.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 94.76,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 157.17,
+        "panel2_mpdus_requed_pct": 5.06,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 20.51
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 700.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 94.92,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 157.34,
+        "panel2_mpdus_requed_pct": 5.12,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 20.68
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 660.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 95.25,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 157.67,
+        "panel2_mpdus_requed_pct": 5.25,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 21.06
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 640.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 95.41,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 157.82,
+        "panel2_mpdus_requed_pct": 5.31,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 21.27
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 600.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 95.71,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 158.13,
+        "panel2_mpdus_requed_pct": 5.47,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 21.73
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 560.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 96.0,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 158.41,
+        "panel2_mpdus_requed_pct": 5.64,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 22.27
+      }
+    },
+    {
+      "knobs": {
+        "panel2_cbp_dur_us": 540.0,
+        "panel2_dl_ratio_pct": 75.0,
+        "panel3_polling_aligned": 1,
+        "freq_guard_mhz": 100.0,
+        "sta_priority_isolation": 2
+      },
+      "metrics": {
+        "panel2_goodput_mbps": 96.13,
+        "panel3_goodput_mbps": 62.41,
+        "joint_goodput_mbps": 158.54,
+        "panel2_mpdus_requed_pct": 5.74,
+        "panel2_deferred_events_per_400ms": 0.0,
+        "panel3_local_enqued_pct": 10.06,
+        "joint_p99_latency_ms": 22.57
+      }
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Models exact ubnt_poll_host.ko cbp_dur (0x0208), dl_ratio, polling alignment, and sta_priority knobs.",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Couples TDMA Contention-Based Period collision theory with adjacent-sector WAL local_enqued storm dynamics.",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Offline SimPy + pymoo NSGA-II evaluation (0 writes to production).",
+    "pillar_d_scientific_pareto_validation": "NSGA-II (pop_size=36, n_gen=24) over 5 decision variables and 4 objectives (21 unique Pareto points).",
+    "pillar_e_memory_master_claim_id": "mm-stage420a-panel2-panel3-joint-tdma-pareto-v1"
+  }
+}

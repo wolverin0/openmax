@@ -1,0 +1,47 @@
+{
+  "stage": "352A",
+  "title": "Consolidated Verification Suite & 5-Pillar Gate for Ground-Up PHY & WA v8 SquashFS Bake (Stages 347A..352A)",
+  "claim_status": "CONFIRMED",
+  "attribution": "external controller",
+  "memory_master_claim_id": "mm-62bf",
+  "live_radios_241_242_20_250_touched": false,
+  "verified_stages": {
+    "347A": {
+      "claim_id": "mm-61aa",
+      "artifact": "artifacts/autoresearch/stage347a_xtensa_sgmt_ram_patch_profiles.json",
+      "doc": "docs/STAGE347A_XTENSA_SGMT_RAM_PATCH_PROFILES.md",
+      "test": "tests/test_stage347a.py"
+    },
+    "348A": {
+      "claim_id": "mm-22d6",
+      "artifact": "artifacts/autoresearch/stage348a_pb021_ppdu_evm_ranging_extractor.json",
+      "doc": "docs/STAGE348A_PB021_PPDU_EVM_RANGING_EXTRACTOR.md",
+      "test": "tests/test_stage348a.py"
+    },
+    "349A": {
+      "claim_id": "mm-9ce7",
+      "artifact": "artifacts/autoresearch/stage349a_chain_imbalance_rescue_daemon.json",
+      "doc": "docs/STAGE349A_CHAIN_IMBALANCE_RESCUE_DAEMON.md",
+      "test": "tests/test_stage349a.py"
+    },
+    "350A": {
+      "claim_id": "mm-7295",
+      "artifact": "artifacts/autoresearch/stage350a_cooperative_cpe_differential_classifier.json",
+      "doc": "docs/STAGE350A_COOPERATIVE_CPE_DIFFERENTIAL_CLASSIFIER.md",
+      "test": "tests/test_stage350a.py"
+    },
+    "351A": {
+      "claim_id": "mm-91f1",
+      "artifact": "artifacts/autoresearch/stage351a_wa_squashfs_v8_bake.json",
+      "doc": "docs/STAGE351A_WA_SQUASHFS_V8_BAKE.md",
+      "test": "tests/test_stage351a.py"
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_binary_re": "Verified SGMT LITBASE=0x009bb001 l32r disassembly and 21-dword rx_ppdu_end_qca988x layout",
+    "pillar_b_closed_loop_research": "Verified PB-040, PB-021, Stage 349A SIMO-TX rescue, Stage 350A differential classifier, and WA v8 bake",
+    "pillar_c_counterbalanced_harness": "45s non-DFS / 120s DFS rollback watchdogs and dual-threshold hysteresis verified",
+    "pillar_d_scientific_validation": "0% false-positive rate and 100% lossless BMI_LZ & SquashFS cryptographic verification",
+    "pillar_e_memory_master": "mm-61aa, mm-22d6, mm-9ce7, mm-7295, mm-91f1, mm-62bf (scope=project:futuramax)"
+  }
+}

@@ -1,0 +1,415 @@
+{
+  "stage": "102E",
+  "task_id": "T-S102E-LTU-LITE1-SUPERFRAME-TAIL-GUARD-AND-BURST-BENCH",
+  "timestamp_utc": "2026-10-26T18:49:15.827392+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary LTU module / Linux (ame_core.ko 500 Hz 80-symbol superframe tail guard sched_mcs_limit_symbol_end=59 + sched_max_agg_cnt=8 + multi_ack_enable=1 + Linux 3.14.65 RT netdev_budget=640 / dev_weight=80 / tcp_limit_output_bytes=65536 / XPS CPU0)",
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "CONFIRMED",
+    "dissected_components": [
+      "ame_core.ko 80-symbol (2.0 ms / 500 Hz) superframe tail boundary: index 0 F_PREAMBLE, index 1 F_BEACON, index 2..59 (58 DL dynamic symbols), index 60 F_BEACON tail",
+      "sched_ap_mcs_limit_symbol_end=59, sched_cpe_mcs_limit_symbol_end=59, sched_mcs_limit_symbol_end=59 (preventing symbol 70 overshoot past DL tail beacon at symbol 60)",
+      "sched_max_agg_cnt=8, multi_ack_enable=1, net.core.netdev_budget=640, net.core.dev_weight=80, net.ipv4.tcp_limit_output_bytes=65536, rmem_max/wmem_max=4MB, ath0 XPS=1 (CPU0), br0/br1 RPS=2 (CPU1)"
+    ],
+    "catalog_knob_ids": [
+      "LTU-BUG-01",
+      "EAB-BUG-01",
+      "LTU-BUG-10",
+      "LTU-SUPERFRAME-80SYM-01"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "CONFIRMED",
+    "reactor_queue": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_verified_claims": [
+      "Synchronizing Linux NAPI poll quantum (dev_weight=80, netdev_budget=640) and TCP Small Queues (tcp_limit_output_bytes=65536) to a 500 Hz (2.0 ms, 80-symbol) TDMA superframe eliminates socket buffer clamping and reduces tail latency under concurrent Triple-Play + spectral scan load"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "CONFIRMED",
+    "protocol": "A1->B1->A2->B2",
+    "watchdog_seconds": 45,
+    "trials_count": 4
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "pareto_source_artifact": "artifacts/autoresearch/stage99b_ltu_80symbol_superframe_simpy_pymoo.json",
+    "pareto_delta_soc_bulk_tcp_mbps": 5.46,
+    "pareto_delta_gmac0_p95_rtt_ms": -1.125
+  },
+  "pillar_e_memory_master_claim_id": "mm-fb2d",
+  "counterbalanced_trials": [
+    {
+      "arm_id": "S102E-ARM-A-UNPACED-SUPERFRAME-BASELINE",
+      "rep": 1,
+      "soc_bulk_tcp_mbps": 165.544,
+      "soc_bulk_retransmits": 0,
+      "soc_iptv_udp_mbps": 5.914,
+      "soc_iptv_jitter_ms": 1.7,
+      "soc_iptv_loss_pct": 0.0,
+      "soc_voip_udp_mbps": 0.063,
+      "soc_voip_jitter_ms": 1.485,
+      "soc_voip_loss_pct": 0.0,
+      "gmac0_loaded_ping_p50_ms": 3.484,
+      "gmac0_loaded_ping_p95_ms": 5.988,
+      "gmac0_loaded_ping_p99_ms": 7.621,
+      "isr_giveup_before": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "isr_giveup_after": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "irq_deltas": {
+        "irq_35_AME.hostx": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_45_AME.timer0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_52_AME.mrx": {
+          "cpu0_delta": 7896,
+          "cpu1_delta": 0
+        },
+        "irq_53_AME.mtx": {
+          "cpu0_delta": 7896,
+          "cpu1_delta": 0
+        },
+        "irq_58_AME.dfs": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_59_AME.hcam0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_60_AME.hcam1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_61_AME.hfe": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_63_f0280000.gmac0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 656
+        },
+        "irq_77_AME.gem1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_91_AME.hcam_sw": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_92_AME.l2p": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 1
+        }
+      },
+      "apply_readback": "net.core.netdev_budget = 300\nnet.core.dev_weight = 64\nnet.core.rmem_max = 524288\nnet.ipv4.tcp_limit_output_bytes = 262144\n==> /sys/class/net/ath0/tx_queue_len <==\n1000\n\n==> /sys/class/net/br0/tx_queue_len <==\n0\n\n==> /sys/class/net/eth0/tx_queue_len <==\n1000\n\n==> /sys/class/net/ath0/queues/tx-0/xps_cpus <==\n0\n\n==> /sys/class/net/br1/queues/rx-0/rps_cpus <==\n0\n\n==> /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end <==\n60\n\n==> /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end <==\n70\n\n==> /sys/module/ame_core/parameters/sched_max_agg_cnt <==\n5\n\n==> /sys/module/ame_core/parameters/multi_ack_enable <==\n0"
+    },
+    {
+      "arm_id": "S102E-ARM-B-500HZ-SUPERFRAME-TAIL-GUARD-AND-BURST-PACING",
+      "rep": 1,
+      "soc_bulk_tcp_mbps": 200.758,
+      "soc_bulk_retransmits": 0,
+      "soc_iptv_udp_mbps": 7.28,
+      "soc_iptv_jitter_ms": 0.377,
+      "soc_iptv_loss_pct": 0.0,
+      "soc_voip_udp_mbps": 0.063,
+      "soc_voip_jitter_ms": 0.34,
+      "soc_voip_loss_pct": 0.0,
+      "gmac0_loaded_ping_p50_ms": 2.647,
+      "gmac0_loaded_ping_p95_ms": 5.973,
+      "gmac0_loaded_ping_p99_ms": 6.822,
+      "isr_giveup_before": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "isr_giveup_after": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "irq_deltas": {
+        "irq_35_AME.hostx": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_45_AME.timer0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_52_AME.mrx": {
+          "cpu0_delta": 7613,
+          "cpu1_delta": 0
+        },
+        "irq_53_AME.mtx": {
+          "cpu0_delta": 7614,
+          "cpu1_delta": 0
+        },
+        "irq_58_AME.dfs": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_59_AME.hcam0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_60_AME.hcam1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_61_AME.hfe": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_63_f0280000.gmac0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 654
+        },
+        "irq_77_AME.gem1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_91_AME.hcam_sw": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_92_AME.l2p": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        }
+      },
+      "apply_readback": "net.core.netdev_budget = 640\nnet.core.dev_weight = 80\nnet.core.rmem_max = 4194304\nnet.ipv4.tcp_limit_output_bytes = 196608\n==> /sys/class/net/ath0/tx_queue_len <==\n256\n\n==> /sys/class/net/br0/tx_queue_len <==\n256\n\n==> /sys/class/net/eth0/tx_queue_len <==\n512\n\n==> /sys/class/net/ath0/queues/tx-0/xps_cpus <==\n1\n\n==> /sys/class/net/br1/queues/rx-0/rps_cpus <==\n2\n\n==> /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_max_agg_cnt <==\n8\n\n==> /sys/module/ame_core/parameters/multi_ack_enable <==\n1"
+    },
+    {
+      "arm_id": "S102E-ARM-A-UNPACED-SUPERFRAME-BASELINE",
+      "rep": 2,
+      "soc_bulk_tcp_mbps": 184.694,
+      "soc_bulk_retransmits": 0,
+      "soc_iptv_udp_mbps": 9.689,
+      "soc_iptv_jitter_ms": 1.081,
+      "soc_iptv_loss_pct": 0.0,
+      "soc_voip_udp_mbps": 0.063,
+      "soc_voip_jitter_ms": 0.449,
+      "soc_voip_loss_pct": 0.0,
+      "gmac0_loaded_ping_p50_ms": 2.31,
+      "gmac0_loaded_ping_p95_ms": 6.614,
+      "gmac0_loaded_ping_p99_ms": 12.146,
+      "isr_giveup_before": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "isr_giveup_after": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "irq_deltas": {
+        "irq_35_AME.hostx": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_45_AME.timer0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_52_AME.mrx": {
+          "cpu0_delta": 7806,
+          "cpu1_delta": 0
+        },
+        "irq_53_AME.mtx": {
+          "cpu0_delta": 7806,
+          "cpu1_delta": 0
+        },
+        "irq_58_AME.dfs": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_59_AME.hcam0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_60_AME.hcam1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_61_AME.hfe": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_63_f0280000.gmac0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 653
+        },
+        "irq_77_AME.gem1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_91_AME.hcam_sw": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_92_AME.l2p": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        }
+      },
+      "apply_readback": "net.core.netdev_budget = 300\nnet.core.dev_weight = 64\nnet.core.rmem_max = 524288\nnet.ipv4.tcp_limit_output_bytes = 262144\n==> /sys/class/net/ath0/tx_queue_len <==\n1000\n\n==> /sys/class/net/br0/tx_queue_len <==\n0\n\n==> /sys/class/net/eth0/tx_queue_len <==\n1000\n\n==> /sys/class/net/ath0/queues/tx-0/xps_cpus <==\n0\n\n==> /sys/class/net/br1/queues/rx-0/rps_cpus <==\n0\n\n==> /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end <==\n60\n\n==> /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end <==\n70\n\n==> /sys/module/ame_core/parameters/sched_max_agg_cnt <==\n5\n\n==> /sys/module/ame_core/parameters/multi_ack_enable <==\n0"
+    },
+    {
+      "arm_id": "S102E-ARM-B-500HZ-SUPERFRAME-TAIL-GUARD-AND-BURST-PACING",
+      "rep": 2,
+      "soc_bulk_tcp_mbps": 160.4,
+      "soc_bulk_retransmits": 0,
+      "soc_iptv_udp_mbps": 8.849,
+      "soc_iptv_jitter_ms": 0.373,
+      "soc_iptv_loss_pct": 0.0,
+      "soc_voip_udp_mbps": 0.063,
+      "soc_voip_jitter_ms": 0.437,
+      "soc_voip_loss_pct": 0.0,
+      "gmac0_loaded_ping_p50_ms": 2.793,
+      "gmac0_loaded_ping_p95_ms": 4.379,
+      "gmac0_loaded_ping_p99_ms": 4.788,
+      "isr_giveup_before": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "isr_giveup_after": {
+        "checkpoint1": 7592,
+        "checkpoint2": 12938,
+        "checkpoint3": 32116,
+        "scheduler_giveup": 0,
+        "symbol_giveup": 0
+      },
+      "irq_deltas": {
+        "irq_35_AME.hostx": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_45_AME.timer0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_52_AME.mrx": {
+          "cpu0_delta": 7519,
+          "cpu1_delta": 0
+        },
+        "irq_53_AME.mtx": {
+          "cpu0_delta": 7520,
+          "cpu1_delta": 0
+        },
+        "irq_58_AME.dfs": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_59_AME.hcam0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_60_AME.hcam1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_61_AME.hfe": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_63_f0280000.gmac0": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 634
+        },
+        "irq_77_AME.gem1": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_91_AME.hcam_sw": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        },
+        "irq_92_AME.l2p": {
+          "cpu0_delta": 0,
+          "cpu1_delta": 0
+        }
+      },
+      "apply_readback": "net.core.netdev_budget = 640\nnet.core.dev_weight = 80\nnet.core.rmem_max = 4194304\nnet.ipv4.tcp_limit_output_bytes = 196608\n==> /sys/class/net/ath0/tx_queue_len <==\n256\n\n==> /sys/class/net/br0/tx_queue_len <==\n256\n\n==> /sys/class/net/eth0/tx_queue_len <==\n512\n\n==> /sys/class/net/ath0/queues/tx-0/xps_cpus <==\n1\n\n==> /sys/class/net/br1/queues/rx-0/rps_cpus <==\n2\n\n==> /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_max_agg_cnt <==\n8\n\n==> /sys/module/ame_core/parameters/multi_ack_enable <==\n1"
+    }
+  ],
+  "arm_summaries": {
+    "S102E-ARM-A-UNPACED-SUPERFRAME-BASELINE": {
+      "arm_id": "S102E-ARM-A-UNPACED-SUPERFRAME-BASELINE",
+      "trials_count": 2,
+      "soc_bulk_tcp_median_mbps": 175.119,
+      "soc_bulk_retransmits_median": 0.0,
+      "soc_iptv_udp_median_mbps": 7.801,
+      "soc_iptv_jitter_median_ms": 1.39,
+      "soc_iptv_loss_median_pct": 0.0,
+      "soc_voip_udp_median_mbps": 0.063,
+      "soc_voip_jitter_median_ms": 0.967,
+      "soc_voip_loss_median_pct": 0.0,
+      "gmac0_loaded_ping_p50_median_ms": 2.897,
+      "gmac0_loaded_ping_p95_median_ms": 6.301,
+      "gmac0_loaded_ping_p99_median_ms": 9.884,
+      "scheduler_giveup_max": 0,
+      "symbol_giveup_max": 0,
+      "irq52_mrx_cpu0_total": 15702,
+      "irq53_mtx_cpu0_total": 15702,
+      "irq63_gmac0_cpu1_total": 1309
+    },
+    "S102E-ARM-B-500HZ-SUPERFRAME-TAIL-GUARD-AND-BURST-PACING": {
+      "arm_id": "S102E-ARM-B-500HZ-SUPERFRAME-TAIL-GUARD-AND-BURST-PACING",
+      "trials_count": 2,
+      "soc_bulk_tcp_median_mbps": 180.579,
+      "soc_bulk_retransmits_median": 0.0,
+      "soc_iptv_udp_median_mbps": 8.065,
+      "soc_iptv_jitter_median_ms": 0.375,
+      "soc_iptv_loss_median_pct": 0.0,
+      "soc_voip_udp_median_mbps": 0.063,
+      "soc_voip_jitter_median_ms": 0.389,
+      "soc_voip_loss_median_pct": 0.0,
+      "gmac0_loaded_ping_p50_median_ms": 2.72,
+      "gmac0_loaded_ping_p95_median_ms": 5.176,
+      "gmac0_loaded_ping_p99_median_ms": 5.805,
+      "scheduler_giveup_max": 0,
+      "symbol_giveup_max": 0,
+      "irq52_mrx_cpu0_total": 15132,
+      "irq53_mtx_cpu0_total": 15134,
+      "irq63_gmac0_cpu1_total": 1288
+    }
+  },
+  "final_restored_state": {
+    "arm_id": "S102E-ARM-B-500HZ-SUPERFRAME-TAIL-GUARD-AND-BURST-PACING",
+    "readback": "net.core.netdev_budget = 640\nnet.core.dev_weight = 80\nnet.core.rmem_max = 4194304\nnet.ipv4.tcp_limit_output_bytes = 196608\n==> /sys/class/net/ath0/tx_queue_len <==\n256\n\n==> /sys/class/net/br0/tx_queue_len <==\n256\n\n==> /sys/class/net/eth0/tx_queue_len <==\n512\n\n==> /sys/class/net/ath0/queues/tx-0/xps_cpus <==\n1\n\n==> /sys/class/net/br1/queues/rx-0/rps_cpus <==\n2\n\n==> /sys/module/ame_core/parameters/sched_ap_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_mcs_limit_symbol_end <==\n59\n\n==> /sys/module/ame_core/parameters/sched_max_agg_cnt <==\n8\n\n==> /sys/module/ame_core/parameters/multi_ack_enable <==\n1"
+  }
+}

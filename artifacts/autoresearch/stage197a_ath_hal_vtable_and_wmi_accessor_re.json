@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "stage": "197A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage197a_to_199a_hal_and_xw_delta.py",
+    "scope": "offline static; no module loaded, no register written, no radio contacted",
+    "premise_correction": "ah_reg_write and OS_REG_WRITE do not exist as symbols in ath_hal.ko (0 raw hits each); wmi_unified_cmd_send does exist in umac.ko (3 raw hits)",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "raw_string_counts": {
+        "ah_reg_write": 0,
+        "OS_REG_WRITE": 0,
+        "os_reg_write": 0,
+        "ah_write": 0,
+        "wmi_unified_cmd_send": 0,
+        "wmi_unified": 0,
+        "ath_hal_write": 0,
+        "reg_write": 3
+      },
+      "symbol_hits": {
+        "reg_write": [
+          "ar9300_transmit_power_reg_write",
+          "ath_hal_reg_write"
+        ]
+      },
+      "symbol_hit_counts": {
+        "reg_write": 2
+      },
+      "present_accessors": [
+        "reg_write"
+      ],
+      "absent_accessors": [
+        "ah_reg_write",
+        "OS_REG_WRITE",
+        "os_reg_write",
+        "ah_write",
+        "wmi_unified_cmd_send",
+        "wmi_unified",
+        "ath_hal_write"
+      ],
+      "reg_write_symbols": [
+        "ar9300_transmit_power_reg_write",
+        "ar9300_write_pktlog_reg",
+        "ath_hal_reg_write"
+      ],
+      "hal_vtable_symbols": [
+        "ar9300_11a_half_table",
+        "ath_hal_display_tpctables",
+        "ath_hal_get_tx_q_props",
+        "ath_hal_set_tx_q_props",
+        "ath_hal_setupratetable"
+      ]
+    },
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "raw_string_counts": {
+        "ah_reg_write": 0,
+        "OS_REG_WRITE": 0,
+        "os_reg_write": 0,
+        "ah_write": 0,
+        "wmi_unified_cmd_send": 3,
+        "wmi_unified": 110,
+        "ath_hal_write": 0,
+        "reg_write": 1
+      },
+      "symbol_hits": {
+        "wmi_unified_cmd_send": [
+          "__wmi_unified_cmd_send"
+        ],
+        "wmi_unified": [
+          "__wmi_unified_cmd_send",
+          "wmi_unified_PM4_sent_handler",
+          "wmi_unified_ack_cts_read_event_handler",
+          "wmi_unified_addba_setresponse",
+          "wmi_unified_attach",
+          "wmi_unified_bcn_prb_template_send",
+          "wmi_unified_beacon_send",
+          "wmi_unified_chan_switch_handler",
+          "wmi_unified_connect_htc_service",
+          "wmi_unified_delba_send",
+          "wmi_unified_detach",
+          "wmi_unified_distance_report_handler",
+          "wmi_unified_get_scn",
+          "wmi_unified_gpio_config",
+          "wmi_unified_gpio_input_event_handler",
+          "wmi_unified_gpio_output",
+          "wmi_unified_mgmt_send",
+          "wmi_unified_node_add_wds_entry",
+          "wmi_unified_node_del_wds_entry",
+          "wmi_unified_node_set_param"
+        ]
+      },
+      "symbol_hit_counts": {
+        "wmi_unified_cmd_send": 1,
+        "wmi_unified": 56
+      },
+      "present_accessors": [
+        "wmi_unified_cmd_send",
+        "wmi_unified",
+        "reg_write"
+      ],
+      "absent_accessors": [
+        "ah_reg_write",
+        "OS_REG_WRITE",
+        "os_reg_write",
+        "ah_write",
+        "ath_hal_write"
+      ],
+      "reg_write_symbols": [
+        "BMIWriteSOCRegister"
+      ],
+      "hal_vtable_symbols": [
+        "ol_if_11a_halfrate_table",
+        "whalGetRateTable"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "raw_string_counts": {
+        "ah_reg_write": 0,
+        "OS_REG_WRITE": 0,
+        "os_reg_write": 0,
+        "ah_write": 0,
+        "wmi_unified_cmd_send": 0,
+        "wmi_unified": 0,
+        "ath_hal_write": 0,
+        "reg_write": 3
+      },
+      "symbol_hits": {
+        "reg_write": [
+          "ar9300_transmit_power_reg_write",
+          "ath_hal_reg_write"
+        ]
+      },
+      "symbol_hit_counts": {
+        "reg_write": 2
+      },
+      "present_accessors": [
+        "reg_write"
+      ],
+      "absent_accessors": [
+        "ah_reg_write",
+        "OS_REG_WRITE",
+        "os_reg_write",
+        "ah_write",
+        "wmi_unified_cmd_send",
+        "wmi_unified",
+        "ath_hal_write"
+      ],
+      "reg_write_symbols": [
+        "ar9300_transmit_power_reg_write",
+        "ar9300_write_pktlog_reg",
+        "ath_hal_reg_write"
+      ],
+      "hal_vtable_symbols": [
+        "ar9300_11a_half_table",
+        "ath_hal_display_tpctables",
+        "ath_hal_get_tx_q_props",
+        "ath_hal_set_tx_q_props",
+        "ath_hal_setupratetable"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "raw_string_counts": {
+        "ah_reg_write": 0,
+        "OS_REG_WRITE": 0,
+        "os_reg_write": 0,
+        "ah_write": 0,
+        "wmi_unified_cmd_send": 3,
+        "wmi_unified": 110,
+        "ath_hal_write": 0,
+        "reg_write": 1
+      },
+      "symbol_hits": {
+        "wmi_unified_cmd_send": [
+          "__wmi_unified_cmd_send"
+        ],
+        "wmi_unified": [
+          "__wmi_unified_cmd_send",
+          "wmi_unified_PM4_sent_handler",
+          "wmi_unified_ack_cts_read_event_handler",
+          "wmi_unified_addba_setresponse",
+          "wmi_unified_attach",
+          "wmi_unified_bcn_prb_template_send",
+          "wmi_unified_beacon_send",
+          "wmi_unified_chan_switch_handler",
+          "wmi_unified_connect_htc_service",
+          "wmi_unified_delba_send",
+          "wmi_unified_detach",
+          "wmi_unified_distance_report_handler",
+          "wmi_unified_get_scn",
+          "wmi_unified_gpio_config",
+          "wmi_unified_gpio_input_event_handler",
+          "wmi_unified_gpio_output",
+          "wmi_unified_mgmt_send",
+          "wmi_unified_node_add_wds_entry",
+          "wmi_unified_node_del_wds_entry",
+          "wmi_unified_node_set_param"
+        ]
+      },
+      "symbol_hit_counts": {
+        "wmi_unified_cmd_send": 1,
+        "wmi_unified": 56
+      },
+      "present_accessors": [
+        "wmi_unified_cmd_send",
+        "wmi_unified",
+        "reg_write"
+      ],
+      "absent_accessors": [
+        "ah_reg_write",
+        "OS_REG_WRITE",
+        "os_reg_write",
+        "ah_write",
+        "ath_hal_write"
+      ],
+      "reg_write_symbols": [
+        "BMIWriteSOCRegister"
+      ],
+      "hal_vtable_symbols": [
+        "ol_if_11a_halfrate_table",
+        "whalGetRateTable"
+      ]
+    }
+  ],
+  "summary": {
+    "modules": 4,
+    "ah_reg_write_present": false,
+    "os_reg_write_present": false,
+    "wmi_unified_cmd_send_present": true,
+    "reg_write_symbols": 3,
+    "hal_vtable_symbols": 5
+  },
+  "gaps": [
+    "the register-write indirection was not traced to a concrete vtable slot: only the presence/absence of the named accessors and the symbol inventory are reported",
+    "wmi_unified_cmd_send is located as a string/symbol but its call graph into the firmware command path was not reconstructed",
+    "no dynamic validation"
+  ]
+}

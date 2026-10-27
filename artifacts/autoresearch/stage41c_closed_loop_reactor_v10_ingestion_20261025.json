@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "41C",
+  "task_id": "T-S41C-GEM2-CLOSED-LOOP-REACTOR-STAGE35A-36A-CHAMPION-V10-AND-IPTV-INGESTION",
+  "generated_at_utc": "2026-10-26T18:03:43.736239+00:00",
+  "ingested_rounds_summary": {
+    "S34A-R1": "M15 2.4 GHz ff_mcast_airtime_limit=5 (+7.244% goodput, -2.913% p95 RTT -> PROMOTE_NEW_CHAMPION)",
+    "S35A-R1": "M15_5GHz Champion v9 dynamic WDS phy0-ap0.sta* multicast_to_unicast=1 (+1.705% goodput, -15.121% p95 RTT -> PROMOTE_NEW_CHAMPION)",
+    "S36A-R1": "M16_IPTV_AC_VI AC_BE=1000/2000 thresh=4000 (-6.225% goodput, -13.351% p95 RTT -> RETAIN_CURRENT_CHAMPION / REFUTED)",
+    "S36A-R2": "M16b_IPTV_AC_VI_MAC80211_AQM Champion v10 direct mac80211 aqm fq_quantum=3028 + fq_memory_limit=4194304 + AC_VI=1200/2400 + AC_BE=1500/3000 (+2.513% goodput, -3.375% p95 RTT, -8.990% p99 RTT, 0/3980 IPTV loss -> PROMOTE_NEW_CHAMPION / CONFIRMED)"
+  },
+  "ingested_reactor_events": [
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S34A-R1",
+      "profile_id": "r2ac_prism_ap",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 27.031,
+      "gp_candidate_mbps": 28.989,
+      "gp_delta_pct": 7.244,
+      "p95_champion_ms": 21.184,
+      "p95_candidate_ms": 20.567,
+      "p95_delta_pct": -2.913,
+      "pareto_score_delta_pct": 8.2636,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S34A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 adjacent channel interference active RF filter MAC scheduling",
+        "multirate IEEE 802.11 proportional fairness packet arrival rate normalization",
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M7",
+          "title": "PB-025 Stock airOS STA Bridge Queue Bounding (br0 txqueuelen=256) + TCP DSACK/Fin-Timeout Ported from S27-R2AC-R2 to 5 GHz CPEs",
+          "scientific_basis": "S27-R2AC-R1/R2 (+5.20% & +1.50% goodput, -35.96% & -17.84% p95 RTT) + arXiv:0806.4695v1",
+          "candidate_delta_commands": [
+            "ifconfig br0 txqueuelen 256 2>/dev/null || true",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_window_scaling=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S35A-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 59.888,
+      "gp_candidate_mbps": 60.909,
+      "gp_delta_pct": 1.705,
+      "p95_champion_ms": 76.834,
+      "p95_candidate_ms": 65.216,
+      "p95_delta_pct": -15.121,
+      "pareto_score_delta_pct": 6.9972,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S35A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S36A-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 69.077,
+      "gp_candidate_mbps": 64.777,
+      "gp_delta_pct": -6.225,
+      "p95_champion_ms": 83.731,
+      "p95_candidate_ms": 72.552,
+      "p95_delta_pct": -13.351,
+      "pareto_score_delta_pct": -1.5521,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S36A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac",
+        "mac80211 aqm fq_quantum 3028 fq_memory_limit AQL AC_BE 1500/3000 2-MTU TCP aggregation",
+        "IEEE 802.11ac WMM AC_VI video isolation under bulk TCP saturation zero packet loss"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + arXiv:0806.4695v1 (jev-1.14.0 prob=0.77)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M18",
+          "title": "PB-036 Direct mac80211 /sys/kernel/debug/ieee80211/phy0/aqm Programming (fq_quantum=3028, fq_memory_limit=4194304, fq_limit=2048) + AC_BE=1500/3000",
+          "scientific_basis": "Stage 36A S36A-R1 diagnostic: AC_BE=1000/2000 starved 2-MTU TCP (-6.225% goodput) and uncovered direct mac80211 debugfs /sys/kernel/debug/ieee80211/phy0/aqm file",
+          "candidate_delta_commands": [
+            "echo fq_quantum 3028 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo '1 1200 2400' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo '2 1500 3000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "echo 5000 > /sys/kernel/debug/ieee80211/phy0/aql_threshold"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S36A-R2",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 55.352,
+      "gp_candidate_mbps": 56.743,
+      "gp_delta_pct": 2.513,
+      "p95_champion_ms": 79.268,
+      "p95_candidate_ms": 76.593,
+      "p95_delta_pct": -3.375,
+      "pareto_score_delta_pct": 3.6941,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S36A-R2.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11 EDCA contention window airtime fairness throughput",
+        "TCP ACK pacing wireless uplink downlink asymmetry 802.11ac",
+        "IEEE 802.11ac A-MPDU 2-MTU quantum per-AC AQL airtime limit multi-station PtMP",
+        "multirate IEEE 802.11 proportional fairness AQL low threshold matching",
+        "mac80211 fq_limit packet backlog cap per-TID overlimit drop prevention 64MB RAM",
+        "RFC 4445 Media Delivery Index MDI closed-loop ABR rate clamping wireless PtMP"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M6",
+          "title": "PB-024 2-MTU DRR Frame-Aggregation Quantum (quantum=3028) + Cross-Sector Bridge/DSACK Co-Design",
+          "scientific_basis": "arXiv:2211.03471v1 (jev-1.14.0 prob=0.97) + arXiv:0806.4695v1 (jev-1.14.0 prob=0.77)",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn",
+            "ip link set dev br-lan txqueuelen 256",
+            "sysctl -w net.ipv4.tcp_sack=1 net.ipv4.tcp_dsack=1 net.ipv4.tcp_fin_timeout=15 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M8b",
+          "title": "PB-024/PB-025 3-CPE Simultaneous Multi-Flow PtMP Co-Design (quantum=3028 + Matched AC_BE AQL 1100/2000us across .195 + .199 + .198)",
+          "scientific_basis": "S28-R1 (Champion v7 quantum=3028 -8.80% p95) + arXiv:2211.03471v1 (prob=0.97) + arXiv:0806.4695v1 (prob=0.77)",
+          "candidate_delta_commands": [
+            "echo '0 600 1200' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '1 1100 2000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '2 1100 2000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit && echo '3 1100 2000' > /sys/kernel/debug/ieee80211/phy0/aql_txq_limit",
+            "tc qdisc replace dev phy0-ap0 root fq_codel quantum 3028 target 10ms interval 50ms memory_limit 4mb ecn"
+          ]
+        },
+        {
+          "mechanism_id": "M18",
+          "title": "PB-036 Direct mac80211 aqm Packet Count Bounding (fq_limit=2048) + Per-TID overlimit Zero-Drop Guard",
+          "scientific_basis": "Stage 36A S36A-R2 Champion v10 (+2.513% goodput, -3.375% p95 RTT, -8.990% p99 RTT, 0/3980 IPTV loss with fq_quantum=3028 & fq_memory_limit=4194304)",
+          "candidate_delta_commands": [
+            "echo fq_quantum 3028 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm",
+            "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm"
+          ]
+        },
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Co-designing CPE-side airOS 8 WMM AC_VI EDCA parameters with AP-side tid4_ac1 AQL (1200/2400 us) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data clobber guard (write ff_mcast_airtime_limit=5 LAST)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan",
+          "scientific_basis": "Eliminates stale multicast-to-unicast DMS flows during IPTV channel zapping across dynamic phy0-ap0.sta* ports",
+          "candidate_delta_commands": [
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M21",
+          "title": "PB-039 Closed-Loop Per-CPE ABR Feedback Clamping (2.2 Mbps 1080p60 -> 1.5 Mbps 720p60 -> 0.9 Mbps 480p30) Driven by AC_VI AQL & SINR",
+          "scientific_basis": "Stage 39C RFC 4445 MDI & AC_VI SLA Exporter + Stage 36A Champion v10 per-TID aqm telemetry",
+          "candidate_delta_commands": [
+            "tc qdisc replace dev phy0-ap0.sta1 root fq quantum 3028 initial_quantum 15140 maxrate 3500kbit"
+          ]
+        }
+      ]
+    }
+  ],
+  "next_wave_mechanisms_m18_to_m21": [
+    {
+      "mechanism_id": "M18",
+      "title": "PB-036 Direct mac80211 aqm Packet Count Bounding (fq_limit=2048) + Per-TID overlimit Zero-Drop Guard",
+      "scientific_basis": "Stage 36A S36A-R2 Champion v10 (+2.513% goodput, -3.375% p95 RTT, -8.990% p99 RTT, 0/3980 IPTV loss with fq_quantum=3028 & fq_memory_limit=4194304)",
+      "candidate_delta_commands": [
+        "echo fq_quantum 3028 > /sys/kernel/debug/ieee80211/phy0/aqm",
+        "echo fq_memory_limit 4194304 > /sys/kernel/debug/ieee80211/phy0/aqm",
+        "echo fq_limit 2048 > /sys/kernel/debug/ieee80211/phy0/aqm"
+      ]
+    },
+    {
+      "mechanism_id": "M19",
+      "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+      "scientific_basis": "Co-designing CPE-side airOS 8 WMM AC_VI EDCA parameters with AP-side tid4_ac1 AQL (1200/2400 us) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data clobber guard (write ff_mcast_airtime_limit=5 LAST)",
+      "candidate_delta_commands": [
+        "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+      ]
+    },
+    {
+      "mechanism_id": "M20",
+      "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan",
+      "scientific_basis": "Eliminates stale multicast-to-unicast DMS flows during IPTV channel zapping across dynamic phy0-ap0.sta* ports",
+      "candidate_delta_commands": [
+        "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done",
+        "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done"
+      ]
+    },
+    {
+      "mechanism_id": "M21",
+      "title": "PB-039 Closed-Loop Per-CPE ABR Feedback Clamping (2.2 Mbps 1080p60 -> 1.5 Mbps 720p60 -> 0.9 Mbps 480p30) Driven by AC_VI AQL & SINR",
+      "scientific_basis": "Stage 39C RFC 4445 MDI & AC_VI SLA Exporter + Stage 36A Champion v10 per-TID aqm telemetry",
+      "candidate_delta_commands": [
+        "tc qdisc replace dev phy0-ap0.sta1 root fq quantum 3028 initial_quantum 15140 maxrate 3500kbit"
+      ]
+    }
+  ]
+}

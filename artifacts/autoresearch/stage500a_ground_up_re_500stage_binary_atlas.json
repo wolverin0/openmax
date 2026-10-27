@@ -1,0 +1,1560 @@
+{
+  "meta": {
+    "stage": "500A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage500a_ground_up_re_500stage_binary_atlas.py",
+    "tool_sha256": "942dd8214018119149cc39b2d0428194c17f89ca8eabbf51da7f4d2cf491e9be",
+    "output": "artifacts/autoresearch/stage500a_ground_up_re_500stage_binary_atlas.json",
+    "scope": "offline static; reads only the JSON receipts this series produced",
+    "method": "receipt read-back: per-stage modules with bytes+sha256, family inference by module filename, SHA-256 de-duplication, and a tally of every *_recovered flag declared by any stage",
+    "note": "the atlas is derived, not narrated: every figure below is a sum over receipt fields",
+    "radio_safety": "static only"
+  },
+  "stages": [
+    {
+      "stage": "154A",
+      "receipt": "stage154a_ltu_ame_eab_full_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/audit_stage154a_ltu_ame_eab_full_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "155A",
+      "receipt": "stage155a_ubnt_poll_host_tdma_scheduler_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/audit_stage155a_ubnt_poll_host_tdma_scheduler_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 566320
+    },
+    {
+      "stage": "173A",
+      "receipt": "stage173a_ltu_movw_movt_and_htcomm_switch_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/audit_stage173a_to_175a_ltu_re_and_rosetta.py",
+      "modules": 6,
+      "sha_count": 6,
+      "bytes_analysed": 7483340
+    },
+    {
+      "stage": "197A",
+      "receipt": "stage197a_ath_hal_vtable_and_wmi_accessor_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/audit_stage197a_to_199a_hal_and_xw_delta.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5443552
+    },
+    {
+      "stage": "199A",
+      "receipt": "stage199a_xw_vs_wa_ubntbox_athbox_delta_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/audit_stage197a_to_199a_hal_and_xw_delta.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "259A",
+      "receipt": "stage259a_xw_ath_rate_atheros_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/dissect_stage259a_xw_ath_rate_atheros_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "323A",
+      "receipt": "stage323a_ltu_eab_driver_dma_ring_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/ltu_eab_driver_dma_ring_and_interrupt_coalesce_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "324A",
+      "receipt": "stage324a_ltu_ame_core_scheduler_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/ltu_ame_core_scheduler_and_ul_dl_ratio_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 6600816
+    },
+    {
+      "stage": "325A",
+      "receipt": "stage325a_wa_xc_umac_node_aid_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/wa_xc_umac_ieee80211_node_and_aid_bitmap_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "326A",
+      "receipt": "stage326a_ath_dev_bmiss_hang_recovery_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/ath_dev_bmiss_and_reset_recovery_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 988840
+    },
+    {
+      "stage": "327A",
+      "receipt": "stage327a_ubnt_spectral_fft_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/ubnt_spectral_scan_fft_bin_format_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 649744
+    },
+    {
+      "stage": "371A",
+      "receipt": "stage371a_qca988x_rx_ppdu_end_evm_ranging_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/qca988x_rx_ppdu_end_84byte_evm_ranging_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5289632
+    },
+    {
+      "stage": "372A",
+      "receipt": "stage372a_wmi_0x9044_peer_rate_retry_sched_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/wmi_0x9044_peer_rate_retry_sched_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5094960
+    },
+    {
+      "stage": "373A",
+      "receipt": "stage373a_qca988x_whal_cca_agc_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/qca988x_whal_cca_agc_register_table_re.py",
+      "modules": 5,
+      "sha_count": 5,
+      "bytes_analysed": 3875892
+    },
+    {
+      "stage": "374A",
+      "receipt": "stage374a_ubnt_airselect_state_machine_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/ubnt_airselect_and_freq_hop_state_machine_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 909044
+    },
+    {
+      "stage": "387A",
+      "receipt": "stage387a_qca988x_wmi_0x9064_jump_table_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/qca988x_wmi_0x9064_51entry_jump_table_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 2546312
+    },
+    {
+      "stage": "388A",
+      "receipt": "stage388a_af4x_invictus2_tdd_cp_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/af4x_invictus2_fpga_tdd_cyclic_prefix_re.py",
+      "modules": 5,
+      "sha_count": 5,
+      "bytes_analysed": 4014596
+    },
+    {
+      "stage": "395A",
+      "receipt": "stage395a_qca988x_htt_rx_skb_pull_patch_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/qca988x_htt_rx_amsdu_pop_skb_pull_patch_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "396A",
+      "receipt": "stage396a_xw_ar9344_ani_chainmask_mrc_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/xw_ar9344_ath9k_ani_and_chainmask_mrc_re.py",
+      "modules": 8,
+      "sha_count": 8,
+      "bytes_analysed": 2253808
+    },
+    {
+      "stage": "415A",
+      "receipt": "stage415a_qca988x_xtensa_pll_sub20mhz_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/qca988x_xtensa_pll_clock_divider_sub20mhz_re.py",
+      "modules": 5,
+      "sha_count": 5,
+      "bytes_analysed": 5947444
+    },
+    {
+      "stage": "416A",
+      "receipt": "stage416a_ubnt_poll_gps_sync_1pps_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/ubnt_poll_gps_sync_1pps_timingslot_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 566320
+    },
+    {
+      "stage": "423A",
+      "receipt": "stage423a_qca988x_xtensa_target_polling_hooks_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage423a_qca988x_xtensa_target_polling_hooks_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "424A",
+      "receipt": "stage424a_ltu_arria10_fpga_subband_mask_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage424a_ltu_arria10_fpga_subband_mask_re.py",
+      "modules": 1,
+      "sha_count": 1,
+      "bytes_analysed": 3282052
+    },
+    {
+      "stage": "437A",
+      "receipt": "stage437a_qca988x_wmi_chainmask_stbc_ldpc_per_peer_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage437a_qca988x_wmi_chainmask_stbc_ldpc_per_peer_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5289632
+    },
+    {
+      "stage": "438A",
+      "receipt": "stage438a_ltu_ame_core_poll_scheduler_and_slot_alloc_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage438a_ltu_ame_core_poll_scheduler_and_slot_alloc_re.py",
+      "modules": 1,
+      "sha_count": 1,
+      "bytes_analysed": 3282052
+    },
+    {
+      "stage": "451A",
+      "receipt": "stage451a_qca988x_spectral_scan_fft_and_nf_cal_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage451a_qca988x_spectral_scan_fft_and_nf_cal_re.py",
+      "modules": 6,
+      "sha_count": 6,
+      "bytes_analysed": 5364944
+    },
+    {
+      "stage": "452A",
+      "receipt": "stage452a_ubnt_poll_airtime_deficit_and_priority_queues_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/build_stage452a_ubnt_poll_airtime_deficit_and_priority_queues_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 379760
+    },
+    {
+      "stage": "459A",
+      "receipt": "stage459a_qca988x_wal_tx_tid_pause_and_bar_recovery_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage459a_qca988x_wal_tx_tid_pause_and_bar_recovery_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "460A",
+      "receipt": "stage460a_ltu_beetle_dma_ring_and_irq52_coalescing_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage460a_ltu_beetle_dma_ring_and_irq52_coalescing_re.py",
+      "modules": 1,
+      "sha_count": 1,
+      "bytes_analysed": 3282052
+    },
+    {
+      "stage": "485A",
+      "receipt": "stage485a_qca988x_bmiss_and_csa_channel_switch_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage485a_qca988x_bmiss_and_csa_channel_switch_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "486A",
+      "receipt": "stage486a_ltu_ad9361_fastlock_and_cal_table_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage486a_ltu_ad9361_fastlock_and_cal_table_re.py",
+      "modules": 1,
+      "sha_count": 1,
+      "bytes_analysed": 3282052
+    },
+    {
+      "stage": "499A",
+      "receipt": "stage499a_qca988x_dfs_radar_pulse_detector_and_cac_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/build_stage499a_qca988x_dfs_radar_pulse_detector_and_cac_re.py",
+      "modules": 5,
+      "sha_count": 5,
+      "bytes_analysed": 974872
+    },
+    {
+      "stage": "543A",
+      "receipt": "stage543a_qca988x_ani_ofdm_cck_weak_signal_and_spur_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage543a_qca988x_ani_ofdm_cck_weak_signal_and_spur_re.py",
+      "modules": 7,
+      "sha_count": 7,
+      "bytes_analysed": 6521876
+    },
+    {
+      "stage": "544A",
+      "receipt": "stage544a_ltu_ame_core_tx_power_lut_and_pa_dpd_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage544a_ltu_ame_core_tx_power_lut_and_pa_dpd_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "563A",
+      "receipt": "stage563a_qca988x_paprd_and_olpc_tx_power_control_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage563a_qca988x_paprd_and_olpc_tx_power_control_re.py",
+      "modules": 7,
+      "sha_count": 7,
+      "bytes_analysed": 6521876
+    },
+    {
+      "stage": "564A",
+      "receipt": "stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "589A",
+      "receipt": "stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/build_stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re.py",
+      "modules": 6,
+      "sha_count": 6,
+      "bytes_analysed": 5669392
+    },
+    {
+      "stage": "590A",
+      "receipt": "stage590a_ltu_ame_core_interference_mitigation_and_auto_channel_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage590a_ltu_ame_core_interference_mitigation_and_auto_channel_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "615A",
+      "receipt": "stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re.py",
+      "modules": 7,
+      "sha_count": 7,
+      "bytes_analysed": 6902972
+    },
+    {
+      "stage": "616A",
+      "receipt": "stage616a_ltu_ame_core_ranging_tof_and_timing_advance_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage616a_ltu_ame_core_ranging_tof_and_timing_advance_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "647A",
+      "receipt": "stage647a_qca988x_htt_rx_ring_decap_and_amsdu_subframe_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/build_stage647a_qca988x_htt_rx_ring_decap_and_amsdu_subframe_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5289632
+    },
+    {
+      "stage": "648A",
+      "receipt": "stage648a_ltu_ame_core_arq_retrans_and_fec_ldpc_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/build_stage648a_ltu_ame_core_arq_retrans_and_fec_ldpc_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "667A",
+      "receipt": "stage667a_ath10k_htt_tx_desc_and_comp_ring_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage667a_ath10k_htt_tx_desc_and_comp_ring_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5289632
+    },
+    {
+      "stage": "668A",
+      "receipt": "stage668a_ltu_ame_core_gps_1pps_and_frame_sync_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage668a_ltu_ame_core_gps_1pps_and_frame_sync_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "693A",
+      "receipt": "stage693a_ath10k_wmi_service_ready_and_vdev_start_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage693a_ath10k_wmi_service_ready_and_vdev_start_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "694A",
+      "receipt": "stage694a_ltu_eab_driver_dma_ring_and_zerocopy_tx_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage694a_ltu_eab_driver_dma_ring_and_zerocopy_tx_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "713A",
+      "receipt": "stage713a_ath10k_pci_copy_engine_rings_and_msi_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage713a_ath10k_pci_copy_engine_rings_and_msi_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 4715200
+    },
+    {
+      "stage": "714A",
+      "receipt": "stage714a_ubnt_poll_ack_cts_timeout_and_distance_clamp_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/dissect_stage714a_ubnt_poll_ack_cts_timeout_and_distance_clamp_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 3200984
+    },
+    {
+      "stage": "727A",
+      "receipt": "stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re.py",
+      "modules": 8,
+      "sha_count": 8,
+      "bytes_analysed": 5772536
+    },
+    {
+      "stage": "728A",
+      "receipt": "stage728a_ltu_ame_core_thermal_and_pa_bias_cal_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage728a_ltu_ame_core_thermal_and_pa_bias_cal_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "753A",
+      "receipt": "stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re.py",
+      "modules": 6,
+      "sha_count": 6,
+      "bytes_analysed": 6017984
+    },
+    {
+      "stage": "754A",
+      "receipt": "stage754a_ltu_eab_driver_irq_coalescing_and_napi_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage754a_ltu_eab_driver_irq_coalescing_and_napi_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "785A",
+      "receipt": "stage785a_qca988x_otp_and_board_caldata_eeprom_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage785a_qca988x_otp_and_board_caldata_eeprom_re.py",
+      "modules": 4,
+      "sha_count": 4,
+      "bytes_analysed": 5369872
+    },
+    {
+      "stage": "786A",
+      "receipt": "stage786a_ltu_ame_core_colocated_frame_pulse_sync_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage786a_ltu_ame_core_colocated_frame_pulse_sync_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "805A",
+      "receipt": "stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/dissect_stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "807A",
+      "receipt": "stage807a_ltu_split_freq_and_ofdma_subchannel_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage807a_ltu_split_freq_and_ofdma_subchannel_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "808A",
+      "receipt": "stage808a_xc_qca9558_pcie_dma_and_airview_coexistence_re.json",
+      "family": "qca988x_ac",
+      "tool": "tools/re/dissect_stage808a_xc_qca9558_pcie_dma_and_airview_coexistence_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 3006880
+    },
+    {
+      "stage": "823A",
+      "receipt": "stage823a_airos_ubnt_poll_airmagic_spectral_channel_scoring_re.json",
+      "family": "ar9344_xw",
+      "tool": "tools/re/dissect_stage823a_airos_ubnt_poll_airmagic_spectral_channel_scoring_re.py",
+      "modules": 5,
+      "sha_count": 5,
+      "bytes_analysed": 2830576
+    },
+    {
+      "stage": "824A",
+      "receipt": "stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+      "modules": 3,
+      "sha_count": 3,
+      "bytes_analysed": 3722284
+    },
+    {
+      "stage": "831A",
+      "receipt": "stage831a_ubnt_poll_gps_sync_and_frame_start_offset_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/dissect_stage831a_ubnt_poll_gps_sync_and_frame_start_offset_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 379760
+    },
+    {
+      "stage": "832A",
+      "receipt": "stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re.json",
+      "family": "unclassified",
+      "tool": "tools/re/dissect_stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "834A",
+      "receipt": "stage834a_ltu_ame_core_ul_power_control_and_target_evm_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage834a_ltu_ame_core_ul_power_control_and_target_evm_re.py",
+      "modules": 2,
+      "sha_count": 2,
+      "bytes_analysed": 3580812
+    },
+    {
+      "stage": "835A",
+      "receipt": "stage835a_airos_uav_and_cent_mgmt_config_validator_re.json",
+      "family": "beetle_ltu",
+      "tool": "tools/re/dissect_stage835a_airos_uav_and_cent_mgmt_config_validator_re.py",
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage111a_airos8_ptp_eapol_timeout_re",
+      "receipt": "stage111a_airos8_ptp_eapol_timeout_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage186a_ltu_rocket_ofdma_ta_gps_re",
+      "receipt": "stage186a_ltu_rocket_ofdma_ta_gps_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage189a_ltu_dfs_interference_radar_re",
+      "receipt": "stage189a_ltu_dfs_interference_radar_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage219a_ltu_split_spectrum_and_100mhz_re",
+      "receipt": "stage219a_ltu_split_spectrum_and_100mhz_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage248a_ltu_5board_cpe_family_re",
+      "receipt": "stage248a_ltu_5board_cpe_family_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage249a_ltu_harq_retransmission_and_rate_fsm_re",
+      "receipt": "stage249a_ltu_harq_retransmission_and_rate_fsm_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage288a_ltu_auto_duty_cycle_scheduler_re",
+      "receipt": "stage288a_ltu_auto_duty_cycle_scheduler_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage289a_ltu_mimo_xpic_txbf_re",
+      "receipt": "stage289a_ltu_mimo_xpic_txbf_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage300a_ltu_aes_crypto_offload_re",
+      "receipt": "stage300a_ltu_aes_crypto_offload_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage301a_ltu_thermal_tcxo_iq_cal_re",
+      "receipt": "stage301a_ltu_thermal_tcxo_iq_cal_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage330a_ltu_management_ipc_re",
+      "receipt": "stage330a_ltu_management_ipc_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage331a_ltu_dfs_radar_engine_re",
+      "receipt": "stage331a_ltu_dfs_radar_engine_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage342a_ltu_short_queue_micro_ap_re",
+      "receipt": "stage342a_ltu_short_queue_micro_ap_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage343a_ltu_ad9361_sdr_spi_registers_re",
+      "receipt": "stage343a_ltu_ad9361_sdr_spi_registers_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage376a_ltu_rocket_arria10_fpga_mailbox_re",
+      "receipt": "stage376a_ltu_rocket_arria10_fpga_mailbox_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage377a_ltu_subband_cinr_puncturing_re",
+      "receipt": "stage377a_ltu_subband_cinr_puncturing_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage398a_ltu_ble_gatt_provisioning_re",
+      "receipt": "stage398a_ltu_ble_gatt_provisioning_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage399a_ltu_dualbank_nand_ameimg_re",
+      "receipt": "stage399a_ltu_dualbank_nand_ameimg_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage417a_ubnt_poll_cbp_dur_and_probereq_hash_re",
+      "receipt": "stage417a_ubnt_poll_cbp_dur_and_probereq_hash_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage418a_panel3_local_enqued_mcs2_storm_re",
+      "receipt": "stage418a_panel3_local_enqued_mcs2_storm_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage453a_guarida_bh_230m_ast_rxorn_and_pcie_ce_ring_re",
+      "receipt": "stage453a_guarida_bh_230m_ast_rxorn_and_pcie_ce_ring_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage455a_ubnt_poll_UL_slot_starvation_and_requeue_re",
+      "receipt": "stage455a_ubnt_poll_UL_slot_starvation_and_requeue_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage475a_xtensa_wal_peer_32params_and_retry_sched_re",
+      "receipt": "stage475a_xtensa_wal_peer_32params_and_retry_sched_re.json",
+      "family": "qca988x_ac",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage476a_xtensa_ht_comm_opcodes_full_table_re",
+      "receipt": "stage476a_xtensa_ht_comm_opcodes_full_table_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage533a_ubnt_poll_swr_limit_and_slot_guard_re",
+      "receipt": "stage533a_ubnt_poll_swr_limit_and_slot_guard_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage609a_ubnt_poll_ul_slot_allocator_and_frame_efficiency_re",
+      "receipt": "stage609a_ubnt_poll_ul_slot_allocator_and_frame_efficiency_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage649a_xtensa_wal_vdev_params_and_struct_re",
+      "receipt": "stage649a_xtensa_wal_vdev_params_and_struct_re.json",
+      "family": "qca988x_ac",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re",
+      "receipt": "stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage652a_xw_ath_dev_mixed_mode_tdma_translator_re",
+      "receipt": "stage652a_xw_ath_dev_mixed_mode_tdma_translator_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage681a_ubnt_poll_dl_scheduler_and_aggr_budget_re",
+      "receipt": "stage681a_ubnt_poll_dl_scheduler_and_aggr_budget_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    },
+    {
+      "stage": "stage735a_ubnt_poll_ul_polling_and_activity_aging_re",
+      "receipt": "stage735a_ubnt_poll_ul_polling_and_activity_aging_re.json",
+      "family": "beetle_ltu",
+      "tool": null,
+      "modules": 0,
+      "sha_count": 0,
+      "bytes_analysed": 0
+    }
+  ],
+  "families": {
+    "ar9344_xw": {
+      "receipts": 9,
+      "unique_modules": 23,
+      "unique_bytes": 1959176
+    },
+    "beetle_ltu": {
+      "receipts": 52,
+      "unique_modules": 8,
+      "unique_bytes": 7478692
+    },
+    "qca988x_ac": {
+      "receipts": 25,
+      "unique_modules": 21,
+      "unique_bytes": 6907744
+    },
+    "unclassified": {
+      "receipts": 8,
+      "unique_modules": 6,
+      "unique_bytes": 2530032
+    }
+  },
+  "unique_modules": [
+    {
+      "sha256": "6cb6ed280272ecee51e9460b6b7df0eda7780c9c8bb3c39d647969f9f553fea2",
+      "bytes": 47192,
+      "family": "ar9344_xw",
+      "first_stage": "823A",
+      "name": "WA:ubntspecd"
+    },
+    {
+      "sha256": "ee5f0b944430cbbd592e4f96066398cc19d3f064ed0414a8ab18ace51ba8c58b",
+      "bytes": 47192,
+      "family": "ar9344_xw",
+      "first_stage": "823A",
+      "name": "XC:ubntspecd"
+    },
+    {
+      "sha256": "ece709ec07d78ddfd479f0c7d813807edd3ba85ac983b272f66dd47aa73f572b",
+      "bytes": 436552,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.1.4:ath_dev.ko"
+    },
+    {
+      "sha256": "880183f0a520d085154f2caf9ff50acf66f1e0264460cf19e5a8a09307e5d19b",
+      "bytes": 562576,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.1.4:ath_hal.ko"
+    },
+    {
+      "sha256": "725e744547756d9318c89596992209270bc0c4e6af2eb49e1f9c7e4f32d4314c",
+      "bytes": 152816,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.1.4:ath_rate_atheros.ko"
+    },
+    {
+      "sha256": "64bde751256fedae462720a224f3981f87c00d66473ae6d75a3993519f7ec9d4",
+      "bytes": 22652,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.1.4:ubnt_ewma_ht.ko"
+    },
+    {
+      "sha256": "325e9f7437307ae68ca0e08d9d4b82c8a2b0548955db663636226a4f013c1580",
+      "bytes": 139128,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.3.6:ath_rate_atheros.ko"
+    },
+    {
+      "sha256": "a967dd7af88da8f2e5ce30fbd44c225e7ff49ba7910db075abae2fcf50321843",
+      "bytes": 21784,
+      "family": "ar9344_xw",
+      "first_stage": "396A",
+      "name": "XW.v6.3.6:ubnt_ewma_ht.ko"
+    },
+    {
+      "sha256": "7a74d439703ca1da6fdf10b52172eb0870d8710c0b5863cc5fbde277f71f3895",
+      "bytes": 529284,
+      "family": "ar9344_xw",
+      "first_stage": "374A",
+      "name": "XW.v6.3.6:ubnt_poll.ko"
+    },
+    {
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "bytes": 3282052,
+      "family": "beetle_ltu",
+      "first_stage": "173A",
+      "name": "ame_core.ko"
+    },
+    {
+      "sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "bytes": 3318764,
+      "family": "beetle_ltu",
+      "first_stage": "173A",
+      "name": "ame_core.ko"
+    },
+    {
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "bytes": 298760,
+      "family": "beetle_ltu",
+      "first_stage": "173A",
+      "name": "ame_dev.ko"
+    },
+    {
+      "sha256": "16a860c6ef1c1b73171171977266f48967beaae8e7a4b6be26bf34275a85b287",
+      "bytes": 141472,
+      "family": "beetle_ltu",
+      "first_stage": "388A",
+      "name": "ame_dfs.ko"
+    },
+    {
+      "sha256": "2e1562f0aceaf62df765120df5754ce1eb053ed37fea6e5b58ef5cd03827811b",
+      "bytes": 139672,
+      "family": "beetle_ltu",
+      "first_stage": "173A",
+      "name": "cds_mac_mod.ko"
+    },
+    {
+      "sha256": "883a8c29b8fd3c58a29f1e76ece68178b415540c263679c95e12b6df6953369c",
+      "bytes": 145332,
+      "family": "beetle_ltu",
+      "first_stage": "173A",
+      "name": "cds_mac_mod.ko"
+    },
+    {
+      "sha256": "efdda9af23e3af975c42c16f21e0c8fa2c79eb656763d962929d52e2dccd2ed7",
+      "bytes": 152640,
+      "family": "beetle_ltu",
+      "first_stage": "388A",
+      "name": "ubnthal.ko"
+    },
+    {
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "bytes": 367456,
+      "family": "qca988x_ac",
+      "first_stage": "197A",
+      "name": "WA.v8.7.25:ath_hal.ko"
+    },
+    {
+      "sha256": "2b8526b0d008258c42bbf196ac1f5af9925f16a27827eaa3a74a179b4faf048a",
+      "bytes": 37656,
+      "family": "qca988x_ac",
+      "first_stage": "327A",
+      "name": "WA.v8.7.25:ath_spectral.ko"
+    },
+    {
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "bytes": 2356432,
+      "family": "qca988x_ac",
+      "first_stage": "197A",
+      "name": "WA.v8.7.25:umac.ko"
+    },
+    {
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "bytes": 360896,
+      "family": "qca988x_ac",
+      "first_stage": "197A",
+      "name": "XC.v8.7.25:ath_hal.ko"
+    },
+    {
+      "sha256": "1503933e0a7491fcda216d03c1287ec754077c60f3f1ee0211311307e3cdacd9",
+      "bytes": 37656,
+      "family": "qca988x_ac",
+      "first_stage": "327A",
+      "name": "XC.v8.7.25:ath_spectral.ko"
+    },
+    {
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "bytes": 2358768,
+      "family": "qca988x_ac",
+      "first_stage": "197A",
+      "name": "XC.v8.7.25:umac.ko"
+    },
+    {
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "bytes": 503892,
+      "family": "qca988x_ac",
+      "first_stage": "373A",
+      "name": "XW:ath_hal.ko"
+    },
+    {
+      "sha256": "09cf1392ccca301120c2c8e92e3789e46a1b1a2001fc9e112551fd1c2e16a4b2",
+      "bytes": 884988,
+      "family": "qca988x_ac",
+      "first_stage": "615A",
+      "name": "XW:umac.ko"
+    },
+    {
+      "sha256": "1829cf8e5a282fb143dbbea4e9542c3088a5296ff7055ab764647bffe95578ee",
+      "bytes": 186560,
+      "family": "unclassified",
+      "first_stage": "155A",
+      "name": "8.7.11 (single build, no WA/XC pair)"
+    },
+    {
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "bytes": 189880,
+      "family": "unclassified",
+      "first_stage": "155A",
+      "name": "WA.v8.7.25"
+    },
+    {
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "bytes": 287216,
+      "family": "unclassified",
+      "first_stage": "326A",
+      "name": "WA.v8.7.25"
+    },
+    {
+      "sha256": "63d7a3404d40576a98963dff0157c99735e283baf52123e87b72a3bd7f5b8650",
+      "bytes": 203796,
+      "family": "unclassified",
+      "first_stage": "499A",
+      "name": "WA.v8.7.25"
+    },
+    {
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "bytes": 189880,
+      "family": "unclassified",
+      "first_stage": "155A",
+      "name": "XC.v8.7.25"
+    },
+    {
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "bytes": 287216,
+      "family": "unclassified",
+      "first_stage": "326A",
+      "name": "XC.v8.7.25"
+    },
+    {
+      "sha256": "110dbebfbfd63844353b2b8f3198400b54e5e81b84a8dbf672833e82de8ec1be",
+      "bytes": 203796,
+      "family": "unclassified",
+      "first_stage": "499A",
+      "name": "XC.v8.7.25"
+    },
+    {
+      "sha256": "756756d0802df90e649649151f62f83e383f24abd0c985904fb5f7a0ddf7509b",
+      "bytes": 199932,
+      "family": "unclassified",
+      "first_stage": "499A",
+      "name": "XC.v8.7.4cs"
+    },
+    {
+      "sha256": "e058a99353639217eefdbd9391ec3f40dee965bee8c147ff1cc55814e51b3438",
+      "bytes": 191100,
+      "family": "unclassified",
+      "first_stage": "499A",
+      "name": "XW.v6.1.4"
+    },
+    {
+      "sha256": "c95d10fec7b5480c53ffa63329657e8638dcdca1420267a84ab61766b04ce855",
+      "bytes": 414408,
+      "family": "unclassified",
+      "first_stage": "326A",
+      "name": "XW.v6.3.6"
+    },
+    {
+      "sha256": "cb86bb66b83aed041861f1480e9fdea81952525b2e464075d7ae943c88dea6a9",
+      "bytes": 176248,
+      "family": "unclassified",
+      "first_stage": "499A",
+      "name": "XW.v6.3.6"
+    }
+  ],
+  "recovered_flags": {
+    "airview_kernel_arbitration_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "analog_register_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ani_state_graph_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "aql_bql_accounting_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "arq_state_machine_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "atpc_gain_matrix_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "attention_flag_recovered": {
+      "present": 1,
+      "absent": 0
+    },
+    "auto_channel_policy_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "bmiss_threshold_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "bps_per_hz_expression_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "cac_constant_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ce_nentries_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "chirp_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "cp_alignment_offset_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "cp_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "csa_switch_sequence_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "custom_profile_persistence_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "deficit_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "descriptor_layout_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "distance_clamp_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "distance_formula_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "divider_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "dma_descriptor_layout_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "dpd_coefficients_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "duty_ratio_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "eeprom_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "evm_backoff_db_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "evm_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "evm_target_db_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "fastlock_profile_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "fec_block_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "fft_bin_format_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "firmware_rate_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "formula_coefficients_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "formula_interface_recovered": {
+      "present": 1,
+      "absent": 0
+    },
+    "frame_start_offset_formula_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "gic_vector_map_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "harq_combining_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "hook_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "interrupt_coalescing_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "irq_coalescing_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "jump_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "key_schema_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "lbt_threshold_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "lna_saturation_immunity_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "low_mcs_penalty_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "lut_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "mrc_path_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "napi_poll_budget_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "nf_cal_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "nq_sq_split_recovered": {
+      "present": 1,
+      "absent": 0
+    },
+    "one_pps_source_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "pa_bias_value_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "panel_alignment_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "panel_isolation_scheme_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "paprd_table_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "per_peer_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "per_tid_depth_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "phyerr_code_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "pll_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "pulse_width_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "pw_pri_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ratio_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "register_names_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "resource_limits_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "retry_descriptor_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "retry_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ring_service_map_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ru_allocation_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "service_ready_payload_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "sfn_epoch_alignment_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "sgi_mask_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "sounding_sequence_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "spectral_bin_format_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "spectral_scan_hook_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "split_frequency_lo_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "sq_lq_split_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "state_machine_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "stepper_increments_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "subband_mask_registers_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "subband_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "subchannel_map_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "sync_state_machine_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "synthesizer_programming_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "ta_mechanism_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "temp_to_gain_curve_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "thermal_curve_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "threshold_values_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "thresholds_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tof_ranging_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tone_null_ioctl_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tpc_tables_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tx_desc_layout_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tx_quad_cal_table_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "tx_rx_isolation_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "txbf_engine_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "txbf_sounding_sequence_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "wmm_weights_recovered": {
+      "present": 0,
+      "absent": 1
+    },
+    "zerocopy_tx_recovered": {
+      "present": 0,
+      "absent": 1
+    }
+  },
+  "summary": {
+    "receipts_found": 94,
+    "receipts_parsed": 94,
+    "receipts_unparsable": 0,
+    "stages_covered": 94,
+    "families_present": [
+      "ar9344_xw",
+      "beetle_ltu",
+      "qca988x_ac",
+      "unclassified"
+    ],
+    "family_count": 4,
+    "unique_module_files": 35,
+    "unique_bytes_analysed": 18875644,
+    "total_module_analyses": 190,
+    "recovery_flags_declared": 99,
+    "recovery_flags_closed": 3,
+    "recovery_flags_open": 96,
+    "receipts_declaring_firmware_absent": 6,
+    "receipts_declaring_eab_driver_absent": 2,
+    "largest_module_bytes": 3318764,
+    "atlas_complete": 0
+  },
+  "gaps": [
+    "the atlas only covers what the receipts recorded; a module never opened by any stage is absent from it",
+    "firmware-2.bin and firmware-5.bin were never available, so no firmware-side claim appears anywhere in this atlas",
+    "eab_driver.ko was never available either, which removes the entire EAB driver column from the LTU family",
+    "several figures are name-level only (functions located, not decoded); the recovery scorecard counts goals closed, not depth of proof",
+    "no AF-4X/5X firmware or rootfs exists, so the Invictus2 family contributes artefacts and receipts but no executable analysis",
+    "no dynamic validation backs any entry"
+  ]
+}

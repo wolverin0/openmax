@@ -1,0 +1,278 @@
+{
+  "stage": "288A",
+  "task_id": "T-S288A-LTU-AUTO-DUTY-CYCLE-SCHEDULER-BINARY-RE",
+  "generated_at": "2026-10-26T23:39:42.834559+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "aflturocket_ame_core_ko_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+    "aflturocket_cds_mac_mod_ko_sha256": "883a8c29b8fd3c58a29f1e76ece68178b415540c263679c95e12b6df6953369c"
+  },
+  "dynamic_split_duty_scheduler": {
+    "supported_states_permille": [
+      500,
+      670,
+      750
+    ],
+    "state_table_at_80_symbols_2ms": [
+      {
+        "duty_permille": 500,
+        "label": "50/50 Symmetric",
+        "dl_symbols": 38,
+        "ul_symbols": 38,
+        "guard_symbols": 4
+      },
+      {
+        "duty_permille": 670,
+        "label": "67/33 Asymmetric DL",
+        "dl_symbols": 51,
+        "ul_symbols": 25,
+        "guard_symbols": 4
+      },
+      {
+        "duty_permille": 750,
+        "label": "75/25 High-Capacity DL",
+        "dl_symbols": 57,
+        "ul_symbols": 19,
+        "guard_symbols": 4
+      }
+    ],
+    "auto_adaptation_fsm": {
+      "input_telemetry": "AP DL EAB ring queue depth (fpga_skb_Enqueue backlog) vs aggregated CPE UL Bandwidth Request (BR) grants",
+      "upshift_to_75_25_condition": "DL/UL traffic demand ratio > 3.2:1 for >= 25 consecutive superframes (50 ms) with UL queue sojourn < 4.0 ms",
+      "midshift_to_67_33_condition": "DL/UL traffic demand ratio between 1.6:1 and 3.2:1",
+      "downshift_to_50_50_condition": "UL Bandwidth Request backlog exceeds 35% of UL symbols or bidirectional VoIP/gaming burst detected",
+      "gps_sync_constraint": "When GPS 1PPS sync is active on a multi-AP tower, dynamic duty-cycle switching is locked to the fixed configured duty_cycle (e.g. 670) to prevent co-site DL-into-UL collisions."
+    },
+    "mcs_symbol_window_params": {
+      "sched_mcs_limit_symbol_begin": 12,
+      "sched_ap_mcs_limit_symbol_end": 62,
+      "sched_mcs_limit_symbol_end": 72
+    },
+    "extracted_scheduler_symbols_count": 515,
+    "extracted_scheduler_symbols_top": [
+      {
+        "name": "AME_EAB_ActivateQueue",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x126e90",
+        "size_bytes": 1016
+      },
+      {
+        "name": "AME_EAB_ActivateSuperQueue",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x126bec",
+        "size_bytes": 676
+      },
+      {
+        "name": "AME_EAB_AdjustFrameLength",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x12c70c",
+        "size_bytes": 332
+      },
+      {
+        "name": "AME_EAB_CheckL2FrameDefFifo",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x12c698",
+        "size_bytes": 116
+      },
+      {
+        "name": "AME_EAB_CheckQueueStatus",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1170d0",
+        "size_bytes": 584
+      },
+      {
+        "name": "AME_EAB_GetQueueStatus",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x117038",
+        "size_bytes": 152
+      },
+      {
+        "name": "AME_EAB_GetQueuesInfo_CPE",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x127ccc",
+        "size_bytes": 640
+      },
+      {
+        "name": "AME_EAB_MakeSuperQueue",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x126778",
+        "size_bytes": 1140
+      },
+      {
+        "name": "AME_EAB_PushULMap",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1254cc",
+        "size_bytes": 420
+      },
+      {
+        "name": "AME_EAB_ResetQueues",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x125dc0",
+        "size_bytes": 2488
+      },
+      {
+        "name": "AME_EAB_SendEmptyFrame",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x12cfd0",
+        "size_bytes": 168
+      },
+      {
+        "name": "AME_EAB_SetL2FrameDef",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x12c594",
+        "size_bytes": 260
+      },
+      {
+        "name": "AME_EAB_SetupQueues",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x127f4c",
+        "size_bytes": 512
+      },
+      {
+        "name": "AME_EAB_SubmitSymbols",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x124e20",
+        "size_bytes": 1304
+      },
+      {
+        "name": "AME_GEM_CB_RxFrame",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x13f6c0",
+        "size_bytes": 4
+      },
+      {
+        "name": "AME_HCAM_InsertMap",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1147bc",
+        "size_bytes": 768
+      },
+      {
+        "name": "AME_HCAM_LookupMap",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x114abc",
+        "size_bytes": 336
+      },
+      {
+        "name": "AME_HCAM_RemoveMap",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x114c0c",
+        "size_bytes": 188
+      },
+      {
+        "name": "AME_HCAM_UpdateMap",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x114f64",
+        "size_bytes": 136
+      },
+      {
+        "name": "AME_HSM_DL_RESULT",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199a24",
+        "size_bytes": 128
+      },
+      {
+        "name": "AME_HSM_DL_SORT",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199988",
+        "size_bytes": 108
+      },
+      {
+        "name": "AME_HSM_DL_SORT_DONE",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1999f4",
+        "size_bytes": 48
+      },
+      {
+        "name": "AME_HSM_GetQ_DL_Params",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x19b600",
+        "size_bytes": 36
+      },
+      {
+        "name": "AME_HSM_UL_RESULT",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199b40",
+        "size_bytes": 128
+      },
+      {
+        "name": "AME_HSM_UL_SORT",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199aa4",
+        "size_bytes": 108
+      },
+      {
+        "name": "AME_HSM_UL_SORT_DONE",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199b10",
+        "size_bytes": 48
+      },
+      {
+        "name": "AME_HSM_Update_UL_Status",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x19a86c",
+        "size_bytes": 176
+      },
+      {
+        "name": "AME_HSM_add_sched_result",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199e0c",
+        "size_bytes": 828
+      },
+      {
+        "name": "AME_HSM_submit_sched_result",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x199cac",
+        "size_bytes": 352
+      },
+      {
+        "name": "AME_SchedAutoMCS",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x613e0",
+        "size_bytes": 80
+      },
+      {
+        "name": "AME_SchedCheckActiveCPE",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x614d4",
+        "size_bytes": 32
+      },
+      {
+        "name": "AME_SchedCheckAuthCPE",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x61b7c",
+        "size_bytes": 32
+      },
+      {
+        "name": "AME_SchedCheckForcedDGain",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x614bc",
+        "size_bytes": 24
+      },
+      {
+        "name": "AME_SchedCheckNumActiveCPEs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x61b9c",
+        "size_bytes": 104
+      },
+      {
+        "name": "AME_SchedDfsDummytraffic",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x61430",
+        "size_bytes": 32
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s288a-ltu-auto-duty-cycle-scheduler-re"
+  }
+}

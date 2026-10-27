@@ -97,11 +97,13 @@ def run_recording(contract):
             prior = read_json(path)
             require(bound_identity(prior, cfg), 'FOREIGN_OWNER_OR_INTENT')
             return dict(base, status='HOLD_PREEXISTING_OWNER_OR_INTENT', rollback_triggered=False), 2
-    exclusive_json(directory / 'watchdog.owner.json', dict(identity, pid=os.getpid(),
-        source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()))
+    # Ownership is visible to health writers while its durable write completes.
+    # Establish the epoch first so their valid reports cannot predate it.
     start = time.monotonic()
     deadline = start + cfg['maximum_seconds']
     last_observed = start
+    exclusive_json(directory / 'watchdog.owner.json', dict(identity, pid=os.getpid(),
+        source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()))
     health_seen = False
     reason = None
     try:

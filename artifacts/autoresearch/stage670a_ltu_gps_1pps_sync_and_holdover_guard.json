@@ -1,0 +1,52 @@
+{
+  "stage": "670A",
+  "task_id": "T-S670A-LTU-GPS-1PPS-SYNC-AND-HOLDOVER-GUARD",
+  "title": "Pillar 4 AF-LTU (Beetle) GPS 1PPS Superframe Sync & Holdover Drift Read-Only Auditor",
+  "memory_master_claim": {
+    "code": "mm-1a4e",
+    "id": 155462
+  },
+  "generated_at": "2026-10-27T01:54:09.069386+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "guard_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_gps_1pps_sync_guard.sh",
+    "sha256": "41f5b1eb95b86396f5fc2902d8cd930fc41c8a7ec07949dbdc83b4e873350429",
+    "size_bytes": 1973,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "gps_1pps_and_holdover_physics": {
+    "sfn_synchronization_symbol": "ame_bbp_is_remote_SFN_synchronized",
+    "frame_timer_symbol": "frame_timer_init",
+    "sysfs_pulse_offset_knob": "frame_pulse_offset",
+    "tdd_guard_gap_us": 62.5,
+    "tcxo_1ppm_drift_rate_us_per_sec": 1.0,
+    "colocated_abab_safe_holdover_seconds": 10.7
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "inspects_frame_pulse_offset_and_sfn": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes ame_core.ko & ame_dev.ko superframe clock (frame_pulse_offset, ame_bbp_is_remote_SFN_synchronized, frame_timer_init, gap0)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models 1PPS holdover drift physics and ABAB co-located sector TDD TX/RX boundary protection",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device touches",
+    "pillar_d_scientific_pareto_validation": "Prevents co-located LTU Rocket AP self-interference when multiple sectors reuse channels on the same tower",
+    "pillar_e_memory_master_claim_id": "mm-1a4e (id=155462)"
+  }
+}

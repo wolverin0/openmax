@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S38B-CODEX-CHAMPION-V12-UPH-SYSCTL-CLOBBER-AND-IGMPV2-CANARY-VERIFIER",
+  "generated_at_utc": "2026-10-25T20:47:50.913884+00:00",
+  "state": "SOFTWARE_VERIFIED",
+  "disposition": "KEEP",
+  "ownership": "external_controller_linux_mac80211_bridge_and_stock_UPH_readback_contract",
+  "file_sha256": {
+    "controller/stage39a_champion_v12_triple_play_canary_verifier.py": "ca4187cc79620524d5948e766482f3303bc33802a36d9e2b8ec1350b9d2c4bb3",
+    "tests/test_stage38b_champion_v12_canary_verifier.py": "84592d62b6700c56b7a948e5d6198f04c8e0ad3ed385638e6d3ffb536639c832",
+    "docs/STAGE38B_CHAMPION_V12_TRIPLE_PLAY_AND_UPH_CLOBBER_VERIFIER.md": "0d0b9eca6a9541858004d9216a66558c83db618441b373adb4008d62df023291",
+    "controller/mac80211_aqm_per_tid_canary_verifier.py": "f4d45f534d1da61a78ad0cb6d2c6331f639fcb7f33c8df818597337683a0621f",
+    "controller/iptv_dms_ac_vi_canary_gate.py": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1",
+    "artifacts/autoresearch/stage37a_triple_play_aqm_fq_limit_bench_20261025.json": "fa9e816079df2e01ac833b6e11b163cd137039a7c36a2c0d16f6479673ef093e",
+    "docs/STAGE37A_TRIPLE_PLAY_IPTV_VOIP_AND_MAC80211_FQ_LIMIT_BENCHMARK.md": "d43f476ff0972738fcea495f1e28ec74d47e9cd5a042cd88607b00404fb3827a",
+    "artifacts/autoresearch/stage39a_m19_m20_igmp_fast_leave_bench_20261025.json": "5b77a6930875a307def27af00e2e83b9dc311b882a7fcf7d50735461d69aafe4",
+    "docs/STAGE39A_M19_M20_IGMP_FAST_LEAVE_AND_MCAST_STALL_BENCHMARK.md": "acd97a83bf8079e21fa8cba1af606184c104f9e36e8f526f4acefc9ef86f4acc",
+    "controller/openwisp_uisp_unified_canary_provisioner.py": "eacef354a5a657d049fa7b81a0aab761f6784cd34fe9039e0ff1838d333745e7"
+  },
+  "tests": {
+    "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+    "direct_without_heavy_slot": true,
+    "exit_code": 0,
+    "passed": 52,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pytest_elapsed_s": 0.67,
+    "tool_wall_time_s": 2.2742778,
+    "console_receipt": "41c84f",
+    "stdout_summary": "52 passed in 0.67s",
+    "warning": "Existing pytest_asyncio asyncio_default_fixture_loop_scope unset deprecation warning retained",
+    "scope": "disposable_fixture_and_generated_text_only"
+  },
+  "test_history": [
+    {
+      "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+      "exit_code": 1,
+      "passed": 43,
+      "failed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_elapsed_s": 0.67,
+      "tool_wall_time_s": 2.2583281,
+      "console_receipt": "9677f1",
+      "module_sha256": "50702bfe81f4d871662d9d497d02c5bf164b44a8cb98e9d65847a2ec2adf104a",
+      "test_sha256": "529120bab301af6e7001c69f4d851a5b56c1564766239469b1a4f6b505078616",
+      "failure": "TypeError: tuple object does not support item assignment in tid7 fixture before product call",
+      "resolution": "Use mutable list copy; retain negative TID7 assertion"
+    },
+    {
+      "command": "python -m pytest tests/test_stage38b_champion_v12_canary_verifier.py -q",
+      "exit_code": 0,
+      "passed": 50,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pytest_elapsed_s": 0.73,
+      "tool_wall_time_s": 2.9066219,
+      "console_receipt": "5de7e5",
+      "module_sha256": "50702bfe81f4d871662d9d497d02c5bf164b44a8cb98e9d65847a2ec2adf104a",
+      "test_sha256": "a3e3346d5b8d06dc7a49de090267d219f5b87b5a30a8591bc555ef717ee38a69",
+      "superseded_by": "Independent review found non-target captured parameter drift; full stability guard and two regressions added"
+    }
+  ],
+  "review_repairs": [
+    {
+      "finding": "Nonzero UPH components could change while ff scalar remained5",
+      "repair": "Non-target15 integers equal baseline; complete vector stable through measured window"
+    },
+    {
+      "finding": "Journal ABI/ranges and changed-coordinate coverage incomplete",
+      "repair": "Typed native setter payloads; final logged values match readbacks; all changed numeric coordinates covered; UPH5 last"
+    },
+    {
+      "finding": "Query fields could be outside protocol ranges",
+      "repair": "Bound DSCP/TID/AC/length and enforce TID-to-AC mapping"
+    },
+    {
+      "finding": "Captured parameters outside forced overlay could drift",
+      "repair": "All captured parameter writes equal first-to-last; APeth0 and optional CPE DMS regressions"
+    }
+  ],
+  "historical_source_limits": [
+    "Scalar UPH getter is not a native full16-vector or complete alias map",
+    "Missing R3 AQM/AQL/querier getters remain missing; fresh explicit reads required",
+    "Rocket R3 fastleave1 and AP DMS1 already present in control arms; no isolated causal gain claim"
+  ],
+  "independent_review": {
+    "state": "PASS_WITH_LIMITS",
+    "fresh_static_checks": 113,
+    "open_material_blockers": 0,
+    "receipt_path": "artifacts/autoresearch/stage38b_champion_v12_independent_review_20261025.json",
+    "receipt_sha256": "c490b31547a2fd394faa2f786dcc7a33d3d28afe9a5195220c90db666e729eb8",
+    "pytest_execution": "OWNER_EVIDENCE_REUSED_NOT_INDEPENDENTLY_EXECUTED",
+    "reviewed_preseal_validation_sha256": "d0442bbd519f00a38ea48c852afe060e3ce210f8509daddaffcb55d6bf58b379",
+    "closure_metadata_review": "PASS_WITH_LIMITS",
+    "review_checker_failures_preserved": [
+      {
+        "tool_chunk": "9bab73",
+        "exit_code": 1,
+        "assertion": "UPH_exact16_newline_signed32",
+        "checker_sha256": "30da293b9cff1220443243b26043089890f5c6646dbbaa1a6b265205c35f1c0f",
+        "cause": "Checker literal used interpreted newline instead of backslash-n in source text; product parse_uph_vector has the required endswith newline guard."
+      },
+      {
+        "tool_chunk": "50ecd9",
+        "exit_code": 1,
+        "failed_checks": [
+          "UPH_exact16_newline_signed32",
+          "doc_limit_not a claim"
+        ],
+        "cause": "Same checker newline escaping remained; document has Markdown emphasis **not** a claim. Neither is a product or document defect. Correct check uses AST literal and Markdown-insensitive phrase."
+      }
+    ],
+    "prior_material_finding": {
+      "path": "artifacts/autoresearch/stage38b_champion_v12_pre_final_finding_20261025.json",
+      "sha256": "40f42bb510695a3bb93e56fe179ed6ed64618aadb66e17340e159e445310f0d3",
+      "state": "RESOLVED_BY_PARAMETER_STABILITY_GUARD"
+    },
+    "closure_static_checks": 55,
+    "closure_receipt_path": "artifacts/autoresearch/stage38b_champion_v12_documentation_addendum_20261025.json",
+    "closure_receipt_sha256": "94521b4e18c822167302a49e9ac1eb377b2dbe1e0a94da3db4cb854f3b2b2f98",
+    "closure_binding_scope": "Pre-addendum metadata observation; only this final receipt pointer changes afterward"
+  },
+  "restoration": {
+    "generated_text_only": true,
+    "native_guard_path": "/usr/libexec/fmx-stage38b-restore-guard",
+    "native_guard_implemented_or_installed": false,
+    "scripts_dispatched": false,
+    "scope": "EXACT_CAPTURED_NUMERIC_PARAMETERS_NOT_QUEUES_COUNTERS_OR_MDB_HISTORY",
+    "full_uph_vector_once_last": true,
+    "partial_capture_blocks_generation": true
+  },
+  "runtime_dispatch_allowed": false,
+  "physical_acceptance": false,
+  "receiver_delivery_proven": false,
+  "new_wireless_gain_claimed": false,
+  "native_collector_and_guard_qualification": "UNKNOWN_NOT_EXECUTED",
+  "device_ssh_wsl_nms_services_or_flash_executed": false,
+  "e2": "NOT_ACCEPTED",
+  "no_background_runner": true,
+  "completion_scope": "Requested Stage38B offline software/readbacks/restoration recipes and independent review; no next task"
+}

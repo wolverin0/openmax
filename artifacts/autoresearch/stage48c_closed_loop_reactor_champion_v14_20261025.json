@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "48C",
+  "task_id": "T-S48C-GEM2-STAGE42A-CHAMPION-V14-SYSFS-TXQ256-PACKAGER-AND-REACTOR",
+  "generated_at_utc": "2026-10-26T18:03:43.913486+00:00",
+  "champion_version": "v14",
+  "champion_round_id": "S42A-R5",
+  "champion_mechanism_id": "M24e_M25e_PURE_SYSFS_WDS_TXQ_256_AND_LBM5_BR0_TXQ_256",
+  "ingested_rounds_summary": {
+    "S42A-R1": "M24_AIROS6_MCAST_AND_UNPOLLED_TXOP (-8.346% [-8.352%] GP -> RETAIN_CURRENT_CHAMPION / REFUTED: unpolled airOS 6 XW ubnt_poll txop_params='15 5' + no_ack_rate=1 caused uncoordinated CSMA/CA burst contention)",
+    "S42A-R2": "M25_SYSFS_TXQ_128_AND_BACKLOG_2000 (+16.716% p95 RTT, 2.17% [2.7% peak] VoIP loss -> RETAIN_CURRENT_CHAMPION / REFUTED: sysfs tx_queue_len=128 + backlog=2000 starved mac80211 internal TXQs)",
+    "S42A-R3": "M25B_SYSFS_TXQ_256_AND_BACKLOG_2000 (+2.378% p95 RTT, 0.58% [1.75% peak] VoIP loss -> RETAIN_CURRENT_CHAMPION / REFUTED: coupling tx_queue_len=256 with netdev_max_backlog=2000 shifted packets into softirq backlog bloat)",
+    "S42A-R4": "M25C_SYSFS_TXQ_64_EXTREME_BOUND (-3.903% GP, +29.472% p95 RTT, 0.75% VoIP loss -> RETAIN_CURRENT_CHAMPION / REFUTED: extreme tx_queue_len=64 confirmed monotonic netdev TXQ starvation law)",
+    "S42A-R5": "M24e_M25e_PURE_SYSFS_WDS_TXQ_256_AND_LBM5_BR0_TXQ_256 Champion v14 (+3.208% GP [45.331 -> 46.785 Mbps], -7.917% p95 RTT [104.429 -> 96.161 ms], -12.355% Dual IPTV jitter [1.902 -> 1.667 ms], -8.110% VoIP jitter [2.429 -> 2.232 ms], 0.00% IPTV/VoIP loss, 0 tid0_ac2 drops, Pareto +5.9786% -> PROMOTE_NEW_CHAMPION / CONFIRMED: pure direct sysfs tx_queue_len=256 paired with netdev_max_backlog=1000 & tcp_early_retrans=3)"
+  },
+  "ingested_reactor_events": [
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S42A-R1",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 44.523,
+      "gp_candidate_mbps": 40.807,
+      "gp_delta_pct": -8.346,
+      "p95_champion_ms": 103.173,
+      "p95_candidate_ms": 91.118,
+      "p95_delta_pct": -11.684,
+      "pareto_score_delta_pct": -4.2568,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S42A-R1.md",
+      "followup_scholar_queries": [
+        "IEEE 802.11v Directed Multicast Service DMS multicast to unicast PtMP video",
+        "IGMPv3 fast leave wireless bridge multicast snooping airtime protection",
+        "Linux netdev tx_queue_len starvation mac80211 internal wake_tx_queue FQ_CoDel AQL",
+        "IEEE 802.11n unpolled CSMA/CA TXOP no-ack contention hidden node PtMP",
+        "2.4 GHz 802.11ac PtMP multicast airtime limit IGMPv2 fast-leave TCP wmem bounding"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M19",
+          "title": "PB-037 Stock airOS 8 netconf WMM AC_VI EDCA Contention Window & TXOP Tuning (CWmin=7, CWmax=15, AIFSN=2, TXOP=3008us) + ff_mcast_airtime_limit=5 (Written Last)",
+          "scientific_basis": "Stage 34A S34A-R1 (+7.244% goodput with ff_mcast_airtime_limit=5) + Stage 35A S35A-R1 Champion v9 (+1.705% goodput, -15.121% p95 RTT) + Stage 39A ubnt_poll_host.ko shared sysctl_table->data buffer clobber guard (write ff_mcast_airtime_limit=5 LAST without voip_bias clobbering it)",
+          "candidate_delta_commands": [
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M20",
+          "title": "PB-038 IGMPv3 Fast-Leave (multicast_fast_leave=1) + Dynamic 4-Addr WDS Port Querier Tightening on br-lan (phy0-ap0.sta*)",
+          "scientific_basis": "Stage 35A S35A-R1 discovery that dynamic WDS ports (phy0-ap0.sta1/sta2) spawn with multicast_to_unicast=0 and multicast_fast_leave=0",
+          "candidate_delta_commands": [
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_snooping",
+            "echo 1 > /sys/devices/virtual/net/br-lan/bridge/multicast_querier",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_to_unicast; do echo 1 > $p 2>/dev/null || true; done",
+            "for p in /sys/devices/virtual/net/br-lan/brif/phy0-ap0*/multicast_fast_leave; do echo 1 > $p 2>/dev/null || true; done"
+          ]
+        },
+        {
+          "mechanism_id": "M28",
+          "title": "PB-046 OpenWrt Netdev tx_queue_len=1000 & netdev_max_backlog=1000 Starvation Guard + Unpolled airOS 6 XW ubnt_poll Contention Guard",
+          "scientific_basis": "Stage 42A S42A-R1..R4 physical laws: S42A-R2/R3/R4 proved lowering real sysfs /sys/class/net/*/tx_queue_len from 1000 to 64/128/256 with netdev_max_backlog=2000 causes pre-mac80211 qdisc tail-drop starvation under 590 pps Triple-Play (0.58%-2.17% [2.7% peak] VoIP loss and +2.378% to +29.472% p95 RTT inflation); S42A-R1 proved enabling ubnt_poll txop_params='15 5' + no_ack_rate=1 on unpolled airOS 6 XW (.251) causes -8.346% (-8.352%) sector goodput collapse",
+          "candidate_delta_commands": [
+            "echo 1000 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 1000 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 >/dev/null",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        },
+        {
+          "mechanism_id": "M29",
+          "title": "PB-047 Cross-Band 2.4 GHz R2AC M18 (ff_mcast_airtime_limit=5 Written Last + IGMPv2 Fast-Leave + 512 KB tcp_wmem) & LTU Persistent rc.poststart ath0-Only fq_codel Co-Design",
+          "scientific_basis": "Stage 40A S40A-R1 & S40A-R2 physical benchmarks: S40A-R1 on 2.4 GHz Rocket 2AC Prism (.253) + NanoLoco M2 (.252) cut loaded p95 RTT -20.75% (11.542 -> 9.147 ms) and IPTV jitter -15.32% with 0.00% IPTV/VoIP loss; S40A-R2 on LTU-Lite (LTU.afltu.v2.4.0) proved persistent /etc/persistent/rc.poststart (air_fpga RAM patch + ath0 fq_codel limit 1024 quantum 1514 target 2.5ms) cuts IPTV jitter -45.66%, VoIP jitter -57.26%, and loaded ping p95 -50.40% with 0.00% packet loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br0/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br0/brif/ath0/multicast_fast_leave",
+            "sysctl -w net.ipv4.tcp_wmem='4096 16384 524288' >/dev/null",
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S42A-R2",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 45.703,
+      "gp_candidate_mbps": 45.062,
+      "gp_delta_pct": -1.403,
+      "p95_champion_ms": 71.539,
+      "p95_candidate_ms": 66.872,
+      "p95_delta_pct": -6.524,
+      "pareto_score_delta_pct": 0.8808,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S42A-R2.md",
+      "followup_scholar_queries": [
+        "Linux netdev tx_queue_len starvation mac80211 internal wake_tx_queue FQ_CoDel AQL",
+        "IEEE 802.11n unpolled CSMA/CA TXOP no-ack contention hidden node PtMP",
+        "2.4 GHz 802.11ac PtMP multicast airtime limit IGMPv2 fast-leave TCP wmem bounding"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M28",
+          "title": "PB-046 OpenWrt Netdev tx_queue_len=1000 & netdev_max_backlog=1000 Starvation Guard + Unpolled airOS 6 XW ubnt_poll Contention Guard",
+          "scientific_basis": "Stage 42A S42A-R1..R4 physical laws: S42A-R2/R3/R4 proved lowering real sysfs /sys/class/net/*/tx_queue_len from 1000 to 64/128/256 with netdev_max_backlog=2000 causes pre-mac80211 qdisc tail-drop starvation under 590 pps Triple-Play (0.58%-2.17% [2.7% peak] VoIP loss and +2.378% to +29.472% p95 RTT inflation); S42A-R1 proved enabling ubnt_poll txop_params='15 5' + no_ack_rate=1 on unpolled airOS 6 XW (.251) causes -8.346% (-8.352%) sector goodput collapse",
+          "candidate_delta_commands": [
+            "echo 1000 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 1000 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 >/dev/null",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        },
+        {
+          "mechanism_id": "M29",
+          "title": "PB-047 Cross-Band 2.4 GHz R2AC M18 (ff_mcast_airtime_limit=5 Written Last + IGMPv2 Fast-Leave + 512 KB tcp_wmem) & LTU Persistent rc.poststart ath0-Only fq_codel Co-Design",
+          "scientific_basis": "Stage 40A S40A-R1 & S40A-R2 physical benchmarks: S40A-R1 on 2.4 GHz Rocket 2AC Prism (.253) + NanoLoco M2 (.252) cut loaded p95 RTT -20.75% (11.542 -> 9.147 ms) and IPTV jitter -15.32% with 0.00% IPTV/VoIP loss; S40A-R2 on LTU-Lite (LTU.afltu.v2.4.0) proved persistent /etc/persistent/rc.poststart (air_fpga RAM patch + ath0 fq_codel limit 1024 quantum 1514 target 2.5ms) cuts IPTV jitter -45.66%, VoIP jitter -57.26%, and loaded ping p95 -50.40% with 0.00% packet loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br0/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br0/brif/ath0/multicast_fast_leave",
+            "sysctl -w net.ipv4.tcp_wmem='4096 16384 524288' >/dev/null",
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S42A-R3",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 43.682,
+      "gp_candidate_mbps": 43.835,
+      "gp_delta_pct": 0.35,
+      "p95_champion_ms": 96.613,
+      "p95_candidate_ms": 98.91,
+      "p95_delta_pct": 2.378,
+      "pareto_score_delta_pct": -0.4819,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S42A-R3.md",
+      "followup_scholar_queries": [
+        "Linux netdev tx_queue_len starvation mac80211 internal wake_tx_queue FQ_CoDel AQL",
+        "IEEE 802.11n unpolled CSMA/CA TXOP no-ack contention hidden node PtMP",
+        "2.4 GHz 802.11ac PtMP multicast airtime limit IGMPv2 fast-leave TCP wmem bounding"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M28",
+          "title": "PB-046 OpenWrt Netdev tx_queue_len=1000 & netdev_max_backlog=1000 Starvation Guard + Unpolled airOS 6 XW ubnt_poll Contention Guard",
+          "scientific_basis": "Stage 42A S42A-R1..R4 physical laws: S42A-R2/R3/R4 proved lowering real sysfs /sys/class/net/*/tx_queue_len from 1000 to 64/128/256 with netdev_max_backlog=2000 causes pre-mac80211 qdisc tail-drop starvation under 590 pps Triple-Play (0.58%-2.17% [2.7% peak] VoIP loss and +2.378% to +29.472% p95 RTT inflation); S42A-R1 proved enabling ubnt_poll txop_params='15 5' + no_ack_rate=1 on unpolled airOS 6 XW (.251) causes -8.346% (-8.352%) sector goodput collapse",
+          "candidate_delta_commands": [
+            "echo 1000 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 1000 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 >/dev/null",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        },
+        {
+          "mechanism_id": "M29",
+          "title": "PB-047 Cross-Band 2.4 GHz R2AC M18 (ff_mcast_airtime_limit=5 Written Last + IGMPv2 Fast-Leave + 512 KB tcp_wmem) & LTU Persistent rc.poststart ath0-Only fq_codel Co-Design",
+          "scientific_basis": "Stage 40A S40A-R1 & S40A-R2 physical benchmarks: S40A-R1 on 2.4 GHz Rocket 2AC Prism (.253) + NanoLoco M2 (.252) cut loaded p95 RTT -20.75% (11.542 -> 9.147 ms) and IPTV jitter -15.32% with 0.00% IPTV/VoIP loss; S40A-R2 on LTU-Lite (LTU.afltu.v2.4.0) proved persistent /etc/persistent/rc.poststart (air_fpga RAM patch + ath0 fq_codel limit 1024 quantum 1514 target 2.5ms) cuts IPTV jitter -45.66%, VoIP jitter -57.26%, and loaded ping p95 -50.40% with 0.00% packet loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br0/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br0/brif/ath0/multicast_fast_leave",
+            "sysctl -w net.ipv4.tcp_wmem='4096 16384 524288' >/dev/null",
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S42A-R4",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_REFUTED_OR_BOUNDED",
+      "decision": "RETAIN_CURRENT_CHAMPION",
+      "gp_champion_mbps": 45.254,
+      "gp_candidate_mbps": 43.895,
+      "gp_delta_pct": -3.003,
+      "p95_champion_ms": 93.497,
+      "p95_candidate_ms": 121.052,
+      "p95_delta_pct": 29.472,
+      "pareto_score_delta_pct": -13.3181,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S42A-R4.md",
+      "followup_scholar_queries": [
+        "Linux netdev tx_queue_len starvation mac80211 internal wake_tx_queue FQ_CoDel AQL",
+        "IEEE 802.11n unpolled CSMA/CA TXOP no-ack contention hidden node PtMP",
+        "2.4 GHz 802.11ac PtMP multicast airtime limit IGMPv2 fast-leave TCP wmem bounding"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M28",
+          "title": "PB-046 OpenWrt Netdev tx_queue_len=1000 & netdev_max_backlog=1000 Starvation Guard + Unpolled airOS 6 XW ubnt_poll Contention Guard",
+          "scientific_basis": "Stage 42A S42A-R1..R4 physical laws: S42A-R2/R3/R4 proved lowering real sysfs /sys/class/net/*/tx_queue_len from 1000 to 64/128/256 with netdev_max_backlog=2000 causes pre-mac80211 qdisc tail-drop starvation under 590 pps Triple-Play (0.58%-2.17% [2.7% peak] VoIP loss and +2.378% to +29.472% p95 RTT inflation); S42A-R1 proved enabling ubnt_poll txop_params='15 5' + no_ack_rate=1 on unpolled airOS 6 XW (.251) causes -8.346% (-8.352%) sector goodput collapse",
+          "candidate_delta_commands": [
+            "echo 1000 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 1000 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 >/dev/null",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        },
+        {
+          "mechanism_id": "M29",
+          "title": "PB-047 Cross-Band 2.4 GHz R2AC M18 (ff_mcast_airtime_limit=5 Written Last + IGMPv2 Fast-Leave + 512 KB tcp_wmem) & LTU Persistent rc.poststart ath0-Only fq_codel Co-Design",
+          "scientific_basis": "Stage 40A S40A-R1 & S40A-R2 physical benchmarks: S40A-R1 on 2.4 GHz Rocket 2AC Prism (.253) + NanoLoco M2 (.252) cut loaded p95 RTT -20.75% (11.542 -> 9.147 ms) and IPTV jitter -15.32% with 0.00% IPTV/VoIP loss; S40A-R2 on LTU-Lite (LTU.afltu.v2.4.0) proved persistent /etc/persistent/rc.poststart (air_fpga RAM patch + ath0 fq_codel limit 1024 quantum 1514 target 2.5ms) cuts IPTV jitter -45.66%, VoIP jitter -57.26%, and loaded ping p95 -50.40% with 0.00% packet loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br0/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br0/brif/ath0/multicast_fast_leave",
+            "sysctl -w net.ipv4.tcp_wmem='4096 16384 524288' >/dev/null",
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-26T18:03:43Z",
+      "round_id": "S42A-R5",
+      "profile_id": "openwrt_lap120_ptmp_multicpe_champion",
+      "empirical_status": "HW_CONFIRMED",
+      "decision": "PROMOTE_NEW_CHAMPION",
+      "gp_champion_mbps": 45.331,
+      "gp_candidate_mbps": 46.785,
+      "gp_delta_pct": 3.208,
+      "p95_champion_ms": 104.429,
+      "p95_candidate_ms": 96.161,
+      "p95_delta_pct": -7.917,
+      "pareto_score_delta_pct": 5.9786,
+      "vault_feedback_note": "artifacts\\hyperresearch_vault\\notes\\empirical_feedback\\empirical_feedback_S42A-R5.md",
+      "followup_scholar_queries": [
+        "Linux netdev tx_queue_len starvation mac80211 internal wake_tx_queue FQ_CoDel AQL",
+        "IEEE 802.11n unpolled CSMA/CA TXOP no-ack contention hidden node PtMP",
+        "2.4 GHz 802.11ac PtMP multicast airtime limit IGMPv2 fast-leave TCP wmem bounding",
+        "Linux sysfs tx_queue_len 256 netdev_max_backlog 1000 tcp_early_retrans 3 MIPS 74Kc softirq",
+        "IEEE 802.11n unpolled airOS 6 XW br0 ath0 eth0 txqueuelen 256 ubnt_ewma_delegate_on rate control"
+      ],
+      "synthesized_next_mechanisms": [
+        {
+          "mechanism_id": "M28",
+          "title": "PB-046 OpenWrt Netdev tx_queue_len=1000 & netdev_max_backlog=1000 Starvation Guard + Unpolled airOS 6 XW ubnt_poll Contention Guard",
+          "scientific_basis": "Stage 42A S42A-R1..R4 physical laws: S42A-R2/R3/R4 proved lowering real sysfs /sys/class/net/*/tx_queue_len from 1000 to 64/128/256 with netdev_max_backlog=2000 causes pre-mac80211 qdisc tail-drop starvation under 590 pps Triple-Play (0.58%-2.17% [2.7% peak] VoIP loss and +2.378% to +29.472% p95 RTT inflation); S42A-R1 proved enabling ubnt_poll txop_params='15 5' + no_ack_rate=1 on unpolled airOS 6 XW (.251) causes -8.346% (-8.352%) sector goodput collapse",
+          "candidate_delta_commands": [
+            "echo 1000 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 1000 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 >/dev/null",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        },
+        {
+          "mechanism_id": "M29",
+          "title": "PB-047 Cross-Band 2.4 GHz R2AC M18 (ff_mcast_airtime_limit=5 Written Last + IGMPv2 Fast-Leave + 512 KB tcp_wmem) & LTU Persistent rc.poststart ath0-Only fq_codel Co-Design",
+          "scientific_basis": "Stage 40A S40A-R1 & S40A-R2 physical benchmarks: S40A-R1 on 2.4 GHz Rocket 2AC Prism (.253) + NanoLoco M2 (.252) cut loaded p95 RTT -20.75% (11.542 -> 9.147 ms) and IPTV jitter -15.32% with 0.00% IPTV/VoIP loss; S40A-R2 on LTU-Lite (LTU.afltu.v2.4.0) proved persistent /etc/persistent/rc.poststart (air_fpga RAM patch + ath0 fq_codel limit 1024 quantum 1514 target 2.5ms) cuts IPTV jitter -45.66%, VoIP jitter -57.26%, and loaded ping p95 -50.40% with 0.00% packet loss",
+          "candidate_delta_commands": [
+            "echo 2 > /sys/devices/virtual/net/br0/bridge/multicast_igmp_version",
+            "echo 1 > /sys/devices/virtual/net/br0/brif/ath0/multicast_fast_leave",
+            "sysctl -w net.ipv4.tcp_wmem='4096 16384 524288' >/dev/null",
+            "echo 5 > /proc/sys/dev/uph_wifi0/ff_mcast_airtime_limit"
+          ]
+        },
+        {
+          "mechanism_id": "M30",
+          "title": "PB-048 Pure Direct Sysfs WDS tx_queue_len=256 & netdev_max_backlog=1000 Co-Design (tcp_early_retrans=3) Eliminating 1000-Packet Dynamic WDS Netdev Queue Bloat Without Single-Core MIPS 74Kc Softirq Backlog Inflation",
+          "scientific_basis": "Stage 42A S42A-R5 Champion v14 (M24e_M25e_PURE_SYSFS_WDS_TXQ_256_AND_LBM5_BR0_TXQ_256): isolating pure direct sysfs /sys/class/net/br-lan/tx_queue_len=256 and /sys/class/net/phy0-ap0*/tx_queue_len=256 on LAP-120 (.20) and Loco 5AC (.250) while keeping net.core.netdev_max_backlog=1000 (not 2000) and net.ipv4.tcp_early_retrans=3 achieved +3.208% goodput (45.331 -> 46.785 Mbps), -7.917% p95 RTT (104.429 -> 96.161 ms), -12.355% Dual 1080p60 IPTV jitter (1.902 -> 1.667 ms, 0.00% loss), -8.110% VoIP jitter (2.429 -> 2.232 ms, 0.00% loss), 0 tid0_ac2 drops, and Pareto +5.9786%",
+          "candidate_delta_commands": [
+            "echo 256 > /sys/class/net/br-lan/tx_queue_len",
+            "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 256 > \"$dev\"; done",
+            "sysctl -w net.core.netdev_max_backlog=1000 net.ipv4.tcp_early_retrans=3 >/dev/null"
+          ]
+        },
+        {
+          "mechanism_id": "M31",
+          "title": "PB-049 Unpolled airOS 6 XW br0/ath0/eth0 txqueuelen=256 & ubnt_ewma_delegate_on=1 Rate-Control Delegation with Zero ubnt_poll Contention (txop_params='0 0', no_ack_rate=0)",
+          "scientific_basis": "Stage 42A S42A-R1 vs S42A-R5 causal separation on LiteBeam M5 (.251, airOS 6 XW): S42A-R1 proved unpolled ubnt_poll txop_params='15 5' + no_ack_rate=1 caused -8.352% goodput loss; S42A-R5 Champion v14 kept ubnt_poll txop_params='0 0' + no_ack_rate=0 while bounding br0/ath0/eth0 tx_queue_len=256, enabling ubnt_ewma_delegate_on=1, multicast_snooping=1, multicast_querier=0, and multicast_fast_leave=1, contributing to +3.208% sector goodput and -7.917% p95 RTT",
+          "candidate_delta_commands": [
+            "echo 256 > /sys/class/net/br0/tx_queue_len",
+            "echo 256 > /sys/class/net/ath0/tx_queue_len",
+            "echo 256 > /sys/class/net/eth0/tx_queue_len",
+            "echo 1 > /proc/sys/net/ath0/ubnt_ewma_delegate_on",
+            "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+          ]
+        }
+      ]
+    }
+  ],
+  "next_wave_mechanisms_m30_to_m31": [
+    {
+      "mechanism_id": "M30",
+      "title": "PB-048 Pure Direct Sysfs WDS tx_queue_len=256 & netdev_max_backlog=1000 Co-Design (tcp_early_retrans=3) Eliminating 1000-Packet Dynamic WDS Netdev Queue Bloat Without Single-Core MIPS 74Kc Softirq Backlog Inflation",
+      "scientific_basis": "Stage 42A S42A-R5 Champion v14 (M24e_M25e_PURE_SYSFS_WDS_TXQ_256_AND_LBM5_BR0_TXQ_256): isolating pure direct sysfs /sys/class/net/br-lan/tx_queue_len=256 and /sys/class/net/phy0-ap0*/tx_queue_len=256 on LAP-120 (.20) and Loco 5AC (.250) while keeping net.core.netdev_max_backlog=1000 (not 2000) and net.ipv4.tcp_early_retrans=3 achieved +3.208% goodput (45.331 -> 46.785 Mbps), -7.917% p95 RTT (104.429 -> 96.161 ms), -12.355% Dual 1080p60 IPTV jitter (1.902 -> 1.667 ms, 0.00% loss), -8.110% VoIP jitter (2.429 -> 2.232 ms, 0.00% loss), 0 tid0_ac2 drops, and Pareto +5.9786%",
+      "candidate_delta_commands": [
+        "echo 256 > /sys/class/net/br-lan/tx_queue_len",
+        "for dev in /sys/class/net/phy0-ap0*/tx_queue_len; do [ -f \"$dev\" ] && echo 256 > \"$dev\"; done",
+        "sysctl -w net.core.netdev_max_backlog=1000 net.ipv4.tcp_early_retrans=3 >/dev/null"
+      ]
+    },
+    {
+      "mechanism_id": "M31",
+      "title": "PB-049 Unpolled airOS 6 XW br0/ath0/eth0 txqueuelen=256 & ubnt_ewma_delegate_on=1 Rate-Control Delegation with Zero ubnt_poll Contention (txop_params='0 0', no_ack_rate=0)",
+      "scientific_basis": "Stage 42A S42A-R1 vs S42A-R5 causal separation on LiteBeam M5 (.251, airOS 6 XW): S42A-R1 proved unpolled ubnt_poll txop_params='15 5' + no_ack_rate=1 caused -8.352% goodput loss; S42A-R5 Champion v14 kept ubnt_poll txop_params='0 0' + no_ack_rate=0 while bounding br0/ath0/eth0 tx_queue_len=256, enabling ubnt_ewma_delegate_on=1, multicast_snooping=1, multicast_querier=0, and multicast_fast_leave=1, contributing to +3.208% sector goodput and -7.917% p95 RTT",
+      "candidate_delta_commands": [
+        "echo 256 > /sys/class/net/br0/tx_queue_len",
+        "echo 256 > /sys/class/net/ath0/tx_queue_len",
+        "echo 256 > /sys/class/net/eth0/tx_queue_len",
+        "echo 1 > /proc/sys/net/ath0/ubnt_ewma_delegate_on",
+        "echo '0 0' > /proc/sys/dev/ubnt_poll/txop_params && echo 0 > /proc/sys/dev/ubnt_poll/no_ack_rate"
+      ]
+    }
+  ]
+}

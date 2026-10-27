@@ -1,0 +1,125 @@
+{
+  "stage_id": "stage104b",
+  "task_id": "T-S104B-OBSERVABILITY-V31-S102D-CSA-S102E-LTU-TAIL-GUARD-SYNC",
+  "created_at": "2026-10-26T16:40:00-03:00",
+  "claim_status": "CONFIRMED",
+  "attribution": "external controller, Linux, mac80211, ath10k, QCA firmware, proprietary airMAX/LTU module",
+  "live_devices_touched": false,
+  "flash_writes": 0,
+  "source_receipts_synchronized": [
+    "artifacts/autoresearch/stage102d_mkt_vlan107_csa_under_load.json",
+    "artifacts/autoresearch/stage102e_ltu_superframe_pacing_bench.json",
+    "artifacts/autoresearch/stage103a_wa_xc_untested_knobs_bench.json",
+    "artifacts/autoresearch/stage103d_mkt_bidirectional_framesize_soak.json",
+    "artifacts/autoresearch/stage103e_pbe5ac_to_mkt_e2e_bench.json",
+    "artifacts/autoresearch/stage103f_ltu_dual_and_2xc_bench.json"
+  ],
+  "pillar_a_ground_up_re_and_knob_catalog": {
+    "status": "VERIFIED",
+    "helper_script": "C:/Users/pauol/.gemini/config/skills/fullrea/scripts/fullrea_helper.py",
+    "knob_catalog_path": "orchestration/autoresearch/firmware_knob_candidates.json",
+    "total_catalog_knobs": 571,
+    "modules_covered": [
+      "ubnt_poll_host.ko",
+      "umac.ko",
+      "ath_dev.ko",
+      "ame_core.ko",
+      "eab_driver.ko",
+      "mac80211.ko",
+      "ath10k_core.ko",
+      "sch_cake.ko"
+    ],
+    "re_telemetry_bindings": [
+      "mac80211 ieee80211_channel_switch / hostapd chan_switch (bcn_count=10, block_tx=false, 3/3 station retention)",
+      "ame_core.ko sched_mcs_limit_symbol_end=59 & sched_ap_mcs_limit_symbol_end=59 + sched_max_agg_cnt=8 + multi_ack_enable=1 + LDPC iteration=12 + ofdma_subbands_mask=0xff",
+      "ubnt_poll_host.ko (uph_wifi0) swr_limit=2..3 + ff_mcast_airtime_limit=5 + sta_priority_enabled=1 + ptp_xmit=0..1 + noack_mode=0 + set_multiq=3 + ff_cap_rep=2 + cabq_maxdur=20",
+      "sch_cake.ko diffserv4 4-tin active classifier + overhead 38 + mpu 84 + nat"
+    ]
+  },
+  "pillar_b_hyperresearch_and_scholar_reactor": {
+    "status": "VERIFIED",
+    "reactor_script": "tools/research/closed_loop_research_reactor.py",
+    "queue_path": "artifacts/autoresearch/discovery_to_research_queue.json",
+    "scholar_mcp_queries": [
+      "IEEE 802.11h Channel Switch Announcement CSA zero-drop DFS radar evasion under triple-play load",
+      "TDMA superframe tail symbol guard LDPC decoding latency and aggregation cap in fixed wireless",
+      "CAKE diffserv4 overhead framing compensation RFC 2544 64-byte VoIP tail latency"
+    ]
+  },
+  "pillar_c_karpathy_autoresearch_and_watchdog": {
+    "status": "VERIFIED",
+    "harness_path": "orchestration/autoresearch/fmx_autoresearch_harness.py",
+    "counterbalanced_design": "A1 -> B1 -> A2 -> B2",
+    "non_dfs_rollback_watchdog_s": 45,
+    "dfs_rollback_watchdog_s": 120,
+    "zero_false_positive_alert_clauses": [
+      "FMXStage102DVLAN107CSADrift",
+      "FMXStage102ELTUSuperframeTailGuardDrift",
+      "FMXStage103AWAXCUPHKnobsDrift",
+      "FMXStage103DDiffServ4RFC2544Degraded",
+      "FMXStage103EPBE5ACToMK1E2EDegraded",
+      "FMXStage103FR2AC2XCMultiQDrift"
+    ]
+  },
+  "pillar_d_scientific_pareto_validation": {
+    "status": "VERIFIED",
+    "skills_applied": [
+      "pymoo",
+      "simpy",
+      "statistical-analysis",
+      "scientific-critical-thinking"
+    ],
+    "pareto_telemetry_anchors": {
+      "stage102d_csa_p95_rtt_ms": 9.273,
+      "stage102d_csa_jitter_ms": 1.982,
+      "stage102d_station_retention": 3,
+      "stage102e_ltu_iptv_jitter_ms": 0.443,
+      "stage103f_ltu_ldpc12_iptv_jitter_ms": 0.288,
+      "stage103a_uph_wa_p95_rtt_ms": 38.5,
+      "stage103d_diffserv4_64b_p99_rtt_ms": 38.187,
+      "stage103d_diffserv4_64b_voip_jitter_ms": 1.649,
+      "stage103e_pbe242_mk1_p50_rtt_ms": 2.609,
+      "stage103e_pbe242_mk1_p95_rtt_ms": 4.707,
+      "stage103f_2xc_bulk_tcp_median_mbps": 257.571,
+      "stage103f_2xc_loaded_p95_rtt_ms": 6.357
+    }
+  },
+  "pillar_e_memory_master_claim_id": "MM-FUTURAMAX-STAGE104B-OBSERVABILITY-V31-S102D-S103F-SYNC",
+  "dashboard_sync": {
+    "dashboard_path": "deploy\\observability\\grafana_fmx_rf_command_center_dashboard.json",
+    "version": 31,
+    "total_panels": 53,
+    "stage104b_panel_ids": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53
+    ]
+  },
+  "mirror_sync": {
+    "exporter_mirror": "tools\\observability\\fmx_prometheus_exporter.py",
+    "alerts_mirror": "tools\\observability\\prometheus_fmx_alerts.yml",
+    "dashboard_mirror": "tools\\observability\\grafana_fmx_rf_command_center_dashboard.json",
+    "synced": true
+  },
+  "exporter_verification": {
+    "exporter_ready": true,
+    "openmetrics_eof_valid": true,
+    "missing_metric_substrings": [],
+    "missing_stage104b_alerts": [],
+    "all_checks_passed": true
+  },
+  "five_pillar_gate": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

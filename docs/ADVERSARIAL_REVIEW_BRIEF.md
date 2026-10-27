@@ -1,3 +1,6 @@
+<!-- doc-head: ADVERSARIAL_REVIEW_BRIEF.md preserved document content -->
+<!-- /doc-head -->
+
 # Adversarial Engineering Audit Brief — Stages 10 & 11 (Stock airOS 8 Interop, XC AirPrism RE, LTU 4096-QAM & OFDMA RE, and Public Summary)
 
 ## Role & Stance

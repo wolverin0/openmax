@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "stage": "713A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage713a_ath10k_pci_copy_engine_rings_and_msi_re.py",
+    "tool_sha256": "5fbe9302eb5a300cc55b574e6915d7d068758693a8a37a6983d0f691f0ee8010",
+    "output": "artifacts/autoresearch/stage713a_ath10k_pci_copy_engine_rings_and_msi_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "CE symbol-family extraction for the per-engine dispatcher and the watermark API; pktlog buffer lifecycle lookup; HIF queue allocation lookup; MSI negotiation and legacy fallback message extraction",
+    "premise_corrections": [
+      "ath10k_core.ko is absent, so the ath10k CE table mapping CE0..CE7 to WMI, HTT TX, HTT RX and pktlog cannot be read",
+      "CE0 through CE7 do not exist as strings: the engine index is a runtime parameter, so the count of 8 rings is not provable from the module"
+    ],
+    "radio_safety": "static only"
+  },
+  "ath10k_modules": 0,
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "ce": {
+        "CE_init": 1,
+        "CE_fini": 1,
+        "CE_send": 12,
+        "CE_pause": 2,
+        "CE_per_engine_handler": 1,
+        "CE_per_engine_service": 3,
+        "CE_per_engine_service_any": 1,
+        "CE_per_engine_servicereap": 1
+      },
+      "recv": {
+        "CE_recv_buf_enqueue": 1,
+        "CE_recv_entries_avail": 1,
+        "CE_recv_entries_done": 2,
+        "CE_recv_watermarks_set": 1,
+        "CE_recv_cb_register": 1
+      },
+      "numbered": {
+        "CE0": 0,
+        "CE1": 0,
+        "CE2": 0,
+        "CE3": 0,
+        "CE4": 0,
+        "CE5": 0,
+        "CE6": 0,
+        "CE7": 0
+      },
+      "pktlog": {
+        "pktlog_alloc_buf": 3,
+        "pktlog_release_buf": 3,
+        "pktlog_setsize": 2
+      },
+      "pktlog_tokens": {
+        "pktlog_alloc_buf": 3,
+        "pktlog_release_buf": 3,
+        "pktlog_setsize": 2
+      },
+      "hif": {
+        "HIFGetFreeQueueNumber": 1,
+        "HIFGetDefaultPipe": 1,
+        "HIFConfigureDevice": 2
+      },
+      "msi_msg": 1,
+      "legacy_msg": 1,
+      "ce_symbols": [
+        "CE_cancel_send_next",
+        "CE_completed_recv_next",
+        "CE_completed_recv_next_nolock",
+        "CE_completed_send_next",
+        "CE_completed_send_next_nolock",
+        "CE_fini",
+        "CE_init",
+        "CE_pause",
+        "CE_per_engine_handler",
+        "CE_per_engine_service",
+        "CE_per_engine_service_any",
+        "CE_per_engine_servicereap",
+        "CE_recv_buf_enqueue",
+        "CE_recv_cb_register",
+        "CE_recv_entries_avail",
+        "CE_recv_entries_done",
+        "CE_recv_entries_done_nolock",
+        "CE_recv_watermarks_set",
+        "CE_revoke_recv_next",
+        "CE_send",
+        "CE_send_cb_register",
+        "CE_send_entries_avail",
+        "CE_send_entries_done",
+        "CE_send_entries_done_nolock"
+      ],
+      "pktlog_symbols": [
+        "PKTLOG_DBG_PRINT_SUBSCRIBER",
+        "PKTLOG_RCFIND_SUBSCRIBER",
+        "PKTLOG_RCUPDATE_SUBSCRIBER",
+        "PKTLOG_RX_REMOTE_SUBSCRIBER",
+        "PKTLOG_RX_SUBSCRIBER",
+        "PKTLOG_TX_SUBSCRIBER",
+        "pktlog_alloc_buf",
+        "pktlog_callback",
+        "pktlog_disable",
+        "pktlog_disable_adapter_logging",
+        "pktlog_enable",
+        "pktlog_getbuf"
+      ],
+      "hif_symbols": [
+        "HIFAttachHTC",
+        "HIFClaimDevice",
+        "HIFConfigureDevice",
+        "HIFDetachHTC",
+        "HIFDeviceToOsDevice",
+        "HIFDiagReadAccess",
+        "HIFDiagReadMem",
+        "HIFDiagWriteAccess",
+        "HIFDiagWriteMem",
+        "HIFExchangeBMIMsg",
+        "HIFGetDefaultPipe",
+        "HIFGetFreeQueueNumber",
+        "HIFGetTargetId",
+        "HIFInit",
+        "HIFMapServiceToPipe",
+        "HIFPostInit"
+      ],
+      "msi_contexts": [
+        "eset complete..<6>%s %s: ath DEBUG: sc=0x%p..... %s : num_desired MSI set to %d....<3>%s %s: ath_request_irq failed....<6>. Using PCI L"
+      ],
+      "nentries_contexts": [
+        " found on channel %d (%d MHz).....%s: called, cmd=%d, nollist=%p, nentries=%d.....%s: cmd=%d, not handled!....%s: radar found = chan=%p, fre"
+      ]
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "ce": {
+        "CE_init": 1,
+        "CE_fini": 1,
+        "CE_send": 12,
+        "CE_pause": 2,
+        "CE_per_engine_handler": 1,
+        "CE_per_engine_service": 3,
+        "CE_per_engine_service_any": 1,
+        "CE_per_engine_servicereap": 1
+      },
+      "recv": {
+        "CE_recv_buf_enqueue": 1,
+        "CE_recv_entries_avail": 1,
+        "CE_recv_entries_done": 2,
+        "CE_recv_watermarks_set": 1,
+        "CE_recv_cb_register": 1
+      },
+      "numbered": {
+        "CE0": 0,
+        "CE1": 0,
+        "CE2": 0,
+        "CE3": 0,
+        "CE4": 0,
+        "CE5": 0,
+        "CE6": 0,
+        "CE7": 0
+      },
+      "pktlog": {
+        "pktlog_alloc_buf": 3,
+        "pktlog_release_buf": 3,
+        "pktlog_setsize": 2
+      },
+      "pktlog_tokens": {
+        "pktlog_alloc_buf": 3,
+        "pktlog_release_buf": 3,
+        "pktlog_setsize": 2
+      },
+      "hif": {
+        "HIFGetFreeQueueNumber": 1,
+        "HIFGetDefaultPipe": 1,
+        "HIFConfigureDevice": 2
+      },
+      "msi_msg": 1,
+      "legacy_msg": 1,
+      "ce_symbols": [
+        "CE_cancel_send_next",
+        "CE_completed_recv_next",
+        "CE_completed_recv_next_nolock",
+        "CE_completed_send_next",
+        "CE_completed_send_next_nolock",
+        "CE_fini",
+        "CE_init",
+        "CE_pause",
+        "CE_per_engine_handler",
+        "CE_per_engine_service",
+        "CE_per_engine_service_any",
+        "CE_per_engine_servicereap",
+        "CE_recv_buf_enqueue",
+        "CE_recv_cb_register",
+        "CE_recv_entries_avail",
+        "CE_recv_entries_done",
+        "CE_recv_entries_done_nolock",
+        "CE_recv_watermarks_set",
+        "CE_revoke_recv_next",
+        "CE_send",
+        "CE_send_cb_register",
+        "CE_send_entries_avail",
+        "CE_send_entries_done",
+        "CE_send_entries_done_nolock"
+      ],
+      "pktlog_symbols": [
+        "PKTLOG_DBG_PRINT_SUBSCRIBER",
+        "PKTLOG_RCFIND_SUBSCRIBER",
+        "PKTLOG_RCUPDATE_SUBSCRIBER",
+        "PKTLOG_RX_REMOTE_SUBSCRIBER",
+        "PKTLOG_RX_SUBSCRIBER",
+        "PKTLOG_TX_SUBSCRIBER",
+        "pktlog_alloc_buf",
+        "pktlog_callback",
+        "pktlog_disable",
+        "pktlog_disable_adapter_logging",
+        "pktlog_enable",
+        "pktlog_getbuf"
+      ],
+      "hif_symbols": [
+        "HIFAttachHTC",
+        "HIFClaimDevice",
+        "HIFConfigureDevice",
+        "HIFDetachHTC",
+        "HIFDeviceToOsDevice",
+        "HIFDiagReadAccess",
+        "HIFDiagReadMem",
+        "HIFDiagWriteAccess",
+        "HIFDiagWriteMem",
+        "HIFExchangeBMIMsg",
+        "HIFGetDefaultPipe",
+        "HIFGetFreeQueueNumber",
+        "HIFGetTargetId",
+        "HIFInit",
+        "HIFMapServiceToPipe",
+        "HIFPostInit"
+      ],
+      "msi_contexts": [
+        "eset complete..<6>%s %s: ath DEBUG: sc=0x%p..... %s : num_desired MSI set to %d....<3>%s %s: ath_request_irq failed....<6>. Using PCI L"
+      ],
+      "nentries_contexts": [
+        " found on channel %d (%d MHz).....%s: called, cmd=%d, nollist=%p, nentries=%d.....%s: cmd=%d, not handled!....%s: radar found = chan=%p, fre"
+      ]
+    }
+  ],
+  "summary": {
+    "ath10k_core_present": false,
+    "modules_ok": 2,
+    "ce_symbol_count": 24,
+    "ce_symbols": [
+      "CE_cancel_send_next",
+      "CE_completed_recv_next",
+      "CE_completed_recv_next_nolock",
+      "CE_completed_send_next",
+      "CE_completed_send_next_nolock",
+      "CE_fini",
+      "CE_init",
+      "CE_pause",
+      "CE_per_engine_handler",
+      "CE_per_engine_service"
+    ],
+    "ce_control_set": [
+      "CE_init",
+      "CE_fini",
+      "CE_send",
+      "CE_pause",
+      "CE_per_engine_handler",
+      "CE_per_engine_service",
+      "CE_per_engine_service_any",
+      "CE_per_engine_servicereap"
+    ],
+    "ce_control_count": 8,
+    "per_engine_service_present": 1,
+    "per_engine_service_variants": 4,
+    "watermark_api_present": 1,
+    "recv_control_count": 5,
+    "numbered_ce_hits": 0,
+    "engines_are_numbered": 0,
+    "engine_count_proven": 0,
+    "hif_queue_alloc": 1,
+    "hif_queue_symbols": [
+      "HIFGetFreeQueueNumber",
+      "HIFGetDefaultPipe",
+      "HIFConfigureDevice"
+    ],
+    "pktlog_symbols": [
+      "PKTLOG_DBG_PRINT_SUBSCRIBER",
+      "PKTLOG_RCFIND_SUBSCRIBER",
+      "PKTLOG_RCUPDATE_SUBSCRIBER",
+      "PKTLOG_RX_REMOTE_SUBSCRIBER",
+      "PKTLOG_RX_SUBSCRIBER",
+      "PKTLOG_TX_SUBSCRIBER",
+      "pktlog_alloc_buf",
+      "pktlog_callback",
+      "pktlog_disable",
+      "pktlog_disable_adapter_logging",
+      "pktlog_enable",
+      "pktlog_getbuf"
+    ],
+    "pktlog_lifecycle": 1,
+    "pktlog_raw_counts": {
+      "pktlog_alloc_buf": 6,
+      "pktlog_release_buf": 6,
+      "pktlog_setsize": 4
+    },
+    "msi_negotiation_msg": 2,
+    "legacy_fallback_msg": 2,
+    "msi_is_negotiated": 1,
+    "ce_nentries_table_recovered": 0,
+    "ring_service_map_recovered": 0
+  },
+  "gaps": [
+    "ath10k_core.ko is absent, so the ath10k mapping of CE0..CE7 to WMI control, HTT TX, HTT RX and pktlog CE1/CE5 cannot be read",
+    "CE0..CE7 return 0 hits: the engine index is a runtime parameter, and the module never enumerates eight fixed rings",
+    "the CE nentries values are runtime configuration; the only nentries=%d in the module belongs to a DFS command log, not a ring",
+    "the mapping from logical service to physical engine is dynamic through HIFGetFreeQueueNumber, so no static table exists to recover",
+    "pktlog has its own buffer lifecycle and size control, but which engine carries it was not determined",
+    "no dynamic validation"
+  ]
+}

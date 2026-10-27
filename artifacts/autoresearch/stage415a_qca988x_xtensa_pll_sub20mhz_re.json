@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "stage": "415A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/qca988x_xtensa_pll_clock_divider_sub20mhz_re.py",
+    "tool_sha256": "86811ff63ee255f8df580c06cabe7c28069670045af25ab1da1be828a75aa4d0",
+    "output": "artifacts/autoresearch/stage415a_qca988x_xtensa_pll_sub20mhz_re.json",
+    "scope": "offline static; no firmware loaded, no module loaded, no radio contacted",
+    "method": "defined-symbol lookup for the PLL/power entry points; string sweep for the clock and timing vocabulary with context; SGMT payload census of the five bandwidths as u32 and u16, explicitly not read as a table",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 464,
+      "clock_names": {
+        "mac_clock": 0,
+        "adc_clock": 0,
+        "dac_clock": 0,
+        "clkdiv": 0,
+        "clock_div": 0,
+        "quarter_rate": 0,
+        "half_rate": 0
+      },
+      "pll_symbols_present": {
+        "ar9300_init_pll": true,
+        "ar9300_set_power_mode": true,
+        "ar9300_set_pll": false,
+        "ar9300_pll": false
+      },
+      "pll_symbol_matches": [
+        "ar9300_get_power_mode",
+        "ar9300_init_pll",
+        "ar9300_is_fast_clock_enabled",
+        "ar9300_set_power_mode",
+        "ar9300_set_power_mode_awake",
+        "ar9300_set_sm_power_mode",
+        "ath_hal_chan_2_clock_rate_mhz"
+      ],
+      "timing": {
+        "sifs": 0,
+        "SIFS": 0,
+        "slot_time": 1,
+        "ack_timeout": 2,
+        "quarter": 1,
+        "chan_width": 0,
+        "bw_": 0,
+        "pll": 1
+      },
+      "timing_contexts": {
+        "slot_time": [
+          "nature.ar9300_detect_card_present.ar9300_tx_gain_index_get.ar9300_set_slot_time.ath_hal_log_ani.ar9300_num_tx_pending.ar9300_green_ap_ps_on_off.ar930"
+        ],
+        "ack_timeout": [
+          "t_dcs_mode.findCTLByCountryCode.ar9300_alloc_generic_timer.ar9300_get_ack_timeout.ar9300_set_intr_mitigation_timer.tx_corr_coeff.ar9300_detach.ar9300_g",
+          "00_read_revisions.ar9300_is_japan_channel_spread_supported.ar9300_set_ack_timeout.ar9300_interference_is_present.ar9300_gpio_cfg_output.ar9300_detect_m"
+        ],
+        "quarter": [
+          "antenna.ar9300_set_tx_queue_props.ath_hal_factory_defaults.ar9300_11a_quarter_table.ath_hal_get_mfp_qos.ar9300_gpio_cfg_input.ar9300_is_spectral_ac"
+        ],
+        "pll": [
+          "00_paprd_is_done.ar9300_ppm_get_rssi_dump.ar9300_otp_read.ar9300_init_pll.ar9300_rf_attach.ar9300_set_key_cache_entry_mac.ar9300_eeprom_restore"
+        ]
+      }
+    },
+    {
+      "module": "XC.v8.7.25:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "defined_symbols": 464,
+      "clock_names": {
+        "mac_clock": 0,
+        "adc_clock": 0,
+        "dac_clock": 0,
+        "clkdiv": 0,
+        "clock_div": 0,
+        "quarter_rate": 0,
+        "half_rate": 0
+      },
+      "pll_symbols_present": {
+        "ar9300_init_pll": true,
+        "ar9300_set_power_mode": true,
+        "ar9300_set_pll": false,
+        "ar9300_pll": false
+      },
+      "pll_symbol_matches": [
+        "ar9300_get_power_mode",
+        "ar9300_init_pll",
+        "ar9300_is_fast_clock_enabled",
+        "ar9300_set_power_mode",
+        "ar9300_set_power_mode_awake",
+        "ar9300_set_sm_power_mode",
+        "ath_hal_chan_2_clock_rate_mhz"
+      ],
+      "timing": {
+        "sifs": 0,
+        "SIFS": 0,
+        "slot_time": 1,
+        "ack_timeout": 2,
+        "quarter": 1,
+        "chan_width": 0,
+        "bw_": 0,
+        "pll": 1
+      },
+      "timing_contexts": {
+        "slot_time": [
+          "nature.ar9300_detect_card_present.ar9300_tx_gain_index_get.ar9300_set_slot_time.ath_hal_log_ani.ar9300_num_tx_pending.ar9300_green_ap_ps_on_off.ar930"
+        ],
+        "ack_timeout": [
+          "t_dcs_mode.findCTLByCountryCode.ar9300_alloc_generic_timer.ar9300_get_ack_timeout.ar9300_set_intr_mitigation_timer.tx_corr_coeff.ar9300_detach.ar9300_g",
+          "00_read_revisions.ar9300_is_japan_channel_spread_supported.ar9300_set_ack_timeout.ar9300_interference_is_present.ar9300_gpio_cfg_output.ar9300_detect_m"
+        ],
+        "quarter": [
+          "antenna.ar9300_set_tx_queue_props.ath_hal_factory_defaults.ar9300_11a_quarter_table.ath_hal_get_mfp_qos.ar9300_gpio_cfg_input.ar9300_is_spectral_ac"
+        ],
+        "pll": [
+          "00_paprd_is_done.ar9300_ppm_get_rssi_dump.ar9300_otp_read.ar9300_init_pll.ar9300_rf_attach.ar9300_set_key_cache_entry_mac.ar9300_eeprom_restore"
+        ]
+      }
+    },
+    {
+      "module": "XW.v6.3.6:ath_hal.ko",
+      "status": "ok",
+      "bytes": 503892,
+      "sha256": "8b49a82a8a7e3caa142b15bd207190429c410f9ac31f140c181aac028a5e1d86",
+      "defined_symbols": 583,
+      "clock_names": {
+        "mac_clock": 0,
+        "adc_clock": 0,
+        "dac_clock": 0,
+        "clkdiv": 0,
+        "clock_div": 0,
+        "quarter_rate": 0,
+        "half_rate": 0
+      },
+      "pll_symbols_present": {
+        "ar9300_init_pll": false,
+        "ar9300_set_power_mode": false,
+        "ar9300_set_pll": false,
+        "ar9300_pll": false
+      },
+      "pll_symbol_matches": [
+        "ath_hal_chan_2_clockrateMHz"
+      ],
+      "timing": {
+        "sifs": 0,
+        "SIFS": 2,
+        "slot_time": 0,
+        "ack_timeout": 0,
+        "quarter": 1,
+        "chan_width": 0,
+        "bw_": 0,
+        "pll": 0
+      },
+      "timing_contexts": {
+        "SIFS": [
+          "Descriptor error %x..%s: Clearing IGNORE_NAV setting.....%s: Changing SIFS from %d to %d.....%s: Changing EIFS from %d to %d.....%s: Changing SL",
+          "S from %d to %d.....%s: Changing SLOT from %d to %d.....%s: Restoring SIFS/EIFS/SLOT to %d/%d/%d....%s: Clearing ACK_DIS and CTS_DIS settings..."
+        ],
+        "quarter": [
+          "tate.ar9300IsTxDone.ar9300GpioSet.ath_hal_factory_defaults.ar9300_11a_quarter_table.ar9300EepromTemplateInstall.ar9300_tx_iq_cal_hw_run.ar9300Eepro"
+        ]
+      }
+    },
+    {
+      "module": "WA.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 2312,
+      "clock_names": {
+        "mac_clock": 0,
+        "adc_clock": 0,
+        "dac_clock": 0,
+        "clkdiv": 0,
+        "clock_div": 0,
+        "quarter_rate": 0,
+        "half_rate": 0
+      },
+      "pll_symbols_present": {
+        "ar9300_init_pll": false,
+        "ar9300_set_power_mode": false,
+        "ar9300_set_pll": false,
+        "ar9300_pll": false
+      },
+      "pll_symbol_matches": [
+        "ol_ath_set_wlan_pll"
+      ],
+      "timing": {
+        "sifs": 0,
+        "SIFS": 0,
+        "slot_time": 2,
+        "ack_timeout": 0,
+        "quarter": 1,
+        "chan_width": 1,
+        "bw_": 4,
+        "pll": 2
+      },
+      "timing_contexts": {
+        "slot_time": [
+          "...@..wmi #9f511820...wmi_unified_reg_read_event_handler..wmi_unified_slot_time_read_event_handler....wmi_unified_PM4_sent_handler....wmi_unified_dis",
+          "e.ieee80211_add_htinfo_vendor_specific.wlan_get_bss_rates.wmi_unified_slot_time_read_event_handler.cwm_attach.ieee80211_scan_entry_beacon_interval.HT"
+        ],
+        "quarter": [
+          "qosnullframe.ieee80211_scan_entry_erpinfo.ol_cwm_set_enable.ol_if_11a_quarterrate_table.spectral_ops._ieee80211_power_vdetach.htt_t2h_lp_msg_handle"
+        ],
+        "chan_width": [
+          "_entry_age.ieee80211_rateset_vattach.ol_rx_peer_cleanup.ieee80211_get_chan_width.wlan_channel_is_passive.ieee80211_ifdetach.ieee80211_free_node.wlan_s"
+        ],
+        "bw_": [
+          "con_alloc......................................ieee80211_add_vht_wide_bw_switch....ieee80211_process_csa_ecsa_ie...ieee80211_get_new_sw_chan...",
+          "_mlme_set_optie.dbglog_reg_modprint.eppingtest.ieee80211_add_vht_wide_bw_switch.ieee80211_scan_entry_ptpmode.wlan_mlme_reassoc_request.ol_rx_re",
+          "ndor.ath_htc_wmm_update_params.WAR_CE_SRC_RING_WRITE_IDX_SET.g_rc_rts_bw_probe.ieee80211_scan_entry_wmeparam_ie.ieee80211_aplist_set_bad_ap_tim"
+        ],
+        "pll": [
+          "_dscp_tid_map.ol_ath_set_config_param.ol_ath_kill_fw..ol_ath_set_wlan_pll.ol_ath_set_distance..............!#%'(+-/01357.......................",
+          "ee80211_node_authorize.wlan_scan_entry_set_assoc_cost.ol_ath_set_wlan_pll._RATE_SetSGIMasks.ieee80211_aplist_get_exc_macaddresslist.a_netbuf_pu"
+        ]
+      }
+    },
+    {
+      "module": "XC.v8.7.25:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 2312,
+      "clock_names": {
+        "mac_clock": 0,
+        "adc_clock": 0,
+        "dac_clock": 0,
+        "clkdiv": 0,
+        "clock_div": 0,
+        "quarter_rate": 0,
+        "half_rate": 0
+      },
+      "pll_symbols_present": {
+        "ar9300_init_pll": false,
+        "ar9300_set_power_mode": false,
+        "ar9300_set_pll": false,
+        "ar9300_pll": false
+      },
+      "pll_symbol_matches": [
+        "ol_ath_set_wlan_pll"
+      ],
+      "timing": {
+        "sifs": 0,
+        "SIFS": 0,
+        "slot_time": 2,
+        "ack_timeout": 0,
+        "quarter": 1,
+        "chan_width": 1,
+        "bw_": 4,
+        "pll": 2
+      },
+      "timing_contexts": {
+        "slot_time": [
+          "...@..wmi #9f511820...wmi_unified_reg_read_event_handler..wmi_unified_slot_time_read_event_handler....wmi_unified_PM4_sent_handler....wmi_unified_dis",
+          "e.ieee80211_add_htinfo_vendor_specific.wlan_get_bss_rates.wmi_unified_slot_time_read_event_handler.cwm_attach.ieee80211_scan_entry_beacon_interval.HT"
+        ],
+        "quarter": [
+          "qosnullframe.ieee80211_scan_entry_erpinfo.ol_cwm_set_enable.ol_if_11a_quarterrate_table.spectral_ops._ieee80211_power_vdetach.htt_t2h_lp_msg_handle"
+        ],
+        "chan_width": [
+          "_entry_age.ieee80211_rateset_vattach.ol_rx_peer_cleanup.ieee80211_get_chan_width.wlan_channel_is_passive.ieee80211_ifdetach.ieee80211_free_node.wlan_s"
+        ],
+        "bw_": [
+          "con_alloc......................................ieee80211_add_vht_wide_bw_switch....ieee80211_process_csa_ecsa_ie...ieee80211_get_new_sw_chan...",
+          "_mlme_set_optie.dbglog_reg_modprint.eppingtest.ieee80211_add_vht_wide_bw_switch.ieee80211_scan_entry_ptpmode.wlan_mlme_reassoc_request.ol_rx_re",
+          "ndor.ath_htc_wmm_update_params.WAR_CE_SRC_RING_WRITE_IDX_SET.g_rc_rts_bw_probe.ieee80211_scan_entry_wmeparam_ie.ieee80211_aplist_set_bad_ap_tim"
+        ],
+        "pll": [
+          "_dscp_tid_map.ol_ath_set_config_param.ol_ath_kill_fw..ol_ath_set_wlan_pll.ol_ath_set_distance..............!#%'(+-/01357.......................",
+          "ee80211_node_authorize.wlan_scan_entry_set_assoc_cost.ol_ath_set_wlan_pll._RATE_SetSGIMasks.ieee80211_aplist_get_exc_macaddresslist.a_netbuf_pu"
+        ]
+      }
+    }
+  ],
+  "sgmt_segments": [
+    {
+      "id": 4,
+      "len": 7140,
+      "as_u32": {
+        "5": 0,
+        "10": 0,
+        "20": 0,
+        "40": 0,
+        "80": 0
+      },
+      "as_u16": {
+        "5": 1,
+        "10": 4,
+        "20": 2,
+        "40": 0,
+        "80": 0
+      },
+      "distinct_u32": 1695
+    },
+    {
+      "id": 3,
+      "len": 197537,
+      "as_u32": {
+        "5": 1,
+        "10": 0,
+        "20": 0,
+        "40": 0,
+        "80": 0
+      },
+      "as_u16": {
+        "5": 40,
+        "10": 29,
+        "20": 26,
+        "40": 6,
+        "80": 5
+      },
+      "distinct_u32": 48419
+    }
+  ],
+  "summary": {
+    "modules_ok": 5,
+    "pll_symbols_present": [
+      "ar9300_init_pll",
+      "ar9300_set_power_mode"
+    ],
+    "init_pll_present": 1,
+    "set_power_mode_present": 1,
+    "clock_name_hits": 0,
+    "clock_names_absent": true,
+    "timing_token_hits": 33,
+    "modules_with_slot_time": 4,
+    "modules_with_ack_timeout": 2,
+    "sgmt_segments": 2,
+    "sgmt_bandwidth_u32": {
+      "5": 1,
+      "10": 0,
+      "20": 0,
+      "40": 0,
+      "80": 0
+    },
+    "pll_table_recovered": 0,
+    "divider_table_recovered": 0
+  },
+  "gaps": [
+    "mac_clock, adc_clock and dac_clock do not exist as strings, so no clock divider was recovered by name",
+    "quarter_rate and half_rate do not exist as strings either; 5 and 10 MHz dividers are therefore not identifiable by identifier",
+    "the SGMT census counts the values 5/10/20/40/80 but no table was bound to them: a value appearing N times in firmware is not a divider table",
+    "ar9300_init_pll is a symbol, not a decoded routine: its register sequence was not read",
+    "SIFS appears in no module; slot_time and ack_timeout exist as strings but their values were not resolved",
+    "no dynamic validation"
+  ]
+}

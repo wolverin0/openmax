@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "task_id": "T-S39B-CODEX-CHAMPION-V13-AQL-PRIORITY-INVERSION-AND-AQM-QUANTUM-VERIFIER",
+  "generated_at_utc": "2026-10-25T21:16:30.480467+00:00",
+  "status": "PASS_WITH_LIMITS",
+  "open_material_blockers": 0,
+  "material_findings": [],
+  "review_scope": "Independent static AST/text/JSON/hash review of frozen Stage39B module/tests/report, pinned16 source windows and immutable helper dependencies. No product imports or pytest.",
+  "source_bindings": [
+    {
+      "path": "controller/stage41a_champion_v13_aql_inversion_verifier.py",
+      "bytes": 23276,
+      "sha256": "ecca0b2a874e1b3dac25cb52b68a94b5ed3ff28f34270c12cdb99485b9b696c5"
+    },
+    {
+      "path": "tests/test_stage39b_champion_v13_verifier.py",
+      "bytes": 16719,
+      "sha256": "1ecab08f8c2ac62885b3cd75a957686509e322343bdecbebbc4d4ea1cb796c44"
+    },
+    {
+      "path": "docs/STAGE39B_CHAMPION_V13_AQL_PRIORITY_INVERSION_VERIFIER.md",
+      "bytes": 14008,
+      "sha256": "2d2bc0fb25b76f6a95cd9d8c9e16c46e683beaede87b3e57387bdfe51ce8ceac"
+    },
+    {
+      "path": "artifacts/autoresearch/stage41a_m22_m23_fq_quantum_and_voip_guard_bench_20261025.json",
+      "bytes": 133260,
+      "sha256": "1adfbceac67e2f134522701f2fab24d0f8b65017592da64931771f10174bed45"
+    },
+    {
+      "path": "docs/STAGE41A_M22_M23_DYNAMIC_FQ_QUANTUM_AND_VOIP_GUARD_BENCHMARK.md",
+      "bytes": 12125,
+      "sha256": "3f6fe15a1f09f2a0c0105575a33372a242e0aa48b36d4715562657bd2fbced64"
+    },
+    {
+      "path": "tools/bench/run_stage41a_m22_m23_fq_quantum_and_voip_guard_bench.py",
+      "bytes": 86481,
+      "sha256": "c0299bc84e98f9aee97d67faa12724191192d9a76891f4927d4882af4f5965a6"
+    },
+    {
+      "path": "controller/stage39a_champion_v12_triple_play_canary_verifier.py",
+      "bytes": 29092,
+      "sha256": "ca4187cc79620524d5948e766482f3303bc33802a36d9e2b8ec1350b9d2c4bb3"
+    },
+    {
+      "path": "controller/mac80211_aqm_per_tid_canary_verifier.py",
+      "bytes": 25544,
+      "sha256": "f4d45f534d1da61a78ad0cb6d2c6331f639fcb7f33c8df818597337683a0621f"
+    },
+    {
+      "path": "controller/iptv_dms_ac_vi_canary_gate.py",
+      "bytes": 26721,
+      "sha256": "76cec8815192936329a3da3152cd57563f87f4d291f346b98c29058d16a71af1"
+    },
+    {
+      "path": "docs/BENCH_PLAN.md",
+      "bytes": 767415,
+      "sha256": "ee3e0ac732e7bdea2cbc3a8c5dcba6553cda8205d25931518d6ac8398295c567"
+    }
+  ],
+  "checks": [
+    {
+      "name": "pin_module",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "pin_tests",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "pin_report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "pin_stage38b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "pin_stage37b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "pin_stage36b",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "module_AST_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "tests_AST_parse",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "no_device_transport_or_setter_import",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "TCP_complete_four_names",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "TCP_final_newline",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "airtime_exact_fourline_fullmatch",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "airtime_unsigned64_and_weight16",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "negative_deficit_valid_signed32",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "all_rounds_pinned_source",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "source_requires_R2_all_role_fields",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "no_universal_law_or_child_saved_claim",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_S41A-R1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "four_windows_S41A-R1",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_S41A-R2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "four_windows_S41A-R2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_S41A-R3",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "four_windows_S41A-R3",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_S41A-R4",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "four_windows_S41A-R4",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "exact16source_windows",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_ap_core",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_ap_AQL",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_ap_TCP",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_loco_core",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_loco_AQL",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B1_loco_TCP",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_ap_core",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_ap_AQL",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_ap_TCP",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_loco_core",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_loco_AQL",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_B2_loco_TCP",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "VI_less_BE_positive_counterexample",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_receiver_counts_not_inferred_TXQ",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "R2_regressions_preserved_source",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "plan_unique_roles_MACs_children",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "all_three_bulk_UDP_only_loco",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "plan_canonical_rebuild",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "specific_negative_profiles_not_inequality_law",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "component_seq_UTC_exact",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "interface_whole_inventory_unique_ifindex",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_parent_path_station_epoch",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "canonical_weights_and_inode",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "only_applicable_child_pairs",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "successful_typed_child_get_no_parent_fallback",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "read_only_postapply_bundle",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "core_qualifiers_and_zero_all_TIDs",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "TCP_fresh_namespace_exact",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "AP_CPE_one_second_sync",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "both_snapshots_postapply_and_fresh",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "window_parameters_and_times_stable",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "all_peer_TID7_zero",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "AP_VLAN_and_airtime_epoch_no_counter_reset",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "flowtrace_fullplan_window_service_epochs",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "flow_min_counts_sum_and_duplicate",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "explicit_allUDP_reports",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "receiver_CPE_boot_namespace_flow_epoch",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "receiver_common_window_and_exposure",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "jitter_finite_not_promised_improved",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "physical_gain_never_claimed",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_source_four_exact_pins_sixteen_windows_and_nonuniversal_v13_vector",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_observed_rejected_vectors_are_diagnostics_not_universal_scheduling_rules",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_canonical_airtime_accepts_signed_deficits_u64_times_and_u16_weight",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_airtime_parser_rejects_wrong_types_widths_or_incomplete_abi",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_tcp_parser_requires_exact_four_full_typed_sysctls",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_complete_parent_plus_applicable_children_and_both_tcp_namespaces_are_required",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_txq_classification_all_bulk_peers_exposure_and_epoch_guards",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_udp_receiver_reports_are_required_even_with_all_zero_txq_drops",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_test_plan_needs_three_distinct_bulk_peers_and_udp_only_on_planned_loco",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_explicit_contradictory_receiver_case",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "test_negative_nonfinite_boolean_payloads",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_head_atmost6",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_no verified universal VI<BE",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_+0.578%",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_+106.049%",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_+52.291%",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_JSON B1/B2=2/2",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_45.394 to46.743",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_46.493",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_two MACs inconsistent",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_not proven by a caller supplying a source label",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_single aggregate IPTV specification",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_UNKNOWN",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "doc_limit_NOT_ACCEPTED",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_BENCH_PLAN.md",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_stage41a_champion_v13_aql_inversion_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_test_stage39b_champion_v13_verifier.py",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_Stage41A JSON",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_benchmark report",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    },
+    {
+      "name": "local_link_stage39b_champion_v13_validation_20261025.json",
+      "passed": true,
+      "method": "fresh_static_AST_text_JSON_hash"
+    }
+  ],
+  "fresh_static_checks": 96,
+  "test_functions_reviewed": [
+    "test_airtime_parser_rejects_wrong_types_widths_or_incomplete_abi",
+    "test_canonical_airtime_accepts_signed_deficits_u64_times_and_u16_weight",
+    "test_complete_parent_plus_applicable_children_and_both_tcp_namespaces_are_required",
+    "test_observed_rejected_vectors_are_diagnostics_not_universal_scheduling_rules",
+    "test_plan_needs_three_distinct_bulk_peers_and_udp_only_on_planned_loco",
+    "test_source_four_exact_pins_sixteen_windows_and_nonuniversal_v13_vector",
+    "test_tcp_parser_requires_exact_four_full_typed_sysctls",
+    "test_txq_classification_all_bulk_peers_exposure_and_epoch_guards",
+    "test_udp_receiver_reports_are_required_even_with_all_zero_txq_drops"
+  ],
+  "owner_tests": {
+    "classification": "OWNER_EVIDENCE_REUSED_NOT_INDEPENDENTLY_EXECUTED",
+    "command": "python -m pytest tests/test_stage39b_champion_v13_verifier.py -q",
+    "passed": 53,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "pytest_elapsed_s": 0.65,
+    "tool_wall_time_s": 2.487848,
+    "console_receipt": "f547c9",
+    "xml_available": false,
+    "warning": "Existing pytest_asyncio fixture-loop deprecation warning retained"
+  },
+  "canonical_round_pins": {
+    "S41A-R1": "ead8e0a47e0d808e7a87a274673289912d21670b4e5a84f461a197abbefc32d4",
+    "S41A-R2": "9ae72de4ce4c25d206915b6eab73c3df8886aa2801f809136300b07bd938b8db",
+    "S41A-R3": "a5564055fc5e3cc76a7907be87ee050b6f3483542d9f76057f311a779725a1ff",
+    "S41A-R4": "f539f224a85198feb41b6c11c1e29cb2cd0608ce1e84f1428b0a574119bc4df7"
+  },
+  "source_window_count": 16,
+  "links": [
+    {
+      "target": "docs/BENCH_PLAN.md",
+      "exists": true,
+      "conditional_forward_reference": false
+    },
+    {
+      "target": "controller/stage41a_champion_v13_aql_inversion_verifier.py",
+      "exists": true,
+      "conditional_forward_reference": false
+    },
+    {
+      "target": "tests/test_stage39b_champion_v13_verifier.py",
+      "exists": true,
+      "conditional_forward_reference": false
+    },
+    {
+      "target": "artifacts/autoresearch/stage41a_m22_m23_fq_quantum_and_voip_guard_bench_20261025.json",
+      "exists": true,
+      "conditional_forward_reference": false
+    },
+    {
+      "target": "docs/STAGE41A_M22_M23_DYNAMIC_FQ_QUANTUM_AND_VOIP_GUARD_BENCHMARK.md",
+      "exists": true,
+      "conditional_forward_reference": false
+    },
+    {
+      "target": "artifacts/autoresearch/stage39b_champion_v13_validation_20261025.json",
+      "exists": true,
+      "conditional_forward_reference": false
+    }
+  ],
+  "resolved_document_precision": [
+    {
+      "finding": "Trace wrapper timestamp comparison requires normalized ISO spelling",
+      "resolution": "Report explicitly states +00:00 canonical form and no equivalentZ substitution; behavior not silently relaxed."
+    }
+  ],
+  "limits": [
+    "Source labels and hashes in supplied capture structures do not authenticate an actual native collector. Native acquisition/interface-readback support/physical acceptance remain UNKNOWN.",
+    "Historical Stage41A getters cover canonical parent, not independent child reads. Five fresh applicable parent/child view records are a stricter future input contract, not retrospective proof.",
+    "Receiver report verification is internal consistency of qualified supplied observations, not new physical reception/acquisition, voice QoE or wireless gain.",
+    "Single aggregate IPTV spec does not prove two streams,5Mbps workload, offered-load equivalence, fairness or benchmark acceptance.",
+    "Negative deficits and VI<BE are not universal loss/inversion laws. R2 latency/jitter regressions and JSON/report discrepancies remain explicit.",
+    "No applier/restore generator/UPH/IGMP native runtime acceptance added. E2 remains NOT_ACCEPTED.",
+    "The exact named validation-receipt link is conditionally pending root closure; global docs/validation were not part of this acceptance and require a later metadata addendum."
+  ],
+  "writes": "Only this new immutable receipt; no product/tests/docs/previous waves modified.",
+  "writes_stopped": true
+}

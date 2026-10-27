@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "stage": "824A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+    "tool_sha256": "6aaeeb9284a3f72b3a5aa06233a5b59d42aa3872a635c2ba05ddb5cc6abb2ecc",
+    "output": "artifacts/autoresearch/stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, nothing transmitted",
+    "method": "three-module token census; classifier, lifecycle and ubus symbol lookup; pulse-statistics and filter-selector log extraction; explicit probe for LNA saturation vocabulary",
+    "premise_corrections": [
+      "the radar classifier is in ame_dfs.ko (141472 bytes), not in ame_core.ko or ame_dev.ko: its pulse token count is 82 against 22",
+      "lna and satur are absent or unrelated: the LNA-saturation hypothesis is not named, only the general heavy-environment and pulse-percent filtering"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "pulse": 22,
+        "PULSE": 0,
+        "pri": 65,
+        "PRI": 0,
+        "radar": 0,
+        "RADAR": 0,
+        "dfs": 24,
+        "DFS": 34,
+        "lna": 0,
+        "LNA": 0,
+        "satur": 1,
+        "classif": 0
+      },
+      "classifier": {
+        "DFSdetect": 0,
+        "DFSChanActivity": 0,
+        "DFS_heavy_env_det": 0
+      },
+      "lifecycle": {
+        "ame_dfs_init": 0,
+        "ame_dfs_deinit": 0,
+        "ame_dfs_isr": 0,
+        "ame_dfs_ioctl": 0,
+        "ame_dfs_reset": 0,
+        "ame_start_ep_dfs": 0,
+        "ame_stop_ep_dfs": 0
+      },
+      "pulse_stats": 0,
+      "filter_sel": 0,
+      "hits": 0,
+      "ubus": {
+        "dfsdetect": 0,
+        "dfs_irq_ctl": 0,
+        "startdfs": 0,
+        "dfs_hit_monitor_mode_get": 0
+      },
+      "pulse_contexts": [],
+      "filter_contexts": []
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "pulse": 6,
+        "PULSE": 0,
+        "pri": 18,
+        "PRI": 0,
+        "radar": 0,
+        "RADAR": 0,
+        "dfs": 6,
+        "DFS": 0,
+        "lna": 0,
+        "LNA": 0,
+        "satur": 0,
+        "classif": 0
+      },
+      "classifier": {
+        "DFSdetect": 0,
+        "DFSChanActivity": 0,
+        "DFS_heavy_env_det": 0
+      },
+      "lifecycle": {
+        "ame_dfs_init": 0,
+        "ame_dfs_deinit": 0,
+        "ame_dfs_isr": 0,
+        "ame_dfs_ioctl": 0,
+        "ame_dfs_reset": 0,
+        "ame_start_ep_dfs": 0,
+        "ame_stop_ep_dfs": 0
+      },
+      "pulse_stats": 0,
+      "filter_sel": 0,
+      "hits": 0,
+      "ubus": {
+        "dfsdetect": 0,
+        "dfs_irq_ctl": 0,
+        "startdfs": 0,
+        "dfs_hit_monitor_mode_get": 0
+      },
+      "pulse_contexts": [],
+      "filter_contexts": []
+    },
+    {
+      "module": "ame_dfs.ko",
+      "status": "ok",
+      "bytes": 141472,
+      "sha256": "16a860c6ef1c1b73171171977266f48967beaae8e7a4b6be26bf34275a85b287",
+      "defined_symbols": 504,
+      "tokens": {
+        "pulse": 82,
+        "PULSE": 0,
+        "pri": 29,
+        "PRI": 18,
+        "radar": 1,
+        "RADAR": 0,
+        "dfs": 192,
+        "DFS": 64,
+        "lna": 0,
+        "LNA": 0,
+        "satur": 0,
+        "classif": 0
+      },
+      "classifier": {
+        "DFSdetect": 2,
+        "DFSChanActivity": 1,
+        "DFS_heavy_env_det": 1
+      },
+      "lifecycle": {
+        "ame_dfs_init": 2,
+        "ame_dfs_deinit": 1,
+        "ame_dfs_isr": 1,
+        "ame_dfs_ioctl": 1,
+        "ame_dfs_reset": 2,
+        "ame_start_ep_dfs": 2,
+        "ame_stop_ep_dfs": 2
+      },
+      "pulse_stats": 1,
+      "filter_sel": 2,
+      "hits": 1,
+      "ubus": {
+        "dfsdetect": 17,
+        "dfs_irq_ctl": 10,
+        "startdfs": 10,
+        "dfs_hit_monitor_mode_get": 10
+      },
+      "pulse_contexts": [
+        "its set to %d...DFS type %lu starting on src %lu....%s.tot hits %u, pulse percent/max %d/%u.....target_pwr : %d.....pulseFilteringModule             %d. "
+      ],
+      "filter_contexts": [
+        "....%s.tot hits %u, pulse percent/max %d/%u.....target_pwr : %d.....pulseFilteringModule             %d.                         pulseContentionZoneFilterin"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_ok": 3,
+    "ame_dfs_present": true,
+    "ame_dfs_bytes": 141472,
+    "pulse_tokens_total": 110,
+    "pulse_tokens_in_ame_dfs": 82,
+    "pulse_tokens_in_ame_core": 22,
+    "classifier_in_dfs_module": 1,
+    "dfs_tokens_total": 320,
+    "classifier_symbols": [
+      "DFSdetect",
+      "DFSChanActivity",
+      "DFS_heavy_env_det"
+    ],
+    "classifier_symbol_count": 3,
+    "heavy_env_detector": 1,
+    "channel_activity": 1,
+    "lifecycle_symbols": [
+      "ame_dfs_init",
+      "ame_dfs_deinit",
+      "ame_dfs_isr",
+      "ame_dfs_ioctl",
+      "ame_dfs_reset",
+      "ame_start_ep_dfs",
+      "ame_stop_ep_dfs"
+    ],
+    "lifecycle_count": 7,
+    "pulse_stats_hits": 1,
+    "pulse_percent_max_reported": 1,
+    "filter_selector_hits": 2,
+    "filter_is_selectable": 1,
+    "hit_counter_hits": 1,
+    "ubus_hooks": [
+      "dfsdetect",
+      "dfs_irq_ctl",
+      "startdfs",
+      "dfs_hit_monitor_mode_get"
+    ],
+    "ubus_hook_count": 4,
+    "lna_token_hits": 0,
+    "saturation_token_hits": 1,
+    "lna_saturation_named": 0,
+    "lna_saturation_immunity_recovered": 0,
+    "pw_pri_table_recovered": 0
+  },
+  "gaps": [
+    "the stage names ame_core.ko and ame_dev.ko, but the radar classifier lives in ame_dfs.ko: pulse tokens 82 against 22 in ame_core",
+    "lna and LNA return 0 and satur returns 1 in ame_core, outside the DFS path: the LNA-saturation false-trigger mechanism is not named",
+    "no pulse-width or PRI threshold table was recovered: pri has 29 hits but no numeric table appeared",
+    "pulseFilteringModule is a selector, and which filter it selects for which condition was not decoded",
+    "the heavy-environment detector is named but its criterion is not",
+    "no dynamic validation"
+  ]
+}

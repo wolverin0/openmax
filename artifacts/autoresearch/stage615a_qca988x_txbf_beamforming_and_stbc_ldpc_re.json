@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "stage": "615A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/build_stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re.py",
+    "tool_sha256": "27b6107bf9c7158bebd3e33f2b06ffc8a9518bb121078bb34f6105f7dadefa85",
+    "output": "artifacts/autoresearch/stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census across seven modules on two lines; capability-table and runtime-getter extraction; context classification of the bf_ substring to separate TX buffers from beamforming",
+    "premise_corrections": [
+      "bf_ in ath_dev.ko is the TX buffer (bf_node, bf_q, bf_lastfrm), not beamforming: no beamforming symbol exists there",
+      "XW umac.ko carries zero TxBF, STBC and LDPC tokens, in a module less than half the size of the AC one"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "TXBF": 7,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 4,
+        "STBC": 9,
+        "ldpc": 2,
+        "LDPC": 5,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 1,
+        "Getting TX STBC": 1,
+        "Getting RX STBC": 1,
+        "Getting VHT MCS MAP": 1
+      },
+      "proc": {
+        "LDPC": 5,
+        "getLDPC": 1
+      },
+      "cap_table": 1,
+      "bf_underscore": 0,
+      "bf_buffer_ids": 0,
+      "bf_is_buffer": false,
+      "bf_contexts": [],
+      "txbf_not_supported": 1,
+      "maxregpwr_txbf": 4,
+      "feature_symbols": []
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "TXBF": 7,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 4,
+        "STBC": 9,
+        "ldpc": 2,
+        "LDPC": 5,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 1,
+        "Getting TX STBC": 1,
+        "Getting RX STBC": 1,
+        "Getting VHT MCS MAP": 1
+      },
+      "proc": {
+        "LDPC": 5,
+        "getLDPC": 1
+      },
+      "cap_table": 1,
+      "bf_underscore": 0,
+      "bf_buffer_ids": 0,
+      "bf_is_buffer": false,
+      "bf_contexts": [],
+      "txbf_not_supported": 1,
+      "maxregpwr_txbf": 4,
+      "feature_symbols": []
+    },
+    {
+      "module": "XW:umac.ko",
+      "status": "ok",
+      "bytes": 884988,
+      "sha256": "09cf1392ccca301120c2c8e92e3789e46a1b1a2001fc9e112551fd1c2e16a4b2",
+      "defined_symbols": 2657,
+      "tokens": {
+        "TXBF": 0,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 0,
+        "STBC": 0,
+        "ldpc": 0,
+        "LDPC": 0,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 0,
+        "Getting TX STBC": 0,
+        "Getting RX STBC": 0,
+        "Getting VHT MCS MAP": 0
+      },
+      "proc": {
+        "LDPC": 0,
+        "getLDPC": 0
+      },
+      "cap_table": 0,
+      "bf_underscore": 0,
+      "bf_buffer_ids": 0,
+      "bf_is_buffer": false,
+      "bf_contexts": [],
+      "txbf_not_supported": 0,
+      "maxregpwr_txbf": 0,
+      "feature_symbols": []
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "TXBF": 0,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 5,
+        "STBC": 0,
+        "ldpc": 0,
+        "LDPC": 2,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 0,
+        "Getting TX STBC": 0,
+        "Getting RX STBC": 0,
+        "Getting VHT MCS MAP": 0
+      },
+      "proc": {
+        "LDPC": 2,
+        "getLDPC": 1
+      },
+      "cap_table": 0,
+      "bf_underscore": 14,
+      "bf_buffer_ids": 6,
+      "bf_is_buffer": true,
+      "bf_contexts": [
+        "h_process_uapsd_trigger...ath_tx_uapsd_complete...ath_tx_uapsdqnulbf_complete.ath_tx_queue_uapsd........x...x...y...y...y4..yd..yp..y|.",
+        "ailed to allocate UAPSD QoS NULL wbuf..%s: depth %d ...%s: Error: bf_node is null. bf=%p...%s: ath_node is null in bf %p...bf_lastfrm !"
+      ],
+      "txbf_not_supported": 0,
+      "maxregpwr_txbf": 0,
+      "feature_symbols": []
+    },
+    {
+      "module": "XC:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "d1df65897c8ed1a0c524ba6c626ca9f2ed343d2f907771412058a8c60ad877bf",
+      "defined_symbols": 762,
+      "tokens": {
+        "TXBF": 0,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 5,
+        "STBC": 0,
+        "ldpc": 0,
+        "LDPC": 2,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 0,
+        "Getting TX STBC": 0,
+        "Getting RX STBC": 0,
+        "Getting VHT MCS MAP": 0
+      },
+      "proc": {
+        "LDPC": 2,
+        "getLDPC": 1
+      },
+      "cap_table": 0,
+      "bf_underscore": 14,
+      "bf_buffer_ids": 6,
+      "bf_is_buffer": true,
+      "bf_contexts": [
+        "h_process_uapsd_trigger...ath_tx_uapsd_complete...ath_tx_uapsdqnulbf_complete.ath_tx_queue_uapsd........x...x...y...y...y4..yd..yp..y|.",
+        "ailed to allocate UAPSD QoS NULL wbuf..%s: depth %d ...%s: Error: bf_node is null. bf=%p...%s: ath_node is null in bf %p...bf_lastfrm !"
+      ],
+      "txbf_not_supported": 0,
+      "maxregpwr_txbf": 0,
+      "feature_symbols": []
+    },
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 507,
+      "tokens": {
+        "TXBF": 0,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 0,
+        "STBC": 1,
+        "ldpc": 0,
+        "LDPC": 0,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 0,
+        "Getting TX STBC": 0,
+        "Getting RX STBC": 0,
+        "Getting VHT MCS MAP": 0
+      },
+      "proc": {
+        "LDPC": 0,
+        "getLDPC": 0
+      },
+      "cap_table": 0,
+      "bf_underscore": 0,
+      "bf_buffer_ids": 0,
+      "bf_is_buffer": false,
+      "bf_contexts": [],
+      "txbf_not_supported": 0,
+      "maxregpwr_txbf": 0,
+      "feature_symbols": []
+    },
+    {
+      "module": "XC:ath_hal.ko",
+      "status": "ok",
+      "bytes": 360896,
+      "sha256": "4f328ecaa6002a3340a2cb731b92eb75a21eef4a09f9f563b565b2153a11f13e",
+      "defined_symbols": 507,
+      "tokens": {
+        "TXBF": 0,
+        "txbf": 0,
+        "beamform": 0,
+        "sounding": 0,
+        "SU-BF": 0,
+        "SU_BF": 0,
+        "stbc": 0,
+        "STBC": 1,
+        "ldpc": 0,
+        "LDPC": 0,
+        "mu_mimo": 0
+      },
+      "getters": {
+        "Getting LDPC": 0,
+        "Getting TX STBC": 0,
+        "Getting RX STBC": 0,
+        "Getting VHT MCS MAP": 0
+      },
+      "proc": {
+        "LDPC": 0,
+        "getLDPC": 0
+      },
+      "cap_table": 0,
+      "bf_underscore": 0,
+      "bf_buffer_ids": 0,
+      "bf_is_buffer": false,
+      "bf_contexts": [],
+      "txbf_not_supported": 0,
+      "maxregpwr_txbf": 0,
+      "feature_symbols": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 7,
+    "txbf_tokens": 14,
+    "stbc_tokens": 38,
+    "ldpc_tokens": 18,
+    "txbf_named": 1,
+    "capability_table_modules": 2,
+    "capability_table_named": 1,
+    "txbf_not_supported_modules": 2,
+    "maxregpwr_txbf_modules": 2,
+    "runtime_getters": [
+      "Getting LDPC",
+      "Getting RX STBC",
+      "Getting TX STBC",
+      "Getting VHT MCS MAP"
+    ],
+    "runtime_getter_count": 4,
+    "capability_readable": 1,
+    "proc_knobs": [
+      "LDPC",
+      "getLDPC"
+    ],
+    "feature_symbols": [],
+    "sounding_token_hits": 0,
+    "sounding_absent": 1,
+    "bf_underscore_modules": 2,
+    "bf_buffer_marker_hits": 12,
+    "bf_means_buffer": 1,
+    "xw_umac_token_total": 0,
+    "xw_umac_feature_free": 1,
+    "txbf_engine_recovered": 0,
+    "sounding_sequence_recovered": 0
+  },
+  "gaps": [
+    "no sounding and no SU-BF identifier exists in any of the seven modules: the beamforming training sequence the stage asks about is not named",
+    "TXBF appears as capability text and per-rate-group power, not as a beamforming engine; the engine is not in these modules",
+    "bf_ in ath_dev.ko is the TX buffer struct, so any search for beamforming there returns the wrong object",
+    "XW umac.ko has zero tokens from the set, so the M5 line carries none of this vocabulary",
+    "the negotiated LDPC and STBC values are printed by the runtime getters but the per-peer bit layout was not recovered",
+    "no dynamic validation"
+  ]
+}

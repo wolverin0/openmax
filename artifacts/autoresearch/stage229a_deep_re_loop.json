@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "stage": "229A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "radio_safety": "static only"
+  },
+  "modules_with_registrations": [
+    {
+      "image": "WA.v8.7.25",
+      "module": "nf_conntrack_ipv6.ko",
+      "registrations": [
+        "nf_ct_ipv6_sysctl_table"
+      ]
+    },
+    {
+      "image": "WA.v8.7.25",
+      "module": "ubnt_poll_host.ko",
+      "registrations": [
+        "ubnt_poll_host_init_proc_sysctl",
+        "ubnt_poll_host_uninit_proc_sysctl"
+      ]
+    },
+    {
+      "image": "XC.v8.7.25",
+      "module": "nf_conntrack_ipv6.ko",
+      "registrations": [
+        "nf_ct_ipv6_sysctl_table"
+      ]
+    },
+    {
+      "image": "XC.v8.7.25",
+      "module": "ubnt_poll_host.ko",
+      "registrations": [
+        "ubnt_poll_host_init_proc_sysctl",
+        "ubnt_poll_host_uninit_proc_sysctl"
+      ]
+    },
+    {
+      "image": "XW.v6.3.6",
+      "module": "ath_dev.ko",
+      "registrations": [
+        "ath_utilization_proc_create"
+      ]
+    },
+    {
+      "image": "XW.v6.3.6",
+      "module": "nf_conntrack_ipv6.ko",
+      "registrations": [
+        "nf_ct_ipv6_sysctl_table"
+      ]
+    }
+  ],
+  "summary": {
+    "modules_with_registrations": 6,
+    "total_registration_symbols": 8,
+    "images_covered": 3
+  },
+  "gaps": [
+    "only defined symbols matching sysctl/proc_create are reported; a registration performed through a struct initialiser has no symbol",
+    "mode bits were audited separately in Stage 81A-W4A/W4B and are not repeated here"
+  ]
+}

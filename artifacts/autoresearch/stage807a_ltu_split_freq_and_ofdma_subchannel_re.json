@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "stage": "807A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage807a_ltu_split_freq_and_ofdma_subchannel_re.py",
+    "tool_sha256": "4d9c5c9dacf81ab5d07a7f0dda11750ea406de0bb844b506f1a114eeec673db0",
+    "output": "artifacts/autoresearch/stage807a_ltu_split_freq_and_ofdma_subchannel_re.json",
+    "scope": "offline static; no module loaded, no radio contacted, nothing transmitted",
+    "method": "token census of the OFDMA, UL-map and split-frequency vocabularies; symbol lookup for the ofdma and ulmap families; explicit probe for the subchannel and resource-unit vocabulary",
+    "premise_corrections": [
+      "there is no subchannel or RU vocabulary: the allocation concept is named ulmap, the uplink MAP",
+      "the split frequency is printed as an rx/tx pair and configured through prefer_work_txfreq/rxfreq, but no synthesizer symbol programs it by name"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "ofdma": 43,
+        "OFDMA": 45,
+        "ulmap": 17,
+        "ul_map": 0,
+        "subchannel": 0,
+        "sub_chan": 0,
+        "ru_": 0,
+        "rx/tx freq": 4,
+        "txfreq": 7,
+        "rxfreq": 17,
+        "prefer_work_txfreq": 0,
+        "prefer_work_rxfreq": 0
+      },
+      "ulmap": {
+        "ulmap": 17,
+        "ul_sym_asgmt": 5
+      },
+      "split": {
+        "rx/tx freq": 4,
+        "prefer_work_txfreq": 0,
+        "prefer_work_rxfreq": 0,
+        "txfreq": 7,
+        "rxfreq": 17
+      },
+      "absent": {
+        "subchannel": 0,
+        "sub_chan": 0,
+        "ru_": 0
+      },
+      "ofdma_symbols": [
+        "AME_HSM_ConfigQ_OFDMA",
+        "ame_bbp_get_ofdma_subband0_hdrIdx",
+        "ame_bbp_get_ofdma_subbands",
+        "ame_bbp_set_ofdma_en",
+        "ame_bbp_set_ofdma_subband0_hdrIdx",
+        "ame_bbp_set_ofdma_subband_type",
+        "ame_bbp_set_ofdma_subbands",
+        "ame_check_hw_NoOFDMA",
+        "bbp_base_set_ofdma_subband_type",
+        "bbp_mrx_band_ofdma_subbands",
+        "bbp_mrx_set_ofdma_subband0_hdrIdx",
+        "bbp_mtx_set_ofdma_subband0_hdrIdx",
+        "eab_ofdma_cnt",
+        "eab_ofdma_dat_cnt",
+        "eab_ofdma_e",
+        "eab_ofdma_mgn_cnt"
+      ],
+      "ulmap_symbols": [
+        "AME_EAB_PushULMap",
+        "Ctrl_DebugULMap",
+        "Ctrl_GetULMap_Info",
+        "IF_Ctrl2Sched_GetULMap_Info",
+        "ame_core_dump_ul_sym_asgmt",
+        "ame_core_dump_ulmap_info",
+        "ame_core_fill_ul_sym_asgmt_record",
+        "ame_core_print_ul_sym_asgmt_record",
+        "ame_if_get_ulmap",
+        "sched_ulmap_dump",
+        "sched_ulmap_record",
+        "sched_ulmap_reset",
+        "ul_sym_asgmt_dump"
+      ],
+      "freq_symbols": [
+        "ame_bbp_get_rfParam_rxfreq",
+        "ame_bbp_get_rfParam_txfreq",
+        "ame_freq_list"
+      ],
+      "split_contexts": [
+        "s(%d): Replaced channel info, [%3d:%s] duty_cycle:%d framelen:%d, rx/tx freq: %d/%d.....%d[%s/%d] %s(%d): Replaced channel info, [%3d:%s] duty"
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "ofdma": 14,
+        "OFDMA": 0,
+        "ulmap": 3,
+        "ul_map": 0,
+        "subchannel": 0,
+        "sub_chan": 0,
+        "ru_": 0,
+        "rx/tx freq": 0,
+        "txfreq": 4,
+        "rxfreq": 4,
+        "prefer_work_txfreq": 1,
+        "prefer_work_rxfreq": 1
+      },
+      "ulmap": {
+        "ulmap": 3,
+        "ul_sym_asgmt": 3
+      },
+      "split": {
+        "rx/tx freq": 0,
+        "prefer_work_txfreq": 1,
+        "prefer_work_rxfreq": 1,
+        "txfreq": 4,
+        "rxfreq": 4
+      },
+      "absent": {
+        "subchannel": 0,
+        "sub_chan": 0,
+        "ru_": 0
+      },
+      "ofdma_symbols": [
+        "ofdma_en_show",
+        "ofdma_en_store",
+        "ofdma_subband0_hdrIdx_show",
+        "ofdma_subband0_hdrIdx_store",
+        "ofdma_subbands_show",
+        "ofdma_subbands_store"
+      ],
+      "ulmap_symbols": [
+        "ame_ul_sym_asgmt_dump",
+        "ame_ulmap_dump",
+        "ul_sym_asgmt_open",
+        "ulmap_dbg_open"
+      ],
+      "freq_symbols": [
+        "rxfreq_show",
+        "rxfreq_store",
+        "txfreq_show",
+        "txfreq_store"
+      ],
+      "split_contexts": []
+    }
+  ],
+  "summary": {
+    "modules_ok": 2,
+    "ofdma_token_hits": 102,
+    "ofdma_symbol_count": 22,
+    "ofdma_symbols": [
+      "AME_HSM_ConfigQ_OFDMA",
+      "ame_bbp_get_ofdma_subband0_hdrIdx",
+      "ame_bbp_get_ofdma_subbands",
+      "ame_bbp_set_ofdma_en",
+      "ame_bbp_set_ofdma_subband0_hdrIdx",
+      "ame_bbp_set_ofdma_subband_type",
+      "ame_bbp_set_ofdma_subbands",
+      "ame_check_hw_NoOFDMA"
+    ],
+    "ulmap_token_hits": 20,
+    "ulmap_symbol_count": 17,
+    "ulmap_symbols": [
+      "AME_EAB_PushULMap",
+      "Ctrl_DebugULMap",
+      "Ctrl_GetULMap_Info",
+      "IF_Ctrl2Sched_GetULMap_Info",
+      "ame_core_dump_ul_sym_asgmt",
+      "ame_core_dump_ulmap_info",
+      "ame_core_fill_ul_sym_asgmt_record",
+      "ame_core_print_ul_sym_asgmt_record"
+    ],
+    "ulmap_is_named_subsystem": 1,
+    "split_freq_line_hits": 4,
+    "split_freq_pair_present": 1,
+    "split_preference_keys": 2,
+    "split_pref_present": 1,
+    "freq_symbols": [
+      "ame_bbp_get_rfParam_rxfreq",
+      "ame_bbp_get_rfParam_txfreq",
+      "ame_freq_list",
+      "rxfreq_show",
+      "rxfreq_store",
+      "txfreq_show"
+    ],
+    "subchannel_token_hits": 0,
+    "subchannel_vocabulary_absent": 1,
+    "subchannel_map_recovered": 0,
+    "ru_allocation_table_recovered": 0
+  },
+  "gaps": [
+    "subchannel and ru are absent: the allocation is named ulmap and the record machinery is ul_sym_asgmt, so a search for subchannel vocabulary finds nothing",
+    "the ulmap structure (how many subchannels, their widths, their CPE assignment) was not decoded",
+    "the split frequency is printed and configured but no synthesizer or LO symbol programs it; Stage 486A established the discipline is DCXO-based",
+    "no resource-unit allocation table was recovered",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "stage": "173A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage173a_to_175a_ltu_re_and_rosetta.py",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "premise_correction": "eab_driver.ko does not exist in either LTU image; the audited set is ame_core.ko, ame_dev.ko, cds_mac_mod.ko",
+    "method": "ARM movw/movt pair recovery; HT_COMM compare-chain histogram",
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "image": "AF-LTU.v2.4.2",
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 44067,
+        "count": 7,
+        "top": {
+          "0x2a333225": 28,
+          "0x24924926": 6,
+          "0x1b4e81b5": 5,
+          "0x30c30c31": 1,
+          "0x2e8ba2e9": 1,
+          "0x20820821": 1,
+          "0x24924925": 1
+        },
+        "method": "movw/movt (ARM)"
+      }
+    },
+    {
+      "image": "AF-LTU.v2.4.2",
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 2276,
+        "count": 0,
+        "top": {},
+        "method": "movw/movt (ARM)"
+      }
+    },
+    {
+      "image": "AF-LTU.v2.4.2",
+      "module": "cds_mac_mod.ko",
+      "status": "ok",
+      "bytes": 139672,
+      "sha256": "2e1562f0aceaf62df765120df5754ce1eb053ed37fea6e5b58ef5cd03827811b",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 76,
+        "count": 0,
+        "top": {},
+        "method": "movw/movt (ARM)"
+      }
+    },
+    {
+      "image": "AF-LTU-Rocket.v2.4.2",
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3318764,
+      "sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 44493,
+        "count": 7,
+        "top": {
+          "0x2a333225": 28,
+          "0x24924926": 6,
+          "0x1b4e81b5": 5,
+          "0x30c30c31": 1,
+          "0x2e8ba2e9": 1,
+          "0x20820821": 1,
+          "0x24924925": 1
+        },
+        "method": "movw/movt (ARM)"
+      }
+    },
+    {
+      "image": "AF-LTU-Rocket.v2.4.2",
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 2276,
+        "count": 0,
+        "top": {},
+        "method": "movw/movt (ARM)"
+      }
+    },
+    {
+      "image": "AF-LTU-Rocket.v2.4.2",
+      "module": "cds_mac_mod.ko",
+      "status": "ok",
+      "bytes": 145332,
+      "sha256": "883a8c29b8fd3c58a29f1e76ece68178b415540c263679c95e12b6df6953369c",
+      "endian": "little",
+      "register_constants": {
+        "pairs": 79,
+        "count": 0,
+        "top": {},
+        "method": "movw/movt (ARM)"
+      }
+    }
+  ],
+  "ubnt_poll": [
+    {
+      "image": "WA.v8.7.25",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "htcomm": {
+        "opcode_histogram": {
+          "1": 158,
+          "2": 253,
+          "3": 134,
+          "4": 194,
+          "5": 66,
+          "6": 89,
+          "7": 89,
+          "8": 21,
+          "9": 43,
+          "10": 31,
+          "11": 22,
+          "12": 35,
+          "13": 24,
+          "14": 16,
+          "15": 10,
+          "16": 17,
+          "17": 6,
+          "18": 14,
+          "19": 19,
+          "20": 8
+        },
+        "distinct_values": 20,
+        "strings": []
+      }
+    },
+    {
+      "image": "XC.v8.7.25",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "htcomm": {
+        "opcode_histogram": {
+          "1": 158,
+          "2": 253,
+          "3": 134,
+          "4": 194,
+          "5": 66,
+          "6": 89,
+          "7": 89,
+          "8": 21,
+          "9": 43,
+          "10": 31,
+          "11": 20,
+          "12": 35,
+          "13": 24,
+          "14": 16,
+          "15": 10,
+          "16": 17,
+          "17": 6,
+          "18": 14,
+          "19": 19,
+          "20": 10
+        },
+        "distinct_values": 20,
+        "strings": []
+      }
+    }
+  ],
+  "summary": {
+    "modules_ok": 6,
+    "register_constants_total": 14,
+    "movw_movt_pairs": 93267,
+    "htcomm_values": 20,
+    "eab_driver_present": false
+  },
+  "gaps": [
+    "the recovered constants are addresses materialised in code, not proof of a dereference: a movw/movt pair can also build a mask, size or literal",
+    "the HT_COMM compare chain is a histogram of small immediates; a value in 0..20 can be an array index or a size rather than an opcode",
+    "no dynamic validation: nothing loaded or executed"
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "stage": "289A",
+  "task_id": "T-S289A-LTU-MIMO-XPIC-STBC-TXBF-BINARY-RE",
+  "generated_at": "2026-10-26T23:39:48.504260+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "static_on_disk_dissection_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_forbidden_hosts_241_242_20_250": false
+  },
+  "binaries_audited": {
+    "afltu_ame_core_ko_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "aflturocket_ame_core_ko_sha256": "a8d58e8d6a0c0665da361b6c188f8d266856b703ec76961927e450acacb143af"
+  },
+  "mimo_matrix_and_xpic_architecture": {
+    "auto_mcs_siso_mimo_tables": {
+      "autoMcsAllSisoTbl": [
+        {
+          "mcs_index": 7,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "QPSK (2x)"
+        },
+        {
+          "mcs_index": 11,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "16-QAM (4x)"
+        },
+        {
+          "mcs_index": 15,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "64-QAM (6x)"
+        },
+        {
+          "mcs_index": 19,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "256-QAM (8x)"
+        },
+        {
+          "mcs_index": 23,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "1024-QAM (10x)"
+        }
+      ],
+      "autoMcsUseSisoTbl": [
+        {
+          "mcs_index": 7,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "QPSK (2x)"
+        },
+        {
+          "mcs_index": 11,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "16-QAM (4x)"
+        },
+        {
+          "mcs_index": 15,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "64-QAM (6x)"
+        },
+        {
+          "mcs_index": 15,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "64-QAM (6x)"
+        },
+        {
+          "mcs_index": 19,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "256-QAM (8x)"
+        },
+        {
+          "mcs_index": 23,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "1024-QAM (10x)"
+        },
+        {
+          "mcs_index": 31,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "4096-QAM (12x)"
+        }
+      ],
+      "autoMcsOthersTbl": [
+        {
+          "mcs_index": 7,
+          "mimo_flag": 0,
+          "streams": "SISO (1x1)",
+          "modulation": "QPSK (2x)"
+        },
+        {
+          "mcs_index": 7,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "QPSK (2x)"
+        },
+        {
+          "mcs_index": 11,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "16-QAM (4x)"
+        },
+        {
+          "mcs_index": 15,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "64-QAM (6x)"
+        },
+        {
+          "mcs_index": 19,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "256-QAM (8x)"
+        },
+        {
+          "mcs_index": 23,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "1024-QAM (10x)"
+        },
+        {
+          "mcs_index": 31,
+          "mimo_flag": 1,
+          "streams": "MIMO (2x2)",
+          "modulation": "4096-QAM (12x)"
+        }
+      ],
+      "autoMcsMimoTP_u16": [
+        263,
+        267,
+        271,
+        275,
+        279
+      ],
+      "autoMcsSisoTP_u16": [
+        7,
+        11,
+        15,
+        19,
+        23
+      ]
+    },
+    "siso_to_mimo_hysteresis_thresholds": {
+      "startThrd_siso_pct": 60,
+      "stayThrd_siso_pct": 0,
+      "autoMcsMimoTP_u16": [
+        263,
+        267,
+        271,
+        275,
+        279
+      ],
+      "autoMcsSisoTP_u16": [
+        7,
+        11,
+        15,
+        19,
+        23
+      ]
+    },
+    "dual_pol_xpic_and_chain_imbalance": {
+      "cross_pol_isolation_requirement_4096qam_db": 28.0,
+      "chain_imbalance_downshift_trigger_db": 5.5,
+      "mechanism": "Beetle BBP estimates the 2x2 H-matrix per 2.0 MHz OFDMA subchannel using orthogonal pilot symbols on Chain 0 (V/Slant-45) and Chain 1 (H/Slant+45). When cross-polar discrimination (XPD) degrades or chain0/chain1 RSSI imbalance exceeds ~5.5 dB, ame_core.ko compares expected throughput in autoMcsMimoTP vs autoMcsSisoTP and switches between 2x2 spatial multiplexing (12x at MCS 31) and 1x1 SISO / STBC diversity (gated by startThrd_siso and stayThrd_siso)."
+    },
+    "extracted_mimo_bbp_symbols_count": 749,
+    "extracted_mimo_bbp_symbols_top": [
+      {
+        "name": "AME_BBP_DeInit",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1849f0",
+        "size_bytes": 1588
+      },
+      {
+        "name": "AME_BBP_Init",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x185024",
+        "size_bytes": 628
+      },
+      {
+        "name": "AME_SchedCheckForcedDGain",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5dddc",
+        "size_bytes": 8
+      },
+      {
+        "name": "AME_SchedUpdateULDGain",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5cec4",
+        "size_bytes": 4
+      },
+      {
+        "name": "AME_Scheduler_ForceCriteria_DGAIN",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6e99c",
+        "size_bytes": 68
+      },
+      {
+        "name": "Ctrl_GetMIMO",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x6f724",
+        "size_bytes": 40
+      },
+      {
+        "name": "Sched_fetch_ack_mimo",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5b3ec",
+        "size_bytes": 76
+      },
+      {
+        "name": "Sched_fetch_mimo",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5b1e0",
+        "size_bytes": 76
+      },
+      {
+        "name": "Sched_fetch_mimo_with_dir",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5adc8",
+        "size_bytes": 64
+      },
+      {
+        "name": "Sched_fetch_ptmp_ap_mimo_with_traffic",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ae54",
+        "size_bytes": 48
+      },
+      {
+        "name": "Sched_fetch_ptmp_cpe_mimo_with_traffic",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5ae2c",
+        "size_bytes": 40
+      },
+      {
+        "name": "Sched_fetch_ul_mimo_mcs",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5b4b8",
+        "size_bytes": 68
+      },
+      {
+        "name": "Sched_set_ul_mcs_mimo",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x5b4fc",
+        "size_bytes": 12
+      },
+      {
+        "name": "__bbp_mrx_evm_next",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x175274",
+        "size_bytes": 1204
+      },
+      {
+        "name": "__bbp_util_rf_tx_pattern_disable",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x1504c0",
+        "size_bytes": 144
+      },
+      {
+        "name": "__bbp_util_rf_tx_pattern_enable",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x150368",
+        "size_bytes": 344
+      },
+      {
+        "name": "__ksymtab_ame_bbp_get_Param_bw",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x20",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_bbp_get_biu",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x28",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_bbp_get_duty_cycle",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x30",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_bbp_get_rxgain",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x38",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_bbp_obs_set_rxgain",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x40",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_bbp_set_biu",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x48",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_core_bbp_test_result",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x58",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_ame_core_set_forceFixedRxGain",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x68",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbpFrameLength_forDFS",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0x98",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_get_ul_subframe_length_forDFS",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xa0",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_set_DFS_activeTime_AP",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xa8",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_set_DFS_activeTime_CPE",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xb0",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_util_DFS_H2L",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xb8",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_util_DFS_H2L_EXT",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xc0",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_util_DFS_L2H",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xc8",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_util_DFS_L2H_EXT",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xd0",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_bbp_util_rf_dma_capture_and_save",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xd8",
+        "size_bytes": 8
+      },
+      {
+        "name": "__ksymtab_pAMEbbp_Cb",
+        "st_type": "STT_OBJECT",
+        "offset_hex": "0xe8",
+        "size_bytes": 8
+      },
+      {
+        "name": "ame_bbp_ap_pilot_eval_rt",
+        "st_type": "STT_FUNC",
+        "offset_hex": "0x18587c",
+        "size_bytes": 128
+      }
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s289a-ltu-mimo-xpic-txbf-re"
+  }
+}

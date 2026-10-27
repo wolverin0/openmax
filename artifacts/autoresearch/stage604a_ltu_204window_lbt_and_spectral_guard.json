@@ -1,0 +1,76 @@
+{
+  "stage": "604A",
+  "task_id": "T-S604A-LTU-204WINDOW-LBT-AND-SPECTRAL-GUARD",
+  "title": "Pillar 4 AF-LTU (Beetle) 204-Window Golden Telemetry & LBT/Spectral Guard",
+  "memory_master_claim": {
+    "code": "mm-cd16",
+    "id": 155452
+  },
+  "generated_at": "2026-10-27T01:37:37.289989+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "Linux"
+  ],
+  "guard_script": {
+    "path": "firmware/ltu_safe_kit/fmx_ltu_200w_golden_guard.sh",
+    "sha256": "c35da9548399b555bffbec79edf52de6f07666893c528f49ae1819b799608c65",
+    "size_bytes": 2037,
+    "default_mode": "--inspect-only",
+    "zero_dev_ame_touches": true
+  },
+  "stage590a_re_foundation": {
+    "ame_core_sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+    "ame_dev_sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+    "lbt_symbol_count": 24,
+    "lbt_cfg_params": [
+      "lbt_cfg_listen_window",
+      "lbt_cfg_pause_txframe",
+      "lbt_cfg_threshold",
+      "lbt_cfg_reset"
+    ],
+    "interference_controls": [
+      "interference_det_init",
+      "interference_det_deinit",
+      "get_rf_interference_avg",
+      "get_rf_interference_curr"
+    ],
+    "sysfs_lbt_pairs": [
+      "lbt_detects",
+      "lbt_enable",
+      "lbt_reset"
+    ],
+    "auto_channel_keys": [
+      "freq_list_enabled",
+      "auto_freq_list",
+      "auto_freq_mode",
+      "smart_scan",
+      "prefer_work_txfreq",
+      "prefer_work_rxfreq",
+      "reg_obey"
+    ]
+  },
+  "checks": {
+    "has_shebang": true,
+    "lf_line_endings_only": true,
+    "zero_dev_ame_touches": true,
+    "inspects_lbt_and_auto_freq_sysfs": true,
+    "references_stage590a_interference_detectors": true,
+    "default_mode_is_inspect_only": true
+  },
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Operationalizes Stage 590A RE of ame_core.ko & ame_dev.ko (24 LBT symbols, 4 LBT config params, 4 interference detectors, 7 auto-channel keys)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Models LBT frame-scheduler integration (lbt_cfg_pause_txframe) and RF interference avg/curr monitoring without mutating proprietary state",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "100% read-only telemetry with zero /dev/ame* character device touches across 204 cumulative live windows",
+    "pillar_d_scientific_pareto_validation": "Prevents blind auto_freq_mode channel hops during transient burst noise while tracking lbt_detects",
+    "pillar_e_memory_master_claim_id": "mm-cd16 (id=155452)"
+  }
+}

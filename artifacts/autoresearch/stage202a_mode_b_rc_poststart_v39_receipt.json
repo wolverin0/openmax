@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "STAGE-202A",
+  "task_id": "T-S202A-UNIFIED-MODE-B-RC-POSTSTART-GENERATOR-V39",
+  "generator_version": "v39.0",
+  "generated_at_utc": "2026-10-26T23:16:58.172288+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "Linux",
+    "proprietary airMAX/LTU module",
+    "QCA firmware",
+    "hardware"
+  ],
+  "safety_boundaries": {
+    "touched_241_or_242": false,
+    "touched_20_or_250": false,
+    "touched_production_guarida": false,
+    "flash_writes": 0
+  },
+  "supported_families": [
+    "WA",
+    "XC",
+    "2XC",
+    "XW",
+    "XM",
+    "LTU"
+  ],
+  "family_profiles_v39": {
+    "WA": {
+      "family": "WA",
+      "ram_mb": 64,
+      "min_free_kbytes": 2048,
+      "vfs_cache_pressure": 120,
+      "netdev_budget": 480,
+      "dev_weight": 48,
+      "netdev_max_backlog": 1024,
+      "tcp_limit_output_bytes": 65536,
+      "tcp_tso_win_divisor": 8,
+      "txqueuelen": 192,
+      "daprot": 2,
+      "ff_mcast_airtime_limit": 5,
+      "swr_limit": 3,
+      "ff_cap_rep": 2,
+      "cms_bias": 6,
+      "voip_bias": 6,
+      "ac_minfree": [
+        0,
+        16,
+        32,
+        48
+      ]
+    },
+    "XC": {
+      "family": "XC",
+      "ram_mb": 128,
+      "min_free_kbytes": 4096,
+      "vfs_cache_pressure": 150,
+      "netdev_budget": 480,
+      "dev_weight": 48,
+      "netdev_max_backlog": 1024,
+      "tcp_limit_output_bytes": 65536,
+      "tcp_tso_win_divisor": 8,
+      "tcp_pacing_ca_ratio": 110,
+      "tcp_pacing_ss_ratio": 150,
+      "fq_initial_quantum": 3028,
+      "txqueuelen": 192,
+      "eth_coal_rx_usecs": 24,
+      "eth_coal_tx_usecs": 48,
+      "daprot": 2,
+      "ff_mcast_airtime_limit": 5,
+      "swr_limit": 3,
+      "ff_cap_rep": 2,
+      "cms_bias": 6,
+      "voip_bias": 6,
+      "ac_minfree": [
+        0,
+        16,
+        32,
+        48
+      ]
+    },
+    "2XC": {
+      "family": "2XC",
+      "ram_mb": 128,
+      "min_free_kbytes": 4096,
+      "vfs_cache_pressure": 150,
+      "netdev_budget": 480,
+      "dev_weight": 48,
+      "netdev_max_backlog": 1024,
+      "tcp_limit_output_bytes": 65536,
+      "tcp_tso_win_divisor": 8,
+      "tcp_pacing_ca_ratio": 110,
+      "tcp_pacing_ss_ratio": 150,
+      "fq_initial_quantum": 3028,
+      "txqueuelen": 192,
+      "eth_coal_rx_usecs": 24,
+      "eth_coal_tx_usecs": 48,
+      "daprot": 2,
+      "ff_mcast_airtime_limit": 5,
+      "swr_limit": 3,
+      "ff_cap_rep": 2,
+      "cms_bias": 6,
+      "voip_bias": 6,
+      "ac_minfree": [
+        0,
+        16,
+        32,
+        48
+      ]
+    },
+    "XW": {
+      "family": "XW",
+      "ram_mb": 64,
+      "min_free_kbytes": 2048,
+      "netdev_budget": 300,
+      "dev_weight": 48,
+      "netdev_max_backlog": 768,
+      "tcp_limit_output_bytes": 65536,
+      "txqueuelen": 64,
+      "ampdu_frames": 28,
+      "ampdu_lim": 40960,
+      "ubnt_ewma_delegate_on": 1,
+      "ac_minfree": [
+        0,
+        16,
+        32,
+        48
+      ]
+    },
+    "XM": {
+      "family": "XM",
+      "ram_mb": 32,
+      "min_free_kbytes": 1536,
+      "tcp_rmem": "4096 32768 131072",
+      "tcp_wmem": "4096 16384 65536",
+      "netdev_budget": 256,
+      "dev_weight": 32,
+      "netdev_max_backlog": 512,
+      "tcp_limit_output_bytes": 32768,
+      "txqueuelen": 48,
+      "ampdu_frames": 28,
+      "ampdu_lim": 40960,
+      "ubnt_ewma_delegate_on": 1,
+      "ac_minfree": [
+        0,
+        16,
+        32,
+        64
+      ]
+    },
+    "LTU": {
+      "family": "LTU",
+      "ram_mb": 128,
+      "min_free_kbytes": 4096,
+      "netdev_budget": 300,
+      "dev_weight": 48,
+      "netdev_max_backlog": 1000,
+      "tcp_limit_output_bytes": 131072,
+      "txqueuelen": 256,
+      "tail_guard_s102e": 1
+    }
+  },
+  "per_family_script_sha256": {
+    "WA": "3e373a754e9541578b40d1b8f4724425da73ba500a790916544b45204855d464",
+    "XC": "16f26710fc66611bd4333d90d92ae2855e1b4785dfc6e1a0ea3580b934006031",
+    "2XC": "eb15d2be2c48ed3b1a9cd22a1b9bad6cecc8ab458a6c40d7009497f82703b619",
+    "XW": "31ac6415280af4bbc9f5a57d9ee2a27b9e1c1fceff4ddba34330d54968dd2816",
+    "XM": "ac2abdd30f9c1d918b44af7a22d05b705e5b9bf49c18c491f82d39c479648ce1",
+    "LTU": "3d3589be12dddea2b3d3c4f0fb3c1e4594d83958423741a75d88e457c9638a8f"
+  },
+  "unified_script_path": "artifacts/autoresearch/rc_poststart_mode_b_unified_v39.sh",
+  "unified_script_sha256": "c6a053b8cee7c945b61e592d289bdd53594187d62c5f7c45fa5ee7278510549f",
+  "upstream_receipts": {
+    "stage200a_sha256": "637b37f841bd25de9a557dede10d795f8facbe741018ea2beed1a32c5bd3835e",
+    "stage201a_sha256": "16c7f68d9fdc5a370af2a0d5ba5ee6275d2053c771cf22d3d8d803fd40d5bb0b",
+    "stage184a_sha256": "7a4f5e1322d6fc88a23e77ef417390b9b8218c20984039daf44f14401e352971"
+  },
+  "repo_deterministic_gates": {
+    "compliant": true,
+    "failures": []
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "VERIFIED",
+      "families_covered": [
+        "WA",
+        "XC",
+        "2XC",
+        "XW",
+        "XM",
+        "LTU"
+      ],
+      "knob_catalog_count": 571
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "VERIFIED",
+      "reactor_path": "tools/research/closed_loop_research_reactor.py",
+      "scholar_claims_verified": [
+        "FMX-DISC-11-UPH-SHARED-64B-VECTOR-DAPROT-BEFORE-MCAST",
+        "FMX-DISC-16-XW-XM-MCS0-WARMUP-AND-EWMA-DELEGATE",
+        "FMX-DISC-24-45S-NON-DFS-120S-DFS-ROLLBACK-WATCHDOG"
+      ]
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "VERIFIED",
+      "counterbalanced_protocol": "A1->B1->A2->B2",
+      "watchdog_seconds": 45,
+      "chained_megamission_stages": [
+        "STAGE-200A",
+        "STAGE-201A",
+        "STAGE-202A"
+      ]
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "VERIFIED",
+      "pareto_objectives": [
+        "goodput_mbps",
+        "p95_rtt_ms",
+        "jitter_ms",
+        "cpu_softirq_pct"
+      ]
+    },
+    "pillar_e_memory_master_claim_id": "MM-STAGE202A-UNIFIED-MODE-B-RC-POSTSTART-V39"
+  },
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "five_pillar_compliant": true
+}

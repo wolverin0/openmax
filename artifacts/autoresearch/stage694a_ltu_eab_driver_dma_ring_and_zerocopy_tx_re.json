@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "stage": "694A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage694a_ltu_eab_driver_dma_ring_and_zerocopy_tx_re.py",
+    "tool_sha256": "8977db8728dffd0b4760680262558e15607d66e640fa51bbc8fb7aa1eb291d82",
+    "output": "artifacts/autoresearch/stage694a_ltu_eab_driver_dma_ring_and_zerocopy_tx_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "token census of the EAB, ASIC, DMA and ring vocabularies; defined-symbol lookup for the EAB BD interface, the TX/RX queue info readers, the FIFO delivery pairs and the queue activation hierarchy",
+    "premise_corrections": [
+      "eab_driver.ko is absent, so the ARM side is not a separate module: the EAB interface is compiled into ame_core.ko",
+      "zerocopy, zero_copy, doorbell, cortex and ame_ASIC all return 0; only the generic token asic appears, once"
+    ],
+    "radio_safety": "static only"
+  },
+  "absence": {
+    "eab_driver": 0
+  },
+  "modules": [
+    {
+      "module": "ame_core.ko",
+      "status": "ok",
+      "bytes": 3282052,
+      "sha256": "fe5d489ea66bd2f32d6844d4ebefc4a12df367c2e5a1df3568973b28685059d2",
+      "defined_symbols": 9699,
+      "tokens": {
+        "eab": 359,
+        "EAB": 208,
+        "asic": 1,
+        "ASIC": 0,
+        "DMA": 54,
+        "dma": 52,
+        "ring": 41,
+        "zerocopy": 0,
+        "zero_copy": 0,
+        "doorbell": 0,
+        "cortex": 0,
+        "Cortex": 0,
+        "BD": 233,
+        "FIFO": 91
+      },
+      "bd": {
+        "AME_EAB_PeakBDInterface": 2,
+        "AME_EAB_CheckRxQBD": 2
+      },
+      "qinfo": {
+        "AME_EAB_ReadTXQInfo": 2,
+        "AME_EAB_ReadRXQInfo": 2
+      },
+      "fifo": {
+        "AME_EAB_DeliverTxFIFO": 4,
+        "AME_EAB_DeliverTxFIFO_extra": 2,
+        "AME_EAB_ClearallTxFIFO": 4,
+        "AME_EAB_ClearallTxFIFO_extra": 2
+      },
+      "act": {
+        "AME_EAB_ActivateQueue": 3,
+        "AME_EAB_ActivateSuperQueue": 2
+      },
+      "capjson": 3,
+      "eab_symbols": [
+        "AME_EAB_ActivateQueue",
+        "AME_EAB_ActivateSuperQueue",
+        "AME_EAB_AdjustFrameLength",
+        "AME_EAB_CFTxStatus",
+        "AME_EAB_CheckBIUSettings",
+        "AME_EAB_CheckBeacon",
+        "AME_EAB_CheckL2FrameDefFifo",
+        "AME_EAB_CheckMem",
+        "AME_EAB_CheckMixedCmd",
+        "AME_EAB_CheckQException",
+        "AME_EAB_CheckQueueStatus",
+        "AME_EAB_CheckRxFIFO",
+        "AME_EAB_CheckRxQBD",
+        "AME_EAB_CheckVList",
+        "AME_EAB_Check_rxTouchedQ",
+        "AME_EAB_ChkRstProg",
+        "AME_EAB_ClearATX",
+        "AME_EAB_ClearBDRateCtrlStats",
+        "AME_EAB_ClearETX",
+        "AME_EAB_ClearallTxFIFO",
+        "AME_EAB_ClearallTxFIFO_extra",
+        "AME_EAB_DeInit",
+        "AME_EAB_DeliverTxFIFO",
+        "AME_EAB_DeliverTxFIFO_extra",
+        "AME_EAB_DeliverTxQBD",
+        "AME_EAB_DumpAirInternal",
+        "AME_EAB_DumpTxCmdResults",
+        "AME_EAB_EnableDMAMonitor",
+        "AME_EAB_EnableHW",
+        "AME_EAB_FlushBeacon",
+        "AME_EAB_FreeTxFIFO",
+        "AME_EAB_FreeTxFIFO_extra",
+        "AME_EAB_FreeTxQBD",
+        "AME_EAB_GetBDRateCtrlStats",
+        "AME_EAB_GetFragSrc",
+        "AME_EAB_GetFreeCnt",
+        "AME_EAB_GetISRInfo",
+        "AME_EAB_GetInfBDCnt",
+        "AME_EAB_GetInfBDNextIdx",
+        "AME_EAB_GetLoopbackTempBuf"
+      ],
+      "ring_symbols": [
+        "free_pkt_from_pkt_pool"
+      ],
+      "asic_contexts": [
+        "...pmut_setup..eab_queues_reset....eab_queue_info_dump.test_hcam_basic.test_hcam_isrs..03$...03e..L....................test_hfe_unicast."
+      ]
+    },
+    {
+      "module": "ame_dev.ko",
+      "status": "ok",
+      "bytes": 298760,
+      "sha256": "912a7c1923aad381ac38ae922b78f69888cec0bd1558c09abf2de68657c8b955",
+      "defined_symbols": 1669,
+      "tokens": {
+        "eab": 5,
+        "EAB": 1,
+        "asic": 0,
+        "ASIC": 0,
+        "DMA": 0,
+        "dma": 29,
+        "ring": 4,
+        "zerocopy": 0,
+        "zero_copy": 0,
+        "doorbell": 0,
+        "cortex": 0,
+        "Cortex": 0,
+        "BD": 14,
+        "FIFO": 0
+      },
+      "bd": {
+        "AME_EAB_PeakBDInterface": 0,
+        "AME_EAB_CheckRxQBD": 0
+      },
+      "qinfo": {
+        "AME_EAB_ReadTXQInfo": 0,
+        "AME_EAB_ReadRXQInfo": 0
+      },
+      "fifo": {
+        "AME_EAB_DeliverTxFIFO": 0,
+        "AME_EAB_DeliverTxFIFO_extra": 0,
+        "AME_EAB_ClearallTxFIFO": 0,
+        "AME_EAB_ClearallTxFIFO_extra": 0
+      },
+      "act": {
+        "AME_EAB_ActivateQueue": 0,
+        "AME_EAB_ActivateSuperQueue": 0
+      },
+      "capjson": 0,
+      "eab_symbols": [],
+      "ring_symbols": [],
+      "asic_contexts": []
+    }
+  ],
+  "summary": {
+    "eab_driver_present": false,
+    "modules_ok": 2,
+    "eab_token_hits": 573,
+    "eab_symbol_count": 40,
+    "eab_symbols": [
+      "AME_EAB_ActivateQueue",
+      "AME_EAB_ActivateSuperQueue",
+      "AME_EAB_AdjustFrameLength",
+      "AME_EAB_CFTxStatus",
+      "AME_EAB_CheckBIUSettings",
+      "AME_EAB_CheckBeacon",
+      "AME_EAB_CheckL2FrameDefFifo",
+      "AME_EAB_CheckMem",
+      "AME_EAB_CheckMixedCmd",
+      "AME_EAB_CheckQException",
+      "AME_EAB_CheckQueueStatus",
+      "AME_EAB_CheckRxFIFO"
+    ],
+    "bd_interface": [
+      "AME_EAB_PeakBDInterface",
+      "AME_EAB_CheckRxQBD"
+    ],
+    "bd_interface_named": 1,
+    "queue_info_readers": [
+      "AME_EAB_ReadTXQInfo",
+      "AME_EAB_ReadRXQInfo"
+    ],
+    "tx_rx_info_split": 1,
+    "fifo_delivery": [
+      "AME_EAB_DeliverTxFIFO",
+      "AME_EAB_DeliverTxFIFO_extra",
+      "AME_EAB_ClearallTxFIFO",
+      "AME_EAB_ClearallTxFIFO_extra"
+    ],
+    "fifo_pair_count": 4,
+    "fifo_has_extra_variant": 1,
+    "queue_activation": [
+      "AME_EAB_ActivateQueue",
+      "AME_EAB_ActivateSuperQueue"
+    ],
+    "super_queue_hierarchy": 1,
+    "ring_symbols": [
+      "free_pkt_from_pkt_pool"
+    ],
+    "asic_token_hits": 1,
+    "dma_token_hits": 135,
+    "cortex_token_hits": 0,
+    "zerocopy_token_hits": 0,
+    "zerocopy_absent": 1,
+    "capability_json_hits": 3,
+    "asic_capability_report": 1,
+    "zerocopy_tx_recovered": 0,
+    "descriptor_layout_recovered": 0
+  },
+  "gaps": [
+    "eab_driver.ko is absent, so the ARM driver side of the handoff has no bytes; the EAB interface is inside ame_core.ko",
+    "zerocopy and zero_copy return 0, so whether the descriptor handoff is zero-copy or copy-based is not decidable from these names",
+    "ame_ASIC and cortex return 0: the ASIC identity and the ARM core model are not named here; Stage 376A established the ARMv7 HPS, and Cortex-A7 is consistent but unproven",
+    "the BD descriptor layout (address, length, ownership bit) was not recovered; only the interface function is named",
+    "the ring primitives (ring_init, ring_push, ring_pop, pkt_pool) are shared with the generic DMA path of Stage 460A, not specific to the ASIC handoff",
+    "no dynamic validation"
+  ]
+}

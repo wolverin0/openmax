@@ -1,0 +1,57 @@
+{
+  "stage": "344A",
+  "task_id": "T-S344A-LTU-SQ-MICRO-AP-SPLIT-FREQ-PARETO",
+  "generated_at": "2026-10-27T00:05:43.681657+00:00",
+  "status": "CONFIRMED",
+  "attribution": [
+    "proprietary airMAX/LTU module",
+    "hardware",
+    "external controller"
+  ],
+  "safety_audit": {
+    "touched_241": false,
+    "touched_242": false,
+    "touched_20": false,
+    "touched_250": false,
+    "touched_dev_ame_nodes": false
+  },
+  "regimes_compared": {
+    "LTU_SQ8_SplitFreq_AD9361_Champion": {
+      "aggregate_goodput_mbps": 630.92,
+      "p99_latency_ms": 2.099,
+      "ul_harq_retx_pct": 0.45,
+      "ptmp_max_cpe": 8,
+      "tx_lo_neq_rx_lo": true,
+      "split_freq_isolation_db": 14.0,
+      "dl_ul_duty": "75/25",
+      "frame_ms": 1.5
+    },
+    "LTU_SQ8_CoChannel_SingleFreq": {
+      "aggregate_goodput_mbps": 556.64,
+      "p99_latency_ms": 3.491,
+      "ul_harq_retx_pct": 4.8,
+      "ptmp_max_cpe": 8,
+      "tx_lo_neq_rx_lo": false,
+      "split_freq_isolation_db": 0.0,
+      "dl_ul_duty": "75/25",
+      "frame_ms": 1.5
+    },
+    "LTU_Std64_CoChannel_Default": {
+      "aggregate_goodput_mbps": 495.33,
+      "p99_latency_ms": 5.281,
+      "ul_harq_retx_pct": 4.8,
+      "ptmp_max_cpe": 64,
+      "tx_lo_neq_rx_lo": false,
+      "split_freq_isolation_db": 0.0,
+      "dl_ul_duty": "67/33",
+      "frame_ms": 2.5
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": "Parameterized directly from Stage 342A (SQ L2Q ring & Frm scan) and Stage 343A (AD9361 TX_LO != RX_LO)",
+    "pillar_b_hyperresearch_and_scholar_reactor": "Synthesizes L2 cache-resident VoQ scheduling with dual-synthesizer split-spectrum interference avoidance",
+    "pillar_c_karpathy_autoresearch_and_watchdog": "Offline SimPy + pymoo NSGA-II evaluation with zero live radio risk",
+    "pillar_d_scientific_pareto_validation": "3-objective NSGA-II optimization (Aggregate Goodput, p99 Latency, UL HARQ Retransmission Rate)",
+    "pillar_e_memory_master_claim_id": "stage344a_ltu_sq_micro_ap_split_freq_pareto"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "stage": "230A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; consolidates 221A..229A",
+    "radio_safety": "static only"
+  },
+  "ledger": {
+    "stage221A": {
+      "sha256": "d90de634fddf7efea2303e0056c2033ce86535943f6b59e71cb706d7f7fd5bf3",
+      "summary": {
+        "modules_ok": 4,
+        "distinct_offsets": 75,
+        "total_indirect_sites": 997,
+        "top_offsets": [
+          -29896,
+          -29872,
+          -29848,
+          -29836,
+          -25808,
+          -25804,
+          -25800,
+          -25784,
+          -25768,
+          -25736,
+          -25732,
+          -25728,
+          -25696,
+          -25680,
+          -25596,
+          -25588,
+          -25548,
+          -25524,
+          -25512,
+          -25508,
+          -25452,
+          -25448,
+          -25420,
+          -25408,
+          -25404,
+          -25400,
+          -25396,
+          -25388,
+          -25384,
+          -25356,
+          -14084,
+          -14080,
+          -8456,
+          -7752,
+          -104,
+          -68,
+          -32,
+          0,
+          4,
+          8
+        ]
+      },
+      "gaps": 2
+    },
+    "stage222A": {
+      "sha256": "c9b4a63d0f146e9f6e4cb8dfb53f3814fccf0a2c99fdb9a0c70abbd3acaf0ec0",
+      "summary": {
+        "knobs_in_boundary": 437,
+        "modules_ok": 4,
+        "max_knob_literals": 295,
+        "register_sink_candidates": 75,
+        "exact_sink_mappings": 0
+      },
+      "gaps": 2
+    },
+    "stage223A": {
+      "sha256": "87140a86ca905f6f592000263a772beeca3801ade8113382fd669f17bbf46220",
+      "summary": {
+        "pairs": 5,
+        "pairs_ok": 4,
+        "identical": 0,
+        "total_differing_bytes": 1713408
+      },
+      "gaps": 0
+    },
+    "stage224A": {
+      "sha256": "2760226be63a2265f78b3d03264e6e6ddada8519fc91ac2a6421fcfd10ab4f96",
+      "summary": {
+        "pairs": 3,
+        "pairs_ok": 3,
+        "identical": 0,
+        "total_differing_bytes": 979078
+      },
+      "gaps": 0
+    },
+    "stage225A": {
+      "sha256": "bb4c38088b55a1793c9e3e93a50ab9344a8d94eda834c784e55045854de4cebf",
+      "summary": {
+        "binaries_found": 2,
+        "ap_sta_pair_present": false,
+        "manifests_available": 3,
+        "wmi_handlers_diffed": 0
+      },
+      "gaps": 2
+    },
+    "stage226A": {
+      "sha256": "44e1fd3f4bfa45f5770927253ef2d6d28d0271b36d1ead6dec1f4c0e4cc6046a",
+      "summary": {
+        "eab_driver_present": false,
+        "modules_ok": 2,
+        "max_dma_symbols": 63,
+        "coalesce_symbols": 12
+      },
+      "gaps": 3
+    },
+    "stage227A": {
+      "sha256": "1f5da1a45ce7e0ab70f11c7da796d85a169cc9141b9c5211fb58431db46451cc",
+      "summary": {
+        "modules_ok": 4,
+        "spectral_syms": 39,
+        "pktlog_syms": 22
+      },
+      "gaps": 2
+    },
+    "stage228A": {
+      "sha256": "df833a76e67530bdeff9aad690e4e5d12033d029f35b47b5fab654a712904ea9",
+      "summary": {
+        "sources_found": 1,
+        "rounds_isolated": 0,
+        "symbol_paths_mapped": 0
+      },
+      "gaps": 2
+    },
+    "stage229A": {
+      "sha256": "6d13c0b755101f1e6225c366b9797b6dcd954860ec248f23012359f7f042e21c",
+      "summary": {
+        "modules_with_registrations": 6,
+        "total_registration_symbols": 8,
+        "images_covered": 3
+      },
+      "gaps": 2
+    }
+  },
+  "summary": {
+    "stages": 9,
+    "stages_with_gaps": 7,
+    "premise_corrections": 3,
+    "claim": "9 stage receipts consolidated; 3 premises refuted (eab_driver.ko absent, athwlan AP/STA pair absent, v8.7.11 absent)"
+  },
+  "gaps": [
+    "consolidation only: it does not add evidence beyond the nine receipts",
+    "the two hard blockers remain: the HAL function-pointer calling convention and the absent firmware pair"
+  ]
+}

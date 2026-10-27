@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "stage": "223A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "tool": "tools/re/audit_stage221a_to_230a_deep_re.py",
+    "scope": "offline static; no device access",
+    "axis": "version: XW.v6.1.4 vs XW.v6.3.6 on the same M5 platform",
+    "radio_safety": "static only"
+  },
+  "pairs": {
+    "ubntbox": {
+      "status": "ok",
+      "left_bytes": 711960,
+      "right_bytes": 570776,
+      "identical": false,
+      "differing_bytes": 526761,
+      "differing_pct": 92.2886,
+      "left_sha256": "25f8d264582d0231d3aefa6f1eec7e896dddcfdfbbc0126bc6c14bddc9505469",
+      "right_sha256": "da3d2848ecb4cbeb3a62352897eefa203339985b46a72b63ed13d074b385cba1"
+    },
+    "athbox": {
+      "status": "ok",
+      "left_bytes": 203760,
+      "right_bytes": 162520,
+      "identical": false,
+      "differing_bytes": 132349,
+      "differing_pct": 81.4355,
+      "left_sha256": "6baf9c05fa831fd0b94f008e27255c31526772472fe22d9603edc47d80d273d7",
+      "right_sha256": "b214d2dac68cccd8d2a6406c03eae3d0be1949ae7c2da160bbf0655e3a2f8a38"
+    },
+    "umac.ko": {
+      "status": "ok",
+      "left_bytes": 915640,
+      "right_bytes": 884988,
+      "identical": false,
+      "differing_bytes": 720188,
+      "differing_pct": 81.3783,
+      "left_sha256": "9cbafb1fcab60a9a19159ffd1083bb383f833cadf5da23d9e9c8e86bea2571f8",
+      "right_sha256": "09cf1392ccca301120c2c8e92e3789e46a1b1a2001fc9e112551fd1c2e16a4b2"
+    },
+    "ath_dev.ko": {
+      "status": "ok",
+      "left_bytes": 436552,
+      "right_bytes": 414408,
+      "identical": false,
+      "differing_bytes": 334110,
+      "differing_pct": 80.6234,
+      "left_sha256": "ece709ec07d78ddfd479f0c7d813807edd3ba85ac983b272f66dd47aa73f572b",
+      "right_sha256": "c95d10fec7b5480c53ffa63329657e8638dcdca1420267a84ab61766b04ce855"
+    },
+    "ubnt_poll_host.ko": {
+      "status": "absent",
+      "left": "None",
+      "right": "None"
+    }
+  },
+  "summary": {
+    "pairs": 5,
+    "pairs_ok": 4,
+    "identical": 0,
+    "total_differing_bytes": 1713408
+  }
+}

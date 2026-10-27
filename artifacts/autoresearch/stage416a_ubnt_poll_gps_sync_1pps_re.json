@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "stage": "416A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/ubnt_poll_gps_sync_1pps_timingslot_re.py",
+    "tool_sha256": "0f93957f4cacd1322b8d8618fc0e09487dcfee38cf5ed981f03f848aabd92769",
+    "output": "artifacts/autoresearch/stage416a_ubnt_poll_gps_sync_1pps_re.json",
+    "scope": "offline static; no module loaded, no radio contacted",
+    "method": "string sweep of the sync and duration vocabulary with context; defined-symbol lookup for gps/pps and *_dur owners; explicit size check of every candidate ubnt-gps-reader",
+    "premise_corrections": [
+      "ubnt-gps-reader is a zero-byte file in every tree that holds it, as are bin/gps and bin/gps_cmd, so the userspace half has no bytes to analyse",
+      "gps_sync, frame_offset and any coloc/co-located marker do not exist as literals in ubnt_poll_host.ko; the durations do"
+    ],
+    "radio_safety": "static only"
+  },
+  "modules": [
+    {
+      "module": "WA.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "bfc3f499a086766917fcbbf1a52d0fac496ad237ae1671c4e640cccdd122c2b5",
+      "defined_symbols": 418,
+      "sync": {
+        "gps_sync": 0,
+        "frame_offset": 0,
+        "gps": 3,
+        "pps": 4,
+        "1pps": 0
+      },
+      "durations": {
+        "down_dur": 8,
+        "up_dur": 6,
+        "cbp_dur": 4,
+        "fixed_frame": 1
+      },
+      "coloc": {
+        "coloc": 0,
+        "co-loc": 0,
+        "colocated": 0,
+        "auto_interference": 0,
+        "sector": 0
+      },
+      "frame_ms": {
+        "5ms": 0,
+        "8ms": 0,
+        "10ms": 0,
+        "5 ms": 0,
+        "8 ms": 0,
+        "10 ms": 0
+      },
+      "duration_contexts": {
+        "down_dur": [
+          "] Commiting PTMP Network Configuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable",
+          "andwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle",
+          "val...eval_report_interval....network_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowe",
+          "ntion_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ra"
+        ],
+        "up_dur": [
+          "%d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...",
+          "twork_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....",
+          "..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ratio_thresh_nb.",
+          "s: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cyc"
+        ],
+        "cbp_dur": [
+          "figuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thres",
+          "..flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...cbp_duty_",
+          "f..AP NETWORK CONFIGURATION: .flags: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downl",
+          "_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cycle_thresh=%d"
+        ],
+        "fixed_frame": [
+          "t_poll_host: DAPROT cannot be set right now for radio %s..sta_rx_rssi_th..fixed_frame.<7>ubnt_poll_host: Fixed frame mode %s for radio %s.....%s %s...conf-init"
+        ]
+      },
+      "sync_contexts": {
+        "pps": [
+          "_dl_avg_dur_thresh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff",
+          "sh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff_cbp_slots....ff",
+          "yb_bal_dl_avg_txuse_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slo",
+          "e_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slots: %d..ff_dl_ctrl"
+        ],
+        "gps": [
+          " %02X:%02X:%02X:%02X:%02X:%02X NOT AUTHORIZED AID %d status %d since %d...gpsreset....addradio....%s %d %d %d %d..ubnt_poll_host..ubnt_poll_host: Could",
+          "major %d..ubnt_poll_host: Allocated chardev region for major %d...dev.uph.gps_info....enabled.disabled....enable..status..timing..ro..ptp_xmit....set_d",
+          "_poll_host_start_os_timer.ubnt_poll_host_set_ptp_poll_info.ubnt_poll_host_gps_reset.ubnt_poll_host_scan_list_find.ubnt_poll_host_on_sta_connect.aes_ini"
+        ]
+      },
+      "gps_symbols": [
+        "ubnt_poll_host_gps_reset"
+      ],
+      "duration_symbols": [
+        "_voip_dynamic_duration_levels"
+      ]
+    },
+    {
+      "module": "XC.v8.7.25:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 189880,
+      "sha256": "d327c4c8190b7c2299433695647583008867ff4d7588265cd6065c9233b8dab9",
+      "defined_symbols": 418,
+      "sync": {
+        "gps_sync": 0,
+        "frame_offset": 0,
+        "gps": 3,
+        "pps": 4,
+        "1pps": 0
+      },
+      "durations": {
+        "down_dur": 8,
+        "up_dur": 6,
+        "cbp_dur": 4,
+        "fixed_frame": 1
+      },
+      "coloc": {
+        "coloc": 0,
+        "co-loc": 0,
+        "colocated": 0,
+        "auto_interference": 0,
+        "sector": 0
+      },
+      "frame_ms": {
+        "5ms": 0,
+        "8ms": 0,
+        "10ms": 0,
+        "5 ms": 0,
+        "8 ms": 0,
+        "10 ms": 0
+      },
+      "duration_contexts": {
+        "down_dur": [
+          "] Commiting PTMP Network Configuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable",
+          "andwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle",
+          "val...eval_report_interval....network_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowe",
+          "ntion_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ra"
+        ],
+        "up_dur": [
+          "%d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...",
+          "twork_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....",
+          "..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ratio_thresh_nb.",
+          "s: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cyc"
+        ],
+        "cbp_dur": [
+          "figuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thres",
+          "..flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...cbp_duty_",
+          "f..AP NETWORK CONFIGURATION: .flags: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downl",
+          "_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cycle_thresh=%d"
+        ],
+        "fixed_frame": [
+          "t_poll_host: DAPROT cannot be set right now for radio %s..sta_rx_rssi_th..fixed_frame.<7>ubnt_poll_host: Fixed frame mode %s for radio %s.....%s %s...conf-init"
+        ]
+      },
+      "sync_contexts": {
+        "pps": [
+          "_dl_avg_dur_thresh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff",
+          "sh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff_cbp_slots....ff",
+          "yb_bal_dl_avg_txuse_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slo",
+          "e_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slots: %d..ff_dl_ctrl"
+        ],
+        "gps": [
+          " %02X:%02X:%02X:%02X:%02X:%02X NOT AUTHORIZED AID %d status %d since %d...gpsreset....addradio....%s %d %d %d %d..ubnt_poll_host..ubnt_poll_host: Could",
+          "major %d..ubnt_poll_host: Allocated chardev region for major %d...dev.uph.gps_info....enabled.disabled....enable..status..timing..ro..ptp_xmit....set_d",
+          "_poll_host_start_os_timer.ubnt_poll_host_set_ptp_poll_info.ubnt_poll_host_gps_reset.ubnt_poll_host_scan_list_find.ubnt_poll_host_on_sta_connect.aes_ini"
+        ]
+      },
+      "gps_symbols": [
+        "ubnt_poll_host_gps_reset"
+      ],
+      "duration_symbols": [
+        "_voip_dynamic_duration_levels"
+      ]
+    },
+    {
+      "module": "2XC.v8.7.11:ubnt_poll_host.ko",
+      "status": "ok",
+      "bytes": 186560,
+      "sha256": "1829cf8e5a282fb143dbbea4e9542c3088a5296ff7055ab764647bffe95578ee",
+      "defined_symbols": 407,
+      "sync": {
+        "gps_sync": 0,
+        "frame_offset": 0,
+        "gps": 3,
+        "pps": 4,
+        "1pps": 0
+      },
+      "durations": {
+        "down_dur": 8,
+        "up_dur": 6,
+        "cbp_dur": 4,
+        "fixed_frame": 1
+      },
+      "coloc": {
+        "coloc": 0,
+        "co-loc": 0,
+        "colocated": 0,
+        "auto_interference": 0,
+        "sector": 0
+      },
+      "frame_ms": {
+        "5ms": 0,
+        "8ms": 0,
+        "10ms": 0,
+        "5 ms": 0,
+        "8 ms": 0,
+        "10 ms": 0
+      },
+      "duration_contexts": {
+        "down_dur": [
+          "] Commiting PTMP Network Configuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable",
+          "andwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle",
+          "val...eval_report_interval....network_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowe",
+          "ntion_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ra"
+        ],
+        "up_dur": [
+          "%d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...",
+          "twork_config_interval.high_contention_min_down_dur....high_contention_min_up_dur..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....",
+          "..cbp_use_txop_cycle_window...cbp_use_allowed_in_window...down_dur_gap....up_dur_gap..dl_rate_ratio_thresh_nr.dl_per_thresh_nr....ul_rate_ratio_thresh_nb.",
+          "s: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cyc"
+        ],
+        "cbp_dur": [
+          "figuration for bandwidth of %d MHz....flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thres",
+          "..flags...down_dur_min....cfp_dur_min.cbp_dur_slot....down_dur....up_dur..cbp_dur.cbp_usable_dur..downlink_active_thresh..cbp_duty_cycle_thresh...cbp_duty_",
+          "f..AP NETWORK CONFIGURATION: .flags: %d, down_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downl",
+          "_dur_min=%d, cfp_dur_min=%d, cbp_dur_slot=%d.....down_dur: %d, up_dur=%d, cbp_dur=%d, cbp_usable_dur=%d..downlink_active_thresh=%d cbp_duty_cycle_thresh=%d"
+        ],
+        "fixed_frame": [
+          "t_poll_host: DAPROT cannot be set right now for radio %s..sta_rx_rssi_th..fixed_frame.<7>ubnt_poll_host: Fixed frame mode %s for radio %s.....%s %s...conf-init"
+        ]
+      },
+      "sync_contexts": {
+        "pps": [
+          "_dl_avg_dur_thresh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff",
+          "sh...hyb_bal_dl_avg_txuse_thresh.hyb_cfp_dur_unit....voip_pps_min....voip_pps_max....atpc_target_rssi....ff_frame_dur....ff_dl_alloc.ff_cbp_slots....ff",
+          "yb_bal_dl_avg_txuse_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slo",
+          "e_thresh: %d hyb_cfp_dur_unit: %d....voip_bias: %d voip_pps_min: %d, voip_pps_max: %d....ff_frame_dur: %d ff_dl_alloc: %d, ff_cbp_slots: %d..ff_dl_ctrl"
+        ],
+        "gps": [
+          " %02X:%02X:%02X:%02X:%02X:%02X NOT AUTHORIZED AID %d status %d since %d...gpsreset....addradio....%s %d %d %d.ubnt_poll_host..ubnt_poll_host: Could not",
+          "major %d..ubnt_poll_host: Allocated chardev region for major %d...dev.uph.gps_info....enabled.disabled....enable..status..timing..ro..ptp_xmit....set_d",
+          "_poll_host_start_os_timer.ubnt_poll_host_set_ptp_poll_info.ubnt_poll_host_gps_reset.ubnt_poll_host_scan_list_find.ubnt_poll_host_on_sta_connect.aes_ini"
+        ]
+      },
+      "gps_symbols": [
+        "ubnt_poll_host_gps_reset"
+      ],
+      "duration_symbols": [
+        "_voip_dynamic_duration_levels"
+      ]
+    }
+  ],
+  "gps_reader_candidates": [
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/afltu_2.4.2/rootfs_extracted/bin/ubnt-gps-reader",
+      "exists": true,
+      "bytes": 0,
+      "readable": false
+    },
+    {
+      "path": "artifacts/firmware_re_xc_ltu/ltu_extracted/aflturocket_2.4.2/rootfs_extracted/bin/ubnt-gps-reader",
+      "exists": true,
+      "bytes": 0,
+      "readable": false
+    },
+    {
+      "path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\afltu_2.4.2\\rootfs_extracted\\usr\\bin\\ubnt-gps-reader",
+      "exists": false,
+      "bytes": null,
+      "readable": false
+    },
+    {
+      "path": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX\\artifacts\\firmware_re_xc_ltu\\ltu_extracted\\aflturocket_2.4.2\\rootfs_extracted\\usr\\bin\\ubnt-gps-reader",
+      "exists": false,
+      "bytes": null,
+      "readable": false
+    }
+  ],
+  "summary": {
+    "modules_ok": 3,
+    "modules_with_pps": 3,
+    "pps_hits": 12,
+    "gps_hits": 9,
+    "gps_sync_literal": 0,
+    "frame_offset_literal": 0,
+    "duration_hits": {
+      "down_dur": 24,
+      "up_dur": 18,
+      "cbp_dur": 12,
+      "fixed_frame": 3
+    },
+    "fixed_frame_present": 1,
+    "coloc_hits": 0,
+    "gps_symbols": [
+      "ubnt_poll_host_gps_reset"
+    ],
+    "duration_symbols": [
+      "_voip_dynamic_duration_levels"
+    ],
+    "gps_reader_files": 4,
+    "gps_reader_readable": 0,
+    "frame_ms_strings": {
+      "5ms": 0,
+      "8ms": 0,
+      "10ms": 0,
+      "5 ms": 0,
+      "8 ms": 0,
+      "10 ms": 0
+    },
+    "sync_state_machine_recovered": 0
+  },
+  "gaps": [
+    "ubnt-gps-reader, bin/gps and bin/gps_cmd are zero-byte files, so the 1PPS source and its ioctl contract cannot be read",
+    "gps_sync and frame_offset are not literals in ubnt_poll_host.ko; only the duration vocabulary is",
+    "no coloc / co-located / auto-interference marker exists, so the sector auto-interference prevention is unanchored in this corpus",
+    "down_dur/up_dur/cbp_dur are names; no value or range was recovered for them",
+    "the 5/8/10 ms fixed frames are not enumerable from strings",
+    "no dynamic validation"
+  ]
+}

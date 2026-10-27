@@ -19,6 +19,7 @@ class TestMetricsSchema(unittest.TestCase):
             iteration=1,
             duration_seconds=10.0,
             aggregate_goodput_mbps=100.0,
+            channel_width_mhz=40,
             per_cpe_goodput_mbps={
                 "cpe1": 10.0,
                 "cpe2": 20.0,
@@ -28,7 +29,20 @@ class TestMetricsSchema(unittest.TestCase):
             p99_latency_ms=18.5,
         )
         self.assertAlmostEqual(sample.jain_fairness_index, 0.8333, places=4)
-        self.assertEqual(sample.goodput_per_mhz, 2.5)  # 100 / 40 MHz
+        self.assertEqual(sample.goodput_per_mhz, 2.5)  # Explicit 100 / 40 MHz
+
+        # Without explicit channel_width_mhz, never silently divide by 40 MHz (PB-001 safety invariant)
+        sample_no_width = RunSample(
+            treatment_id="candidate_untyped_width",
+            iteration=1,
+            duration_seconds=10.0,
+            aggregate_goodput_mbps=100.0,
+            p99_latency_ms=18.5,
+        )
+        self.assertEqual(sample_no_width.goodput_per_mhz, 0.0)
+        self.assertEqual(sample_no_width.width_source, "unverified_missing_width")
+        with self.assertRaises(ValueError):
+            sample_no_width.require_verified_width()
 
     def test_json_roundtrip_serialization(self):
         meta = ExperimentMetadata(

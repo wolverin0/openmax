@@ -1,0 +1,45 @@
+{
+  "task_id": "T-S35B-CODEX-OPENWISP-AND-UISP-UNIFIED-PROVISIONER-AND-CANARY-GATE",
+  "focused_pytest": {
+    "command": "python -m pytest tests/test_stage35b_unified_canary_provisioner.py -q",
+    "passed": 66,
+    "failed": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "duration_s": 1.43,
+    "receipt": "ec4834",
+    "execution": "direct, explicitly authorized by operator",
+    "warning": "unchanged pytest_asyncio asyncio_default_fixture_loop_scope deprecation"
+  },
+  "initial_wait": {
+    "session": 10749,
+    "child_started": false,
+    "terminal_exit_code": 1,
+    "reason": "heavy-slot 600s wait exhausted before child start; session closed, no wait remains",
+    "receipt": "08a9fe"
+  },
+  "source_bindings": [
+    {
+      "path": "controller/openwisp_uisp_unified_canary_provisioner.py",
+      "sha256": "eacef354a5a657d049fa7b81a0aab761f6784cd34fe9039e0ff1838d333745e7"
+    },
+    {
+      "path": "tests/test_stage35b_unified_canary_provisioner.py",
+      "sha256": "228a2a172e9866d852a59c9c67f8f48d4d8b228218cf9b255eb91d1647b34ca8"
+    },
+    {
+      "path": "artifacts/autoresearch/stage35b_unified_canary_provisioner_20261025.json",
+      "sha256": "271606d0704cfc00d394fd8344d5706a23787868463c7d724b4853955af4961c"
+    }
+  ],
+  "independent_static_review": {
+    "status": "PASS_WITH_LIMITS",
+    "open_material_blockers": 0,
+    "checks": 51,
+    "path": "C:/_tmp/systemp/fmx_s35b_independent_review_tjpopce5/independent_review.json",
+    "sha256": "7cbb2c31acafac9485c2bfa597f9ea3e786ad9a9cea95c897ca4f1c1aab2d854",
+    "scope": "unchanged final product module and original22 test functions; four subsequently added executed cases are owner integration validation"
+  },
+  "physical_acceptance": false,
+  "runtime_dispatch_allowed": false
+}

@@ -1,0 +1,280 @@
+{
+  "stage": "150A",
+  "task_id": "T-S150A-SIMPY-PYMOO-32CPE-PTMP-LTU12X-VS-OPENMAX8X-PARETO",
+  "generated_at": "2026-10-26T22:59:37.025284+00:00",
+  "status": "CONFIRMED",
+  "attribution": "proprietary airMAX/LTU module",
+  "safety_envelope": {
+    "simulation_only": true,
+    "touched_dev_ame_nodes": false,
+    "touched_241_or_242": false
+  },
+  "sector_topology": {
+    "sector_model": "Torre Guarida 32-CPE PtMP Sector (40 MHz channel)",
+    "cpe_count": 32,
+    "cinr_distribution_db": [
+      39.2,
+      38.7,
+      38.4,
+      38.1,
+      37.6,
+      36.8,
+      36.2,
+      35.9,
+      35.4,
+      35.0,
+      34.2,
+      33.8,
+      33.1,
+      32.5,
+      32.0,
+      31.4,
+      30.8,
+      30.2,
+      29.6,
+      29.1,
+      28.5,
+      28.0,
+      27.6,
+      27.3,
+      27.1,
+      26.8,
+      25.2,
+      24.1,
+      22.8,
+      21.5,
+      19.8,
+      18.4
+    ]
+  },
+  "head_to_head_profiles_40mhz": {
+    "ltu_12x_80sym_67_33_champion": {
+      "arch": "ltu_12x",
+      "channel_bw_mhz": 40.0,
+      "sector_aggregate_goodput_mbps": 430.644,
+      "per_cpe_mean_goodput_mbps": 13.458,
+      "jain_fairness_32cpe": 0.93065,
+      "voip_p50_ms": 1.49,
+      "voip_p95_ms": 1.897,
+      "p99_sojourn_latency_ms": 2.173,
+      "modulation_distribution_32cpe": {
+        "4096_qam_12x_count": 5,
+        "1024_qam_9x_10x_count": 10,
+        "256_qam_6x_8x_count": 11,
+        "64_qam_and_below_count": 6
+      }
+    },
+    "ltu_12x_40sym_50_50_low_latency": {
+      "arch": "ltu_12x",
+      "channel_bw_mhz": 40.0,
+      "sector_aggregate_goodput_mbps": 404.826,
+      "per_cpe_mean_goodput_mbps": 12.651,
+      "jain_fairness_32cpe": 0.93065,
+      "voip_p50_ms": 0.863,
+      "voip_p95_ms": 1.068,
+      "p99_sojourn_latency_ms": 1.289,
+      "modulation_distribution_32cpe": {
+        "4096_qam_12x_count": 5,
+        "1024_qam_9x_10x_count": 10,
+        "256_qam_6x_8x_count": 11,
+        "64_qam_and_below_count": 6
+      }
+    },
+    "openmax_wa_xc_8x_aql4500_fq3028_champion": {
+      "arch": "openmax_8x",
+      "channel_bw_mhz": 40.0,
+      "sector_aggregate_goodput_mbps": 314.381,
+      "per_cpe_mean_goodput_mbps": 9.824,
+      "jain_fairness_32cpe": 0.97116,
+      "voip_p50_ms": 2.109,
+      "voip_p95_ms": 2.596,
+      "p99_sojourn_latency_ms": 3.839,
+      "modulation_distribution_32cpe": {
+        "4096_qam_12x_count": 0,
+        "1024_qam_9x_10x_count": 0,
+        "256_qam_6x_8x_count": 26,
+        "64_qam_and_below_count": 6
+      }
+    },
+    "stock_80211ac_legacy_24ms_bufferbloat": {
+      "arch": "openmax_8x",
+      "channel_bw_mhz": 40.0,
+      "sector_aggregate_goodput_mbps": 286.492,
+      "per_cpe_mean_goodput_mbps": 8.953,
+      "jain_fairness_32cpe": 0.97116,
+      "voip_p50_ms": 3.596,
+      "voip_p95_ms": 5.665,
+      "p99_sojourn_latency_ms": 8.4,
+      "modulation_distribution_32cpe": {
+        "4096_qam_12x_count": 0,
+        "1024_qam_9x_10x_count": 0,
+        "256_qam_6x_8x_count": 26,
+        "64_qam_and_below_count": 6
+      }
+    }
+  },
+  "comparative_deltas": {
+    "ltu_12x_vs_openmax_8x_goodput_gain_pct": 36.98,
+    "ltu_12x_80sym_aggregate_goodput_mbps": 430.644,
+    "openmax_8x_champion_aggregate_goodput_mbps": 314.381,
+    "ltu_12x_80sym_p99_latency_ms": 2.173,
+    "openmax_8x_champion_p99_latency_ms": 3.839,
+    "openmax_8x_vs_legacy_p99_reduction_ms": 4.561
+  },
+  "nsga2_pareto_front": {
+    "population_size": 28,
+    "generations": 18,
+    "pareto_solutions_count": 28,
+    "top_10_pareto_solutions": [
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 741,
+        "aql_limit_us": 7304.7,
+        "tx_pwr_backoff_db": 2.5,
+        "sector_aggregate_goodput_mbps": 438.649,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93335
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 741,
+        "aql_limit_us": 7304.7,
+        "tx_pwr_backoff_db": 2.51,
+        "sector_aggregate_goodput_mbps": 438.649,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93335
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 738,
+        "aql_limit_us": 4335.5,
+        "tx_pwr_backoff_db": 2.2,
+        "sector_aggregate_goodput_mbps": 436.855,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93378
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 80,
+        "dl_duty_permille": 749,
+        "aql_limit_us": 6794.6,
+        "tx_pwr_backoff_db": 3.01,
+        "sector_aggregate_goodput_mbps": 435.055,
+        "p99_sojourn_latency_ms": 2.186,
+        "jain_fairness_32cpe": 0.93335
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 80,
+        "dl_duty_permille": 749,
+        "aql_limit_us": 3267.5,
+        "tx_pwr_backoff_db": 2.5,
+        "sector_aggregate_goodput_mbps": 435.055,
+        "p99_sojourn_latency_ms": 2.186,
+        "jain_fairness_32cpe": 0.93335
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 80,
+        "dl_duty_permille": 749,
+        "aql_limit_us": 3287.0,
+        "tx_pwr_backoff_db": 2.24,
+        "sector_aggregate_goodput_mbps": 433.382,
+        "p99_sojourn_latency_ms": 2.186,
+        "jain_fairness_32cpe": 0.93378
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 733,
+        "aql_limit_us": 6490.2,
+        "tx_pwr_backoff_db": 5.3,
+        "sector_aggregate_goodput_mbps": 425.671,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93545
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 733,
+        "aql_limit_us": 4228.9,
+        "tx_pwr_backoff_db": 5.44,
+        "sector_aggregate_goodput_mbps": 422.696,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93611
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 160,
+        "dl_duty_permille": 733,
+        "aql_limit_us": 7576.5,
+        "tx_pwr_backoff_db": 5.44,
+        "sector_aggregate_goodput_mbps": 422.696,
+        "p99_sojourn_latency_ms": 4.008,
+        "jain_fairness_32cpe": 0.93611
+      },
+      {
+        "arch": "ltu_12x",
+        "superframe_symbols": 80,
+        "dl_duty_permille": 740,
+        "aql_limit_us": 3260.8,
+        "tx_pwr_backoff_db": 5.29,
+        "sector_aggregate_goodput_mbps": 422.148,
+        "p99_sojourn_latency_ms": 2.186,
+        "jain_fairness_32cpe": 0.93545
+      }
+    ]
+  },
+  "pillar_1_binary_re": {
+    "status": "CONFIRMED",
+    "parameter_sources": [
+      "Stage 149A ame_core.ko 12-band modulation ladder (startThrd_4096=97%, stayThrd_4096=90%, table_ptmpAPPwrRange)",
+      "Stage 148A LTU-Lite .110 SMP RT IRQ 52/63 + EAB skb_fpga_thread turnaround telemetry",
+      "Stage 139A/141A OpenMAX WA/XC Champion (aql_threshold=4500us, fq_codel quantum=3028B)"
+    ]
+  },
+  "pillar_2_closed_loop_reactor": {
+    "status": "CONFIRMED",
+    "hypothesis_tested": "H-S150A: In a 32-CPE 40 MHz PtMP sector, LTU 12x (80-symbol 67/33 split-duty TDMA/OFDMA) achieves higher aggregate goodput via 1024/4096-QAM on high-CINR CPEs and zero CSMA/CA collision loss, while OpenMAX WA/XC 8x with AQL (4500us) + FQ-CoDel (3028B) closes the p99 latency gap versus legacy CSMA/CA.",
+    "literature_anchors": [
+      "rfc8290 (The FlowQueue-CoDel Packet Scheduler and Active Queue Management Algorithm)",
+      "doi:10.1109/TWC.2019.2909205 (OFDMA/TDMA high-order QAM vs CSMA/CA airtime efficiency)"
+    ]
+  },
+  "pillar_3_counterbalanced_harness": {
+    "status": "CONFIRMED",
+    "protocol": "Matched-Seed (seed=150) 32-CPE SimPy Discrete-Event + Pymoo NSGA-II Multi-Objective Pareto Benchmark",
+    "reproducible_seed": 150
+  },
+  "pillar_4_scientific_skills": {
+    "status": "CONFIRMED",
+    "skills_applied": [
+      "simpy",
+      "pymoo",
+      "statistical-analysis"
+    ],
+    "pareto_summary": {
+      "ltu_80sym_goodput_mbps": 430.644,
+      "openmax_champion_goodput_mbps": 314.381,
+      "ltu_goodput_advantage_pct": 36.98
+    }
+  },
+  "pillar_5_memory_master": {
+    "status": "CONFIRMED",
+    "scope": "project:futuramax",
+    "claims_verified": [
+      "INFERRED [proprietary airMAX/LTU module]: Across a 32-CPE 40 MHz sector modeled on Guarida CINR, LTU 12x (80-symbol 67/33 split-duty) delivers 430.644 Mbps aggregate goodput (+36.98% over OpenMAX WA/XC 8x at 314.381 Mbps) with p99 latency 2.173 ms.",
+      "INFERRED [mac80211/ath10k]: OpenMAX WA/XC 8x Champion (AQL=4500us, FQ-CoDel=3028B) cuts 32-CPE p99 sojourn latency from 8.4 ms to 3.839 ms."
+    ]
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": true,
+    "pillar_b_hyperresearch_and_scholar_reactor": true,
+    "pillar_c_karpathy_autoresearch_and_watchdog": true,
+    "pillar_d_scientific_pareto_validation": true,
+    "pillar_e_memory_master_claim_id": "mm-s150a-ltu12x-vs-openmax8x-pareto"
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "stage": "785A",
+    "generated_utc": "2026-10-26T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage785a_qca988x_otp_and_board_caldata_eeprom_re.py",
+    "tool_sha256": "eaeb6a4ea8a1749a2b86582e1278c77beeef5de2ccba2911f8ac11e5e0028a28",
+    "output": "artifacts/autoresearch/stage785a_qca988x_otp_and_board_caldata_eeprom_re.json",
+    "scope": "offline static; no module loaded, no flash written, no radio contacted",
+    "method": "file inventory for board.bin/otp.bin; mtd5 dump discovery and de-duplication by SHA-256; per-page data density excluding 0x00 and 0xFF; ASCII extraction from the 0x5000 block; HAL eeprom symbol lookup",
+    "premise_corrections": [
+      "board.bin and otp.bin do not exist (0 files): they are ath10k blobs and the vendor stack does not ship them",
+      "the caldata IS present, as 70 raw mtd5 dumps of 65536 bytes, which is the actual per-unit calibration rather than a generic reference file"
+    ],
+    "radio_safety": "static only"
+  },
+  "named_files": {
+    "board.bin": 0,
+    "otp.bin": 0,
+    "board-2.bin": 0
+  },
+  "mtd5_dumps": 41,
+  "caldata": {
+    "path": "artifacts/canary_panel1_guarida/AP_Panel1-Guarida/mtd5.bin",
+    "bytes": 65536,
+    "sha256": "58ece05258e859698dc9da7d2d323aea9160513aa0de4cb86519beba83abc729",
+    "five_ghz_offset": "0x5000",
+    "block_head": "44082d860203784558a034a20000000055490008440c080000001500000033000000000000009800004f000000435553",
+    "ascii_strings": [
+      "CUS223-720-S0849"
+    ],
+    "pages_with_data": 4,
+    "page_count": 16,
+    "header_0x0000": "784558a134a27a4558a134a2e8e50777",
+    "header_0x5000": "44082d860203784558a034a200000000",
+    "identical_dumps": 10
+  },
+  "modules": [
+    {
+      "module": "WA:umac.ko",
+      "status": "ok",
+      "bytes": 2356432,
+      "sha256": "660435ed9c50f1390945535a975565d7234543e01933644bf99dd9deca1b2cd6",
+      "defined_symbols": 4534,
+      "tokens": {
+        "otp": 3,
+        "OTP": 3,
+        "board_bin": 0,
+        "caldata": 0,
+        "eeprom": 1,
+        "EEPROM": 3,
+        "ctl_table": 2,
+        "target_power": 0,
+        "nf_cal": 0,
+        "subband": 0
+      },
+      "eeprom_syms": {
+        "ar9300_eeprom_restore_internal": 0,
+        "ar9300_eeprom_set_board_values": 0,
+        "ar9300_set_target_power_from_eeprom": 0,
+        "ar9300_is_nf_cal_done": 0,
+        "ar9300_eeprom_get_spur_chans_ptr": 0
+      },
+      "eeprom_symbols": [],
+      "ctl_contexts": [
+        "e.alloc_netdev_mq.param_get_uint.msecs_to_jiffies.unregister_sysctl_table.pci_bus_read_config_dword.ACVOMinfree.netlink_broadcast.pci_bus"
+      ],
+      "target_contexts": []
+    },
+    {
+      "module": "XC:umac.ko",
+      "status": "ok",
+      "bytes": 2358768,
+      "sha256": "ec1df9e62f0e766432323d225e4bc0e331c23b941594bb624992d937ca674e7a",
+      "defined_symbols": 4534,
+      "tokens": {
+        "otp": 3,
+        "OTP": 3,
+        "board_bin": 0,
+        "caldata": 0,
+        "eeprom": 1,
+        "EEPROM": 3,
+        "ctl_table": 2,
+        "target_power": 0,
+        "nf_cal": 0,
+        "subband": 0
+      },
+      "eeprom_syms": {
+        "ar9300_eeprom_restore_internal": 0,
+        "ar9300_eeprom_set_board_values": 0,
+        "ar9300_set_target_power_from_eeprom": 0,
+        "ar9300_is_nf_cal_done": 0,
+        "ar9300_eeprom_get_spur_chans_ptr": 0
+      },
+      "eeprom_symbols": [],
+      "ctl_contexts": [
+        "e.alloc_netdev_mq.param_get_uint.msecs_to_jiffies.unregister_sysctl_table.pci_bus_read_config_dword.ACVOMinfree.netlink_broadcast.pci_bus"
+      ],
+      "target_contexts": []
+    },
+    {
+      "module": "WA:ath_hal.ko",
+      "status": "ok",
+      "bytes": 367456,
+      "sha256": "7f7590f6bd136c0d4c98b3c14032b854e542e2bdbb1bc630246b7e1d879e1d1e",
+      "defined_symbols": 507,
+      "tokens": {
+        "otp": 3,
+        "OTP": 0,
+        "board_bin": 0,
+        "caldata": 0,
+        "eeprom": 39,
+        "EEPROM": 0,
+        "ctl_table": 0,
+        "target_power": 1,
+        "nf_cal": 1,
+        "subband": 0
+      },
+      "eeprom_syms": {
+        "ar9300_eeprom_restore_internal": 2,
+        "ar9300_eeprom_set_board_values": 1,
+        "ar9300_set_target_power_from_eeprom": 1,
+        "ar9300_is_nf_cal_done": 1,
+        "ar9300_eeprom_get_spur_chans_ptr": 1
+      },
+      "eeprom_symbols": [
+        "ar9300_calibration_data_read_eeprom",
+        "ar9300_eeprom_attach",
+        "ar9300_eeprom_base_address",
+        "ar9300_eeprom_dump_support",
+        "ar9300_eeprom_get",
+        "ar9300_eeprom_get_ant_cfg",
+        "ar9300_eeprom_get_cck_trgt_pwr",
+        "ar9300_eeprom_get_cust_data",
+        "ar9300_eeprom_get_ht20_trgt_pwr",
+        "ar9300_eeprom_get_ht40_trgt_pwr",
+        "ar9300_eeprom_get_legacy_trgt_pwr",
+        "ar9300_eeprom_get_num_ant_config",
+        "ar9300_eeprom_get_spur_chans_ptr",
+        "ar9300_eeprom_low_limit",
+        "ar9300_eeprom_read_word",
+        "ar9300_eeprom_restore"
+      ],
+      "ctl_contexts": [],
+      "target_contexts": [
+        "u_config.ar9300_set_network_led_state.ath_hal_getctl.ar9300_set_target_power_from_eeprom.ar9300_get_hw_hangs._ath_hal_attach.ar9300_upload_n"
+      ]
+    },
+    {
+      "module": "WA:ath_dev.ko",
+      "status": "ok",
+      "bytes": 287216,
+      "sha256": "9328580821a806feb310dba8024fd59d520ef9d58f23b9f61f29133219adc76c",
+      "defined_symbols": 762,
+      "tokens": {
+        "otp": 0,
+        "OTP": 0,
+        "board_bin": 0,
+        "caldata": 0,
+        "eeprom": 1,
+        "EEPROM": 0,
+        "ctl_table": 0,
+        "target_power": 0,
+        "nf_cal": 0,
+        "subband": 0
+      },
+      "eeprom_syms": {
+        "ar9300_eeprom_restore_internal": 0,
+        "ar9300_eeprom_set_board_values": 0,
+        "ar9300_set_target_power_from_eeprom": 0,
+        "ar9300_is_nf_cal_done": 0,
+        "ar9300_eeprom_get_spur_chans_ptr": 0
+      },
+      "eeprom_symbols": [
+        "ath_read_from_eeprom"
+      ],
+      "ctl_contexts": [],
+      "target_contexts": []
+    }
+  ],
+  "summary": {
+    "board_bin_present": false,
+    "otp_bin_present": false,
+    "ath10k_blobs_absent": 1,
+    "mtd5_dumps_found": 41,
+    "mtd5_size": 65536,
+    "five_ghz_offset": "0x5000",
+    "board_identity_ascii": "CUS223-720-S0849",
+    "identity_string_present": 1,
+    "pages_with_data": 4,
+    "identical_dumps": 10,
+    "eeprom_token_hits": 48,
+    "eeprom_symbol_count": 17,
+    "hal_board_path": [
+      "ar9300_eeprom_restore_internal",
+      "ar9300_eeprom_set_board_values",
+      "ar9300_set_target_power_from_eeprom",
+      "ar9300_is_nf_cal_done",
+      "ar9300_eeprom_get_spur_chans_ptr"
+    ],
+    "hal_board_path_count": 5,
+    "target_power_from_eeprom": 1,
+    "nf_cal_done": 1,
+    "otp_token_hits": 15,
+    "ctl_table_token_hits": 4,
+    "ctl_table_is_eeprom_symbol": 0,
+    "caldata_block_located": 1,
+    "eeprom_values_recovered": 0,
+    "subband_table_recovered": 0
+  },
+  "gaps": [
+    "board.bin and otp.bin do not exist in the corpus, so the ath10k blob layout cannot be read",
+    "the 0x5000 block is located and carries board identity, but the numeric calibration (per-rate target power, subband edges, NF offsets) was not decoded",
+    "ctl_table is not an EEPROM symbol: CTL limits come from the per-country path in umac.ko, while target power is per-unit EEPROM data",
+    "the two regions (0x0000 and 0x5000) share a 3-byte magic with different fourth bytes; the version byte semantics were not recovered",
+    "the OTP tokens in umac.ko are firmware blob lengths, not calibration data",
+    "no dynamic validation"
+  ]
+}
