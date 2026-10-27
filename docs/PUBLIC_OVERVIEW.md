@@ -1,4 +1,4 @@
-<!-- doc-head: Public software contracts, source qualifications and reproducible offline audit -->
+<!-- doc-head: Source-qualified evidence and v23 offline source release through940A -->
 <!-- /doc-head -->
 
 # Public engineering and evidence index
@@ -65,3 +65,14 @@ hardware witness or authorization to execute a custom PHY experiment.
 entrypoint classification and remaining gaps. The only proposed next physical
 experiment is an inert target-execution canary with sham control and demonstrated
 restoration. It is a blocked plan requiring separate operator authorization.
+
+## Stages935A..940A: source-only v23 release
+
+42 active source scripts: two guarded native transactions and40 retired legacy actuators;103 historical archive files are excluded.
+Defaults inspect only; explicit apply, exact identity, snapshot, real readback and verified rollback gate the supported transient operations.
+tc-less mode verifies the fq_codel default policy, not an existing active root qdisc. LTU native prerequisites and physical compatibility remain UNKNOWN.
+Saved906A:12 diagnostic A/A windows; receiver goodput1.254..1.330Mbps; loss0.0..5.0%; original gateINCONCLUSIVE, no promotion.
+Saved908A:24 native snapshots/12 passive intervals; aggregate CPU busy31.06..78.62%; application goodput and zero-FP remain UNKNOWN.
+Saved909A:24 native snapshots/12 passive intervals; aggregate CPU busy30.47..40.70%; application goodput and zero-FP remain UNKNOWN.
+905A..934A: 28/30 receipts available; 2 stages absent at this read. No new radio measurements were made.
+[Source manifests](STAGE937A_V23_ACTIVE_SOURCE_SHA256_MANIFESTS.md) and [qualified saved evidence](STAGE938A_905_TO_934_VERIFIED_SAVED_MEASUREMENTS.md).

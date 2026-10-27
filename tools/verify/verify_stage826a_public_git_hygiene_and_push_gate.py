@@ -34,6 +34,33 @@ PRIVATE_ROOTS = ('.agents/','.claude/','.codex/','.git/','private/','research/ra
 PROBES = ['nested/proprietary.bin','nested/module.ko','nested/root.sqfs',
           '.env.production','nested/mixedHaCkErOnE.md',
           'docs/STAGE81A_private.md','tools/re/audit_stage98c_private.py']
+PUBLIC_CHECKSUM_PATHS = {
+    'firmware/openwrt/pbe5ac_gen2_ptp_kit/SHA256SUMS',
+    'firmware/ltu_safe_kit/SHA256SUMS',
+}
+
+
+def extensionless_kit_shell(label):
+    return bool(re.fullmatch(
+        r'firmware/openwrt/pbe5ac_gen2_ptp_kit/(?:files/etc/uci-defaults/)?99-fmx-[A-Za-z0-9_-]+', label))
+
+
+def source_format_findings(label, blob):
+    if extensionless_kit_shell(label) and not blob.startswith(b'#!/bin/sh\n'):
+        return [dict(rule='extensionless_shell_shebang_required', line=1)]
+    if label in PUBLIC_CHECKSUM_PATHS:
+        try:
+            lines = blob.decode('ascii').splitlines()
+        except UnicodeDecodeError:
+            return [dict(rule='checksum_ascii_required', line=0)]
+        if not lines:
+            return [dict(rule='checksum_entries_required', line=0)]
+        for n, line in enumerate(lines, 1):
+            match = re.fullmatch(r'[0-9a-f]{64}  ([A-Za-z0-9_./-]+)', line)
+            if (not match or match[1].startswith('/') or
+                    any(part in ('', '.', '..') for part in match[1].split('/'))):
+                return [dict(rule='checksum_format_required', line=n)]
+    return []
 
 
 def git(root, *args, input=None):
@@ -60,8 +87,10 @@ def path_reason(label):
         return 'nonpublic_artifact_category'
     if p.name.startswith('.env') or any(x in p.name for x in ('credential','password','secret','system.cfg','backup','original.txt')):
         return 'credential_or_backup_path'
-    if p.suffix not in TEXT_EXTENSIONS and p.name not in {
-        '.gitignore','.gitattributes','license','makefile','dockerfile','requirements','copying','authors'}:
+    if (p.suffix not in TEXT_EXTENSIONS and label not in PUBLIC_CHECKSUM_PATHS
+            and not extensionless_kit_shell(label) and p.name not in {
+        '.gitignore','.gitattributes','license','makefile','dockerfile','requirements','copying','authors'}
+        ):
         return 'non_source_or_unknown_format'
     return None
 
@@ -187,7 +216,8 @@ def audit(root=ROOT, plan=False, private_terms=()):
         entries=index_blobs(root)
     for label,mode,blob in entries:
         reason=path_reason(label)
-        issues=[dict(rule=reason,line=0)] if reason else content_findings(blob,private_terms)
+        issues=([dict(rule=reason,line=0)] if reason else
+                content_findings(blob,private_terms) + source_format_findings(label,blob))
         if mode not in ('100644','100755'):
             issues.append(dict(rule='symlink_or_gitlink',line=0))
         if issues:findings.extend(dict(path=label,**item) for item in issues)

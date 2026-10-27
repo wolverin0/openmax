@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "939A",
+  "title": "Public v23 evidence documentation sync",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/observability/build_stage937a_to_939a_public_v23_evidence_and_manifests.py",
+      "available": true,
+      "bytes": 25869,
+      "sha256": "099c6eeac730302e5a6265ea4ea9715a5fd9031d4fc10009e75098a3ede9f260"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "README.md",
+      "available": true,
+      "bytes": 24161,
+      "sha256": "807a710e1b566d6a5498af37cf56787c90478a086ef42e99cd754b947348c7d1"
+    },
+    {
+      "path": "docs/PUBLIC_OVERVIEW.md",
+      "available": true,
+      "bytes": 5582,
+      "sha256": "5b7c5926cdbd73b4156f59ed53e7681ac144608be08d2cd865d22cfbfee3bdac"
+    },
+    {
+      "path": "artifacts/autoresearch/stage937a_v23_active_source_sha256_manifests.json",
+      "available": true,
+      "bytes": 34440,
+      "sha256": "cb0671c38d8eadac8a0a2bfbf44dd209640ad4e1f3c986b902ba6bb46e793610"
+    },
+    {
+      "path": "artifacts/autoresearch/stage938a_905_to_934_verified_saved_measurements.json",
+      "available": true,
+      "bytes": 20163,
+      "sha256": "61ce07c18dc8bb7042c98fec1dd3df4f75c66bac84cd588b04b66b665405c70f"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/observability/build_stage937a_to_939a_public_v23_evidence_and_manifests.py",
+          "available": true,
+          "bytes": 25869,
+          "sha256": "099c6eeac730302e5a6265ea4ea9715a5fd9031d4fc10009e75098a3ede9f260"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        },
+        {
+          "path": "README.md",
+          "available": true,
+          "bytes": 24161,
+          "sha256": "807a710e1b566d6a5498af37cf56787c90478a086ef42e99cd754b947348c7d1"
+        },
+        {
+          "path": "docs/PUBLIC_OVERVIEW.md",
+          "available": true,
+          "bytes": 5582,
+          "sha256": "5b7c5926cdbd73b4156f59ed53e7681ac144608be08d2cd865d22cfbfee3bdac"
+        },
+        {
+          "path": "artifacts/autoresearch/stage937a_v23_active_source_sha256_manifests.json",
+          "available": true,
+          "bytes": 34440,
+          "sha256": "cb0671c38d8eadac8a0a2bfbf44dd209640ad4e1f3c986b902ba6bb46e793610"
+        },
+        {
+          "path": "artifacts/autoresearch/stage938a_905_to_934_verified_saved_measurements.json",
+          "available": true,
+          "bytes": 20163,
+          "sha256": "61ce07c18dc8bb7042c98fec1dd3df4f75c66bac84cd588b04b66b665405c70f"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage939a-offline"
+    }
+  },
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "Offline documentation and source-manifest synchronization only",
+  "available_saved_stages": 28,
+  "verified_native_stages": [
+    "905A",
+    "906A",
+    "908A",
+    "909A"
+  ],
+  "missing_stages": [
+    "910A",
+    "934A"
+  ],
+  "fresh_live_windows": 0,
+  "physical_acceptance": "UNKNOWN",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

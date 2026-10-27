@@ -1,21 +1,23 @@
 #!/bin/sh
-# FuturaMAX Stage 618A — AF-LTU ToF Ranging, cpe_distance, Timing Advance & CP Drift Monitor
-# Operationalizes Stage 616A RE (ame_core.ko ToF ranging, cpe_distance, timing advance, and cyclic prefix
-# alignment) into a 100% userspace read-only telemetry & drift monitor across all 5 LTU boards.
-# HARD SAFETY GUARANTEE: NEVER touches or opens /dev/ame* character devices.
-
+# Legacy actuator retired: no direct firmware/configuration/device commands remain.
+# Original source bytes are retained privately; this release does not activate them.
 set -eu
-
-MODE="${1:---inspect-only}"
-
-inspect_tof_symbols() {
-    if [ -r /proc/kallsyms ]; then
-        grep -E "cpe_distance|timing_advance|ame_bbp_get_tof" /proc/kallsyms 2>/dev/null | head -n 5 || true
-    fi
-}
-
-if [ "$MODE" = "--inspect-only" ]; then
-    inspect_tof_symbols >/dev/null 2>&1 || true
-fi
-
-echo "STAGE618A_LTU_TOF_TIMING_ADVANCE_OK mode=${MODE} zero_dev_ame_touch=1"
+set -f
+MODE=--dry-run
+QDISC_MODE=auto
+SEEN_MODE=0
+while [ "$#" -gt 0 ]; do
+ case "$1" in
+  --dry-run|--inspect-only|--apply|--verify|--rollback)
+   [ "$SEEN_MODE" -eq 0 ] || exit 64; MODE=$1; SEEN_MODE=1; shift ;;
+  --qdisc-mode) [ "$#" -ge 2 ] || exit 64; QDISC_MODE=$2; shift 2 ;;
+  --identity|--state-dir|--uci-mode) [ "$#" -ge 2 ] || exit 64; shift 2 ;;
+  *) printf 'FAILED_PRECONDITION retired legacy argument\n' >&2; exit 65 ;;
+ esac
+done
+case "$QDISC_MODE" in auto|tc|sysfs-default) ;; *) exit 64 ;; esac
+case "$MODE" in
+ --dry-run|--inspect-only)
+  printf 'PLANNED_RETIRED native_replacement=EXPLICIT_SEPARATE_TRANSACTION runtime=UNKNOWN\n'; exit 0 ;;
+ *) printf 'FAILED_PRECONDITION legacy actuator retired; select reviewed native transaction explicitly\n' >&2; exit 65 ;;
+esac

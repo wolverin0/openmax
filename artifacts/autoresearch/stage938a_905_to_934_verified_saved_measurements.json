@@ -1,0 +1,566 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "938A",
+  "title": "905A..934A qualified saved-observation ledger",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/observability/build_stage937a_to_939a_public_v23_evidence_and_manifests.py",
+      "available": true,
+      "bytes": 25869,
+      "sha256": "099c6eeac730302e5a6265ea4ea9715a5fd9031d4fc10009e75098a3ede9f260"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/observability/build_stage937a_to_939a_public_v23_evidence_and_manifests.py",
+          "available": true,
+          "bytes": 25869,
+          "sha256": "099c6eeac730302e5a6265ea4ea9715a5fd9031d4fc10009e75098a3ede9f260"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage938a-offline"
+    }
+  },
+  "stage_range": "905A..934A",
+  "rows": [
+    {
+      "stage": "905A",
+      "state": "SAVED_NATIVE_BYTES_AND_OBSERVATIONS_VERIFIED",
+      "native_observation_verified": true,
+      "receipt_sha256": "b0e46e3a8f94b69b88f73d65e6fa0c5924d2d193f437e971df6c29d331edabbe",
+      "source_class": "CONFIRMED_LIVE_HARDWARE",
+      "observation": {
+        "kind": "SAVED_NATIVE_DISCOVERY",
+        "results_captured": 2,
+        "successful_transports": 2,
+        "application_goodput_mbps": null,
+        "promotion_allowed": false,
+        "new_measurements": 0
+      }
+    },
+    {
+      "stage": "906A",
+      "state": "SAVED_NATIVE_BYTES_AND_OBSERVATIONS_VERIFIED",
+      "native_observation_verified": true,
+      "receipt_sha256": "5b4de5eda5e37f7bb5a69bebfb1fe79e999c90bde557b634cc4cd3293c4beba4",
+      "source_class": "CONFIRMED_LIVE_HARDWARE",
+      "observation": {
+        "kind": "SAVED_NATIVE_DIAGNOSTIC_AA",
+        "saved_windows_verified": 12,
+        "pairs": 6,
+        "receiver_bytes": 50331648,
+        "packets_sent": 240,
+        "packets_received": 239,
+        "receiver_goodput_mbps_range": [
+          1.2539366383911235,
+          1.3295044893996952
+        ],
+        "p95_rtt_ms_range": [
+          1.918,
+          4.519
+        ],
+        "p99_rtt_ms_range": [
+          2.318,
+          5.763
+        ],
+        "loss_pct_range": [
+          0.0,
+          5.0
+        ],
+        "observation_scope": "single4MiB HTTP request with20integer-interval ICMP probes; management-path diagnostic",
+        "all_zero_loss": false,
+        "original_gate_verdict": "INCONCLUSIVE",
+        "paired_blocks_reached": 0,
+        "control_result": "PASS_NO_PROMOTION",
+        "promotion_allowed": false,
+        "new_measurements": 0,
+        "physical_release_acceptance": "UNKNOWN"
+      }
+    },
+    {
+      "stage": "907A",
+      "state": "UNVERIFIED_NATIVE_DECLARATION",
+      "native_observation_verified": false,
+      "receipt_sha256": "93844a7599917f52d00b413f886d65cae9aba303ce7c3d45a7f5b62f55a17db5",
+      "source_class": "CONFIRMED_LIVE_HARDWARE"
+    },
+    {
+      "stage": "908A",
+      "state": "SAVED_NATIVE_BYTES_AND_OBSERVATIONS_VERIFIED",
+      "native_observation_verified": true,
+      "receipt_sha256": "95cb37d9e20e279de45efc1be66ed8f4636d703ea154cb1dd4950736362be8c8",
+      "source_class": "CONFIRMED_LIVE_HARDWARE",
+      "observation": {
+        "kind": "SAVED_NATIVE_PASSIVE_COUNTERS",
+        "native_snapshots_verified": 24,
+        "comparable_counter_intervals": 12,
+        "aggregate_cpu_busy_pct_range": [
+          31.05726872246696,
+          78.61811391223156
+        ],
+        "target_interval_seconds_range": [
+          3.639999999999418,
+          10.709999999991851
+        ],
+        "irq63_cpu1_observed_intervals": 0,
+        "irq63_cpu1_delta_range": null,
+        "application_goodput_mbps": null,
+        "controlled_aa_valid": false,
+        "zero_false_positive": "UNKNOWN",
+        "promotion_allowed": false,
+        "new_measurements": 0,
+        "physical_release_acceptance": "UNKNOWN"
+      }
+    },
+    {
+      "stage": "909A",
+      "state": "SAVED_NATIVE_BYTES_AND_OBSERVATIONS_VERIFIED",
+      "native_observation_verified": true,
+      "receipt_sha256": "065f7be9a1a7de83a532540b45925583843011de635161ee0ac400c28e559704",
+      "source_class": "CONFIRMED_LIVE_HARDWARE",
+      "observation": {
+        "kind": "SAVED_NATIVE_PASSIVE_COUNTERS",
+        "native_snapshots_verified": 24,
+        "comparable_counter_intervals": 12,
+        "aggregate_cpu_busy_pct_range": [
+          30.465444287729195,
+          40.6993006993007
+        ],
+        "target_interval_seconds_range": [
+          3.569999999992433,
+          3.779999999998836
+        ],
+        "irq63_cpu1_observed_intervals": 12,
+        "irq63_cpu1_delta_range": [
+          0,
+          0
+        ],
+        "application_goodput_mbps": null,
+        "controlled_aa_valid": false,
+        "zero_false_positive": "UNKNOWN",
+        "promotion_allowed": false,
+        "new_measurements": 0,
+        "physical_release_acceptance": "UNKNOWN"
+      }
+    },
+    {
+      "stage": "910A",
+      "state": "MISSING",
+      "native_observation_verified": false
+    },
+    {
+      "stage": "911A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "0292422be453cd99ed9297a7c1404f311c3607167cafac2b8470cd4d6b927b04",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "912A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "6c15bcaad09f7d02015a479258e96b4c131acc9e764073a001675ed9f004a4b2",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "913A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "ce7fe4403790adb77588df509f98d657e04092b14db9d2713dd2b3682d349db8",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "914A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "b359166af13306d99e7a4533f5238d39e7f34fc5573eae748b2f17e9b8fad6c1",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "915A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "805769b39b09a24f8d77abac17030a33f97e90f3c5dec4f3ab58c51cec3fc3b5",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "916A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "91321e8393ce4664b0890c55d8402eff5d94a5f840439c7e1632d4ab57a0db11",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "917A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "11ee632dda36222dbf1d94e23f957e1bd261bebe02c1d785bc1bc41529a27059",
+      "source_class": "GATE_RECALIBRATION"
+    },
+    {
+      "stage": "918A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "a94201f0976f217afcc36c7ea1fd0896004a2c92cc5d13a784641d4ebfcb6c12",
+      "source_class": "SIMULATED_MODEL_ONLY"
+    },
+    {
+      "stage": "919A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "6f6172e6c1a9fd4c4bde7c747f48b004b50694b5263e7fe6d29c16c8a8f78aa5",
+      "source_class": "SIMULATED_MODEL_ONLY"
+    },
+    {
+      "stage": "920A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "d7dca49921cde8a6c59cea4f2822c0516d4e41c1e0d85736aa6bc11680a69774",
+      "source_class": "DOC_COMPLIANCE_AUDIT"
+    },
+    {
+      "stage": "921A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "c6884dd27646ecdf6d3afa5ca3d304ec7734e88ac91a0ef6144bd2184c8f69eb",
+      "source_class": "DOCUMENTATION_SYNC"
+    },
+    {
+      "stage": "922A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "1c1b0de7f998e11f20a07a6f2713e4006877b994740985734a3b017423a0e030",
+      "source_class": "STATISTICAL_AND_DOCS_GATE"
+    },
+    {
+      "stage": "923A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "dd14a7c61c92074433b8a100990cf08733a38504f9e63cc16321634d57a8ba6c",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "924A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "0ac7df967e081c729382ac5c53b47a9bf7dd1d1bb650da8be92b7c4ab7ba28ec",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "925A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "8b296bf27d0c219520b99ce22d3fd0d59bacf65c2b2df41a7ffdbfa34325f95b",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "926A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "838efb87a47c5f692816af3486a7b678f19679bf9941d6c34574c24629fc050e",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "927A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "9406dc72aecb7bc47d5e3bdef42e39f2eedb15f4618b5afae1707231e60262f4",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "928A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "4b8eccf24ec4c5fe3687bb0a02a7dd7fe2135ae1805ce2d81b33a8ae3f69b7c8",
+      "source_class": "CONFIRMED_STATIC_BINARY"
+    },
+    {
+      "stage": "929A",
+      "state": "UNVERIFIED_NATIVE_DECLARATION",
+      "native_observation_verified": false,
+      "receipt_sha256": "984b5438a423ff4db7e144281c08df500273127b43c66be215c1aefb2f17e16c",
+      "source_class": "CONFIRMED_LIVE_HARDWARE"
+    },
+    {
+      "stage": "930A",
+      "state": "UNVERIFIED_NATIVE_DECLARATION",
+      "native_observation_verified": false,
+      "receipt_sha256": "cc2627b48dd0d5058d348be84f4319cab242b19e671ec86d31828d877a1d2101",
+      "source_class": "CONFIRMED_LIVE_HARDWARE"
+    },
+    {
+      "stage": "931A",
+      "state": "UNVERIFIED_NATIVE_DECLARATION",
+      "native_observation_verified": false,
+      "receipt_sha256": "8ed53dd0223316ed2ff6a76020371af139759aacda624fe2797edd43724ff8d2",
+      "source_class": "CONFIRMED_LIVE_HARDWARE"
+    },
+    {
+      "stage": "932A",
+      "state": "UNVERIFIED_NATIVE_DECLARATION",
+      "native_observation_verified": false,
+      "receipt_sha256": "d7d89bce2aef3a8c19a76bad4f43439fe9471b9b4f1aef8a8b24db790295afbc",
+      "source_class": "CONFIRMED_LIVE_HARDWARE"
+    },
+    {
+      "stage": "933A",
+      "state": "NON_NATIVE_OR_UNCLASSIFIED",
+      "native_observation_verified": false,
+      "receipt_sha256": "f6667d5a30fc6d922dbb1636ccf4a8e5d7608403ffa6c23e1ed431cdb419997f",
+      "source_class": "OTHER_OR_UNCLASSIFIED"
+    },
+    {
+      "stage": "934A",
+      "state": "MISSING",
+      "native_observation_verified": false
+    }
+  ],
+  "private_input_bindings": [
+    {
+      "path": "artifacts/autoresearch/stage905a_live_wa_sta_discovery.json",
+      "available": true,
+      "bytes": 11380,
+      "sha256": "b0e46e3a8f94b69b88f73d65e6fa0c5924d2d193f437e971df6c29d331edabbe"
+    },
+    {
+      "path": "artifacts/autoresearch/stage906a_live_powerbeam_loss_diagnosis_and_aa.json",
+      "available": true,
+      "bytes": 66884,
+      "sha256": "5b4de5eda5e37f7bb5a69bebfb1fe79e999c90bde557b634cc4cd3293c4beba4"
+    },
+    {
+      "path": "artifacts/autoresearch/stage907a_live_aql_sysctl_discovery_holdout.json",
+      "available": true,
+      "bytes": 1977,
+      "sha256": "93844a7599917f52d00b413f886d65cae9aba303ce7c3d45a7f5b62f55a17db5"
+    },
+    {
+      "path": "artifacts/autoresearch/stage908a_panel1_passive_aa.json",
+      "available": true,
+      "bytes": 199293,
+      "sha256": "95cb37d9e20e279de45efc1be66ed8f4636d703ea154cb1dd4950736362be8c8"
+    },
+    {
+      "path": "artifacts/autoresearch/stage909a_ltu_passive_aa.json",
+      "available": true,
+      "bytes": 190526,
+      "sha256": "065f7be9a1a7de83a532540b45925583843011de635161ee0ac400c28e559704"
+    },
+    {
+      "path": "artifacts/autoresearch/stage911a_wa_tc_optional_native_field_kits.json",
+      "available": true,
+      "bytes": 5622,
+      "sha256": "0292422be453cd99ed9297a7c1404f311c3607167cafac2b8470cd4d6b927b04"
+    },
+    {
+      "path": "artifacts/autoresearch/stage912a_wa_tc_and_kernel_default_regressions.json",
+      "available": true,
+      "bytes": 4662,
+      "sha256": "6c15bcaad09f7d02015a479258e96b4c131acc9e764073a001675ed9f004a4b2"
+    },
+    {
+      "path": "artifacts/autoresearch/stage913a_saved_879_to_884_software_compatibility.json",
+      "available": true,
+      "bytes": 14561,
+      "sha256": "ce7fe4403790adb77588df509f98d657e04092b14db9d2713dd2b3682d349db8"
+    },
+    {
+      "path": "artifacts/autoresearch/stage914a_saved_897_to_900_evidence_replay.json",
+      "available": true,
+      "bytes": 8750,
+      "sha256": "b359166af13306d99e7a4533f5238d39e7f34fc5573eae748b2f17e9b8fad6c1"
+    },
+    {
+      "path": "artifacts/autoresearch/stage915a_qualified_publication_readiness.json",
+      "available": true,
+      "bytes": 8510,
+      "sha256": "805769b39b09a24f8d77abac17030a33f97e90f3c5dec4f3ab58c51cec3fc3b5"
+    },
+    {
+      "path": "artifacts/autoresearch/stage916a_wa_tcless_and_live_receipts_gate.json",
+      "available": true,
+      "bytes": 17094,
+      "sha256": "91321e8393ce4664b0890c55d8402eff5d94a5f840439c7e1632d4ab57a0db11"
+    },
+    {
+      "path": "artifacts/autoresearch/stage917a_post_audit_gatekeeper_recalibration.json",
+      "available": true,
+      "bytes": 3577,
+      "sha256": "11ee632dda36222dbf1d94e23f957e1bd261bebe02c1d785bc1bc41529a27059"
+    },
+    {
+      "path": "artifacts/autoresearch/stage918a_post_audit_aa_false_positive_monte_carlo.json",
+      "available": true,
+      "bytes": 1896,
+      "sha256": "a94201f0976f217afcc36c7ea1fd0896004a2c92cc5d13a784641d4ebfcb6c12"
+    },
+    {
+      "path": "artifacts/autoresearch/stage919a_powerbeam_lna_saturation_vs_congestion_loss_model.json",
+      "available": true,
+      "bytes": 3192,
+      "sha256": "6f6172e6c1a9fd4c4bde7c747f48b004b50694b5263e7fe6d29c16c8a8f78aa5"
+    },
+    {
+      "path": "artifacts/autoresearch/stage920a_docs_line_and_dochead_audit.json",
+      "available": true,
+      "bytes": 1349,
+      "sha256": "d7dca49921cde8a6c59cea4f2822c0516d4e41c1e0d85736aa6bc11680a69774"
+    },
+    {
+      "path": "artifacts/autoresearch/stage921a_master_state_decisions_ledger_sync.json",
+      "available": true,
+      "bytes": 2664,
+      "sha256": "c6884dd27646ecdf6d3afa5ca3d304ec7734e88ac91a0ef6144bd2184c8f69eb"
+    },
+    {
+      "path": "artifacts/autoresearch/stage922a_post_audit_statistical_and_docs_gate_receipt.json",
+      "available": true,
+      "bytes": 3040,
+      "sha256": "1c1b0de7f998e11f20a07a6f2713e4006877b994740985734a3b017423a0e030"
+    },
+    {
+      "path": "artifacts/autoresearch/stage923a_ath10k_core_firmware_ie_and_bmi_loader_re.json",
+      "available": true,
+      "bytes": 3470,
+      "sha256": "dd14a7c61c92074433b8a100990cf08733a38504f9e63cc16321634d57a8ba6c"
+    },
+    {
+      "path": "artifacts/autoresearch/stage924a_xtensa_bmi_lz_stream_and_crc_check_re.json",
+      "available": true,
+      "bytes": 49447,
+      "sha256": "0ac7df967e081c729382ac5c53b47a9bf7dd1d1bb650da8be92b7c4ab7ba28ec"
+    },
+    {
+      "path": "artifacts/autoresearch/stage925a_openwrt_ath10k_fw5_ie_repacker.json",
+      "available": true,
+      "bytes": 3431,
+      "sha256": "8b296bf27d0c219520b99ce22d3fd0d59bacf65c2b2df41a7ffdbfa34325f95b"
+    },
+    {
+      "path": "artifacts/autoresearch/stage926a_wa_caldata_and_board_bin_audit.json",
+      "available": true,
+      "bytes": 58903,
+      "sha256": "838efb87a47c5f692816af3486a7b678f19679bf9941d6c34574c24629fc050e"
+    },
+    {
+      "path": "artifacts/autoresearch/stage927a_powerbeam_241_242_caldata_comparison.json",
+      "available": true,
+      "bytes": 4200,
+      "sha256": "9406dc72aecb7bc47d5e3bdef42e39f2eedb15f4618b5afae1707231e60262f4"
+    },
+    {
+      "path": "artifacts/autoresearch/stage928a_ath10k_fw5_ie_and_bmi_re_gate.json",
+      "available": true,
+      "bytes": 8855,
+      "sha256": "4b8eccf24ec4c5fe3687bb0a02a7dd7fe2135ae1805ce2d81b33a8ae3f69b7c8"
+    },
+    {
+      "path": "artifacts/autoresearch/stage929a_live_wa_field_kit_transaction.json",
+      "available": true,
+      "bytes": 9802,
+      "sha256": "984b5438a423ff4db7e144281c08df500273127b43c66be215c1aefb2f17e16c"
+    },
+    {
+      "path": "artifacts/autoresearch/stage930a_live_wa_aql_notsent_holdout.json",
+      "available": true,
+      "bytes": 8313,
+      "sha256": "cc2627b48dd0d5058d348be84f4319cab242b19e671ec86d31828d877a1d2101"
+    },
+    {
+      "path": "artifacts/autoresearch/stage931a_live_powerbeam_aql_notsent_holdout.json",
+      "available": true,
+      "bytes": 10934,
+      "sha256": "8ed53dd0223316ed2ff6a76020371af139759aacda624fe2797edd43724ff8d2"
+    },
+    {
+      "path": "artifacts/autoresearch/stage932a_live_powerbeam_firmware_container_preflight.json",
+      "available": true,
+      "bytes": 15596,
+      "sha256": "d7d89bce2aef3a8c19a76bad4f43439fe9471b9b4f1aef8a8b24db790295afbc"
+    },
+    {
+      "path": "artifacts/autoresearch/stage933a_live_powerbeam_preflight_performance.json",
+      "available": true,
+      "bytes": 1510,
+      "sha256": "f6667d5a30fc6d922dbb1636ccf4a8e5d7608403ffa6c23e1ed431cdb419997f"
+    }
+  ],
+  "available_stage_count": 28,
+  "missing_stages": [
+    "910A",
+    "934A"
+  ],
+  "verified_native_stages": [
+    "905A",
+    "906A",
+    "908A",
+    "909A"
+  ],
+  "private_input_scope": "Original saved inputs; raw captures withheld from public release",
+  "fresh_live_windows": 0,
+  "physical_release_acceptance": "UNKNOWN",
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "Offline byte binding and arithmetic replay; original native observations retain their separate source class",
+  "original_saved_inputs_rewritten": false,
+  "private_captures_published": false,
+  "physical_acceptance": "UNKNOWN",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

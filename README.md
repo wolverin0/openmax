@@ -1,4 +1,4 @@
-<!-- doc-head: Source-qualified milestones and offline v22 release through854A -->
+<!-- doc-head: Source-qualified evidence and v23 offline source release through940A -->
 <!-- /doc-head -->
 
 # openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
@@ -162,11 +162,13 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 * **Strict Safety & Regulatory Boundaries**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, disable DFS radar detection, or write protected flash partitions (`mtd0` `u-boot`, `mtd1` `u-boot-env`, `mtd5` `ART` calibration).
 * **License**: Project-authored code, analysis scripts, and documentation are open-sourced under the MIT License (historically declared; no license text is bundled).
 
-## Stages849A..854A: offline v22 release
+## Stages935A..940A: source-only v23 release
 
-WA/XC/XW and LTU v22 source manifests, a Guarida v11 GPS/PB080 sensitivity model,
-and a 1050-window synthetic scorecard are packaged with explicit acceptance boundaries.
-No new radio measurements or native ATPC/DFS/GPS/PB080 acceptance is claimed.
-The five-pillar audit checks local wiring and source provenance; external studies remain deferred.
-See [release gate](docs/STAGE854A_GROUND_UP_V14_854STAGE_GATE.md) and
-[publication gate](docs/STAGE853A_PUBLIC_GIT_SYNC_AND_PUSH_V2.md).
+42 active source scripts: two guarded native transactions and40 retired legacy actuators;103 historical archive files are excluded.
+Defaults inspect only; explicit apply, exact identity, snapshot, real readback and verified rollback gate the supported transient operations.
+tc-less mode verifies the fq_codel default policy, not an existing active root qdisc. LTU native prerequisites and physical compatibility remain UNKNOWN.
+Saved906A:12 diagnostic A/A windows; receiver goodput1.254..1.330Mbps; loss0.0..5.0%; original gateINCONCLUSIVE, no promotion.
+Saved908A:24 native snapshots/12 passive intervals; aggregate CPU busy31.06..78.62%; application goodput and zero-FP remain UNKNOWN.
+Saved909A:24 native snapshots/12 passive intervals; aggregate CPU busy30.47..40.70%; application goodput and zero-FP remain UNKNOWN.
+905A..934A: 28/30 receipts available; 2 stages absent at this read. No new radio measurements were made.
+[Source manifests](docs/STAGE937A_V23_ACTIVE_SOURCE_SHA256_MANIFESTS.md) and [qualified saved evidence](docs/STAGE938A_905_TO_934_VERIFIED_SAVED_MEASUREMENTS.md).

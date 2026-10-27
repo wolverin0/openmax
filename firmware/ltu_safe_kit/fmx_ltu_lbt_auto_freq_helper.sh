@@ -1,22 +1,23 @@
 #!/bin/sh
-# FuturaMAX Stage 592A — LTU Listen-Before-Talk (LBT), Interference Mitigation & Auto-Frequency Helper
-# Operationalizes Stage 590A RE (ame_core_lbt_*, interference mitigation, and spectral auto-frequency hooks
-# in ame_core.ko) into a 100% userspace read-only & network-stack safe helper for all 5 LTU boards:
-# LTU-Lite (0xae08), LTU-LR (0xae07), LTU-Pro (0xae02), LTU-XR (0xae09), LTU-Instant (0xae0b).
-# HARD SAFETY GUARANTEE: NEVER opens, writes, or ioctls /dev/ame* character devices.
-
+# Legacy actuator retired: no direct firmware/configuration/device commands remain.
+# Original source bytes are retained privately; this release does not activate them.
 set -eu
-
-MODE="${1:---inspect-only}"
-
-check_lbt_symbols() {
-    if [ -r /proc/kallsyms ]; then
-        grep -E "ame_core_lbt|autopwr|bbp_rf_set_freq" /proc/kallsyms 2>/dev/null | head -n 5 || true
-    fi
-}
-
-if [ "$MODE" = "--inspect-only" ]; then
-    check_lbt_symbols >/dev/null 2>&1 || true
-fi
-
-echo "STAGE592A_LTU_LBT_AUTO_FREQ_OK mode=${MODE} zero_dev_ame_touch=1"
+set -f
+MODE=--dry-run
+QDISC_MODE=auto
+SEEN_MODE=0
+while [ "$#" -gt 0 ]; do
+ case "$1" in
+  --dry-run|--inspect-only|--apply|--verify|--rollback)
+   [ "$SEEN_MODE" -eq 0 ] || exit 64; MODE=$1; SEEN_MODE=1; shift ;;
+  --qdisc-mode) [ "$#" -ge 2 ] || exit 64; QDISC_MODE=$2; shift 2 ;;
+  --identity|--state-dir|--uci-mode) [ "$#" -ge 2 ] || exit 64; shift 2 ;;
+  *) printf 'FAILED_PRECONDITION retired legacy argument\n' >&2; exit 65 ;;
+ esac
+done
+case "$QDISC_MODE" in auto|tc|sysfs-default) ;; *) exit 64 ;; esac
+case "$MODE" in
+ --dry-run|--inspect-only)
+  printf 'PLANNED_RETIRED native_replacement=EXPLICIT_SEPARATE_TRANSACTION runtime=UNKNOWN\n'; exit 0 ;;
+ *) printf 'FAILED_PRECONDITION legacy actuator retired; select reviewed native transaction explicitly\n' >&2; exit 65 ;;
+esac

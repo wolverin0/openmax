@@ -1,19 +1,23 @@
 #!/bin/sh
-# FuturaMAX Stage 762A — AF-LTU (Beetle) IRQ 52 Coalescing, NAPI Budget & Bridge Zero-Rogue-DHCP Guard
-# Operationalizes AF-LTU IRQ 52 CPU1 isolation, NAPI 10x48 poll budget & LAN bridge DHCP hygiene:
-#   1. Audits /proc/irq/52/smp_affinity (2 = CPU1), /proc/sys/net/core/netdev_budget (480),
-#      and /proc/sys/net/core/dev_weight (48) so NET_RX_SOFTIRQ drains exactly 10 NAPI quantum slices without starving IRQ 52.
-#   2. Audits bridged interfaces (br0/eth0) to verify zero rogue DHCP servers (udhcpd/dnsmasq/odhcpd) are running when
-#      the LTU radio operates as a transparent L2 WDS bridge.
-#   3. HARD SAFETY GUARANTEE: 100% read-only (--inspect-only). ZERO touches on character devices or proprietary ASIC nodes.
-
-MODE="${1:---inspect-only}"
-
-IRQ52_AFF=$(cat /proc/irq/52/smp_affinity 2>/dev/null || echo "2")
-NAPI_BUDGET=$(cat /proc/sys/net/core/netdev_budget 2>/dev/null || echo 480)
-DEV_WEIGHT=$(cat /proc/sys/net/core/dev_weight 2>/dev/null || echo 48)
-DHCP_PROCS=$(ps 2>/dev/null | grep -E 'udhcpd|dnsmasq|odhcpd' | grep -v grep | wc -l 2>/dev/null || echo 0)
-DHCP_PROCS=$(echo "${DHCP_PROCS}" | tr -d ' ')
-
-echo "{"stage":"762A","mode":"${MODE}","irq52_smp_affinity":"${IRQ52_AFF}","netdev_budget":${NAPI_BUDGET},"dev_weight":${DEV_WEIGHT},"rogue_dhcp_procs":${DHCP_PROCS},"bridge_l2_safe":true}"
-exit 0
+# Legacy actuator retired: no direct firmware/configuration/device commands remain.
+# Original source bytes are retained privately; this release does not activate them.
+set -eu
+set -f
+MODE=--dry-run
+QDISC_MODE=auto
+SEEN_MODE=0
+while [ "$#" -gt 0 ]; do
+ case "$1" in
+  --dry-run|--inspect-only|--apply|--verify|--rollback)
+   [ "$SEEN_MODE" -eq 0 ] || exit 64; MODE=$1; SEEN_MODE=1; shift ;;
+  --qdisc-mode) [ "$#" -ge 2 ] || exit 64; QDISC_MODE=$2; shift 2 ;;
+  --identity|--state-dir|--uci-mode) [ "$#" -ge 2 ] || exit 64; shift 2 ;;
+  *) printf 'FAILED_PRECONDITION retired legacy argument\n' >&2; exit 65 ;;
+ esac
+done
+case "$QDISC_MODE" in auto|tc|sysfs-default) ;; *) exit 64 ;; esac
+case "$MODE" in
+ --dry-run|--inspect-only)
+  printf 'PLANNED_RETIRED native_replacement=EXPLICIT_SEPARATE_TRANSACTION runtime=UNKNOWN\n'; exit 0 ;;
+ *) printf 'FAILED_PRECONDITION legacy actuator retired; select reviewed native transaction explicitly\n' >&2; exit 65 ;;
+esac
