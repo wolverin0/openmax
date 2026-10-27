@@ -1,0 +1,110 @@
+{
+  "stage": "Stage 886A",
+  "title": "A/A Negative-Control & Hold-Out Identity Protocol (A03 remediation)",
+  "timestamp": "2026-10-27T04:09:15.134841+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller (offline protocol + self-test)",
+  "live_devices_touched": false,
+  "evidence_class": "PROTOCOL_AND_SELFTEST",
+  "protocol": {
+    "mandatory_negative_control": ">=2 measured A/A runs; absence or empty control blocks promotion",
+    "holdout_identity": "discovery and holdout run-ids AND raw hashes must be disjoint",
+    "holdout_evidence": "measured replication record, never a bare boolean",
+    "applied_config_readback": "candidate config must be proven applied via readback",
+    "on_control_improvement": "if the A/A control improves incompatibly, INVALIDATE the campaign; never omit the control"
+  },
+  "adversarial_self_tests": [
+    {
+      "case": "valid_campaign",
+      "expected_ok": true,
+      "got_ok": true,
+      "pass": true,
+      "reasons": []
+    },
+    {
+      "case": "no_control",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "negative control absent or < 2 measured runs"
+      ]
+    },
+    {
+      "case": "empty_control",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "negative control absent or < 2 measured runs"
+      ]
+    },
+    {
+      "case": "same_dataset_both_arms",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "discovery/holdout run-id overlap: ['d1', 'd2']"
+      ]
+    },
+    {
+      "case": "raw_hash_overlap",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "discovery/holdout raw-hash overlap (same raw in both arms)"
+      ]
+    },
+    {
+      "case": "boolean_holdout",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "holdout evidence is boolean/missing, not measured replication"
+      ]
+    },
+    {
+      "case": "no_readback",
+      "expected_ok": false,
+      "got_ok": false,
+      "pass": true,
+      "reasons": [
+        "no readback proving the candidate config was actually applied"
+      ]
+    }
+  ],
+  "all_self_tests_pass": true,
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json"
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py"
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "offline_safety_boundary": true,
+      "live_devices_touched": false
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "scientific-critical-thinking",
+        "statistical-analysis"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S886A-01"
+      ]
+    }
+  },
+  "pillar_e_memory_master_claim_id": "FMX-STAGE886A-AA-CONTROL-PROTOCOL"
+}

@@ -1,0 +1,2562 @@
+{
+  "meta": {
+    "stage": "891A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/qca988x/verify_all_sgmt_patches_fail_closed_audit.py",
+    "tool_sha256": "096a1410d2d5431160c6d16fbc4006f539368fc3e43ee8173e08e704d45069a8",
+    "output": "artifacts/autoresearch/stage891a_sgmt_fail_closed_binary_audit.json",
+    "audit_reference": "artifacts/chatgpt_audit_1afaeb7/AUDITORIA_2026-10-27.md section A09",
+    "scope": "offline static; no firmware written, no flash touched, no radio contacted",
+    "method": "independent BCL LZ77 decoder; fail-closed parse of every SGMT occurrence; sentinel, overlap, length, trailing-byte and RAM-offset checks; receipt-to-byte correspondence for the three PB-040 roles",
+    "reader_note": "tools/qca988x/sgmt_container_inspector.py and firmware/xtensa_sgmt_surgical_patcher.py were read for the format only and were not edited or imported",
+    "premise_corrections": [
+      "the field at offset 4 has two names: the inspector calls it version and requires 1, the patcher calls it file_flags and writes 1 for compressed, so version equals 1 and file_flags equals 1 are the same assertion",
+      "the corpus contains only compressed containers, so the file_flags 0 branch A09 asks about is never exercised by any artefact here"
+    ],
+    "radio_safety": "static only"
+  },
+  "config": {
+    "magic": "SGMT",
+    "begin_sentinel": "0xfffffffd",
+    "end_sentinel": "0xffffffff",
+    "supported_flags": [
+      0,
+      1
+    ],
+    "search_roots": [
+      "artifacts",
+      "firmware"
+    ],
+    "suffixes": [
+      ".bin",
+      ".fw",
+      ".img",
+      ".patch",
+      ".sgmt"
+    ]
+  },
+  "files": [
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 200943,
+      "sha256": "2ce8a9fc212f1539183404472c0d5e8c7e4befb80a1bf1ef07961989363f040d",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 255669,
+      "sha256": "6e5d0e13d5da828a01a70f363d979024c87616c561205a0143151068d4b702d8",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 237993,
+      "sha256": "89459cb115381440823af145cda8b49ea0bb13c1d95447408c310e69f184df75",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 218498,
+      "sha256": "04da923d8fe71ce86460be8f589dfab2d09e5b110f2257a399d1363d96ca8b34",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 256559,
+      "sha256": "7d2f3d98bb0f1829d56de9a14782f138ffab979b49aaec528629600e43af266c",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 238872,
+      "sha256": "ed15003144b04cbf91ec32c41b9330d0089c101df3a38d20d77e2fd7ce3d95a1",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "bytes": 219367,
+      "sha256": "2e3cade163c08b1bf014dd4c781ce9a68d7b96d7319fe227d20759e060cf4d09",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/OpenWrt_10.1.467-ct_IE3_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 200943,
+      "sha256": "30acdd3a92d5783a0d7aed6064ce0820a4c55b69ca74a44ffb440c844e0d447c",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 255671,
+      "sha256": "45de8697625d88c1d5026899591a11d75935791273ffa7840b33a646cd720a20",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 237995,
+      "sha256": "12a95004388f8ea1bd776b3c5fd7702df7549db94877c8a1a1746b08f7e7528a",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 218500,
+      "sha256": "83ffcd3f9e63e6a5487e9886b9175df77408fdbd393f1080b099813fd36c6a7e",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 256561,
+      "sha256": "42654ad9105e66d17d9cc3b760c50e794aebce4939f4f8ac1c03835616ea9f13",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 238874,
+      "sha256": "c6f3429de32775442136ef2ce23dfbb8cd3ad8cfb45616c10aeed637a36c8b39",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "bytes": 219369,
+      "sha256": "ef0bbb913a43e098aa6ac9c9d26ca32bf28bc12af7376508e32586ff447c5192",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/OpenWrt_10.1.467-ct_IE3_pb060.sgmt.bin",
+      "bytes": 200860,
+      "sha256": "5399054b9c8e5f024edb8f95baf33711eb2333dbe0c9d85a28d7c0601e38c310",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "bytes": 255670,
+      "sha256": "32246ee4efcde29de81971cd3d7f6d580355eba1de0064faa9fdf8dc3a734d22",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "bytes": 237994,
+      "sha256": "417c8facb5ae5dd604a41f82eb4da2d15d50578fa2dba7eb43a19a2738955540",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptp_pb060.sgmt.bin",
+      "bytes": 218499,
+      "sha256": "429b2685f9a5609ac734285a8597c3a7e2d31d69f02fab31e1d317a63a395d75",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "bytes": 256560,
+      "sha256": "09590aa59cfddfea03c070792b8d0fa73e1b2a190628dda23f2c42c49295b5d8",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "bytes": 238873,
+      "sha256": "2504653f17425f32757da933beef2ce7df6ea8a896d2585a92c1d4037ce3383a",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptp_pb060.sgmt.bin",
+      "bytes": 219368,
+      "sha256": "c28dc9b07a1e6da9217988ea3fbfcaa3e09bd95b2a8fd76d97e942f1c5149292",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "bytes": 204796,
+      "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+      "containers": 2,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 256665,
+      "sha256": "94e083cc0bcf7f6280252910c325359baba85e87915562e1ec13eb8dbc76c824",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 251839,
+      "sha256": "e2402d644fc85e595d9efca09c65281076d05f839e3f47a94b7e9f8b2c82b415",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 256508,
+      "sha256": "390d8f7f91630de339fbc195277c210a6f906a0ef860317b0e954f59d01a50e9",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 251838,
+      "sha256": "96a801e933c2ce8b5cb6d82eb5a5599e7f119d66eb0087b1c46363c6bc374d66",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 238986,
+      "sha256": "ebedfd573c244016093c34771bc0f097e7cdc9b952ad19c53e4672b57b00b15c",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 234424,
+      "sha256": "821db9aaeb828c915dce86791e10a2522ff418e62a5260a6e7f243143686baf4",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 238825,
+      "sha256": "47ac5aeb1e79eaa5e3018fcfd4934657ef34277e93a49a300c4f82358291f2a1",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 234423,
+      "sha256": "12ae398642cde6b4799a01945a3ada0095014a92e6534b7619ab3e49a1c22a9e",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 219307,
+      "sha256": "cdfbef792584a9792500293b0310ab0f016493c1de1504d4477600d2b98fa963",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 215047,
+      "sha256": "16da76422bf15fcf188f44167f8ac87ad6077577982786e9eb782641eda7203d",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 219162,
+      "sha256": "f9460a3d5a28134b7d4335b92d4d81e77dd62d4be8d17d805ac8633092683145",
+      "containers": 1,
+      "ok": true
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 215046,
+      "sha256": "161315e4aad464b2f1f342c6a4e84b3651a69ae6bdca454470639f07863743fb",
+      "containers": 1,
+      "ok": true
+    }
+  ],
+  "containers": [
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 200943,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9966956,
+          "length": 5484,
+          "file_offset": 8,
+          "sha256": "a684eff034fd50e4e892344995ed20d409376fd67218c8c5022d6f5fdfbb84a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4242696,
+          "length": 3336,
+          "file_offset": 5388,
+          "sha256": "c50ae81dbb1fbd4ee5dbb8646dd412846843992d48e9fe768925f2d01cc96762"
+        },
+        {
+          "addr": 4242704,
+          "end": 4245748,
+          "length": 3044,
+          "file_offset": 7161,
+          "sha256": "c0a424d5c41c3c38b4e49241d74fad8f69b4674e55e2d7df59a3a59e90895ab8"
+        },
+        {
+          "addr": 9976832,
+          "end": 10193556,
+          "length": 216724,
+          "file_offset": 9168,
+          "sha256": "271f1e939035f41c4dab6d9ee5fe6850c0da4e74a72e5cf76d370dd38e6412dd"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 255669,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "5798fc78355db4af497b0942c81b122871d045aee2617e2a09b97525f43ca83e"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247960,
+          "length": 8600,
+          "file_offset": 6197,
+          "sha256": "87b516ece746e55799ec4f2ef068423ba1dc9c207c147e8a06d8a37c07c970f3"
+        },
+        {
+          "addr": 4247968,
+          "end": 4258856,
+          "length": 10888,
+          "file_offset": 11068,
+          "sha256": "452d879256c9a54047d9ca32374719ead185af40b29fc0039d42e1e185dff730"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255588,
+          "length": 278756,
+          "file_offset": 16796,
+          "sha256": "3ebd1b726f3b4b64f1432430fd69c6673844192ff0daeecebd95c7c9142cef1b"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 237993,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "74b3661973def07f123412d80c136c50d46a85285a01037f8f9474816a85d87c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248132,
+          "length": 8772,
+          "file_offset": 5956,
+          "sha256": "d7ed91ebdac7a2b010fc16d29fbd6defacacd7a62e4b8f4ea84b2470f77be7c9"
+        },
+        {
+          "addr": 4248144,
+          "end": 4259032,
+          "length": 10888,
+          "file_offset": 10886,
+          "sha256": "f45240173f9d7850967be751d6592d3a2e3dbdd4d141705b1b29f27a286299b1"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236084,
+          "length": 259252,
+          "file_offset": 16613,
+          "sha256": "fd25567c64889c4167cc329ccb7f944f3653fd9c4eb4d89d0dbc405e6f27daf2"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 218498,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "3b7d6df7ed865a6fcfa76d240b6bd08006e8ace2bf63e771362a1c1dfe016d27"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246744,
+          "length": 7384,
+          "file_offset": 5613,
+          "sha256": "2275132d74d4305dff184852f918f92f492d5e5715f10a20658c3dfefd25cd4a"
+        },
+        {
+          "addr": 4246752,
+          "end": 4257640,
+          "length": 10888,
+          "file_offset": 9803,
+          "sha256": "ac34c92b5084b38495c0f9b208013617fbb5ecdcae88b12d5e42adc3e11d4117"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 15533,
+          "sha256": "7960c2e9dbb7be472dd7dd3f1de90a89667fa2dca8fdad9640d79eeca41ecd46"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 256559,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "c70219c0e67e6468f275e156eb7f32828ac2bf6fdc4224de26b292a176cba01c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247996,
+          "length": 8636,
+          "file_offset": 6207,
+          "sha256": "169b45cd02abdc520d9926f675ea5735262380089dde294755e5f0d7dfcfc49f"
+        },
+        {
+          "addr": 4248000,
+          "end": 4262280,
+          "length": 14280,
+          "file_offset": 11084,
+          "sha256": "ac26136b833bec008463541bb48d666fdb5ee8580d3a535a504ff14306878536"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255604,
+          "length": 278772,
+          "file_offset": 17681,
+          "sha256": "9f36d17d7a308b03a999aacc356d99e3512578514b51febdb1122e7b0e909ca7"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 238872,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "c4762dda8a2858b334b7c42df3a9e9b47a31987df7b4e910f2640374e0a179a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248168,
+          "length": 8808,
+          "file_offset": 5961,
+          "sha256": "8fb4a02efa534c9f1e33d90d6e0f3893c03229b58dbe336fd2202ee38bcaafb0"
+        },
+        {
+          "addr": 4248176,
+          "end": 4262456,
+          "length": 14280,
+          "file_offset": 10897,
+          "sha256": "1e2a87d4e7066c5b24dbb692d26773e1bdb853488a67c716f3ee62c4c46a0fb7"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236100,
+          "length": 259268,
+          "file_offset": 17489,
+          "sha256": "102b63a0914dd48db84688c7d20d92dc205d46388fef57a5966c61ad3acb166e"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 219367,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "a9747796bc0603002a325a0bf8cb78ed42607788567777863884ab18204048f2"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246780,
+          "length": 7420,
+          "file_offset": 5615,
+          "sha256": "fc6a23c0908d30cef94ac4b75cb8f0c8e87a205bd534334ea1be1c74704f9588"
+        },
+        {
+          "addr": 4246784,
+          "end": 4261064,
+          "length": 14280,
+          "file_offset": 9811,
+          "sha256": "245adfbeb3aacdcf87c6837ccb2dbadbe85cdf776ca98c25860527b336b173ea"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 16402,
+          "sha256": "5bea3c94459998fa3b011b1b90500402197e28b6711e8babe81ab0e36f91416c"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 200943,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/OpenWrt_10.1.467-ct_IE3_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9966956,
+          "length": 5484,
+          "file_offset": 8,
+          "sha256": "a684eff034fd50e4e892344995ed20d409376fd67218c8c5022d6f5fdfbb84a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4242696,
+          "length": 3336,
+          "file_offset": 5388,
+          "sha256": "c50ae81dbb1fbd4ee5dbb8646dd412846843992d48e9fe768925f2d01cc96762"
+        },
+        {
+          "addr": 4242704,
+          "end": 4245748,
+          "length": 3044,
+          "file_offset": 7161,
+          "sha256": "c0a424d5c41c3c38b4e49241d74fad8f69b4674e55e2d7df59a3a59e90895ab8"
+        },
+        {
+          "addr": 9976832,
+          "end": 10193556,
+          "length": 216724,
+          "file_offset": 9168,
+          "sha256": "2b7ad897c19715dd4ff94b8c196daf912d1b4def0762b7453e0e9ae0dda223a7"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 255671,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "5798fc78355db4af497b0942c81b122871d045aee2617e2a09b97525f43ca83e"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247960,
+          "length": 8600,
+          "file_offset": 6197,
+          "sha256": "87b516ece746e55799ec4f2ef068423ba1dc9c207c147e8a06d8a37c07c970f3"
+        },
+        {
+          "addr": 4247968,
+          "end": 4258856,
+          "length": 10888,
+          "file_offset": 11068,
+          "sha256": "665899ef4b884bb45c33fa386f9e182a308cce2e62bc81853ca635d2795442de"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255588,
+          "length": 278756,
+          "file_offset": 16798,
+          "sha256": "0bf3d4f054f9588c32884cbf040d80e6ce3375e91312e7ef0139cccbd4f98423"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 237995,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "74b3661973def07f123412d80c136c50d46a85285a01037f8f9474816a85d87c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248132,
+          "length": 8772,
+          "file_offset": 5956,
+          "sha256": "d7ed91ebdac7a2b010fc16d29fbd6defacacd7a62e4b8f4ea84b2470f77be7c9"
+        },
+        {
+          "addr": 4248144,
+          "end": 4259032,
+          "length": 10888,
+          "file_offset": 10886,
+          "sha256": "e541d3b0b8d8eaa28452e7b2ee1cf1bcb3943c37f3d925cc89b67ade67ea534b"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236084,
+          "length": 259252,
+          "file_offset": 16615,
+          "sha256": "941982712460243259efbcf36345e50236b7d44e7e7c49df83d12b41a7e71376"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 218500,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "3b7d6df7ed865a6fcfa76d240b6bd08006e8ace2bf63e771362a1c1dfe016d27"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246744,
+          "length": 7384,
+          "file_offset": 5613,
+          "sha256": "2275132d74d4305dff184852f918f92f492d5e5715f10a20658c3dfefd25cd4a"
+        },
+        {
+          "addr": 4246752,
+          "end": 4257640,
+          "length": 10888,
+          "file_offset": 9803,
+          "sha256": "ca66a2527cdfcf6dee1efbaf49f662d20bf9fda3706ddcabb6142cb5b501b359"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 15535,
+          "sha256": "d62e8bb249304e0ccb49c3f383ac794b3cea7958ddf92102eb819e5206acf754"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 256561,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "c70219c0e67e6468f275e156eb7f32828ac2bf6fdc4224de26b292a176cba01c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247996,
+          "length": 8636,
+          "file_offset": 6207,
+          "sha256": "169b45cd02abdc520d9926f675ea5735262380089dde294755e5f0d7dfcfc49f"
+        },
+        {
+          "addr": 4248000,
+          "end": 4262280,
+          "length": 14280,
+          "file_offset": 11084,
+          "sha256": "aca1ee252e73ef48022a1bd9e843e0c4a792ce3b08277d4e754ec6bc2fca33e2"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255604,
+          "length": 278772,
+          "file_offset": 17683,
+          "sha256": "c23057a57af9204034dce136642afbdd23e079b961d5c330cc3ebbebe454a9d5"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 238874,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "c4762dda8a2858b334b7c42df3a9e9b47a31987df7b4e910f2640374e0a179a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248168,
+          "length": 8808,
+          "file_offset": 5961,
+          "sha256": "8fb4a02efa534c9f1e33d90d6e0f3893c03229b58dbe336fd2202ee38bcaafb0"
+        },
+        {
+          "addr": 4248176,
+          "end": 4262456,
+          "length": 14280,
+          "file_offset": 10897,
+          "sha256": "9256aea8a21cc562e55a2e644689aeeaf8d7c064953f24d91f9654c437c43b1a"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236100,
+          "length": 259268,
+          "file_offset": 17491,
+          "sha256": "11a8bb43351f37e6cdfd3f08a2be08b0625aaedb0ce8367b7596d089ed5939ca"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 219369,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "a9747796bc0603002a325a0bf8cb78ed42607788567777863884ab18204048f2"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246780,
+          "length": 7420,
+          "file_offset": 5615,
+          "sha256": "fc6a23c0908d30cef94ac4b75cb8f0c8e87a205bd534334ea1be1c74704f9588"
+        },
+        {
+          "addr": 4246784,
+          "end": 4261064,
+          "length": 14280,
+          "file_offset": 9811,
+          "sha256": "7cc81a5f0b7af98d680ad3802357d2b49e3d15a7f2e01e703a4f2d81e62360c1"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 16404,
+          "sha256": "130b51529e975b8b36f5e6faf0028b6624c6cff92b66f85be26c40ebc476fa1e"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 200860,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/OpenWrt_10.1.467-ct_IE3_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9966956,
+          "length": 5484,
+          "file_offset": 8,
+          "sha256": "a684eff034fd50e4e892344995ed20d409376fd67218c8c5022d6f5fdfbb84a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4242696,
+          "length": 3336,
+          "file_offset": 5388,
+          "sha256": "c50ae81dbb1fbd4ee5dbb8646dd412846843992d48e9fe768925f2d01cc96762"
+        },
+        {
+          "addr": 4242704,
+          "end": 4245748,
+          "length": 3044,
+          "file_offset": 7161,
+          "sha256": "526b5d52c113fad918efd71736335079d761ed9c0e7da5dbddcb2b01efb883c5"
+        },
+        {
+          "addr": 9976832,
+          "end": 10193556,
+          "length": 216724,
+          "file_offset": 9085,
+          "sha256": "b195ba8428a90378c397d229f2d4771435768542363d7bfb48fb2753064fff0d"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 255670,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "5798fc78355db4af497b0942c81b122871d045aee2617e2a09b97525f43ca83e"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247960,
+          "length": 8600,
+          "file_offset": 6197,
+          "sha256": "87b516ece746e55799ec4f2ef068423ba1dc9c207c147e8a06d8a37c07c970f3"
+        },
+        {
+          "addr": 4247968,
+          "end": 4258856,
+          "length": 10888,
+          "file_offset": 11068,
+          "sha256": "3eef48ff2cad822b003734b44d5af449f7f977ec2678f3abd645d7e1cf7ed79a"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255588,
+          "length": 278756,
+          "file_offset": 16797,
+          "sha256": "9d2a2641a49a2e383c605f56e447bff41ee52fddc04b4611a2797ef32bda9c8c"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 237994,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "74b3661973def07f123412d80c136c50d46a85285a01037f8f9474816a85d87c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248132,
+          "length": 8772,
+          "file_offset": 5956,
+          "sha256": "d7ed91ebdac7a2b010fc16d29fbd6defacacd7a62e4b8f4ea84b2470f77be7c9"
+        },
+        {
+          "addr": 4248144,
+          "end": 4259032,
+          "length": 10888,
+          "file_offset": 10886,
+          "sha256": "af560efa95aa617cedab2b7d4b8ded07697afc94772a2227e343b8deab378348"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236084,
+          "length": 259252,
+          "file_offset": 16614,
+          "sha256": "f96a5990b3428a4931ce68c4f8464700b0482dd7e0ceef0317a9063b1825a215"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 218499,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptp_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "3b7d6df7ed865a6fcfa76d240b6bd08006e8ace2bf63e771362a1c1dfe016d27"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246744,
+          "length": 7384,
+          "file_offset": 5613,
+          "sha256": "2275132d74d4305dff184852f918f92f492d5e5715f10a20658c3dfefd25cd4a"
+        },
+        {
+          "addr": 4246752,
+          "end": 4257640,
+          "length": 10888,
+          "file_offset": 9803,
+          "sha256": "767f5eb21cb86692c29ab3497db0bbc521997524c444a0216f2bd886e2b5fbe9"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 15534,
+          "sha256": "715772819939c979a05f287ff7a5d7bf4068cb4c0dad9a5858e25fbd1c72e54d"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 256560,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967800,
+          "length": 6328,
+          "file_offset": 8,
+          "sha256": "c70219c0e67e6468f275e156eb7f32828ac2bf6fdc4224de26b292a176cba01c"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247996,
+          "length": 8636,
+          "file_offset": 6207,
+          "sha256": "169b45cd02abdc520d9926f675ea5735262380089dde294755e5f0d7dfcfc49f"
+        },
+        {
+          "addr": 4248000,
+          "end": 4262280,
+          "length": 14280,
+          "file_offset": 11084,
+          "sha256": "db8d73be754d03afdc2b08321318de6e2dc6ca1b3c9de1810843e804ec6b5dc6"
+        },
+        {
+          "addr": 9976832,
+          "end": 10255604,
+          "length": 278772,
+          "file_offset": 17682,
+          "sha256": "94718ae80fc67044b3bc7342c49652f66ae1ea992f6baf094d05e35fbe9941bd"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 238873,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967532,
+          "length": 6060,
+          "file_offset": 8,
+          "sha256": "c4762dda8a2858b334b7c42df3a9e9b47a31987df7b4e910f2640374e0a179a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4248168,
+          "length": 8808,
+          "file_offset": 5961,
+          "sha256": "8fb4a02efa534c9f1e33d90d6e0f3893c03229b58dbe336fd2202ee38bcaafb0"
+        },
+        {
+          "addr": 4248176,
+          "end": 4262456,
+          "length": 14280,
+          "file_offset": 10897,
+          "sha256": "ea01ce49c00787087007f3d6f6e2c7f82bbb992c6b4d989777441ab34f7bc0c4"
+        },
+        {
+          "addr": 9976832,
+          "end": 10236100,
+          "length": 259268,
+          "file_offset": 17490,
+          "sha256": "a4ab368eaf1064ad0e0c9cf503260c8d7af36e943dc30b6d97225ac253719923"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 219368,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptp_pb060.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967192,
+          "length": 5720,
+          "file_offset": 8,
+          "sha256": "a9747796bc0603002a325a0bf8cb78ed42607788567777863884ab18204048f2"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246780,
+          "length": 7420,
+          "file_offset": 5615,
+          "sha256": "fc6a23c0908d30cef94ac4b75cb8f0c8e87a205bd534334ea1be1c74704f9588"
+        },
+        {
+          "addr": 4246784,
+          "end": 4261064,
+          "length": 14280,
+          "file_offset": 9811,
+          "sha256": "3ff0fc2119fa00754f4febf61539b0e6d7be28638df339c598b3f4e2fb103609"
+        },
+        {
+          "addr": 9976832,
+          "end": 10214356,
+          "length": 237524,
+          "file_offset": 16403,
+          "sha256": "984d17780d0eeeec7c9bda278f0a2f861f30cac580661152b095a51b86e9f76c"
+        }
+      ]
+    },
+    {
+      "start": 108,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": false,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 7248,
+      "trailing_bytes": 197548,
+      "trailing_padding": 0,
+      "inter_container_gap": 8,
+      "inter_container_gap_hex": "03000000a1030300",
+      "wrapper_embedded": 1,
+      "next_container_at": 7256,
+      "file_offset": 108,
+      "file": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9961620,
+          "length": 148,
+          "file_offset": 116,
+          "sha256": "cc5aabd308ba4135b20037c54e37c51a4be9caa80b6fb03f7bbb33a624b25639"
+        },
+        {
+          "addr": 4239360,
+          "end": 4239764,
+          "length": 404,
+          "file_offset": 270,
+          "sha256": "f9bb0b21d73738ebccca3dfc5734ef8d880ab9346d08b68771c46046cdd2b225"
+        },
+        {
+          "addr": 4239776,
+          "end": 4267505,
+          "length": 27729,
+          "file_offset": 597,
+          "sha256": "3738aeb4a04b6d7ff4b35bb24d7000de8a2b9fd1d15e353675c7224a9eb57277"
+        },
+        {
+          "addr": 9976832,
+          "end": 9978448,
+          "length": 1616,
+          "file_offset": 5788,
+          "sha256": "14c691d61a06c8ddb7e7bc324a2db6aa024409e4a749db09a0e3b7b562619bfc"
+        }
+      ]
+    },
+    {
+      "start": 7256,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 204793,
+      "trailing_bytes": 3,
+      "trailing_padding": 3,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 7256,
+      "file": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9966956,
+          "length": 5484,
+          "file_offset": 7264,
+          "sha256": "a684eff034fd50e4e892344995ed20d409376fd67218c8c5022d6f5fdfbb84a9"
+        },
+        {
+          "addr": 4239360,
+          "end": 4242696,
+          "length": 3336,
+          "file_offset": 12644,
+          "sha256": "c50ae81dbb1fbd4ee5dbb8646dd412846843992d48e9fe768925f2d01cc96762"
+        },
+        {
+          "addr": 4242704,
+          "end": 4245748,
+          "length": 3044,
+          "file_offset": 14417,
+          "sha256": "526b5d52c113fad918efd71736335079d761ed9c0e7da5dbddcb2b01efb883c5"
+        },
+        {
+          "addr": 9976832,
+          "end": 10193556,
+          "length": 216724,
+          "file_offset": 16341,
+          "sha256": "a0ab93031d180622aef18df6012599dd0ceffb03d9be9772487eec8d3b3107c4"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 256665,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967968,
+          "length": 6496,
+          "file_offset": 8,
+          "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247860,
+          "length": 8500,
+          "file_offset": 6367,
+          "sha256": "505fd64e59a9cfccbe28c2222c61855826d674aaf2d4b14642301addf400407b"
+        },
+        {
+          "addr": 4247872,
+          "end": 4258736,
+          "length": 10864,
+          "file_offset": 11306,
+          "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+        },
+        {
+          "addr": 9976832,
+          "end": 10260436,
+          "length": 283604,
+          "file_offset": 16896,
+          "sha256": "6eee8d71383a0789c4b924245827ba2474b4f544c5fc152bb58ab020aeb39fb7"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 251839,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967968,
+          "length": 6496,
+          "file_offset": 8,
+          "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247860,
+          "length": 8500,
+          "file_offset": 6367,
+          "sha256": "5bae628f353f7e7960310a594ecba663555a7e7292e29a05c4f118d06b19bfdb"
+        },
+        {
+          "addr": 4247872,
+          "end": 4258736,
+          "length": 10864,
+          "file_offset": 11307,
+          "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+        },
+        {
+          "addr": 9976832,
+          "end": 10260436,
+          "length": 283604,
+          "file_offset": 16897,
+          "sha256": "50410ea5ddaa149e5f91ecb4ab74a196c86584976cb9e1c755ddfa060be44c86"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 256508,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967968,
+          "length": 6496,
+          "file_offset": 8,
+          "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247860,
+          "length": 8500,
+          "file_offset": 6367,
+          "sha256": "4352471afde9d65477ebf3af97cdfffb48080895a43b3e71745c08389c589483"
+        },
+        {
+          "addr": 4247872,
+          "end": 4258736,
+          "length": 10864,
+          "file_offset": 11149,
+          "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+        },
+        {
+          "addr": 9976832,
+          "end": 10260436,
+          "length": 283604,
+          "file_offset": 16739,
+          "sha256": "6eee8d71383a0789c4b924245827ba2474b4f544c5fc152bb58ab020aeb39fb7"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 251838,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967968,
+          "length": 6496,
+          "file_offset": 8,
+          "sha256": "9b5ccaac975694980d0bdf97d9cb211027efe72d2efc545ac97a22e8805b4b6f"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247860,
+          "length": 8500,
+          "file_offset": 6367,
+          "sha256": "f411eab1f38db612c44e222679735a232105eb886e759754ec6d693d18f581a2"
+        },
+        {
+          "addr": 4247872,
+          "end": 4258736,
+          "length": 10864,
+          "file_offset": 11306,
+          "sha256": "762597f4bcc0707da4e3f2e87b6f80e5871a27b64cc1f697404f70d4f5ad5e01"
+        },
+        {
+          "addr": 9976832,
+          "end": 10260436,
+          "length": 283604,
+          "file_offset": 16896,
+          "sha256": "50410ea5ddaa149e5f91ecb4ab74a196c86584976cb9e1c755ddfa060be44c86"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 238986,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967704,
+          "length": 6232,
+          "file_offset": 8,
+          "sha256": "70e81f1cf4672a59788f9b573509f6472f20544d1fcf1d4fb8953e0c8b7a8c43"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247852,
+          "length": 8492,
+          "file_offset": 6129,
+          "sha256": "440dab53a050e85ce100a1359a8d395669b05c1373b325bcb3568b39330d8db0"
+        },
+        {
+          "addr": 4247856,
+          "end": 4258720,
+          "length": 10864,
+          "file_offset": 11065,
+          "sha256": "b9f91b5d7d26a5d3847a8d8a798cdd06d509d7d86e5267027fc72a06ab5e5b52"
+        },
+        {
+          "addr": 9976832,
+          "end": 10240996,
+          "length": 264164,
+          "file_offset": 16659,
+          "sha256": "906140b9f51f528e60b11530d360a0872ca584c3ec4a0fd6414a37f54ca0e7f3"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 234424,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967704,
+          "length": 6232,
+          "file_offset": 8,
+          "sha256": "70e81f1cf4672a59788f9b573509f6472f20544d1fcf1d4fb8953e0c8b7a8c43"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247852,
+          "length": 8492,
+          "file_offset": 6129,
+          "sha256": "c5e1674959139c029d512867f96a5a3213df95015564bcd09c492afea049171e"
+        },
+        {
+          "addr": 4247856,
+          "end": 4258720,
+          "length": 10864,
+          "file_offset": 11066,
+          "sha256": "b9f91b5d7d26a5d3847a8d8a798cdd06d509d7d86e5267027fc72a06ab5e5b52"
+        },
+        {
+          "addr": 9976832,
+          "end": 10240996,
+          "length": 264164,
+          "file_offset": 16660,
+          "sha256": "c2c60e9bb170b567fa6124f54b805579eb5f7d17905fc46a0e20819cba6ce1c2"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 238825,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967704,
+          "length": 6232,
+          "file_offset": 8,
+          "sha256": "70e81f1cf4672a59788f9b573509f6472f20544d1fcf1d4fb8953e0c8b7a8c43"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247852,
+          "length": 8492,
+          "file_offset": 6129,
+          "sha256": "b7c1f7855fb27b2097b0a82ed0788980f7264e4298346cf3111cf8a1c3a3c687"
+        },
+        {
+          "addr": 4247856,
+          "end": 4258720,
+          "length": 10864,
+          "file_offset": 10904,
+          "sha256": "b9f91b5d7d26a5d3847a8d8a798cdd06d509d7d86e5267027fc72a06ab5e5b52"
+        },
+        {
+          "addr": 9976832,
+          "end": 10240996,
+          "length": 264164,
+          "file_offset": 16498,
+          "sha256": "906140b9f51f528e60b11530d360a0872ca584c3ec4a0fd6414a37f54ca0e7f3"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 234423,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967704,
+          "length": 6232,
+          "file_offset": 8,
+          "sha256": "70e81f1cf4672a59788f9b573509f6472f20544d1fcf1d4fb8953e0c8b7a8c43"
+        },
+        {
+          "addr": 4239360,
+          "end": 4247852,
+          "length": 8492,
+          "file_offset": 6129,
+          "sha256": "fc6857979638162c7da18aa4ef7df07c32f89028492af4daf6897cfd1422c9c4"
+        },
+        {
+          "addr": 4247856,
+          "end": 4258720,
+          "length": 10864,
+          "file_offset": 11065,
+          "sha256": "b9f91b5d7d26a5d3847a8d8a798cdd06d509d7d86e5267027fc72a06ab5e5b52"
+        },
+        {
+          "addr": 9976832,
+          "end": 10240996,
+          "length": 264164,
+          "file_offset": 16659,
+          "sha256": "c2c60e9bb170b567fa6124f54b805579eb5f7d17905fc46a0e20819cba6ce1c2"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 219307,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967348,
+          "length": 5876,
+          "file_offset": 8,
+          "sha256": "ec0e3ee4b071e00c4d44380cbbc6992b59ad854156a6f7a79e7fc4de0e825867"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246464,
+          "length": 7104,
+          "file_offset": 5774,
+          "sha256": "07fef2df3a4a437791c1737aaa1568774a6135f63062482a533ed5f1999b4558"
+        },
+        {
+          "addr": 4246464,
+          "end": 4257328,
+          "length": 10864,
+          "file_offset": 9956,
+          "sha256": "cac617b98425c390db216aa4dd5f0a61aa3d4d9e902297a46ec3a29dc0baec20"
+        },
+        {
+          "addr": 9976832,
+          "end": 10219060,
+          "length": 242228,
+          "file_offset": 15546,
+          "sha256": "1bee081645c4e640f260090f36037fd48e4b958e43ac6e484079e85788b9e5b8"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 215047,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967348,
+          "length": 5876,
+          "file_offset": 8,
+          "sha256": "ec0e3ee4b071e00c4d44380cbbc6992b59ad854156a6f7a79e7fc4de0e825867"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246464,
+          "length": 7104,
+          "file_offset": 5774,
+          "sha256": "21fff23b8bb728c4ae935e92b23897c8b4d16da01f347854e10e9413b39182c6"
+        },
+        {
+          "addr": 4246464,
+          "end": 4257328,
+          "length": 10864,
+          "file_offset": 9957,
+          "sha256": "cac617b98425c390db216aa4dd5f0a61aa3d4d9e902297a46ec3a29dc0baec20"
+        },
+        {
+          "addr": 9976832,
+          "end": 10219060,
+          "length": 242228,
+          "file_offset": 15547,
+          "sha256": "9b2a3fbf86673857701c435520c9e5797731fb8bafa1024638f4d02ce36245c6"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 219162,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967348,
+          "length": 5876,
+          "file_offset": 8,
+          "sha256": "ec0e3ee4b071e00c4d44380cbbc6992b59ad854156a6f7a79e7fc4de0e825867"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246464,
+          "length": 7104,
+          "file_offset": 5774,
+          "sha256": "8cd0889a06d666f4c997f25eae35bfdd0aa8cb4a7ca6d8d50f4374ecfad0d14b"
+        },
+        {
+          "addr": 4246464,
+          "end": 4257328,
+          "length": 10864,
+          "file_offset": 9811,
+          "sha256": "cac617b98425c390db216aa4dd5f0a61aa3d4d9e902297a46ec3a29dc0baec20"
+        },
+        {
+          "addr": 9976832,
+          "end": 10219060,
+          "length": 242228,
+          "file_offset": 15401,
+          "sha256": "1bee081645c4e640f260090f36037fd48e4b958e43ac6e484079e85788b9e5b8"
+        }
+      ]
+    },
+    {
+      "start": 0,
+      "ok": true,
+      "failures": [],
+      "checks": {
+        "magic": true,
+        "flags_field_present": true,
+        "flags_supported": true,
+        "begin_sentinel_once": true,
+        "end_sentinel_once": true,
+        "no_trailing_garbage": true,
+        "exact_eof": true,
+        "segments_disjoint": true,
+        "segments_ascending_in_file": false,
+        "segments_unique": true,
+        "ended_with_sentinel": true
+      },
+      "flags": 1,
+      "entry_point": 9976832,
+      "container_end": 215046,
+      "trailing_bytes": 0,
+      "trailing_padding": 0,
+      "inter_container_gap": null,
+      "inter_container_gap_hex": "",
+      "wrapper_embedded": 0,
+      "next_container_at": null,
+      "file_offset": 0,
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "segments": [
+        {
+          "addr": 9961472,
+          "end": 9967348,
+          "length": 5876,
+          "file_offset": 8,
+          "sha256": "ec0e3ee4b071e00c4d44380cbbc6992b59ad854156a6f7a79e7fc4de0e825867"
+        },
+        {
+          "addr": 4239360,
+          "end": 4246464,
+          "length": 7104,
+          "file_offset": 5774,
+          "sha256": "40bf92b9503bba887bed53885615ee8ea966e5bf0af1ba8c74badf799adb7964"
+        },
+        {
+          "addr": 4246464,
+          "end": 4257328,
+          "length": 10864,
+          "file_offset": 9956,
+          "sha256": "cac617b98425c390db216aa4dd5f0a61aa3d4d9e902297a46ec3a29dc0baec20"
+        },
+        {
+          "addr": 9976832,
+          "end": 10219060,
+          "length": 242228,
+          "file_offset": 15546,
+          "sha256": "9b2a3fbf86673857701c435520c9e5797731fb8bafa1024638f4d02ce36245c6"
+        }
+      ]
+    }
+  ],
+  "flags_census": {
+    "1": 35
+  },
+  "failures": [],
+  "patches": [
+    {
+      "file": "athwlan_AR9888v2_ptmp_ap_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 256665,
+      "sha256": "94e083cc0bcf7f6280252910c325359baba85e87915562e1ec13eb8dbc76c824",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 251839,
+      "sha256": "e2402d644fc85e595d9efca09c65281076d05f839e3f47a94b7e9f8b2c82b415",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 256508,
+      "sha256": "390d8f7f91630de339fbc195277c210a6f906a0ef860317b0e954f59d01a50e9",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 251838,
+      "sha256": "96a801e933c2ce8b5cb6d82eb5a5599e7f119d66eb0087b1c46363c6bc374d66",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_sta_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 238986,
+      "sha256": "ebedfd573c244016093c34771bc0f097e7cdc9b952ad19c53e4672b57b00b15c",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 234424,
+      "sha256": "821db9aaeb828c915dce86791e10a2522ff418e62a5260a6e7f243143686baf4",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 238825,
+      "sha256": "47ac5aeb1e79eaa5e3018fcfd4934657ef34277e93a49a300c4f82358291f2a1",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 234423,
+      "sha256": "12ae398642cde6b4799a01945a3ada0095014a92e6534b7619ab3e49a1c22a9e",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptp_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "bytes": 219307,
+      "sha256": "cdfbef792584a9792500293b0310ab0f016493c1de1504d4477600d2b98fa963",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "bytes": 215047,
+      "sha256": "16da76422bf15fcf188f44167f8ac87ad6077577982786e9eb782641eda7203d",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "bytes": 219162,
+      "sha256": "f9460a3d5a28134b7d4335b92d4d81e77dd62d4be8d17d805ac8633092683145",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    },
+    {
+      "file": "athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "bytes": 215046,
+      "sha256": "161315e4aad464b2f1f342c6a4e84b3651a69ae6bdca454470639f07863743fb",
+      "containers": 1,
+      "ok": 1,
+      "flags": [
+        1
+      ],
+      "segment_count": 4
+    }
+  ],
+  "ram_offset_correspondence": {
+    "receipt_present": 1,
+    "roles": {
+      "athwlan_AR9888v2_ptmp_ap_bin": {
+        "virtual_address": "0x40c39c",
+        "declared_offset": 5020,
+        "segments_containing": 35,
+        "matching_containers": 30,
+        "best": {
+          "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+          "container_start": 0,
+          "segment_addr": 4239360,
+          "offset_in_segment": 5020,
+          "declared_offset": 5020,
+          "offset_matches": true,
+          "fits": true
+        }
+      },
+      "athwlan_AR9888v2_ptmp_sta_bin": {
+        "virtual_address": "0x40c37c",
+        "declared_offset": 4988,
+        "segments_containing": 35,
+        "matching_containers": 30,
+        "best": {
+          "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+          "container_start": 0,
+          "segment_addr": 4239360,
+          "offset_in_segment": 4988,
+          "declared_offset": 4988,
+          "offset_matches": true,
+          "fits": true
+        }
+      },
+      "athwlan_AR9888v2_ptp_bin": {
+        "virtual_address": "0x40c460",
+        "declared_offset": 5216,
+        "segments_containing": 35,
+        "matching_containers": 30,
+        "best": {
+          "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+          "container_start": 0,
+          "segment_addr": 4239360,
+          "offset_in_segment": 5216,
+          "declared_offset": 5216,
+          "offset_matches": true,
+          "fits": true
+        }
+      }
+    },
+    "matched": 3,
+    "total": 3
+  },
+  "summary": {
+    "files_scanned": 34,
+    "files_with_containers": 34,
+    "containers_found": 35,
+    "containers_ok": 35,
+    "containers_failed": 0,
+    "total_segments": 140,
+    "exact_eof_containers": 34,
+    "wrapper_embedded_containers": 1,
+    "flags_compressed": 35,
+    "flags_uncompressed": 0,
+    "flags_other": 0,
+    "failure_count": 0,
+    "patches_audited": 12,
+    "patches_ok": 12,
+    "ram_roles_checked": 3,
+    "ram_roles_matched": 3,
+    "fail_closed": 1
+  },
+  "gaps": [
+    "this audit proves container integrity, not that the target loader accepts the file: a self-consistent roundtrip is not equivalence with the device decoder",
+    "the corpus has no uncompressed container, so the file_flags 0 branch remains untested",
+    "container validity says nothing about whether the patched site is executed, which is the central A09 objection",
+    "no dmesg, no debugfs and no post-reload evidence was read by this stage",
+    "no dynamic validation"
+  ]
+}

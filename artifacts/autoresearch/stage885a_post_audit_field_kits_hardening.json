@@ -1,0 +1,110 @@
+{
+  "stage": "Stage 885A",
+  "title": "Post-audit field-kit hardening (WA v14/v15 + LTU v21) \u2014 A01/A02 remediation",
+  "timestamp": "2026-10-27T04:05:01.993920+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller (offline static audit)",
+  "live_devices_touched": false,
+  "evidence_class": "CONFIRMED_STATIC_SHELL_AUDIT",
+  "audit_findings_addressed": {
+    "A01": "fail-open success marker -> APPLIED_VERIFIED only after real readback; --apply gated; snapshot+rollback",
+    "A02": "fq_codel initial_quantum removed; strict contract quantum 1514 target 5ms interval 100ms flows 1024 ecn; no silent fq substitution"
+  },
+  "note": "Kits v14/v15/v21 did not exist at the audited snapshot; they were CREATED to the hardened v13 contract (v13 itself is owned by another lane and was not edited).",
+  "kits": [
+    {
+      "kit": "fmx_wa_v14_356window_field_kit.sh",
+      "path": "firmware/openwrt/common/fmx_wa_v14_356window_field_kit.sh",
+      "exists": true,
+      "sha256": "00027f524a47c487cc4a02ebf93ce23b2a8af3a339a74c87318e2071b6a2e6ad",
+      "lines": 130,
+      "hardening_checks": {
+        "set_eu": true,
+        "dry_run_default": true,
+        "apply_gate": true,
+        "has_verify": true,
+        "has_rollback": true,
+        "snapshot_to_tmp": true,
+        "no_or_true": true,
+        "no_initial_quantum_in_apply": true,
+        "guards_against_initial_quantum": true,
+        "fq_codel_contract": true,
+        "success_only_after_verify": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "kit": "fmx_wa_v15_368window_field_kit.sh",
+      "path": "firmware/openwrt/common/fmx_wa_v15_368window_field_kit.sh",
+      "exists": true,
+      "sha256": "c2562a896dce57aa083c0861ecd80d6917bf40f7ee422382db4456219fe69aca",
+      "lines": 130,
+      "hardening_checks": {
+        "set_eu": true,
+        "dry_run_default": true,
+        "apply_gate": true,
+        "has_verify": true,
+        "has_rollback": true,
+        "snapshot_to_tmp": true,
+        "no_or_true": true,
+        "no_initial_quantum_in_apply": true,
+        "guards_against_initial_quantum": true,
+        "fq_codel_contract": true,
+        "success_only_after_verify": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "kit": "fmx_ltu_v21_276window_field_kit.sh",
+      "path": "firmware/openwrt/common/fmx_ltu_v21_276window_field_kit.sh",
+      "exists": true,
+      "sha256": "21c2a01e9ced3622fd8dbf350d55b15d76a1884a1d22b448658f2a9de13d7c43",
+      "lines": 111,
+      "hardening_checks": {
+        "set_eu": true,
+        "dry_run_default": true,
+        "apply_gate": true,
+        "has_verify": true,
+        "has_rollback": true,
+        "snapshot_to_tmp": true,
+        "no_or_true": true,
+        "no_initial_quantum_in_apply": true,
+        "guards_against_initial_quantum": true,
+        "fq_codel_contract": true,
+        "success_only_after_verify": true
+      },
+      "all_checks_pass": true
+    }
+  ],
+  "all_kits_hardened": true,
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json"
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py"
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "offline_safety_boundary": true,
+      "live_devices_touched": false
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "scientific-critical-thinking",
+        "statistical-analysis"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S885A-01"
+      ]
+    }
+  },
+  "pillar_e_memory_master_claim_id": "FMX-STAGE885A-FIELD-KIT-HARDENING"
+}

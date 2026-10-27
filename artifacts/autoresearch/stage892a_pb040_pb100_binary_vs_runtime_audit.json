@@ -1,0 +1,453 @@
+{
+  "meta": {
+    "stage": "892A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/qca988x/audit_stage892a_pb040_to_pb100_binary_vs_runtime.py",
+    "tool_sha256": "cc09cac03c8f5b858d3142214dc3c0e8ab872b6fa2f794c7c9f62ce2f0152702",
+    "output": "artifacts/autoresearch/stage892a_pb040_pb100_binary_vs_runtime_audit.json",
+    "audit_reference": "artifacts/chatgpt_audit_1afaeb7/AUDITORIA_2026-10-27.md section A09",
+    "scope": "offline static; reads receipts and the Stage 891A audit; no firmware written, no flash touched, no radio contacted",
+    "method": "three-column matrix per gate: container provenance from Stage 891A, target presence from explicit readback markers, site execution from dmesg or debugfs witnesses; absence is recorded rather than inferred",
+    "premise_corrections": [
+      "a loaded image with a matching hash and a healthy ping is compatible with the patched code path never being taken, so presence is not execution",
+      "the corpus contains no dmesg evidence at all between Stage 500A and Stage 878A"
+    ],
+    "radio_safety": "static only"
+  },
+  "gates": [
+    {
+      "gate": "PB-040",
+      "static_proven": 1,
+      "static_carriers": [
+        "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin"
+      ],
+      "live_receipts": [
+        "stage511a_cumulative_56round_228window_wa_champion_v9.json",
+        "stage512a_live_wa_228window_v9_gate_receipt.json",
+        "stage569a_cumulative_63round_256window_wa_champion_v10.json",
+        "stage585a_live_pbe5ac_pb040_pb050_silicon_reg_proof.json",
+        "stage633a_cumulative_70round_284window_wa_champion_v11.json",
+        "stage679a_cumulative_77round_316window_wa_champion_v12.json"
+      ],
+      "on_target_present": 1,
+      "register_readback": 1,
+      "post_reload_ping": 1,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-050",
+      "static_proven": 1,
+      "static_carriers": [
+        "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin"
+      ],
+      "live_receipts": [
+        "stage511a_cumulative_56round_228window_wa_champion_v9.json",
+        "stage512a_live_wa_228window_v9_gate_receipt.json",
+        "stage569a_cumulative_63round_256window_wa_champion_v10.json",
+        "stage570a_live_wa_256window_v10_gate_receipt.json",
+        "stage585a_live_pbe5ac_pb040_pb050_silicon_reg_proof.json",
+        "stage633a_cumulative_70round_284window_wa_champion_v11.json"
+      ],
+      "on_target_present": 1,
+      "register_readback": 1,
+      "post_reload_ping": 1,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-060",
+      "static_proven": 1,
+      "static_carriers": [
+        "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+        "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin"
+      ],
+      "live_receipts": [
+        "stage679a_cumulative_77round_316window_wa_champion_v12.json",
+        "stage680a_live_wa_316window_v12_gate_receipt.json",
+        "stage759a_cumulative_84round_344window_wa_champion_v13.json"
+      ],
+      "on_target_present": 0,
+      "register_readback": 0,
+      "post_reload_ping": 0,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-070",
+      "static_proven": 0,
+      "static_carriers": [],
+      "live_receipts": [],
+      "on_target_present": 0,
+      "register_readback": 0,
+      "post_reload_ping": 0,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-080",
+      "static_proven": 0,
+      "static_carriers": [],
+      "live_receipts": [],
+      "on_target_present": 0,
+      "register_readback": 0,
+      "post_reload_ping": 0,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-090",
+      "static_proven": 0,
+      "static_carriers": [],
+      "live_receipts": [],
+      "on_target_present": 0,
+      "register_readback": 0,
+      "post_reload_ping": 0,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    },
+    {
+      "gate": "PB-100",
+      "static_proven": 0,
+      "static_carriers": [],
+      "live_receipts": [],
+      "on_target_present": 0,
+      "register_readback": 0,
+      "post_reload_ping": 0,
+      "site_execution_proven": 0,
+      "runtime_proven": 0,
+      "pending_reason": "static container provenance does not prove execution: no dmesg and no debugfs counter were captured after reloading caldata and board-2.bin on a live target, so the effect of this gate on air behaviour is unproven"
+    }
+  ],
+  "carriers": [
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/OpenWrt_10.1.467-ct_IE3_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/WA.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_ap_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptmp_sta_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/kits/stage817a/XC.v8.7.25_ptp_pb040_pb050_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040",
+        "PB-050",
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/OpenWrt_10.1.467-ct_IE3_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/WA.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_ap_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptmp_sta_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage474a_pb050/XC.v8.7.25_ptp_pb050_rc_probe_dampen.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-050"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/OpenWrt_10.1.467-ct_IE3_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/WA.v8.7.25_ptp_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_ap_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptmp_sta_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "artifacts/autoresearch/xtensa_ram_patch_poc/stage650a_pb060/XC.v8.7.25_ptp_pb060.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-060"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_ap_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptmp_sta_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-ALL3-COMBINED.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CANARY-RODATA.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-CCA-AGC-OVERRIDE.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    },
+    {
+      "file": "firmware/openwrt/xtensa_ram_patches_stage347a/athwlan_AR9888v2_ptp_bin.PB040-SUB20MHZ-PLL-DIV.sgmt.bin",
+      "ok": 1,
+      "segments": 4,
+      "gates": [
+        "PB-040"
+      ]
+    }
+  ],
+  "evidence_census": {
+    "dmesg": 0,
+    "debugfs": 6,
+    "post_reload": 2,
+    "receipts": 333
+  },
+  "summary": {
+    "gates": 7,
+    "gates_static_proven": 3,
+    "gates_on_target_present": 2,
+    "gates_register_readback": 2,
+    "gates_post_reload_ping": 2,
+    "gates_site_execution_proven": 0,
+    "gates_runtime_proven": 0,
+    "gates_pending": 7,
+    "dmesg_receipts": 0,
+    "debugfs_receipts": 6,
+    "post_reload_receipts": 2,
+    "receipts_scanned": 333,
+    "containers_audited": 35,
+    "explicit_pending_statement": 1
+  },
+  "gaps": [
+    "site execution is unproven for every gate: no dmesg and no debugfs witness exists in the 500A to 878A range",
+    "PB-060 is carried by the kit images but has no live readback record",
+    "PB-070, PB-080, PB-090 and PB-100 have no static carrier at all, so two of the three columns are empty for them",
+    "a matching register value proves the patched image is loaded, not that the changed instruction executed",
+    "restoration after the live test was not re-verified by this stage",
+    "no dynamic validation"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "stage": "Stage 889A",
+  "title": "Statistical Power & Hold-Out Resolution Protocol (A07 remediation)",
+  "timestamp": "2026-10-27T04:09:15.194130+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller (offline arithmetic)",
+  "live_devices_touched": false,
+  "evidence_class": "DERIVED_ARITHMETIC",
+  "constants": {
+    "base_alpha": 0.05,
+    "exact_enum_cap_pairs": 14,
+    "perm_default": 4096
+  },
+  "resolution_table": [
+    {
+      "num_hypotheses": 1,
+      "sidak_alpha": 0.05,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 1,
+      "sidak_alpha": 0.05,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 1,
+      "sidak_alpha": 0.05,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 1,
+      "sidak_alpha": 0.05,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 10,
+      "sidak_alpha": 0.0051162,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 10,
+      "sidak_alpha": 0.0051162,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 10,
+      "sidak_alpha": 0.0051162,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 10,
+      "sidak_alpha": 0.0051162,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 50,
+      "sidak_alpha": 0.00102534,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 50,
+      "sidak_alpha": 0.00102534,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 50,
+      "sidak_alpha": 0.00102534,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 50,
+      "sidak_alpha": 0.00102534,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 100,
+      "sidak_alpha": 0.0005128,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 100,
+      "sidak_alpha": 0.0005128,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 100,
+      "sidak_alpha": 0.0005128,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 100,
+      "sidak_alpha": 0.0005128,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": true
+    },
+    {
+      "num_hypotheses": 500,
+      "sidak_alpha": 0.00010258,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 500,
+      "sidak_alpha": 0.00010258,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 500,
+      "sidak_alpha": 0.00010258,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 500,
+      "sidak_alpha": 0.00010258,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 1000,
+      "sidak_alpha": 5.129e-05,
+      "n_pairs": 8,
+      "min_achievable_p": 0.0078125,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 1000,
+      "sidak_alpha": 5.129e-05,
+      "n_pairs": 12,
+      "min_achievable_p": 0.00048828,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 1000,
+      "sidak_alpha": 5.129e-05,
+      "n_pairs": 14,
+      "min_achievable_p": 0.00012207,
+      "method": "exact_enum",
+      "can_ever_reject": false
+    },
+    {
+      "num_hypotheses": 1000,
+      "sidak_alpha": 5.129e-05,
+      "n_pairs": 20,
+      "min_achievable_p": 0.00024408,
+      "method": "perm_4096",
+      "can_ever_reject": false
+    }
+  ],
+  "headline_case_n500": {
+    "num_hypotheses": 500,
+    "sidak_alpha": 0.00010258,
+    "min_p_exact_14_pairs": 0.00012207,
+    "min_p_perm_4096": 0.00024408,
+    "verdict": "UNDER_POWERED: both minimum achievable p-values exceed the corrected alpha; no effect can pass"
+  },
+  "protocol": {
+    "pre_registration": "choose the contract (LATENCY_WITH_CAPACITY_NONINFERIORITY, CAPACITY_WITH_QOE_CONSTRAINTS, ROBUSTNESS, CAPABILITY_DISCOVERY) BEFORE the trial",
+    "power_check_first": "verify min_achievable_p <= corrected alpha for the planned n_pairs and N before acquiring",
+    "no_alpha_inflation": "never raise alpha to make a candidate pass; increase n_pairs or reduce hypothesis count instead",
+    "holdout_identity": "confirmation holdout must be identity-disjoint (ids + raw hashes) from discovery (see Stage 886A)",
+    "sequential_budget": "track attempts and hypothesis revisions against a persistent family-wise budget; Sidak one-step is NOT a sequential budget"
+  },
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json"
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py"
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "offline_safety_boundary": true,
+      "live_devices_touched": false
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "statistical-analysis",
+        "scientific-critical-thinking"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S889A-01"
+      ]
+    }
+  },
+  "pillar_e_memory_master_claim_id": "FMX-STAGE889A-POWER-AND-HOLDOUT"
+}

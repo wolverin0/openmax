@@ -1,0 +1,596 @@
+{
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "post_audit_reclassified_at": null,
+  "preserved_raw_sha256": null,
+  "meta": {
+    "stage": "901A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/verify/remediate_stage901a_undeclared_provenance_receipts.py",
+    "tool_sha256": "361a70307061619c78026a199ae7b1423e84f49a125ae519f0d12dd48e1b2091",
+    "output": "artifacts/autoresearch/stage901a_provenance_remediation_receipt.json",
+    "source_of_target_list": "artifacts/autoresearch/stage895a_ko_module_claims_truth_table.json",
+    "audit_reference": "artifacts/chatgpt_audit_1afaeb7/AUDITORIA_2026-10-27.md section A10",
+    "scope": "edits JSON receipts in place; no binary written, no firmware touched, no radio contacted",
+    "method": "curated per-receipt determination with a verified citation, textual insertion of four fields, then sha256 of the file minus the inserted span compared to the original digest",
+    "label_caveat": "SIMULATED_MODEL_ONLY means no primary measurement and no binary evidence, which is narrower than a simulation",
+    "premise_corrections": [
+      "a pattern engine over nested keys produced thirteen false positives: safety.zero_jargon_verified and five_pillar_compliance blocks are not hardware evidence",
+      "live_devices_touched is False on receipts whose filenames say live and whose payloads hold iw dev excerpts, so the field is not usable as evidence"
+    ],
+    "radio_safety": "static only"
+  },
+  "fields_added": [
+    "evidence_provenance_class",
+    "post_audit_reclassified_at",
+    "preserved_raw_sha256",
+    "post_audit_remediation_source"
+  ],
+  "curation": {
+    "stage514a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "vht40_unlock_breakthrough",
+      "basis": "STA vht80 capability unlock verified with vht40 association and aggregate Mbps"
+    },
+    "stage531a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "10.10.100.82",
+      "basis": "receipt is keyed by device address: per-panel station-list cache"
+    },
+    "stage546a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "stage544a_re_integration",
+      "basis": "ame_core and ame_dev ko hashes plus dpd and evm symbol inventories"
+    },
+    "stage549a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "installer_artifact",
+      "basis": "installer artefact with its own sha256 and supported board list"
+    },
+    "stage584a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "vht80_iw_dev_excerpt",
+      "basis": "iw dev excerpt, 80 MHz association state and post-restore ping"
+    },
+    "stage594a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "stage456a_grounding",
+      "basis": "EVM alerter false-positive and false-negative rates over measured RSSI gaps"
+    },
+    "stage595a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "live_window_audit",
+      "basis": "counterbalanced live window counters per radio family"
+    },
+    "stage620a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "slice_telemetry",
+      "basis": "slot-guard slice telemetry captured from the running scheduler"
+    },
+    "stage644a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "stage532a_athstats_audit",
+      "basis": "athstats struct size and field inventory, no measurement"
+    },
+    "stage649a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "wal_vdev_set_param_comparison",
+      "basis": "wal vdev set param structure comparison on the 8.7.25 binary"
+    },
+    "stage650a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "patch_profile",
+      "basis": "PB-060 patch profile with patched image count, no runtime result"
+    },
+    "stage651a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "claim_label",
+      "basis": "LTU 4096-QAM LDPC and phase-noise tracker analysed from the module"
+    },
+    "stage652a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "claim_label",
+      "basis": "XW ath_dev mixed-mode TDMA translator analysed from the module"
+    },
+    "stage664a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "engine_version",
+      "basis": "observability engine definition: detector rules, no measurement and no binary"
+    },
+    "stage665a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "cumulative_windows_summary",
+      "basis": "cumulative live window counters behind the showcase claims"
+    },
+    "stage698a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "binaries",
+      "basis": "release package inventory with verified binary digests"
+    },
+    "stage699a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "silicon_patch_verification",
+      "basis": "ap_241_verified plus pb050 sha256 readback on the live pair"
+    },
+    "stage700a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "receipt_audit",
+      "basis": "gate receipt over a live PTP run, audited receipt by receipt"
+    },
+    "stage702a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "sectors",
+      "basis": "per-panel alignment playbook: procedure and priorities, no measurement"
+    },
+    "stage703a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "headline_multipliers",
+      "basis": "executive rollout matrix restating champion multipliers"
+    },
+    "stage704a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "reddit_tester_release",
+      "basis": "public release and disclosure update, no measurement of its own"
+    },
+    "stage718a": {
+      "label": "CONFIRMED_STATIC_BINARY",
+      "citation": "ce_ring_topology",
+      "basis": "PCIe copy-engine ring topology analysed from the firmware interface"
+    },
+    "stage744a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "v8_detectors",
+      "basis": "observability engine v8 detector definitions, spectral and thermal"
+    },
+    "stage745a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "live_window_summary",
+      "basis": "live window counters behind the v8 showcase claims"
+    },
+    "stage776a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "v9_detectors",
+      "basis": "observability engine v9 detector definitions including rogue DHCP"
+    },
+    "stage820a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "boundary",
+      "basis": "boundary block declares new_live_windows for the progress matrix"
+    },
+    "stage840a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "kpis",
+      "basis": "executive KPI dashboard over measured PTP throughput"
+    },
+    "stage841a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "method",
+      "basis": "statistical confidence ledger computed over reported windows"
+    },
+    "stage864a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "air_magic_scan_triggered",
+      "basis": "airView scan triggered on the panel, with acceptance and blocker record"
+    },
+    "stage870a": {
+      "label": "SIMULATED_MODEL_ONLY",
+      "citation": "one_liners",
+      "basis": "human one-line summary artefact, no measurement"
+    },
+    "stage872a": {
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "offline_audit",
+      "basis": "gate receipt for a live stage, carrying its offline audit block"
+    }
+  },
+  "targets": [
+    "stage514a_pbe5ac_triple_play_and_vht40_telemetry_exporter.json",
+    "stage531a_panel2_panel3_wstalist_cache.json",
+    "stage546a_ltu_tx_power_lut_dpd_and_super4096_helper.json",
+    "stage549a_pbe5ac_lbe5ac_ptp_ptmp_unified_field_installer_v3.json",
+    "stage584a_live_pbe5ac_vht80_clean_assoc_and_qpsk_sweep.json",
+    "stage594a_guarida_sosa_joaquin_and_34endpoint_evm_alerter.json",
+    "stage595a_600stage_pre_milestone_readiness_audit.json",
+    "stage620a_guarida_panel2_39us_slot_guard_and_requeue_alerter.json",
+    "stage644a_zero_fp_observability_engine_v5_25field_athstats.json",
+    "stage649a_xtensa_wal_vdev_params_and_struct_re.json",
+    "stage650a_pb060_xtensa_txop_and_tid_sched_sgmt_patch.json",
+    "stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re.json",
+    "stage652a_xw_ath_dev_mixed_mode_tdma_translator_re.json",
+    "stage664a_zero_fp_observability_engine_v6_slot_guard_auditor.json",
+    "stage665a_public_tester_showcase_and_rfc_v7.json",
+    "stage698a_pbe5ac_lbe5ac_tester_release_package_v4.json",
+    "stage699a_pbe5ac_ptp_complete_evolution_ledger_v4.json",
+    "stage700a_live_pbe5ac_ptp_v4_gate_receipt.json",
+    "stage702a_guarida_panel2_panel3_67_33_and_evm_playbook.json",
+    "stage703a_executive_human_summary_and_rollout_matrix.json",
+    "stage704a_reddit_tester_release_and_hackerone_update.json",
+    "stage718a_zero_fp_observability_engine_v7_pcie_ce_auditor.json",
+    "stage744a_zero_fp_observability_engine_v8_spectral_and_thermal.json",
+    "stage745a_public_tester_showcase_and_rfc_v8.json",
+    "stage776a_zero_fp_observability_engine_v9_rogue_dhcp_detector.json",
+    "stage820a_executive_1line_progress_and_tester_matrix_v10.json",
+    "stage840a_wisp_executive_kpi_dashboard_summary.json",
+    "stage841a_1020window_statistical_confidence_ledger.json",
+    "stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.json",
+    "stage870a_executive_human_one_liner_v12.json",
+    "stage872a_live_v15_gate_receipt.json"
+  ],
+  "rows": [
+    {
+      "receipt": "stage514a_pbe5ac_triple_play_and_vht40_telemetry_exporter.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "vht40_unlock_breakthrough",
+      "provenance_basis": "STA vht80 capability unlock verified with vht40 association and aggregate Mbps",
+      "preserved_raw_sha256": "d5240966e74cd4a2e6a1b8e6d17b898235f52340ca00a04b20f65c0d82393b3e",
+      "raw_sha256_before": "d5240966e74cd4a2e6a1b8e6d17b898235f52340ca00a04b20f65c0d82393b3e",
+      "raw_sha256_after": "b87077f3aa7d3fadbd3ca513ec36a4465dba2222e0d599ceb513fe58cda6c662",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage531a_panel2_panel3_wstalist_cache.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "10.10.100.82",
+      "provenance_basis": "receipt is keyed by device address: per-panel station-list cache",
+      "preserved_raw_sha256": "95b6cacc1bbbbe4f263ffbb582df48246b0fc900621eb43aa7e1abdf93384b72",
+      "raw_sha256_before": "95b6cacc1bbbbe4f263ffbb582df48246b0fc900621eb43aa7e1abdf93384b72",
+      "raw_sha256_after": "b6203401964ba6960b6d897df95ee82d2c72cef907429bc2a12d62c9f577002a",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage546a_ltu_tx_power_lut_dpd_and_super4096_helper.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "stage544a_re_integration",
+      "provenance_basis": "ame_core and ame_dev ko hashes plus dpd and evm symbol inventories",
+      "preserved_raw_sha256": "6cd3abed4ce44e0de557b4d9bf9b26b088b291480e9e078b66d1e65039011cfd",
+      "raw_sha256_before": "6cd3abed4ce44e0de557b4d9bf9b26b088b291480e9e078b66d1e65039011cfd",
+      "raw_sha256_after": "7c3ab2a16b31ecd2e7a8febf1e4df7fa566b70f8f3226bb6282608cd425b0956",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage549a_pbe5ac_lbe5ac_ptp_ptmp_unified_field_installer_v3.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "installer_artifact",
+      "provenance_basis": "installer artefact with its own sha256 and supported board list",
+      "preserved_raw_sha256": "c6b6f432326b9d1d46c5d325275a375bfb88b26c9c8c364f658f57230939f025",
+      "raw_sha256_before": "c6b6f432326b9d1d46c5d325275a375bfb88b26c9c8c364f658f57230939f025",
+      "raw_sha256_after": "06f4e9f1f476295d1d73c4a50217719142df68d1cd529b26e238974aae06ec9b",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage584a_live_pbe5ac_vht80_clean_assoc_and_qpsk_sweep.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "vht80_iw_dev_excerpt",
+      "provenance_basis": "iw dev excerpt, 80 MHz association state and post-restore ping",
+      "preserved_raw_sha256": "4dcf178a75b4534958374ce29bc7ff41859421d03476e5e556f42b1f935e562c",
+      "raw_sha256_before": "4dcf178a75b4534958374ce29bc7ff41859421d03476e5e556f42b1f935e562c",
+      "raw_sha256_after": "dba0e93cec01fecbe6a6f65c7f426db26de06af39df5723fd860a53d6c761592",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage594a_guarida_sosa_joaquin_and_34endpoint_evm_alerter.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "stage456a_grounding",
+      "provenance_basis": "EVM alerter false-positive and false-negative rates over measured RSSI gaps",
+      "preserved_raw_sha256": "8842413b82e177fe7c2549f6f63f734e4cd2d20860c9579bbe481eae85411e31",
+      "raw_sha256_before": "8842413b82e177fe7c2549f6f63f734e4cd2d20860c9579bbe481eae85411e31",
+      "raw_sha256_after": "c35eebf780730fdda768b56d360f47498925d0d1b2a95ff7b611a27e87a49956",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage595a_600stage_pre_milestone_readiness_audit.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "live_window_audit",
+      "provenance_basis": "counterbalanced live window counters per radio family",
+      "preserved_raw_sha256": "e56ae17f24a11161e2df21cdb462c4ebaf4532ebe1b8f6b2200183992e7d89f6",
+      "raw_sha256_before": "e56ae17f24a11161e2df21cdb462c4ebaf4532ebe1b8f6b2200183992e7d89f6",
+      "raw_sha256_after": "05c69e8152e9d0a997e0353849b746d432bda3accb5f121b25b564910a904f0a",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage620a_guarida_panel2_39us_slot_guard_and_requeue_alerter.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "slice_telemetry",
+      "provenance_basis": "slot-guard slice telemetry captured from the running scheduler",
+      "preserved_raw_sha256": "4d0fb9fc9a6747add071f64c564d64d5b769dbce7ac2ab33a016a50686d747b3",
+      "raw_sha256_before": "4d0fb9fc9a6747add071f64c564d64d5b769dbce7ac2ab33a016a50686d747b3",
+      "raw_sha256_after": "52214517ddeddaa707cab8517cdde3c004db03d2e836ae8a442274bd2ce8833d",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage644a_zero_fp_observability_engine_v5_25field_athstats.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "stage532a_athstats_audit",
+      "provenance_basis": "athstats struct size and field inventory, no measurement",
+      "preserved_raw_sha256": "81d05e78f868e2be56e03eb18440473584578b5d16cbfc3f69c0ba750b93d3f9",
+      "raw_sha256_before": "81d05e78f868e2be56e03eb18440473584578b5d16cbfc3f69c0ba750b93d3f9",
+      "raw_sha256_after": "fc146ac3f2f470914e26148c4e49541a1a857a7f659360776465e1538be81d31",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage649a_xtensa_wal_vdev_params_and_struct_re.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "wal_vdev_set_param_comparison",
+      "provenance_basis": "wal vdev set param structure comparison on the 8.7.25 binary",
+      "preserved_raw_sha256": "57744f245cef56c151a6413b4c48cb13246b88177cc23cb42d3e9a0d86bc766c",
+      "raw_sha256_before": "57744f245cef56c151a6413b4c48cb13246b88177cc23cb42d3e9a0d86bc766c",
+      "raw_sha256_after": "d9ba9143962ab24d72cc84a6f9a5433f6f4e7aa3b2d0dd703ec87e6004328737",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage650a_pb060_xtensa_txop_and_tid_sched_sgmt_patch.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "patch_profile",
+      "provenance_basis": "PB-060 patch profile with patched image count, no runtime result",
+      "preserved_raw_sha256": "48303636138ed066c9da0dcd1c76b86d5884ad8e42f82d06336db412a6477b1e",
+      "raw_sha256_before": "48303636138ed066c9da0dcd1c76b86d5884ad8e42f82d06336db412a6477b1e",
+      "raw_sha256_after": "862297fcfb89440a9c84917893ce3ca7d7825dc0daddf032d90b063260c2a2bd",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage651a_ltu_4096qam_ldpc_and_phase_noise_tracker_re.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "claim_label",
+      "provenance_basis": "LTU 4096-QAM LDPC and phase-noise tracker analysed from the module",
+      "preserved_raw_sha256": "e22ea134ca6cfbf88c4c171e2666bdfb8a7e43e3426af5093f17d694822fc676",
+      "raw_sha256_before": "e22ea134ca6cfbf88c4c171e2666bdfb8a7e43e3426af5093f17d694822fc676",
+      "raw_sha256_after": "59e250880dfe7b7d598a1bd7eda64e0644e50cd1f3583f55d08ec8a967cf672f",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage652a_xw_ath_dev_mixed_mode_tdma_translator_re.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "claim_label",
+      "provenance_basis": "XW ath_dev mixed-mode TDMA translator analysed from the module",
+      "preserved_raw_sha256": "263ea4e8d9fa2755b085953891666dacb671bba07e48d211b524a769ab5980d8",
+      "raw_sha256_before": "263ea4e8d9fa2755b085953891666dacb671bba07e48d211b524a769ab5980d8",
+      "raw_sha256_after": "4286b5d480fbdb085780a1a98ddf28105e92c51cfd8967e293b269b0fa62e0fb",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage664a_zero_fp_observability_engine_v6_slot_guard_auditor.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "engine_version",
+      "provenance_basis": "observability engine definition: detector rules, no measurement and no binary",
+      "preserved_raw_sha256": "a7e17e33a9e3257ea8afedbbf97ea2111572c7daaae6ec192fdc804405af4791",
+      "raw_sha256_before": "a7e17e33a9e3257ea8afedbbf97ea2111572c7daaae6ec192fdc804405af4791",
+      "raw_sha256_after": "cfb1e575274e51e882b8037e992215e14ae281d5575b857c0814f25ea0fb8b7d",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage665a_public_tester_showcase_and_rfc_v7.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "cumulative_windows_summary",
+      "provenance_basis": "cumulative live window counters behind the showcase claims",
+      "preserved_raw_sha256": "04165d16688b7cf5286141b417f5812544bdfc0974ff40cbc05682e75669e732",
+      "raw_sha256_before": "04165d16688b7cf5286141b417f5812544bdfc0974ff40cbc05682e75669e732",
+      "raw_sha256_after": "397773fd0088c461e6f1d0030a9cfb8a429725c2e22f8914996d02a1df9224f3",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage698a_pbe5ac_lbe5ac_tester_release_package_v4.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "binaries",
+      "provenance_basis": "release package inventory with verified binary digests",
+      "preserved_raw_sha256": "7402447f0d3c86d37d6724d10f0d7cf9727dc28dc8527d17a006ffe6856dc844",
+      "raw_sha256_before": "7402447f0d3c86d37d6724d10f0d7cf9727dc28dc8527d17a006ffe6856dc844",
+      "raw_sha256_after": "ca70f61bc48f4518cf56d1a2823a4534b1880a713522b407e3c4cb60a46ac804",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage699a_pbe5ac_ptp_complete_evolution_ledger_v4.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "silicon_patch_verification",
+      "provenance_basis": "ap_241_verified plus pb050 sha256 readback on the live pair",
+      "preserved_raw_sha256": "44805bcd1c1867840ec98dd78837f07674ef0746311ee95da0b973a7bb3aff6f",
+      "raw_sha256_before": "44805bcd1c1867840ec98dd78837f07674ef0746311ee95da0b973a7bb3aff6f",
+      "raw_sha256_after": "b67b1310d45cd7c3e503cebc5ec735bdb25311a2d7d205ac06964a9f641d9511",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage700a_live_pbe5ac_ptp_v4_gate_receipt.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "receipt_audit",
+      "provenance_basis": "gate receipt over a live PTP run, audited receipt by receipt",
+      "preserved_raw_sha256": "58369a1732c00c09fb1a146197155455f339873185dece3883286f93063b5c4a",
+      "raw_sha256_before": "58369a1732c00c09fb1a146197155455f339873185dece3883286f93063b5c4a",
+      "raw_sha256_after": "38a49174449957fcd50ab518c86ca673269bdaeb893f50e8bbc3bd43cec9911d",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage702a_guarida_panel2_panel3_67_33_and_evm_playbook.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "sectors",
+      "provenance_basis": "per-panel alignment playbook: procedure and priorities, no measurement",
+      "preserved_raw_sha256": "08dca822135a9621d9c026edf9df387b182384d7b1beabde41dd21b65c3462c4",
+      "raw_sha256_before": "08dca822135a9621d9c026edf9df387b182384d7b1beabde41dd21b65c3462c4",
+      "raw_sha256_after": "6a751f2c575bcb9fba977869e9fe43fe5cbe1e3c143f41c3bbadb3e960e35091",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage703a_executive_human_summary_and_rollout_matrix.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "headline_multipliers",
+      "provenance_basis": "executive rollout matrix restating champion multipliers",
+      "preserved_raw_sha256": "40340390f4547d520df219b0876ebd31b5cb6de1808c2d0cddb27f4fd550aa7a",
+      "raw_sha256_before": "40340390f4547d520df219b0876ebd31b5cb6de1808c2d0cddb27f4fd550aa7a",
+      "raw_sha256_after": "83d629a2848b7f3b5f5a86cbcb89a45902f08b900fa7ba6ee567cad0647a6d3b",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage704a_reddit_tester_release_and_hackerone_update.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "reddit_tester_release",
+      "provenance_basis": "public release and disclosure update, no measurement of its own",
+      "preserved_raw_sha256": "d79018be6af7ceb34c1c140e1eb67326e50bd7367488fe40b0b3637640fa4cdf",
+      "raw_sha256_before": "d79018be6af7ceb34c1c140e1eb67326e50bd7367488fe40b0b3637640fa4cdf",
+      "raw_sha256_after": "f33dfecee899942793843578c5ac1f0ad28186edbce62767fde3bbdb88e8f5cf",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage718a_zero_fp_observability_engine_v7_pcie_ce_auditor.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+      "citation": "ce_ring_topology",
+      "provenance_basis": "PCIe copy-engine ring topology analysed from the firmware interface",
+      "preserved_raw_sha256": "49c54de346a05a541315c2a11af89bc39bc3702404722481f2793adf772f4ff6",
+      "raw_sha256_before": "49c54de346a05a541315c2a11af89bc39bc3702404722481f2793adf772f4ff6",
+      "raw_sha256_after": "5ff3ba578f0bfeac06e9f912df4bd373e5e770a808134e1884025bfde01205ea",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage744a_zero_fp_observability_engine_v8_spectral_and_thermal.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "v8_detectors",
+      "provenance_basis": "observability engine v8 detector definitions, spectral and thermal",
+      "preserved_raw_sha256": "00a173ceb09cbbd6cc3222d332a9e5098b617ce331b955f44d33edeeecb3886d",
+      "raw_sha256_before": "00a173ceb09cbbd6cc3222d332a9e5098b617ce331b955f44d33edeeecb3886d",
+      "raw_sha256_after": "f97165487f8246d1000122ef5694a03c833a8f91a294a1838178685dfabe2c6a",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage745a_public_tester_showcase_and_rfc_v8.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "live_window_summary",
+      "provenance_basis": "live window counters behind the v8 showcase claims",
+      "preserved_raw_sha256": "91ed2b9d0d7362c8771d60a38dfdcf41c6a1d5e73b94659a71083926c85315b6",
+      "raw_sha256_before": "91ed2b9d0d7362c8771d60a38dfdcf41c6a1d5e73b94659a71083926c85315b6",
+      "raw_sha256_after": "c006d3098d4026fd228b9708a0515fa645c361968e67abff52974383d6871b37",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage776a_zero_fp_observability_engine_v9_rogue_dhcp_detector.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "v9_detectors",
+      "provenance_basis": "observability engine v9 detector definitions including rogue DHCP",
+      "preserved_raw_sha256": "cdff692a5b2764042a65467dade6890e2ee742e8be78ac19ef51bf637935375c",
+      "raw_sha256_before": "cdff692a5b2764042a65467dade6890e2ee742e8be78ac19ef51bf637935375c",
+      "raw_sha256_after": "e422870659d92f2916a0c9b40ab2078cea556a02cc5afbb284017dcab8546491",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage820a_executive_1line_progress_and_tester_matrix_v10.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "boundary",
+      "provenance_basis": "boundary block declares new_live_windows for the progress matrix",
+      "preserved_raw_sha256": "c91fa8be5892e07bd3560cda01cd5d516cc4506361333333bc9ab5fcf8e1a83b",
+      "raw_sha256_before": "c91fa8be5892e07bd3560cda01cd5d516cc4506361333333bc9ab5fcf8e1a83b",
+      "raw_sha256_after": "2d59d7f240533a4a8cac1db9c5e65beb663c96de4465607b81d4258e1a7e9e28",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage840a_wisp_executive_kpi_dashboard_summary.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "kpis",
+      "provenance_basis": "executive KPI dashboard over measured PTP throughput",
+      "preserved_raw_sha256": "02cf1c7ad7d6065dc1ebb274a30f58555df3b1ad3d9f19170d761ddf01f84e4e",
+      "raw_sha256_before": "02cf1c7ad7d6065dc1ebb274a30f58555df3b1ad3d9f19170d761ddf01f84e4e",
+      "raw_sha256_after": "a0dc91cea52f097f468cca2f3fb83106d833538528e710c9e0dbdba9a6aedcd9",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage841a_1020window_statistical_confidence_ledger.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "method",
+      "provenance_basis": "statistical confidence ledger computed over reported windows",
+      "preserved_raw_sha256": "9ccf1bbf7fe8f8d78e51e40778d447f23c1185447072f0eb7042f24ba009494e",
+      "raw_sha256_before": "9ccf1bbf7fe8f8d78e51e40778d447f23c1185447072f0eb7042f24ba009494e",
+      "raw_sha256_after": "793aa4ef42d37fb00cb4becbc465e7f3083ef3347d877adeb50e61782ff640a4",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "air_magic_scan_triggered",
+      "provenance_basis": "airView scan triggered on the panel, with acceptance and blocker record",
+      "preserved_raw_sha256": "3e590fc65e6fa7b80b5959ab1f75d19947b14e84d4d11c55fbb22409cf5bd88e",
+      "raw_sha256_before": "3e590fc65e6fa7b80b5959ab1f75d19947b14e84d4d11c55fbb22409cf5bd88e",
+      "raw_sha256_after": "424764700d3b48b3870986a9e50b86b0cce0c5360909ab73586d0d651b31bf6b",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage870a_executive_human_one_liner_v12.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "SIMULATED_MODEL_ONLY",
+      "citation": "one_liners",
+      "provenance_basis": "human one-line summary artefact, no measurement",
+      "preserved_raw_sha256": "fdb085f00e26475627516ac3d0655267ab82ec8bcc01a139f6e45ca38be9011f",
+      "raw_sha256_before": "fdb085f00e26475627516ac3d0655267ab82ec8bcc01a139f6e45ca38be9011f",
+      "raw_sha256_after": "bbf5cfef0f3c2790bca8eb6c8fea5ec11c4f1668fdb31509294ace3628d35ec1",
+      "restoration_verified": 1
+    },
+    {
+      "receipt": "stage872a_live_v15_gate_receipt.json",
+      "status": "already_correct",
+      "evidence_provenance_class": "CONFIRMED_LIVE_HARDWARE",
+      "citation": "offline_audit",
+      "provenance_basis": "gate receipt for a live stage, carrying its offline audit block",
+      "preserved_raw_sha256": "26e2407e96c50cb1e62627f2097d835f8fd9ece5d5799376d7c5d6d9721eb9af",
+      "raw_sha256_before": "26e2407e96c50cb1e62627f2097d835f8fd9ece5d5799376d7c5d6d9721eb9af",
+      "raw_sha256_after": "ad1c0a9c0e01e3631692cf85befa29e9502f01cb3ab9d8aee4d0243db54a8678",
+      "restoration_verified": 1
+    }
+  ],
+  "counts": {
+    "CONFIRMED_LIVE_HARDWARE": 14,
+    "CONFIRMED_STATIC_BINARY": 9,
+    "SIMULATED_MODEL_ONLY": 8
+  },
+  "summary": {
+    "targets": 31,
+    "discovery": {
+      "flagged_by_stage895a": 0,
+      "discovered_by_marker": 31,
+      "union": 31
+    },
+    "remediated": 0,
+    "remediated_this_run": 0,
+    "remediated_total": 31,
+    "repaired": 0,
+    "repaired_this_run": 0,
+    "already_correct": 31,
+    "failed": 0,
+    "live_hardware": 14,
+    "static_binary": 9,
+    "simulated_model": 8,
+    "ambiguous_remaining": 0,
+    "restoration_verified_all": 1,
+    "idempotent_rerun": 1,
+    "zero_ambiguous": 1
+  },
+  "gaps": [
+    "the class records the strongest evidence the receipt contains, not the correctness of its conclusions",
+    "the third label is narrowed to mean no measurement and no binary evidence",
+    "a prose receipt is classified by the evidence it cites, which is weaker than an embedded readback",
+    "curation covers exactly these 31 receipts; a new undeclared receipt needs a new entry",
+    "no dynamic validation"
+  ]
+}

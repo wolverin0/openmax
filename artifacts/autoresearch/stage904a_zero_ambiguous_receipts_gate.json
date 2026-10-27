@@ -1,0 +1,243 @@
+{
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "post_audit_reclassified_at": null,
+  "preserved_raw_sha256": null,
+  "meta": {
+    "stage": "904A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/verify/gate_stage904a_zero_ambiguous_receipts.py",
+    "tool_sha256": "932c056dedc577038a62f86e227a230233fd12df88e271d1155b7d9bad90e5fc",
+    "output": "artifacts/autoresearch/stage904a_zero_ambiguous_receipts_gate.json",
+    "scope": "offline static verification; reads three JSON receipts only",
+    "method": "asserts the remediation scope and reports the full-corpus residual separately; compliant covers the scope plus the honesty of the residual",
+    "premise_corrections": [
+      "the 31 undeclared receipts found by Stage 895A were scoped to Stage 500A..878A; the full directory contains 177 more",
+      "a gate that asserted zero across the corpus would either fail or require mass editing third-party receipts, so the two questions are separated",
+      "the gate is idempotent: it derives the target count from the remediation receipt and asserts a cumulative remediated_total, so a second run reports the same 31 instead of degrading to zero"
+    ],
+    "radio_safety": "static only"
+  },
+  "receipts": {
+    "901A": {
+      "path": "artifacts/autoresearch/stage901a_provenance_remediation_receipt.json",
+      "sha256": "6faf294ac573811afda51e6d6dc5e5699ec503550c4296de0a2e3f30d2c26994"
+    },
+    "902A": {
+      "path": "artifacts/autoresearch/stage902a_full_corpus_provenance_audit.json",
+      "sha256": "f976f1715cf0666733f61103d54f4e7d5b8530b163f266533d16fdb780e1605e"
+    },
+    "903A": {
+      "path": "artifacts/autoresearch/stage903a_provenance_restoration_registry.json",
+      "sha256": "23b404eb5c84c575362ce0e2a96c5b72dee87a6140ccc549444652a08dac2f76"
+    }
+  },
+  "checks": [
+    {
+      "stage": "901A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "902A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "902A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "903A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "903A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "targets_present",
+      "ok": true,
+      "detail": "targets=31"
+    },
+    {
+      "stage": "901A",
+      "check": "targets_match_declared_31",
+      "ok": true,
+      "detail": "targets=31 declared=31"
+    },
+    {
+      "stage": "901A",
+      "check": "no_failures",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "zero_ambiguous",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "restoration_all",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "classes_sum_targets",
+      "ok": true,
+      "detail": "14/9/8 vs 31"
+    },
+    {
+      "stage": "901A",
+      "check": "remediated_total_covers_targets",
+      "ok": true,
+      "detail": "remediated_total=31 targets=31"
+    },
+    {
+      "stage": "901A",
+      "check": "rows_match_targets",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "901A",
+      "check": "row_accounting_complete",
+      "ok": true,
+      "detail": "accounted=31 targets=31"
+    },
+    {
+      "stage": "903A",
+      "check": "verified_covers_targets",
+      "ok": true,
+      "detail": "verified=31 targets=31"
+    },
+    {
+      "stage": "903A",
+      "check": "all_31_verified",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "903A",
+      "check": "all_31_restored",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "903A",
+      "check": "all_classes_valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "903A",
+      "check": "counts_agree_with_901A",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "902A",
+      "check": "whole_directory_audited",
+      "ok": true,
+      "detail": "1194+4/1198"
+    },
+    {
+      "stage": "902A",
+      "check": "audit_family_not_self_counted",
+      "ok": true,
+      "detail": "excluded=4"
+    },
+    {
+      "stage": "902A",
+      "check": "undeclared_count_matches_list",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "902A",
+      "check": "no_remediated_receipt_left_undeclared",
+      "ok": true,
+      "detail": "leaked=[]"
+    },
+    {
+      "stage": "gate",
+      "check": "full_corpus_zero_is_reported",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "gate",
+      "check": "remediation_scope_complete",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "failures": [],
+  "outstanding": {
+    "full_corpus_undeclared": 176,
+    "historical_stage_receipts": 156,
+    "auxiliary_artefacts": 20,
+    "sample": [
+      "af4x_invictus_wave2_live_autoresearch_20261024.json",
+      "champion_state_ledger.json",
+      "discovery_to_research_queue.json",
+      "ltu_lite_and_af4x_bench_audit_20261024.json",
+      "ltu_lite_wave2_live_autoresearch_20261024.json",
+      "master_11unit_hardware_atlas_20261025.json",
+      "mode_a_vs_mode_b_crossover_20261024.json",
+      "multiradio_100round_master_ledger_20261024.json",
+      "multiradio_70round_master_ledger_20261024.json",
+      "multiradio_82round_master_ledger_20261024.json",
+      "pbe5ac_ota_boost_receipt_20261025.json",
+      "pbm5_and_5ac_ptp_optimization_matrix_20261024.json"
+    ],
+    "note": "these predate the provenance convention and belong to other workstreams; they were listed rather than mass-edited"
+  },
+  "idempotency": {
+    "declared_targets": 31,
+    "targets_seen": 31,
+    "remediated_this_run": 0,
+    "remediated_total": 31,
+    "already_correct": 31,
+    "idempotent_rerun": 1,
+    "stable_across_reruns": 1
+  },
+  "summary": {
+    "stages_expected": 3,
+    "stages_present": 3,
+    "checks_run": 26,
+    "checks_passed": 26,
+    "failures": 0,
+    "remediation_targets": 31,
+    "remediation_zero_ambiguous": 1,
+    "idempotent_rerun": 1,
+    "full_corpus_undeclared": 176,
+    "full_corpus_zero": 0,
+    "compliant": 1
+  },
+  "gaps": [
+    "the gate asserts the remediation scope, not a clean corpus",
+    "the residual 177 receipts remain undeclared and are a standing defect",
+    "a class recorded under Stage 901A states the evidence a receipt contains, not the truth of its conclusion",
+    "no receipt was re-executed and no radio was contacted",
+    "no dynamic validation"
+  ]
+}

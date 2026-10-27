@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "stage": "896A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/verify/verify_stage896a_re_fail_closed_truth_gate.py",
+    "tool_sha256": "a4503d8cf752a307e49259c95c5d4701c060fc95ee8db6344da5f7b4d43e8ab8",
+    "output": "artifacts/autoresearch/stage896a_re_fail_closed_truth_gate.json",
+    "audit_reference": "artifacts/chatgpt_audit_1afaeb7/AUDITORIA_2026-10-27.md section A09",
+    "scope": "offline static verification; reads five JSON receipts only",
+    "method": "per-stage invariants plus three cross-stage agreements; compliant is the emptiness of a named failures list",
+    "radio_safety": "static only"
+  },
+  "receipts": {
+    "891A": {
+      "path": "artifacts/autoresearch/stage891a_sgmt_fail_closed_binary_audit.json",
+      "sha256": "cdb7bf7eabc43c18dc70ebe178e2bfbb84ec86d50efa7d713f51d5d1d4916645"
+    },
+    "892A": {
+      "path": "artifacts/autoresearch/stage892a_pb040_pb100_binary_vs_runtime_audit.json",
+      "sha256": "de69613da27d5a3f56915276412063076bdea6eafba835935b004d269c14910f"
+    },
+    "893A": {
+      "path": "artifacts/autoresearch/stage893a_xtensa_findings_truth_classification.json",
+      "sha256": "0312c6b65b5eb3ef3f5f33fa1f8145356117e2ecc898ea9e1db8b033013d5fe8"
+    },
+    "894A": {
+      "path": "artifacts/autoresearch/stage894a_ko_module_claims_truth_classification.json",
+      "sha256": "53b60aca028f8e5fcad632a8de9b43d845c84a93171aab0ff8fe79d4cd1cefce"
+    },
+    "895A": {
+      "path": "artifacts/autoresearch/stage895a_ko_module_claims_truth_table.json",
+      "sha256": "34029e0969c0b5ea09fac92a35e9780582cf8b6767ba12889c8c1ca24fc17c47"
+    }
+  },
+  "checks": [
+    {
+      "stage": "891A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "receipt_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "radio_safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "has_gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "all_containers_parsed",
+      "ok": true,
+      "detail": "35/35"
+    },
+    {
+      "stage": "891A",
+      "check": "zero_container_failures",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "zero_failure_records",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "segments_counted",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "no_uncompressed_container",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "all_patches_valid",
+      "ok": true,
+      "detail": "12/12"
+    },
+    {
+      "stage": "891A",
+      "check": "ram_roles_matched",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "891A",
+      "check": "fail_closed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "seven_gates",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "three_static",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "two_present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "zero_site_execution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "zero_runtime_proven",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "all_pending",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "no_dmesg",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "892A",
+      "check": "pending_statement_explicit",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "classified_143",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "structural_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "residual_listed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "893A",
+      "check": "citable_plus_residual",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "classified_258",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "structural_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "modules_tracked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "residual_listed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "894A",
+      "check": "per_module_fractions",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "receipts_333",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "tallies_sum",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "zero_classifier_disagreement",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "zero_gates_at_runtime",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "seven_gates_audited",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "promotion_rules_complete",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "895A",
+      "check": "unclassified_not_citable",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "stage": "cross",
+      "check": "static_gate_count_agrees",
+      "ok": true,
+      "detail": "891A-derived=3 892A=3"
+    },
+    {
+      "stage": "cross",
+      "check": "runtime_zero_agrees",
+      "ok": true,
+      "detail": "892A=0 895A=0"
+    },
+    {
+      "stage": "cross",
+      "check": "subset_labels_agree",
+      "ok": true,
+      "detail": "disagreements=0"
+    }
+  ],
+  "failures": [],
+  "summary": {
+    "stages_expected": 5,
+    "stages_present": 5,
+    "checks_run": 50,
+    "checks_passed": 50,
+    "failures": 0,
+    "cross_stage_checks": 3,
+    "compliant": 1
+  },
+  "gaps": [
+    "the gate verifies receipt consistency and the absence of promotion, not the truth of any individual binary finding",
+    "a receipt could be wrong and internally consistent, and this gate would pass it",
+    "runtime remains unproven by construction: the gate asserts zero, it cannot prove one",
+    "no dynamic validation"
+  ]
+}

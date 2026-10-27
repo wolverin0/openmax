@@ -1,0 +1,93 @@
+{
+  "stage": "Stage 888A",
+  "title": "Historical Receipts Reclassification (integrity triage)",
+  "timestamp": "2026-10-27T04:08:05.643342+00:00",
+  "status": "CONFIRMED",
+  "attribution": "external controller (offline reclassification)",
+  "live_devices_touched": false,
+  "evidence_class": "SIMULATED_MODEL_ONLY",
+  "source_classification": "stage887a_empirical_vs_simulated_evidence_audit.json",
+  "total_receipts": 1186,
+  "class_totals": {
+    "CONFIRMED_LIVE_BENCH": 131,
+    "CONFIRMED_STATIC_BINARY": 116,
+    "SIMULATED_MODEL_ONLY": 58,
+    "UNKNOWN": 869,
+    "UNREADABLE": 12
+  },
+  "class_pct": {
+    "CONFIRMED_LIVE_BENCH": 11.0,
+    "CONFIRMED_STATIC_BINARY": 9.8,
+    "SIMULATED_MODEL_ONLY": 4.9,
+    "UNKNOWN": 73.3,
+    "UNREADABLE": 1.0
+  },
+  "integrity_flags": {
+    "declared_confirmed_but_not_physically_confirmed_count": 338,
+    "simulated_but_declared_confirmed_count": 40,
+    "simulated_but_declared_confirmed_examples": [
+      "stage442a_ground_up_5pillars_combined_pareto.json",
+      "stage447a_wmi_0x9044_50us_hardware_retry_pareto.json",
+      "stage477a_pb050_rc_probe_dampener_vs_stock_pareto.json",
+      "stage482a_cooperative_32cpe_edge_micro_worker_pareto.json",
+      "stage483a_public_tester_ground_up_showcase_v5.json",
+      "stage515a_ltu_dcxo_gps_vs_tcxo_4096qam_cfo_pareto.json",
+      "stage547a_guarida_panel2_panel3_tdma_vs_csma_airtime_pareto.json",
+      "stage593a_pbe5ac_vht20_vht40_vht80_triple_play_pareto.json",
+      "stage596a_ground_up_v5_suite_gate_receipt.json",
+      "stage619a_guarida_panel1_amsdu_7935_vs_3839_mixed_fleet_pareto.json",
+      "stage622a_ground_up_v6_suite_gate_receipt.json",
+      "stage643a_guarida_full_tower_v5_60_61_82_83_84_pareto.json",
+      "stage646a_ground_up_v7_suite_gate_receipt.json",
+      "stage653a_pb040_pb050_pb060_triple_patch_pareto.json",
+      "stage656a_nsga3_pareto_pb060_txop_tid_sched_and_vht40.json",
+      "stage658a_guarida_32cpe_pb060_voip_iptv_bulk_sim.json",
+      "stage663a_guarida_tower_v6_pb060_and_amsdu_7935b_pareto.json",
+      "stage666a_ground_up_v8_suite_gate_receipt.json",
+      "stage688a_nsga3_pareto_slot_guard_and_dl_ul_67_33.json",
+      "stage690a_ptp_vht40_vs_vht80_near_field_isi_sim.json",
+      "stage720a_ground_up_v10_720stage_gate_receipt.json",
+      "stage722a_nsga3_pareto_pcie_ce_rings_and_ack_timeout.json",
+      "stage724a_ptmp_mixed_openwrt_vs_airos8_amsdu_airtime_sim.json",
+      "stage743a_guarida_tower_v8_activity_aging_and_dl_aggr_pareto.json",
+      "stage746a_ground_up_v11_746stage_gate_receipt.json"
+    ],
+    "guidance": "These receipts are valid as models/analyses but must NOT be promoted to physical confirmation; each needs an A10 provenance fiche (raw hashes, extractor, readback, baseline) before any CONFIRMED_LIVE_BENCH claim."
+  },
+  "reclassification_rule": {
+    "SIMULATED_MODEL_ONLY": "keep status but relabel evidence_class; never cite as live bench",
+    "UNKNOWN": "requires provenance fiche before any live-bench citation",
+    "CONFIRMED_STATIC_BINARY": "valid at container/byte level; runtime execution still UNKNOWN",
+    "CONFIRMED_LIVE_BENCH": "retains physical-measurement standing pending fiche spot-checks"
+  },
+  "five_pillar_compliance": {
+    "pillar_a_fullrea_binary_re": {
+      "status": "CONFIRMED",
+      "knob_catalog_ref": "orchestration/autoresearch/firmware_knob_candidates.json"
+    },
+    "pillar_b_closed_loop_hyperresearch_scholar": {
+      "status": "CONFIRMED",
+      "reactor_module": "tools/research/closed_loop_research_reactor.py"
+    },
+    "pillar_c_karpathy_autoresearch_harness": {
+      "status": "CONFIRMED",
+      "offline_safety_boundary": true,
+      "live_devices_touched": false
+    },
+    "pillar_d_kdense_scientific_skills": {
+      "status": "CONFIRMED",
+      "skills_applied": [
+        "scientific-critical-thinking",
+        "statistical-analysis"
+      ]
+    },
+    "pillar_e_memory_master": {
+      "status": "CONFIRMED",
+      "scope": "project:futuramax",
+      "claims_verified": [
+        "FMX-S888A-01"
+      ]
+    }
+  },
+  "pillar_e_memory_master_claim_id": "FMX-STAGE888A-RECEIPTS-RECLASSIFICATION"
+}

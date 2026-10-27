@@ -1,0 +1,2071 @@
+{
+  "meta": {
+    "stage": "893A",
+    "generated_utc": "2026-10-27T00:00:00Z",
+    "repo_root": "G:\\_OneDrive\\OneDrive\\Desktop\\Py Apps\\futuraMAX",
+    "tool": "tools/re/dissect_stage893a_xtensa_findings_truth_classification.py",
+    "tool_sha256": "d336d6e662ca8d0f9fa9d0e9d3206dd5000ed1b6e5b3dec8daff64778eb234a3",
+    "output": "artifacts/autoresearch/stage893a_xtensa_findings_truth_classification.json",
+    "audit_reference": "artifacts/chatgpt_audit_1afaeb7/AUDITORIA_2026-10-27.md sections A09 and A10",
+    "stage_range": [
+      500,
+      878
+    ],
+    "scope": "offline static; reads receipts only, no firmware written, no radio contacted",
+    "method": "five ordered rules over explicit markers; label is the first rule that fires; the residual is a named deficit: a receipt that declares no provenance is listed by name and is never citable as evidence",
+    "premise_corrections": [
+      "a receipt that declares a static binary analysis cannot be promoted to hardware evidence by its status word alone",
+      "simulation receipts also carry status CONFIRMED, so status is not a provenance label"
+    ],
+    "radio_safety": "static only"
+  },
+  "rules": {
+    "order": [
+      "R1 live markers",
+      "R2 negative status",
+      "R3 simulation markers",
+      "R4 static scope or binary hashes",
+      "R5 residual"
+    ],
+    "labels": [
+      "CONFIRMED_LIVE_HARDWARE",
+      "REFUTED",
+      "SIMULATED_MODEL_ONLY",
+      "CONFIRMED_STATIC_BINARY",
+      "UNCLASSIFIED"
+    ],
+    "xtensa_tokens": [
+      "xtensa",
+      "sgmt",
+      "athwlan",
+      "firmware.bin",
+      "t2h",
+      "rx_ind",
+      "wal_peer",
+      "otp_",
+      "qca988x"
+    ]
+  },
+  "findings": [
+    {
+      "stage": "stage500a_ground_up_re_500stage_binary_atlas",
+      "receipt": "stage500a_ground_up_re_500stage_binary_atlas.json",
+      "stage_number": 500,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "503A",
+      "receipt": "stage503a_qca988x_bmiss_and_csa_resilience_helper.json",
+      "stage_number": 503,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "505A",
+      "receipt": "stage505a_universal_wa_xc_xw_v11_squashfs_bake.json",
+      "stage_number": 505,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "506A",
+      "receipt": "stage506a_500stage_ground_up_milestone_gate_receipt.json",
+      "stage_number": 506,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 507A",
+      "receipt": "stage507a_live_wa_pb050_rc_probe_dampen_and_slot_r50_52.json",
+      "stage_number": 507,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r52",
+        "cumulative_wa_total_windows_including_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 508A",
+      "receipt": "stage508a_live_wa_228window_milestone_r53_56.json",
+      "stage_number": 508,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r56",
+        "cumulative_wa_total_windows_including_e2e",
+        "milestone_228_live_windows_achieved"
+      ]
+    },
+    {
+      "stage": "Stage 508A",
+      "receipt": "stage508a_live_wa_cca_agc_and_ani_immunity_r53_56.json",
+      "stage_number": 508,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r56",
+        "cumulative_wa_total_windows_including_e2e",
+        "milestone_228_live_windows_achieved"
+      ]
+    },
+    {
+      "stage": "Stage 511A",
+      "receipt": "stage511a_cumulative_56round_228window_wa_champion_v9.json",
+      "stage_number": 511,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_56_rounds_228_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_5_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 511A",
+      "receipt": "stage512a_live_wa_228window_v9_gate_receipt.json",
+      "stage_number": 512,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_56_rounds_228_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_5_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "513A",
+      "receipt": "stage513a_qca988x_dfs_false_radar_immunity_helper.json",
+      "stage_number": 513,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "516A",
+      "receipt": "stage516a_guarida_full_tower_v4_master_bundle.json",
+      "stage_number": 516,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "517A",
+      "receipt": "stage517a_500stage_architectural_breakthroughs_ledger.json",
+      "stage_number": 517,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "518A",
+      "receipt": "stage518a_ground_up_v4_tower_gate_receipt.json",
+      "stage_number": 518,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-520A",
+      "receipt": "stage520a_wa_xc_xtensa_pb050_rc_dampen_pareto.json",
+      "stage_number": 520,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "526A",
+      "receipt": "stage526a_xtensa_ram_canary_pb040_pb050_abi_auditor.json",
+      "stage_number": 526,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "QUALIFIED_STATIC_AND_SAVED_TEXT_WITH_GAPS",
+      "live_markers": []
+    },
+    {
+      "stage": "528A",
+      "receipt": "stage528a_ltu_dcxo_gps_tcxo_and_144window_reconciler.json",
+      "stage_number": 528,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "QUALIFIED_STATIC_AND_SAVED_EVIDENCE_WITH_GAPS",
+      "live_markers": []
+    },
+    {
+      "stage": "529A",
+      "receipt": "stage529a_500stage_cross_lane_artifact_integrity_gate.json",
+      "stage_number": 529,
+      "label": "REFUTED",
+      "rules": [
+        "R2",
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "FAIL_OR_UNASSESSED_REPOSITORY_ARTIFACT_POLICY",
+      "live_markers": []
+    },
+    {
+      "stage": "532A",
+      "receipt": "stage532a_athbox_vs_umac_scn_stats_aliasing_map.json",
+      "stage_number": 532,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "COMPLETED",
+      "live_markers": []
+    },
+    {
+      "stage": "533A",
+      "receipt": "stage533a_ubnt_poll_swr_limit_and_slot_guard_re.json",
+      "stage_number": 533,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "COMPLETED",
+      "live_markers": []
+    },
+    {
+      "stage": "535A",
+      "receipt": "stage535a_guarida_34endpoint_zero_fp_maintenance_dossier_v3.json",
+      "stage_number": 535,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "COMPLETED",
+      "live_markers": []
+    },
+    {
+      "stage": "539A",
+      "receipt": "stage539a_qca988x_dfs_cac_and_chirp_immunity_kit.json",
+      "stage_number": 539,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "541A",
+      "receipt": "stage541a_universal_wa_xc_xw_v12_squashfs_bake.json",
+      "stage_number": 541,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "542A",
+      "receipt": "stage542a_ltu_v12_and_universal_squashfs_v12_gate_receipt.json",
+      "stage_number": 542,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage543a_qca988x_ani_ofdm_cck_weak_signal_and_spur_re",
+      "receipt": "stage543a_qca988x_ani_ofdm_cck_weak_signal_and_spur_re.json",
+      "stage_number": 543,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "545A",
+      "receipt": "stage545a_qca988x_ani_firstep_and_spur_immunity_helper.json",
+      "stage_number": 545,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "547A",
+      "receipt": "stage547a_guarida_panel2_panel3_tdma_vs_csma_airtime_pareto.json",
+      "stage_number": 547,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "550A",
+      "receipt": "stage550a_550stage_milestone_gate_receipt.json",
+      "stage_number": 550,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-554A",
+      "receipt": "stage554a_wa_xc_pb040_pb050_combined_ram_patch_validator.json",
+      "stage_number": 554,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "561A",
+      "receipt": "stage561a_universal_wa_xc_xw_v13_squashfs_bake.json",
+      "stage_number": 561,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage563a_qca988x_paprd_and_olpc_tx_power_control_re",
+      "receipt": "stage563a_qca988x_paprd_and_olpc_tx_power_control_re.json",
+      "stage_number": 563,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re",
+      "receipt": "stage564a_ltu_ame_core_tdma_framing_and_split_ul_dl_re.json",
+      "stage_number": 564,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 565A",
+      "receipt": "stage565a_live_wa_pb050_v2_and_pacing_r57_59.json",
+      "stage_number": 565,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r59",
+        "cumulative_wa_total_windows_including_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 566A",
+      "receipt": "stage566a_live_wa_256window_milestone_r60_63.json",
+      "stage_number": 566,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r63",
+        "cumulative_wa_total_windows_including_e2e",
+        "milestone_256_live_windows_achieved"
+      ]
+    },
+    {
+      "stage": "Stage 569A",
+      "receipt": "stage569a_cumulative_63round_256window_wa_champion_v10.json",
+      "stage_number": 569,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_63_rounds_256_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_6_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 570A",
+      "receipt": "stage570a_live_wa_256window_v10_gate_receipt.json",
+      "stage_number": 570,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_63_rounds_256_windows_achieved",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "573A",
+      "receipt": "stage573a_qca_paprd_olpc_and_thermal_tpc_helper.json",
+      "stage_number": 573,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "575A",
+      "receipt": "stage575a_universal_wa_xc_xw_v14_squashfs_bake.json",
+      "stage_number": 575,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-581A",
+      "receipt": "stage581a_cross_fleet_champion_v51_and_tester_bundle.json",
+      "stage_number": 581,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 585A",
+      "receipt": "stage585a_live_pbe5ac_pb040_pb050_silicon_reg_proof.json",
+      "stage_number": 585,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "ap_241_verified",
+        "sta_242_verified"
+      ]
+    },
+    {
+      "stage": "Stage 587A",
+      "receipt": "stage587a_pbe5ac_lbe5ac_multibw_champion_v3_matrix.json",
+      "stage_number": 587,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "hardware_pair"
+      ]
+    },
+    {
+      "stage": "stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re",
+      "receipt": "stage589a_qca988x_wmi_peer_rate_retry_and_sgi_re.json",
+      "stage_number": 589,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "591A",
+      "receipt": "stage591a_qca988x_wmi_peer_assoc_sgi_and_retry_helper.json",
+      "stage_number": 591,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "595A",
+      "receipt": "stage595a_600stage_pre_milestone_readiness_audit.json",
+      "stage_number": 595,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "596A",
+      "receipt": "stage596a_ground_up_v5_suite_gate_receipt.json",
+      "stage_number": 596,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-600A",
+      "receipt": "stage600a_600stage_ground_up_master_synthesis.json",
+      "stage_number": 600,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "605A",
+      "receipt": "stage605a_qca988x_wmi_peer_rate_sgi_guard.json",
+      "stage_number": 605,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "607A",
+      "receipt": "stage607a_universal_wa_xc_xw_v15_squashfs_bake.json",
+      "stage_number": 607,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "608A",
+      "receipt": "stage608a_ltu_204window_v15_and_squashfs_v15_gate_receipt.json",
+      "stage_number": 608,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re",
+      "receipt": "stage615a_qca988x_txbf_beamforming_and_stbc_ldpc_re.json",
+      "stage_number": 615,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "617A",
+      "receipt": "stage617a_qca988x_txbf_stbc_ldpc_adaptive_helper.json",
+      "stage_number": 617,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "621A",
+      "receipt": "stage621a_public_tester_showcase_v6_600stage_edition.json",
+      "stage_number": 621,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "total_live_counterbalanced_windows"
+      ]
+    },
+    {
+      "stage": "622A",
+      "receipt": "stage622a_ground_up_v6_suite_gate_receipt.json",
+      "stage_number": 622,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-624A",
+      "receipt": "stage624a_qca988x_txbf_stbc_ldpc_near_vs_far_field_pareto.json",
+      "stage_number": 624,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 629A",
+      "receipt": "stage629a_live_wa_pb050_v3_and_sgi_guard_r64_66.json",
+      "stage_number": 629,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r66",
+        "cumulative_wa_total_windows_including_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 633A",
+      "receipt": "stage633a_cumulative_70round_284window_wa_champion_v11.json",
+      "stage_number": 633,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_70_rounds_284_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_7_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 634A",
+      "receipt": "stage634a_live_wa_284window_v11_gate_receipt.json",
+      "stage_number": 634,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_70_rounds_284_windows_achieved",
+        "total_live_windows_including_stage162a_e2e"
+      ]
+    },
+    {
+      "stage": "637A",
+      "receipt": "stage637a_qca_txbf_stbc_and_ldpc_guard.json",
+      "stage_number": 637,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "639A",
+      "receipt": "stage639a_universal_wa_xc_xw_v16_squashfs_bake.json",
+      "stage_number": 639,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "640A",
+      "receipt": "stage640a_ltu_216window_v16_and_squashfs_v16_gate_receipt.json",
+      "stage_number": 640,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "644A",
+      "receipt": "stage644a_zero_fp_observability_engine_v5_25field_athstats.json",
+      "stage_number": 644,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage647a_qca988x_htt_rx_ring_decap_and_amsdu_subframe_re",
+      "receipt": "stage647a_qca988x_htt_rx_ring_decap_and_amsdu_subframe_re.json",
+      "stage_number": 647,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "649A",
+      "receipt": "stage649a_xtensa_wal_vdev_params_and_struct_re.json",
+      "stage_number": 649,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "650A",
+      "receipt": "stage650a_pb060_xtensa_txop_and_tid_sched_sgmt_patch.json",
+      "stage_number": 650,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "652A",
+      "receipt": "stage652a_xw_ath_dev_mixed_mode_tdma_translator_re.json",
+      "stage_number": 652,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "PASS",
+      "live_markers": []
+    },
+    {
+      "stage": "654A",
+      "receipt": "stage654a_xtensa_vdev_pb060_and_ltu_12x_suite_receipt.json",
+      "stage_number": 654,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "PASS",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-655A",
+      "receipt": "stage655a_multi_radio_216w_and_650stage_audit.json",
+      "stage_number": 655,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_multi_radio_windows",
+        "new_windows_in_stage655a"
+      ]
+    },
+    {
+      "stage": "STAGE-656A",
+      "receipt": "stage656a_nsga3_pareto_pb060_txop_tid_sched_and_vht40.json",
+      "stage_number": 656,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-657A",
+      "receipt": "stage657a_cross_fleet_champion_v54_bundle.json",
+      "stage_number": 657,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-658A",
+      "receipt": "stage658a_guarida_32cpe_pb060_voip_iptv_bulk_sim.json",
+      "stage_number": 658,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-659A",
+      "receipt": "stage659a_memorymaster_and_650stage_ledger.json",
+      "stage_number": 659,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "661A",
+      "receipt": "stage661a_wa_champion_v11_284window_field_rollout_kit.json",
+      "stage_number": 661,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_windows"
+      ]
+    },
+    {
+      "stage": "662A",
+      "receipt": "stage662a_pbe5ac_ptp_champion_v3_vht40_rollout_kit.json",
+      "stage_number": 662,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "663A",
+      "receipt": "stage663a_guarida_tower_v6_pb060_and_amsdu_7935b_pareto.json",
+      "stage_number": 663,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "665A",
+      "receipt": "stage665a_public_tester_showcase_and_rfc_v7.json",
+      "stage_number": 665,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage667a_ath10k_htt_tx_desc_and_comp_ring_re",
+      "receipt": "stage667a_ath10k_htt_tx_desc_and_comp_ring_re.json",
+      "stage_number": 667,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "671A",
+      "receipt": "stage671a_qca_htt_tx_compl_and_aql_guard.json",
+      "stage_number": 671,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "673A",
+      "receipt": "stage673a_universal_wa_xc_xw_v17_squashfs_bake.json",
+      "stage_number": 673,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "674A",
+      "receipt": "stage674a_ltu_228window_v17_and_squashfs_v17_gate_receipt.json",
+      "stage_number": 674,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 675A",
+      "receipt": "stage675a_live_wa_pb060_and_htt_tx_compl_r71_73.json",
+      "stage_number": 675,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r73",
+        "cumulative_wa_total_windows_including_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 679A",
+      "receipt": "stage679a_cumulative_77round_316window_wa_champion_v12.json",
+      "stage_number": 679,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_316_windows_with_e2e_achieved",
+        "milestone_77_rounds_312_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_8_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e",
+        "total_live_windows_including_stage677a_e2e_r8"
+      ]
+    },
+    {
+      "stage": "Stage 680A",
+      "receipt": "stage680a_live_wa_316window_v12_gate_receipt.json",
+      "stage_number": 680,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_316_windows_with_e2e_achieved",
+        "milestone_77_rounds_312_windows_achieved",
+        "total_live_windows_including_stage162a_e2e",
+        "total_live_windows_including_stage677a_e2e_r8"
+      ]
+    },
+    {
+      "stage": "681A",
+      "receipt": "stage681a_ubnt_poll_dl_scheduler_and_aggr_budget_re.json",
+      "stage_number": 681,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "PASS",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-689A",
+      "receipt": "stage689a_cross_fleet_champion_v55_bundle.json",
+      "stage_number": 689,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 695A",
+      "receipt": "stage695a_live_pbe5ac_vht40_pb040_pb050_champion_v4.json",
+      "stage_number": 695,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 697A",
+      "receipt": "stage697a_pbe5ac_dynamic_phy_and_sgmt_loader_v4.json",
+      "stage_number": 697,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 698A",
+      "receipt": "stage698a_pbe5ac_lbe5ac_tester_release_package_v4.json",
+      "stage_number": 698,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 699A",
+      "receipt": "stage699a_pbe5ac_ptp_complete_evolution_ledger_v4.json",
+      "stage_number": 699,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 700A",
+      "receipt": "stage700a_live_pbe5ac_ptp_v4_gate_receipt.json",
+      "stage_number": 700,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "701A",
+      "receipt": "stage701a_pbe5ac_vht40_25mbps_pb050_field_kit.json",
+      "stage_number": 701,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "705A",
+      "receipt": "stage705a_700stage_master_scorecard.json",
+      "stage_number": 705,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "709A",
+      "receipt": "stage709a_qca_wmi_vdev_start_and_phymode_guard.json",
+      "stage_number": 709,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "711A",
+      "receipt": "stage711a_universal_wa_xc_xw_v18_squashfs_bake.json",
+      "stage_number": 711,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "712A",
+      "receipt": "stage712a_ltu_240window_v18_and_squashfs_v18_gate_receipt.json",
+      "stage_number": 712,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "715A",
+      "receipt": "stage715a_wa_champion_v12_316window_field_rollout_kit.json",
+      "stage_number": 715,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_windows"
+      ]
+    },
+    {
+      "stage": "718A",
+      "receipt": "stage718a_zero_fp_observability_engine_v7_pcie_ce_auditor.json",
+      "stage_number": 718,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "719A",
+      "receipt": "stage719a_800window_cross_lane_scorecard.json",
+      "stage_number": 719,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-725A",
+      "receipt": "stage725a_memorymaster_240w_v56_ledger.json",
+      "stage_number": 725,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re",
+      "receipt": "stage727a_qca988x_spectral_scan_fft_and_radar_phyerr_re.json",
+      "stage_number": 727,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "731A",
+      "receipt": "stage731a_qca_spectral_radar_phyerr_guard.json",
+      "stage_number": 731,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "733A",
+      "receipt": "stage733a_universal_wa_xc_xw_v19_squashfs_bake.json",
+      "stage_number": 733,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "734A",
+      "receipt": "stage734a_ltu_252window_v19_and_squashfs_v19_gate_receipt.json",
+      "stage_number": 734,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "741A",
+      "receipt": "stage741a_pbe5ac_lbe5ac_vht40_pb050_production_bundle_v5.json",
+      "stage_number": 741,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "744A",
+      "receipt": "stage744a_zero_fp_observability_engine_v8_spectral_and_thermal.json",
+      "stage_number": 744,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "745A",
+      "receipt": "stage745a_public_tester_showcase_and_rfc_v8.json",
+      "stage_number": 745,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-747A",
+      "receipt": "stage747a_multi_radio_252w_and_750stage_milestone.json",
+      "stage_number": 747,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_multi_radio_windows",
+        "new_windows_in_stage747a"
+      ]
+    },
+    {
+      "stage": "STAGE-748A",
+      "receipt": "stage748a_nsga3_pareto_spectral_phyerr_and_thermal_pa.json",
+      "stage_number": 748,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-750A",
+      "receipt": "stage750a_750stage_grand_milestone_dossier.json",
+      "stage_number": 750,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-751A",
+      "receipt": "stage751a_memorymaster_750stage_v57_ledger.json",
+      "stage_number": 751,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re",
+      "receipt": "stage753a_qca988x_ani_ofdm_cck_immunity_steppers_re.json",
+      "stage_number": 753,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 755A",
+      "receipt": "stage755a_live_wa_spectral_phyerr_and_vdev_guard_r78_80.json",
+      "stage_number": 755,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "cumulative_wa_rf_windows_r1_to_r80",
+        "cumulative_wa_total_windows_including_e2e"
+      ]
+    },
+    {
+      "stage": "Stage 759A",
+      "receipt": "stage759a_cumulative_84round_344window_wa_champion_v13.json",
+      "stage_number": 759,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_84_rounds_344_windows_achieved",
+        "total_live_wa_triple_play_windows",
+        "total_live_windows_including_all_9_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e",
+        "total_live_windows_including_stage757a_e2e_r9"
+      ]
+    },
+    {
+      "stage": "Stage 760A",
+      "receipt": "stage760a_live_wa_344window_v13_gate_receipt.json",
+      "stage_number": 760,
+      "label": "CONFIRMED_LIVE_HARDWARE",
+      "rules": [
+        "R1",
+        "R4s"
+      ],
+      "scope_class": "live",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": [
+        "milestone_84_rounds_344_windows_achieved",
+        "total_live_windows_including_all_9_e2e_rounds",
+        "total_live_windows_including_stage162a_e2e",
+        "total_live_windows_including_stage757a_e2e_r9"
+      ]
+    },
+    {
+      "stage": "763A",
+      "receipt": "stage763a_openwrt_lan_rogue_dhcp_and_ani_guard.json",
+      "stage_number": 763,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "765A",
+      "receipt": "stage765a_universal_wa_xc_xw_v20_squashfs_bake.json",
+      "stage_number": 765,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "766A",
+      "receipt": "stage766a_ltu_264window_v20_and_squashfs_v20_gate_receipt.json",
+      "stage_number": 766,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "776A",
+      "receipt": "stage776a_zero_fp_observability_engine_v9_rogue_dhcp_detector.json",
+      "stage_number": 776,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R0"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "explicit_field",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "777A",
+      "receipt": "stage777a_900window_cross_lane_master_scorecard.json",
+      "stage_number": 777,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "none",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "STAGE-780A",
+      "receipt": "stage780a_nsga3_pareto_ani_immunity_and_irq52_napi.json",
+      "stage_number": 780,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "781A",
+      "receipt": "stage781a_cross_fleet_champion_bundle_v58.json",
+      "stage_number": 781,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "782A",
+      "receipt": "stage782a_guarida_32cpe_ani_and_napi_pareto.json",
+      "stage_number": 782,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4s"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "artefact_structure",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage785a_qca988x_otp_and_board_caldata_eeprom_re",
+      "receipt": "stage785a_qca988x_otp_and_board_caldata_eeprom_re.json",
+      "stage_number": 785,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "791A",
+      "receipt": "stage791a_800stage_horizon_readiness_audit.json",
+      "stage_number": 791,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "QUALIFIED_OFFLINE_HORIZON_AUDIT",
+      "live_markers": []
+    },
+    {
+      "stage": "stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re",
+      "receipt": "stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.json",
+      "stage_number": 805,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage806a_pb070_xtensa_rc_probe_per_sgmt_patch",
+      "receipt": "stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+      "stage_number": 806,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage807a_ltu_split_freq_and_ofdma_subchannel_re",
+      "receipt": "stage807a_ltu_split_freq_and_ofdma_subchannel_re.json",
+      "stage_number": 807,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage809a_pb040_to_pb070_quad_patch_pareto",
+      "receipt": "stage809a_pb040_to_pb070_quad_patch_pareto.json",
+      "stage_number": 809,
+      "label": "SIMULATED_MODEL_ONLY",
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "scope_class": "sim",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage810a_xtensa_pb070_and_ltu_split_freq_suite",
+      "receipt": "stage810a_xtensa_pb070_and_ltu_split_freq_suite.json",
+      "stage_number": 810,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "817A",
+      "receipt": "stage817a_universal_pb060_triple_patch_openwrt_airos_kit.json",
+      "stage_number": 817,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re",
+      "receipt": "stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re.json",
+      "stage_number": 832,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch",
+      "receipt": "stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch.json",
+      "stage_number": 833,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage836a_re_gps_pb080_and_ltu_atpc_suite_receipt",
+      "receipt": "stage836a_re_gps_pb080_and_ltu_atpc_suite_receipt.json",
+      "stage_number": 836,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage855a_xtensa_wal_tx_send_and_htt_tx_compl_re",
+      "receipt": "stage855a_xtensa_wal_tx_send_and_htt_tx_compl_re.json",
+      "stage_number": 855,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage856a_pb090_xtensa_htt_tx_compl_coalesce_sgmt_patch",
+      "receipt": "stage856a_pb090_xtensa_htt_tx_compl_coalesce_sgmt_patch.json",
+      "stage_number": 856,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage860a_re_pb090_and_spectral_suite_receipt",
+      "receipt": "stage860a_re_pb090_and_spectral_suite_receipt.json",
+      "stage_number": 860,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "861A",
+      "receipt": "stage861a_live_pbe5ac_quad_patch_pb040_to_pb070_ota.json",
+      "stage_number": 861,
+      "label": "REFUTED",
+      "rules": [
+        "R2"
+      ],
+      "scope_class": "unknown",
+      "evidence_tier": "none",
+      "status": "BLOCKED",
+      "live_markers": []
+    },
+    {
+      "stage": "862A",
+      "receipt": "stage862a_live_pbe5ac_ptp_champion_v6_counterbalanced.json",
+      "stage_number": 862,
+      "label": "REFUTED",
+      "rules": [
+        "R2",
+        "R4s"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "artefact_structure",
+      "status": "BLOCKED",
+      "live_markers": []
+    },
+    {
+      "stage": "863A",
+      "receipt": "stage863a_live_pbe5ac_mk1_251_e2e_v6.json",
+      "stage_number": 863,
+      "label": "REFUTED",
+      "rules": [
+        "R2"
+      ],
+      "scope_class": "unknown",
+      "evidence_tier": "none",
+      "status": "BLOCKED",
+      "live_markers": []
+    },
+    {
+      "stage": "865A",
+      "receipt": "stage865a_pbe5ac_lbe5ac_tester_release_package_v6.json",
+      "stage_number": 865,
+      "label": "REFUTED",
+      "rules": [
+        "R2",
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "BLOCKED",
+      "live_markers": []
+    },
+    {
+      "stage": "866A",
+      "receipt": "stage866a_live_pbe5ac_ptp_v6_gate.json",
+      "stage_number": 866,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "INCOMPLETE",
+      "live_markers": []
+    },
+    {
+      "stage": "Stage 871A",
+      "receipt": "stage871a_pbe5ac_lbe5ac_tester_package_v6.json",
+      "stage_number": 871,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": "CONFIRMED",
+      "live_markers": []
+    },
+    {
+      "stage": "stage873a_xtensa_wal_rx_ring_and_htt_t2h_msg_coalesce_re",
+      "receipt": "stage873a_xtensa_wal_rx_ring_and_htt_t2h_msg_coalesce_re.json",
+      "stage_number": 873,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage874a_pb100_xtensa_htt_rx_ind_batch_sgmt_patch",
+      "receipt": "stage874a_pb100_xtensa_htt_rx_ind_batch_sgmt_patch.json",
+      "stage_number": 874,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    },
+    {
+      "stage": "stage878a_re_pb100_and_ltu_cfo_suite_receipt",
+      "receipt": "stage878a_re_pb100_and_ltu_cfo_suite_receipt.json",
+      "stage_number": 878,
+      "label": "CONFIRMED_STATIC_BINARY",
+      "rules": [
+        "R4"
+      ],
+      "scope_class": "static",
+      "evidence_tier": "binary_bytes",
+      "status": null,
+      "live_markers": []
+    }
+  ],
+  "counts": {
+    "CONFIRMED_LIVE_HARDWARE": 30,
+    "REFUTED": 5,
+    "SIMULATED_MODEL_ONLY": 15,
+    "CONFIRMED_STATIC_BINARY": 93,
+    "UNCLASSIFIED": 0
+  },
+  "scope_counts": {
+    "live": 30,
+    "sim": 15,
+    "static": 96,
+    "unknown": 2
+  },
+  "unclassified": [],
+  "summary": {
+    "receipts_classified": 143,
+    "confirmed_live_hardware": 30,
+    "confirmed_static_binary": 93,
+    "simulated_model_only": 15,
+    "refuted": 5,
+    "provenance_undeclared": 0,
+    "citable_findings": 143,
+    "live_scope": 30,
+    "hardware_evidence_fraction": 0.2098,
+    "structural_complete": 1,
+    "fail_closed": 1
+  },
+  "gaps": [
+    "a label states the provenance of a receipt, not the truth of its conclusion",
+    "the rules read explicit markers, so a receipt that omitted its provenance fields can only be caught by the residual counter",
+    "static binary classification does not distinguish a full symbol-table analysis from a single hash comparison",
+    "no receipt in this subset was re-executed",
+    "no dynamic validation"
+  ]
+}
