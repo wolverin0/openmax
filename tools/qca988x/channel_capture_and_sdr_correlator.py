@@ -293,6 +293,17 @@ def compute_2x2_svd_metrics(
       trace(G) = g00 + g11
       det(G) = g00*g11 - |g01|^2
     """
+    if (isinstance(snr_linear,bool) or not math.isfinite(snr_linear) or snr_linear<0 or
+            type(tone_index) is not int or tone_index<0 or
+            any(isinstance(h,bool) for h in (h00,h01,h10,h11)) or
+            any(not (math.isfinite(h.real) and math.isfinite(h.imag)) for h in (h00,h01,h10,h11))):
+        raise ValueError('finite channel matrix and nonnegative SNR required')
+    if all(h==0 for h in (h00,h01,h10,h11)):
+        raise ValueError('null channel matrix has no observable rank/conditioning')
+    # Compute relative conditioning before squaring; an absolute epsilon would
+    # turn an attenuated rank-one channel into a perfect rank-two observation.
+    coefficient_scale=max(abs(h) for h in (h00,h01,h10,h11))
+    h00,h01,h10,h11=(h/coefficient_scale for h in (h00,h01,h10,h11))
     # Normalize channel matrix Frobenius norm so capacity reflects conditioning at reference SNR
     g00 = (h00.real**2 + h00.imag**2) + (h10.real**2 + h10.imag**2)
     g11 = (h01.real**2 + h01.imag**2) + (h11.real**2 + h11.imag**2)
@@ -303,12 +314,12 @@ def compute_2x2_svd_metrics(
     disc = math.sqrt(max(0.0, tr_g * tr_g - 4.0 * det_g))
 
     lam1 = max(0.0, 0.5 * (tr_g + disc))
-    lam2 = max(0.0, 0.5 * (tr_g - disc))
+    lam2 = max(0.0, det_g/lam1) if lam1 else 0.0
 
     sigma1 = math.sqrt(lam1)
     sigma2 = math.sqrt(lam2)
 
-    eps = 1e-6 * max(1.0, sigma1)
+    eps = 1e-6 * sigma1
     cond_lin = sigma1 / max(sigma2, eps)
     cond_db = 20.0 * math.log10(max(1.0, cond_lin))
 
@@ -321,8 +332,8 @@ def compute_2x2_svd_metrics(
 
     return Subcarrier2x2SVDMetrics(
         tone_index=tone_index,
-        sigma1=round(sigma1, 4),
-        sigma2=round(sigma2, 4),
+        sigma1=sigma1*coefficient_scale,
+        sigma2=sigma2*coefficient_scale,
         condition_number_linear=round(cond_lin, 4),
         condition_number_db=round(cond_db, 3),
         phase_h00_rad=round(phase_h00, 4),
@@ -346,6 +357,8 @@ def summarize_2x2_subcarrier_matrices(
     """Summarize 2x2 singular values, condition number, phase slope, and rank across OFDM tones."""
     if len(matrices) < 2:
         raise ValueError("At least 2 subcarrier 2x2 matrices are required.")
+    if not isinstance(state_id,str) or not state_id.strip() or isinstance(snr_db,bool) or not math.isfinite(snr_db) or not -100<=snr_db<=100:
+        raise ValueError('nonempty state identity and bounded finite SNR required')
 
     snr_lin = 10.0 ** (snr_db / 10.0)
     tone_metrics = [
@@ -381,8 +394,8 @@ def summarize_2x2_subcarrier_matrices(
     return Matrix2x2ChannelSummary(
         state_id=state_id,
         num_tones=n,
-        mean_sigma1=round(mean_s1, 4),
-        mean_sigma2=round(mean_s2, 4),
+        mean_sigma1=mean_s1,
+        mean_sigma2=mean_s2,
         mean_condition_number_linear=round(mean_cond, 4),
         median_condition_number_db=round(median_db, 3),
         phase_slope_rad_per_tone=round(mean_slope, 4),
@@ -410,10 +423,26 @@ def evaluate_pb_022_and_pb_024_sdr_correlation(
     min_pearson_r: float = 0.90,
 ) -> Dict[str, Any]:
     """Compare internal QCA988x 2x2 dumps vs external coherent 2x2 SDR across >= 5 states."""
+    if isinstance(min_pearson_r,bool) or not math.isfinite(min_pearson_r) or not .9<=min_pearson_r<=1:
+        raise ValueError('PB-024 requires a finite predeclared correlation threshold in[0.9,1]')
     if len(internal_summaries) != len(sdr_summaries) or len(internal_summaries) < 5:
         raise ValueError(
             "PB-024 requires >= 5 paired internal vs coherent SDR cabled 2x2 channel states."
         )
+    internal_ids=[row.state_id for row in internal_summaries]
+    external_ids=[row.state_id for row in sdr_summaries]
+    if (len(set(internal_ids))!=len(internal_ids) or len(set(external_ids))!=len(external_ids)
+            or set(internal_ids)!=set(external_ids)
+            or any(not isinstance(value,str) or not value.strip() for value in internal_ids+external_ids)):
+        raise ValueError('unique matching state_id sets are required')
+    by_id={row.state_id:row for row in sdr_summaries}
+    sdr_summaries=[by_id[row.state_id] for row in internal_summaries]
+    for row in list(internal_summaries)+list(sdr_summaries):
+        if (row.num_tones<2 or row.mean_sigma1<=0 or row.mean_sigma2<0 or
+                any(not math.isfinite(getattr(row,key)) for key in (
+                    'mean_sigma1','mean_sigma2','mean_condition_number_linear',
+                    'median_condition_number_db','phase_slope_rad_per_tone','shannon_2x2_capacity_bits_per_s_hz'))):
+            raise ValueError('invalid channel summary or null observation')
 
     int_cond_db = [s.median_condition_number_db for s in internal_summaries]
     sdr_cond_db = [s.median_condition_number_db for s in sdr_summaries]

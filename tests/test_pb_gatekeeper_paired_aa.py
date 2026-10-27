@@ -37,6 +37,7 @@ def _make_paired_runs(
                 loss_pct=0.2,
                 jain_fairness=base_fair,
                 channel_width_mhz=width_mhz,
+                evidence_state="SYNTHETIC",
                 block_index=k,
                 worst_peer_goodput_mbps=20.0,
             )
@@ -51,6 +52,7 @@ def _make_paired_runs(
                 loss_pct=0.2,
                 jain_fairness=cand_fair,
                 channel_width_mhz=width_mhz,
+                evidence_state="SYNTHETIC",
                 block_index=k,
                 worst_peer_goodput_mbps=22.0,
             )
@@ -59,7 +61,7 @@ def _make_paired_runs(
 
 
 def test_hard_safety_gates_checked_first() -> None:
-    gk = RegressionGatekeeper()
+    gk = RegressionGatekeeper(objective="CAPACITY_WITH_QOE_CONSTRAINTS")
     runs = _make_paired_runs(n_blocks=4)
     runs[1].firmware_resets = 1
     decision = gk.evaluate_paired(runs)
@@ -69,6 +71,7 @@ def test_hard_safety_gates_checked_first() -> None:
 
 def test_full_lexicographic_hierarchy_p99_p95_fairness_goodput_per_mhz() -> None:
     gk = RegressionGatekeeper(
+        objective="CAPACITY_WITH_QOE_CONSTRAINTS",
         max_p99_regression_pct=10.0,
         max_p95_regression_pct=10.0,
         max_fairness_drop_pct=5.0,
@@ -101,7 +104,7 @@ def test_full_lexicographic_hierarchy_p99_p95_fairness_goodput_per_mhz() -> None
 
 
 def test_n2_never_promotes_and_distinguishes_keep_for_replication_vs_promote() -> None:
-    gk = RegressionGatekeeper(min_blocks_for_keep=5, min_blocks_for_promote=6)
+    gk = RegressionGatekeeper(objective="CAPACITY_WITH_QOE_CONSTRAINTS", min_blocks_for_keep=5, min_blocks_for_promote=6)
 
     # N=2 blocks cannot be promoted under strict 4-state evaluation
     runs_n2 = _make_paired_runs(n_blocks=2, base_gp=80.0, cand_gp=95.0)
@@ -112,14 +115,16 @@ def test_n2_never_promotes_and_distinguishes_keep_for_replication_vs_promote() -
     # N=5 blocks without holdout replication -> KEEP_FOR_REPLICATION (two-sided exact sign-flip p = 2/32 = 0.0625; N=6 gives 2/64 = 0.03125 <= 0.05)
     runs_n6_no_holdout = _make_paired_runs(n_blocks=6, base_gp=80.0, cand_gp=92.0)
     dec_keep_rep = gk.evaluate_paired(runs_n6_no_holdout, holdout_replicated=False)
-    assert dec_keep_rep.verdict == "KEEP_FOR_REPLICATION"
-    assert dec_keep_rep.promotion_stage == "KEEP_FOR_REPLICATION"
+    assert dec_keep_rep.verdict == "SYNTHETIC_PASS"
+    assert not dec_keep_rep.promotion_eligible
+    assert dec_keep_rep.evidence_state == "SYNTHETIC"
     assert dec_keep_rep.ci_95_goodput_per_mhz_delta_pct[0] > 0.0
 
-    # N=6 blocks WITH holdout replication -> PROMOTE
+    # The fixture cannot promote even if the old boolean is supplied
     dec_promote = gk.evaluate_paired(runs_n6_no_holdout, holdout_replicated=True)
-    assert dec_promote.verdict == "PROMOTE"
-    assert dec_promote.promotion_stage == "PROMOTE"
+    assert dec_promote.verdict == "SYNTHETIC_PASS"
+    assert not dec_promote.promotion_eligible
+    assert dec_promote.evidence_state == "SYNTHETIC"
 
 
 def test_temporal_drift_detection_marks_inconclusive() -> None:

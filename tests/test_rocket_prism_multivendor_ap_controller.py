@@ -33,8 +33,9 @@ def test_rocket_prism_multivendor_profile_enforces_ram_only_and_lap120_guard_ban
 
 
 def test_rocket_prism_sxt_and_lbm5_plan_artifact_promotes() -> None:
-    assert DEFAULT_PLAN_OUTPUT_PATH.exists()
-    saved = json.loads(DEFAULT_PLAN_OUTPUT_PATH.read_text(encoding="utf-8"))
+    saved = build_rocket_prism_multivendor_plan_report()
+    assert saved["paired_evidence_state"] == "SYNTHETIC"
+    assert saved["physical_promotion_accepted"] is False
     assert saved["automatic_execution_allowed"] is False
 
     cpes = {c["mgmt_ip"]: c for c in saved["cpe_profiles"]}
@@ -42,4 +43,4 @@ def test_rocket_prism_sxt_and_lbm5_plan_artifact_promotes() -> None:
     assert "10.99.0.4" in cpes
     assert cpes["10.99.0.3"]["vendor"] == "MikroTik"
     assert cpes["10.99.0.4"]["spatial_streams"] == 1
-    assert saved["paired_ab_evaluation"]["verdict"] == "PROMOTE"
+    assert saved["paired_ab_evaluation"]["verdict"] == "SYNTHETIC_PASS"

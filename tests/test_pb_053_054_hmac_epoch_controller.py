@@ -1,6 +1,7 @@
 """Unit tests for PB-053 & PB-054 Hybrid hMAC Airtime Epoch Controller + Missed-Slot Recovery FSM."""
 
 from __future__ import annotations
+import json
 
 from controller.pb_053_054_hmac_epoch_controller import (
     HmacMissedSlotRecoveryFsm,
@@ -50,12 +51,40 @@ def test_pb_054_missed_slot_recovery_fsm_transitions() -> None:
     assert s6.rts_threshold_bytes == 2347
 
 
-def test_live_r135_to_r140_qualification_report() -> None:
-    report = build_pb_053_054_qualification_report()
+def test_live_r135_to_r140_qualification_report(tmp_path) -> None:
+    files = []
+    for index, distance in enumerate((1, 3, 6, 9, 12, 14)):
+        iterations = []
+        for arm in ('A', 'B'):
+            observation = dict(goodput_rx_mbps=100.0, p95_rtt_ms=15.0 if arm == 'A' else 2.0,
+                p99_rtt_ms=20.0 if arm == 'A' else 3.0, packet_loss_pct=0.0, jain_fairness=1.0)
+            iterations.append(dict(observation=observation,
+                repetition_blocks=[dict(observation=observation,dl_goodput_mbps=50.0) for _ in range(16)],
+                tid0_be_tx_pkts_delta=100,tid6_vo_tx_pkts_delta=100,tid6_vo_drops_delta=0))
+        filename = f'fixture_{index}.json'
+        (tmp_path / filename).write_text(json.dumps(dict(evidence_state='SYNTHETIC',
+            experiment_id=f'synthetic_hmac_{index}',distance_m=distance*1000,
+            coverage_class=2,slot_time_us=9,ack_timeout_us=64,iterations=iterations)))
+        files.append((f'R{135+index}', filename))
+    report = build_pb_053_054_qualification_report(evidence_root=tmp_path, receipt_files=files)
     assert report["automatic_execution_allowed"] is False
-    assert report["all_6_distances_promoted"] is True
+    assert report["all_6_distances_promoted"] is False
     assert report["zero_tid6_voip_drops_across_all_distances"] is True
     assert len(report["pb053_live_r135_to_r140_evaluations"]) == 6
     for row in report["pb053_live_r135_to_r140_evaluations"]:
         assert row["gate_decision"]["p99_delta_pct"] <= -70.0
         assert row["hmac_tid6_vo_drops_delta"] == 0
+        assert row['gate_decision']['verdict'] == 'SYNTHETIC_PASS'
+        assert row['latency_floor_promoted'] is False
+        assert row['historical_latency_criterion_met'] is True
+        assert row['restoration_verified'] is None
+
+
+def test_missing_saved_receipts_and_empty_inputs_never_pass(tmp_path):
+    report = build_pb_053_054_qualification_report(evidence_root=tmp_path)
+    assert not report['all_6_distances_promoted']
+    assert not report['zero_tid6_voip_drops_across_all_distances']
+    assert all(row['source_status'] == 'UNAVAILABLE_TO_THIS_REVIEW'
+               for row in report['pb053_live_r135_to_r140_evaluations'])
+    empty = build_pb_053_054_qualification_report(evidence_root=tmp_path, receipt_files=())
+    assert not empty['all_6_distances_promoted']

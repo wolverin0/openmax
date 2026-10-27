@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "773A",
+  "title": "WA v13 identity-bound transient queue kit",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "Linux",
+    "mac80211",
+    "ath10k"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "available": true,
+      "bytes": 11129,
+      "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+          "available": true,
+          "bytes": 11129,
+          "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage773a-offline"
+    }
+  },
+  "execution_mode": "OFFLINE_PACKAGING",
+  "helper_script": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+  "helper_sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485",
+  "champion_version": "WA-Champion-v13",
+  "runtime_acceptance": "UNKNOWN",
+  "target_patch_execution": "UNKNOWN",
+  "historical_reported_windows": 344,
+  "historical_reported_metrics": {
+    "vht20_peak_tcp_mbps": 78.51,
+    "vht20_mean_tcp_mbps": 76.55,
+    "loaded_p50_rtt_reduction_e2e_mk1_251_pct": 86.37
+  },
+  "historical_claim_scope": "Imported Stage773A summary; not remeasured or independently reaccepted",
+  "dhcp_services_changed": false,
+  "profile_scope": "Transient AQL/BQL/pktlog/fq_codel/three sysctls only",
+  "apply_contract": {
+    "default": "PLANNED",
+    "explicit_apply": true,
+    "identity_fields": [
+      "board",
+      "revision",
+      "kernel",
+      "driver",
+      "firmware",
+      "radio",
+      "phy",
+      "egress",
+      "radio_ifindex",
+      "egress_ifindex",
+      "fingerprint"
+    ],
+    "exact_getters_required": true,
+    "snapshot_required": true,
+    "rollback_readback_required": true,
+    "states": [
+      "PLANNED",
+      "FAILED_PRECONDITION",
+      "APPLIED_VERIFIED",
+      "FAILED_ROLLED_BACK",
+      "ROLLBACK_FAILED"
+    ]
+  },
+  "evidence_limitations": [
+    "Command stubs establish software control flow only.",
+    "Missing board_revision getter or unsupported fq_codel output refuses application.",
+    "No PB040/PB050/PB060 target execution, hardware QoE, coldboot or power-cut proof.",
+    "Snapshot restores configuration, not already queued packets or driver counters."
+  ],
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

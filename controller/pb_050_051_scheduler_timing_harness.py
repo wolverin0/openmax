@@ -127,12 +127,16 @@ def evaluate_pb051_target_slot_feasibility(
     passes_jitter = timing["jitter_p99_us"] <= max_allowed_p99_jitter_us
     passes_leakage = timing["out_of_slot_violation_rate_pct"] < max_allowed_leakage_pct
     passes_qoe = gate_decision.verdict == "PROMOTE"
+    diagnostic_pass = passes_jitter and passes_leakage and gate_decision.verdict == 'SYNTHETIC_PASS'
 
     overall_verdict = "PASSED_FEASIBILITY_GATE" if (passes_jitter and passes_leakage and passes_qoe) else "FAILED_FEASIBILITY_GATE"
 
     return {
         "gate_id": "PB-051",
-        "overall_feasibility_verdict": overall_verdict,
+        "overall_feasibility_verdict": 'SYNTHETIC_PASS' if diagnostic_pass else overall_verdict,
+        "diagnostic_passed": diagnostic_pass,
+        "physical_promotion_accepted": passes_jitter and passes_leakage and passes_qoe,
+        "evidence_state": gate_decision.evidence_state,
         "criteria_checks": {
             "p99_jitter_le_250us": passes_jitter,
             "out_of_slot_leakage_lt_0_5pct": passes_leakage,
@@ -220,6 +224,7 @@ def build_pb_050_051_fixture_report() -> Dict[str, Any]:
     for idx in range(6):
         paired_runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"PB051_CSMA_A_{idx}",
                 arm="A",
                 goodput_mbps=csma_gp[idx],
@@ -234,6 +239,7 @@ def build_pb_050_051_fixture_report() -> Dict[str, Any]:
         )
         paired_runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"PB051_TARGET_B_{idx}",
                 arm="B",
                 goodput_mbps=target_gp[idx],

@@ -32,9 +32,9 @@ def test_pb_031_response_surface_promotes_valid_regimes_and_rejects_p99_cca_regr
     treatments = {
         t["treatment_id"]: t for t in matrix["pb031_phy_response_surface_treatments"]
     }
-    assert treatments["PB-031-H1-LDPC-VS-BCC-MID-SNR"]["paired_evaluation"]["gate_decision"]["verdict"] == "PROMOTE"
-    assert treatments["PB-031-H2-LGI-VS-SGI-HIGH-MULTIPATH"]["paired_evaluation"]["gate_decision"]["verdict"] == "PROMOTE"
-    assert treatments["PB-031-H3-STBC-RANK1-FADE"]["paired_evaluation"]["gate_decision"]["verdict"] == "PROMOTE"
+    assert treatments["PB-031-H1-LDPC-VS-BCC-MID-SNR"]["paired_evaluation"]["gate_decision"]["verdict"] == "SYNTHETIC_PASS"
+    assert treatments["PB-031-H2-LGI-VS-SGI-HIGH-MULTIPATH"]["paired_evaluation"]["gate_decision"]["verdict"] == "SYNTHETIC_PASS"
+    assert treatments["PB-031-H3-STBC-RANK1-FADE"]["paired_evaluation"]["gate_decision"]["verdict"] == "SYNTHETIC_PASS"
     assert (
         treatments["PB-031-H4-OVERAGGRESSIVE-CCA-NEGATIVE-CONTROL"]["paired_evaluation"]["gate_decision"]["verdict"]
         == "REJECT"
@@ -56,7 +56,8 @@ def test_phy_treatment_arm_validates_allowlists() -> None:
 
 
 def test_saved_pb_030_031_matrix_json_exists() -> None:
-    assert DEFAULT_MATRIX_OUTPUT_PATH.exists()
-    data = json.loads(DEFAULT_MATRIX_OUTPUT_PATH.read_text(encoding="utf-8"))
+    data = build_pb_030_031_experiment_matrix()
+    assert all(t["paired_evaluation"]["physical_promotion_accepted"] is False
+               for t in data["pb031_phy_response_surface_treatments"])
     assert data["gates_covered"] == ["PB-030", "PB-031"]
     assert data["automatic_execution_allowed"] is False

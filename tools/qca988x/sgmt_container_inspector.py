@@ -54,133 +54,91 @@ EMBEDDED_FIRMWARE_SYMBOLS: Tuple[str, ...] = (
 
 def classify_target_memory_region(addr: int, length: int) -> str:
     """Classifies QCA988x / AR9888 Xtensa target memory address ranges."""
-    if 0x00980000 <= addr < 0x00983C00:
+    if length <= 0 or addr < 0 or addr + length > 2**32:
+        return "TARGET_OTHER_OR_PERIPHERAL"
+    if 0x00980000 <= addr and addr + length <= 0x00983C00:
         return "TARGET_IRAM_VECTOR_AND_PATCH_TABLE"
-    if 0x00983C00 <= addr < 0x009E0000:
+    if 0x00983C00 <= addr and addr + length <= 0x009E0000:
         return "TARGET_IRAM_MAIN_TEXT"
-    if 0x00400000 <= addr < 0x00450000:
+    if 0x00400000 <= addr and addr + length <= 0x00450000:
         return "TARGET_DRAM_DATA_AND_RODATA"
     return "TARGET_OTHER_OR_PERIPHERAL"
 
 
 def _read_bcl_varint(buf: bytes, pos: int) -> Tuple[int, int]:
-    val = 0
-    while True:
-        b = buf[pos]
-        pos += 1
-        val = (val << 7) | (b & 0x7F)
-        if not (b & 0x80):
-            break
-    return val, pos
+    from firmware.xtensa_sgmt_surgical_patcher import read_bmi_varint
+    return read_bmi_varint(buf, pos)
 
 
 def _write_bcl_varint(val: int) -> bytes:
-    if val < 0:
-        raise ValueError("varint must be non-negative")
-    chunks = [val & 0x7F]
-    val >>= 7
-    while val > 0:
-        chunks.append((val & 0x7F) | 0x80)
-        val >>= 7
-    chunks.reverse()
-    return bytes(chunks)
+    from firmware.xtensa_sgmt_surgical_patcher import write_bmi_varint
+    return write_bmi_varint(val)
+
+
+def inspect_sgmt_container(blob: bytes) -> Dict[str, Any]:
+    """Return format diagnostics; this is never target-loader acceptance.
+
+    Structural problems are retained as validation_errors for inspection. The
+    strict parse/validate entry points reject every such diagnostic.
+    """
+    from firmware.xtensa_sgmt_surgical_patcher import SgmtContainer
+    from firmware.xtensa_sgmt_surgical_patcher import MAX_CONTAINER_BYTES
+    if not isinstance(blob, bytes) or len(blob) > MAX_CONTAINER_BYTES:
+        raise ValueError('SGMT inspection input bounds exceeded')
+    result = dict(magic="SGMT" if blob[:4] == SGMT_MAGIC else "INVALID",
+                  version=struct.unpack_from("<I", blob, 4)[0] if len(blob) >= 8 else None,
+                  header_word_semantics="file_flags; not an authenticated firmware version",
+                  container_size_bytes=len(blob), parsed_end_offset=0,
+                  trailing_unparsed_bytes=len(blob), exact_eof_match=False,
+                  entry_point_address=None, has_end_sentinel=False,
+                  has_cryptographic_signature_trailer=False,
+                  total_uncompressed_bytes=0, container_sha256=hashlib.sha256(blob).hexdigest(),
+                  records=[], validation_passed=False, validation_errors=[],
+                  acceptance_scope="STATIC_FORMAT_ONLY", target_execution="UNKNOWN")
+    try:
+        container = SgmtContainer.from_bytes(blob)
+    except (ValueError, TypeError, struct.error) as exc:
+        result['validation_errors'].append(str(exc))
+        return result
+    pos = 8
+    records = []
+    for seg in container.segments:
+        end = pos + 8 + len(seg.compressed_bytes)
+        records.append(dict(record_type="DATA_SEGMENT", target_address=seg.destination_hex,
+            target_end_address=f"0x{seg.destination + seg.decoded_size:08x}",
+            memory_region=classify_target_memory_region(seg.destination, seg.decoded_size),
+            uncompressed_size_bytes=seg.decoded_size, compressed_size_bytes=seg.compressed_size,
+            compression_ratio=round(seg.compressed_size / seg.decoded_size, 4),
+            lz77_marker_byte=f"0x{seg.compressed_bytes[0]:02x}" if container.file_flags else None,
+            file_offset_start=pos, file_offset_end=end, uncompressed_sha256=seg.decoded_sha256))
+        pos = end
+    records.append(dict(record_type="BMI_SGMT_BEGIN_ADDR", entry_point_address=f"0x{container.entry_point:08x}",
+                        file_offset_start=pos, file_offset_end=pos + 8))
+    records.append(dict(record_type="BMI_SGMT_END", target_address=f"0x{container.done_address:08x}",
+                        file_offset_start=pos + 8, file_offset_end=pos + 16))
+    result.update(parsed_end_offset=len(blob), trailing_unparsed_bytes=0, exact_eof_match=True,
+                  entry_point_address=f"0x{container.entry_point:08x}", has_end_sentinel=True,
+                  total_uncompressed_bytes=sum(seg.decoded_size for seg in container.segments),
+                  records=records, validation_passed=True)
+    return result
+
+
+def validate_sgmt_container(report: Dict[str, Any] | bytes) -> Dict[str, Any]:
+    """Reject an unsuccessful diagnostic instead of converting inspection to PASS."""
+    if isinstance(report, bytes):
+        report = inspect_sgmt_container(report)
+    if not isinstance(report, dict):
+        raise ValueError('SGMT bytes or inspection diagnostic required')
+    if (report.get('validation_passed') is not True or report.get('validation_errors')
+            or report.get('version') not in (0, 1) or report.get('exact_eof_match') is not True
+            or report.get('has_end_sentinel') is not True):
+        raise ValueError('Invalid SGMT container: ' + '; '.join(report.get('validation_errors', [])))
+    return report
 
 
 def parse_sgmt_container(blob: bytes) -> Dict[str, Any]:
-    """Bit-exact parser and BCL-LZ77 decompressor for a QCA988x SGMT container."""
-    if len(blob) < 16 or blob[:4] != SGMT_MAGIC:
-        raise ValueError("Invalid SGMT container magic; expected b'SGMT'.")
-
-    version = struct.unpack_from("<I", blob, 4)[0]
-    pos = 8
-    records: List[Dict[str, Any]] = []
-    entry_point: int | None = None
-    has_end_sentinel = False
-    total_uncompressed_bytes = 0
-
-    while pos + 8 <= len(blob):
-        rec_start = pos
-        addr, length = struct.unpack_from("<2I", blob, pos)
-        pos += 8
-
-        if length == BMI_SGMT_END:
-            has_end_sentinel = True
-            records.append(
-                {
-                    "record_type": "BMI_SGMT_END",
-                    "target_address": f"0x{addr:08x}",
-                    "file_offset_start": rec_start,
-                    "file_offset_end": pos,
-                }
-            )
-            break
-
-        if length == BMI_SGMT_BEGIN_ADDR:
-            entry_point = addr
-            records.append(
-                {
-                    "record_type": "BMI_SGMT_BEGIN_ADDR",
-                    "entry_point_address": f"0x{addr:08x}",
-                    "file_offset_start": rec_start,
-                    "file_offset_end": pos,
-                }
-            )
-            continue
-
-        marker = blob[pos]
-        pos += 1
-        out = bytearray()
-        while len(out) < length:
-            sym = blob[pos]
-            pos += 1
-            if sym != marker:
-                out.append(sym)
-            elif blob[pos] == 0:
-                pos += 1
-                out.append(marker)
-            else:
-                rep_len, pos = _read_bcl_varint(blob, pos)
-                offset, pos = _read_bcl_varint(blob, pos)
-                if offset <= 0 or offset > len(out):
-                    raise ValueError(f"Invalid LZ77 back-reference offset={offset} at pos={pos}")
-                for _ in range(rep_len):
-                    out.append(out[-offset])
-
-        if len(out) != length:
-            raise ValueError(f"Decompressed size mismatch: expected {length}, got {len(out)}")
-
-        comp_bytes = pos - (rec_start + 8)
-        total_uncompressed_bytes += len(out)
-        records.append(
-            {
-                "record_type": "DATA_SEGMENT",
-                "target_address": f"0x{addr:08x}",
-                "target_end_address": f"0x{addr + length:08x}",
-                "memory_region": classify_target_memory_region(addr, length),
-                "uncompressed_size_bytes": length,
-                "compressed_size_bytes": comp_bytes,
-                "compression_ratio": round(comp_bytes / float(max(1, length)), 4),
-                "lz77_marker_byte": f"0x{marker:02x}",
-                "file_offset_start": rec_start,
-                "file_offset_end": pos,
-                "uncompressed_sha256": hashlib.sha256(out).hexdigest(),
-            }
-        )
-
-    return {
-        "magic": "SGMT",
-        "version": version,
-        "container_size_bytes": len(blob),
-        "parsed_end_offset": pos,
-        "trailing_unparsed_bytes": len(blob) - pos,
-        "exact_eof_match": (pos == len(blob)) and has_end_sentinel,
-        "entry_point_address": f"0x{entry_point:08x}" if entry_point is not None else None,
-        "has_end_sentinel": has_end_sentinel,
-        "has_cryptographic_signature_trailer": False,
-        "total_uncompressed_bytes": total_uncompressed_bytes,
-        "container_sha256": hashlib.sha256(blob).hexdigest(),
-        "records": records,
-    }
+    """Strict static-format parser. Use inspect_sgmt_container for diagnostics."""
+    return validate_sgmt_container(inspect_sgmt_container(blob))
 
 
 def build_valid_sgmt_container(
@@ -191,6 +149,8 @@ def build_valid_sgmt_container(
     out = bytearray(SGMT_MAGIC)
     out.extend(struct.pack("<I", 1))
     for addr, raw in segments:
+        from firmware.xtensa_sgmt_surgical_patcher import validate_target_extent
+        validate_target_extent(addr, len(raw))
         # Choose least-frequent byte as LZ77 escape marker
         counts = [0] * 256
         for b in raw:
@@ -206,7 +166,9 @@ def build_valid_sgmt_container(
         out.extend(comp)
     out.extend(struct.pack("<2I", entry_point, BMI_SGMT_BEGIN_ADDR))
     out.extend(struct.pack("<2I", 0, BMI_SGMT_END))
-    return bytes(out)
+    result = bytes(out)
+    parse_sgmt_container(result)
+    return result
 
 
 def verify_board_raw_data_checksum(raw_board_bytes: bytes) -> Dict[str, Any]:
@@ -258,10 +220,18 @@ def build_pb_011_sgmt_audit_report() -> Dict[str, Any]:
             "sgmt_containers": fw_reports,
         }
 
+    board_check_passes = all(item['board_raw_data_verification']['passes_ol_transfer_bin_file_xor_gate']
+                             for item in platform_audits.values())
+    all_eof_match = all(report['exact_eof_match'] and report['validation_passed']
+                        for item in platform_audits.values() for report in item['sgmt_containers'].values())
     return {
         "gate_id": "PB-011",
         "title": "SGMT/Xtensa Loader, Relocation and Checksum/Signature Boundary",
-        "status": "PASSED",
+        "status": "PASSED" if board_check_passes and all_eof_match else "FAILED",
+        "board_check_passes": board_check_passes,
+        "all_eof_match": all_eof_match,
+        "acceptance_scope": "STATIC_FORMAT_AND_BOARD_CHECKSUM_ONLY",
+        "target_execution": "UNKNOWN",
         "loader_analysis": {
             "host_loader_function": "ol_transfer_bin_file (umac.ko .text+0xbd4a0, bytes 775328..777252)",
             "sgmt_compression_algorithm": "Basic Compression Library (BCL) LZ77 with per-segment 1-byte escape marker and 7-bit big-endian varint (length, distance)",

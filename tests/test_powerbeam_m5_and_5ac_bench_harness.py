@@ -135,7 +135,9 @@ def test_powerbeam_bench_battery_and_artifact_receipt(tmp_path: Path) -> None:
     assert plan["safety_and_execution_policy"]["live_ssh_allowed"] is False
     assert plan["safety_and_execution_policy"]["auto_flash_allowed"] is False
     assert plan["summary"]["total_experiments"] == 6
-    assert plan["summary"]["promoted_count"] == 6
+    assert plan["summary"]["promoted_count"] == 0
+    assert plan['evidence_state']=='SYNTHETIC'
+    assert plan['summary']['synthetic_pass_count']==6
     assert plan["summary"]["rollback_triggered_count"] == 0
     assert plan["summary"]["aa_null_calibration_pass"] is True
 
@@ -145,7 +147,5 @@ def test_powerbeam_bench_battery_and_artifact_receipt(tmp_path: Path) -> None:
     loaded = json.loads(out_file.read_text(encoding="utf-8"))
     assert loaded["plan_sha256"] == written["plan_sha256"]
 
-    repo_artifact = Path("artifacts/qca988x/powerbeam_m5_5ac_bench_plan_20261024.json")
-    assert repo_artifact.is_file()
-    repo_loaded = json.loads(repo_artifact.read_text(encoding="utf-8"))
-    assert repo_loaded["plan_sha256"] == written["plan_sha256"]
+    assert written['plan_sha256']==plan['plan_sha256']
+    assert all(e['gate_decision']['promotion_eligible'] is False for e in loaded['experiments'])

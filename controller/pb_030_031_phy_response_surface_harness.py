@@ -163,6 +163,7 @@ def evaluate_pb030_width_comparison_block(
         )
         gate_runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"{experiment_id}_A_{idx}",
                 arm="A",
                 goodput_mbps=gp_a,
@@ -177,6 +178,7 @@ def evaluate_pb030_width_comparison_block(
         )
         gate_runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"{experiment_id}_B_{idx}",
                 arm="B",
                 goodput_mbps=gp_b,
@@ -190,7 +192,7 @@ def evaluate_pb030_width_comparison_block(
             )
         )
 
-    gk = RegressionGatekeeper(min_blocks_for_keep=4, min_blocks_for_promote=6)
+    gk = RegressionGatekeeper(min_blocks_for_keep=4, min_blocks_for_promote=6, objective="CAPACITY_WITH_QOE_CONSTRAINTS")
     decision: GateDecision = gk.evaluate_paired(gate_runs, holdout_replicated=holdout_replicated)
 
     record = ExperimentResultRecord(
@@ -208,6 +210,8 @@ def evaluate_pb030_width_comparison_block(
 
     return {
         "experiment_id": experiment_id,
+        "evidence_state": "SYNTHETIC",
+        "physical_promotion_accepted": False,
         "channel_width_mhz": channel_width_mhz,
         "attenuation_db": attenuation_db,
         "baseline_mean_goodput_per_mhz": round(

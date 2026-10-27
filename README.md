@@ -1,7 +1,12 @@
-<!-- doc-head: Public milestones through824A with qualified historic WA PtP LTU results and offline825A evidence -->
+<!-- doc-head: Public software reproduction and corrected audit contracts; qualified historical milestones -->
 <!-- /doc-head -->
 
 # openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
+
+[Public engineering index](docs/PUBLIC_OVERVIEW.md) ? [Remediation handoff](docs/AUDIT_1AFAEB7_REMEDIATION.md)
+
+Offline software validation: `python tools/verify/verify_chatgpt_audit_1afaeb7.py`
+Requires Python3.12, requirements-audit.txt and POSIX bash/coreutils. Synthetic tests do not accept radio performance.
 
 ## Current milestones through Stage824A / Hitos hasta Stage824A
 
@@ -25,13 +30,12 @@ external controller for simulation, packaging and documentation. Static names al
 Source links are local evidence pointers; a privacy-filtered public selection may omit historical targets.
 Sources: [WA v13](docs/STAGE773A_WA_CHAMPION_V13_344WINDOW_FIELD_ROLLOUT_KIT.md), [PtP v5](docs/STAGE741A_PBE5AC_LBE5AC_VHT40_PB050_PRODUCTION_BUNDLE_V5.md),
 [triple patch](docs/STAGE817A_UNIVERSAL_PB060_TRIPLE_PATCH_OPENWRT_AIROS_KIT.md), [LTU kit](docs/STAGE818A_LTU_4096QAM_12X_LDPC_AND_SUPER4096_SAFE_KIT.md),
-[model](docs/STAGE819A_GUARIDA_TOWER_V10_TRIPLE_PATCH_AND_XW_MIXED_TDMA_PARETO.md), [825A source ledger](docs/STAGE825A_PUBLIC_MILESTONES_THROUGH_824A.md).
+[model; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence), [825A source ledger](docs/STAGE825A_PUBLIC_MILESTONES_THROUGH_824A.md).
 
 Historical sections below retain source-reported experiments and their original scope; they are not new Stage825A acceptance.
 
 > **An open research knowledge hub and autonomous experimental testbed driven by a real-world WISP and AI agents to extract maximum real-world PtMP/PtP capacity, latency stability, Triple-Play QoE, and spectral efficiency from ubiquitously deployed Ubiquiti airMAX AC, M5, and LTU hardware.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status: Active R&D (Stage824A)](https://img.shields.io/badge/Status-Active%20R%26D%20(Stage824A)-success.svg)](docs/CURRENT_STATE.md)
 [![Hardware: QCA988x / AR934x / QCA9558 / LTU](https://img.shields.io/badge/Hardware-QCA988x%20%7C%20AR934x%20%7C%20QCA9558%20%7C%20LTU-orange.svg)](docs/HARDWARE_MATRIX.md)
 [![Method: Autonomous Loop](https://img.shields.io/badge/Method-Autonomous%20Loop%20(Karpathy%20%2F%20IteRate)-purple.svg)](docs/DECISIONS.md#d-0009)
@@ -93,19 +97,19 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 
 | Document | Purpose |
 |:---|:---|
-| **[docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md](docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md)** | **Master Research & Autoresearch Index (`v29.0`)**: Complete index of verified hardware champions (`PtMP v22`, `PtP v9`, `LTU 12x SMP`), 571-knob catalog, and 5-Pillar research architecture. |
-| **[docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md](docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md)** | **32 Confirmed Hardware Discoveries (`FMX-DISC-01..32`)**: Consolidated ledger of physical testbed breakthroughs from Stages 1–99D. |
-| **[docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md](docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md)** | **Stage 7 Multi-Vendor PtMP Report**: 3-station (`802.11ac` + `MikroTik ath9k` + `airOS 6 M5`) Near-Far, ATF, `WMM AC_VO` Deficit Bypass (`21x` RTT cut), and `RTS/CTS 256B` (`+18.5%` UL). |
+| **[docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Master Research & Autoresearch Index (`v29.0`)**: Complete index of verified hardware champions (`PtMP v22`, `PtP v9`, `LTU 12x SMP`), 571-knob catalog, and 5-Pillar research architecture. |
+| **[docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **32 Confirmed Hardware Discoveries (`FMX-DISC-01..32`)**: Consolidated ledger of physical testbed breakthroughs from Stages 1–99D. |
+| **[docs/STAGE7_MULTIVENDOR_PTMP_REPORT.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 7 Multi-Vendor PtMP Report**: 3-station (`802.11ac` + `MikroTik ath9k` + `airOS 6 M5`) Near-Far, ATF, `WMM AC_VO` Deficit Bypass (`21x` RTT cut), and `RTS/CTS 256B` (`+18.5%` UL). |
 | **[docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md](docs/STAGE8_ADAPTIVE_CONTROLLER_AND_SECTOR_SIM.md)** | **Stage 8 Adaptive Controller & Sector Sim**: Zero-fork closed-loop daemon (`fmx_adaptive_controller.sh`), `618 KB` Spectral FFT, `VHT40` vs `VHT80` (`2.26x` spectral efficiency), and 6-flow BiDir stress test (`39.1x` RTT cut). |
-| **[docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md](docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md)** | **Stage 9 `20 MHz` WISP Sector, Rate-Mask Boundary, `CoTSQ` & `procd` Watchdog**: `VHT20` (`3.05x` faster obstructed `SXT`, `0.9531` Jain fairness, `3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL), `FMX-0009` `ATH10K_DBG_BUFFER` verification, and `CoTSQ 128 KB`. |
-| **[docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md](docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md)** | **Stage 10 Stock `airOS 8` (`v8.5.12`–`v8.7.25`) Interoperability & Zero-Truck-Roll Migration**: Cracked the 4 locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1` WPA2 filter, `ETH_P_TEB` `0x6558` decapsulation) + `/sbin/uav`-proof `system.cfg` persistence (`78.7 Mbps` UL / `63.6 Mbps` DL in `20 MHz`). |
-| **[docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md](docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md)** | **Stage 11A `XC` (`Rocket Prism 5AC Gen2` / `PS-5AC`) & AirPrism Architecture**: Full decompilation of all 34 `XC` board structs, 2-stage AirPrism (`GPIO 13..16` `prism` bank + SPI `hsr` active filter at `0xbf000000`), and `wifi1` `SPECTRAL-XMIT-FILTER`. |
+| **[docs/STAGE9_20MHZ_RATEMASK_COTSQ_AND_PROCD.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 9 `20 MHz` WISP Sector, Rate-Mask Boundary, `CoTSQ` & `procd` Watchdog**: `VHT20` (`3.05x` faster obstructed `SXT`, `0.9531` Jain fairness, `3.342 bit/s/Hz` DL / `3.656 bit/s/Hz` UL), `FMX-0009` `ATH10K_DBG_BUFFER` verification, and `CoTSQ 128 KB`. |
+| **[docs/STAGE10_STOCK_AIROS8_INTEROP_AND_REVERT.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 10 Stock `airOS 8` (`v8.5.12`–`v8.7.25`) Interoperability & Zero-Truck-Roll Migration**: Cracked the 4 locks (`ubnt_poll_host_is_ap_valid`, 30s TDMA watchdog, `allow_80211=1` WPA2 filter, `ETH_P_TEB` `0x6558` decapsulation) + `/sbin/uav`-proof `system.cfg` persistence (`78.7 Mbps` UL / `63.6 Mbps` DL in `20 MHz`). |
+| **[docs/STAGE11_XC_ROCKET_PRISM_AND_AIRPRISM_RE.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 11A `XC` (`Rocket Prism 5AC Gen2` / `PS-5AC`) & AirPrism Architecture**: Full decompilation of all 34 `XC` board structs, 2-stage AirPrism (`GPIO 13..16` `prism` bank + SPI `hsr` active filter at `0xbf000000`), and `wifi1` `SPECTRAL-XMIT-FILTER`. |
 | **[docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md](docs/STAGE11_LTU_MODULATION_4096QAM_AND_ARCH_RE.md)** | **Stage 11B `LTU` (`LTU-Rocket` / `LTU-Lite` `v2.4.2`) `4096-QAM` (`12X`) Unlock & Hidden OFDMA**: `amesoc3` + `AD9361` SDR + `Intel Arria 10 SoC FPGA` architecture; proof that `4096-QAM` (`0x1f`) is implemented in `ame_core.ko`/RFIC/PtMP scheduler (`wireless.1.rate.mcs=5`). |
-| **[docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md](docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md)** | **Stage 12 Live Production Sector Cutover (`Live-Sector-1` + `CPE-A` + `CPE-B`) & UISP Bridge**: First live outdoor WISP sector (`LiteAP 120` AP + `NanoStation 5AC loco` + `LiteBeam 5AC Gen2` CPEs) migrated 100% to OpenWrt 24.10.4 (`Linux 6.6.110`), delivering **~10x lower wireless RTT (`22.58 ms` -> `1.93–2.42 ms`)** and **`69.80 Mbps` TCP DL in `20 MHz`**. |
-| **[docs/STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md](docs/STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md)** | **Stage 72A PtMP Champion `v22`**: Live 3-CPE sector kernel `.ko` fast-path (`rmmod ath_pktlog` + `vow_extstats=0` + `set_multiq=3`) yielding **`+23.35%` sector goodput (`46.53 -> 57.39 Mbps`)**, **`-20.81%` `p99` RTT**, **`-22.58%` IPTV jitter**, and **`0.00%` VoIP loss**. |
-| **[docs/STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md](docs/STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md)** | **Stage 85A PtP Champion `v9` & Hitless `802.11h` `CSA`**: **`+41.01%` total goodput**, **`+70.60%` Bulk TCP**, **`-64.80%` `p95` RTT**, **`0.000%` VoIP loss**, and **`0.000s` hitless channel hop (`0/80` missed probes)**. |
-| **[docs/STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md](docs/STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md)** | **Stage 89B Zero-Touch Dynamic `20 MHz <-> 40 MHz` Auto-Following**: Stock `airOS 8` CPEs follow OpenWrt AP `VHT Operation IE` bandwidth transitions in **`8.78s–12.10s` (`< 15s`)** with **`-31.28%` IPTV jitter**. |
-| **[docs/STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md](docs/STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md)** | **Stages 92B–99B `AF-LTU` Master AP Unlock, `80`-Symbol Superframe & `Rocket 2AC Prism` Fast-Path**: `LTU-Lite` `4096-QAM 12x` + `80`-symbol (`61 DL + 19 UL`) superframe + Cortex-A9 SMP IRQ pinning (`189.81 Mbps` SoC TCP, `-12.5%` `p50` RTT) & `Rocket 2AC Prism` `IRQ 2` elimination (`+13.0%` TCP, `-54.3%` `p50` RTT). |
+| **[docs/STAGE12_FULL_OPENWRT_SECTOR_AND_UISP_BRIDGE.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 12 Live Production Sector Cutover (`Live-Sector-1` + `CPE-A` + `CPE-B`) & UISP Bridge**: First live outdoor WISP sector (`LiteAP 120` AP + `NanoStation 5AC loco` + `LiteBeam 5AC Gen2` CPEs) migrated 100% to OpenWrt 24.10.4 (`Linux 6.6.110`), delivering **~10x lower wireless RTT (`22.58 ms` -> `1.93–2.42 ms`)** and **`69.80 Mbps` TCP DL in `20 MHz`**. |
+| **[docs/STAGE72A_PTMP_KERNEL_KO_FASTPATH_BENCH.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 72A PtMP Champion `v22`**: Live 3-CPE sector kernel `.ko` fast-path (`rmmod ath_pktlog` + `vow_extstats=0` + `set_multiq=3`) yielding **`+23.35%` sector goodput (`46.53 -> 57.39 Mbps`)**, **`-20.81%` `p99` RTT**, **`-22.58%` IPTV jitter**, and **`0.00%` VoIP loss**. |
+| **[docs/STAGE85A_PTP_CHAMPION_V9_AND_HITLESS_CSA_BENCH.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 85A PtP Champion `v9` & Hitless `802.11h` `CSA`**: **`+41.01%` total goodput**, **`+70.60%` Bulk TCP**, **`-64.80%` `p95` RTT**, **`0.000%` VoIP loss**, and **`0.000s` hitless channel hop (`0/80` missed probes)**. |
+| **[docs/STAGE89B_DYNAMIC_20_40MHZ_CHANNEL_WIDTH_AUTO_FOLLOWING_BENCH.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stage 89B Zero-Touch Dynamic `20 MHz <-> 40 MHz` Auto-Following**: Stock `airOS 8` CPEs follow OpenWrt AP `VHT Operation IE` bandwidth transitions in **`8.78s–12.10s` (`< 15s`)** with **`-31.28%` IPTV jitter**. |
+| **[docs/STAGE92B_LTU_12X_AND_2AC_PRISM_BENCH.md; public context](docs/PUBLIC_OVERVIEW.md#historical-evidence)** | **Stages 92B–99B `AF-LTU` Master AP Unlock, `80`-Symbol Superframe & `Rocket 2AC Prism` Fast-Path**: `LTU-Lite` `4096-QAM 12x` + `80`-symbol (`61 DL + 19 UL`) superframe + Cortex-A9 SMP IRQ pinning (`189.81 Mbps` SoC TCP, `-12.5%` `p50` RTT) & `Rocket 2AC Prism` `IRQ 2` elimination (`+13.0%` TCP, `-54.3%` `p50` RTT). |
 | **[docs/DOCS-MAP.md](docs/DOCS-MAP.md)** | **Master Reading Map**: Status and classification of all project files across Stages 1–99D. |
 | **[docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)** | **Living State Log**: Chronological development log and active hardware baselines. |
 | **[docs/DECISIONS.md](docs/DECISIONS.md)** | **Architectural Decision Records**: D-0001 through D-0018. |
@@ -156,4 +160,4 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 * **2-Tier Physical Testbed**: (1) **Benchtop Coaxial Matrix** (SMA coax + 30–40 dB attenuators + Wilkinson dividers) and (2) **Outdoor Cross-Building Rooftop Sector** (`LiteAP 120`, `PowerBeam 5AC-500`, `Rocket 2AC Prism`, `LTU-Lite`, `MikroTik RB2011`, and multi-generation CPEs) with automated PoE/TFTP `urescue` recovery.
 * **Open Collaboration**: We welcome peer review of our ADRs (**[docs/DECISIONS.md](docs/DECISIONS.md)**), adversarial audits (**[docs/ADVERSARIAL_REVIEW_STAGE10_11.md](docs/ADVERSARIAL_REVIEW_STAGE10_11.md)**), and outer-loop `ath10k`/`mac80211` contributions.
 * **Strict Safety & Regulatory Boundaries**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, disable DFS radar detection, or write protected flash partitions (`mtd0` `u-boot`, `mtd1` `u-boot-env`, `mtd5` `ART` calibration).
-* **License**: Project-authored code, analysis scripts, and documentation are open-sourced under the [MIT License](LICENSE).
+* **License**: Project-authored code, analysis scripts, and documentation are open-sourced under the MIT License (historically declared; no license text is bundled).

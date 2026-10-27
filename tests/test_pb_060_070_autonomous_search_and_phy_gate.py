@@ -3,10 +3,7 @@
 
 from __future__ import annotations
 
-import json
-
 from controller.pb_060_070_autonomous_search_and_phy_gate import (
-    DEFAULT_PILOT_OUTPUT_PATH,
     SearchCandidateConfig,
     build_pb_060_070_pilot_report,
     deduplicate_candidates,
@@ -63,22 +60,24 @@ def test_pb_060_pilot_holm_sidak_and_holdout_replication() -> None:
     assert report["automatic_execution_allowed"] is False
 
     pilot = report["pb060_autonomous_search_pilot"]
-    assert pilot["campaign_passed"] is True
+    assert pilot["campaign_passed"] is False
+    assert pilot['diagnostic_passed'] is True
+    assert pilot['evidence_state'] == 'SYNTHETIC'
     assert pilot["negative_control_false_positives"] == 0
     assert pilot["skipped_duplicate_candidate_ids"] == ["CAND_02_DUPLICATE_OF_CAND_01"]
     assert len(pilot["rejected_safety_envelope_candidates"]) == 1
     assert pilot["rejected_safety_envelope_candidates"][0]["candidate_id"] == "CAND_04_ILLEGAL_TX_POWER_30DBM"
-    assert pilot["promoted_candidate_ids"] == ["CAND_01_10MHZ_LDPC_STBC_AQL3000"]
+    assert pilot["promoted_candidate_ids"] == []
+    assert pilot['synthetic_pass_candidate_ids'] == ["CAND_01_10MHZ_LDPC_STBC_AQL3000"]
 
     by_id = {c["candidate_id"]: c for c in pilot["candidate_evaluations"]}
-    assert by_id["CAND_00_NEG_CTRL_AA"]["final_verdict"] in ("REJECT", "INCONCLUSIVE")
-    assert by_id["CAND_01_10MHZ_LDPC_STBC_AQL3000"]["final_verdict"] == "PROMOTE"
+    assert by_id["CAND_00_NEG_CTRL_AA"]["final_verdict"] == 'VALID_SYNTHETIC_NULL'
+    assert by_id["CAND_01_10MHZ_LDPC_STBC_AQL3000"]["final_verdict"] == "SYNTHETIC_PASS"
     assert by_id["CAND_03_20MHZ_SGI_NO_HOLDOUT"]["final_verdict"] == "REJECT_FAILED_HOLDOUT_REPLICATION"
 
 
 def test_pb_070_custom_phy_gate_locks_when_any_condition_unproven() -> None:
-    assert DEFAULT_PILOT_OUTPUT_PATH.exists()
-    saved = json.loads(DEFAULT_PILOT_OUTPUT_PATH.read_text(encoding="utf-8"))
+    saved = build_pb_060_070_pilot_report()
     pb070 = saved["pb070_custom_phy_eligibility_verdict"]
     assert pb070["verdict"] == "LOCKED_CONCENTRATE_ON_MAC_AND_POLICY"
     assert pb070["custom_phy_waveform_claims_allowed"] is False

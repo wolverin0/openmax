@@ -1,0 +1,31 @@
+{
+  "experiment_id": "AUDIT-1AFAEB7-INERT-TARGET-WITNESS",
+  "status": "BLOCKED",
+  "question": "Exact target execution without fallback",
+  "arms": [
+    "original",
+    "sham_repack",
+    "inert_canary"
+  ],
+  "operator_authorization": false,
+  "execute_allowed": false,
+  "physical_acceptance": "UNKNOWN",
+  "prerequisites": [
+    "exact complete image/board/role identity",
+    "independently observable inert target witness",
+    "sham discrimination",
+    "accepted watchdog and original-target restoration"
+  ],
+  "prohibited": [
+    "RF/regulatory/DFS/calibration/ART/bootloader changes",
+    "field migration"
+  ],
+  "acceptance": [
+    "exact target identity",
+    "witness only in canary",
+    "no fallback",
+    "health stable",
+    "original running target restored"
+  ],
+  "plan_sha256": "dc781b6c572e7b3fa27c76ca1cd0817a777ad33a911de48903675ae634185c93"
+}

@@ -23,6 +23,7 @@ from __future__ import annotations
 import dataclasses
 import hashlib
 import json
+import re
 import struct
 import sys
 from pathlib import Path
@@ -46,6 +47,20 @@ BMI_SGMTFILE_DONE = 0xFFFFFFFF
 BMI_SGMTFILE_BDDATA = 0xFFFFFFFE
 BMI_SGMTFILE_BEGINADDR = 0xFFFFFFFD
 BMI_SGMTFILE_EXEC = 0xFFFFFFFC
+MAX_CONTAINER_BYTES = 16 * 1024 * 1024
+MAX_SEGMENT_BYTES = 4 * 1024 * 1024
+MAX_TOTAL_DECODED_BYTES = 16 * 1024 * 1024
+MAX_SEGMENTS = 128
+
+
+def validate_target_extent(address: int, length: int) -> None:
+    """Accept only the held AR9888v2 IRAM/DRAM ranges, without uint32 wrap."""
+    if (type(address) is not int or type(length) is not int or length <= 0
+            or length > MAX_SEGMENT_BYTES or address < 0 or address + length > 2**32):
+        raise ValueError('Invalid or oversized SGMT target extent')
+    if not any(low <= address and address + length <= high for low, high in
+               ((0x00980000, 0x009E0000), (0x00400000, 0x00450000))):
+        raise ValueError('SGMT target extent outside supported AR9888v2 regions')
 
 AR9888V2_IMAGE_SYMBOLS = (
     "athwlan_AR9888v2_ptmp_ap_bin",
@@ -56,6 +71,8 @@ AR9888V2_IMAGE_SYMBOLS = (
 
 def read_bmi_varint(data: bytes, offset: int) -> tuple[int, int]:
     """Decode a 7-bit big-endian continuation varint from a BMI_LZ stream."""
+    if type(offset) is not int or offset < 0 or offset > len(data):
+        raise ValueError('Invalid BMI_LZ offset')
     value = 0
     for _ in range(5):
         if offset >= len(data):
@@ -72,7 +89,7 @@ def read_bmi_varint(data: bytes, offset: int) -> tuple[int, int]:
 
 def write_bmi_varint(value: int) -> bytes:
     """Encode a non-negative integer as a 7-bit big-endian continuation varint."""
-    if value < 0 or value > 0xFFFFFFFF:
+    if type(value) is not int or value < 0 or value > 0xFFFFFFFF:
         raise ValueError(f"Invalid BMI_LZ varint value: {value}")
     chunks = [value & 0x7F]
     value >>= 7
@@ -85,6 +102,9 @@ def write_bmi_varint(value: int) -> bytes:
 
 def bmi_lz_decompress_from(data: bytes, offset: int, decoded_size: int) -> tuple[int, bytes]:
     """Decompress a single BMI_LZ segment starting at `offset` until `decoded_size` bytes are produced."""
+    if (type(offset) is not int or offset < 0 or type(decoded_size) is not int
+            or not 1 <= decoded_size <= MAX_SEGMENT_BYTES or len(data) > MAX_CONTAINER_BYTES):
+        raise ValueError('BMI_LZ input bounds exceeded')
     if offset >= len(data):
         raise ValueError(f"Missing BMI_LZ marker byte at offset {offset}")
     marker = data[offset]
@@ -137,7 +157,7 @@ def bmi_lz_compress(raw: bytes, enable_lz77: bool = True) -> bytes:
     overlapping or non-overlapping 4+ byte matches via `(marker, varint(len), varint(dist))`
     when beneficial, and literal marker occurrences as `(marker, 0x00)`.
     """
-    if not raw:
+    if not isinstance(raw, bytes) or not raw or len(raw) > MAX_SEGMENT_BYTES:
         raise ValueError("Cannot BMI_LZ compress empty segment")
 
     counts = [0] * 256
@@ -228,11 +248,48 @@ class SgmtContainer:
     done_address: int = 0
     original_container_sha256: str = ""
     original_container_size: int = 0
+    image_role: str | None = None
+    image_version: str | None = None
+
+    def validate(self) -> None:
+        if type(self.file_flags) is not int or self.file_flags not in (0, SGMT_FLAG_COMPRESS):
+            raise ValueError('Unsupported SGMT file_flags')
+        if (type(self.entry_point) is not int or not 0x00980000 <= self.entry_point < 0x009E0000
+                or self.done_address != 0):
+            raise ValueError('Invalid SGMT entry point or DONE address')
+        if not 1 <= len(self.segments) <= MAX_SEGMENTS:
+            raise ValueError('SGMT segment count bound exceeded')
+        spans = []
+        total = 0
+        for index, seg in enumerate(self.segments):
+            if seg.index != index or not isinstance(seg.decoded_bytes, bytes) or not isinstance(seg.compressed_bytes, bytes):
+                raise ValueError('Invalid SGMT segment representation')
+            validate_target_extent(seg.destination, seg.decoded_size)
+            total += seg.decoded_size
+            if total > MAX_TOTAL_DECODED_BYTES or len(seg.compressed_bytes) > MAX_CONTAINER_BYTES:
+                raise ValueError('SGMT decoded size bound exceeded')
+            end = seg.destination + seg.decoded_size
+            if any(seg.destination < high and low < end for low, high in spans):
+                raise ValueError('Overlapping SGMT target segments')
+            spans.append((seg.destination, end))
+            decoded = (bmi_lz_decompress(seg.compressed_bytes, seg.decoded_size)
+                       if self.file_flags == SGMT_FLAG_COMPRESS else seg.compressed_bytes)
+            if decoded != seg.decoded_bytes:
+                raise ValueError('SGMT encoded/decoded segment mismatch')
+        for label in (self.image_role, self.image_version):
+            if label is not None and (not isinstance(label, str) or not 1 <= len(label) <= 128):
+                raise ValueError('Invalid declared image role/version')
 
     @classmethod
-    def from_bytes(cls, blob: bytes) -> SgmtContainer:
-        if len(blob) < 16:
+    def from_bytes(cls, blob: bytes, *, image_role: str | None = None,
+                   image_version: str | None = None, expected_sha256: str | None = None) -> SgmtContainer:
+        if not isinstance(blob, bytes) or not 16 <= len(blob) <= MAX_CONTAINER_BYTES:
             raise ValueError("SGMT blob too short")
+        digest = hashlib.sha256(blob).hexdigest()
+        if expected_sha256 is not None and (not isinstance(expected_sha256, str)
+                                             or not re.fullmatch('[0-9a-f]{64}', expected_sha256)
+                                             or expected_sha256 != digest):
+            raise ValueError('SGMT image hash identity mismatch')
         magic, flags = struct.unpack_from("<II", blob, 0)
         if magic != SGMT_MAGIC_LE:
             raise ValueError(f"Invalid SGMT magic: 0x{magic:08x}")
@@ -244,6 +301,7 @@ class SgmtContainer:
         entry_point: int | None = None
         done_addr = 0
         has_done = False
+        total_decoded = 0
 
         while offset + 8 <= len(blob):
             addr, length = struct.unpack_from("<II", blob, offset)
@@ -253,15 +311,26 @@ class SgmtContainer:
                 done_addr = addr
                 break
             if length == BMI_SGMTFILE_BEGINADDR:
+                if entry_point is not None:
+                    raise ValueError('Duplicate SGMT BEGINADDR')
                 entry_point = addr
                 continue
             if length >= 0xFFFFFFFC:
                 raise ValueError(f"Unsupported special SGMT record 0x{length:08x}")
 
+            if entry_point is not None:
+                raise ValueError('Data segment after SGMT BEGINADDR')
+            validate_target_extent(addr, length)
+            total_decoded += length
+            if total_decoded > MAX_TOTAL_DECODED_BYTES or len(segments) >= MAX_SEGMENTS:
+                raise ValueError('SGMT decoded size/segment count bound exceeded')
+
             start_comp = offset
             if flags == SGMT_FLAG_COMPRESS:
                 offset, decoded = bmi_lz_decompress_from(blob, offset, length)
             else:
+                if offset + length > len(blob):
+                    raise ValueError('Truncated raw SGMT segment')
                 decoded = blob[offset : offset + length]
                 offset += length
             comp_slice = blob[start_comp:offset]
@@ -278,16 +347,21 @@ class SgmtContainer:
             raise ValueError(
                 f"Malformed SGMT container: has_done={has_done}, offset={offset}, len={len(blob)}, entry={entry_point}"
             )
-        return cls(
+        result = cls(
             file_flags=flags,
             segments=tuple(segments),
             entry_point=entry_point,
             done_address=done_addr,
-            original_container_sha256=hashlib.sha256(blob).hexdigest(),
+            original_container_sha256=digest,
             original_container_size=len(blob),
+            image_role=image_role,
+            image_version=image_version,
         )
+        result.validate()
+        return result
 
     def to_bytes(self, recompress: bool = True) -> bytes:
+        self.validate()
         out = bytearray(struct.pack("<II", SGMT_MAGIC_LE, self.file_flags))
         for seg in self.segments:
             comp = (
@@ -299,6 +373,8 @@ class SgmtContainer:
             out.extend(comp)
         out.extend(struct.pack("<II", self.entry_point, BMI_SGMTFILE_BEGINADDR))
         out.extend(struct.pack("<II", self.done_address, BMI_SGMTFILE_DONE))
+        if len(out) > MAX_CONTAINER_BYTES:
+            raise ValueError('SGMT encoded container size bound exceeded')
         return bytes(out)
 
 
@@ -314,6 +390,11 @@ class SurgicalPatchSpec:
     patched_bytes: bytes
     sibling_addresses: dict[str, str]
     safety_rationale: str
+    expected_container_sha256: str | None = None
+    expected_segment_base: int | None = None
+    expected_image_role: str | None = None
+    expected_image_version: str | None = None
+    expected_entry_point: int = 0x00983C00
 
     @property
     def virtual_address_hex(self) -> str:
@@ -328,6 +409,11 @@ class SgmtSurgicalPatcher:
         container: SgmtContainer,
         spec: SurgicalPatchSpec,
     ) -> tuple[SgmtContainer, dict[str, Any]]:
+        container.validate()
+        if container.entry_point != spec.expected_entry_point:
+            raise ValueError(f'[{spec.patch_id}] Entry point identity mismatch')
+        if not isinstance(spec.expected_orig_bytes, bytes) or not isinstance(spec.patched_bytes, bytes):
+            raise ValueError('Patch preimage and replacement must be bytes')
         if len(spec.expected_orig_bytes) == 0:
             raise ValueError(f"[{spec.patch_id}] Patch length must be >= 1 byte")
         if len(spec.expected_orig_bytes) != len(spec.patched_bytes):
@@ -335,10 +421,25 @@ class SgmtSurgicalPatcher:
                 f"[{spec.patch_id}] Length mismatch ({len(spec.expected_orig_bytes)} != {len(spec.patched_bytes)}): "
                 "Xtensa surgical patches must preserve exact byte length to prevent l32r literal pool drift"
             )
-        if spec.segment_index < 0 or spec.segment_index >= len(container.segments):
+        if type(spec.segment_index) is not int or spec.segment_index < 0 or spec.segment_index >= len(container.segments):
             raise ValueError(f"[{spec.patch_id}] Invalid segment_index {spec.segment_index}")
 
         seg = container.segments[spec.segment_index]
+        preimage_sha256 = hashlib.sha256(container.to_bytes(recompress=False)).hexdigest()
+        bindings = (spec.expected_container_sha256, spec.expected_segment_base,
+                    spec.expected_image_role, spec.expected_image_version)
+        identity_bound = all(value is not None for value in bindings)
+        if any(value is not None for value in bindings) and not identity_bound:
+            raise ValueError('Complete image identity binding requires hash/base/role/version')
+        if identity_bound and (not isinstance(spec.expected_container_sha256, str)
+                or not re.fullmatch('[0-9a-f]{64}', spec.expected_container_sha256)
+                or spec.expected_container_sha256 != preimage_sha256
+                or spec.expected_segment_base != seg.destination
+                or spec.expected_image_role != container.image_role
+                or spec.expected_image_version != container.image_version):
+            raise ValueError('SGMT image identity hash/base/role/version mismatch')
+        if container.image_role is not None and spec.target_symbol != container.image_role:
+            raise ValueError('SGMT target symbol role identity mismatch')
         seg_start = seg.destination
         seg_end = seg_start + seg.decoded_size
         patch_len = len(spec.patched_bytes)
@@ -359,10 +460,12 @@ class SgmtSurgicalPatcher:
         mutated_buf = bytearray(seg.decoded_bytes)
         mutated_buf[rel_offset : rel_offset + patch_len] = spec.patched_bytes
         mutated_bytes = bytes(mutated_buf)
-        assert len(mutated_bytes) == seg.decoded_size
+        if len(mutated_bytes) != seg.decoded_size:
+            raise RuntimeError('Surgical patch changed decoded segment size')
 
-        recompressed = bmi_lz_compress(mutated_bytes, enable_lz77=True)
-        roundtrip_check = bmi_lz_decompress(recompressed, len(mutated_bytes))
+        compressed = container.file_flags == SGMT_FLAG_COMPRESS
+        recompressed = bmi_lz_compress(mutated_bytes, enable_lz77=True) if compressed else mutated_bytes
+        roundtrip_check = bmi_lz_decompress(recompressed, len(mutated_bytes)) if compressed else recompressed
         if roundtrip_check != mutated_bytes:
             raise RuntimeError(f"[{spec.patch_id}] BMI_LZ round-trip verification failed")
 
@@ -381,11 +484,19 @@ class SgmtSurgicalPatcher:
             done_address=container.done_address,
             original_container_sha256=container.original_container_sha256,
             original_container_size=container.original_container_size,
+            image_role=container.image_role,
+            image_version=container.image_version,
         )
         repacked_blob = patched_container.to_bytes(recompress=False)
         reparsed = SgmtContainer.from_bytes(repacked_blob)
-        assert reparsed.entry_point == container.entry_point == 0x00983C00
-        assert reparsed.segments[spec.segment_index].decoded_bytes == mutated_bytes
+        if reparsed.entry_point != container.entry_point or reparsed.entry_point != spec.expected_entry_point:
+            raise RuntimeError('SGMT repack changed entry point')
+        if reparsed.segments[spec.segment_index].decoded_bytes != mutated_bytes:
+            raise RuntimeError('SGMT repack changed patched bytes')
+        if any((old.destination, old.decoded_size) != (new.destination, new.decoded_size)
+               or (index != spec.segment_index and old.decoded_bytes != new.decoded_bytes)
+               for index, (old, new) in enumerate(zip(container.segments, reparsed.segments))):
+            raise RuntimeError('SGMT repack changed another segment or layout')
 
         receipt = {
             "patch_id": spec.patch_id,
@@ -408,7 +519,13 @@ class SgmtSurgicalPatcher:
             "patched_segment_sha256": new_seg.decoded_sha256,
             "repacked_container_size_bytes": len(repacked_blob),
             "repacked_container_sha256": hashlib.sha256(repacked_blob).hexdigest(),
-            "bmi_lz_roundtrip_verified": True,
+            "bmi_lz_roundtrip_verified": compressed,
+            "raw_roundtrip_verified": not compressed,
+            "preimage_container_sha256": preimage_sha256,
+            "identity_binding_verified": identity_bound,
+            "identity_scope": "EXPECTED_BYTES_HASH_ROLE_BASE_VERSION" if identity_bound else "UNBOUND_OFFLINE_ONLY",
+            "target_execution": "UNKNOWN",
+            "activation": "BLOCKED",
             "sibling_addresses": spec.sibling_addresses,
             "safety_rationale": spec.safety_rationale,
         }
@@ -522,7 +639,9 @@ def load_ar9888v2_sgmt_containers(umac_path: Path = UMAC_8512_PATH) -> dict[str,
     for sym_name in AR9888V2_IMAGE_SYMBOLS:
         sym = sym_map[sym_name]
         blob = data[sym["value"] : sym["value"] + sym["size"]]
-        containers[sym_name] = SgmtContainer.from_bytes(blob)
+        if sym['value'] < 0 or sym['size'] <= 0 or sym['value'] + sym['size'] > len(data):
+            raise ValueError('Embedded SGMT symbol extent invalid')
+        containers[sym_name] = SgmtContainer.from_bytes(blob, image_role=sym_name, image_version='airOS-8.5.12')
     return containers
 
 
@@ -554,9 +673,8 @@ def build_pb040_surgical_patch_report() -> dict[str, Any]:
             )
         repacked_container_bytes = container.to_bytes(recompress=True)
         reparsed = SgmtContainer.from_bytes(repacked_container_bytes)
-        assert [s.decoded_sha256 for s in reparsed.segments] == [
-            s.decoded_sha256 for s in container.segments
-        ]
+        if [s.decoded_sha256 for s in reparsed.segments] != [s.decoded_sha256 for s in container.segments]:
+            raise RuntimeError('Repacked SGMT segment hashes differ')
         roundtrip_results[sym_name] = {
             "orig_container_size_bytes": container.original_container_size,
             "orig_container_sha256": container.original_container_sha256,
@@ -596,7 +714,7 @@ def build_pb040_surgical_patch_report() -> dict[str, Any]:
                 "2. Bind-mount /tmp/pb040_canary/firmware-5.bin over /lib/firmware/ath10k/QCA988X/hw2.0/firmware-5.bin (or insmod /tmp/umac_patched.ko).",
                 "3. Reload driver (rmmod ath10k_pci && insmod ath10k_pci) so BMI_LZ_STREAM_START + BMI_LZ_DATA loads the patched segment into QCA988x SRAM.",
                 "4. Verify WMI_SERVICE_READY_EVENTID + WMI_READY_EVENTID and check dmesg/dbglog for PB040-CANARY-RODATA.",
-                "5. Power-cycle or umount immediately restores 100% unmodified stock firmware from read-only SquashFS.",
+                "5. Unmount alone does not restore running target SRAM. A separately authorized reload of the exact original image requires independent execution/fallback and health witnesses before restoration is accepted.",
             ],
         },
     }

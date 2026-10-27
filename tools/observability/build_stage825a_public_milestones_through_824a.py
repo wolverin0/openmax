@@ -107,7 +107,10 @@ def build(root=ROOT):
         label = f'artifacts/autoresearch/{stem}.json'
         sources.append(c.snapshot(root, label))
         receipts[stem] = c.read_json(root, label)
-    wa = receipts[INPUTS[0]]['verified_metrics']
+    wa = (receipts[INPUTS[0]].get('historical_reported_metrics')
+          or receipts[INPUTS[0]].get('verified_metrics'))
+    if not isinstance(wa,dict):
+        raise ValueError('historical WA metric summary unavailable; do not synthesize a benchmark')
     ptp = receipts[INPUTS[2]]['verified_capabilities']
     ltu = receipts[INPUTS[1]]
     triple = receipts[INPUTS[3]]

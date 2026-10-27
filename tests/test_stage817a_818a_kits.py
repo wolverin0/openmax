@@ -18,7 +18,9 @@ from tools.firmware.build_stage650a_pb060_xtensa_txop_and_tid_sched_sgmt_patch i
 def fixture_sgmt():
     target = "OpenWrt_10.1.467-ct_IE3"
     specs = get_pb050_rc_probe_dampen_specs_for_target(target) + get_pb060_specs_for_target(target)
-    bases = [0x00980000, 0x0040B000, 0x00400000, 0x00980000]
+    # Dummy segments live outside the real data/text VA ranges; the parser now
+    # correctly rejects overlapping declared regions before surgical patching.
+    bases = [0x009D0000, 0x00440000, 0x00400000, 0x00980000]
     segments = []
     for index, base in enumerate(bases):
         relevant = [sp for sp in specs if sp.segment_index == index]

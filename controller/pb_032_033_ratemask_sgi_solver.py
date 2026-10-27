@@ -16,6 +16,7 @@ Enforces `automatic_execution_allowed = False`.
 from __future__ import annotations
 
 import json
+import hashlib
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -152,9 +153,13 @@ def solve_pb033_micro_regime(
     )
 
 
-def build_pb_032_033_qualification_report() -> Dict[str, Any]:
+def build_pb_032_033_qualification_report(silicon_receipt_path: Path = LIVE_SILICON_RECEIPT_PATH) -> Dict[str, Any]:
     """Builds the PB-032 & PB-033 qualification artifact anchored to live LAP-120 silicon data."""
-    silicon_data = json.loads(LIVE_SILICON_RECEIPT_PATH.read_text(encoding="utf-8"))
+    source_path = Path(silicon_receipt_path)
+    if str(source_path.resolve()).startswith('\\\\') or source_path.stat().st_size > 8 * 1024 * 1024:
+        raise ValueError('bounded local silicon receipt required')
+    source_bytes = source_path.read_bytes()
+    silicon_data = json.loads(source_bytes.decode('utf-8'))
     clock_bench = silicon_data["pb_050_hardware_timing_and_clock_jitter"]["n160_paired_clock_benchmark"]
     pb031_silicon = silicon_data["pb_031_ldpc_ampdu_tpc_authority"]
 
@@ -205,6 +210,7 @@ def build_pb_032_033_qualification_report() -> Dict[str, Any]:
     for idx in range(6):
         runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"PB032_033_AUTO_A_{idx}",
                 arm="A",
                 goodput_mbps=auto_gp[idx],
@@ -219,6 +225,7 @@ def build_pb_032_033_qualification_report() -> Dict[str, Any]:
         )
         runs.append(
             RunMetrics(
+                evidence_state="SYNTHETIC",
                 run_id=f"PB032_033_SOLVER_B_{idx}",
                 arm="B",
                 goodput_mbps=solver_gp[idx],
@@ -237,8 +244,12 @@ def build_pb_032_033_qualification_report() -> Dict[str, Any]:
     return {
         "gates_covered": ["PB-032", "PB-033"],
         "automatic_execution_allowed": False,
+        "paired_evidence_state": "SYNTHETIC",
+        "physical_promotion_accepted": False,
         "live_silicon_provenance": {
-            "source_artifact": "artifacts/qca988x/pb_021_031_050_live_lap120_silicon_qualification_20261024.json",
+            "source_artifact": str(silicon_receipt_path),
+            "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+            "source_scope": "IMPORTED_UNVERIFIED_METADATA; not remeasured by this builder",
             "measured_mac_clock_mhz_median": clock_bench["measured_clock_ratio_cycles_per_us_median"],
             "single_pcie_mmio_syscall_us_p50": clock_bench["single_pcie_mmio_syscall_us_p50"],
             "single_pcie_mmio_syscall_us_p99": clock_bench["single_pcie_mmio_syscall_us_p99"],

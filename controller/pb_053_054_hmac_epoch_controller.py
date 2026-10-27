@@ -16,6 +16,7 @@ Enforces `automatic_execution_allowed = False`.
 from __future__ import annotations
 
 import json
+import hashlib
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
@@ -189,19 +190,34 @@ class HmacMissedSlotRecoveryFsm:
         )
 
 
-def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
+def evaluate_live_r135_to_r140_receipts(*, evidence_root: Path = REPO_ROOT,
+                                       receipt_files=None) -> List[Dict[str, Any]]:
     """Loads R135..R140 physical bench receipts and evaluates each 16-block AB/BA trial via RegressionGatekeeper."""
     gk = RegressionGatekeeper(
         min_blocks_for_keep=4,
         min_blocks_for_promote=6,
         min_goodput_gain_pct=0.2,
-        max_drift_pct=120.0,
+        max_drift_pct=100.0,
     )
     summaries: List[Dict[str, Any]] = []
 
-    for run_tag, rel_path in R135_TO_R140_RECEIPT_FILES:
-        full_path = REPO_ROOT / rel_path
-        data = json.loads(full_path.read_text(encoding="utf-8"))
+    root = Path(evidence_root).resolve()
+    if str(root).startswith('\\\\'):
+        raise ValueError('local receipt root required')
+    for run_tag, rel_path in (R135_TO_R140_RECEIPT_FILES if receipt_files is None else receipt_files):
+        full_path = (root / rel_path).resolve()
+        if not full_path.is_relative_to(root):
+            raise ValueError('receipt outside evidence root')
+        if not full_path.is_file():
+            summaries.append(dict(run_tag=run_tag, source_receipt=rel_path,
+                source_status='UNAVAILABLE_TO_THIS_REVIEW', latency_floor_promoted=False,
+                hmac_tid6_vo_drops_delta=None, gate_decision=None))
+            continue
+        if full_path.stat().st_size > 8 * 1024 * 1024:
+            raise ValueError('receipt size bound exceeded')
+        source_bytes = full_path.read_bytes()
+        data = json.loads(source_bytes.decode('utf-8'))
+        source_type = 'SYNTHETIC' if data.get('evidence_state') == 'SYNTHETIC' else None
         iter_stock = data["iterations"][0]
         iter_hmac = data["iterations"][1]
 
@@ -218,6 +234,7 @@ def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
 
             paired_runs.append(
                 RunMetrics(
+                    evidence_state=source_type,
                     run_id=f"{run_tag}_STOCK_A_SB{s_idx}",
                     arm="A",
                     goodput_mbps=0.5 * (float(obs_a0["goodput_rx_mbps"]) + float(obs_a1["goodput_rx_mbps"])),
@@ -232,6 +249,7 @@ def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
             )
             paired_runs.append(
                 RunMetrics(
+                    evidence_state=source_type,
                     run_id=f"{run_tag}_HMAC_B_SB{s_idx}",
                     arm="B",
                     goodput_mbps=0.5 * (float(obs_b0["goodput_rx_mbps"]) + float(obs_b1["goodput_rx_mbps"])),
@@ -249,19 +267,20 @@ def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
         obs0 = iter_stock["observation"]
         obs1 = iter_hmac["observation"]
 
-        latency_floor_promoted = bool(
-            decision.verdict == "PROMOTE"
-            or (
+        historical_latency_criterion = bool(
                 decision.p99_delta_pct <= -50.0
                 and decision.ci_95_p99_delta_pct[1] <= -40.0
                 and decision.goodput_delta_pct >= -2.5
-                and int(iter_hmac.get("tid6_vo_drops_delta", 0)) == 0
-            )
+                and iter_hmac.get("tid6_vo_drops_delta") == 0
         )
 
         summaries.append(
             {
                 "run_tag": run_tag,
+                "source_receipt": rel_path,
+                "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+                "source_status": 'SYNTHETIC' if source_type else 'IMPORTED_UNCLASSIFIED',
+                "physical_acceptance": "UNKNOWN",
                 "experiment_id": data["experiment_id"],
                 "distance_m": data["distance_m"],
                 "coverage_class": data["coverage_class"],
@@ -273,11 +292,12 @@ def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
                 "hmac_p95_rtt_ms": round(float(obs1["p95_rtt_ms"]), 3),
                 "stock_p99_rtt_ms": round(float(obs0["p99_rtt_ms"]), 3),
                 "hmac_p99_rtt_ms": round(float(obs1["p99_rtt_ms"]), 3),
-                "hmac_tid0_be_tx_pkts_delta": int(iter_hmac.get("tid0_be_tx_pkts_delta", 0)),
-                "hmac_tid6_vo_tx_pkts_delta": int(iter_hmac.get("tid6_vo_tx_pkts_delta", 0)),
-                "hmac_tid6_vo_drops_delta": int(iter_hmac.get("tid6_vo_drops_delta", 0)),
-                "restoration_verified": bool(obs1.get("restoration_verified", True)),
-                "latency_floor_promoted": latency_floor_promoted,
+                "hmac_tid0_be_tx_pkts_delta": iter_hmac.get("tid0_be_tx_pkts_delta"),
+                "hmac_tid6_vo_tx_pkts_delta": iter_hmac.get("tid6_vo_tx_pkts_delta"),
+                "hmac_tid6_vo_drops_delta": iter_hmac.get("tid6_vo_drops_delta"),
+                "restoration_verified": obs1.get("restoration_verified") if type(obs1.get("restoration_verified")) is bool else None,
+                "historical_latency_criterion_met": historical_latency_criterion,
+                "latency_floor_promoted": decision.verdict == 'PROMOTE',
                 "gate_decision": asdict(decision),
             }
         )
@@ -285,9 +305,10 @@ def evaluate_live_r135_to_r140_receipts() -> List[Dict[str, Any]]:
     return summaries
 
 
-def build_pb_053_054_qualification_report() -> Dict[str, Any]:
+def build_pb_053_054_qualification_report(*, evidence_root: Path = REPO_ROOT,
+                                        receipt_files=None) -> Dict[str, Any]:
     """Builds the complete PB-053 & PB-054 qualification artifact."""
-    live_r135_r140 = evaluate_live_r135_to_r140_receipts()
+    live_r135_r140 = evaluate_live_r135_to_r140_receipts(evidence_root=evidence_root, receipt_files=receipt_files)
     distance_configs = [
         asdict(compute_hmac_epoch_allocation(d_km, 20))
         for d_km in (1.0, 3.0, 6.0, 9.0, 12.0, 14.0)
@@ -305,12 +326,13 @@ def build_pb_053_054_qualification_report() -> Dict[str, Any]:
         asdict(fsm.step(False, 1.1)),  # Step 6: Clean epoch 3 -> Restored to NOMINAL_EPOCH_ACTIVE
     ]
 
-    all_promoted = all(r["latency_floor_promoted"] for r in live_r135_r140)
-    zero_voip_drops = all(r["hmac_tid6_vo_drops_delta"] == 0 for r in live_r135_r140)
+    all_promoted = bool(live_r135_r140) and all(r["latency_floor_promoted"] for r in live_r135_r140)
+    zero_voip_drops = bool(live_r135_r140) and all(r["hmac_tid6_vo_drops_delta"] == 0 for r in live_r135_r140)
 
     return {
         "gates_covered": ["PB-053", "PB-054"],
         "automatic_execution_allowed": False,
+        "source_scope": "Read-only saved evidence; synthesized tests are explicitly typed; no fresh acquisition",
         "all_6_distances_promoted": all_promoted,
         "zero_tid6_voip_drops_across_all_distances": zero_voip_drops,
         "pb053_live_r135_to_r140_evaluations": live_r135_r140,

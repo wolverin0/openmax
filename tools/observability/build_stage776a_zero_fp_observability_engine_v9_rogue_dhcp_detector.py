@@ -21,10 +21,10 @@ def main() -> None:
                 {"source_ip": "192.168.1.20", "bridge": "br1", "daemon": "AF-LTU fallback dnsmasq/udhcpd"},
                 {"source_ip": "192.168.1.1", "bridge": "br-lan", "daemon": "OpenWrt default dnsmasq/odhcpd without dhcp.lan.ignore=1"},
             ],
-            "remediation_hooks": [
-                "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
-                "firmware/ltu_safe_kit/fmx_ltu_v20_264window_zero_dhcp_kit.sh",
-            ],
+            "remediation_hooks": [],
+            "wa_dhcp_remediation": "BLOCKED: WA queue kit does not manage DHCP or global services",
+            "ltu_proposal_only": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+            "automatic_remediation_allowed": False,
         },
         "qca988x_ani_state_auditor": {
             "wmi_params": ["0x900d (ANI_ENABLE)", "0x900e (ANI_OFDM_LEVEL)", "0x900f (ANI_CCK_LEVEL)"],
@@ -69,7 +69,7 @@ def main() -> None:
 | Signature / Audit | Target Bridge / Node | Root Cause | Automated Remediation |
 | :--- | :---: | :--- | :--- |
 | `192.168.1.20` DHCP Offer | `br1` (`AF-LTU`) | Stock `LTU` fallback `dnsmasq`/`udhcpd` | `fmx_ltu_v20_264window_zero_dhcp_kit.sh` |
-| `192.168.1.1` DHCP / RA | `br-lan` (`OpenWrt`) | Unset `dhcp.lan.ignore=1` / `odhcpd` | `fmx_wa_v13_344window_field_kit.sh` |
+| `192.168.1.1` DHCP / RA | `br-lan` (`OpenWrt`) | Passive proposal only; queue kit changes no DHCP service | `BLOCKED` |
 | `QCA988x ANI` Desync | `phy*/ath10k/ani_enable` | Module reload resetting `ani_enable` | `fmx_qca988x_ani_spur_helper.sh` |
 
 ## 3. Verification

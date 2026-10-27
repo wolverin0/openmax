@@ -3,8 +3,10 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
+import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -73,6 +75,23 @@ def receipt(stage: int, title: str, sources: list[dict]) -> dict:
                 ])))
 
 
+def atomic_write(path: Path, content: str) -> None:
+    """Flush a complete same-directory file before replacing the prior receipt."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='wb', dir=path.parent,
+                                         prefix=path.name + '.', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(content.encode('utf-8'))
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
+
 def save(root: Path, stem: str, data: dict, body: str) -> dict:
     from tools.verify.enforce_5pillar_research_gate import audit_stage_receipt_5pillars
     data['five_pillar_audit'] = audit_stage_receipt_5pillars(data)
@@ -86,7 +105,7 @@ def save(root: Path, stem: str, data: dict, body: str) -> dict:
         (f'docs/{stem.upper()}.md', doc),
     ]:
         path = local(root, label); path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding='utf-8', newline='\n')
+        atomic_write(path, content)
     return data
 
 

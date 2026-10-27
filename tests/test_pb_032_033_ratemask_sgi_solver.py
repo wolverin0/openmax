@@ -65,9 +65,19 @@ def test_pb033_micro_regime_solver_switches_sgi_ampdu_and_rts_correctly() -> Non
     assert r_far_cont.rts_threshold_bytes == 256
 
 
-def test_pb_032_033_saved_qualification_artifact() -> None:
-    assert DEFAULT_OUTPUT_PATH.exists()
-    saved = json.loads(DEFAULT_OUTPUT_PATH.read_text(encoding="utf-8"))
+def test_pb_032_033_saved_qualification_artifact(tmp_path) -> None:
+    source = tmp_path / "synthetic_silicon.json"
+    source.write_text(json.dumps({"evidence_state": "SYNTHETIC",
+        "pb_050_hardware_timing_and_clock_jitter": {"n160_paired_clock_benchmark": {
+            "measured_clock_ratio_cycles_per_us_median": 88.0,
+            "single_pcie_mmio_syscall_us_p50": 197.08,
+            "single_pcie_mmio_syscall_us_p99": 588.24}},
+        "pb_031_ldpc_ampdu_tpc_authority": {
+            "PHY_BB_LDPC_CNTL1_0x29c04": "0xffffff55",
+            "PHY_BB_LDPC_CNTL2_0x29c08": "0x00000000"}}))
+    saved = build_pb_032_033_qualification_report(source)
+    assert saved["paired_evidence_state"] == "SYNTHETIC"
+    assert saved["physical_promotion_accepted"] is False
     assert saved["automatic_execution_allowed"] is False
     assert saved["live_silicon_provenance"]["PHY_BB_LDPC_CNTL1_0x29c04"] == "0xffffff55"
-    assert saved["paired_ab_evaluation"]["verdict"] == "PROMOTE"
+    assert saved["paired_ab_evaluation"]["verdict"] == "SYNTHETIC_PASS"

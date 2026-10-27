@@ -60,11 +60,12 @@ def test_pb_051_out_of_slot_leakage_detector_catches_csma_violations() -> None:
 
 
 def test_pb_051_feasibility_gate_promotion_and_saved_artifact() -> None:
-    assert DEFAULT_FIXTURE_OUTPUT_PATH.exists()
-    saved = json.loads(DEFAULT_FIXTURE_OUTPUT_PATH.read_text(encoding="utf-8"))
+    saved = build_pb_050_051_fixture_report()
     pb051 = saved["pb051_target_scheduler_feasibility"]
-    assert pb051["overall_feasibility_verdict"] == "PASSED_FEASIBILITY_GATE"
+    assert pb051["overall_feasibility_verdict"] == "SYNTHETIC_PASS"
     assert pb051["criteria_checks"]["p99_jitter_le_250us"] is True
     assert pb051["criteria_checks"]["out_of_slot_leakage_lt_0_5pct"] is True
-    assert pb051["criteria_checks"]["paired_hidden_node_qoe_promoted"] is True
-    assert pb051["paired_qoe_decision"]["verdict"] == "PROMOTE"
+    assert pb051["criteria_checks"]["paired_hidden_node_qoe_promoted"] is False
+    assert pb051["diagnostic_passed"] is True
+    assert pb051["physical_promotion_accepted"] is False
+    assert pb051["paired_qoe_decision"]["verdict"] == "SYNTHETIC_PASS"

@@ -141,6 +141,7 @@ class PowerBeamBlockSample:
     is_sentinel: bool = False
     family: str = "WA"
     goodput_per_mhz: float = 0.0
+    evidence_state: Optional[str] = None
 
     def __post_init__(self) -> None:
         validate_powerbeam_channel_width_mhz(self.channel_width_mhz, family=self.family)
@@ -156,11 +157,6 @@ class PowerBeamBlockSample:
 
     def to_gatekeeper_run_metrics(self) -> RunMetrics:
         """Converts to `RunMetrics` for `RegressionGatekeeper`, preserving exact `goodput_per_mhz` even at 30 MHz."""
-        carrier_width = (
-            self.channel_width_mhz
-            if self.channel_width_mhz in SCHEMA_STANDARD_WIDTHS_MHZ
-            else validate_standard_schema_width_mhz(20)
-        )
         return RunMetrics(
             run_id=self.run_id,
             arm=self.arm,
@@ -170,11 +166,12 @@ class PowerBeamBlockSample:
             loss_pct=self.loss_pct,
             jain_fairness=self.jain_fairness,
             firmware_resets=self.firmware_resets,
-            channel_width_mhz=carrier_width,
+            channel_width_mhz=self.channel_width_mhz,
             goodput_per_mhz=self.goodput_per_mhz,
             block_index=self.block_index,
             is_sentinel=self.is_sentinel,
             worst_peer_goodput_mbps=self.worst_peer_goodput_mbps,
+            evidence_state=self.evidence_state,
         )
 
 
@@ -305,6 +302,7 @@ def _make_paired_6block_samples(
                 reassociation_time_s=0.0,
                 is_sentinel=False,
                 family=family,
+                evidence_state='SYNTHETIC',
             )
         )
         samples.append(
@@ -324,6 +322,7 @@ def _make_paired_6block_samples(
                 reassociation_time_s=3.4,
                 is_sentinel=False,
                 family=family,
+                evidence_state='SYNTHETIC',
             )
         )
     return samples
@@ -536,6 +535,8 @@ def build_powerbeam_bench_battery(
     inventory = [asdict(u) for u in build_powerbeam_inventory()]
     payload: Dict[str, Any] = {
         "schema_version": "fmx-powerbeam-m5-5ac-bench-plan-v1",
+        "evidence_state": "SYNTHETIC",
+        "physical_acceptance": "UNKNOWN",
         "generated_utc": "2026-10-24T19:05:00Z",
         "safety_and_execution_policy": {
             "automatic_execution_allowed": False,
@@ -557,6 +558,8 @@ def build_powerbeam_bench_battery(
             "promoted_count": sum(
                 1 for e in evaluated_experiments if e["gate_decision"]["verdict"] == "PROMOTE"
             ),
+            "synthetic_pass_count": sum(1 for e in evaluated_experiments
+                                         if e['gate_decision']['verdict']=='SYNTHETIC_PASS'),
             "rollback_triggered_count": sum(
                 1 for e in evaluated_experiments if e["rollback_watchdog"]["rollback_triggered"]
             ),
