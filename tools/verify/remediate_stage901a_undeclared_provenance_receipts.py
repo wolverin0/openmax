@@ -1,3 +1,4 @@
+# Public derivative: private evidence keys redacted; unmatched inputs fail closed.
 #!/usr/bin/env python3
 """Stage 901A — remediate the 31 receipts that declared no provenance, in place and reversibly.
 
@@ -74,7 +75,7 @@ SIM = "SIMULATED_MODEL_ONLY"
 TABLE = {
     "stage514a": (LIVE, "vht40_unlock_breakthrough",
                   "STA vht80 capability unlock verified with vht40 association and aggregate Mbps"),
-    "stage531a": (LIVE, "10.10.100.82",
+    "stage531a": (LIVE, "PRIVATE_ADDRESS_001",
                   "receipt is keyed by device address: per-panel station-list cache"),
     "stage546a": (STATIC, "stage544a_re_integration",
                   "ame_core and ame_dev ko hashes plus dpd and evm symbol inventories"),

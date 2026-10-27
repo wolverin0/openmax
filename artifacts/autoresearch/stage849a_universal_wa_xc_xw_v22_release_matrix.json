@@ -1,0 +1,187 @@
+{
+  "artifact_type": "SOURCE_RELEASE_MATRIX",
+  "attribution": [
+    "external controller"
+  ],
+  "automatic_execution_allowed": false,
+  "boundary": {
+    "device_writes": false,
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": "UNKNOWN",
+    "producer_execution": false,
+    "ssh_executed": false
+  },
+  "built_firmware_images": 0,
+  "claim_scope": "offline software/package construction only",
+  "compatibility_acceptance": "UNKNOWN",
+  "device_commands_executed": false,
+  "execution_mode": "OFFLINE_SOURCE_MANIFEST",
+  "families": [
+    {
+      "family": "WA",
+      "firmware_image": null,
+      "manifest_membership": "CONFIRMED",
+      "runtime_compatibility": "UNKNOWN",
+      "scope": "Identity-bound transient queue helper reference",
+      "source": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "source_execution_allowed": false
+    },
+    {
+      "family": "XC",
+      "firmware_image": null,
+      "manifest_membership": "CONFIRMED",
+      "runtime_compatibility": "UNKNOWN",
+      "scope": "Static patch loader reference; activation blocked",
+      "source": "firmware/openwrt/common/fmx_pb060_triple_patch_loader.sh",
+      "source_execution_allowed": false
+    },
+    {
+      "family": "XW",
+      "firmware_image": null,
+      "manifest_membership": "CONFIRMED",
+      "runtime_compatibility": "UNKNOWN",
+      "scope": "Synthetic bench-plan and hardware metadata reference",
+      "source": "controller/powerbeam_m5_and_5ac_bench_harness.py",
+      "source_execution_allowed": false
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "sources": [
+        {
+          "available": true,
+          "bytes": 11129,
+          "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+          "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+        },
+        {
+          "available": true,
+          "bytes": 554,
+          "path": "firmware/openwrt/common/fmx_pb060_triple_patch_loader.sh",
+          "sha256": "598004eab57ae750f00e19951be89596b272ddac5697072c741374341fc71cbe"
+        },
+        {
+          "available": true,
+          "bytes": 25752,
+          "path": "controller/powerbeam_m5_and_5ac_bench_harness.py",
+          "sha256": "534b1477daa25b73dc30ec4f81e1dc8a9249738aa4301af3bff7e557c2018183"
+        },
+        {
+          "available": true,
+          "bytes": 10882,
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        }
+      ],
+      "status": "LOCAL_REFERENCE_ONLY"
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "scholar_executed": false,
+      "status": "DEFERRED_OFFLINE"
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "live_windows_executed": 0,
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "status": "PLAN_ONLY",
+      "watchdog_dfs_s": 120,
+      "watchdog_non_dfs_s": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "hardware_validation": "UNKNOWN",
+      "status": "OFFLINE_ANALYSIS"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "claim_key": "stage849a-offline",
+      "ingested": false,
+      "scope": "project:futuramax",
+      "status": "LOCAL_LEDGER_ONLY"
+    }
+  },
+  "hardware_champion": false,
+  "manifest_writer_sha256": "10ed95bfcae16021e9949a484e5ebb1bb34a18e01264d6f09e955eb3e4bdd879",
+  "manifest_writer_source": "tools/firmware/build_stage849a_universal_wa_xc_xw_v22_release_matrix.py",
+  "optional_availability_definition": "Eligible clean tracked JSON, not mere local presence",
+  "optional_references": [
+    {
+      "available": false,
+      "path": "artifacts/autoresearch/stage797a_universal_wa_xc_xw_v21_squashfs_bake.json",
+      "reason": "MISSING_OPTIONAL"
+    },
+    {
+      "available": true,
+      "bytes": 89699,
+      "claim_scope": "Historical reference only; not revalidated as compatibility evidence",
+      "git_blob_oid": "4f283c30e1f684a421634de1fcf5934e7482bffd",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "artifacts/autoresearch/stage817a_universal_pb060_triple_patch_openwrt_airos_kit.json",
+      "sha256": "b6276a665bd668af875d0864f2e5650ced54003b9ab52269200e1f6196f2a30f",
+      "tracked": true
+    }
+  ],
+  "physical_acceptance": "UNKNOWN",
+  "proprietary_binary_bytes_packaged": 0,
+  "release_version": "v22",
+  "schema_version": "1.0.0",
+  "source_git_checks": [
+    {
+      "git_blob_oid": "ba4dde1d870b40ccd62be2a6995306c003182ad3",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "tracked": true
+    },
+    {
+      "git_blob_oid": "d2570e7d5bc1189f47ca46eb91d193caa8c24b0c",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "firmware/openwrt/common/fmx_pb060_triple_patch_loader.sh",
+      "tracked": true
+    },
+    {
+      "git_blob_oid": "0466db24d2afc299ddd6ab0c7e0658c018b3fd8b",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "controller/powerbeam_m5_and_5ac_bench_harness.py",
+      "tracked": true
+    },
+    {
+      "git_blob_oid": "a4cafdf73c02c6f7b088671e0e993dcc4333a912",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "tracked": true
+    }
+  ],
+  "source_producers_executed": false,
+  "sources": [
+    {
+      "available": true,
+      "bytes": 11129,
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+    },
+    {
+      "available": true,
+      "bytes": 554,
+      "path": "firmware/openwrt/common/fmx_pb060_triple_patch_loader.sh",
+      "sha256": "598004eab57ae750f00e19951be89596b272ddac5697072c741374341fc71cbe"
+    },
+    {
+      "available": true,
+      "bytes": 25752,
+      "path": "controller/powerbeam_m5_and_5ac_bench_harness.py",
+      "sha256": "534b1477daa25b73dc30ec4f81e1dc8a9249738aa4301af3bff7e557c2018183"
+    },
+    {
+      "available": true,
+      "bytes": 10882,
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    }
+  ],
+  "stage": "849A",
+  "status": "CONFIRMED",
+  "title": "WA/XC/XW v22 source release matrix"
+}

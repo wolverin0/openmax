@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "853A",
+  "title": "Public Git sync and push v2",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/verify/verify_stage853a_public_git_sync_and_push_v2.py",
+      "available": true,
+      "bytes": 14348,
+      "sha256": "6d4c9b0f44c7de967828bebac9ac5046af68d1537bf8d7837b5045b2d3fd7edb"
+    },
+    {
+      "path": "tools/verify/stage849_854_release_common.py",
+      "available": true,
+      "bytes": 4440,
+      "sha256": "4132f3e2005c81bab431d009155c0a545f5c6102767a61fb919f3d5129e56d97"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/verify/verify_stage853a_public_git_sync_and_push_v2.py",
+          "available": true,
+          "bytes": 14348,
+          "sha256": "6d4c9b0f44c7de967828bebac9ac5046af68d1537bf8d7837b5045b2d3fd7edb"
+        },
+        {
+          "path": "tools/verify/stage849_854_release_common.py",
+          "available": true,
+          "bytes": 4440,
+          "sha256": "4132f3e2005c81bab431d009155c0a545f5c6102767a61fb919f3d5129e56d97"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage853a-offline"
+    }
+  },
+  "index_hygiene": {
+    "compliant": true,
+    "findings": 0,
+    "ignore_probes_passed": true,
+    "scope": "current indexed blobs; final publication rechecks selected bytes"
+  },
+  "publication": {
+    "state": "PREPARED",
+    "push_executed": false,
+    "receipt_location": "local Git metadata: stage853a/push.json"
+  },
+  "history_rewritten": false,
+  "public_privacy_derivatives": [
+    "artifacts/autoresearch/stage901a_provenance_remediation_receipt.json",
+    "artifacts/autoresearch/stage902a_full_corpus_provenance_audit.json",
+    "artifacts/autoresearch/stage903a_provenance_restoration_registry.json",
+    "docs/CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md",
+    "docs/MASTER_RESEARCH_AND_AUTORESEARCH_INDEX.md",
+    "tools/verify/remediate_stage901a_undeclared_provenance_receipts.py"
+  ],
+  "physical_acceptance": "UNKNOWN",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

@@ -4315,7 +4315,7 @@
     {
       "receipt": "stage419a_guarida_wstalist_evm_snapshot.json",
       "label": "CONFIRMED_LIVE_HARDWARE",
-      "evidence": "device_address_key:10.10.100.60",
+      "evidence": "device_address_key:PRIVATE_ADDRESS_001",
       "has_explicit_field": 0,
       "preserved_raw_sha256": null
     },
@@ -4735,7 +4735,7 @@
     {
       "receipt": "stage454a_guarida_60_61_5snapshot_cache.json",
       "label": "CONFIRMED_LIVE_HARDWARE",
-      "evidence": "device_address_key:10.10.100.60",
+      "evidence": "device_address_key:PRIVATE_ADDRESS_001",
       "has_explicit_field": 0,
       "preserved_raw_sha256": null
     },
@@ -8590,5 +8590,10 @@
     "the audit reads receipts only, so a receipt that lies about its own payload passes",
     "the 12 previously unreadable receipts from other workstreams are counted separately and are not classified",
     "no dynamic validation"
-  ]
+  ],
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_retained_locally": true,
+    "original_source_bindings": "require private originals; derivative is not original evidence"
+  }
 }

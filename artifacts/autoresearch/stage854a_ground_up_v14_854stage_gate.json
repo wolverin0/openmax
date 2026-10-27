@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "854A",
+  "title": "Ground-up v14 offline release gate through854A",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "artifacts/autoresearch/stage849a_universal_wa_xc_xw_v22_release_matrix.json",
+      "available": true,
+      "bytes": 6387,
+      "sha256": "fb55e7fbff298ae694763e1b639ea62cb708a99cff312426e552f2473d480ff0"
+    },
+    {
+      "path": "artifacts/autoresearch/stage850a_ltu_safe_kit_v22_atpc_and_dfs_guard.json",
+      "available": true,
+      "bytes": 6613,
+      "sha256": "f5b21fd9375f3c92ee76fec4d04985909656ff7452cd87fc78c67449ee9a644e"
+    },
+    {
+      "path": "artifacts/autoresearch/stage851a_guarida_tower_v11_gps_sync_and_pb080_pareto.json",
+      "available": true,
+      "bytes": 1980812,
+      "sha256": "49f143bc8a45ad5bf9de991a52115a45cae0e015e4fb683404db8905079f87a8"
+    },
+    {
+      "path": "artifacts/autoresearch/stage852a_1050window_cross_lane_master_scorecard.json",
+      "available": true,
+      "bytes": 29129,
+      "sha256": "0c1730d800e45e667aa3176d6b255ba788d9775f00169447adeb8b2bcbfcdb47"
+    },
+    {
+      "path": "artifacts/autoresearch/stage853a_public_git_sync_and_push_v2.json",
+      "available": true,
+      "bytes": 3395,
+      "sha256": "ee589c8abb7e78cc6489a3d5b0f89da09acda92a331058d9ee17a61c56d502be"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "artifacts/autoresearch/stage849a_universal_wa_xc_xw_v22_release_matrix.json",
+          "available": true,
+          "bytes": 6387,
+          "sha256": "fb55e7fbff298ae694763e1b639ea62cb708a99cff312426e552f2473d480ff0"
+        },
+        {
+          "path": "artifacts/autoresearch/stage850a_ltu_safe_kit_v22_atpc_and_dfs_guard.json",
+          "available": true,
+          "bytes": 6613,
+          "sha256": "f5b21fd9375f3c92ee76fec4d04985909656ff7452cd87fc78c67449ee9a644e"
+        },
+        {
+          "path": "artifacts/autoresearch/stage851a_guarida_tower_v11_gps_sync_and_pb080_pareto.json",
+          "available": true,
+          "bytes": 1980812,
+          "sha256": "49f143bc8a45ad5bf9de991a52115a45cae0e015e4fb683404db8905079f87a8"
+        },
+        {
+          "path": "artifacts/autoresearch/stage852a_1050window_cross_lane_master_scorecard.json",
+          "available": true,
+          "bytes": 29129,
+          "sha256": "0c1730d800e45e667aa3176d6b255ba788d9775f00169447adeb8b2bcbfcdb47"
+        },
+        {
+          "path": "artifacts/autoresearch/stage853a_public_git_sync_and_push_v2.json",
+          "available": true,
+          "bytes": 3395,
+          "sha256": "ee589c8abb7e78cc6489a3d5b0f89da09acda92a331058d9ee17a61c56d502be"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage854a-offline"
+    }
+  },
+  "all_gates_passed": true,
+  "release_audit": {
+    "stage_audits": [
+      {
+        "stage": "849A",
+        "compliant": true,
+        "failures": []
+      },
+      {
+        "stage": "850A",
+        "compliant": true,
+        "failures": []
+      },
+      {
+        "stage": "851A",
+        "compliant": true,
+        "failures": []
+      },
+      {
+        "stage": "852A",
+        "compliant": true,
+        "failures": []
+      },
+      {
+        "stage": "853A",
+        "compliant": true,
+        "failures": []
+      }
+    ],
+    "target_met": true,
+    "all_artifacts_ok": true,
+    "physical_acceptance": "UNKNOWN",
+    "scope": "849A..854A offline release only; no claim of854 completed physical stages"
+  },
+  "pytest": {
+    "returncode": 0,
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "repository_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "final_index_hygiene": {
+    "compliant": true,
+    "findings": {}
+  },
+  "verification_sources": [
+    {
+      "path": "artifacts/autoresearch/stage849a_universal_wa_xc_xw_v22_release_matrix.json",
+      "available": true,
+      "bytes": 6387,
+      "sha256": "fb55e7fbff298ae694763e1b639ea62cb708a99cff312426e552f2473d480ff0"
+    },
+    {
+      "path": "artifacts/autoresearch/stage850a_ltu_safe_kit_v22_atpc_and_dfs_guard.json",
+      "available": true,
+      "bytes": 6613,
+      "sha256": "f5b21fd9375f3c92ee76fec4d04985909656ff7452cd87fc78c67449ee9a644e"
+    },
+    {
+      "path": "artifacts/autoresearch/stage851a_guarida_tower_v11_gps_sync_and_pb080_pareto.json",
+      "available": true,
+      "bytes": 1980812,
+      "sha256": "49f143bc8a45ad5bf9de991a52115a45cae0e015e4fb683404db8905079f87a8"
+    },
+    {
+      "path": "controller/powerbeam_m5_and_5ac_bench_harness.py",
+      "available": true,
+      "bytes": 25752,
+      "sha256": "534b1477daa25b73dc30ec4f81e1dc8a9249738aa4301af3bff7e557c2018183"
+    },
+    {
+      "path": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+      "available": true,
+      "bytes": 5501,
+      "sha256": "df958c884bf7878f5906a0e272451b40e63f9de3bc840a86b8070459d40426f0"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_pb060_triple_patch_loader.sh",
+      "available": true,
+      "bytes": 554,
+      "sha256": "598004eab57ae750f00e19951be89596b272ddac5697072c741374341fc71cbe"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "available": true,
+      "bytes": 11129,
+      "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+    },
+    {
+      "path": "requirements-release-v22.txt",
+      "available": true,
+      "bytes": 52,
+      "sha256": "2c45cf39aaecb284241e433742066a789b51dbb6de65e126ec741f89cbc1c5de"
+    },
+    {
+      "path": "tests/test_stage849a.py",
+      "available": true,
+      "bytes": 5825,
+      "sha256": "27ef2897361d532f56ce402ac03d9d55b0126dceae3f1ab6475a31ee0a80d646"
+    },
+    {
+      "path": "tests/test_stage849a_to_854a_suite.py",
+      "available": true,
+      "bytes": 1687,
+      "sha256": "d2c9ecea7e8f3c7f45920e2999397759bb172ff1df98f847595ce1890ff6c9a7"
+    },
+    {
+      "path": "tests/test_stage850a.py",
+      "available": true,
+      "bytes": 4192,
+      "sha256": "0d10ccef00605d38e1957e48e7de5751613b218e9150cdfdcdcb11333d99998a"
+    },
+    {
+      "path": "tests/test_stage851a.py",
+      "available": true,
+      "bytes": 6486,
+      "sha256": "9b1be1ee9bf7942a913a8f587626eed2fbfcd7e492087944a37393268473b23f"
+    },
+    {
+      "path": "tests/test_stage852a.py",
+      "available": true,
+      "bytes": 2118,
+      "sha256": "2706094af2f6fba031e2df6d606393e3d720661d7e2eb1051427f540caa1e2ae"
+    },
+    {
+      "path": "tests/test_stage853a.py",
+      "available": true,
+      "bytes": 4363,
+      "sha256": "f5614516a457c5f7d83938496d9c8fe9db746df7e6290de3fa4141638b9ee96e"
+    },
+    {
+      "path": "tests/test_stage854a.py",
+      "available": true,
+      "bytes": 2756,
+      "sha256": "d5f3c471f5734cf2f64512b0350196b915f81d18806d1adad3fe1ab5c5af3af5"
+    },
+    {
+      "path": "tools/firmware/build_stage849a_universal_wa_xc_xw_v22_release_matrix.py",
+      "available": true,
+      "bytes": 8236,
+      "sha256": "10ed95bfcae16021e9949a484e5ebb1bb34a18e01264d6f09e955eb3e4bdd879"
+    },
+    {
+      "path": "tools/firmware/build_stage850a_ltu_safe_kit_v22_atpc_and_dfs_guard.py",
+      "available": true,
+      "bytes": 3910,
+      "sha256": "89bd6975982a56b8d635ccc39fcea72d9f4abb36791b35138d31e3cb751ef5f2"
+    },
+    {
+      "path": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+      "available": true,
+      "bytes": 12602,
+      "sha256": "6aaeeb9284a3f72b3a5aa06233a5b59d42aa3872a635c2ba05ddb5cc6abb2ecc"
+    },
+    {
+      "path": "tools/sim/run_stage851a_guarida_tower_v11_gps_sync_and_pb080_pareto.py",
+      "available": true,
+      "bytes": 14677,
+      "sha256": "53166f954fb2e2f414c78a6b31b14cb621d7251172645b621f7dac114991c307"
+    },
+    {
+      "path": "tools/verify/build_stage852a_1050window_cross_lane_master_scorecard.py",
+      "available": true,
+      "bytes": 7389,
+      "sha256": "2f462d2a2d6c4a7daae76210ec1b9613a9b6e15ce144d8304051a9e187e97417"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/stage849_854_release_common.py",
+      "available": true,
+      "bytes": 4440,
+      "sha256": "4132f3e2005c81bab431d009155c0a545f5c6102767a61fb919f3d5129e56d97"
+    },
+    {
+      "path": "tools/verify/verify_stage853a_public_git_sync_and_push_v2.py",
+      "available": true,
+      "bytes": 14348,
+      "sha256": "6d4c9b0f44c7de967828bebac9ac5046af68d1537bf8d7837b5045b2d3fd7edb"
+    },
+    {
+      "path": "tools/verify/verify_stage854a_ground_up_v14_854stage_gate.py",
+      "available": true,
+      "bytes": 6178,
+      "sha256": "f6cfcf2427ecc61947af47a397a21e7fbd0de7b7a98f9853054a6f2ca36a3249"
+    }
+  ],
+  "tested_revision_unchanged": true,
+  "validation_scope": "local offline software tests; not device, DFS or RF acceptance",
+  "five_pillar_scope": "structural references, truthful deferred external work",
+  "physical_acceptance": "UNKNOWN",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

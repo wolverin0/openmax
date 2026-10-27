@@ -1,4 +1,4 @@
-<!-- doc-head: Public software reproduction and corrected audit contracts; qualified historical milestones -->
+<!-- doc-head: Source-qualified milestones and offline v22 release through854A -->
 <!-- /doc-head -->
 
 # openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
@@ -161,3 +161,12 @@ Every claim in this repository follows the strict source-of-truth hierarchy defi
 * **Open Collaboration**: We welcome peer review of our ADRs (**[docs/DECISIONS.md](docs/DECISIONS.md)**), adversarial audits (**[docs/ADVERSARIAL_REVIEW_STAGE10_11.md](docs/ADVERSARIAL_REVIEW_STAGE10_11.md)**), and outer-loop `ath10k`/`mac80211` contributions.
 * **Strict Safety & Regulatory Boundaries**: We **NEVER** modify regulatory domains, exceed legal EIRP limits, disable DFS radar detection, or write protected flash partitions (`mtd0` `u-boot`, `mtd1` `u-boot-env`, `mtd5` `ART` calibration).
 * **License**: Project-authored code, analysis scripts, and documentation are open-sourced under the MIT License (historically declared; no license text is bundled).
+
+## Stages849A..854A: offline v22 release
+
+WA/XC/XW and LTU v22 source manifests, a Guarida v11 GPS/PB080 sensitivity model,
+and a 1050-window synthetic scorecard are packaged with explicit acceptance boundaries.
+No new radio measurements or native ATPC/DFS/GPS/PB080 acceptance is claimed.
+The five-pillar audit checks local wiring and source provenance; external studies remain deferred.
+See [release gate](docs/STAGE854A_GROUND_UP_V14_854STAGE_GATE.md) and
+[publication gate](docs/STAGE853A_PUBLIC_GIT_SYNC_AND_PUSH_V2.md).

@@ -1,0 +1,187 @@
+{
+  "artifact_type": "SOURCE_SAFE_KIT_MANIFEST",
+  "attribution": [
+    "external controller"
+  ],
+  "automatic_execution_allowed": false,
+  "boundary": {
+    "device_writes": false,
+    "flash_approved": false,
+    "network_access": false,
+    "physical_acceptance": "UNKNOWN",
+    "producer_execution": false,
+    "ssh_executed": false
+  },
+  "built_firmware_images": 0,
+  "claim_scope": "offline software/package construction only",
+  "compatibility_acceptance": "UNKNOWN",
+  "device_commands_executed": false,
+  "execution_mode": "OFFLINE_SOURCE_MANIFEST",
+  "features": {
+    "ATPC": {
+      "activation_available": false,
+      "reason": "Static references do not establish a validated power-control actuator",
+      "status": "UNKNOWN"
+    },
+    "BR1_DHCP": {
+      "activation_available": false,
+      "reason": "Existing guarded helper is referenced; no native firewall or lease test is executed",
+      "status": "UNKNOWN"
+    },
+    "DFS": {
+      "activation_available": false,
+      "reason": "Classifier symbol presence does not prove pulse thresholds or regulatory behavior",
+      "status": "UNKNOWN"
+    },
+    "GPS": {
+      "activation_available": false,
+      "reason": "No lock, timing or holdover observation is acquired by this manifest",
+      "status": "UNKNOWN"
+    }
+  },
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "sources": [
+        {
+          "available": true,
+          "bytes": 5501,
+          "path": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+          "sha256": "df958c884bf7878f5906a0e272451b40e63f9de3bc840a86b8070459d40426f0"
+        },
+        {
+          "available": true,
+          "bytes": 12602,
+          "path": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+          "sha256": "6aaeeb9284a3f72b3a5aa06233a5b59d42aa3872a635c2ba05ddb5cc6abb2ecc"
+        },
+        {
+          "available": true,
+          "bytes": 10882,
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        }
+      ],
+      "status": "LOCAL_REFERENCE_ONLY"
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "scholar_executed": false,
+      "status": "DEFERRED_OFFLINE"
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "live_windows_executed": 0,
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "status": "PLAN_ONLY",
+      "watchdog_dfs_s": 120,
+      "watchdog_non_dfs_s": 45
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "hardware_validation": "UNKNOWN",
+      "status": "OFFLINE_ANALYSIS"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "claim_key": "stage850a-offline",
+      "ingested": false,
+      "scope": "project:futuramax",
+      "status": "LOCAL_LEDGER_ONLY"
+    }
+  },
+  "guard_policy": {
+    "actions_dispatched": 0,
+    "atpc_enable": false,
+    "default": "MANIFEST_ONLY",
+    "dfs_disable": false,
+    "gps_lock_claim": false,
+    "required_before_future_activation": [
+      "Exact board/revision/driver/firmware identity",
+      "Independent reviewed actuator and rollback contract",
+      "Actual readback and captured ATPC/DFS/GPS observations",
+      "Explicit authority for the proposed device action"
+    ]
+  },
+  "hardware_champion": false,
+  "helper_reference": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+  "manifest_writer_sha256": "10ed95bfcae16021e9949a484e5ebb1bb34a18e01264d6f09e955eb3e4bdd879",
+  "manifest_writer_source": "tools/firmware/build_stage849a_universal_wa_xc_xw_v22_release_matrix.py",
+  "optional_availability_definition": "Eligible clean tracked JSON, not mere local presence",
+  "optional_references": [
+    {
+      "available": false,
+      "path": "artifacts/autoresearch/stage834a_ltu_ame_core_ul_power_control_and_target_evm_re.json",
+      "reason": "EXCLUDED_NOT_CLEAN_TRACKED_JSON"
+    },
+    {
+      "available": true,
+      "bytes": 6590,
+      "claim_scope": "Historical reference only; not revalidated as compatibility evidence",
+      "git_blob_oid": "f367f42328ecccba17ef943880e271ca041d98f1",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "artifacts/autoresearch/stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.json",
+      "sha256": "0fbeb4b8f115d1cb439787095e64c23150a8fe3a0ad3e7f312332d689ef6da29",
+      "tracked": true
+    },
+    {
+      "available": true,
+      "bytes": 5074,
+      "claim_scope": "Historical reference only; not revalidated as compatibility evidence",
+      "git_blob_oid": "85fc42243eb6486fbd1096d59a45904ff50fc566",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "artifacts/autoresearch/stage818a_ltu_4096qam_12x_ldpc_and_super4096_safe_kit.json",
+      "sha256": "48c1b68dfb11db61a247f4a98e25bf510c337bbd58a652b666ecb6fa2dd22bdd",
+      "tracked": true
+    }
+  ],
+  "physical_acceptance": "UNKNOWN",
+  "producer_sha256": "89bd6975982a56b8d635ccc39fcea72d9f4abb36791b35138d31e3cb751ef5f2",
+  "proprietary_binary_bytes_packaged": 0,
+  "release_version": "v22",
+  "schema_version": "1.0.0",
+  "source_git_checks": [
+    {
+      "git_blob_oid": "b913914f3e00bc3c99c96f99567396b87621e2bb",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+      "tracked": true
+    },
+    {
+      "git_blob_oid": "6e1de250bd901412f34c9a9fe120050e18fad54c",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+      "tracked": true
+    },
+    {
+      "git_blob_oid": "a4cafdf73c02c6f7b088671e0e993dcc4333a912",
+      "head_clean": true,
+      "index_clean": true,
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "tracked": true
+    }
+  ],
+  "source_producers_executed": false,
+  "sources": [
+    {
+      "available": true,
+      "bytes": 5501,
+      "path": "firmware/ltu_safe_kit/fmx_ltu_4096qam_12x_safe_kit.sh",
+      "sha256": "df958c884bf7878f5906a0e272451b40e63f9de3bc840a86b8070459d40426f0"
+    },
+    {
+      "available": true,
+      "bytes": 12602,
+      "path": "tools/re/dissect_stage824a_ltu_ame_core_dfs_radar_pulse_classifier_re.py",
+      "sha256": "6aaeeb9284a3f72b3a5aa06233a5b59d42aa3872a635c2ba05ddb5cc6abb2ecc"
+    },
+    {
+      "available": true,
+      "bytes": 10882,
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    }
+  ],
+  "stage": "850A",
+  "status": "CONFIRMED",
+  "title": "LTU v22 ATPC and DFS safe source kit"
+}
