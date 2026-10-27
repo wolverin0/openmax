@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "987A",
+  "title": "Private Git status audit and reversible orphan quarantine",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "tools/verify/audit_stage987a_repo_status_and_orphan_artifacts.py",
+      "available": true,
+      "bytes": 22524,
+      "sha256": "5a4b653f55f0db7a2d1853be75d2938677692b66d0a27433d5b8af1eab5ca486"
+    },
+    {
+      "path": "tests/test_stage987a_repo_hygiene.py",
+      "available": true,
+      "bytes": 8989,
+      "sha256": "bb8e7ddd0eb595cf1b45800b24638ddf90efe541a5f87c21ea6b75a75288c85e"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "tools/verify/audit_stage987a_repo_status_and_orphan_artifacts.py",
+          "available": true,
+          "bytes": 22524,
+          "sha256": "5a4b653f55f0db7a2d1853be75d2938677692b66d0a27433d5b8af1eab5ca486"
+        },
+        {
+          "path": "tests/test_stage987a_repo_hygiene.py",
+          "available": true,
+          "bytes": 8989,
+          "sha256": "bb8e7ddd0eb595cf1b45800b24638ddf90efe541a5f87c21ea6b75a75288c85e"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage987a-offline"
+    }
+  },
+  "all_gates_passed": true,
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "local software inventory and disposable-fixture verification; no native hardware evidence",
+  "physical_acceptance": "UNKNOWN",
+  "audit": {
+    "complete": true,
+    "index_unchanged": true,
+    "head": "1bf420509e8cb331f86ffa2706ca5473881c021a",
+    "branch": "main",
+    "status_counts": {
+      "staged": 0,
+      "unstaged": 103,
+      "untracked": 2791,
+      "ignored": 31709
+    },
+    "tracked_index_count": 3158,
+    "index_signature_sha256": "73ec8ea5d5fa379ed9d5edb609eed4e690dd7d6ad19f9164cd36f5b431672465"
+  },
+  "cleanup": {
+    "mode": "QUARANTINE",
+    "proven_orphans": 0,
+    "retained_candidates": 0,
+    "quarantined": 0,
+    "failed": 0,
+    "restored_after_failure": 0,
+    "irreversible_deletions": 0,
+    "tracked_or_user_files_moved": 0,
+    "all_moves_within_bounds": true,
+    "restore_map_retained": true,
+    "complete": true,
+    "transaction_state": "NO_PROVEN_ORPHANS"
+  },
+  "source_revision_unchanged": true,
+  "candidate_reason_counts": {},
+  "private_evidence": [
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/git_ignored.z",
+      "bytes": 2946399,
+      "sha256": "f5229f3551cb9c89af5ce41fe4adbb3d46db9b413695a07461a676bc483b8eaf"
+    },
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/git_index.z",
+      "bytes": 350688,
+      "sha256": "73ec8ea5d5fa379ed9d5edb609eed4e690dd7d6ad19f9164cd36f5b431672465"
+    },
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/git_status_porcelain.z",
+      "bytes": 221278,
+      "sha256": "bb71ffd2c63b7636bb4ce375758c7efb0152232d80b155d12e710b2de7d23da2"
+    },
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/git_untracked.z",
+      "bytes": 206540,
+      "sha256": "ae312ca649959bd317877ff639f0b2d50f27688eb50897fb3bdc16b397ec2cca"
+    },
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/inventory.json",
+      "bytes": 3969769,
+      "sha256": "c5c80e518f3c0d381496aad9ca8123cacf1e622ac27dfb109828c47e3b5cae26"
+    },
+    {
+      "path": "stage983_988/stage987a/runs/ae7f1aafeca74e1187a32ede1780e3e8/restore_map.json",
+      "bytes": 80,
+      "sha256": "beea80c2f2737d508e6f9542fc6374ff1ab9e0412386f29222501156b4055786"
+    }
+  ],
+  "private_inventory_public_contents_emitted": false,
+  "private_evidence_available_to_public_checkout": false,
+  "unrelated_dirty_work_preserved": true,
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

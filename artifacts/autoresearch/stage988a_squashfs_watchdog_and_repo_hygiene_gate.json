@@ -1,0 +1,997 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "988A",
+  "title": "SquashFS, startup-watchdog and repository hygiene source gate",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "artifacts/autoresearch/stage983a_squashfs_factory_fail_closed_contract.json",
+      "available": true,
+      "bytes": 4704,
+      "sha256": "af28286008a0ade049519571aba0d90e244a582e6f4f89a3ed76e6aeb12b0695"
+    },
+    {
+      "path": "artifacts/autoresearch/stage984a_guarded_ptp_startup_watchdog.json",
+      "available": true,
+      "bytes": 5340,
+      "sha256": "539c20a34f6104c654853dabcee08e2b56cf8a1ffc975660ab5474ff6dde88b9"
+    },
+    {
+      "path": "artifacts/autoresearch/stage985a_watchdog_loss_deadline_and_fault_tests.json",
+      "available": true,
+      "bytes": 5720,
+      "sha256": "4a12774ebfc546471c2f8ba5e67c34f540f8ad9037ec76c0fe8990e733b8391e"
+    },
+    {
+      "path": "artifacts/autoresearch/stage986a_ptp_active_source_sha256_manifest.json",
+      "available": true,
+      "bytes": 9819,
+      "sha256": "91bb3b53890d4b5f5e9fd8134f576dce4571e1f010b5f308f8683152e6d79040"
+    },
+    {
+      "path": "artifacts/autoresearch/stage987a_repo_status_and_orphan_artifacts.json",
+      "available": true,
+      "bytes": 5551,
+      "sha256": "707d2a0fa0cd7339d6548f24dfcc3b2046b0431100b711d34f2588fd3af88807"
+    },
+    {
+      "path": "docs/STAGE983A_SQUASHFS_FACTORY_FAIL_CLOSED_CONTRACT.md",
+      "available": true,
+      "bytes": 2263,
+      "sha256": "20132990cfa6c89c8bc430496189c7ee8476e4c46ad586cc5f60fb52ed73403b"
+    },
+    {
+      "path": "docs/STAGE984A_GUARDED_PTP_STARTUP_WATCHDOG.md",
+      "available": true,
+      "bytes": 1751,
+      "sha256": "1d9e5753989891104d5a96e2afd59a889282f035faa29d92f3dd20449ac86d10"
+    },
+    {
+      "path": "docs/STAGE985A_WATCHDOG_LOSS_DEADLINE_AND_FAULT_TESTS.md",
+      "available": true,
+      "bytes": 788,
+      "sha256": "356aa96cd32e2eba3450b0b72571c168f4578d064c92ed8c2f345d6be752ac6c"
+    },
+    {
+      "path": "docs/STAGE986A_PTP_ACTIVE_SOURCE_SHA256_MANIFEST.md",
+      "available": true,
+      "bytes": 628,
+      "sha256": "9dd143fb8f657feb27c15d80d3934fcdfeb7fd68445ad2b7523f26f180e00974"
+    },
+    {
+      "path": "docs/STAGE987A_REPO_STATUS_AND_ORPHAN_ARTIFACTS.md",
+      "available": true,
+      "bytes": 1287,
+      "sha256": "c8ec189c255974a155741cb060a590559c0cae034c99391b22a6c6da30d2b227"
+    },
+    {
+      "path": "firmware/openwrt/build_universal_pbe5ac_lbe5ac_openwrt_factory.py",
+      "available": true,
+      "bytes": 25594,
+      "sha256": "63fc136cf08e116bbf24c37f76b6403db600b411e7335b024860d00353b4e658"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap-241",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta-242",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v2",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v3",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v4",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion-v4",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wmm-dscp-qos",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/SHA256SUMS",
+      "available": true,
+      "bytes": 2034,
+      "sha256": "9a654d022aabaaeb9dd821a9937988e3f7ac84b7fcad57ece3d2e0cd48ea728e"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/enable_airos8_ap_hybrid_80211_for_openwrt_sta.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/files/etc/uci-defaults/99-fmx-wa-universal-champion",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_admitter.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_dynamic_phy_and_sgmt_loader.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe_lbe_runtime_transaction.sh",
+      "available": true,
+      "bytes": 13033,
+      "sha256": "dce731cf8837884955be37efefb80b513addd79f9085af8f97a1b23b73fabf23"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog.sh",
+      "available": true,
+      "bytes": 9770,
+      "sha256": "68121a26071e66a0f4518a4ce4c06c3a957e22e2a19569ad4567f67ea75d72fd"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_ap_241.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_sta_242.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_wmi_peer_phymode_sync_guard.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/restore_stock_airos8_with_known_cfg.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "tests/test_stage983a_squashfs_factory_contract.py",
+      "available": true,
+      "bytes": 12736,
+      "sha256": "0276d73a4a8624450333a8187746eb25f5cdc72faadb6a760f62e8aeb28e1926"
+    },
+    {
+      "path": "tests/test_stage983a_to_988a_suite.py",
+      "available": true,
+      "bytes": 18702,
+      "sha256": "e8a189be45cd55a1a0e69f91a2940a68dbc555a866ab3c95535b506de69fc375"
+    },
+    {
+      "path": "tests/test_stage984a_986a_watchdog.py",
+      "available": true,
+      "bytes": 13006,
+      "sha256": "bd44e25671e9abe729c4ad3474528910090e2393ec0e6bf214de8470b8b247cd"
+    },
+    {
+      "path": "tests/test_stage987a_repo_hygiene.py",
+      "available": true,
+      "bytes": 8989,
+      "sha256": "bb8e7ddd0eb595cf1b45800b24638ddf90efe541a5f87c21ea6b75a75288c85e"
+    },
+    {
+      "path": "tools/verify/audit_stage987a_repo_status_and_orphan_artifacts.py",
+      "available": true,
+      "bytes": 22524,
+      "sha256": "5a4b653f55f0db7a2d1853be75d2938677692b66d0a27433d5b8af1eab5ca486"
+    },
+    {
+      "path": "tools/verify/build_stage984a_to_986a_watchdog_evidence.py",
+      "available": true,
+      "bytes": 10462,
+      "sha256": "67cd1e7fb608e0b1ae78dced2de07c567158531343eb14ec8402de07d99e168b"
+    },
+    {
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "available": true,
+      "bytes": 8770,
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+      "available": true,
+      "bytes": 15457,
+      "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+    },
+    {
+      "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+      "available": true,
+      "bytes": 25554,
+      "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+    },
+    {
+      "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+      "available": true,
+      "bytes": 16921,
+      "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+    },
+    {
+      "path": "tools/verify/verify_stage988a_squashfs_watchdog_and_repo_hygiene_gate.py",
+      "available": true,
+      "bytes": 29332,
+      "sha256": "d5e65fe6a07eba839b95f55ed9d03dd9c4eabd0f5acf4e7bf11bd0127cca69d3"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "artifacts/autoresearch/stage983a_squashfs_factory_fail_closed_contract.json",
+          "available": true,
+          "bytes": 4704,
+          "sha256": "af28286008a0ade049519571aba0d90e244a582e6f4f89a3ed76e6aeb12b0695"
+        },
+        {
+          "path": "artifacts/autoresearch/stage984a_guarded_ptp_startup_watchdog.json",
+          "available": true,
+          "bytes": 5340,
+          "sha256": "539c20a34f6104c654853dabcee08e2b56cf8a1ffc975660ab5474ff6dde88b9"
+        },
+        {
+          "path": "artifacts/autoresearch/stage985a_watchdog_loss_deadline_and_fault_tests.json",
+          "available": true,
+          "bytes": 5720,
+          "sha256": "4a12774ebfc546471c2f8ba5e67c34f540f8ad9037ec76c0fe8990e733b8391e"
+        },
+        {
+          "path": "artifacts/autoresearch/stage986a_ptp_active_source_sha256_manifest.json",
+          "available": true,
+          "bytes": 9819,
+          "sha256": "91bb3b53890d4b5f5e9fd8134f576dce4571e1f010b5f308f8683152e6d79040"
+        },
+        {
+          "path": "artifacts/autoresearch/stage987a_repo_status_and_orphan_artifacts.json",
+          "available": true,
+          "bytes": 5551,
+          "sha256": "707d2a0fa0cd7339d6548f24dfcc3b2046b0431100b711d34f2588fd3af88807"
+        },
+        {
+          "path": "docs/STAGE983A_SQUASHFS_FACTORY_FAIL_CLOSED_CONTRACT.md",
+          "available": true,
+          "bytes": 2263,
+          "sha256": "20132990cfa6c89c8bc430496189c7ee8476e4c46ad586cc5f60fb52ed73403b"
+        },
+        {
+          "path": "docs/STAGE984A_GUARDED_PTP_STARTUP_WATCHDOG.md",
+          "available": true,
+          "bytes": 1751,
+          "sha256": "1d9e5753989891104d5a96e2afd59a889282f035faa29d92f3dd20449ac86d10"
+        },
+        {
+          "path": "docs/STAGE985A_WATCHDOG_LOSS_DEADLINE_AND_FAULT_TESTS.md",
+          "available": true,
+          "bytes": 788,
+          "sha256": "356aa96cd32e2eba3450b0b72571c168f4578d064c92ed8c2f345d6be752ac6c"
+        },
+        {
+          "path": "docs/STAGE986A_PTP_ACTIVE_SOURCE_SHA256_MANIFEST.md",
+          "available": true,
+          "bytes": 628,
+          "sha256": "9dd143fb8f657feb27c15d80d3934fcdfeb7fd68445ad2b7523f26f180e00974"
+        },
+        {
+          "path": "docs/STAGE987A_REPO_STATUS_AND_ORPHAN_ARTIFACTS.md",
+          "available": true,
+          "bytes": 1287,
+          "sha256": "c8ec189c255974a155741cb060a590559c0cae034c99391b22a6c6da30d2b227"
+        },
+        {
+          "path": "firmware/openwrt/build_universal_pbe5ac_lbe5ac_openwrt_factory.py",
+          "available": true,
+          "bytes": 25594,
+          "sha256": "63fc136cf08e116bbf24c37f76b6403db600b411e7335b024860d00353b4e658"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap-241",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta-242",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v2",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v3",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v4",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion-v4",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wmm-dscp-qos",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/SHA256SUMS",
+          "available": true,
+          "bytes": 2034,
+          "sha256": "9a654d022aabaaeb9dd821a9937988e3f7ac84b7fcad57ece3d2e0cd48ea728e"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/enable_airos8_ap_hybrid_80211_for_openwrt_sta.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/files/etc/uci-defaults/99-fmx-wa-universal-champion",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_admitter.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_dynamic_phy_and_sgmt_loader.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe_lbe_runtime_transaction.sh",
+          "available": true,
+          "bytes": 13033,
+          "sha256": "dce731cf8837884955be37efefb80b513addd79f9085af8f97a1b23b73fabf23"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog.sh",
+          "available": true,
+          "bytes": 9770,
+          "sha256": "68121a26071e66a0f4518a4ce4c06c3a957e22e2a19569ad4567f67ea75d72fd"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_ap_241.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_sta_242.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_wmi_peer_phymode_sync_guard.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/restore_stock_airos8_with_known_cfg.sh",
+          "available": true,
+          "bytes": 974,
+          "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+        },
+        {
+          "path": "tests/test_stage983a_squashfs_factory_contract.py",
+          "available": true,
+          "bytes": 12736,
+          "sha256": "0276d73a4a8624450333a8187746eb25f5cdc72faadb6a760f62e8aeb28e1926"
+        },
+        {
+          "path": "tests/test_stage983a_to_988a_suite.py",
+          "available": true,
+          "bytes": 18702,
+          "sha256": "e8a189be45cd55a1a0e69f91a2940a68dbc555a866ab3c95535b506de69fc375"
+        },
+        {
+          "path": "tests/test_stage984a_986a_watchdog.py",
+          "available": true,
+          "bytes": 13006,
+          "sha256": "bd44e25671e9abe729c4ad3474528910090e2393ec0e6bf214de8470b8b247cd"
+        },
+        {
+          "path": "tests/test_stage987a_repo_hygiene.py",
+          "available": true,
+          "bytes": 8989,
+          "sha256": "bb8e7ddd0eb595cf1b45800b24638ddf90efe541a5f87c21ea6b75a75288c85e"
+        },
+        {
+          "path": "tools/verify/audit_stage987a_repo_status_and_orphan_artifacts.py",
+          "available": true,
+          "bytes": 22524,
+          "sha256": "5a4b653f55f0db7a2d1853be75d2938677692b66d0a27433d5b8af1eab5ca486"
+        },
+        {
+          "path": "tools/verify/build_stage984a_to_986a_watchdog_evidence.py",
+          "available": true,
+          "bytes": 10462,
+          "sha256": "67cd1e7fb608e0b1ae78dced2de07c567158531343eb14ec8402de07d99e168b"
+        },
+        {
+          "path": "tools/verify/enforce_5pillar_research_gate.py",
+          "available": true,
+          "bytes": 8770,
+          "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        },
+        {
+          "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+          "available": true,
+          "bytes": 15457,
+          "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+        },
+        {
+          "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+          "available": true,
+          "bytes": 25554,
+          "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+        },
+        {
+          "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+          "available": true,
+          "bytes": 16921,
+          "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+        },
+        {
+          "path": "tools/verify/verify_stage988a_squashfs_watchdog_and_repo_hygiene_gate.py",
+          "available": true,
+          "bytes": 29332,
+          "sha256": "d5e65fe6a07eba839b95f55ed9d03dd9c4eabd0f5acf4e7bf11bd0127cca69d3"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage988a-offline"
+    }
+  },
+  "all_gates_passed": true,
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "offline executable-source, disposable-stub and metadata contracts only",
+  "local_release_audit": {
+    "compliant": true,
+    "stages": [
+      {
+        "stage": "983A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "984A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "985A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "986A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "987A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      }
+    ],
+    "native_image_emission": "NOT_EXECUTED",
+    "packaging_readiness": "BLOCKED",
+    "physical_acceptance": "UNKNOWN",
+    "private_inventory_scope": "HASH_VERIFIED_LOCAL_METADATA"
+  },
+  "public_release_audit": {
+    "compliant": true,
+    "stages": [
+      {
+        "stage": "983A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "984A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "985A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "986A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      },
+      {
+        "stage": "987A",
+        "compliant": true,
+        "failures": [],
+        "acceptance_scope": "offline source/tests; no native image or hardware approval"
+      }
+    ],
+    "native_image_emission": "NOT_EXECUTED",
+    "packaging_readiness": "BLOCKED",
+    "physical_acceptance": "UNKNOWN",
+    "private_inventory_scope": "WITHHELD_GIT_METADATA"
+  },
+  "repository_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "local_tests": {
+    "returncode": 0,
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "public_tests": {
+    "returncode": 0,
+    "tests": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "public_export": {
+    "compliant": true,
+    "clean_git_checkout": true,
+    "exact_index_membership_modes_and_objects": true,
+    "actual_index_blobs_match": true,
+    "mismatch_count": 0,
+    "extra_file_count": 0
+  },
+  "index_hygiene": {
+    "compliant": true,
+    "findings": {}
+  },
+  "indexed_tested_sources": {
+    "compliant": true,
+    "mismatching_source_count": 0,
+    "mismatching_paths": []
+  },
+  "tested_revision_unchanged": true,
+  "publication_index_unchanged": true,
+  "verification_sources": [
+    {
+      "path": "artifacts/autoresearch/stage983a_squashfs_factory_fail_closed_contract.json",
+      "available": true,
+      "bytes": 4704,
+      "sha256": "af28286008a0ade049519571aba0d90e244a582e6f4f89a3ed76e6aeb12b0695"
+    },
+    {
+      "path": "artifacts/autoresearch/stage984a_guarded_ptp_startup_watchdog.json",
+      "available": true,
+      "bytes": 5340,
+      "sha256": "539c20a34f6104c654853dabcee08e2b56cf8a1ffc975660ab5474ff6dde88b9"
+    },
+    {
+      "path": "artifacts/autoresearch/stage985a_watchdog_loss_deadline_and_fault_tests.json",
+      "available": true,
+      "bytes": 5720,
+      "sha256": "4a12774ebfc546471c2f8ba5e67c34f540f8ad9037ec76c0fe8990e733b8391e"
+    },
+    {
+      "path": "artifacts/autoresearch/stage986a_ptp_active_source_sha256_manifest.json",
+      "available": true,
+      "bytes": 9819,
+      "sha256": "91bb3b53890d4b5f5e9fd8134f576dce4571e1f010b5f308f8683152e6d79040"
+    },
+    {
+      "path": "artifacts/autoresearch/stage987a_repo_status_and_orphan_artifacts.json",
+      "available": true,
+      "bytes": 5551,
+      "sha256": "707d2a0fa0cd7339d6548f24dfcc3b2046b0431100b711d34f2588fd3af88807"
+    },
+    {
+      "path": "docs/STAGE983A_SQUASHFS_FACTORY_FAIL_CLOSED_CONTRACT.md",
+      "available": true,
+      "bytes": 2263,
+      "sha256": "20132990cfa6c89c8bc430496189c7ee8476e4c46ad586cc5f60fb52ed73403b"
+    },
+    {
+      "path": "docs/STAGE984A_GUARDED_PTP_STARTUP_WATCHDOG.md",
+      "available": true,
+      "bytes": 1751,
+      "sha256": "1d9e5753989891104d5a96e2afd59a889282f035faa29d92f3dd20449ac86d10"
+    },
+    {
+      "path": "docs/STAGE985A_WATCHDOG_LOSS_DEADLINE_AND_FAULT_TESTS.md",
+      "available": true,
+      "bytes": 788,
+      "sha256": "356aa96cd32e2eba3450b0b72571c168f4578d064c92ed8c2f345d6be752ac6c"
+    },
+    {
+      "path": "docs/STAGE986A_PTP_ACTIVE_SOURCE_SHA256_MANIFEST.md",
+      "available": true,
+      "bytes": 628,
+      "sha256": "9dd143fb8f657feb27c15d80d3934fcdfeb7fd68445ad2b7523f26f180e00974"
+    },
+    {
+      "path": "docs/STAGE987A_REPO_STATUS_AND_ORPHAN_ARTIFACTS.md",
+      "available": true,
+      "bytes": 1287,
+      "sha256": "c8ec189c255974a155741cb060a590559c0cae034c99391b22a6c6da30d2b227"
+    },
+    {
+      "path": "firmware/openwrt/build_universal_pbe5ac_lbe5ac_openwrt_factory.py",
+      "available": true,
+      "bytes": 25594,
+      "sha256": "63fc136cf08e116bbf24c37f76b6403db600b411e7335b024860d00353b4e658"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-ap-241",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp-sta-242",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v2",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v3",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-ptp-champion-v4",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wa-universal-champion-v4",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-wmm-dscp-qos",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/SHA256SUMS",
+      "available": true,
+      "bytes": 2034,
+      "sha256": "9a654d022aabaaeb9dd821a9937988e3f7ac84b7fcad57ece3d2e0cd48ea728e"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/enable_airos8_ap_hybrid_80211_for_openwrt_sta.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/files/etc/uci-defaults/99-fmx-wa-universal-champion",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_admitter.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe5ac_dynamic_phy_and_sgmt_loader.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe_lbe_runtime_transaction.sh",
+      "available": true,
+      "bytes": 13033,
+      "sha256": "dce731cf8837884955be37efefb80b513addd79f9085af8f97a1b23b73fabf23"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog.sh",
+      "available": true,
+      "bytes": 9770,
+      "sha256": "68121a26071e66a0f4518a4ce4c06c3a957e22e2a19569ad4567f67ea75d72fd"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_ap_241.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog_sta_242.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_wmi_peer_phymode_sync_guard.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/restore_stock_airos8_with_known_cfg.sh",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "tests/test_stage983a_squashfs_factory_contract.py",
+      "available": true,
+      "bytes": 12736,
+      "sha256": "0276d73a4a8624450333a8187746eb25f5cdc72faadb6a760f62e8aeb28e1926"
+    },
+    {
+      "path": "tests/test_stage983a_to_988a_suite.py",
+      "available": true,
+      "bytes": 18702,
+      "sha256": "e8a189be45cd55a1a0e69f91a2940a68dbc555a866ab3c95535b506de69fc375"
+    },
+    {
+      "path": "tests/test_stage984a_986a_watchdog.py",
+      "available": true,
+      "bytes": 13006,
+      "sha256": "bd44e25671e9abe729c4ad3474528910090e2393ec0e6bf214de8470b8b247cd"
+    },
+    {
+      "path": "tests/test_stage987a_repo_hygiene.py",
+      "available": true,
+      "bytes": 8989,
+      "sha256": "bb8e7ddd0eb595cf1b45800b24638ddf90efe541a5f87c21ea6b75a75288c85e"
+    },
+    {
+      "path": "tools/verify/audit_stage987a_repo_status_and_orphan_artifacts.py",
+      "available": true,
+      "bytes": 22524,
+      "sha256": "5a4b653f55f0db7a2d1853be75d2938677692b66d0a27433d5b8af1eab5ca486"
+    },
+    {
+      "path": "tools/verify/build_stage984a_to_986a_watchdog_evidence.py",
+      "available": true,
+      "bytes": 10462,
+      "sha256": "67cd1e7fb608e0b1ae78dced2de07c567158531343eb14ec8402de07d99e168b"
+    },
+    {
+      "path": "tools/verify/enforce_5pillar_research_gate.py",
+      "available": true,
+      "bytes": 8770,
+      "sha256": "08c0f618be6d616117c50e840c73caeaab9488063192f145c713e698df9a98a4"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+      "available": true,
+      "bytes": 15457,
+      "sha256": "3ade0bb03d777757b69eabf322e380c6ac540f34b8b47444e82f6f8e03888543"
+    },
+    {
+      "path": "tools/verify/verify_stage940a_public_release_v23_gate.py",
+      "available": true,
+      "bytes": 25554,
+      "sha256": "0a23b6ef53645ca222a632c93f142b82288b67dc70cb18168ea0929d19bf8cf7"
+    },
+    {
+      "path": "tools/verify/verify_stage964a_unified_physical_runner_gate.py",
+      "available": true,
+      "bytes": 16921,
+      "sha256": "68fed414fcf587546f5ef5463157db39f1f28982c5d4b263dec64857df12b6bf"
+    },
+    {
+      "path": "tools/verify/verify_stage988a_squashfs_watchdog_and_repo_hygiene_gate.py",
+      "available": true,
+      "bytes": 29332,
+      "sha256": "d5e65fe6a07eba839b95f55ed9d03dd9c4eabd0f5acf4e7bf11bd0127cca69d3"
+    }
+  ],
+  "native_image_emission": "NOT_EXECUTED",
+  "packaging_readiness": "BLOCKED",
+  "physical_acceptance": "UNKNOWN",
+  "fresh_live_windows": 0,
+  "deployment_authorized": false,
+  "publication_executed": false,
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}

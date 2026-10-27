@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "983A",
+  "title": "Local SquashFS factory fail-closed source contract",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "firmware/openwrt/build_universal_pbe5ac_lbe5ac_openwrt_factory.py",
+      "available": true,
+      "bytes": 25594,
+      "sha256": "63fc136cf08e116bbf24c37f76b6403db600b411e7335b024860d00353b4e658"
+    },
+    {
+      "path": "tests/test_stage983a_squashfs_factory_contract.py",
+      "available": true,
+      "bytes": 12736,
+      "sha256": "0276d73a4a8624450333a8187746eb25f5cdc72faadb6a760f62e8aeb28e1926"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "firmware/openwrt/build_universal_pbe5ac_lbe5ac_openwrt_factory.py",
+          "available": true,
+          "bytes": 25594,
+          "sha256": "63fc136cf08e116bbf24c37f76b6403db600b411e7335b024860d00353b4e658"
+        },
+        {
+          "path": "tests/test_stage983a_squashfs_factory_contract.py",
+          "available": true,
+          "bytes": 12736,
+          "sha256": "0276d73a4a8624450333a8187746eb25f5cdc72faadb6a760f62e8aeb28e1926"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage983a-offline"
+    }
+  },
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "executable source and synthetic contract tests only",
+  "native_image_emission": "NOT_EXECUTED",
+  "packaging_readiness": "BLOCKED",
+  "blockers": [
+    "REVIEWED_ACTIVE_BOOTSTRAP_REQUIRED",
+    "BOUND_LOCAL_NATIVE_TOOLCHAIN_REQUIRED",
+    "PINNED_LOCAL_BASE_AND_COMPLETE_PAYLOAD_TREE_REQUIRED"
+  ],
+  "supported_declared_profiles": [
+    "ubnt,powerbeam-5ac-gen2",
+    "ubnt,litebeam-ac-gen2"
+  ],
+  "required_payload": [
+    "etc/uci-defaults/99-fmx-pbe5ac-ptp",
+    "usr/sbin/fmx_ptp_rollback_watchdog.sh",
+    "usr/sbin/fmx_pbe_lbe_runtime_transaction.sh",
+    "etc/rc.local"
+  ],
+  "payload_source_inspection": [
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/99-fmx-pbe5ac-ptp",
+      "available": true,
+      "bytes": 974,
+      "sha256": "edf58be7c1335da3d6e1daf3200ee63acf503e0c52dacf7ec7270480165aba4a"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_ptp_rollback_watchdog.sh",
+      "available": true,
+      "bytes": 9770,
+      "sha256": "68121a26071e66a0f4518a4ce4c06c3a957e22e2a19569ad4567f67ea75d72fd"
+    },
+    {
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/fmx_pbe_lbe_runtime_transaction.sh",
+      "available": true,
+      "bytes": 13033,
+      "sha256": "dce731cf8837884955be37efefb80b513addd79f9085af8f97a1b23b73fabf23"
+    }
+  ],
+  "payload_source_inspection_scope": "current source hashes only; no executable-mode, rootfs wiring, native image or physical acceptance",
+  "qdisc_mode": "auto",
+  "physical_acceptance": "UNKNOWN",
+  "vendor_signature_verified": false,
+  "source_only_release": true,
+  "deployment_authorized": false,
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  }
+}
