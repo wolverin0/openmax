@@ -1,0 +1,530 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 6893,
+      "path": "tools/verify/verify_stage866a_live_pbe5ac_ptp_v6_gate.py",
+      "sha256": "a1a743ebc37955095cac730db5e8ef2ceb95ec573748baf8957cf43589a39ccd"
+    }
+  ],
+  "blockers": [
+    "PB070_RC_SEMANTIC_CONTRACT_MISSING",
+    "PB080_QUEUE_TARGET_MISSING",
+    "NO_NATIVE_QUAD_PENTA_OR_12_WINDOW_TREATMENT",
+    "WA250_AUTHENTICATION_AND_34_ENDPOINT_RUNTIME_GAPS",
+    "NO_QUAD_TESTED_PBE_LBE_V7_KIT"
+  ],
+  "implementation": {
+    "bytes": 4248,
+    "path": "tools/verify/verify_stage884a_live_pbe5ac_quad_patch_v7_gate.py",
+    "sha256": "9e0e3f9f43af961a049c3bc5ca2854193e5642892e3784ba35ba87ff7e4ceab9"
+  },
+  "independent_review": {
+    "bytes": 25034,
+    "path": "artifacts/verification/stage879a/independent_patch_spec_review.json",
+    "sha256": "add392e6069e16a76979d8122d0fd72b6e8331c98132526cd63565219def41e4"
+  },
+  "live_benchmark_executed": false,
+  "local_integrity": [
+    {
+      "check": "doc_879A",
+      "passed": true
+    },
+    {
+      "check": "implementation_present_879A",
+      "passed": true
+    },
+    {
+      "check": "879A:artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "passed": true
+    },
+    {
+      "check": "879A:artifacts/autoresearch/stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+      "passed": true
+    },
+    {
+      "check": "879A:artifacts/autoresearch/stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch.json",
+      "passed": true
+    },
+    {
+      "check": "879A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "879A:firmware/xtensa_sgmt_surgical_patcher.py",
+      "passed": true
+    },
+    {
+      "check": "879A:tools/firmware/build_stage879a_verified_pb070_and_pb080_native_sgmt_binaries.py",
+      "passed": true
+    },
+    {
+      "check": "doc_880A",
+      "passed": true
+    },
+    {
+      "check": "implementation_present_880A",
+      "passed": true
+    },
+    {
+      "check": "880A:artifacts/autoresearch/stage879a_verified_pb070_and_pb080_native_sgmt_binaries.json",
+      "passed": true
+    },
+    {
+      "check": "880A:tools/autoresearch/stage879_884_common.py",
+      "passed": true
+    },
+    {
+      "check": "880A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "880A:tools/autoresearch/run_stage861a_live_pbe5ac_quad_patch_pb040_to_pb070_ota.py",
+      "passed": true
+    },
+    {
+      "check": "880A:tools/autoresearch/run_stage880a_live_pbe5ac_verified_quad_patch_ota_bench.py",
+      "passed": true
+    },
+    {
+      "check": "capture_880A",
+      "passed": true
+    },
+    {
+      "check": "doc_881A",
+      "passed": true
+    },
+    {
+      "check": "implementation_present_881A",
+      "passed": true
+    },
+    {
+      "check": "881A:tools/autoresearch/stage879_884_common.py",
+      "passed": true
+    },
+    {
+      "check": "881A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "881A:tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "passed": true
+    },
+    {
+      "check": "881A:tools/autoresearch/run_stage881a_live_rocket2ac_251_and_wa_coexistence_audit.py",
+      "passed": true
+    },
+    {
+      "check": "capture_881A",
+      "passed": true
+    },
+    {
+      "check": "doc_882A",
+      "passed": true
+    },
+    {
+      "check": "implementation_present_882A",
+      "passed": true
+    },
+    {
+      "check": "882A:artifacts/autoresearch/stage361a_guarida_32cpe_cooperative_fault_matrix.json",
+      "passed": true
+    },
+    {
+      "check": "882A:tools/autoresearch/stage879_884_common.py",
+      "passed": true
+    },
+    {
+      "check": "882A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "882A:tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "passed": true
+    },
+    {
+      "check": "882A:tools/autoresearch/run_stage882a_guarida_34endpoint_complete_readiness_audit.py",
+      "passed": true
+    },
+    {
+      "check": "capture_882A",
+      "passed": true
+    },
+    {
+      "check": "doc_883A",
+      "passed": true
+    },
+    {
+      "check": "implementation_present_883A",
+      "passed": true
+    },
+    {
+      "check": "883A:firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/SHA256SUMS.txt",
+      "passed": true
+    },
+    {
+      "check": "883A:artifacts/autoresearch/stage865a_pbe5ac_lbe5ac_tester_release_package_v6.json",
+      "passed": true
+    },
+    {
+      "check": "883A:artifacts/autoresearch/stage879a_verified_pb070_and_pb080_native_sgmt_binaries.json",
+      "passed": true
+    },
+    {
+      "check": "883A:tools/firmware/build_stage865a_pbe5ac_lbe5ac_tester_release_package_v6.py",
+      "passed": true
+    },
+    {
+      "check": "883A:tools/re/ground_up_release_common.py",
+      "passed": true
+    },
+    {
+      "check": "883A:controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "passed": true
+    },
+    {
+      "check": "883A:tools/firmware/build_stage883a_pbe5ac_lbe5ac_verified_quad_patch_tester_kit_v7.py",
+      "passed": true
+    },
+    {
+      "check": "883A:docs/STAGE883A_PBE5AC_LBE5AC_VERIFIED_QUAD_PATCH_TESTER_KIT_V7.md",
+      "passed": true
+    },
+    {
+      "check": "883A:tests/test_stage883a.py",
+      "passed": true
+    },
+    {
+      "check": "883A:firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-factory.bin",
+      "passed": true
+    },
+    {
+      "check": "883A:firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-sysupgrade.bin",
+      "passed": true
+    },
+    {
+      "check": "883A:firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-factory.bin",
+      "passed": true
+    },
+    {
+      "check": "883A:firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-sysupgrade.bin",
+      "passed": true
+    },
+    {
+      "check": "doc_884A",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/autoresearch/stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/re/dissect_stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/autoresearch/stage805a_xtensa_wal_rc_ratefind_and_txbf_sounding_re.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/re/dissect_stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/autoresearch/stage832a_xtensa_wal_peer_tid_aql_and_qdepth_re.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/autoresearch/stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage856a_pb090_xtensa_htt_tx_compl_coalesce_sgmt_patch.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/qca988x/pb_060_070_pilot_and_verdict.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/autoresearch/stage809a_pb040_to_pb070_quad_patch_pareto.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/re/dissect_stage473a_openwrt_ct_vs_stock_xtensa_rc_globals_map.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage474a_pb050_xtensa_rc_probe_dampener_sgmt_patch.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:orchestration/autoresearch/firmware_knob_candidates.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "passed": true
+    },
+    {
+      "check": "independent_review:artifacts/verification/stage861a/independent_payload_review.json",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/stage879_884_common.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:firmware/xtensa_sgmt_surgical_patcher.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/verify/verify_stage866a_live_pbe5ac_ptp_v6_gate.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/run_stage861a_live_pbe5ac_quad_patch_pb040_to_pb070_ota.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage879a_verified_pb070_and_pb080_native_sgmt_binaries.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/run_stage880a_live_pbe5ac_verified_quad_patch_ota_bench.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/run_stage881a_live_rocket2ac_251_and_wa_coexistence_audit.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/autoresearch/run_stage882a_guarida_34endpoint_complete_readiness_audit.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/firmware/build_stage883a_pbe5ac_lbe5ac_verified_quad_patch_tester_kit_v7.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tools/verify/verify_stage884a_live_pbe5ac_quad_patch_v7_gate.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE879A_VERIFIED_PB070_AND_PB080_NATIVE_SGMT_BINARIES.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage879a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE880A_LIVE_PBE5AC_VERIFIED_QUAD_PATCH_OTA_BENCH.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage880a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE881A_LIVE_ROCKET2AC_251_AND_WA_COEXISTENCE_AUDIT.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage881a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE882A_GUARIDA_34ENDPOINT_COMPLETE_READINESS_AUDIT.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage882a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE883A_PBE5AC_LBE5AC_VERIFIED_QUAD_PATCH_TESTER_KIT_V7.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage883a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:docs/STAGE884A_LIVE_PBE5AC_QUAD_PATCH_V7_GATE.md",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage884a.py",
+      "passed": true
+    },
+    {
+      "check": "independent_review:tests/test_stage879a_to_884a_suite.py",
+      "passed": true
+    }
+  ],
+  "local_integrity_passed": true,
+  "local_validation": {
+    "argv": [
+      "C:\\Users\\pauol\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_stage879a.py",
+      "tests/test_stage880a.py",
+      "tests/test_stage881a.py",
+      "tests/test_stage882a.py",
+      "tests/test_stage883a.py",
+      "tests/test_stage884a.py",
+      "tests/test_stage879a_to_884a_suite.py",
+      "--junitxml=artifacts\\verification\\stage879a_to884a_tests\\stable_codec_final.xml"
+    ],
+    "captured_utc": "2026-10-27T04:06:33.542387+00:00",
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "passed": 81,
+      "skipped": 0,
+      "tests": 81
+    },
+    "exit_code": 0,
+    "independent_review": {
+      "binding": {
+        "bytes": 25034,
+        "path": "artifacts/verification/stage879a/independent_patch_spec_review.json",
+        "sha256": "add392e6069e16a76979d8122d0fd72b6e8331c98132526cd63565219def41e4"
+      },
+      "pins_current": 41,
+      "verdict": "HOLD_NATIVE_QUAD_PENTA_SPECS_NOT_RECOVERED"
+    },
+    "junit": {
+      "bytes": 10546,
+      "path": "artifacts/verification/stage879a_to884a_tests/stable_codec_final.xml",
+      "sha256": "3d1f97f03a9e32d2d74544a7724e333ffc4cfad0aab4ddd676250bdce57da221"
+    },
+    "log": {
+      "bytes": 986,
+      "path": "artifacts/verification/stage879a_to884a_tests/stable_codec_final.log",
+      "sha256": "4aa851e8898b9982fa9fc909c361804a029708b26704fd4de4e31ca93818825f"
+    },
+    "orchestrator_consultation": {
+      "message_id": "msg_34befabbc983",
+      "receipt": {
+        "bytes": 603,
+        "path": "artifacts/verification/stage879a/orca_question_delivery.json",
+        "sha256": "e255dcbf81b626742ace41ac9ff2d11e1797bd79e60cb612eb504f9bea9d5a2b"
+      },
+      "run_id": "run_204f7681fd7c",
+      "status": "ENQUEUED_PENDING_RECIPIENT_READ"
+    },
+    "physical_acceptance": "INCOMPLETE",
+    "prior_runs": [
+      {
+        "failed": 0,
+        "passed": 80,
+        "run": "first_suite"
+      },
+      {
+        "failed": 1,
+        "passed": 0,
+        "run": "generator_regression_before_fix"
+      },
+      {
+        "errors": 1,
+        "exit_code": 4,
+        "reason": "new native IRAM validation rejects arbitrary1000 toy addresses",
+        "run": "codec_drift_before_fixture_update"
+      },
+      {
+        "failed": 1,
+        "passed": 80,
+        "reason": "independent codec review pin was still old while shared lane edited source",
+        "run": "current_codec_full"
+      }
+    ],
+    "scope": "Focused pure/local fixture and saved-evidence validation only",
+    "shared_dependency_update": {
+      "binding": {
+        "bytes": 34660,
+        "path": "firmware/xtensa_sgmt_surgical_patcher.py",
+        "sha256": "e010d84e3fac5bef310f8ae9dc70a6768f1fddde78254e12c399092890b5a61c"
+      },
+      "old_failures_preserved": true,
+      "reviewed": true
+    },
+    "stage": "879A..884A",
+    "target_writes": false
+  },
+  "next_action": "Operator clarifies PB070 behavior/PB080 target; map exact native sites and independently review before guarded RAM loading",
+  "penta_emitted": false,
+  "quad_emitted": false,
+  "question": "Are verified Quad/Penta, live direct OTA and a tested two-board v7 kit accepted?",
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 4122,
+      "path": "artifacts/autoresearch/stage879a_verified_pb070_and_pb080_native_sgmt_binaries.json",
+      "sha256": "cf108d7e47de3ead0a0819a472fbee0007e07413b388b9826089052e8f4c5307"
+    },
+    {
+      "bytes": 6435,
+      "path": "artifacts/autoresearch/stage880a_live_pbe5ac_verified_quad_patch_ota_bench.json",
+      "sha256": "5b5e35240487e9ef7c8d437e64d117d9d1290907692380b003452e393d4b1523"
+    },
+    {
+      "bytes": 3988,
+      "path": "artifacts/autoresearch/stage881a_live_rocket2ac_251_and_wa_coexistence_audit.json",
+      "sha256": "ee2f43214184a64b366df15290d5933286c4bb94a3d21984347d2c0591e46d97"
+    },
+    {
+      "bytes": 13876,
+      "path": "artifacts/autoresearch/stage882a_guarida_34endpoint_complete_readiness_audit.json",
+      "sha256": "1b514f380636a2cc613ac1b96e1a5593d1307df2f70e91fa17ce0068fb6a338c"
+    },
+    {
+      "bytes": 7690,
+      "path": "artifacts/autoresearch/stage883a_pbe5ac_lbe5ac_verified_quad_patch_tester_kit_v7.json",
+      "sha256": "4d8ccbdc21b81d6badfa079afa0953e9158badd11a4de84ac2d2204ccaee11c4"
+    }
+  ],
+  "stage": "884A",
+  "stage_status": {
+    "879A": "BLOCKED",
+    "880A": "BLOCKED",
+    "881A": "PARTIAL",
+    "882A": "INCOMPLETE",
+    "883A": "BLOCKED"
+  },
+  "status": "INCOMPLETE",
+  "target_writes": false,
+  "v7_flash_or_publish_approved": false,
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "7e255c1c1ebfb79b0c0aafe1a6325d67cc341746e05fa92a03dc5e68f4f67258",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

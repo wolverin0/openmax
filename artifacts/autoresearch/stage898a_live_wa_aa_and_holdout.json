@@ -1,0 +1,96 @@
+{
+  "aa": {
+    "control_result": "NOT_ACQUIRED",
+    "measured_pairs": 0,
+    "raw_gate": null,
+    "state": "NOT_EXECUTED"
+  },
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 10281,
+      "path": "analysis/metrics/schema.py",
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "bytes": 41618,
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "bytes": 19637,
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    }
+  ],
+  "blockers": [
+    "NO_VERIFIED_OPENWRT_STA_ON_OPERATOR_CANDIDATE_ADDRESSES",
+    "897_CANONICAL_KIT_NOT_APPLIED_OR_VERIFIED",
+    "NO_IDENTIFIED_RESTORABLE_BASELINE_AND_MATCHED_CANDIDATE"
+  ],
+  "discovery": {
+    "measured_pairs": 0,
+    "raw_gate": null,
+    "state": "NOT_EXECUTED"
+  },
+  "goodput_mbps": null,
+  "holdout": {
+    "copied_samples": false,
+    "disjointness": "NOT_ESTABLISHED_NO_ACQUISITION",
+    "measured_pairs": 0,
+    "raw_gate": null,
+    "state": "NOT_EXECUTED"
+  },
+  "implementation": {
+    "bytes": 2569,
+    "path": "tools/autoresearch/run_stage898a_live_wa_aa_and_holdout.py",
+    "sha256": "728fa9e7a3e5d007ecb0a6943abb05404fe7d54e6cbad1a1d7ad5d8fbcc72d86"
+  },
+  "next_action": "Identify the actual associated OpenWrt STA and approve an implementable native kit profile; then acquire fresh distinct phases",
+  "p95_rtt_ms": null,
+  "p99_rtt_ms": null,
+  "planned_contract": {
+    "aa_pairs": 8,
+    "discovery_pairs": 8,
+    "freeze_before_first_window": true,
+    "holdout_must_have_disjoint": [
+      "dataset_id",
+      "block_id",
+      "epoch_id",
+      "session_id",
+      "run_id",
+      "receipt_path",
+      "raw_sha256"
+    ],
+    "holdout_pairs": 8,
+    "holdout_receipt_authority": "INDEPENDENT_HASH_BOUND_RECEIPT_NOT_BOOLEAN",
+    "multiplicity": "single_step_Sidak",
+    "pairing_unit": "paired_block",
+    "state": "DRAFT_NOT_FROZEN_OR_EXECUTED"
+  },
+  "prerequisite_897_status": "BLOCKED",
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 5995,
+      "path": "artifacts/autoresearch/stage897a_live_wa_hardened_kit_verify.json",
+      "sha256": "4cf09cd19d42a249886bee4590071449b71ebe25089ae6c96ad1f3f4156c6d53"
+    }
+  ],
+  "stage": "898A",
+  "status": "BLOCKED",
+  "target_configuration_writes": false,
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "0f226eab44babe0e83e98dbc441379df8e8cc4d3b5a40d3c15efb8fab4a20ebd",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

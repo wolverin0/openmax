@@ -1,0 +1,1065 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 15140,
+      "path": "tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+      "sha256": "2c2ce36b81d4ad5236a0642f74f89a7698de4d07b166134635f1f5bbbc1cf27c"
+    },
+    {
+      "bytes": 6893,
+      "path": "tools/verify/verify_stage866a_live_pbe5ac_ptp_v6_gate.py",
+      "sha256": "a1a743ebc37955095cac730db5e8ef2ceb95ec573748baf8957cf43589a39ccd"
+    },
+    {
+      "bytes": 13068,
+      "path": "workloads/flent_orchestrator.py",
+      "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+    },
+    {
+      "bytes": 10281,
+      "path": "analysis/metrics/schema.py",
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "bytes": 41618,
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "bytes": 19637,
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    }
+  ],
+  "blockers": [
+    "WA_APPLY_AND_REQUESTED_FQ_CODEL_VERIFY_NOT_EXECUTED",
+    "NO_DISJOINT_WA_AB_HOLDOUT",
+    "AA_STATISTICAL_TEST_NOT_REACHED_SAFETY_REJECTION",
+    "FULL_QDISC_AND_EXCLUSIVE_OTA_ROUTE_COVERAGE_UNVERIFIED",
+    "NO_ROCKET_2_4GHZ_PEER_AA_COHORT"
+  ],
+  "deployment_authorized": false,
+  "implementation": {
+    "bytes": 10659,
+    "path": "tools/verify/verify_stage900a_post_audit_live_execution_gate.py",
+    "sha256": "b6b964d1e5b88d243e726a34873f15e63455f35a61fa4c3abb4be462411fa906"
+  },
+  "local_integrity": [
+    {
+      "check": "validation:tools/verify/verify_stage900a_post_audit_live_execution_gate.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/stage897_900_live_common.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/run_stage898a_live_wa_aa_and_holdout.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tools/autoresearch/stage897_900_gate_adapter.py",
+      "passed": true
+    },
+    {
+      "check": "validation:analysis/regression_gate/gatekeeper.py",
+      "passed": true
+    },
+    {
+      "check": "validation:analysis/metrics/schema.py",
+      "passed": true
+    },
+    {
+      "check": "validation:workloads/flent_orchestrator.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tests/test_stage897a_to_900a_suite.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tests/test_stage897_900_gate_adapter.py",
+      "passed": true
+    },
+    {
+      "check": "validation:tests/test_chatgpt_audit_1afaeb7_regressions.py",
+      "passed": true
+    },
+    {
+      "check": "validation:firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage900a/independent_final_review.json",
+      "passed": true
+    },
+    {
+      "check": "validation:docs/STAGE897A_LIVE_WA_HARDENED_KIT_VERIFY.md",
+      "passed": true
+    },
+    {
+      "check": "validation:docs/STAGE898A_LIVE_WA_AA_AND_HOLDOUT.md",
+      "passed": true
+    },
+    {
+      "check": "validation:docs/STAGE899A_LIVE_POWERBEAM_ROCKET_READONLY_AA.md",
+      "passed": true
+    },
+    {
+      "check": "validation:docs/STAGE900A_POST_AUDIT_LIVE_EXECUTION_GATE.md",
+      "passed": true
+    },
+    {
+      "check": "validation:docs/BENCH_PLAN.md",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_final.log",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_final.xml",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a/first_dry_run_transport_failure.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage899a/failed_aa_attempt_e0e9ed55ef55aca0.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage899a/read_only_20261027T050410239254Z.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_final_command.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_first.log",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_first.xml",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/focused_first_command.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift.log",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift.xml",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift_command.json",
+      "passed": true
+    },
+    {
+      "check": "validation:artifacts/verification/stage900a/first_replay_result.json",
+      "passed": true
+    },
+    {
+      "check": "validation_pytest_exit_and_counts",
+      "passed": true
+    },
+    {
+      "check": "doc_897A",
+      "passed": true
+    },
+    {
+      "check": "897A:firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "passed": true
+    },
+    {
+      "check": "897A:artifacts/verification/stage897a/independent_kit_review.json",
+      "passed": true
+    },
+    {
+      "check": "897A:tools/autoresearch/stage897_900_live_common.py",
+      "passed": true
+    },
+    {
+      "check": "897A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "897A:tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "passed": true
+    },
+    {
+      "check": "897A:tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+      "passed": true
+    },
+    {
+      "check": "897A:artifacts/verification/stage897a/read_only_20261027T042355008857Z.json",
+      "passed": true
+    },
+    {
+      "check": "897A:artifacts/verification/stage897a/read_only_20261027T043233222016Z.json",
+      "passed": true
+    },
+    {
+      "check": "897A:artifacts/verification/stage897a/read_only_20261027T043311360040Z.json",
+      "passed": true
+    },
+    {
+      "check": "897A:native_dry_run",
+      "passed": true
+    },
+    {
+      "check": "897A:native_verify_mode_probe",
+      "passed": true
+    },
+    {
+      "check": "doc_898A",
+      "passed": true
+    },
+    {
+      "check": "898A:artifacts/autoresearch/stage897a_live_wa_hardened_kit_verify.json",
+      "passed": true
+    },
+    {
+      "check": "898A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "898A:analysis/metrics/schema.py",
+      "passed": true
+    },
+    {
+      "check": "898A:analysis/regression_gate/gatekeeper.py",
+      "passed": true
+    },
+    {
+      "check": "898A:tools/autoresearch/stage897_900_gate_adapter.py",
+      "passed": true
+    },
+    {
+      "check": "898A:tools/autoresearch/run_stage898a_live_wa_aa_and_holdout.py",
+      "passed": true
+    },
+    {
+      "check": "doc_899A",
+      "passed": true
+    },
+    {
+      "check": "899A:tools/autoresearch/stage897_900_live_common.py",
+      "passed": true
+    },
+    {
+      "check": "899A:tools/autoresearch/stage861_866_common.py",
+      "passed": true
+    },
+    {
+      "check": "899A:analysis/metrics/schema.py",
+      "passed": true
+    },
+    {
+      "check": "899A:analysis/regression_gate/gatekeeper.py",
+      "passed": true
+    },
+    {
+      "check": "899A:tools/autoresearch/stage897_900_gate_adapter.py",
+      "passed": true
+    },
+    {
+      "check": "899A:tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045506513944Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045531996462Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045558071468Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045623251395Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045646547059Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045711754560Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045735224933Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045759275248Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045821514296Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045847949489Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045914780825Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T045940852834Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T050006501233Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T050033159236Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T050059291140Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T050125221713Z.json",
+      "passed": true
+    },
+    {
+      "check": "899A:artifacts/verification/stage899a/read_only_20261027T042643412925Z.json",
+      "passed": true
+    },
+    {
+      "check": "doc_900A",
+      "passed": true
+    },
+    {
+      "check": "native_AA_and_gate_replay",
+      "passed": true
+    },
+    {
+      "check": "post_cohort_health_and_cleanup",
+      "passed": true
+    }
+  ],
+  "local_integrity_passed": true,
+  "local_validation": {
+    "captured_utc": "2026-10-27T05:11:48.927895+00:00",
+    "historical_failures_preserved": [
+      "Six adapter/API tests failed before explicit is_sentinel/source guards repair",
+      "Inline dry-run SSH transport EOF before supported stdin transport",
+      "Initial AA fractional interval unsupported: zero valid windows excluded",
+      "First900 replay comparison failed on tuple/list JSON representation; actual gate unchanged"
+    ],
+    "independent_review": {
+      "bytes": 23294,
+      "path": "artifacts/verification/stage900a/independent_final_review.json",
+      "sha256": "3637e42fa0e77d77e42ec6cd1f7d5f1014f65c14fd0b6cb5168a2cb62324755d"
+    },
+    "no_target_configuration_writes": true,
+    "outputs": {
+      "0": {
+        "bytes": 1065,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_final.log",
+        "sha256": "d3f6f7dfe8f251224f659649763d9796b1eb210c8d84976f101f25e155583bbc"
+      },
+      "1": {
+        "bytes": 21784,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_final.xml",
+        "sha256": "69b0a6468d11b2bd43a344de0d8abe31caafc1ac61df69cc98ba265414c59bb6"
+      },
+      "10": {
+        "bytes": 324,
+        "path": "artifacts/verification/stage897a/first_dry_run_transport_failure.json",
+        "sha256": "020e16426226a6dfa05898c844a81cf7b6da45b67bb738abf75bbe55bdcd3a6d"
+      },
+      "11": {
+        "bytes": 3209,
+        "path": "artifacts/verification/stage899a/failed_aa_attempt_e0e9ed55ef55aca0.json",
+        "sha256": "3e7ffbfb7d986b9cb423c57efef955bd6d377f12d1d842ec54dccf5beee2c713"
+      },
+      "12": {
+        "bytes": 4624,
+        "path": "artifacts/verification/stage899a/read_only_20261027T050410239254Z.json",
+        "sha256": "a281ffb0d36b1ff537645fb09308458005eafcf65fcdb20580ef7ad98fb84582"
+      },
+      "2": {
+        "bytes": 851,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_final_command.json",
+        "sha256": "4bd9e37e215ebcd4bc9b8aac0fcaf91ede2eb4653f42572ae5614075847de2b5"
+      },
+      "3": {
+        "bytes": 984,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_first.log",
+        "sha256": "eda873f058c886dbb22d7ff8948417b3649499efaaf43cbefcd69cbf6e0e46a7"
+      },
+      "4": {
+        "bytes": 21649,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_first.xml",
+        "sha256": "fba4c85526ab41ef8447ae36b53fee84c8cdc782eeae0e895a30127619de4b67"
+      },
+      "5": {
+        "bytes": 850,
+        "path": "artifacts/verification/stage897a_to900a_tests/focused_first_command.json",
+        "sha256": "8d0c990d9e36cd9c6545d50107379dced77d93a3ee936d9ebaf1cd336d1cd8a9"
+      },
+      "6": {
+        "bytes": 5717,
+        "path": "artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift.log",
+        "sha256": "f0a3a78a06b2378e8c2f64cc2b68071278fc03a7af8c0ee7ff9241fb82920e6a"
+      },
+      "7": {
+        "bytes": 11548,
+        "path": "artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift.xml",
+        "sha256": "d091120dfff2c1e356a6c2863fa7575fb6202b7866249312827121c0bcb7e84b"
+      },
+      "8": {
+        "bytes": 293,
+        "path": "artifacts/verification/stage897a_to900a_tests/adapter_gate_api_drift_command.json",
+        "sha256": "224981f907c09370e247c800ab8290e6d4148f57251e576d4677a5434717f2b2"
+      },
+      "9": {
+        "bytes": 26075,
+        "path": "artifacts/verification/stage900a/first_replay_result.json",
+        "sha256": "9a5930f3c15d834f908ca1099224257623e00a2be18fd84d5ae587d09ff1bae2"
+      }
+    },
+    "physical_acceptance": "NOT_ACCEPTED",
+    "schema_version": 1,
+    "source_bindings": [
+      {
+        "bytes": 10659,
+        "path": "tools/verify/verify_stage900a_post_audit_live_execution_gate.py",
+        "sha256": "b6b964d1e5b88d243e726a34873f15e63455f35a61fa4c3abb4be462411fa906"
+      },
+      {
+        "bytes": 15140,
+        "path": "tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+        "sha256": "2c2ce36b81d4ad5236a0642f74f89a7698de4d07b166134635f1f5bbbc1cf27c"
+      },
+      {
+        "bytes": 5648,
+        "path": "tools/autoresearch/stage897_900_live_common.py",
+        "sha256": "e2fbc70cc6c4983158fe93d2e3c66f2bb41f4a4f9697fd6a815b5cd874e2c54e"
+      },
+      {
+        "bytes": 5496,
+        "path": "tools/autoresearch/stage861_866_common.py",
+        "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+      },
+      {
+        "bytes": 4906,
+        "path": "tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+        "sha256": "b01f82c22a0d1da3161285feec25de9a73f8b00074d7843af8bc1782cf725b96"
+      },
+      {
+        "bytes": 2569,
+        "path": "tools/autoresearch/run_stage898a_live_wa_aa_and_holdout.py",
+        "sha256": "728fa9e7a3e5d007ecb0a6943abb05404fe7d54e6cbad1a1d7ad5d8fbcc72d86"
+      },
+      {
+        "bytes": 19637,
+        "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+        "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+      },
+      {
+        "bytes": 41618,
+        "path": "analysis/regression_gate/gatekeeper.py",
+        "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+      },
+      {
+        "bytes": 10281,
+        "path": "analysis/metrics/schema.py",
+        "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+      },
+      {
+        "bytes": 13068,
+        "path": "workloads/flent_orchestrator.py",
+        "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+      },
+      {
+        "bytes": 8118,
+        "path": "tests/test_stage897a_to_900a_suite.py",
+        "sha256": "eca0e44ea4e2274cf96c2c264e4b0fe2736b156cb9f92df759ea86f7f7c3cd40"
+      },
+      {
+        "bytes": 13625,
+        "path": "tests/test_stage897_900_gate_adapter.py",
+        "sha256": "9a95d2efb57267567a3ba91752afe9dff0ce837b730658e8bfb0007450037821"
+      },
+      {
+        "bytes": 16007,
+        "path": "tests/test_chatgpt_audit_1afaeb7_regressions.py",
+        "sha256": "bae23d4ea8d961e9f17dbdb0d4e70c34bf87495b016889c15a15c52a5d11fb66"
+      },
+      {
+        "bytes": 11129,
+        "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+        "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+      },
+      {
+        "bytes": 23294,
+        "path": "artifacts/verification/stage900a/independent_final_review.json",
+        "sha256": "3637e42fa0e77d77e42ec6cd1f7d5f1014f65c14fd0b6cb5168a2cb62324755d"
+      },
+      {
+        "bytes": 3180,
+        "path": "docs/STAGE897A_LIVE_WA_HARDENED_KIT_VERIFY.md",
+        "sha256": "b086cc6e67c136a5745330f45da36d4d65468a2ba583c3541242c36230acf956"
+      },
+      {
+        "bytes": 2519,
+        "path": "docs/STAGE898A_LIVE_WA_AA_AND_HOLDOUT.md",
+        "sha256": "9df44b0968e5e5006af77bdc361ea2e3228960bd191b8fd7092db607ed4f31fd"
+      },
+      {
+        "bytes": 3931,
+        "path": "docs/STAGE899A_LIVE_POWERBEAM_ROCKET_READONLY_AA.md",
+        "sha256": "f72c1d954fe244ceb17c1f44a8319b394fa345a8480935e7135affe4d787b249"
+      },
+      {
+        "bytes": 3510,
+        "path": "docs/STAGE900A_POST_AUDIT_LIVE_EXECUTION_GATE.md",
+        "sha256": "fb66c5a6a9bb086a43518bb9a40393d22c225ee179268f43501965ba1efed076"
+      },
+      {
+        "bytes": 10515,
+        "path": "docs/BENCH_PLAN.md",
+        "sha256": "77c53ab1318679447329f7e951086ee0561e577cacb043ceabbe0995efb7becb"
+      }
+    ],
+    "stage": "897A..900A_LOCAL_VALIDATION",
+    "statistical_calibration": "NOT_ACCEPTED",
+    "status": "LOCAL_PASS_PHYSICAL_INCOMPLETE",
+    "tests": {
+      "errors": 0,
+      "exit_code": 0,
+      "failures": 0,
+      "hardware_execution": false,
+      "passed": 145,
+      "skipped": 0,
+      "suites": {
+        "tests.test_chatgpt_audit_1afaeb7_regressions": 57,
+        "tests.test_stage897_900_gate_adapter": 59,
+        "tests.test_stage897a_to_900a_suite": 29
+      }
+    }
+  },
+  "local_validation_binding": {
+    "bytes": 7597,
+    "path": "artifacts/verification/stage897a_to900a_validation.json",
+    "sha256": "872a2e214d0db5db05480e7cc6f77a3ae50ebde052e524864b1bd7e4b0065966"
+  },
+  "measured_aa_gate": {
+    "control_result": "PASS_NO_PROMOTION",
+    "deployment_authorized": false,
+    "mode": "AA_CONTROL",
+    "multiplicity_method": "single_step_Sidak",
+    "normalized_measurements": [
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 0,
+        "goodput_mbps": 10.974137425873943,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block0_A.json",
+        "raw_sha256": "c27e2284b200772afe08c5f00328861d6d7b9c2170304f23ab9a17402d151249",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:0:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 0,
+        "goodput_mbps": 11.509244690831434,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block0_B.json",
+        "raw_sha256": "bcc2dd3f4f3b1eccf5f7a669e579cf0bf3369ba9fd0ce41bc82b78f0d873bdec",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:0:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 1,
+        "goodput_mbps": 7.07959581392981,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block1_A.json",
+        "raw_sha256": "edf74f2245931b63e4de48c8f29a3160e2eeb518329c437d03ebae26be26fe16",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:1:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 1,
+        "goodput_mbps": 8.809162424047269,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block1_B.json",
+        "raw_sha256": "7cce61d71ed2556ff746ed35e9d8611e2a16ab7883099f2f3105803cdc4de3f7",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:1:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 2,
+        "goodput_mbps": 10.949266955593293,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block2_A.json",
+        "raw_sha256": "c4b31aa998f7324d65ba7b543737c40ed92c4f5383f34a08627097bec9ffd7f1",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:2:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 2,
+        "goodput_mbps": 8.615426100966385,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block2_B.json",
+        "raw_sha256": "1bd998189ebad8c13e68e5f51bc02e8b9c72c898aaf96bfbc59cfb675d913646",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:2:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 3,
+        "goodput_mbps": 9.314783541774894,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block3_A.json",
+        "raw_sha256": "c199eceac46efef47a58121029f4ce56248e6e02b1ac4c1f6609362f02f922e8",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:3:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 3,
+        "goodput_mbps": 12.273107534326323,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block3_B.json",
+        "raw_sha256": "fc94f615b1a8c385b491496fe5f1765f2bf82fdd15473c31bb71ac8d65a5c823",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:3:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 4,
+        "goodput_mbps": 14.81367910364136,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block4_A.json",
+        "raw_sha256": "d120651c77027c7df83bd7ac9e374788826b10755005b5905ac34a342e1c0068",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:4:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 4,
+        "goodput_mbps": 8.207358985736917,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block4_B.json",
+        "raw_sha256": "5db9720c9cea247a5a1d4d17b731f1e4c4791317ce8a8228aacdcf69ab18b5fb",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:4:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 5,
+        "goodput_mbps": 11.744724708622776,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block5_A.json",
+        "raw_sha256": "e8c7006691f85f836d8e49ae5c4321253040043680906b59bf3fd552c54bc8ae",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:5:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 5,
+        "goodput_mbps": 8.316446394516413,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block5_B.json",
+        "raw_sha256": "0a710288dec7a9666970542d13b5b74a7a8f8167bf7558cd9beeb4d16ace3e87",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:5:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 6,
+        "goodput_mbps": 7.258790899010024,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block6_A.json",
+        "raw_sha256": "3a8143a24033f5e38e67fd342e72856d970d304afdf52d3e50e6630fe0cbbfc7",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:6:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 6,
+        "goodput_mbps": 9.486228695154093,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block6_B.json",
+        "raw_sha256": "b5e2c8c0d0bfdbc24f5ff855fb4a092bbfb999b5c2f4997dec3ffc1c06191702",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:6:B"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "A",
+        "block_index": 7,
+        "goodput_mbps": 11.050315625881959,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block7_A.json",
+        "raw_sha256": "a812ca163cfec96f5e75f411b51250b9f4815d502e3aa05324081ccc22c7551f",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:7:A"
+      },
+      {
+        "applied_config_sha256": "c87d611670519037e737538df905deeb430ddf67a769d33a679b6140138e9e41",
+        "arm": "B",
+        "block_index": 7,
+        "goodput_mbps": 9.975497922980953,
+        "raw_evidence_path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block7_B.json",
+        "raw_sha256": "86606fc5545bcf45413049ce331d0a980d896e067794affbb9ebf73c56c0ffa3",
+        "run_id": "s899-0d3148bd5453494996ea856022940238-aa:7:B"
+      }
+    ],
+    "pairing_unit": "paired_block",
+    "raw_gate": {
+      "adjusted_alpha": 0.05,
+      "ci_95_goodput_per_mhz_delta_pct": [
+        0.0,
+        0.0
+      ],
+      "ci_95_p99_delta_pct": [
+        0.0,
+        0.0
+      ],
+      "drift_detected": false,
+      "drift_pct": 0.0,
+      "evidence_state": null,
+      "fairness_delta_pct": 0.0,
+      "goodput_delta_pct": 0.0,
+      "goodput_per_mhz_delta_pct": 0.0,
+      "objective": "LATENCY_WITH_CAPACITY_NONINFERIORITY",
+      "p95_delta_pct": 0.0,
+      "p99_delta_pct": 0.0,
+      "p_value": 1.0,
+      "paired_blocks_count": 0,
+      "paired_permutation_p_value": 1.0,
+      "promotion_eligible": false,
+      "promotion_stage": "REJECT",
+      "rationale": "Excessive packet loss in candidate",
+      "summary": "REJECT: Excessive packet loss in candidate",
+      "verdict": "REJECT"
+    },
+    "reasons": [
+      "Excessive packet loss in candidate"
+    ],
+    "status": "EVALUATED"
+  },
+  "measurement_summary": {
+    "false_positive_calibration_accepted": false,
+    "packets_received": 261,
+    "packets_sent": 320,
+    "paired_statistical_test_reached": false,
+    "raw_gate_statistics_interpretation": "NOT_COMPUTED_AFTER_SAFETY_REJECT",
+    "receiver_bytes": 457179136,
+    "windows": 16
+  },
+  "next_action": "Resolve actual WA STA access and audited native kit compatibility, then acquire separate new WA AA/discovery/holdout; do not relabel this baseline AA as kit acceptance",
+  "post_cohort_health": [
+    {
+      "binding": {
+        "bytes": 4624,
+        "path": "artifacts/verification/stage899a/read_only_20261027T050410239254Z.json",
+        "sha256": "a281ffb0d36b1ff537645fb09308458005eafcf65fcdb20580ef7ad98fb84582"
+      },
+      "collector_clean": true,
+      "configuration_unchanged": true
+    }
+  ],
+  "replayed_native_windows": [
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2152,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block0_A.json",
+        "sha256": "c27e2284b200772afe08c5f00328861d6d7b9c2170304f23ab9a17402d151249"
+      },
+      "p95_ms": 72.072,
+      "p99_ms": 72.072,
+      "packets_received": 15,
+      "packets_sent": 20,
+      "receiver_bytes": 29360128,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:0:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2156,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block0_B.json",
+        "sha256": "bcc2dd3f4f3b1eccf5f7a669e579cf0bf3369ba9fd0ce41bc82b78f0d873bdec"
+      },
+      "p95_ms": 14.481,
+      "p99_ms": 14.481,
+      "packets_received": 16,
+      "packets_sent": 20,
+      "receiver_bytes": 33554432,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:0:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2133,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block1_A.json",
+        "sha256": "edf74f2245931b63e4de48c8f29a3160e2eeb518329c437d03ebae26be26fe16"
+      },
+      "p95_ms": 116.754,
+      "p99_ms": 116.754,
+      "packets_received": 13,
+      "packets_sent": 20,
+      "receiver_bytes": 20971520,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:1:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2154,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block1_B.json",
+        "sha256": "7cce61d71ed2556ff746ed35e9d8611e2a16ab7883099f2f3105803cdc4de3f7"
+      },
+      "p95_ms": 67.404,
+      "p99_ms": 67.404,
+      "packets_received": 16,
+      "packets_sent": 20,
+      "receiver_bytes": 25165824,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:1:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2176,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block2_A.json",
+        "sha256": "c4b31aa998f7324d65ba7b543737c40ed92c4f5383f34a08627097bec9ffd7f1"
+      },
+      "p95_ms": 20.945,
+      "p99_ms": 20.945,
+      "packets_received": 18,
+      "packets_sent": 20,
+      "receiver_bytes": 29360128,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:2:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2147,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block2_B.json",
+        "sha256": "1bd998189ebad8c13e68e5f51bc02e8b9c72c898aaf96bfbc59cfb675d913646"
+      },
+      "p95_ms": 20.075,
+      "p99_ms": 20.075,
+      "packets_received": 15,
+      "packets_sent": 20,
+      "receiver_bytes": 25165824,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:2:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2141,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block3_A.json",
+        "sha256": "c199eceac46efef47a58121029f4ce56248e6e02b1ac4c1f6609362f02f922e8"
+      },
+      "p95_ms": 13.862,
+      "p99_ms": 13.862,
+      "packets_received": 14,
+      "packets_sent": 20,
+      "receiver_bytes": 25165824,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:3:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2162,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block3_B.json",
+        "sha256": "fc94f615b1a8c385b491496fe5f1765f2bf82fdd15473c31bb71ac8d65a5c823"
+      },
+      "p95_ms": 17.365,
+      "p99_ms": 17.365,
+      "packets_received": 17,
+      "packets_sent": 20,
+      "receiver_bytes": 33554432,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:3:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2174,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block4_A.json",
+        "sha256": "d120651c77027c7df83bd7ac9e374788826b10755005b5905ac34a342e1c0068"
+      },
+      "p95_ms": 12.483,
+      "p99_ms": 22.138,
+      "packets_received": 20,
+      "packets_sent": 20,
+      "receiver_bytes": 37748736,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:4:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2148,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block4_B.json",
+        "sha256": "5db9720c9cea247a5a1d4d17b731f1e4c4791317ce8a8228aacdcf69ab18b5fb"
+      },
+      "p95_ms": 37.499,
+      "p99_ms": 37.499,
+      "packets_received": 15,
+      "packets_sent": 20,
+      "receiver_bytes": 25165824,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:4:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2185,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block5_A.json",
+        "sha256": "e8c7006691f85f836d8e49ae5c4321253040043680906b59bf3fd552c54bc8ae"
+      },
+      "p95_ms": 22.398,
+      "p99_ms": 72.626,
+      "packets_received": 20,
+      "packets_sent": 20,
+      "receiver_bytes": 33554432,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:5:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2143,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block5_B.json",
+        "sha256": "0a710288dec7a9666970542d13b5b74a7a8f8167bf7558cd9beeb4d16ace3e87"
+      },
+      "p95_ms": 24.735,
+      "p99_ms": 24.735,
+      "packets_received": 14,
+      "packets_sent": 20,
+      "receiver_bytes": 25165824,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:5:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2170,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block6_A.json",
+        "sha256": "3a8143a24033f5e38e67fd342e72856d970d304afdf52d3e50e6630fe0cbbfc7"
+      },
+      "p95_ms": 67.422,
+      "p99_ms": 67.422,
+      "packets_received": 17,
+      "packets_sent": 20,
+      "receiver_bytes": 20971520,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:6:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2168,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block6_B.json",
+        "sha256": "b5e2c8c0d0bfdbc24f5ff855fb4a092bbfb999b5c2f4997dec3ffc1c06191702"
+      },
+      "p95_ms": 87.417,
+      "p99_ms": 87.417,
+      "packets_received": 19,
+      "packets_sent": 20,
+      "receiver_bytes": 29360128,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:6:B"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2158,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block7_A.json",
+        "sha256": "a812ca163cfec96f5e75f411b51250b9f4815d502e3aa05324081ccc22c7551f"
+      },
+      "p95_ms": 58.167,
+      "p99_ms": 58.167,
+      "packets_received": 16,
+      "packets_sent": 20,
+      "receiver_bytes": 33554432,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:7:A"
+    },
+    {
+      "hardened_flent_parsed": true,
+      "native_recomputed": true,
+      "normalized_binding": {
+        "bytes": 2154,
+        "path": "artifacts/verification/stage899a/s899-0d3148bd5453494996ea856022940238_block7_B.json",
+        "sha256": "86606fc5545bcf45413049ce331d0a980d896e067794affbb9ebf73c56c0ffa3"
+      },
+      "p95_ms": 96.262,
+      "p99_ms": 96.262,
+      "packets_received": 16,
+      "packets_sent": 20,
+      "receiver_bytes": 29360128,
+      "run_id": "s899-0d3148bd5453494996ea856022940238-aa:7:B"
+    }
+  ],
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 5995,
+      "path": "artifacts/autoresearch/stage897a_live_wa_hardened_kit_verify.json",
+      "sha256": "4cf09cd19d42a249886bee4590071449b71ebe25089ae6c96ad1f3f4156c6d53"
+    },
+    {
+      "bytes": 2663,
+      "path": "artifacts/autoresearch/stage898a_live_wa_aa_and_holdout.json",
+      "sha256": "0f226eab44babe0e83e98dbc441379df8e8cc4d3b5a40d3c15efb8fab4a20ebd"
+    },
+    {
+      "bytes": 71016,
+      "path": "artifacts/autoresearch/stage899a_live_powerbeam_rocket_readonly_aa.json",
+      "sha256": "961031d5a4a6e396eef9dd8d152b8256f08753197ebd5a8b66e5f3d83892495e"
+    }
+  ],
+  "stage": "900A",
+  "stage_status": {
+    "897A": "BLOCKED",
+    "898A": "BLOCKED",
+    "899A": "PARTIAL"
+  },
+  "status": "INCOMPLETE",
+  "target_configuration_writes": false,
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "ec16e172546464de3089d21f0b21f18274acc94e0f37211634b527be5cf8a29e",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 34660,
+      "path": "firmware/xtensa_sgmt_surgical_patcher.py",
+      "sha256": "e010d84e3fac5bef310f8ae9dc70a6768f1fddde78254e12c399092890b5a61c"
+    }
+  ],
+  "attribution": [
+    "external controller",
+    "QCA firmware"
+  ],
+  "availability": {
+    "PB070": {
+      "executable_spec_available": false,
+      "reported_patch_emitted": 0
+    },
+    "PB080": {
+      "executable_spec_available": false,
+      "reported_patch_emitted": 0
+    }
+  },
+  "base_runtime_identity": "HELD_REFERENCE_NOT_CURRENT_APPLIED_IMAGE",
+  "blockers": [
+    "PB070_RC_BEHAVIOR_AND_NATIVE_SITE_UNSPECIFIED",
+    "PB080_QUEUE_TARGET_AND_NATIVE_SITE_UNSPECIFIED",
+    "FIRMWARE_API5_COMPATIBILITY_NOT_PROVEN"
+  ],
+  "emitted_binaries": [],
+  "implementation": {
+    "bytes": 9897,
+    "path": "tools/firmware/build_stage879a_verified_pb070_and_pb080_native_sgmt_binaries.py",
+    "sha256": "e0a098735244edcdb7f7827e5a22c2bc0c7ae717f54a695fb0d2ee1fa8b63c4c"
+  },
+  "inspected_base": {
+    "container_bytes": 204796,
+    "container_sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e",
+    "entry_point": 9976832,
+    "ie_inventory": [
+      {
+        "bytes": 28,
+        "id": 0,
+        "sha256": "14b97c67111aab66e38107b7008ee162ba266f70656daa771e8c9ca8383a7daa"
+      },
+      {
+        "bytes": 4,
+        "id": 1,
+        "sha256": "df4cceb0385eb88b158c8432a1a92a40b157923d49edfdeb16a1c8d11393bb57"
+      },
+      {
+        "bytes": 8,
+        "id": 2,
+        "sha256": "8090871b380e2d2d8c18ef094039dd5a258339fcda103270ef0e2e653a25b584"
+      },
+      {
+        "bytes": 16,
+        "id": 30,
+        "sha256": "89014ee9519c5837734588157f18bfade7af15927df7c96b06668f75f880b40c"
+      },
+      {
+        "bytes": 7140,
+        "id": 4,
+        "sha256": "bab35d9992e061a545f81822762000549465609a92df5239848e266e58763d64"
+      },
+      {
+        "bytes": 197537,
+        "id": 3,
+        "sha256": "78231f353500a381a57e2a88fe1f81b01c7365ceb2a70db1ecfe404a7f652910"
+      }
+    ],
+    "native_roundtrip_exact": true,
+    "operational_sgmt_sha256": "78231f353500a381a57e2a88fe1f81b01c7365ceb2a70db1ecfe404a7f652910",
+    "segment_va_collision_count": 0,
+    "segments": [
+      {
+        "end": 9966956,
+        "index": 0,
+        "start": 9961472
+      },
+      {
+        "end": 4242696,
+        "index": 1,
+        "start": 4239360
+      },
+      {
+        "end": 4245748,
+        "index": 2,
+        "start": 4242704
+      },
+      {
+        "end": 10193556,
+        "index": 3,
+        "start": 9976832
+      }
+    ]
+  },
+  "next_action": "Resolve semantics and exact native preimages/replacements, independently review, then compose and qualify RAM recovery",
+  "note": "Zero base-segment VA collisions is not proof of unimplemented Quad/Penta patch collisions or safety",
+  "penta_emitted": false,
+  "penta_patch_collision_count": null,
+  "quad_emitted": false,
+  "quad_patch_collision_count": null,
+  "question": "Can exact native Quad/Penta binaries be composed from verified instruction specifications?",
+  "requested_firmware_5_present": false,
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 204796,
+      "path": "artifacts/firmware_re_xc_ltu/openwrt_qca988x_hw20_firmware_2_ct.bin",
+      "sha256": "398e4380e7e55105f3da0f78af29d1e437404ed3a82597aa4b6daaa7dce1a38e"
+    },
+    {
+      "bytes": 2783,
+      "path": "artifacts/autoresearch/stage806a_pb070_xtensa_rc_probe_per_sgmt_patch.json",
+      "sha256": "e362268eae05537fd24c9c30efae3fa53a3c16725733077fffd711bf4698fbb1"
+    },
+    {
+      "bytes": 5451,
+      "path": "artifacts/autoresearch/stage833a_pb080_xtensa_peer_tid_qdepth_sgmt_patch.json",
+      "sha256": "57482d277358c0c2388bb9a3d1890e60c8eb275f07f66cbe9da2593d1b51a907"
+    }
+  ],
+  "source_kind": "EXPLICIT_HASH_BOUND_NATIVE_CONTAINER",
+  "stage": "879A",
+  "status": "BLOCKED",
+  "target_writes": false,
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "cf108d7e47de3ead0a0819a472fbee0007e07413b388b9826089052e8f4c5307",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

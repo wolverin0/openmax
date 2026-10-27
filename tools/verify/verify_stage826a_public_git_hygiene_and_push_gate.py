@@ -8,6 +8,7 @@ Private finding paths/line numbers stay under the local Git metadata directory.
 from __future__ import annotations
 
 import argparse
+import ast
 from collections import Counter
 from datetime import datetime, timezone
 import hashlib
@@ -15,8 +16,12 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from tools.verify.stage779_822_offline_common import atomic_write
 STEM = 'stage826a_public_git_hygiene_and_push_gate'
 MAX_BYTES = 8 * 1024 * 1024
 TEXT_EXTENSIONS = {'.py','.md','.json','.jsonl','.yaml','.yml','.toml','.ini','.txt',
@@ -89,7 +94,39 @@ def content_findings(blob, private_terms=()):
         if not placeholders.fullmatch(value):
             findings.append(dict(rule='literal_credential',line=text.count('\n',0,match.start())+1))
     unquoted=re.compile(r'(?i)(?:[\w.-]*password|passwd|passphrase|wpa_psk|api_key)\s*=\s*([^\s"\x27;\\]{3,})')
+    # Python keyword expressions and tuple unpacking are not unquoted config secrets.
+    # Keep literal assignments and any expression containing a non-placeholder string blocked.
+    expression_starts=[]
+    try:
+        tree=ast.parse(text)
+        lines=text.splitlines(keepends=True)
+        offsets=[0]
+        for line in lines:offsets.append(offsets[-1]+len(line))
+        def position(node):
+            return offsets[node.lineno-1]+len(lines[node.lineno-1].encode()[:node.col_offset].decode())
+        def safe_expression(node):
+            return not any(isinstance(n,ast.Constant) and isinstance(n.value,str)
+                           and n.value and not placeholders.fullmatch(n.value) for n in ast.walk(node))
+        for node in ast.walk(tree):
+            if (isinstance(node,ast.keyword) and node.arg
+                    and re.fullmatch(r'(?i)(?:[\w.]*password|passwd|passphrase|wpa_psk|api_key)',node.arg)
+                    and not safe_expression(node.value)):
+                findings.append(dict(rule='python_literal_credential',line=node.lineno))
+            if (isinstance(node,ast.keyword) and node.arg and safe_expression(node.value)
+                    and not isinstance(node.value,ast.Constant)):
+                expression_starts.append((position(node),position(node)+len(node.arg)))
+            if (isinstance(node,ast.Assign) and isinstance(node.value,ast.Call)
+                    and safe_expression(node.value)):
+                for target in node.targets:
+                    if isinstance(target,(ast.Tuple,ast.List)):
+                        for name in ast.walk(target):
+                            if isinstance(name,ast.Name):
+                                expression_starts.append((position(name),position(name)+len(name.id)))
+    except (SyntaxError,ValueError,UnicodeError):
+        expression_starts=[]
     for match in unquoted.finditer(text):
+        if any(start<=match.start()<end for start,end in expression_starts):
+            continue
         if not placeholders.fullmatch(match[1]):
             findings.append(dict(rule='unquoted_credential',line=text.count('\n',0,match.start())+1))
     for term in private_terms:
@@ -189,19 +226,19 @@ def main(argv=None):
     terms=json.loads(policy.read_text()) if policy.exists() else []
     result,selected,findings=audit(args.root,args.plan,terms)
     private=gitdir/'stage826a';private.mkdir(parents=True,exist_ok=True)
-    (private/('plan.json' if args.plan else 'index_audit.json')).write_text(
-        json.dumps(dict(result=result,selected=selected,findings=findings),indent=2),encoding='utf-8')
+    atomic_write(private/('plan.json' if args.plan else 'index_audit.json'),
+        json.dumps(dict(result=result,selected=selected,findings=findings),indent=2))
     if args.write:
         dest=args.root/'artifacts/autoresearch'/f'{STEM}.json';dest.parent.mkdir(parents=True,exist_ok=True)
-        dest.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+        atomic_write(dest,json.dumps(result,indent=2)+'\n')
         doc=args.root/'docs'/f'{STEM.upper()}.md';doc.parent.mkdir(parents=True,exist_ok=True)
-        doc.write_text('<!-- doc-head: Stage826A public Git index hygiene and remote push receipt -->\n'
+        atomic_write(doc,'<!-- doc-head: Stage826A public Git index hygiene and remote push receipt -->\n'
                        '<!-- /doc-head -->\n\n# Stage826A public Git hygiene and push gate\n\n'
                        f'Index audit compliant: {result["compliant"]}; selected files: {result["selected_count"]}.\n'
                        'Only actual indexed blob bytes establish publication eligibility. Ignore rules alone do not untrack files.\n'
                        'Private findings remain in local Git metadata; no credential values are emitted.\n'
                        'Prior published history is not rewritten or certified clean by this gate.\n'
-                       'Pushed commit: pending verification by the release coordinator.\n',encoding='utf-8')
+                       'Pushed commit: pending verification by the release coordinator.\n')
     print(json.dumps(result,indent=2))
     return 0 if result['compliant'] else 1
 

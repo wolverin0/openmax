@@ -1,0 +1,207 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 13555,
+      "path": "tools/firmware/build_stage865a_pbe5ac_lbe5ac_tester_release_package_v6.py",
+      "sha256": "f32b4cb263fd5241db2273116f530e0ee0e3d3de962115b7d3b8a43da1d63064"
+    },
+    {
+      "bytes": 4775,
+      "path": "tools/re/ground_up_release_common.py",
+      "sha256": "a1152a660fc2337c2eea1bc4a6ec2406c64305029fc5c482f54a1089286c510a"
+    },
+    {
+      "bytes": 42701,
+      "path": "controller/stage18_wmi_rate_schedule_and_sub20mhz_controller.py",
+      "sha256": "42821a83cc35f9c6578f241a56aefd8d873435a4504278d12f2b77dec3c805ff"
+    }
+  ],
+  "approved_for_flash": false,
+  "approved_for_publish": false,
+  "baseline_references": [
+    {
+      "board": "lbe5ac-gen2",
+      "board_id": "0xe7f9",
+      "bytes": 6947480,
+      "image_kind": "factory",
+      "profile": "ubnt,litebeam-ac-gen2",
+      "sha256": "4a5d61eafb245f34545bc5c26edb95586ba82845b3787d9dc0620d6975abd2de",
+      "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-factory.bin"
+    },
+    {
+      "board": "lbe5ac-gen2",
+      "board_id": "0xe7f9",
+      "bytes": 6947361,
+      "image_kind": "sysupgrade",
+      "profile": "ubnt,litebeam-ac-gen2",
+      "sha256": "09a6ead882ed75301a84d0857d92e260528c86b0b820166f48cc839b4491b0be",
+      "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-sysupgrade.bin"
+    },
+    {
+      "board": "pbe5ac-gen2",
+      "board_id": "0xe3d6",
+      "bytes": 6947480,
+      "image_kind": "factory",
+      "profile": "ubnt,powerbeam-5ac-gen2",
+      "sha256": "c5a3ff30f8ad71b7e0d45f4fbc2c5b8775221e6fd85fd97ad388880c97da8cde",
+      "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-factory.bin"
+    },
+    {
+      "board": "pbe5ac-gen2",
+      "board_id": "0xe3d6",
+      "bytes": 6947365,
+      "image_kind": "sysupgrade",
+      "profile": "ubnt,powerbeam-5ac-gen2",
+      "sha256": "ba99389e372c7aa5eec712fd8dab9554f1edad5b169f009d7a6e339c211cf740",
+      "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-sysupgrade.bin"
+    }
+  ],
+  "baseline_status": "SELECTED_FOUR_LOCAL_HASHES_MATCH",
+  "blockers": [
+    "NATIVE_QUAD_CONTAINER_AND_PATCH_BYTES",
+    "INDEPENDENT_LOADABILITY_REVIEW",
+    "PBE5AC_RUNTIME_AND_45S_RECOVERY",
+    "LBE5AC_RUNTIME_AND_45S_RECOVERY",
+    "ZERO_ROGUE_DHCP_RUNTIME_AND_COLD_BOOT",
+    "BOARD_SPECIFIC_IMAGE_AND_ROLLBACK_VALIDATION"
+  ],
+  "both_board_runtime_verified": false,
+  "candidate_manifest": {
+    "approved_for_flash": false,
+    "approved_for_publish": false,
+    "baseline": "HELD_PUBLIC_V4_REFERENCE_ONLY",
+    "baseline_references": [
+      {
+        "board": "lbe5ac-gen2",
+        "board_id": "0xe7f9",
+        "bytes": 6947480,
+        "image_kind": "factory",
+        "profile": "ubnt,litebeam-ac-gen2",
+        "sha256": "4a5d61eafb245f34545bc5c26edb95586ba82845b3787d9dc0620d6975abd2de",
+        "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-factory.bin"
+      },
+      {
+        "board": "lbe5ac-gen2",
+        "board_id": "0xe7f9",
+        "bytes": 6947361,
+        "image_kind": "sysupgrade",
+        "profile": "ubnt,litebeam-ac-gen2",
+        "sha256": "09a6ead882ed75301a84d0857d92e260528c86b0b820166f48cc839b4491b0be",
+        "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-lbe5ac-gen2-openmax-public-sysupgrade.bin"
+      },
+      {
+        "board": "pbe5ac-gen2",
+        "board_id": "0xe3d6",
+        "bytes": 6947480,
+        "image_kind": "factory",
+        "profile": "ubnt,powerbeam-5ac-gen2",
+        "sha256": "c5a3ff30f8ad71b7e0d45f4fbc2c5b8775221e6fd85fd97ad388880c97da8cde",
+        "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-factory.bin"
+      },
+      {
+        "board": "pbe5ac-gen2",
+        "board_id": "0xe3d6",
+        "bytes": 6947365,
+        "image_kind": "sysupgrade",
+        "profile": "ubnt,powerbeam-5ac-gen2",
+        "sha256": "ba99389e372c7aa5eec712fd8dab9554f1edad5b169f009d7a6e339c211cf740",
+        "source_path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/openwrt-24.10.4-ubnt-pbe5ac-gen2-openmax-public-sysupgrade.bin"
+      }
+    ],
+    "blockers": [
+      "NATIVE_QUAD_CONTAINER_AND_PATCH_BYTES",
+      "INDEPENDENT_LOADABILITY_REVIEW",
+      "PBE5AC_RUNTIME_AND_45S_RECOVERY",
+      "LBE5AC_RUNTIME_AND_45S_RECOVERY",
+      "ZERO_ROGUE_DHCP_RUNTIME_AND_COLD_BOOT",
+      "BOARD_SPECIFIC_IMAGE_AND_ROLLBACK_VALIDATION"
+    ],
+    "boards": {
+      "lbe5ac-gen2": {
+        "board_id": "0xe7f9",
+        "profile": "ubnt,litebeam-ac-gen2"
+      },
+      "pbe5ac-gen2": {
+        "board_id": "0xe3d6",
+        "profile": "ubnt,powerbeam-5ac-gen2"
+      }
+    },
+    "both_board_runtime_verified": false,
+    "images_included": false,
+    "manifest_version": 7,
+    "native_quad_verified": false,
+    "new_firmware_built": false,
+    "purpose": "BLOCKED_V7_KIT_PREPARATION_NOT_FIRMWARE",
+    "runtime_compatibility": "UNKNOWN",
+    "status": "BLOCKED",
+    "v5_baseline_verified": false
+  },
+  "candidate_manifest_sha256": "dd00d3b1b18d5ac096e1c63d90fc930cd6f753792befb29a9eaac8313936b2d1",
+  "checksum_scope": "SELECTED_FOUR_HELD_V4_IMAGES_ONLY",
+  "firmware_emitted": false,
+  "implementation": {
+    "bytes": 8850,
+    "path": "tools/firmware/build_stage883a_pbe5ac_lbe5ac_verified_quad_patch_tester_kit_v7.py",
+    "sha256": "c258e18a33b10a8bf844006488f2402a36b052a40336e72c82e45f834c8d8cb3"
+  },
+  "native_quad_verified": false,
+  "network_access": false,
+  "outputs": {
+    "docs/STAGE883A_PBE5AC_LBE5AC_VERIFIED_QUAD_PATCH_TESTER_KIT_V7.md": {
+      "bytes": 2601,
+      "path": "docs/STAGE883A_PBE5AC_LBE5AC_VERIFIED_QUAD_PATCH_TESTER_KIT_V7.md",
+      "sha256": "a053bf8d9ef403abf0ec363068c2d6fb6f3915e3725a4858dddaa5a69b4dbf96"
+    },
+    "tests/test_stage883a.py": {
+      "bytes": 3860,
+      "path": "tests/test_stage883a.py",
+      "sha256": "eb053369f693464e52833f5601e237d956687d347764cecdc7b0adddf2bd82aa"
+    }
+  },
+  "package_exported": false,
+  "package_format": "CANONICAL_JSON_MANIFEST_ONLY",
+  "runtime_compatibility": "UNKNOWN",
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 6989,
+      "path": "firmware/openwrt/pbe5ac_gen2_ptp_kit/public_release_v4/SHA256SUMS.txt",
+      "sha256": "864f2a958e1b50e42386a981a6bf16a76484bdf5b942b228cbac4d9467c76752"
+    },
+    {
+      "bytes": 7789,
+      "path": "artifacts/autoresearch/stage865a_pbe5ac_lbe5ac_tester_release_package_v6.json",
+      "sha256": "13b8c165f0889dfe156d77eddeaf56c0ee7cea2c7d362710671c787a5710a5d0"
+    },
+    {
+      "bytes": 4122,
+      "path": "artifacts/autoresearch/stage879a_verified_pb070_and_pb080_native_sgmt_binaries.json",
+      "sha256": "cf108d7e47de3ead0a0819a472fbee0007e07413b388b9826089052e8f4c5307"
+    }
+  ],
+  "stage": "883A",
+  "status": "BLOCKED",
+  "target_writes": false,
+  "upstream_native_quad": {
+    "independent_review_accepted": false,
+    "limitation": "Reported emission is not byte binding, native ABI, loadability or physical acceptance",
+    "native_quad_verified": false,
+    "reported_binary_count": 0,
+    "reported_blockers": [
+      "PB070_RC_BEHAVIOR_AND_NATIVE_SITE_UNSPECIFIED",
+      "PB080_QUEUE_TARGET_AND_NATIVE_SITE_UNSPECIFIED",
+      "FIRMWARE_API5_COMPATIBILITY_NOT_PROVEN"
+    ],
+    "reported_quad_emitted": false,
+    "status": "BLOCKED"
+  },
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "4d8ccbdc21b81d6badfa079afa0953e9158badd11a4de84ac2d2204ccaee11c4",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

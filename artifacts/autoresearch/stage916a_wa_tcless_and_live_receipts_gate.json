@@ -1,0 +1,490 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "916A",
+  "title": "WA tc-less and saved live-receipt offline gate",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "analysis/metrics/schema.py",
+      "available": true,
+      "bytes": 10281,
+      "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+    },
+    {
+      "path": "analysis/regression_gate/gatekeeper.py",
+      "available": true,
+      "bytes": 41618,
+      "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+    },
+    {
+      "path": "analysis/regression_gate/test_gatekeeper.py",
+      "available": true,
+      "bytes": 5915,
+      "sha256": "5c1024959806838dfe1fa0203d95a60a1e2ff1d78878a8c014b8296e40baa3ab"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "available": true,
+      "bytes": 15471,
+      "sha256": "821a9aa83fcf030d4ebdcd67fb7ae9648e3bfe1dcbbab39df5fc38e841d44fd1"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v14_356window_field_kit.sh",
+      "available": true,
+      "bytes": 15536,
+      "sha256": "be945751ae03796401d61ed1404c2909a5f60bd4eb04d581a8e082b0da77ab63"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v15_368window_field_kit.sh",
+      "available": true,
+      "bytes": 15536,
+      "sha256": "16a926bbce576bae0bc8a1621fb12bbdbfebef134e3a008dfc80dcb77d82a9d7"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_1afaeb7_regressions.py",
+      "available": true,
+      "bytes": 16007,
+      "sha256": "bae23d4ea8d961e9f17dbdb0d4e70c34bf87495b016889c15a15c52a5d11fb66"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_pb_campaign.py",
+      "available": true,
+      "bytes": 10775,
+      "sha256": "bf193e62b71dc28abf6df2015cf90be3f1cb1cb6334bd0bf6bb7d20b0d52cc48"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_public_checkout.py",
+      "available": true,
+      "bytes": 1028,
+      "sha256": "0a9d835e7cc79a6b97579dc3ef396623e99d8d95326a568a05ba91387e5c1659"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_sgmt.py",
+      "available": true,
+      "bytes": 8574,
+      "sha256": "6716ffb3c99e7ee7b43b2bd411e942506c6df403f2bc0d4d93f4f42040dbda0d"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_wa_kit.py",
+      "available": true,
+      "bytes": 15717,
+      "sha256": "adb539ad3b4f717d8db1f95a0a19aa6d2e5d35f4628ab5f457fed6c3682d6836"
+    },
+    {
+      "path": "tests/test_pb_021_022_024_csi_and_sdr_correlator.py",
+      "available": true,
+      "bytes": 4148,
+      "sha256": "b61f0761f2308bfe9cceb596e5d33142c8c733c0e9f70f41741dff3694e7b0de"
+    },
+    {
+      "path": "tests/test_pb_060_070_autonomous_search_and_phy_gate.py",
+      "available": true,
+      "bytes": 3972,
+      "sha256": "bb3e07f3b793cd4af49ddb2141d9ee418a3d4cfadfc9a25dc7db6aa7143abf19"
+    },
+    {
+      "path": "tests/test_pb_gatekeeper_paired_aa.py",
+      "available": true,
+      "bytes": 6648,
+      "sha256": "8a6d93200553eab8eea92d317e9587c339c0ed418079e54ddaae4eb8513f6a10"
+    },
+    {
+      "path": "tests/test_powerbeam_m5_and_5ac_bench_harness.py",
+      "available": true,
+      "bytes": 5499,
+      "sha256": "42374363c9fcbdd7e3f01296ad598a1625aee0d0e44f479d62172dce56608a3f"
+    },
+    {
+      "path": "tests/test_stage879a_to_884a_suite.py",
+      "available": true,
+      "bytes": 7227,
+      "sha256": "dbcb4d4f1b1831953660f8d7c78021d2543063a6031c476beb30889228f2b41d"
+    },
+    {
+      "path": "tests/test_stage884a.py",
+      "available": true,
+      "bytes": 505,
+      "sha256": "e6083c51009a9a46e7b8c1cd95b7d4c69f64fe95c006260886de7f2b7acfcafc"
+    },
+    {
+      "path": "tests/test_stage897a_to_900a_suite.py",
+      "available": true,
+      "bytes": 8668,
+      "sha256": "e745c9bcd438b500175da42adc3ac2a8c5170510cf1f0ca153d94f9143a35450"
+    },
+    {
+      "path": "tests/test_stage911_public_hygiene_python_expressions.py",
+      "available": true,
+      "bytes": 914,
+      "sha256": "d9c7a058534ae54cdacdb089b57b4b5b65d095ec78e74023ab06a0468b6588ae"
+    },
+    {
+      "path": "tests/test_stage911a_to_916a_suite.py",
+      "available": true,
+      "bytes": 5769,
+      "sha256": "62c56300a0d27207d495e24870a062bc7b281243a90825768b7601fbf2cc3dd6"
+    },
+    {
+      "path": "tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+      "available": true,
+      "bytes": 4906,
+      "sha256": "b01f82c22a0d1da3161285feec25de9a73f8b00074d7843af8bc1782cf725b96"
+    },
+    {
+      "path": "tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+      "available": true,
+      "bytes": 15140,
+      "sha256": "2c2ce36b81d4ad5236a0642f74f89a7698de4d07b166134635f1f5bbbc1cf27c"
+    },
+    {
+      "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+      "available": true,
+      "bytes": 19637,
+      "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+    },
+    {
+      "path": "tools/firmware/build_stage911a_wa_tc_optional_field_kits.py",
+      "available": true,
+      "bytes": 5715,
+      "sha256": "8a35fe057c45f38fda9fdda843921036eb2d477c5d0be7d199bf7bbbd0b7180f"
+    },
+    {
+      "path": "tools/verify/build_stage913a_to_915a_saved_evidence_reconciliation.py",
+      "available": true,
+      "bytes": 13923,
+      "sha256": "53f8cc914b26e9856a0a8ceaea0a2a39db4e8aaedd8c0ccad1e570af573d1bb5"
+    },
+    {
+      "path": "tools/verify/stage779_822_offline_common.py",
+      "available": true,
+      "bytes": 10882,
+      "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+    },
+    {
+      "path": "tools/verify/verify_chatgpt_audit_1afaeb7.py",
+      "available": true,
+      "bytes": 4008,
+      "sha256": "50596a15af85a93a37c1dbe52978053fcdaba12db3a1131a50a4f97b626e433d"
+    },
+    {
+      "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+      "available": true,
+      "bytes": 14164,
+      "sha256": "c9caccb0b428b7785fe99e8b86d094e7337ce23b12d99fec8b6883f7b25e63d1"
+    },
+    {
+      "path": "tools/verify/verify_stage884a_live_pbe5ac_quad_patch_v7_gate.py",
+      "available": true,
+      "bytes": 5702,
+      "sha256": "28438b101dd48dfa0e3358d07cc027b9f34551678604d08e1d51fb4e73e3ecd1"
+    },
+    {
+      "path": "tools/verify/verify_stage900a_post_audit_live_execution_gate.py",
+      "available": true,
+      "bytes": 10659,
+      "sha256": "b6b964d1e5b88d243e726a34873f15e63455f35a61fa4c3abb4be462411fa906"
+    },
+    {
+      "path": "tools/verify/verify_stage916a_wa_tcless_and_live_receipts_gate.py",
+      "available": true,
+      "bytes": 6526,
+      "sha256": "dd2ddf1554b0085cf9cd7d6ffc970af7d54405d708ae44792198920177a7c6a3"
+    },
+    {
+      "path": "workloads/flent_orchestrator.py",
+      "available": true,
+      "bytes": 13068,
+      "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+    },
+    {
+      "path": "workloads/test_flent_orchestrator.py",
+      "available": true,
+      "bytes": 2716,
+      "sha256": "26fc00040201dfba295850d195b4423d4b04d6423c4556d96b23be4075c23e11"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "analysis/metrics/schema.py",
+          "available": true,
+          "bytes": 10281,
+          "sha256": "dd407a107dd20268add7944eba84e42aeb82c51bfc012b92d36121c11a5bbca4"
+        },
+        {
+          "path": "analysis/regression_gate/gatekeeper.py",
+          "available": true,
+          "bytes": 41618,
+          "sha256": "283c2b7db6899ad067ba17bd17846e6175bc7f81365a4240a17c487026f59400"
+        },
+        {
+          "path": "analysis/regression_gate/test_gatekeeper.py",
+          "available": true,
+          "bytes": 5915,
+          "sha256": "5c1024959806838dfe1fa0203d95a60a1e2ff1d78878a8c014b8296e40baa3ab"
+        },
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+          "available": true,
+          "bytes": 15471,
+          "sha256": "821a9aa83fcf030d4ebdcd67fb7ae9648e3bfe1dcbbab39df5fc38e841d44fd1"
+        },
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v14_356window_field_kit.sh",
+          "available": true,
+          "bytes": 15536,
+          "sha256": "be945751ae03796401d61ed1404c2909a5f60bd4eb04d581a8e082b0da77ab63"
+        },
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v15_368window_field_kit.sh",
+          "available": true,
+          "bytes": 15536,
+          "sha256": "16a926bbce576bae0bc8a1621fb12bbdbfebef134e3a008dfc80dcb77d82a9d7"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_1afaeb7_regressions.py",
+          "available": true,
+          "bytes": 16007,
+          "sha256": "bae23d4ea8d961e9f17dbdb0d4e70c34bf87495b016889c15a15c52a5d11fb66"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_pb_campaign.py",
+          "available": true,
+          "bytes": 10775,
+          "sha256": "bf193e62b71dc28abf6df2015cf90be3f1cb1cb6334bd0bf6bb7d20b0d52cc48"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_public_checkout.py",
+          "available": true,
+          "bytes": 1028,
+          "sha256": "0a9d835e7cc79a6b97579dc3ef396623e99d8d95326a568a05ba91387e5c1659"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_sgmt.py",
+          "available": true,
+          "bytes": 8574,
+          "sha256": "6716ffb3c99e7ee7b43b2bd411e942506c6df403f2bc0d4d93f4f42040dbda0d"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_wa_kit.py",
+          "available": true,
+          "bytes": 15717,
+          "sha256": "adb539ad3b4f717d8db1f95a0a19aa6d2e5d35f4628ab5f457fed6c3682d6836"
+        },
+        {
+          "path": "tests/test_pb_021_022_024_csi_and_sdr_correlator.py",
+          "available": true,
+          "bytes": 4148,
+          "sha256": "b61f0761f2308bfe9cceb596e5d33142c8c733c0e9f70f41741dff3694e7b0de"
+        },
+        {
+          "path": "tests/test_pb_060_070_autonomous_search_and_phy_gate.py",
+          "available": true,
+          "bytes": 3972,
+          "sha256": "bb3e07f3b793cd4af49ddb2141d9ee418a3d4cfadfc9a25dc7db6aa7143abf19"
+        },
+        {
+          "path": "tests/test_pb_gatekeeper_paired_aa.py",
+          "available": true,
+          "bytes": 6648,
+          "sha256": "8a6d93200553eab8eea92d317e9587c339c0ed418079e54ddaae4eb8513f6a10"
+        },
+        {
+          "path": "tests/test_powerbeam_m5_and_5ac_bench_harness.py",
+          "available": true,
+          "bytes": 5499,
+          "sha256": "42374363c9fcbdd7e3f01296ad598a1625aee0d0e44f479d62172dce56608a3f"
+        },
+        {
+          "path": "tests/test_stage879a_to_884a_suite.py",
+          "available": true,
+          "bytes": 7227,
+          "sha256": "dbcb4d4f1b1831953660f8d7c78021d2543063a6031c476beb30889228f2b41d"
+        },
+        {
+          "path": "tests/test_stage884a.py",
+          "available": true,
+          "bytes": 505,
+          "sha256": "e6083c51009a9a46e7b8c1cd95b7d4c69f64fe95c006260886de7f2b7acfcafc"
+        },
+        {
+          "path": "tests/test_stage897a_to_900a_suite.py",
+          "available": true,
+          "bytes": 8668,
+          "sha256": "e745c9bcd438b500175da42adc3ac2a8c5170510cf1f0ca153d94f9143a35450"
+        },
+        {
+          "path": "tests/test_stage911_public_hygiene_python_expressions.py",
+          "available": true,
+          "bytes": 914,
+          "sha256": "d9c7a058534ae54cdacdb089b57b4b5b65d095ec78e74023ab06a0468b6588ae"
+        },
+        {
+          "path": "tests/test_stage911a_to_916a_suite.py",
+          "available": true,
+          "bytes": 5769,
+          "sha256": "62c56300a0d27207d495e24870a062bc7b281243a90825768b7601fbf2cc3dd6"
+        },
+        {
+          "path": "tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+          "available": true,
+          "bytes": 4906,
+          "sha256": "b01f82c22a0d1da3161285feec25de9a73f8b00074d7843af8bc1782cf725b96"
+        },
+        {
+          "path": "tools/autoresearch/run_stage899a_live_powerbeam_rocket_readonly_aa.py",
+          "available": true,
+          "bytes": 15140,
+          "sha256": "2c2ce36b81d4ad5236a0642f74f89a7698de4d07b166134635f1f5bbbc1cf27c"
+        },
+        {
+          "path": "tools/autoresearch/stage897_900_gate_adapter.py",
+          "available": true,
+          "bytes": 19637,
+          "sha256": "ce3d5e2a361273912d836958d2e9a6bfe98d8ea7b8ae72e610b14518cd92b50c"
+        },
+        {
+          "path": "tools/firmware/build_stage911a_wa_tc_optional_field_kits.py",
+          "available": true,
+          "bytes": 5715,
+          "sha256": "8a35fe057c45f38fda9fdda843921036eb2d477c5d0be7d199bf7bbbd0b7180f"
+        },
+        {
+          "path": "tools/verify/build_stage913a_to_915a_saved_evidence_reconciliation.py",
+          "available": true,
+          "bytes": 13923,
+          "sha256": "53f8cc914b26e9856a0a8ceaea0a2a39db4e8aaedd8c0ccad1e570af573d1bb5"
+        },
+        {
+          "path": "tools/verify/stage779_822_offline_common.py",
+          "available": true,
+          "bytes": 10882,
+          "sha256": "93af7c6f9d493605e0d91f72beaecdd7cf347d6e3a14571cb625a737f04a45fe"
+        },
+        {
+          "path": "tools/verify/verify_chatgpt_audit_1afaeb7.py",
+          "available": true,
+          "bytes": 4008,
+          "sha256": "50596a15af85a93a37c1dbe52978053fcdaba12db3a1131a50a4f97b626e433d"
+        },
+        {
+          "path": "tools/verify/verify_stage826a_public_git_hygiene_and_push_gate.py",
+          "available": true,
+          "bytes": 14164,
+          "sha256": "c9caccb0b428b7785fe99e8b86d094e7337ce23b12d99fec8b6883f7b25e63d1"
+        },
+        {
+          "path": "tools/verify/verify_stage884a_live_pbe5ac_quad_patch_v7_gate.py",
+          "available": true,
+          "bytes": 5702,
+          "sha256": "28438b101dd48dfa0e3358d07cc027b9f34551678604d08e1d51fb4e73e3ecd1"
+        },
+        {
+          "path": "tools/verify/verify_stage900a_post_audit_live_execution_gate.py",
+          "available": true,
+          "bytes": 10659,
+          "sha256": "b6b964d1e5b88d243e726a34873f15e63455f35a61fa4c3abb4be462411fa906"
+        },
+        {
+          "path": "tools/verify/verify_stage916a_wa_tcless_and_live_receipts_gate.py",
+          "available": true,
+          "bytes": 6526,
+          "sha256": "dd2ddf1554b0085cf9cd7d6ffc970af7d54405d708ae44792198920177a7c6a3"
+        },
+        {
+          "path": "workloads/flent_orchestrator.py",
+          "available": true,
+          "bytes": 13068,
+          "sha256": "81750b9cd22c3fc56d7c9ace38eaedc0bb23c168881d6461354f7b14b0735bc3"
+        },
+        {
+          "path": "workloads/test_flent_orchestrator.py",
+          "available": true,
+          "bytes": 2716,
+          "sha256": "26fc00040201dfba295850d195b4423d4b04d6423c4556d96b23be4075c23e11"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage916a-offline"
+    }
+  },
+  "all_gates_passed": true,
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "offline executable-source tests and immutable private capture replay only",
+  "audit_core": {
+    "exit_code": 0,
+    "passed": 154,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "native_and_historical": {
+    "exit_code": 0,
+    "passed": 84,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true
+  },
+  "tested_revision_unchanged": true,
+  "repository_gate": {
+    "compliant": true,
+    "failures": []
+  },
+  "physical_acceptance": "UNKNOWN",
+  "live_receipt_scope": "existing immutable captures replayed locally; no fresh device access",
+  "current_target_acceptance": false,
+  "old_historical_hashes_rewritten": false,
+  "publication_scope": "public derivatives require a separate staged-blob privacy audit and export tests",
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "public_evidence_scope": {
+    "state": "ATTRIBUTED_LOCAL_VALIDATION_RECORD",
+    "private_original_source_bindings": true,
+    "native_capture_contents_published": false,
+    "public_derivative_tests_recorded_separately": true
+  }
+}

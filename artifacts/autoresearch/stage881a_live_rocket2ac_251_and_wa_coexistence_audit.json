@@ -1,0 +1,123 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "analysis_dependencies": [
+    {
+      "bytes": 4916,
+      "path": "tools/autoresearch/stage879_884_common.py",
+      "sha256": "3f38b62d8a2e8aa57a7dc3073a6651c13bc7d68bcc5d9fafadbaf18cc086406e"
+    },
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 8626,
+      "path": "tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "sha256": "9e7e41f8974e4a41095ee536cb30b1b6e7a9964b9a28ad597698ed258cd888da"
+    }
+  ],
+  "attribution": [
+    "external controller",
+    "Linux",
+    "proprietary airMAX component"
+  ],
+  "blockers": [
+    "NO_CONTROLLED_COEXISTENCE_LOAD_OR_RECEIVER_DELIVERY_WINDOW"
+  ],
+  "comparisons": [
+    {
+      "host_a": "198.18.0.48",
+      "host_b": "198.18.0.43",
+      "meaning": "Frequency-envelope geometry only, not a measured interference test",
+      "nominal_overlap_mhz": 0
+    }
+  ],
+  "evidence": {
+    "bytes": 8498,
+    "path": "artifacts/verification/stage881a/read_only_20261027T034707142661Z.json",
+    "sha256": "5cb018baa0c6ce31c19648a6988475f504554fb01fd0131df6a76b5800668c12"
+  },
+  "implementation": {
+    "bytes": 4450,
+    "path": "tools/autoresearch/run_stage881a_live_rocket2ac_251_and_wa_coexistence_audit.py",
+    "sha256": "033ab21f368bada8bd302070f3a23d78e55440a2a35a5669a6faeab9fc4b986c"
+  },
+  "load_generated": false,
+  "next_action": "Keep corrected .251Rocket2AC/.1MK1 mapping; quantify effects only with a separately guarded matched workload",
+  "observations": [
+    {
+      "application_delivery": "UNKNOWN",
+      "association_readback_available": true,
+      "channels": [
+        {
+          "center_mhz": 2422.0,
+          "width_mhz": 20.0
+        }
+      ],
+      "device_name": "Rocket 2AC Prism",
+      "host": "198.18.0.48",
+      "identity_readback": "board.sysid=0xe2f2\nboard.name=Rocket 2AC Prism\n",
+      "interference_causality": "UNKNOWN",
+      "transport_ok": true
+    },
+    {
+      "application_delivery": "UNKNOWN",
+      "association_readback_available": true,
+      "channels": [
+        {
+          "center_mhz": 5180,
+          "control_mhz": 5180,
+          "width_mhz": 20
+        }
+      ],
+      "device_name": null,
+      "host": "198.18.0.43",
+      "identity_readback": "{\n\t\"kernel\": \"6.6.110\",\n\t\"hostname\": \"Panel1-Guarida\",\n\t\"system\": \"Atheros AR9342 rev 2\",\n\t\"model\": \"Ubiquiti LiteAP ac (LAP-120)\",\n\t\"board_name\": \"ubnt,lap-120\",\n\t\"rootfs_type\": \"squashfs\",\n\t\"release\": {\n\t\t\"distribution\": \"OpenWrt\",\n\t\t\"version\": \"24.10.4\",\n\t\t\"revision\": \"r28959-29397011cc\",\n\t\t\"target\": \"ath79/generic\",\n\t\t\"description\": \"OpenWrt 24.10.4 r28959-29397011cc\",\n\t\t\"builddate\": \"1760891865\"\n\t}\n}\n",
+      "interference_causality": "UNKNOWN",
+      "transport_ok": true
+    },
+    {
+      "application_delivery": "UNKNOWN",
+      "association_readback_available": false,
+      "channels": [],
+      "device_name": null,
+      "host": "198.18.0.47",
+      "identity_readback": null,
+      "interference_causality": "UNKNOWN",
+      "transport_ok": false
+    },
+    {
+      "application_delivery": "UNKNOWN",
+      "association_readback_available": false,
+      "channels": [],
+      "device_name": null,
+      "host": "198.18.0.47",
+      "identity_readback": null,
+      "interference_causality": "UNKNOWN",
+      "transport_ok": false
+    }
+  ],
+  "question": "What identities and band occupancy are observed on Rocket2AC and WA bench?",
+  "scan_triggered": false,
+  "schema_version": 1,
+  "stage": "881A",
+  "status": "PARTIAL",
+  "target_writes": false,
+  "topology": {
+    "mk1": "198.18.0.41",
+    "powerbeam_ap": "198.18.0.45",
+    "powerbeam_sta": "198.18.0.46",
+    "rocket2ac": "198.18.0.48",
+    "wa_ap": "198.18.0.43",
+    "wa_sta": "198.18.0.47"
+  },
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "ee2f43214184a64b366df15290d5933286c4bb94a3d21984347d2c0591e46d97",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

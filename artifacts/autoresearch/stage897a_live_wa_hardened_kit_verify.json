@@ -1,0 +1,198 @@
+{
+  "acceptance": "NOT_ACCEPTED",
+  "actual_kit_profile": {
+    "ecn": "INHERITED",
+    "flows": 1024,
+    "interval_ms": 50,
+    "kind": "fq_codel",
+    "quantum": 3028,
+    "target_ms": 2.5
+  },
+  "analysis_dependencies": [
+    {
+      "bytes": 5648,
+      "path": "tools/autoresearch/stage897_900_live_common.py",
+      "sha256": "e2fbc70cc6c4983158fe93d2e3c66f2bb41f4a4f9697fd6a815b5cd874e2c54e"
+    },
+    {
+      "bytes": 5496,
+      "path": "tools/autoresearch/stage861_866_common.py",
+      "sha256": "bf7b28c99ba95cc98ccab4d8fe84d101664798d1b0aa7c9c8f82ce472439e4cb"
+    },
+    {
+      "bytes": 8626,
+      "path": "tools/autoresearch/run_stage864a_guarida_panel2_panel3_airmagic_and_slot_audit.py",
+      "sha256": "9e7e41f8974e4a41095ee536cb30b1b6e7a9964b9a28ad597698ed258cd888da"
+    }
+  ],
+  "apply_executed": false,
+  "blockers": [
+    "REQUESTED_PROFILE_DIFFERS_FROM_CANONICAL_V13",
+    "VERIFY_MODE_UNSUPPORTED",
+    "AP20_TC_NOT_INSTALLED_AND_ATH0_NOT_PRESENT",
+    "UBUS_BOARD_REVISION_UNAVAILABLE",
+    "NATIVE_AQL_TEXT_LABELS_NOT_ACCEPTED_BY_NUMERIC_ONLY_KIT_PARSER",
+    "STA195_TIMEOUT_STA251_ROOT_AUTH_FAILED_ROUTER250_ROSSSH"
+  ],
+  "implementation": {
+    "bytes": 4906,
+    "path": "tools/autoresearch/run_stage897a_live_wa_hardened_kit_verify.py",
+    "sha256": "b01f82c22a0d1da3161285feec25de9a73f8b00074d7843af8bc1782cf725b96"
+  },
+  "native_captures": [
+    {
+      "bytes": 10715,
+      "path": "artifacts/verification/stage897a/read_only_20261027T042355008857Z.json",
+      "sha256": "61b373de4622f0bb7ca5237a95ba8827cf10753321eb77cd7e14528377462c88"
+    },
+    {
+      "bytes": 3674,
+      "path": "artifacts/verification/stage897a/read_only_20261027T043233222016Z.json",
+      "sha256": "73e9afa69f7e7a8a5d3c46069d8e39ab76552555edbdc88ccdf1c1c7de41f3a7"
+    },
+    {
+      "bytes": 3691,
+      "path": "artifacts/verification/stage897a/read_only_20261027T043311360040Z.json",
+      "sha256": "a398caf93d47abe35cab7c92d6c8b942f22ba54a34cb816648d1dd70966d2a9e"
+    }
+  ],
+  "native_dry_run": {
+    "bytes": 1149,
+    "path": "artifacts/verification/stage897a/read_only_20261027T044402811091Z.json",
+    "sha256": "cdc5468435f3f5171dcd79a8855c978eef5803cfa2309924a480f49b5392ea85"
+  },
+  "native_verify_mode_probe": {
+    "bytes": 1104,
+    "path": "artifacts/verification/stage897a/read_only_20261027T044403098947Z.json",
+    "sha256": "fbac693bbced33c16051cadb3f7b8aeee50fb2d358374a3b73c65d4db5ee3310"
+  },
+  "next_action": "Resolve native STA identity/access and audited runtime profile compatibility; do not forge revision or apply a different qdisc profile",
+  "observations": [
+    {
+      "board": {
+        "board_name": "ubnt,lap-120",
+        "hostname": "Panel1-Guarida",
+        "kernel": "6.6.110",
+        "model": "Ubiquiti LiteAP ac (LAP-120)",
+        "release": {
+          "builddate": "1760891865",
+          "description": "OpenWrt 24.10.4 r28959-29397011cc",
+          "distribution": "OpenWrt",
+          "revision": "r28959-29397011cc",
+          "target": "ath79/generic",
+          "version": "24.10.4"
+        },
+        "rootfs_type": "squashfs",
+        "system": "Atheros AR9342 rev 2"
+      },
+      "board_revision_available": false,
+      "error_type": null,
+      "host": "198.18.0.43",
+      "radio_interfaces": [
+        "phy0-ap0.sta1",
+        "phy0-ap0"
+      ],
+      "requested_ath0_tc_exit": 127,
+      "requested_ath0_tc_stdout": "",
+      "tc_available": false,
+      "transport_ok": true
+    },
+    {
+      "board": null,
+      "board_revision_available": false,
+      "error_type": "SSHException",
+      "host": "198.18.0.47",
+      "radio_interfaces": [],
+      "requested_ath0_tc_exit": null,
+      "requested_ath0_tc_stdout": null,
+      "tc_available": false,
+      "transport_ok": false
+    },
+    {
+      "board": null,
+      "board_revision_available": false,
+      "error_type": "TimeoutError",
+      "host": "198.18.0.42",
+      "radio_interfaces": [],
+      "requested_ath0_tc_exit": null,
+      "requested_ath0_tc_stdout": null,
+      "tc_available": false,
+      "transport_ok": false
+    },
+    {
+      "board": null,
+      "board_revision_available": false,
+      "error_type": "AuthenticationException",
+      "host": "198.18.0.48",
+      "radio_interfaces": [],
+      "requested_ath0_tc_exit": null,
+      "requested_ath0_tc_stdout": null,
+      "tc_available": false,
+      "transport_ok": false
+    },
+    {
+      "board": null,
+      "board_revision_available": false,
+      "error_type": "AuthenticationException",
+      "host": "198.18.0.43",
+      "radio_interfaces": [],
+      "requested_ath0_tc_exit": null,
+      "requested_ath0_tc_stdout": null,
+      "tc_available": false,
+      "transport_ok": false
+    },
+    {
+      "board": null,
+      "board_revision_available": false,
+      "error_type": "AuthenticationException",
+      "host": "198.18.0.48",
+      "radio_interfaces": [],
+      "requested_ath0_tc_exit": null,
+      "requested_ath0_tc_stdout": null,
+      "tc_available": false,
+      "transport_ok": false
+    }
+  ],
+  "requested_profile": {
+    "ecn": true,
+    "flows": 1024,
+    "interval_ms": 100,
+    "kind": "fq_codel",
+    "quantum": 1514,
+    "target_ms": 5
+  },
+  "schema_version": 1,
+  "source_bindings": [
+    {
+      "bytes": 11129,
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "sha256": "df1501405609c5c1a6d89c6ee6a2b185519db40dcc512f0bb51f116aaaf3d485"
+    },
+    {
+      "bytes": 10977,
+      "path": "artifacts/verification/stage897a/independent_kit_review.json",
+      "sha256": "729031ac9ec3c4ef03d6ecb79e34742b28ba4d1e032033589c6c9adb5bf51f56"
+    }
+  ],
+  "stage": "897A",
+  "status": "BLOCKED",
+  "target_configuration_writes": false,
+  "topology_observed": {
+    "ap": "198.18.0.43",
+    "openwrt_sta_verified": false,
+    "operator_sta_candidates": [
+      "198.18.0.42",
+      "198.18.0.48"
+    ],
+    "router_rosssh": "198.18.0.47"
+  },
+  "verify_configuration_succeeded": false,
+  "publication_redaction": {
+    "state": "PUBLIC_REDACTED_DERIVATIVE",
+    "original_sha256": "4cf09cd19d42a249886bee4590071449b71ebe25089ae6c96ad1f3f4156c6d53",
+    "original_retained_locally": true,
+    "source_bindings": "NOT_REPINNED_PRIVATE_ORIGINALS_REQUIRED",
+    "original_evidence": false,
+    "derivative_acceptance": "NOT_ACCEPTED"
+  }
+}

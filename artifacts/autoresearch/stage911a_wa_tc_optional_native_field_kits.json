@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "911A",
+  "title": "Native WA tc-optional field-kit source package",
+  "status": "CONFIRMED",
+  "claim_scope": "offline software/package construction only",
+  "attribution": [
+    "external controller"
+  ],
+  "boundary": {
+    "network_access": false,
+    "ssh_executed": false,
+    "producer_execution": false,
+    "device_writes": false,
+    "flash_approved": false,
+    "physical_acceptance": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+      "available": true,
+      "bytes": 15471,
+      "sha256": "821a9aa83fcf030d4ebdcd67fb7ae9648e3bfe1dcbbab39df5fc38e841d44fd1"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v14_356window_field_kit.sh",
+      "available": true,
+      "bytes": 15536,
+      "sha256": "be945751ae03796401d61ed1404c2909a5f60bd4eb04d581a8e082b0da77ab63"
+    },
+    {
+      "path": "firmware/openwrt/common/fmx_wa_v15_368window_field_kit.sh",
+      "available": true,
+      "bytes": 15536,
+      "sha256": "16a926bbce576bae0bc8a1621fb12bbdbfebef134e3a008dfc80dcb77d82a9d7"
+    },
+    {
+      "path": "tools/firmware/build_stage911a_wa_tc_optional_field_kits.py",
+      "available": true,
+      "bytes": 5715,
+      "sha256": "8a35fe057c45f38fda9fdda843921036eb2d477c5d0be7d199bf7bbbd0b7180f"
+    },
+    {
+      "path": "tests/test_chatgpt_audit_wa_kit.py",
+      "available": true,
+      "bytes": 15717,
+      "sha256": "adb539ad3b4f717d8db1f95a0a19aa6d2e5d35f4628ab5f457fed6c3682d6836"
+    },
+    {
+      "path": "tests/test_stage911a_to_916a_suite.py",
+      "available": true,
+      "bytes": 5769,
+      "sha256": "62c56300a0d27207d495e24870a062bc7b281243a90825768b7601fbf2cc3dd6"
+    }
+  ],
+  "five_pillar_compliance": {
+    "pillar_a_ground_up_re_and_knob_catalog": {
+      "status": "LOCAL_REFERENCE_ONLY",
+      "sources": [
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v13_344window_field_kit.sh",
+          "available": true,
+          "bytes": 15471,
+          "sha256": "821a9aa83fcf030d4ebdcd67fb7ae9648e3bfe1dcbbab39df5fc38e841d44fd1"
+        },
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v14_356window_field_kit.sh",
+          "available": true,
+          "bytes": 15536,
+          "sha256": "be945751ae03796401d61ed1404c2909a5f60bd4eb04d581a8e082b0da77ab63"
+        },
+        {
+          "path": "firmware/openwrt/common/fmx_wa_v15_368window_field_kit.sh",
+          "available": true,
+          "bytes": 15536,
+          "sha256": "16a926bbce576bae0bc8a1621fb12bbdbfebef134e3a008dfc80dcb77d82a9d7"
+        },
+        {
+          "path": "tools/firmware/build_stage911a_wa_tc_optional_field_kits.py",
+          "available": true,
+          "bytes": 5715,
+          "sha256": "8a35fe057c45f38fda9fdda843921036eb2d477c5d0be7d199bf7bbbd0b7180f"
+        },
+        {
+          "path": "tests/test_chatgpt_audit_wa_kit.py",
+          "available": true,
+          "bytes": 15717,
+          "sha256": "adb539ad3b4f717d8db1f95a0a19aa6d2e5d35f4628ab5f457fed6c3682d6836"
+        },
+        {
+          "path": "tests/test_stage911a_to_916a_suite.py",
+          "available": true,
+          "bytes": 5769,
+          "sha256": "62c56300a0d27207d495e24870a062bc7b281243a90825768b7601fbf2cc3dd6"
+        }
+      ]
+    },
+    "pillar_b_hyperresearch_and_scholar_reactor": {
+      "status": "DEFERRED_OFFLINE",
+      "scholar_executed": false
+    },
+    "pillar_c_karpathy_autoresearch_and_watchdog": {
+      "status": "PLAN_ONLY",
+      "protocol": "A1 -> B1 -> A2 -> B2",
+      "watchdog_non_dfs_s": 45,
+      "watchdog_dfs_s": 120,
+      "live_windows_executed": 0
+    },
+    "pillar_d_scientific_pareto_validation": {
+      "status": "OFFLINE_ANALYSIS",
+      "hardware_validation": "UNKNOWN"
+    },
+    "pillar_e_memory_master_claim_id": {
+      "status": "LOCAL_LEDGER_ONLY",
+      "scope": "project:futuramax",
+      "ingested": false,
+      "claim_key": "stage911a-offline"
+    }
+  },
+  "qdisc_modes": [
+    "auto",
+    "tc",
+    "sysfs-default"
+  ],
+  "default_mode": "auto",
+  "evidence_provenance_class": "CONFIRMED_STATIC_BINARY",
+  "provenance_scope": "source-byte inspection and offline software stubs; no native firmware or RF acceptance",
+  "apply_requires": "--apply plus exact identity contract and absolute state directory",
+  "backends": {
+    "tc": {
+      "qdisc_parameters_readback": "tc -d qdisc show",
+      "root_replacement": true
+    },
+    "kernel_default_fq_codel": {
+      "precondition": "/proc/sys/net/core/default_qdisc equals fq_codel",
+      "active_qdisc": "UNKNOWN",
+      "root_replacement": false,
+      "custom_quantum_target_interval_applied": false
+    }
+  },
+  "native_readbacks": [
+    "per-AC AQL",
+    "pktlog_filter",
+    "BQL limit_max",
+    "tx_queue_len",
+    "profile sysctls",
+    "selected backend"
+  ],
+  "snapshot_backend_and_profile_bound": true,
+  "runtime_acceptance": "UNKNOWN",
+  "legacy_snapshot_policy": "Use the original kit to restore old snapshots before a new transaction",
+  "board_revision_policy": "Missing board revision remains a blocking identity precondition",
+  "states": [
+    "PLANNED",
+    "APPLIED_VERIFIED",
+    "FAILED_ROLLED_BACK",
+    "FAILED_PRECONDITION",
+    "ROLLBACK_FAILED"
+  ],
+  "five_pillar_audit": {
+    "compliant": true,
+    "missing_pillars": [],
+    "pillar_status": {
+      "pillar_a_ground_up_re_and_knob_catalog": true,
+      "pillar_b_hyperresearch_and_scholar_reactor": true,
+      "pillar_c_karpathy_autoresearch_and_watchdog": true,
+      "pillar_d_scientific_pareto_validation": true,
+      "pillar_e_memory_master_claim_id": true
+    }
+  },
+  "public_evidence_scope": {
+    "state": "ATTRIBUTED_LOCAL_VALIDATION_RECORD",
+    "private_original_source_bindings": true,
+    "native_capture_contents_published": false,
+    "public_derivative_tests_recorded_separately": true
+  }
+}
