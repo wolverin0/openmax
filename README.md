@@ -3,7 +3,7 @@
 
 # openMAX: Squeezing the Physical Limit from airMAX AC & LTU Hardware
 
-[Public engineering index](docs/PUBLIC_OVERVIEW.md) ? [Remediation handoff](docs/AUDIT_1AFAEB7_REMEDIATION.md)
+[Public engineering index](docs/PUBLIC_OVERVIEW.md) · [3-Way Benchmark (Stock vs Tuned airOS 8 vs OpenWrt)](docs/BENCHMARK_3WAY_AIROS_STOCK_VS_TUNED_VS_OPENWRT_CHAMPION.md) · [Public PtP/PtMP Scripts](firmware/public_field_kits/README.md) · [Remediation handoff](docs/AUDIT_1AFAEB7_REMEDIATION.md)
 
 Offline software validation: `python tools/verify/verify_chatgpt_audit_1afaeb7.py`
 Requires Python3.12, requirements-audit.txt and POSIX bash/coreutils. Synthetic tests do not accept radio performance.

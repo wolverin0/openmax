@@ -120,3 +120,4 @@ Configured fields are not getters; local image checks do not establish boot/reco
 Sources: [historical catalogue](CURATED_HISTORICAL_DISCOVERIES_AND_GAPS_AUDIT.md), [Stage138](../artifacts/autoresearch/stage138a_ptp_sta_data_gate_verdict.json), [Stage161](../artifacts/autoresearch/stage161a_live_wa_round16_18_autoresearch.json), [Stage162](../artifacts/autoresearch/stage162a_live_wa_e2e_forwarding_offload_benchmark.json), [Stage163](../artifacts/autoresearch/stage163a_cumulative_18round_wa_champion_v2.json).
 
 [Tester guide](GUIA_UNIVERSAL_POWERBEAM_LITEBEAM_OPENMAX.md) and [public-v4 limits](OPENMAX_WA_PUBLIC_V4_TESTER_GUIDE.md). Local drafts only; no external posting.
+See also: [3-Way Benchmark (Stock airOS 8 vs Tuned airOS 8 vs OpenWrt Champion)](BENCHMARK_3WAY_AIROS_STOCK_VS_TUNED_VS_OPENWRT_CHAMPION.md) and [Public PtP/PtMP Field Kits](../firmware/public_field_kits/README.md).
