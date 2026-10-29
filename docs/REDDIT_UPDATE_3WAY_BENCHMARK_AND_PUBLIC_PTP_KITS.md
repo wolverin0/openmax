@@ -18,9 +18,9 @@ Since our update 3 days ago (`https://github.com/wolverin0/openmax`), here is a 
    * **What improved:** Tuning Stock `airOS 8` in place (`rc.poststart`, zero flashing) cuts loaded `p95` latency by **`-50.3%` (`34.3 -> 17.0 ms`)** and VoIP jitter by **`-54.1%` (`1.55 -> 0.71 ms`)**; migrating to `OpenWrt 24.10.4` + our Champion profile cuts unloaded sector RTT **`~10x` (`22.58 -> 1.93 ms`)** and loaded saturation RTT by **`-86.4%` DL (`8.43 ms`) / `-88.9%` UL (`10.37 ms`)** with **`64.0–78.51 Mbps` peak TCP** in `20 MHz`.
    * **Repo doc & scripts:** `docs/BENCHMARK_3WAY_AIROS_STOCK_VS_TUNED_VS_OPENWRT_CHAMPION.md` | `firmware/public_field_kits/README.md`
 
-2. **Standalone Drop-In PtP & PtMP Field Scripts for Both `Stock airOS 8` and `OpenWrt 24.10.4`:**
-   * **What we shipped:** Dependency-free POSIX `sh` kits with `--dry-run`, `--apply-ram`, `--persist`, `--verify` (live read-back), and `--rollback` for both `airOS 8` (`tx_queue_len=192`, `netdev_budget=600`, `ampduFrames=24`, WMM `AC_VI`/`AC_VO`, `ath_pktlog` unload) and `OpenWrt 24.10.4` (`--role ptp | ptmp-ap | ptmp-cpe` with `FQ-CoDel` `4 MiB`, per-AC `AQL`, `BQL`, and `CoTSQ 64 KB`).
-   * **Repo scripts:** `firmware/public_field_kits/airos8_ptp_ptmp_tuned_champion.sh` | `firmware/public_field_kits/openwrt24_ptp_ptmp_champion.sh`
+2. **70 Ready-to-Flash `.bin` Firmware Images (`factory.bin` & `sysupgrade.bin` for `WA`, `XC`, `XW`) + Standalone `.sh` Kits:**
+   * **What we shipped:** Published **70 pre-baked `.bin` images** (`https://github.com/wolverin0/openmax/releases/tag/v24.10.4-openmax-champion`) that already embed `OpenWrt 24.10.4` + patched `mac80211.ko` (`ETH_P_TEB 0x6558` + 4addr WDS) + `openmax-admitter` + `4 MiB` `fq_memory_limit` guard + our Champion tuning in SquashFS (flash 1 `.bin` from `airOS 8` and done!), plus standalone `.sh` scripts for tuning Stock `airOS 8` without reflashing or updating vanilla OpenWrt radios.
+   * **Release `.bin` & scripts:** `https://github.com/wolverin0/openmax/releases/tag/v24.10.4-openmax-champion` | `firmware/public_field_kits/README.md`
 
 3. **3 Live Tower Sectors + 1 PtP Backhaul Migrated 100% Remotely (`18/18` Radios on `OpenWrt 24.10.4` Linux `6.6.110`, Zero Tower Climbs):**
    * **What improved:** All 18 active radios (`LiteAP 120` APs + `LiteBeam 5AC Gen2` & `NanoStation 5AC Loco` CPEs + PtP backhaul) were converted over the air using a `75s` RAM rollback watchdog, preserving Router/NAT mode, `nftables` hardware flow-offloading, and a working LuCI WebUI.
@@ -82,9 +82,9 @@ Resumen directo (1 a 3 líneas por ítem) de todo lo que logramos y medimos en e
    * **Qué mejoró:** Tunear `airOS 8` original sin flashear baja el ping cargado `p95` un **`-50.3%` (`34.3 -> 17.0 ms`)** y el jitter de VoIP un **`-54.1%` (`1.55 -> 0.71 ms`)**; pasar a `OpenWrt 24.10.4` + nuestro perfil Champion baja el ping en vacío **`~10x` (`22.58 -> 1.93 ms`)** y el ping saturado un **`-86.4%` en DL (`8.43 ms`) / `-88.9%` en UL (`10.37 ms`)**, llegando a **`64.0–78.51 Mbps` TCP en `20 MHz`**.
    * **Doc y scripts:** `docs/BENCHMARK_3WAY_AIROS_STOCK_VS_TUNED_VS_OPENWRT_CHAMPION.md` | `firmware/public_field_kits/README.md`
 
-2. **Scripts Públicos PtP y PtMP Listos para Usar (para `airOS 8 Stock` y para `OpenWrt 24.10.4`):**
-   * **Qué subimos:** Dos scripts POSIX `sh` sin dependencias externas con `--dry-run`, `--apply-ram`, `--persist`, `--verify` y `--rollback` para optimizar tanto radios con `airOS 8` original (`/etc/persistent/rc.poststart`) como radios con `OpenWrt 24.10.4` (`--role ptp | ptmp-ap | ptmp-cpe`).
-   * **Scripts en el repo:** `firmware/public_field_kits/airos8_ptp_ptmp_tuned_champion.sh` | `firmware/public_field_kits/openwrt24_ptp_ptmp_champion.sh`
+2. **70 Imágenes `.bin` Listas para Flashear Directo (`factory.bin` y `sysupgrade.bin` para `WA`, `XC`, `XW`) + Scripts `.sh`:**
+   * **Qué subimos:** Publicamos en **GitHub Releases** (`https://github.com/wolverin0/openmax/releases/tag/v24.10.4-openmax-champion`) **70 imágenes `.bin`** que ya traen pre-cocinado en el SquashFS `OpenWrt 24.10.4` + `mac80211.ko` parcheado (`ETH_P_TEB 0x6558` + 4addr WDS) + `openmax-admitter` + guardia de `4 MiB` `fq_memory_limit` + todo el Champion (flasheás el `-factory.bin` desde `airOS 8` y listo, sin correr ningún `.sh`), además de los 2 scripts `.sh` opcionales para quien quiera tunear `airOS 8` sin flashear o actualizar un OpenWrt oficial limpio.
+   * **Release `.bin` y scripts:** `https://github.com/wolverin0/openmax/releases/tag/v24.10.4-openmax-champion` | `firmware/public_field_kits/README.md`
 
 3. **3 Paneles Sectoriales + 1 Enlace Troncal PtP Migrados 100% por Aire (`18/18` Radios en `OpenWrt 24.10.4` Linux `6.6.110`, 0 Subidas a Torre):**
    * **Qué mejoró:** Migramos en remoto los 3 sectores (`LiteAP 120`) y todos sus CPEs (`LiteBeam 5AC Gen2` y `NanoStation 5AC Loco`) con watchdog en RAM de `75s`, manteniendo Router/NAT, `nftables flow_offloading` y la interfaz web **LuCI** operativa en los 18 equipos.
