@@ -1,4 +1,5 @@
 <!-- doc-head: Stage 699A complete PowerBeam 5AC Gen2 PtP evolution ledger (Baseline 0 -> Champion v4) across 25 live PtP stages; v4 window degraded vs v3, needs live re-run -->
+<!-- /doc-head -->
 # Stage 699A — Complete PowerBeam 5AC Gen2 PtP Evolution Ledger v4
 
 - **Claim Status**: `CONFIRMED`

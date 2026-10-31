@@ -25,5 +25,5 @@
 
 ## 4. Artifacts & Verification
 - Script: [`tools/autoresearch/build_stage781a_cross_fleet_champion_v58_bundle.py`](../tools/autoresearch/build_stage781a_cross_fleet_champion_v58_bundle.py)
-- Receipt: [`artifacts/autoresearch/stage781a_cross_fleet_champion_v58_bundle.json`](../artifacts/autoresearch/stage781a_cross_fleet_champion_v58_bundle.json)
+- Receipt: [`artifacts/autoresearch/stage781a_cross_fleet_champion_v58_bundle.json`](../artifacts/autoresearch/stage781a_cross_fleet_champion_bundle_v58.json)
 - Test: [`tests/test_stage781a.py`](../tests/test_stage781a.py)

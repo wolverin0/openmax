@@ -1,4 +1,5 @@
 <!-- doc-head: Stage 695A live PowerBeam 5AC Gen2 .241<->.242 VHT40 PB-040/PB-050 counterbalanced PtP Champion v4 window — RECORDED DEGRADED, needs live re-run to certify throughput -->
+<!-- /doc-head -->
 # Stage 695A — Live `.241 <-> .242` VHT40 + PB-040/PB-050 PtP Champion v4
 
 - **Claim Status**: `CONFIRMED` (receipt recorded) — **throughput DEGRADED in this window, see §4**

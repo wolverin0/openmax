@@ -4,6 +4,7 @@ Original dated benchmarks/static findings keep their hardware and firmware scope
 No new performance, TDMA/GPS, relay, production or E2 acceptance follows.
 Current authoritative state and source receipts are linked below.
 <!-- /doc-head -->
+PUBLIC_REDACTED_DERIVATIVE; inherited historical claims are not acceptance of this derivative.
 
 Publication note: the older scratch/disassembly archive links below refer to retained local-only evidence, outside this bounded Git delivery. The [publication manifest](../artifacts/canary_panel1_guarida/fmx0017_publication_manifest_20261022.json) identifies the receipts published for the October22 order.
 
@@ -31,7 +32,7 @@ The archive below retains its original evidence scope; use the Oct22 current-sta
 
 # Stage 10 & 11 Complete Reverse-Engineering, Architecture & Bench Archive (2026-10-21)
 
-> **Purpose:** Permanent repository archive consolidating all static reverse-engineering proofs, kernel/firmware offsets, hardware experiments, and architectural discoveries generated across the Antigravity (`run:run_458a34fbc172`) and Codex (`run:run_204f7681fd7c`) sessions through **2026-10-21**, ensuring zero knowledge loss across context window compactions or future git commits.
+> **Purpose:** Permanent repository archive consolidating all static reverse-engineering proofs, kernel/firmware offsets, hardware experiments, and architectural discoveries generated across the Antigravity (`run:<orca-id>`) and Codex (`run:<orca-id>`) sessions through **2026-10-21**, ensuring zero knowledge loss across context window compactions or future git commits.
 
 ---
 
@@ -73,7 +74,7 @@ When an unmodified Stock `airOS 8` CPE (`ubnt_op_mode=1`, stock `/etc/wpasupplic
    - Stock `/etc/wpasupplicant_WPA-PSK.conf` sets `scan_UBNT=1`.
    - `/bin/wpa_supplicant` filters scan results in `wpa_supplicant_Select_Bss` unless the AP's Beacon/Probe Response includes a valid Ubiquiti Vendor IE (`dd ... 00:15:6d` or `00:27:22`) OR matches the expected Ubiquiti capabilities.
 2. **Gate 2 — Kernel `ubnt_poll_host_on_beacon_rx` (`0x88b0`, `CONFIRMED`)**:
-   - **Proofs:** [`beacon_rx_full.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/beacon_rx_full.json), [`ie_parse_and_Step1.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/ie_parse_and_Step1.json).
+   - **Proofs:** `beacon_rx_full.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/beacon_rx_full.json), [`ie_parse_and_Step1.json`.
    - Called unconditionally by `umac.ko` (`ieee80211_recv_mgmt` `0x2c1d0` $\to$ `ieee80211_update_beacon` `0x2b8cc` $\to$ `ieee80211_parse_beacon` `0x2ab10`) on every received Beacon (`0x80`) and Probe Response (`0x50`).
    - Parses Ubiquiti IE `msg_type=1` (`ubnt_poll_host_ie_parse_Step1` at `0x4ca8`).
    - Requires `(ie->flags & 0x3) != 0` (`PTP`/`PTMP` capability bits) to add `bssid` to `handle->sta_list` (`0x10ec(handle)`).
@@ -92,7 +93,7 @@ When an unmodified Stock `airOS 8` CPE (`ubnt_op_mode=1`, stock `/etc/wpasupplic
      - If `bssid` was removed from `sta_list` (e.g., via a Beacon/Probe Response without Ubiquiti IE after `is_ap_valid` passed), `on_assoc_req_tx` (`0x92bc`) calls `ubnt_poll_host_ht_comm_tx(handle, msg_type=12/13, polling_enable=0)` to disable TDMA polling in the QCA988x radio firmware, logs `"Associating with normal AP"`, and sends a standard `Assoc Req`.
      - `on_assoc_resp_rx` (`0xa05c`) skips the `msg_type=3` requirement, logs `"Associated with Normal AP"`, and returns `0` (`ALLOW`).
 5. **Gate 5 — Post-Association Polling & Watchdog Timers (`ubnt_poll_host_on_sta_connect` `0x83e4`, `CONFIRMED`)**:
-   - **Proofs:** [`sta_connect_full.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/sta_connect_full.json), [`uph_timers_5e50.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/uph_timers_5e50.json), [`uph_timers_6a00.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/uph_timers_6a00.json).
+   - **Proofs:** `sta_connect_full.json`, [`uph_timers_5e50.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/uph_timers_5e50.json), [`uph_timers_6a00.json`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/uph_timers_6a00.json).
    - If the CPE entered via **Path B (`Normal AP`)**, `ubnt_poll_host_on_sta_connect` (`0x83e4`) leaves `handle->connected_ap` (`0x10f0`) as `NULL`. Because all STA TDMA timers (`0x7800`, `0x77b0`, `0x5e90`, `0x6514`, `0x67a0`) check `if (handle->connected_ap == NULL) return;`, the CPE remains stably associated in standard 802.11ac CSMA/CA mode without TDMA poll timeouts!
    - Conversely, if the CPE entered via **Path A (`AirMAX AP`)**, `handle->connected_ap` is non-NULL and the CPE's QCA988x firmware has `polling_enable=1` (suppressing autonomous CSMA/CA TX until polled and disconnecting after ~10–15s if no TDMA polls arrive).
 
@@ -114,5 +115,5 @@ When an unmodified Stock `airOS 8` CPE (`ubnt_op_mode=1`, stock `/etc/wpasupplic
 ### 2.4 U-Boot `urescue` & Ethernet PHY (`AR8033` / `ATH_GMAC`) Recovery Mechanics (`CONFIRMED`)
 - **Proofs:** [`urescue_real.txt`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/urescue_real.txt), [`uupdate_fw_detail.txt`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/uupdate_fw_detail.txt), [`ar8033_uboot.txt`](../artifacts/re_proofs_and_reports_20261021/scratch_proofs/ar8033_uboot.txt).
 - Extracted and decompiled from `LAP-120` `mtd0` (`U-Boot 1.1.4-g79d032be`):
-  - `urescue` listens on UDP port `69` (TFTP server at `192.168.1.20`), validates the `FW6` / `OPEN` header and `PART` CRCs via `fwcheck`, and flashes `kernel` (`mtd2`) + `rootfs` (`mtd3`).
+  - `urescue` listens on UDP port `69` (TFTP server at `198.18.0.50`), validates the `FW6` / `OPEN` header and `PART` CRCs via `fwcheck`, and flashes `kernel` (`mtd2`) + `rootfs` (`mtd3`).
   - `urescue -e` additionally erases `cfg` (`mtd4`, `0x9f040000..0x9f07ffff`).

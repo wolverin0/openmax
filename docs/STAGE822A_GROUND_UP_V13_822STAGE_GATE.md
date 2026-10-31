@@ -3,7 +3,7 @@
 
 # Ground-up v13 822-stage offline gate
 
-Offline gate compliant: True.
+Offline gate compliant: False.
 
 Checks both requested blocks, local hashes, isolated-package boundaries and docs/*.md budgets.
 822 is the roadmap target; filename inventory never establishes822 accepted stages.

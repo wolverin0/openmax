@@ -1,0 +1,62 @@
+<!-- doc-head: Stage 981A docs audit; <=180 lines + doc-head + relative link existence for docs/*.md; counts derived from receipt; findings not forced to zero -->
+# Stage 981A - docs 180-line and broken-link audit
+
+Evidence class: CURATION_AUDIT (offline). Status CONFIRMED means the audit ran; findings below are reported as found.
+
+## Counts
+
+- docs scanned: 1751
+- line/doc-head violations: 79
+- links found: 6995 (external skipped 825, anchor-only 0, root-absolute 0)
+- relative links checked: 6170
+- broken links: 0 across 0 docs
+
+## Line / doc-head violations
+
+- CURRENT_STATE.md: 231 lines > 180
+- MATRIZ_MAESTRA_AVANCES_Y_BRECHAS_E2E_ES.md: 188 lines > 180
+- STAGE1218A_UMAC_ATH_DEV_DFS_RADAR_AND_LINK_STATE_RE.md: 216 lines > 180
+- STAGE1219A_LTU_V242_COMPLETE_KO_INVENTORY_AND_CDS_MAC_RE.md: 195 lines > 180
+- STAGE1220A_UPH_BMISS_STAINFO_AND_LTU_PENALTY_THRESHOLD_RE.md: 206 lines > 180
+- STAGE1221A_BINARY_RE_EVIDENCE_FOR_PWO_BILATERAL_ENGINE.md: 184 lines > 180
+- STAGE1231A_COMMUNITY_PTP_CO_LOCATION_AND_FIRMWARE_REGRESSION_ANALYSIS.md: 205 lines > 180
+- STAGE1407A_SEGMENTOS_FIRMWARE2_CT_Y_COLECCIONES_PAIS_RGDB_ES.md: missing opening doc-head
+- STAGE1520A_DISECCION_ELF_LTU_EAB_DRIVER_ASIC0_Y_ATH_DFS_WA_XC_ES.md: missing opening doc-head
+- STAGE1556A_INGENIERIA_INVERSA_PROFUNDA_UBNTSPECD_AME_DFS_Y_XTENSA_SGMT_ES.md: missing opening doc-head
+- STAGE1568A_RE_PROFUNDO_UBNTSPECD_MIPS_GOT_Y_OPENWRT_FIRMWARE2_SGMT_ES.md: missing opening doc-head
+- STAGE1580A_AUDITORIA_COP1_UBNTSPECD_Y_PARCHEADOR_SGMT_OPENWRT_FW2_ES.md: missing opening doc-head
+- STAGE1592A_TRAZA_PRODUCTOR_188B_UBNTSPECD_Y_DESPACHO_WMI9044_OPENWRT_FW2_ES.md: missing opening doc-head
+- STAGE1610A_CIERRE_DATAFLOW_LUI05_06_UBNTSPECD_Y_L32R_CCA_OPENWRT_FW2_ES.md: missing opening doc-head
+- STAGE1634A_CALLGRAPH_LITBASE_WSR_FW2_Y_STRIDE_188B_UBNTSPECD_ES.md: missing opening doc-head
+- STAGE1646A_PRODUCTOR_SIGNED16_UBNTSPECD_Y_CALLERS_XTENSA_PB050_RATE_ES.md: missing opening doc-head
+- STAGE1682A_RE_BINARIO_WMI_APVLAN_4ADDR_Y_TABLA_SUPERCHANNEL_6035MHZ_ES.md: missing opening doc-head
+- STAGE1694A_DESENSAMBLADO_MIPS32_OPCODES_WMI_Y_CADENA_4ADDR_APVLAN_ES.md: missing opening doc-head
+- STAGE1700A_CONTROLADOR_ROLLOUT_PTP_COLO_Y_PANEL3_GUARIDA_ES.md: missing opening doc-head
+- STAGE1706A_SIMULACION_SIMPY_Y_PARETO_32CPE_GUARIDA_PANEL2_PANEL3_ES.md: missing opening doc-head
+- STAGE1712A_RE_BINARIO_XC_PTP_XMIT_Y_LTU_ADD_PM_DBG_ES.md: missing opening doc-head
+- STAGE1730A_RE_BINARIO_SLOT_ACK_WMI_Y_AQL_MAC80211_ES.md: missing opening doc-head
+- STAGE1736A_ACTUALIZACION_CONTROLADOR_PTP_COLO_5200MHZ_Y_BLUEPRINT_PANEL2_22CPE_ES.md: missing opening doc-head
+- STAGE1760A_RE_BINARIO_LTU_EAB_DRIVER_AME_CORE_Y_SCHEDULER_TDMA_ES.md: missing opening doc-head
+- STAGE1766A_MAQUINA_ESTADOS_28CPE_GUARIDA_Y_SIMULACION_TRANSICION_ES.md: missing opening doc-head
+- STAGE1778A_RE_BINARIO_XC_ATHDEV_UMAC_AMPDU_Y_CADENA_REINTENTOS_ES.md: missing opening doc-head
+- STAGE1814A_RE_BINARIO_UBNT_POLL_ATH10K_DEFICIT_AIRTIME_Y_VOIP_ES.md: missing opening doc-head
+- STAGE1856A_INGENIERIA_INVERSA_M5_XW_Y_COEXISTENCIA_MIXED_MODE_ES.md: missing opening doc-head
+- STAGE1874A_DISECCION_43_FUNCIONES_11AC_COMPAT_LMAC_M5_Y_SIMPY_ES.md: missing opening doc-head
+- STAGE1910A_MAPA_UNIFICADO_SIMBOLOS_Y_MUTADORES_4FAMILIAS_WA_XC_XW_LTU_ES.md: missing opening doc-head
+- STAGE1934A_VERIFICACION_BINARIA_DOSSIER_BOUNTY_Y_MATRIZ_REDDIT_ES.md: missing opening doc-head
+- STAGE1940A_DISECCION_LOCKSTEP_0XB4_0XDC_SIOCGATHSTATS_Y_DECODER_CORREGIDO_ES.md: missing opening doc-head
+- STAGE1958A_RESOLUCION_GOT_LO16_ATHSTATS_Y_TABLA_COMPLETA_WA_XC_ES.md: missing opening doc-head
+- STAGE1970A_MAPA_MULTI_IOCTL_FRAME_0X2640_ATHBOX_WA_XC_ES.md: missing opening doc-head
+- STAGE1976A_RESOLUCION_IFR_NAME_DOS_LLAMADAS_0X89F0_Y_AUDITORIA_1591A_ES.md: missing opening doc-head
+- STAGE1982A_TRAZA_NDO_DO_IOCTL_WIFI0_COPY_TO_USER_Y_ESCRITORES_0XB4_0XDC_ES.md: missing opening doc-head
+- STAGE1994A_RE_ATH_SPECTRAL_FILTER_UBNTSPECD_Y_DERIVACION_S2_ES.md: missing opening doc-head
+- STAGE2000A_DISECCION_UBNTSPECD_ATH_SPECTRAL_STOP_E_INICIALIZADOR_PRIV_0X10_ES.md: missing opening doc-head
+- STAGE2012A_TRAZA_IOCTL_UBNTSPECD_Y_CONSTRUCTOR_PRIV_0X10_ES.md: missing opening doc-head
+- STAGE2024A_DISECCION_26_SITIOS_SW_0X10_UMAC_Y_WRAPPER_UBNTSPECD_ES.md: missing opening doc-head
+
+## Broken links (first 40; full list in receipt)
+
+- none
+
+Receipt: artifacts/autoresearch/stage981a_docs_180line_zero_broken_links_audit.json
+Builder: tools/verify/build_stage981a_docs_180line_zero_broken_links_audit.py
