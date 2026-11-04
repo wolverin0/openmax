@@ -8,6 +8,10 @@
 Offline software validation: `python tools/verify/verify_chatgpt_audit_1afaeb7.py`
 Requires Python3.12, requirements-audit.txt and POSIX bash/coreutils. Synthetic tests do not accept radio performance.
 
+Install/run/test (checked 2026-11-04; no package.json, pyproject or Makefile): `python3.12 -m venv .venv && . .venv/bin/activate && pip install -r requirements-audit.txt pyyaml`,
+then `python tools/verify/verify_chatgpt_audit_1afaeb7.py` and `python -m pytest` (`pytest.ini`). PyYAML is needed but not listed in requirements-audit.txt.
+Optional requirement files, current verifier status and known failures: [docs/INSTALL_RUN_AND_TEST.md](docs/INSTALL_RUN_AND_TEST.md).
+
 ## Current milestones through Stage824A / Hitos hasta Stage824A
 
 This Stage825A update reconciles saved evidence; it adds no radio measurements or publication.
