@@ -27,10 +27,7 @@ When opening issues, proposing hypotheses, or submitting PRs, explicitly label a
 ## 2. Ways to Contribute
 
 ### A. Hardware Inventory & Board Signatures
-If you operate Ubiquiti airMAX AC hardware (LiteAP GPS, LAP-120, LiteBeam 5AC Gen2, NanoStation 5AC, Loco 5AC, Rocket Prism 5AC), run our read-only inventory collector:
-```sh
-python tools/inventory/collect.py --host <radio_ip> --user <ssh_user>
-```
+If you operate Ubiquiti airMAX AC hardware (LiteAP GPS, LAP-120, LiteBeam 5AC Gen2, NanoStation 5AC, Loco 5AC, Rocket Prism 5AC), share a read-only inventory of the board. The former inventory collector script is not part of this public checkout; use the read-only commands and fields described in [tools/inventory/AIROS_INVENTORY.md](tools/inventory/AIROS_INVENTORY.md).
 *Sanitize any private credentials or customer MACs before submitting.* This helps us expand [docs/HARDWARE_MATRIX.md](docs/HARDWARE_MATRIX.md) with exact SoC versions, bootloader revisions, and radio firmware signatures.
 
 ### B. Hypothesis Review & Literature Challenges
@@ -42,14 +39,14 @@ Review our Architectural Decision Records in [docs/DECISIONS.md](docs/DECISIONS.
 ### C. Testbed & Bench Replication
 If you have an isolated bench or outdoor testbed:
 1. Replicate our bootloader recovery qualification ([FMX-0002 Runbook](safety/recovery/FMX-0002_recovery_runbook.md)).
-2. Run our reproducible OpenWrt 24.10.4 build and report `ath10k` debugfs behavior.
+2. Run our reproducible OpenWrt 24.10.4 build ([tools/openwrt-build/MANIFEST.md](tools/openwrt-build/MANIFEST.md), `tools/openwrt-build/build.sh`) and report `ath10k` debugfs behavior.
 3. Submit raw traces, iperf3/flent logs, or spectral FFT captures.
 
 ---
 
 ## 3. Hard Safety & Ethical Boundaries
 
-All contributions must strictly adhere to the project's safety boundaries (from [AGENTS.md](AGENTS.md)):
+All contributions must strictly adhere to the project's safety boundaries (the local project rules file is excluded from this public checkout; the boundaries are summarized below and in README section 6):
 
 * **No Regulatory Bypasses**: Never submit code or documentation that disables DFS radar detection, exceeds legal EIRP power limits, or bypasses country-code regulatory limits.
 * **No Flash Corruption**: Never write to bootloaders (`mtd0`), bootloader environments (`mtd1`), calibration/ART partitions (`mtd5`), or factory MAC storage.
